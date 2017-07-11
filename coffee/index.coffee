@@ -1,0 +1,2 @@
+$().ready ->
+  Game.init()
