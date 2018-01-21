@@ -13,7 +13,8 @@ Cell = (function() {
   Cell.images = [];
 
   Cell.elements = {
-    base: null
+    base: null,
+    attackable: null
   };
 
   function Cell(typeId, id) {
@@ -99,8 +100,6 @@ Game = (function() {
   Game.init = function() {
     return this.initCharacters();
   };
-
-  Game.initField = function() {};
 
   Game.initCharacters = function() {
     if (this.init.characters) {
