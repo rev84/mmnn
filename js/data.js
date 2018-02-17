@@ -1,1 +1,0 @@
-window.characters = [{"id":1,"name":"一ノ瀬志希","type":2,"atk":1,"def":1,"mdef":1,"hit":1,"dodge":1,"move":1,"range":1,"scope":1,"item_cap":1,"ability_name":"薬品"}];

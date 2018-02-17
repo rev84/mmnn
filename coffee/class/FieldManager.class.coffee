@@ -20,8 +20,8 @@ class FieldManager
 
     # 次の列
     @nextField = []
-      for y in [0...Const.FIELD.SIZE.Y]
-        @field[y] = null
+    for y in [0...Const.FIELD.SIZE.Y]
+      @field[y] = null
 
   @generateNextField:->
 

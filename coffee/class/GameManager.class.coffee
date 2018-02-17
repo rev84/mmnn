@@ -8,14 +8,25 @@ class GameManager
     field:false
 
   @init:->
-    @initCharacters()
+    @initCharacters(null)
 
   # キャラ初期化
-  @initCharacters:->
+  @initCharacters:(savedata)->
     return if @initialized.characters
     @initialized.characters = true
-    @characters = window.characters
-    window.characters = undefined
+
+    @characters = {}
+    for characterId, className of window.CharacterList
+      if savedata? and 'characters' of savedata and characterId of savedata.characters
+        params = savedata.characters[characterId]
+      else
+        params = 
+          joined : null
+          level : 1
+          hp : null
+          items : []
+
+      @characters[characterId] = new window[className](params)
 
   # フィールド初期化
   @initField:->

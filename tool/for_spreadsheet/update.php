@@ -13,12 +13,18 @@ function updateCharacter()
   $service = new Google_Service_Sheets($c);
 
   $script = '';
+  $characterList = <<<EOM
+window.CharacterList = {
+
+EOM;
 
   # キャラクター
-  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'キャラ設定!A2:N');
+  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'キャラ設定!A2:P');
   $values = $response->getValues();
   foreach ($values as $vAry) {
-    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $itemMax, $abilityName, $abilityDesc) = $vAry;
+    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $itemMax, $abilityName, $abilityDesc, $defaultJoin) = $vAry;
+    $defaultJoin = $defaultJoin == '' ? 'false' : 'true';
+
 
     $targetImgDir = dirname(__FILE__).'/../../img/character/'.$characterId;
     $files = getFilelist($targetImgDir);
@@ -28,50 +34,61 @@ function updateCharacter()
     }
     $filelist = join(',', $files);
 
+    $characterList .= '  "'.$characterId.'" : "'.$className."\"\n";
+
     $script .= <<<EOM
 class {$className}Base extends CharacterBase
-  constructor:->
-    super()
-    
-    # ID
-    @characterId = {$characterId}
-    # 画像base64のリスト
-    @imgBase64 = [{$filelist}]
-    # 基本攻撃タイプ
-    @attackTypeBase = {$attackTypeBase}
-    # 成長率：HP
-    @hpBase = {$hpBase}
-    # 成長率：物理防御
-    @pDefBase = {$pDefBase}
-    # 成長率：魔法防御
-    @mDefBase = {$mDefBase}
-    # 基本移動力
-    @moveBase = {$moveBase}
-    # 基本射程
-    @rangeBase = {$rangeBase}
-    # 基本命中率
-    @hitRateBase = {$hitRateBase}
-    # 基本回避率
-    @dodgeRateBase = {$dodgeRateBase}
+  # ID
+  @characterId = {$characterId}
+  # 最初からいるか
+  @defaultJoin = {$defaultJoin}
+  # 画像base64のリスト
+  @imgBase64 = [{$filelist}]
+  # 基本攻撃タイプ
+  @attackTypeBase = {$attackTypeBase}
+  # 成長率：攻撃力
+  @attackBase = {$attackBase}
+  # 成長率：HP
+  @hpBase = {$hpBase}
+  # 成長率：物理防御
+  @pDefBase = {$pDefBase}
+  # 成長率：魔法防御
+  @mDefBase = {$mDefBase}
+  # 基本移動力
+  @moveBase = {$moveBase}
+  # 基本射程
+  @rangeBase = {$rangeBase}
+  # 基本命中率
+  @hitRateBase = {$hitRateBase}
+  # 基本回避率
+  @dodgeRateBase = {$dodgeRateBase}
 
-    @itemMax = {$itemMax}
+  @itemMax = {$itemMax}
 
-    @abilityName = "{$abilityName}"
-    @abilityDesc = "{$abilityDesc}"
+  @abilityName = "{$abilityName}"
+  @abilityDesc = "{$abilityDesc}"
+
+  constructor:(params)->
+    super(params)
+
 EOM;
     
     $filename = dirname(__FILE__).'/../../coffee/class/character/'.$className.'.class.coffee';
     if (!file_exists($filename)) {
       $buf = <<<EOM
 class {$className} extends {$className}Base
+  constructor:(params)->
+    super(params)
 
 EOM;
       file_put_contents($filename, $buf);
     }
   }
 
+  $characterList .= '}';
+  file_put_contents(dirname(__FILE__).'/../../coffee/class/character/CharacterList.coffee', $characterList);
 
-  file_put_contents(dirname(__FILE__).'/../../coffee/class/character/CharacterBase.class.coffee', $script);
+  file_put_contents(dirname(__FILE__).'/../../coffee/class/character/CharacterBaseAll.class.coffee', $script);
 
 }
 
