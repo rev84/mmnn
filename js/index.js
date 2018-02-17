@@ -13,6 +13,100 @@ ObjectBase = (function() {
     this.objectType = objectType;
   }
 
+  ObjectBase.prototype.getHpMax = function() {
+    return this.constructor.hpBase * this.level;
+  };
+
+  ObjectBase.prototype.getHp = function() {
+    if (this.hp === null || this.getHpMax() < this.hp) {
+      return this.getHpMax();
+    } else if (this.hp <= 0) {
+      return 0;
+    } else {
+      return this.hp;
+    }
+  };
+
+  ObjectBase.prototype.getLevel = function() {
+    return this.level;
+  };
+
+  ObjectBase.prototype.getCharacterName = function() {
+    return this.constructor.characterName;
+  };
+
+  ObjectBase.prototype.getAttackType = function() {
+    return this.constructor.attackTypeBase;
+  };
+
+  ObjectBase.prototype.getAttack = function() {
+    return this.constructor.attackBase * this.level;
+  };
+
+  ObjectBase.prototype.getAttackBase = function() {
+    return this.constructor.attackBase;
+  };
+
+  ObjectBase.prototype.getPDef = function() {
+    return this.constructor.pDefBase * this.level;
+  };
+
+  ObjectBase.prototype.getPDefBase = function() {
+    return this.constructor.pDefBase;
+  };
+
+  ObjectBase.prototype.getMDef = function() {
+    return this.constructor.mDefBase * this.level;
+  };
+
+  ObjectBase.prototype.getMDefBase = function() {
+    return this.constructor.mDefBase;
+  };
+
+  ObjectBase.prototype.getMove = function() {
+    return this.constructor.moveBase;
+  };
+
+  ObjectBase.prototype.getMoveBase = function() {
+    return this.constructor.moveBase;
+  };
+
+  ObjectBase.prototype.getRange = function() {
+    return this.constructor.rangeBase;
+  };
+
+  ObjectBase.prototype.getRangeBase = function() {
+    return this.constructor.rangeBase;
+  };
+
+  ObjectBase.prototype.getHitRate = function() {
+    return this.constructor.hitRateBase;
+  };
+
+  ObjectBase.prototype.getHitRateBase = function() {
+    return this.constructor.hitRateBase;
+  };
+
+  ObjectBase.prototype.getDodgeRate = function() {
+    return this.constructor.dodgeRateBase;
+  };
+
+  ObjectBase.prototype.getDodgeRateBase = function() {
+    return this.constructor.dodgeRateBase;
+  };
+
+  ObjectBase.prototype.getAbilityName = function() {
+    return this.constructor.abilityName;
+  };
+
+  ObjectBase.prototype.getAbilityDesc = function() {
+    return this.constructor.abilityDesc;
+  };
+
+  ObjectBase.prototype.getBaseImage = function() {
+    return this.constructor.images[0];
+  };
+
   return ObjectBase;
 
 })();
@@ -27,8 +121,8 @@ CharacterBase = (function(superClass) {
     } else {
       this.joined = params.joined;
     }
-    this.level = Number(params.level);
-    this.hp = Number(params.hp);
+    this.level = params.level;
+    this.hp = params.hp;
     this.items = params.items;
   }
 
@@ -76,9 +170,9 @@ MatsuiyamateBase = (function(superClass) {
 
   MatsuiyamateBase.defaultJoin = true;
 
-  MatsuiyamateBase.imgBase64 = ["./img/character/1/1.jpg"];
+  MatsuiyamateBase.images = ["./img/character/1/1.jpg"];
 
-  MatsuiyamateBase.attackTypeBase = 1;
+  MatsuiyamateBase.attackTypeBase = "物理";
 
   MatsuiyamateBase.attackBase = 1;
 
@@ -119,9 +213,9 @@ SyamugameBase = (function(superClass) {
 
   SyamugameBase.defaultJoin = true;
 
-  SyamugameBase.imgBase64 = ["./img/character/2/1.jpg"];
+  SyamugameBase.images = ["./img/character/2/1.jpg"];
 
-  SyamugameBase.attackTypeBase = 2;
+  SyamugameBase.attackTypeBase = "魔法";
 
   SyamugameBase.attackBase = 2;
 
@@ -162,9 +256,9 @@ RevotBase = (function(superClass) {
 
   RevotBase.defaultJoin = true;
 
-  RevotBase.imgBase64 = ["./img/character/3/1.png"];
+  RevotBase.images = ["./img/character/3/1.png"];
 
-  RevotBase.attackTypeBase = 3;
+  RevotBase.attackTypeBase = "物理";
 
   RevotBase.attackBase = 3;
 
@@ -323,7 +417,7 @@ GameManager = (function() {
 Panel = (function() {
   Panel.SIZE_X = 400;
 
-  Panel.SIZE_Y = 100;
+  Panel.SIZE_Y = 120;
 
   Panel.CLASSNAME = 'panel';
 
@@ -336,14 +430,211 @@ Panel = (function() {
       width: this.constructor.SIZE_X,
       height: this.constructor.SIZE_Y,
       top: this.posY,
-      left: this.posX
+      left: this.posX,
+      border: 'double 5px #000000'
     });
     this.parentElement.append(this.div);
     this.draw();
   }
 
   Panel.prototype.draw = function() {
-    return $(this.div).html(this.object.constructor.characterName);
+    switch (this.object.objectType) {
+      case ObjectBase.OBJECT_TYPE.CHARACTER:
+        return this.drawCharacter();
+    }
+  };
+
+  Panel.prototype.drawCharacter = function() {
+    var attackImg;
+    $(this.div).append($('<img>').addClass('field_icon').attr('src', this.object.getBaseImage()).css({
+      top: 20,
+      left: 0,
+      width: 90,
+      height: 90
+    }));
+    $(this.div).append($('<div>').addClass('label_level').css({
+      top: 0,
+      left: 0,
+      width: 20,
+      height: 20,
+      "font-size": "16px",
+      "background-color": '#ffffff'
+    }).html('Lv'));
+    $(this.div).append($('<div>').addClass('field_level').css({
+      top: 0,
+      left: 20,
+      width: 90,
+      height: 20,
+      "font-size": "16px",
+      "background-color": '#ffffff'
+    }).html(this.object.getLevel()));
+    $(this.div).append($('<div>').addClass('field_name').css({
+      top: 0,
+      left: 90,
+      width: 120,
+      height: 20,
+      "font-size": "16px",
+      "background-color": '#ffffff'
+    }).html(this.object.getCharacterName()));
+    $(this.div).append($('<div>').addClass('label_attack').css({
+      top: 25,
+      left: 90,
+      width: 90,
+      height: 20,
+      "font-size": "16px",
+      "background-color": '#ffffff'
+    }).html('攻撃'));
+    attackImg = this.object.getAttackType() === '物理' ? './img/sword.png' : './img/magic.png';
+    $(this.div).append($('<img>').addClass('field_attack_type').css({
+      top: 25,
+      left: 130,
+      width: 20,
+      height: 20
+    }).attr('src', attackImg));
+    $(this.div).append($('<div>').addClass('field_attack').css({
+      top: 25,
+      left: 160,
+      width: 20,
+      height: 20,
+      "font-size": "16px"
+    }).html(this.object.getAttack()));
+    $(this.div).append($('<div>').addClass('label_pdef').css({
+      top: 45,
+      left: 90,
+      width: 90,
+      height: 20,
+      "font-size": "16px",
+      "background-color": '#ffffff'
+    }).html('物防'));
+    $(this.div).append($('<div>').addClass('field_pdef').css({
+      top: 45,
+      left: 160,
+      width: 20,
+      height: 20,
+      "font-size": "16px"
+    }).html(this.object.getPDef()));
+    $(this.div).append($('<div>').addClass('label_mdef').css({
+      top: 65,
+      left: 90,
+      width: 90,
+      height: 20,
+      "font-size": "16px",
+      "background-color": '#ffffff'
+    }).html('魔防'));
+    $(this.div).append($('<div>').addClass('field_mdef').css({
+      top: 65,
+      left: 160,
+      width: 20,
+      height: 20,
+      "font-size": "16px"
+    }).html(this.object.getMDef()));
+    $(this.div).append($('<div>').addClass('label_hp').css({
+      top: 0,
+      left: 180,
+      width: 90,
+      height: 20,
+      "font-size": "16px",
+      "background-color": '#ffffff'
+    }).html('HP'));
+    $(this.div).append($('<div>').addClass('field_hp').css({
+      top: 0,
+      left: 220,
+      width: 20,
+      height: 20,
+      "font-size": "16px"
+    }).html(this.object.getHp()));
+    $(this.div).append($('<div>').addClass('label_hp_split').css({
+      top: 0,
+      left: 280,
+      width: 20,
+      height: 20,
+      "font-size": "16px"
+    }).html('/'));
+    $(this.div).append($('<div>').addClass('field_hp_max').css({
+      top: 0,
+      left: 300,
+      width: 20,
+      height: 20,
+      "font-size": "16px"
+    }).html(this.object.getHpMax()));
+    $(this.div).append($('<div>').addClass('label_hit_rate').css({
+      top: 25,
+      left: 210,
+      width: 90,
+      height: 20,
+      "font-size": "16px",
+      "background-color": '#ffffff'
+    }).html('命中'));
+    $(this.div).append($('<div>').addClass('field_hit_rate').css({
+      top: 25,
+      left: 260,
+      width: 20,
+      height: 20,
+      "font-size": "16px"
+    }).html(this.object.getHitRate()));
+    $(this.div).append($('<div>').addClass('label_dodge_rate').css({
+      top: 45,
+      left: 210,
+      width: 90,
+      height: 20,
+      "font-size": "16px",
+      "background-color": '#ffffff'
+    }).html('回避'));
+    $(this.div).append($('<div>').addClass('field_dodge_rate').css({
+      top: 45,
+      left: 260,
+      width: 20,
+      height: 20,
+      "font-size": "16px"
+    }).html(this.object.getDodgeRate()));
+    $(this.div).append($('<div>').addClass('label_move').css({
+      top: 25,
+      left: 310,
+      width: 50,
+      height: 20,
+      "font-size": "16px",
+      "background-color": '#ffffff'
+    }).html('移動'));
+    $(this.div).append($('<div>').addClass('field_move').css({
+      top: 25,
+      left: 360,
+      width: 50,
+      height: 20,
+      "font-size": "16px"
+    }).html(this.object.getMove()));
+    $(this.div).append($('<div>').addClass('label_range').css({
+      top: 45,
+      left: 310,
+      width: 50,
+      height: 20,
+      "font-size": "16px",
+      "background-color": '#ffffff'
+    }).html('射程'));
+    $(this.div).append($('<div>').addClass('field_range').css({
+      top: 45,
+      left: 360,
+      width: 50,
+      height: 20,
+      "font-size": "16px"
+    }).html(this.object.getMove()));
+    $(this.div).append($('<div>').addClass('label_ability').css({
+      top: 85,
+      left: 90,
+      width: 50,
+      height: 20,
+      "font-size": "16px",
+      "background-color": '#ffffff'
+    }).html('能力'));
+    return $(this.div).append($('<div>').addClass('field_ability').css({
+      top: 85,
+      left: 130,
+      width: 250,
+      height: 20,
+      "font-size": "16px"
+    }).html(this.object.getAbilityName()).tooltip({
+      'placement': 'top',
+      'title': this.object.getAbilityDesc()
+    }));
   };
 
   return Panel;

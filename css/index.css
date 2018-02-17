@@ -12,6 +12,7 @@
 #character_pallet {
   position: absolute;
 }
-.panel {
+.panel, .panel > * {
   position: absolute;
+  box-sizing: border-box;
 }

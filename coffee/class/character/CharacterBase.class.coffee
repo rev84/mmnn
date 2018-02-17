@@ -9,12 +9,10 @@ class CharacterBase extends ObjectBase
       @joined = params.joined
 
     # 現在のレベル
-    @level = Number(params.level)
+    @level = params.level
 
     # 現在のHP
-    @hp = Number(params.hp)
+    @hp = params.hp
 
     # 装備しているアイテム
     @items = params.items
-
-

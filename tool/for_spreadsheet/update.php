@@ -44,10 +44,10 @@ class {$className}Base extends CharacterBase
   @characterName = "{$characterName}"
   # 最初からいるか
   @defaultJoin = {$defaultJoin}
-  # 画像base64のリスト
-  @imgBase64 = [{$filelist}]
+  # 画像のリスト
+  @images = [{$filelist}]
   # 基本攻撃タイプ
-  @attackTypeBase = {$attackTypeBase}
+  @attackTypeBase = "{$attackTypeBase}"
   # 成長率：攻撃力
   @attackBase = {$attackBase}
   # 成長率：HP

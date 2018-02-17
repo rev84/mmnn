@@ -5,10 +5,10 @@ class MatsuiyamateBase extends CharacterBase
   @characterName = "松井山手"
   # 最初からいるか
   @defaultJoin = true
-  # 画像base64のリスト
-  @imgBase64 = ["./img/character/1/1.jpg"]
+  # 画像のリスト
+  @images = ["./img/character/1/1.jpg"]
   # 基本攻撃タイプ
-  @attackTypeBase = 1
+  @attackTypeBase = "物理"
   # 成長率：攻撃力
   @attackBase = 1
   # 成長率：HP
@@ -40,10 +40,10 @@ class SyamugameBase extends CharacterBase
   @characterName = "syamu_game"
   # 最初からいるか
   @defaultJoin = true
-  # 画像base64のリスト
-  @imgBase64 = ["./img/character/2/1.jpg"]
+  # 画像のリスト
+  @images = ["./img/character/2/1.jpg"]
   # 基本攻撃タイプ
-  @attackTypeBase = 2
+  @attackTypeBase = "魔法"
   # 成長率：攻撃力
   @attackBase = 2
   # 成長率：HP
@@ -75,10 +75,10 @@ class RevotBase extends CharacterBase
   @characterName = "Revot"
   # 最初からいるか
   @defaultJoin = true
-  # 画像base64のリスト
-  @imgBase64 = ["./img/character/3/1.png"]
+  # 画像のリスト
+  @images = ["./img/character/3/1.png"]
   # 基本攻撃タイプ
-  @attackTypeBase = 3
+  @attackTypeBase = "物理"
   # 成長率：攻撃力
   @attackBase = 3
   # 成長率：HP

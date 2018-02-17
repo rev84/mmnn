@@ -5,3 +5,54 @@ class ObjectBase
 
   constructor:(objectType)->
     @objectType = objectType
+
+  getHpMax:->
+    @constructor.hpBase * @level
+
+  getHp:->
+    if @hp is null or @getHpMax() < @hp
+      @getHpMax()
+    else if @hp <= 0
+      0
+    else
+      @hp
+  getLevel:->
+    @level
+  getCharacterName:->
+    @constructor.characterName
+  getAttackType:->
+    @constructor.attackTypeBase
+  getAttack:->
+    @constructor.attackBase * @level
+  getAttackBase:->
+    @constructor.attackBase
+  getPDef:->
+    @constructor.pDefBase * @level
+  getPDefBase:->
+    @constructor.pDefBase
+  getMDef:->
+    @constructor.mDefBase * @level
+  getMDefBase:->
+    @constructor.mDefBase
+  getMove:->
+    @constructor.moveBase
+  getMoveBase:->
+    @constructor.moveBase
+  getRange:->
+    @constructor.rangeBase
+  getRangeBase:->
+    @constructor.rangeBase
+  getHitRate:->
+    @constructor.hitRateBase
+  getHitRateBase:->
+    @constructor.hitRateBase
+  getDodgeRate:->
+    @constructor.dodgeRateBase
+  getDodgeRateBase:->
+    @constructor.dodgeRateBase
+  getAbilityName:->
+    @constructor.abilityName
+  getAbilityDesc:->
+    @constructor.abilityDesc
+  getBaseImage:->
+    @constructor.images[0]
