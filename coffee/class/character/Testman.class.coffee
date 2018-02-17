@@ -1,0 +1,1 @@
+class Testman extends TestmanBase

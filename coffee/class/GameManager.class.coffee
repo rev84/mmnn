@@ -3,7 +3,7 @@ class GameManager
     field : null
   @characters:[]
   @field:[]
-  @init:
+  @initialized:
     characters:false
     field:false
 
@@ -12,8 +12,8 @@ class GameManager
 
   # キャラ初期化
   @initCharacters:->
-    return if @init.characters
-    @init.characters = true
+    return if @initialized.characters
+    @initialized.characters = true
     @characters = window.characters
     window.characters = undefined
 

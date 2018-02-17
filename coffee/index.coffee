@@ -1,3 +1,2 @@
 $().ready ->
-  Game.init()
-  new Cell()
+  GameManager.init()
