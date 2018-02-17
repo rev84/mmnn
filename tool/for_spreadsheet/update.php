@@ -40,6 +40,8 @@ EOM;
 class {$className}Base extends CharacterBase
   # ID
   @characterId = {$characterId}
+  # キャラ名
+  @characterName = "{$characterName}"
   # 最初からいるか
   @defaultJoin = {$defaultJoin}
   # 画像base64のリスト

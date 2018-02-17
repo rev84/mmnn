@@ -8,6 +8,7 @@ class GameManager
     field:false
 
   @init:->
+    CharacterPalletManager.init()
     @initCharacters(null)
 
   # キャラ初期化
@@ -27,6 +28,9 @@ class GameManager
           items : []
 
       @characters[characterId] = new window[className](params)
+    for characterId, characterObject of @characters
+      CharacterPalletManager.addCharacter(characterObject)
+    CharacterPalletManager.show()
 
   # フィールド初期化
   @initField:->

@@ -5,3 +5,13 @@
   border:double 1px #000000;
   max-width:600px;
 }
+.no_display {
+  display:none;
+}
+
+#character_pallet {
+  position: absolute;
+}
+.panel {
+  position: absolute;
+}

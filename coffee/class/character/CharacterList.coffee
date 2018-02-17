@@ -1,3 +1,5 @@
 window.CharacterList = {
-  "1" : "Testman"
+  "1" : "Matsuiyamate"
+  "2" : "Syamugame"
+  "3" : "Revot"
 }
