@@ -16,3 +16,11 @@ class CharacterBase extends ObjectBase
 
     # 装備しているアイテム
     @items = params.items
+
+    @inField = params.inField
+
+  isInField:->
+    @inField
+
+  setInField:(isInField)->
+    @inField = !!isInField

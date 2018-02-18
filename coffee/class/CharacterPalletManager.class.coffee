@@ -2,7 +2,7 @@ class CharacterPalletManager
   @ID = 'character_pallet'
 
   @SIZE_X = 400
-  @SIZE_Y = 800
+  @SIZE_Y = 600
 
   @characters = []
   @panels = []
@@ -34,5 +34,8 @@ class CharacterPalletManager
     $('#'+@ID+' > .'+Panel.CLASSNAME).remove()
     for c, index in @characters
       top = index * Panel.SIZE_Y
-      @panels.push(new Panel(@divObject, c, top))
+      @panels.push(new Panel(@divObject, c, top, 0, true))
 
+  @redraw:->
+    $.each @panels, ->
+      @draw()

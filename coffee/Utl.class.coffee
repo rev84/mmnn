@@ -422,3 +422,29 @@ class Utl
     catch
       res = null
     res
+
+  ############################################
+  #
+  # 現環境でホイールイベント名を取得
+  #
+  # @return String
+  #
+  ############################################
+  @getOnWheel:->
+    return 'wheel'      if 'onwheel' of document
+    return 'mousewheel' if 'onmousewheel' of document
+    'DOMMouseScroll'
+
+  ############################################
+  #
+  # マウスイベントから要素内座標を取得
+  #
+  # @param eventObject e
+  # @return Array [x, y]
+  #
+  ############################################
+  @e2localPos:(e)->
+    boundingClientRect = e.currentTarget.getBoundingClientRect()
+    #[e.clientX - boundingClientRect.left, boundingClientRect.height - (e.clientY - boundingClientRect.top)]
+    [e.clientX - boundingClientRect.left, e.clientY - boundingClientRect.top]
+    

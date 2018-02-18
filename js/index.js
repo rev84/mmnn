@@ -13,6 +13,14 @@ ObjectBase = (function() {
     this.objectType = objectType;
   }
 
+  ObjectBase.prototype.isCharacterObject = function() {
+    return this.objectType === this.constructor.OBJECT_TYPE.CHARACTER;
+  };
+
+  ObjectBase.prototype.isEnemyObject = function() {
+    return this.objectType === this.constructor.OBJECT_TYPE.ENEMY;
+  };
+
   ObjectBase.prototype.getHpMax = function() {
     return this.constructor.hpBase * this.level;
   };
@@ -124,7 +132,16 @@ CharacterBase = (function(superClass) {
     this.level = params.level;
     this.hp = params.hp;
     this.items = params.items;
+    this.inField = params.inField;
   }
+
+  CharacterBase.prototype.isInField = function() {
+    return this.inField;
+  };
+
+  CharacterBase.prototype.setInField = function(isInField) {
+    return this.inField = !!isInField;
+  };
 
   return CharacterBase;
 
@@ -134,6 +151,8 @@ Cell = (function() {
   Cell.SIZE_X = 100;
 
   Cell.SIZE_Y = 100;
+
+  Cell.PUT_FIELD_MAX_X = 1;
 
   function Cell(parentElement, xIndex, yIndex, borderSize) {
     this.parentElement = parentElement;
@@ -146,8 +165,34 @@ Cell = (function() {
       object: null,
       attackable: null
     };
+    this.object = null;
     this.initElements(borderSize);
   }
+
+  Cell.prototype.onMouseUp = function(evt) {
+    console.log('cell mouseup');
+    if (GameManager.flags.pickedCharacterObject !== null && this.isDroppableCharacter()) {
+      GameManager.flags.pickedCharacterObject.setInField(true);
+      this.setObject(GameManager.flags.pickedCharacterObject);
+    }
+    GameManager.flags.pickedCharacterObject = null;
+    if (GameManager.flags.pickedCharacterElement !== null) {
+      GameManager.flags.pickedCharacterElement.remove();
+      GameManager.flags.pickedCharacterElement = null;
+    }
+    return CharacterPalletManager.redraw();
+  };
+
+  Cell.prototype.onMouseDown = function(evt) {};
+
+  Cell.prototype.onMouseMove = function(evt) {};
+
+  Cell.prototype.onMouseLeave = function(evt) {};
+
+  Cell.prototype.setObject = function(object) {
+    this.object = object;
+    return this.draw();
+  };
 
   Cell.prototype.initElements = function(borderSize) {
     var cssPos, cssSize;
@@ -165,7 +210,7 @@ Cell = (function() {
       width: this.constructor.SIZE_X,
       height: this.constructor.SIZE_Y
     };
-    this.elements.collision = $('<div>').addClass('cell cell_collision').appendTo(this.elements.mother).css(cssPos).css(cssSize);
+    this.elements.collision = $('<div>').addClass('cell cell_collision').appendTo(this.elements.mother).css(cssPos).css(cssSize).on('mousemove', this.onMouseMove.bind(this)).on('mouseup', this.onMouseUp.bind(this)).on('mousedown', this.onMouseDown.bind(this)).on('mouseleave', this.onMouseLeave.bind(this));
     this.elements.base = $('<img>').addClass('cell cell_base').appendTo(this.elements.mother).css(cssPos).css(cssSize);
     this.elements.object = $('<img>').addClass('cell cell_object').appendTo(this.elements.mother).css(cssPos).css(cssSize);
     this.elements.attackable = $('<img>').addClass('cell cell_attackable').appendTo(this.elements.mother).css(cssPos);
@@ -174,6 +219,16 @@ Cell = (function() {
 
   Cell.prototype.changeBase = function(imagePath) {
     return this.elements.base.attr('src', imagePath);
+  };
+
+  Cell.prototype.draw = function() {
+    if (this.object !== null) {
+      return this.elements.object.attr('src', this.object.getBaseImage());
+    }
+  };
+
+  Cell.prototype.isDroppableCharacter = function() {
+    return this.xIndex <= this.constructor.PUT_FIELD_MAX_X && this.object === null;
   };
 
   return Cell;
@@ -355,7 +410,7 @@ CharacterPalletManager = (function() {
 
   CharacterPalletManager.SIZE_X = 400;
 
-  CharacterPalletManager.SIZE_Y = 800;
+  CharacterPalletManager.SIZE_Y = 600;
 
   CharacterPalletManager.characters = [];
 
@@ -398,9 +453,15 @@ CharacterPalletManager = (function() {
     for (index = j = 0, len = ref.length; j < len; index = ++j) {
       c = ref[index];
       top = index * Panel.SIZE_Y;
-      results.push(this.panels.push(new Panel(this.divObject, c, top)));
+      results.push(this.panels.push(new Panel(this.divObject, c, top, 0, true)));
     }
     return results;
+  };
+
+  CharacterPalletManager.redraw = function() {
+    return $.each(this.panels, function() {
+      return this.draw();
+    });
   };
 
   return CharacterPalletManager;
@@ -479,8 +540,50 @@ GameManager = (function() {
     field: false
   };
 
+  GameManager.flags = {
+    isEnableCharacterPick: true,
+    isCharacterPick: true,
+    pickedCharacterObject: null,
+    pickedCharacterElement: null
+  };
+
+  GameManager.onMouseDown = function(evt) {};
+
+  GameManager.onMouseUp = function(evt) {
+    console.log('game mouseup');
+    if (this.flags.pickedCharacterObject !== null) {
+      this.flags.pickedCharacterObject = null;
+      if (this.flags.pickedCharacterElement !== null) {
+        this.flags.pickedCharacterElement.remove();
+        return this.flags.pickedCharacterElement = null;
+      }
+    }
+  };
+
+  GameManager.onMouseLeave = function(evt) {};
+
+  GameManager.onMouseMove = function(evt) {
+    if (this.flags.pickedCharacterElement !== null) {
+      return this.flags.pickedCharacterElement.css({
+        left: Utl.e2localPos(evt)[0] - 90 / 2,
+        top: Utl.e2localPos(evt)[1] - 90 / 2
+      }).removeClass('no_display');
+    }
+  };
+
+  GameManager.doCharacterPick = function() {
+    if (!this.flags.isEnableCharacterPick) {
+      return;
+    }
+    this.flags.isCharacterPick = true;
+    return this.flags.pickedCharacterId = null;
+  };
+
   GameManager.init = function() {
-    this.gameElement = $('<div>').attr('id', this.ID);
+    this.gameElement = $('<div>').attr('id', this.ID).on('mousemove', this.onMouseMove.bind(this)).on('mouseup', this.onMouseUp.bind(this)).on('mousedown', this.onMouseDown.bind(this)).on('mouseleave', this.onMouseLeave.bind(this)).css({
+      width: 1200,
+      height: 800
+    });
     this.initCharacters(null);
     this.initField(null);
     return this.gameElement.appendTo('body');
@@ -512,7 +615,8 @@ GameManager = (function() {
           joined: null,
           level: 1,
           hp: null,
-          items: []
+          items: [],
+          inField: false
         };
       }
       this.characters[characterId] = new window[className](params);
@@ -536,11 +640,12 @@ Panel = (function() {
 
   Panel.CLASSNAME = 'panel';
 
-  function Panel(parentElement, object1, posY, posX) {
+  function Panel(parentElement, object1, posY, posX, isCharacterPallet) {
     this.parentElement = parentElement;
     this.object = object1;
     this.posY = posY != null ? posY : 0;
     this.posX = posX != null ? posX : 0;
+    this.isCharacterPallet = isCharacterPallet != null ? isCharacterPallet : false;
     this.divObject = $('<div>').addClass(this.constructor.CLASSNAME).css({
       width: this.constructor.SIZE_X,
       height: this.constructor.SIZE_Y,
@@ -551,7 +656,29 @@ Panel = (function() {
     this.draw();
   }
 
+  Panel.prototype.onIconDragStart = function(evt) {
+    if (!this.isCharacterPallet) {
+      return;
+    }
+    if (!GameManager.flags.isCharacterPick) {
+      return;
+    }
+    if (!this.object.isCharacterObject()) {
+      return;
+    }
+    if (this.object.isInField()) {
+      return;
+    }
+    GameManager.flags.pickedCharacterObject = this.object;
+    return GameManager.flags.pickedCharacterElement = $('<div>').addClass('picked_character no_display').css({
+      width: 90,
+      height: 90,
+      'background-image': 'url(' + this.object.getBaseImage() + ')'
+    }).appendTo(GameManager.gameElement);
+  };
+
   Panel.prototype.draw = function() {
+    $(this.divObject).find('*').remove();
     switch (this.object.objectType) {
       case ObjectBase.OBJECT_TYPE.CHARACTER:
         return this.drawCharacter();
@@ -560,12 +687,27 @@ Panel = (function() {
 
   Panel.prototype.drawCharacter = function() {
     var attackImg;
-    $(this.divObject).append($('<img>').addClass('field_icon').attr('src', this.object.getBaseImage()).css({
+    if (this.isCharacterPallet && this.object.isInField()) {
+      $('<div>').addClass('in_field').css({
+        left: 0,
+        top: 0,
+        "z-index": 9999,
+        opacity: 0.5,
+        "background-color": '#230381',
+        width: this.constructor.SIZE_X,
+        height: this.constructor.SIZE_Y,
+        'font-size': '80px',
+        color: '#000000',
+        'text-align': 'center'
+      }).html('出撃中').appendTo(this.divObject);
+    }
+    $(this.divObject).append($('<div>').addClass('field_icon').css({
       top: 20,
       left: 0,
       width: 90,
-      height: 90
-    }));
+      height: 90,
+      "background-image": 'url(' + this.object.getBaseImage() + ')'
+    })).on('mousedown', this.onIconDragStart.bind(this));
     $(this.divObject).append($('<div>').addClass('label_level').css({
       top: 0,
       left: 0,
@@ -1109,6 +1251,22 @@ Utl = (function() {
       res = null;
     }
     return res;
+  };
+
+  Utl.getOnWheel = function() {
+    if ('onwheel' in document) {
+      return 'wheel';
+    }
+    if ('onmousewheel' in document) {
+      return 'mousewheel';
+    }
+    return 'DOMMouseScroll';
+  };
+
+  Utl.e2localPos = function(e) {
+    var boundingClientRect;
+    boundingClientRect = e.currentTarget.getBoundingClientRect();
+    return [e.clientX - boundingClientRect.left, e.clientY - boundingClientRect.top];
   };
 
   return Utl;

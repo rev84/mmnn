@@ -6,6 +6,12 @@ class ObjectBase
   constructor:(objectType)->
     @objectType = objectType
 
+  isCharacterObject:->
+    @objectType is @constructor.OBJECT_TYPE.CHARACTER
+
+  isEnemyObject:->
+    @objectType is @constructor.OBJECT_TYPE.ENEMY
+
   getHpMax:->
     @constructor.hpBase * @level
 

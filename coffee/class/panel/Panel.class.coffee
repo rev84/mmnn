@@ -4,7 +4,7 @@ class Panel
 
   @CLASSNAME = 'panel'
 
-  constructor:(@parentElement, @object, @posY = 0, @posX = 0)->
+  constructor:(@parentElement, @object, @posY = 0, @posX = 0, @isCharacterPallet = false)->
     @divObject = $('<div>').addClass(@constructor.CLASSNAME).css({
       width: @constructor.SIZE_X
       height: @constructor.SIZE_Y
@@ -14,20 +14,66 @@ class Panel
     }).appendTo(@parentElement)
     @draw()
 
+  # アイコンがドラッグ開始された時
+  onIconDragStart:(evt)->
+    # キャラクター出撃に使っていいパネルではないなら帰る
+    return unless @isCharacterPallet
+    # キャラクター出撃モードではないので帰る
+    return unless GameManager.flags.isCharacterPick
+    # キャラクターではないので帰る
+    return unless @object.isCharacterObject()
+    # 既に出撃中なので帰る
+    return if @object.isInField()
+
+    # キャラオブジェクトを選択中キャラにセット
+    GameManager.flags.pickedCharacterObject = @object
+    # アイコンのキャラを一時的に消す
+    #@divObject.find('.field_icon').css('background-image', 'none')
+    # 移動中のアイコンを作成
+    GameManager.flags.pickedCharacterElement = $('<div>')
+      .addClass('picked_character no_display')
+      .css({
+        width:90
+        height:90
+        'background-image': 'url('+@object.getBaseImage()+')'
+      })
+      .appendTo(GameManager.gameElement)
+
   draw:->
+    $(@divObject).find('*').remove()
+
     switch @object.objectType
       when ObjectBase.OBJECT_TYPE.CHARACTER
         @drawCharacter()
+
   drawCharacter:->
+    # キャラ出撃用のパネルなら、出撃中判定
+    if @isCharacterPallet and @object.isInField()
+      $('<div>').addClass('in_field').css({
+        left:0
+        top:0
+        "z-index": 9999
+        opacity: 0.5
+        "background-color": '#230381'
+        width: @constructor.SIZE_X
+        height: @constructor.SIZE_Y
+        'font-size': '80px'
+        color: '#000000'
+        'text-align': 'center'
+
+      }).html('出撃中')
+      .appendTo(@divObject)
+
     # アイコン
     $(@divObject).append(
-      $('<img>').addClass('field_icon').attr('src', @object.getBaseImage()).css({
+      $('<div>').addClass('field_icon').css({
         top: 20
         left: 0
         width: 90
         height: 90
+        "background-image": 'url('+@object.getBaseImage()+')'
       })
-    )
+    ).on('mousedown', @onIconDragStart.bind(@))
 
     # レベルラベル
     $(@divObject).append(
