@@ -1,23 +1,43 @@
-class CellBase
-  @images = 
-    base:[]
-    object:[]
-    attackeable:[]
-  @elements =
-    base:null
-    object:null
-    attackable:null
+class Cell
+  @SIZE_X : 100
+  @SIZE_Y : 100
 
-  constructor:->
-    @initElements()
+  constructor:(@parentElement, @xIndex, @yIndex, borderSize)->
+    @elements =
+      mother:null
+      collision:null
+      base:null
+      object:null
+      attackable:null
 
-  initElements:->
+    @initElements(borderSize)
+
+  initElements:(borderSize)->
+    @elements.mother     = $('<div>').addClass('cell cell_mother').css({
+      left: @xIndex * @constructor.SIZE_X + borderSize * (@xIndex + 1)
+      top : @yIndex * @constructor.SIZE_Y + borderSize * (@yIndex + 1)
+      width:@constructor.SIZE_X
+      height:@constructor.SIZE_Y
+    })
+    cssPos = 
+      left:0
+      top:0
+    cssSize = 
+      width:@constructor.SIZE_X
+      height:@constructor.SIZE_Y
+    @elements.collision  = $('<div>').addClass('cell cell_collision')
+                           .appendTo(@elements.mother).css(cssPos).css(cssSize)
     @elements.base       = $('<img>').addClass('cell cell_base')
+                           .appendTo(@elements.mother).css(cssPos).css(cssSize)
     @elements.object     = $('<img>').addClass('cell cell_object')
-    @elements.attackable = $('<img>').addClass('cell cell_attackeble')
+                           .appendTo(@elements.mother).css(cssPos).css(cssSize)
+    @elements.attackable = $('<img>').addClass('cell cell_attackable')
+                           .appendTo(@elements.mother).css(cssPos)
 
+    $(@elements.mother).appendTo(@parentElement)
 
-  # ベース画像の変更
-  changeBase:(imageIndex)->
-    @elements.base.attr('src', @images[imageIndex])
+  # 背景画像の変更
+  changeBase:(imagePath)->
+    @elements.base.attr('src', imagePath)
 
+  # 

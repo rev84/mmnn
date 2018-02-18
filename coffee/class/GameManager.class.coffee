@@ -1,20 +1,33 @@
 class GameManager
-  @scene:
-    field : null
+  @ID = 'game'
+  
+  @gameElement = null
   @characters:[]
-  @field:[]
   @initialized:
     characters:false
     field:false
 
   @init:->
-    CharacterPalletManager.init()
+    @gameElement = $('<div>').attr('id', @ID)
+
     @initCharacters(null)
+    @initField(null)
+
+    @gameElement.appendTo('body')
+
+  @initField:(savedata)->
+    return if @initialized.field
+    @initialized.field = true
+
+    FieldManager.init(@gameElement, 400, 0)
+
 
   # キャラ初期化
   @initCharacters:(savedata)->
     return if @initialized.characters
     @initialized.characters = true
+
+    CharacterPalletManager.init(@gameElement, 0, 0)
 
     @characters = {}
     for characterId, className of window.CharacterList
@@ -31,6 +44,3 @@ class GameManager
     for characterId, characterObject of @characters
       CharacterPalletManager.addCharacter(characterObject)
     CharacterPalletManager.show()
-
-  # フィールド初期化
-  @initField:->

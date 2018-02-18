@@ -1,7 +1,5 @@
 class CharacterPalletManager
   @ID = 'character_pallet'
-  @POS_X = 0
-  @POS_Y = 0
 
   @SIZE_X = 400
   @SIZE_Y = 800
@@ -9,17 +7,20 @@ class CharacterPalletManager
   @characters = []
   @panels = []
 
-  @init:->
-    @div = $('<div>').attr('id', @ID).addClass('no_display').css({
+  @init:(@parentElement, @posX, @posY)->
+    @divObject = $('<div>').attr('id', @ID)
+    .addClass('no_display').css({
       width: @SIZE_X
       height: @SIZE_Y
-    }).appendTo($('body'))
+      left: @posX
+      top: @posY
+    }).appendTo(@parentElement)
     
   @show:->
-    $(@div).removeClass('no_display')
+    $(@divObject).removeClass('no_display')
 
   @hide:->
-    $(@div).addClass('no_display')
+    $(@divObject).addClass('no_display')
 
   @addCharacter:(characterObject)->
     @characters.push characterObject
@@ -33,5 +34,5 @@ class CharacterPalletManager
     $('#'+@ID+' > .'+Panel.CLASSNAME).remove()
     for c, index in @characters
       top = index * Panel.SIZE_Y
-      @panels.push(new Panel(@div, c, top))
+      @panels.push(new Panel(@divObject, c, top))
 

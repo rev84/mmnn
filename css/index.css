@@ -8,11 +8,32 @@
 .no_display {
   display:none;
 }
-
-#character_pallet {
+#game {
+  position: relative;
+}
+#character_pallet, #field {
   position: absolute;
 }
 .panel, .panel > * {
   position: absolute;
   box-sizing: border-box;
 }
+.cell {
+  position: absolute;
+  box-sizing: border-box;
+}
+.cell_mother {
+}
+.cell_collision {
+  z-index: 999999999;
+}
+.cell_base {
+  z-index: 9;
+}
+.cell_object {
+  z-index: 99;
+}
+.cell_attackable {
+  z-index: 999;
+}
+

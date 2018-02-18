@@ -5,14 +5,13 @@ class Panel
   @CLASSNAME = 'panel'
 
   constructor:(@parentElement, @object, @posY = 0, @posX = 0)->
-    @div = $('<div>').addClass(@constructor.CLASSNAME).css({
+    @divObject = $('<div>').addClass(@constructor.CLASSNAME).css({
       width: @constructor.SIZE_X
       height: @constructor.SIZE_Y
       top : @posY
       left : @posX
       border: 'double 5px #000000'
-    })
-    @parentElement.append @div
+    }).appendTo(@parentElement)
     @draw()
 
   draw:->
@@ -21,7 +20,7 @@ class Panel
         @drawCharacter()
   drawCharacter:->
     # アイコン
-    $(@div).append(
+    $(@divObject).append(
       $('<img>').addClass('field_icon').attr('src', @object.getBaseImage()).css({
         top: 20
         left: 0
@@ -31,7 +30,7 @@ class Panel
     )
 
     # レベルラベル
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('label_level').css({
         top: 0
         left: 0
@@ -43,7 +42,7 @@ class Panel
     )
 
     # レベル
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('field_level').css({
         top: 0
         left: 20
@@ -55,7 +54,7 @@ class Panel
     )
 
     # 名前
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('field_name').css({
         top: 0
         left: 90
@@ -67,7 +66,7 @@ class Panel
     )
 
     # 攻撃力ラベル
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('label_attack').css({
         top: 25
         left: 90
@@ -79,7 +78,7 @@ class Panel
     )
     # 攻撃タイプ
     attackImg = if @object.getAttackType() is '物理' then './img/sword.png' else './img/magic.png'
-    $(@div).append(
+    $(@divObject).append(
       $('<img>').addClass('field_attack_type').css({
         top: 25
         left: 130
@@ -88,7 +87,7 @@ class Panel
       }).attr('src', attackImg)
     )
     # 攻撃力
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('field_attack').css({
         top: 25
         left: 160
@@ -99,7 +98,7 @@ class Panel
     )
 
     # 物理防御力ラベル
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('label_pdef').css({
         top: 45
         left: 90
@@ -110,7 +109,7 @@ class Panel
       }).html('物防')
     )
     # 物理防御力
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('field_pdef').css({
         top: 45
         left: 160
@@ -121,7 +120,7 @@ class Panel
     )
 
     # 魔法防御力ラベル
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('label_mdef').css({
         top: 65
         left: 90
@@ -132,7 +131,7 @@ class Panel
       }).html('魔防')
     )
     # 魔法防御力
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('field_mdef').css({
         top: 65
         left: 160
@@ -143,7 +142,7 @@ class Panel
     )
 
     # HPラベル
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('label_hp').css({
         top: 0
         left: 180
@@ -154,7 +153,7 @@ class Panel
       }).html('HP')
     )
     # HP
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('field_hp').css({
         top: 0
         left: 220
@@ -164,7 +163,7 @@ class Panel
       }).html(@object.getHp())
     )
     # HPしきり
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('label_hp_split').css({
         top: 0
         left: 280
@@ -174,7 +173,7 @@ class Panel
       }).html('/')
     )
     # HP最大
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('field_hp_max').css({
         top: 0
         left: 300
@@ -185,7 +184,7 @@ class Panel
     )
 
     # 命中率ラベル
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('label_hit_rate').css({
         top: 25
         left: 210
@@ -196,7 +195,7 @@ class Panel
       }).html('命中')
     )
     # 命中率
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('field_hit_rate').css({
         top: 25
         left: 260
@@ -207,7 +206,7 @@ class Panel
     )
 
     # 回避率ラベル
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('label_dodge_rate').css({
         top: 45
         left: 210
@@ -218,7 +217,7 @@ class Panel
       }).html('回避')
     )
     # 回避率
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('field_dodge_rate').css({
         top: 45
         left: 260
@@ -229,7 +228,7 @@ class Panel
     )
 
     # 移動力ラベル
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('label_move').css({
         top: 25
         left: 310
@@ -240,7 +239,7 @@ class Panel
       }).html('移動')
     )
     # 移動力
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('field_move').css({
         top: 25
         left: 360
@@ -250,7 +249,7 @@ class Panel
       }).html(@object.getMove())
     )
     # 射程ラベル
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('label_range').css({
         top: 45
         left: 310
@@ -261,7 +260,7 @@ class Panel
       }).html('射程')
     )
     # 射程
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('field_range').css({
         top: 45
         left: 360
@@ -271,7 +270,7 @@ class Panel
       }).html(@object.getMove())
     )
     # 能力ラベル
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('label_ability').css({
         top: 85
         left: 90
@@ -282,7 +281,7 @@ class Panel
       }).html('能力')
     )
     # 能力
-    $(@div).append(
+    $(@divObject).append(
       $('<div>').addClass('field_ability').css({
         top: 85
         left: 130
