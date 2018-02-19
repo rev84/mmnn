@@ -22,7 +22,10 @@
 #game {
   position: relative;
 }
-#character_pallet, #field {
+#menu > * {
+  float: left;
+}
+#menu, #character_pallet, #field {
   position: absolute;
 }
 #character_pallet {

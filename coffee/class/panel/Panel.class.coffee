@@ -16,6 +16,8 @@ class Panel
 
   # アイコンがドラッグ開始された時
   onIconDragStart:(evt)->
+    return unless GameManager.isControllable()
+    
     # キャラクター出撃に使っていいパネルではないなら帰る
     return unless @isCharacterPallet
     # キャラクター出撃モードではないので帰る

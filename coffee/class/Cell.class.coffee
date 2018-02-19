@@ -17,8 +17,12 @@ class Cell
     @initElements(borderSize)
 
   onMouseMiddleUp:(evt)->
+    return unless GameManager.isControllable()
   onMouseRightUp:(evt)->
+    return unless GameManager.isControllable()
   onMouseLeftUp:(evt)->
+    return unless GameManager.isControllable()
+
     console.log('cell mouseup')
     # キャラクター出撃モードで、キャラクターがピックされている場合
     if GameManager.flags.pickedCharacterObject isnt null and @isDroppableCharacter()
@@ -34,16 +38,23 @@ class Cell
     CharacterPalletManager.redraw()
 
   onMouseLeftDown:(evt)->
+    return unless GameManager.isControllable()
     # 仮置きがあった場合はつかむ
     if @tempObject isnt null
       CharacterPalletManager.pickCharacter @tempObject
       @tempObject = null
 
   onMouseMiddleDown:(evt)->
+    return unless GameManager.isControllable()
+
   onMouseRightDown:(evt)->
+    return unless GameManager.isControllable()
 
   onMouseMove:(evt)->
+    return unless GameManager.isControllable()
+
   onMouseLeave:(evt)->
+    return unless GameManager.isControllable()
 
   setTempObject:(object)->
     # 仮置きに置く
