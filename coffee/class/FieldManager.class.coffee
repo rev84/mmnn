@@ -32,6 +32,18 @@ class FieldManager
 
   @generateNextField:->
 
+  # このキャラオブジェクトに該当する仮置きを全削除
+  @removeAllTempObject:(characterObject)->
+    return if characterObject is null
+    $.each @cells, ->
+      $.each @, ->
+        if @tempObject isnt null and @tempObject.isCharacterObject() and @tempObject.getCharacterId() is characterObject.getCharacterId()
+          # 出撃中を解除
+          @tempObject.setInField false
+          # 仮オブジェクトを削除
+          @tempObject = null
+          # セルの再描画
+          @draw()
     
   @show:->
     $(@divObject).removeClass('no_display')

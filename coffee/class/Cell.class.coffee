@@ -12,6 +12,7 @@ class Cell
       object:null
       attackable:null
     @object = null
+    @tempObject = null
 
     @initElements(borderSize)
 
@@ -19,23 +20,44 @@ class Cell
     console.log('cell mouseup')
     # キャラクター出撃モードで、キャラクターがピックされている場合
     if GameManager.flags.pickedCharacterObject isnt null and @isDroppableCharacter()
-      # キャラを出撃中にする
-      GameManager.flags.pickedCharacterObject.setInField(true)
-      # このセルにキャラを配置する
-      @setObject GameManager.flags.pickedCharacterObject
+      # ここに置いてあった仮キャラを全削除
+      FieldManager.removeAllTempObject @tempObject
+      # このセルに仮キャラを配置する
+      @setTempObject GameManager.flags.pickedCharacterObject
     # 出撃選択を解除
     GameManager.flags.pickedCharacterObject = null
     if GameManager.flags.pickedCharacterElement isnt null
       GameManager.flags.pickedCharacterElement.remove()
       GameManager.flags.pickedCharacterElement = null
     CharacterPalletManager.redraw()
+
   onMouseDown:(evt)->
+    # 仮置きがあった場合はつかむ
+    if @tempObject isnt null
+      CharacterPalletManager.pickCharacter @tempObject
+      @tempObject = null
+
   onMouseMove:(evt)->
   onMouseLeave:(evt)->
 
+  setTempObject:(object)->
+    # 仮置きに置く
+    @tempObject = object
+    # 出撃中にする
+    object.setInField(true)
+    # マスの再描画
+    @draw()
+
   setObject:(object)->
     @object = object
+    @tempObject = null
     @draw()
+
+  switchTemp:->
+    if @tempObject isnt null
+      @object = @tempObject
+      @tempObject = null
+      @draw()
 
   initElements:(borderSize)->
     @elements.mother     = $('<div>').addClass('cell cell_mother').css({
@@ -72,7 +94,11 @@ class Cell
   # 描画
   draw:->
     if @object isnt null
-      @elements.object.attr('src', @object.getBaseImage())
+      @elements.object.attr('src', @object.getBaseImage()).removeClass('no_display')
+    else if @tempObject isnt null
+      @elements.object.attr('src', @tempObject.getBaseImage()).removeClass('no_display')
+    else
+      @elements.object.addClass('no_display')
 
   isDroppableCharacter:->
     @xIndex <= @constructor.PUT_FIELD_MAX_X and @object is null

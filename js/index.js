@@ -135,12 +135,21 @@ CharacterBase = (function(superClass) {
     this.inField = params.inField;
   }
 
+  CharacterBase.prototype.getCharacterId = function() {
+    return this.constructor.characterId;
+  };
+
+  CharacterBase.prototype.getCharacterName = function() {
+    return this.constructor.characterName;
+  };
+
   CharacterBase.prototype.isInField = function() {
     return this.inField;
   };
 
   CharacterBase.prototype.setInField = function(isInField) {
-    return this.inField = !!isInField;
+    this.inField = !!isInField;
+    return CharacterPalletManager.redraw(this);
   };
 
   return CharacterBase;
@@ -166,14 +175,15 @@ Cell = (function() {
       attackable: null
     };
     this.object = null;
+    this.tempObject = null;
     this.initElements(borderSize);
   }
 
   Cell.prototype.onMouseUp = function(evt) {
     console.log('cell mouseup');
     if (GameManager.flags.pickedCharacterObject !== null && this.isDroppableCharacter()) {
-      GameManager.flags.pickedCharacterObject.setInField(true);
-      this.setObject(GameManager.flags.pickedCharacterObject);
+      FieldManager.removeAllTempObject(this.tempObject);
+      this.setTempObject(GameManager.flags.pickedCharacterObject);
     }
     GameManager.flags.pickedCharacterObject = null;
     if (GameManager.flags.pickedCharacterElement !== null) {
@@ -183,15 +193,35 @@ Cell = (function() {
     return CharacterPalletManager.redraw();
   };
 
-  Cell.prototype.onMouseDown = function(evt) {};
+  Cell.prototype.onMouseDown = function(evt) {
+    if (this.tempObject !== null) {
+      CharacterPalletManager.pickCharacter(this.tempObject);
+      return this.tempObject = null;
+    }
+  };
 
   Cell.prototype.onMouseMove = function(evt) {};
 
   Cell.prototype.onMouseLeave = function(evt) {};
 
+  Cell.prototype.setTempObject = function(object) {
+    this.tempObject = object;
+    object.setInField(true);
+    return this.draw();
+  };
+
   Cell.prototype.setObject = function(object) {
     this.object = object;
+    this.tempObject = null;
     return this.draw();
+  };
+
+  Cell.prototype.switchTemp = function() {
+    if (this.tempObject !== null) {
+      this.object = this.tempObject;
+      this.tempObject = null;
+      return this.draw();
+    }
   };
 
   Cell.prototype.initElements = function(borderSize) {
@@ -223,7 +253,11 @@ Cell = (function() {
 
   Cell.prototype.draw = function() {
     if (this.object !== null) {
-      return this.elements.object.attr('src', this.object.getBaseImage());
+      return this.elements.object.attr('src', this.object.getBaseImage()).removeClass('no_display');
+    } else if (this.tempObject !== null) {
+      return this.elements.object.attr('src', this.tempObject.getBaseImage()).removeClass('no_display');
+    } else {
+      return this.elements.object.addClass('no_display');
     }
   };
 
@@ -458,10 +492,26 @@ CharacterPalletManager = (function() {
     return results;
   };
 
-  CharacterPalletManager.redraw = function() {
+  CharacterPalletManager.redraw = function(object) {
+    if (object == null) {
+      object = null;
+    }
     return $.each(this.panels, function() {
-      return this.draw();
+      if (object === null || this.object !== null && object.getCharacterId() === this.object.getCharacterId()) {
+        return this.draw();
+      }
     });
+  };
+
+  CharacterPalletManager.pickCharacter = function(characterObject) {
+    GameManager.flags.pickedCharacterObject = characterObject;
+    FieldManager.removeAllTempObject(characterObject);
+    GameManager.flags.pickedCharacterElement = $('<div>').addClass('picked_character no_display').css({
+      width: 90,
+      height: 90,
+      'background-image': 'url(' + characterObject.getBaseImage() + ')'
+    }).appendTo(GameManager.gameElement);
+    return GameManager.followPickedCharacterElement();
   };
 
   return CharacterPalletManager;
@@ -514,6 +564,21 @@ FieldManager = (function() {
 
   FieldManager.generateNextField = function() {};
 
+  FieldManager.removeAllTempObject = function(characterObject) {
+    if (characterObject === null) {
+      return;
+    }
+    return $.each(this.cells, function() {
+      return $.each(this, function() {
+        if (this.tempObject !== null && this.tempObject.isCharacterObject() && this.tempObject.getCharacterId() === characterObject.getCharacterId()) {
+          this.tempObject.setInField(false);
+          this.tempObject = null;
+          return this.draw();
+        }
+      });
+    });
+  };
+
   FieldManager.show = function() {
     return $(this.divObject).removeClass('no_display');
   };
@@ -530,6 +595,11 @@ GameManager = (function() {
   function GameManager() {}
 
   GameManager.ID = 'game';
+
+  GameManager.mousePos = {
+    x: 0,
+    y: 0
+  };
 
   GameManager.gameElement = null;
 
@@ -563,10 +633,18 @@ GameManager = (function() {
   GameManager.onMouseLeave = function(evt) {};
 
   GameManager.onMouseMove = function(evt) {
+    var ref;
+    ref = Utl.e2localPos(evt), this.mousePos.x = ref[0], this.mousePos.y = ref[1];
+    if (this.flags.pickedCharacterElement !== null) {
+      return this.followPickedCharacterElement(evt);
+    }
+  };
+
+  GameManager.followPickedCharacterElement = function(evt) {
     if (this.flags.pickedCharacterElement !== null) {
       return this.flags.pickedCharacterElement.css({
-        left: Utl.e2localPos(evt)[0] - 90 / 2,
-        top: Utl.e2localPos(evt)[1] - 90 / 2
+        left: this.mousePos.x - 90 / 2,
+        top: this.mousePos.y - 90 / 2
       }).removeClass('no_display');
     }
   };
@@ -669,12 +747,7 @@ Panel = (function() {
     if (this.object.isInField()) {
       return;
     }
-    GameManager.flags.pickedCharacterObject = this.object;
-    return GameManager.flags.pickedCharacterElement = $('<div>').addClass('picked_character no_display').css({
-      width: 90,
-      height: 90,
-      'background-image': 'url(' + this.object.getBaseImage() + ')'
-    }).appendTo(GameManager.gameElement);
+    return CharacterPalletManager.pickCharacter(this.object);
   };
 
   Panel.prototype.draw = function() {

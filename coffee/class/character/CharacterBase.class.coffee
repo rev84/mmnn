@@ -19,8 +19,15 @@ class CharacterBase extends ObjectBase
 
     @inField = params.inField
 
+  getCharacterId:->
+    @constructor.characterId
+
+  getCharacterName:->
+    @constructor.characterName
+
   isInField:->
     @inField
 
   setInField:(isInField)->
     @inField = !!isInField
+    CharacterPalletManager.redraw @

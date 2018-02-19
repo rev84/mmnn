@@ -1,6 +1,7 @@
 class GameManager
   @ID = 'game'
 
+  @mousePos = {x:0, y:0}
   @gameElement = null
   @characters = []
   @initialized = 
@@ -30,13 +31,23 @@ class GameManager
   @onMouseLeave:(evt)->
 
   @onMouseMove:(evt)->
+    # マウスの位置は常に記録
+    [@mousePos.x, @mousePos.y] = Utl.e2localPos evt
+
     # キャラクター出撃モードで、キャラクターがピックされている場合
     if @flags.pickedCharacterElement isnt null
-      # そのキャラクターの絵をマウスに追随させる
+      @followPickedCharacterElement(evt)
+
+  # キャラクターの絵をマウスに追随させる
+  @followPickedCharacterElement:(evt)->
+    # キャラクター出撃モードで、キャラクターがピックされている場合
+    if @flags.pickedCharacterElement isnt null
+    # そのキャラクターの絵をマウスに追随させる
       @flags.pickedCharacterElement.css({
-        left: Utl.e2localPos(evt)[0] - 90/2
-        top: Utl.e2localPos(evt)[1] - 90/2
+        left: @mousePos.x - 90/2
+        top: @mousePos.y - 90/2
       }).removeClass('no_display')
+
 
   @doCharacterPick:->
     # キャラクター出撃モードに遷移可能な状態ではない

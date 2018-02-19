@@ -25,20 +25,8 @@ class Panel
     # 既に出撃中なので帰る
     return if @object.isInField()
 
-    # キャラオブジェクトを選択中キャラにセット
-    GameManager.flags.pickedCharacterObject = @object
-    # アイコンのキャラを一時的に消す
-    #@divObject.find('.field_icon').css('background-image', 'none')
-    # 移動中のアイコンを作成
-    GameManager.flags.pickedCharacterElement = $('<div>')
-      .addClass('picked_character no_display')
-      .css({
-        width:90
-        height:90
-        'background-image': 'url('+@object.getBaseImage()+')'
-      })
-      .appendTo(GameManager.gameElement)
-
+    CharacterPalletManager.pickCharacter @object
+    
   draw:->
     $(@divObject).find('*').remove()
 
