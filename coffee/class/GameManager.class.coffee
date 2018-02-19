@@ -17,16 +17,24 @@ class GameManager
     # キャラクター出撃をしている場合、現在ドラッグされているキャラクターの要素
     pickedCharacterElement : null
 
-  @onMouseDown:(evt)->
+  @onMouseMiddleDown:(evt)->
 
-  @onMouseUp:(evt)->
+  @onMouseMiddleUp:(evt)->
+
+  @onMouseRightDown:(evt)->
+
+  @onMouseRightUp:(evt)->
+
+  @onMouseLeftDown:(evt)->
+
+  @onMouseLeftUp:(evt)->
     console.log('game mouseup')
     # 出撃選択を解除
     if @flags.pickedCharacterObject isnt null
       @flags.pickedCharacterObject = null
-      if @flags.pickedCharacterElement isnt null
-        @flags.pickedCharacterElement.remove()
-        @flags.pickedCharacterElement = null
+    if @flags.pickedCharacterElement isnt null
+      @flags.pickedCharacterElement.remove()
+      @flags.pickedCharacterElement = null
 
   @onMouseLeave:(evt)->
 
@@ -57,10 +65,23 @@ class GameManager
     @flags.pickedCharacterId = null
 
   @init:->
+    # 右クリック禁止
+    $(document).on 'contextmenu', ->
+      false
     @gameElement = $('<div>').attr('id', @ID)
                    .on('mousemove', @onMouseMove.bind(@))
-                   .on('mouseup', @onMouseUp.bind(@))
-                   .on('mousedown', @onMouseDown.bind(@))
+                   .on('mouseup', (evt)=>
+                      switch evt.which
+                        when 1 then @onMouseLeftUp.bind(@)(evt)
+                        when 2 then @onMouseMiddleUp.bind(@)(evt)
+                        when 3 then @onMouseRightUp.bind(@)(evt)
+                    )
+                   .on('mousedown', (evt)=>
+                      switch evt.which
+                        when 1 then @onMouseLeftDown.bind(@)(evt)
+                        when 2 then @onMouseMiddleDown.bind(@)(evt)
+                        when 3 then @onMouseRightDown.bind(@)(evt)
+                    )
                    .on('mouseleave', @onMouseLeave.bind(@))
                    .css({
                       width: 1200

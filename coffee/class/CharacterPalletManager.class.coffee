@@ -51,7 +51,7 @@ class CharacterPalletManager
 
     # 移動中のアイコンを作成
     GameManager.flags.pickedCharacterElement = $('<div>')
-      .addClass('picked_character no_display')
+      .addClass('picked_character')
       .css({
         width:90
         height:90

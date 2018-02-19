@@ -179,7 +179,11 @@ Cell = (function() {
     this.initElements(borderSize);
   }
 
-  Cell.prototype.onMouseUp = function(evt) {
+  Cell.prototype.onMouseMiddleUp = function(evt) {};
+
+  Cell.prototype.onMouseRightUp = function(evt) {};
+
+  Cell.prototype.onMouseLeftUp = function(evt) {
     console.log('cell mouseup');
     if (GameManager.flags.pickedCharacterObject !== null && this.isDroppableCharacter()) {
       FieldManager.removeAllTempObject(this.tempObject);
@@ -193,12 +197,16 @@ Cell = (function() {
     return CharacterPalletManager.redraw();
   };
 
-  Cell.prototype.onMouseDown = function(evt) {
+  Cell.prototype.onMouseLeftDown = function(evt) {
     if (this.tempObject !== null) {
       CharacterPalletManager.pickCharacter(this.tempObject);
       return this.tempObject = null;
     }
   };
+
+  Cell.prototype.onMouseMiddleDown = function(evt) {};
+
+  Cell.prototype.onMouseRightDown = function(evt) {};
 
   Cell.prototype.onMouseMove = function(evt) {};
 
@@ -240,7 +248,29 @@ Cell = (function() {
       width: this.constructor.SIZE_X,
       height: this.constructor.SIZE_Y
     };
-    this.elements.collision = $('<div>').addClass('cell cell_collision').appendTo(this.elements.mother).css(cssPos).css(cssSize).on('mousemove', this.onMouseMove.bind(this)).on('mouseup', this.onMouseUp.bind(this)).on('mousedown', this.onMouseDown.bind(this)).on('mouseleave', this.onMouseLeave.bind(this));
+    this.elements.collision = $('<div>').addClass('cell cell_collision').appendTo(this.elements.mother).css(cssPos).css(cssSize).on('mousemove', this.onMouseMove.bind(this)).on('mouseup', (function(_this) {
+      return function(evt) {
+        switch (evt.which) {
+          case 1:
+            return _this.onMouseLeftUp.bind(_this)(evt);
+          case 2:
+            return _this.onMouseMiddleUp.bind(_this)(evt);
+          case 3:
+            return _this.onMouseRightUp.bind(_this)(evt);
+        }
+      };
+    })(this)).on('mousedown', (function(_this) {
+      return function(evt) {
+        switch (evt.which) {
+          case 1:
+            return _this.onMouseLeftDown.bind(_this)(evt);
+          case 2:
+            return _this.onMouseMiddleDown.bind(_this)(evt);
+          case 3:
+            return _this.onMouseRightDown.bind(_this)(evt);
+        }
+      };
+    })(this)).on('mouseleave', this.onMouseLeave.bind(this));
     this.elements.base = $('<img>').addClass('cell cell_base').appendTo(this.elements.mother).css(cssPos).css(cssSize);
     this.elements.object = $('<img>').addClass('cell cell_object').appendTo(this.elements.mother).css(cssPos).css(cssSize);
     this.elements.attackable = $('<img>').addClass('cell cell_attackable').appendTo(this.elements.mother).css(cssPos);
@@ -506,7 +536,7 @@ CharacterPalletManager = (function() {
   CharacterPalletManager.pickCharacter = function(characterObject) {
     GameManager.flags.pickedCharacterObject = characterObject;
     FieldManager.removeAllTempObject(characterObject);
-    GameManager.flags.pickedCharacterElement = $('<div>').addClass('picked_character no_display').css({
+    GameManager.flags.pickedCharacterElement = $('<div>').addClass('picked_character').css({
       width: 90,
       height: 90,
       'background-image': 'url(' + characterObject.getBaseImage() + ')'
@@ -617,16 +647,24 @@ GameManager = (function() {
     pickedCharacterElement: null
   };
 
-  GameManager.onMouseDown = function(evt) {};
+  GameManager.onMouseMiddleDown = function(evt) {};
 
-  GameManager.onMouseUp = function(evt) {
+  GameManager.onMouseMiddleUp = function(evt) {};
+
+  GameManager.onMouseRightDown = function(evt) {};
+
+  GameManager.onMouseRightUp = function(evt) {};
+
+  GameManager.onMouseLeftDown = function(evt) {};
+
+  GameManager.onMouseLeftUp = function(evt) {
     console.log('game mouseup');
     if (this.flags.pickedCharacterObject !== null) {
       this.flags.pickedCharacterObject = null;
-      if (this.flags.pickedCharacterElement !== null) {
-        this.flags.pickedCharacterElement.remove();
-        return this.flags.pickedCharacterElement = null;
-      }
+    }
+    if (this.flags.pickedCharacterElement !== null) {
+      this.flags.pickedCharacterElement.remove();
+      return this.flags.pickedCharacterElement = null;
     }
   };
 
@@ -658,7 +696,32 @@ GameManager = (function() {
   };
 
   GameManager.init = function() {
-    this.gameElement = $('<div>').attr('id', this.ID).on('mousemove', this.onMouseMove.bind(this)).on('mouseup', this.onMouseUp.bind(this)).on('mousedown', this.onMouseDown.bind(this)).on('mouseleave', this.onMouseLeave.bind(this)).css({
+    $(document).on('contextmenu', function() {
+      return false;
+    });
+    this.gameElement = $('<div>').attr('id', this.ID).on('mousemove', this.onMouseMove.bind(this)).on('mouseup', (function(_this) {
+      return function(evt) {
+        switch (evt.which) {
+          case 1:
+            return _this.onMouseLeftUp.bind(_this)(evt);
+          case 2:
+            return _this.onMouseMiddleUp.bind(_this)(evt);
+          case 3:
+            return _this.onMouseRightUp.bind(_this)(evt);
+        }
+      };
+    })(this)).on('mousedown', (function(_this) {
+      return function(evt) {
+        switch (evt.which) {
+          case 1:
+            return _this.onMouseLeftDown.bind(_this)(evt);
+          case 2:
+            return _this.onMouseMiddleDown.bind(_this)(evt);
+          case 3:
+            return _this.onMouseRightDown.bind(_this)(evt);
+        }
+      };
+    })(this)).on('mouseleave', this.onMouseLeave.bind(this)).css({
       width: 1200,
       height: 800
     });
@@ -780,7 +843,13 @@ Panel = (function() {
       width: 90,
       height: 90,
       "background-image": 'url(' + this.object.getBaseImage() + ')'
-    })).on('mousedown', this.onIconDragStart.bind(this));
+    }).on('mousedown', (function(_this) {
+      return function(evt) {
+        if (evt.which === 1) {
+          return _this.onIconDragStart.bind(_this)(evt);
+        }
+      };
+    })(this)));
     $(this.divObject).append($('<div>').addClass('label_level').css({
       top: 0,
       left: 0,

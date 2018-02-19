@@ -16,7 +16,9 @@ class Cell
 
     @initElements(borderSize)
 
-  onMouseUp:(evt)->
+  onMouseMiddleUp:(evt)->
+  onMouseRightUp:(evt)->
+  onMouseLeftUp:(evt)->
     console.log('cell mouseup')
     # キャラクター出撃モードで、キャラクターがピックされている場合
     if GameManager.flags.pickedCharacterObject isnt null and @isDroppableCharacter()
@@ -31,11 +33,14 @@ class Cell
       GameManager.flags.pickedCharacterElement = null
     CharacterPalletManager.redraw()
 
-  onMouseDown:(evt)->
+  onMouseLeftDown:(evt)->
     # 仮置きがあった場合はつかむ
     if @tempObject isnt null
       CharacterPalletManager.pickCharacter @tempObject
       @tempObject = null
+
+  onMouseMiddleDown:(evt)->
+  onMouseRightDown:(evt)->
 
   onMouseMove:(evt)->
   onMouseLeave:(evt)->
@@ -66,6 +71,7 @@ class Cell
       width:@constructor.SIZE_X
       height:@constructor.SIZE_Y
     })
+
     cssPos = 
       left:0
       top:0
@@ -75,8 +81,18 @@ class Cell
     @elements.collision  = $('<div>').addClass('cell cell_collision')
                            .appendTo(@elements.mother).css(cssPos).css(cssSize)
                            .on('mousemove', @onMouseMove.bind(@))
-                           .on('mouseup', @onMouseUp.bind(@))
-                           .on('mousedown', @onMouseDown.bind(@))
+                           .on('mouseup', (evt)=>
+                              switch evt.which
+                                when 1 then @onMouseLeftUp.bind(@)(evt)
+                                when 2 then @onMouseMiddleUp.bind(@)(evt)
+                                when 3 then @onMouseRightUp.bind(@)(evt)
+                            )
+                           .on('mousedown', (evt)=>
+                              switch evt.which
+                                when 1 then @onMouseLeftDown.bind(@)(evt)
+                                when 2 then @onMouseMiddleDown.bind(@)(evt)
+                                when 3 then @onMouseRightDown.bind(@)(evt)
+                            )
                            .on('mouseleave', @onMouseLeave.bind(@))
     @elements.base       = $('<img>').addClass('cell cell_base')
                            .appendTo(@elements.mother).css(cssPos).css(cssSize)

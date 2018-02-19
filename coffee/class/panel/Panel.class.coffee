@@ -26,7 +26,7 @@ class Panel
     return if @object.isInField()
 
     CharacterPalletManager.pickCharacter @object
-    
+
   draw:->
     $(@divObject).find('*').remove()
 
@@ -60,8 +60,10 @@ class Panel
         width: 90
         height: 90
         "background-image": 'url('+@object.getBaseImage()+')'
-      })
-    ).on('mousedown', @onIconDragStart.bind(@))
+      }).on('mousedown', (evt)=>
+        @onIconDragStart.bind(@)(evt) if evt.which is 1
+      )
+    )
 
     # レベルラベル
     $(@divObject).append(
