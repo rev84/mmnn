@@ -20,8 +20,10 @@ class GameManager
     pickedCharacterElement : null
     # 戦闘モードに遷移していい状態であるか
     isEnableBattle : true
-    # 現在、キャラクター出撃モードであるか
+    # 現在、戦闘モードであるか
     isBattle : false
+    # 戦闘モードでキャラクターを動かしている場合、現在対象になっているセル
+    movePickCell : null
 
   # アニメーション関係
   @POSITION =
@@ -36,27 +38,27 @@ class GameManager
   @ANIMATION_MSEC = 500
 
   @onMouseMiddleDown:(evt)->
-    return true unless @isControllable()
+    return unless @isControllable()
     true
 
   @onMouseMiddleUp:(evt)->
-    return true unless @isControllable()
+    return unless @isControllable()
     true
 
   @onMouseRightDown:(evt)->
-    return true unless @isControllable()
+    return unless @isControllable()
     true
 
   @onMouseRightUp:(evt)->
-    return true unless @isControllable()
+    return unless @isControllable()
     true
 
   @onMouseLeftDown:(evt)->
-    return true unless @isControllable()
+    return unless @isControllable()
     true
 
   @onMouseLeftUp:(evt)->
-    return true unless @isControllable()
+    return unless @isControllable()
     console.log('game mouseup')
     # 出撃選択を解除
     if @flags.pickedCharacterObject isnt null
@@ -67,11 +69,11 @@ class GameManager
     true
 
   @onMouseLeave:(evt)->
-    return true unless @isControllable()
+    return unless @isControllable()
     true
 
   @onMouseMove:(evt)->
-    return true unless @isControllable()
+    return unless @isControllable()
     # マウスの位置は常に記録
     [@mousePos.x, @mousePos.y] = Utl.e2localPos evt
 
@@ -103,6 +105,7 @@ class GameManager
     @flags.pickedCharacterObject = null
     @flags.pickedCharacterElement.remove() if @flags.pickedCharacterElement isnt null
     @flags.pickedCharacterElement = null
+    @switchTempAll()
 
     # 戦闘モードにする
     @flags.isBattle = true
@@ -119,6 +122,7 @@ class GameManager
     @flags.pickedCharacterObject = null
     @flags.pickedCharacterElement.remove() if @flags.pickedCharacterElement isnt null
     @flags.pickedCharacterElement = null
+    @switchTempAll()
 
     # 戦闘モードを切る
     @flags.isBattle = false
@@ -220,6 +224,7 @@ class GameManager
           hp : null
           items : []
           inField : false
+          moved: false
 
       @characters[characterId] = new window[className](params)
     for characterId, characterObject of @characters
@@ -233,6 +238,33 @@ class GameManager
     @controllable = !!bool
 
   @switchTempAll:->
-    $.each @cells, ->
+    $.each FieldManager.cells, ->
       $.each @, ->
         @switchTemp()
+
+  @movePick:(cell)->
+    @flags.movePickCell = cell
+    movableMap = Utl.array2dFill(FieldManager.CELL_X, FieldManager.CELL_Y, null)
+    movableMap[cell.xIndex][cell.yIndex] = 0
+    while !allCellChecked
+      Utl.dumpNumArray2d movableMap
+      allCellChecked = true
+      for body, x in movableMap
+        for value, y in body
+          # まだ未調査のマス
+          if value is null
+            # 進入不可でないなら、未調査であっては終われない
+            if FieldManager.cells[x][y].isEnterable()
+              allCellChecked = false
+          # 調査済みのマス
+          else
+            for [xPlus, yPlus] in [[-1, 0], [1, 0], [0, -1], [0, 1]]
+              # 調査する
+              continue unless 0 <= x+xPlus < FieldManager.cells.length
+              continue unless 0 <= y+yPlus < FieldManager.cells[0].length
+              if FieldManager.cells[x+xPlus][y+yPlus].isEnterable() and (movableMap[x+xPlus][y+yPlus] is null or value+1 < movableMap[x+xPlus][y+yPlus])
+                movableMap[x+xPlus][y+yPlus] = value+1
+    for body, x in movableMap
+      for value, y in body
+        if value isnt null and value <= cell.object.getMove()
+          FieldManager.cells[x][y].viewMovable()

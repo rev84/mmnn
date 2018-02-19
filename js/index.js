@@ -133,6 +133,7 @@ CharacterBase = (function(superClass) {
     this.hp = params.hp;
     this.items = params.items;
     this.inField = params.inField;
+    this.moved = params.moved;
   }
 
   CharacterBase.prototype.getCharacterId = function() {
@@ -150,6 +151,14 @@ CharacterBase = (function(superClass) {
   CharacterBase.prototype.setInField = function(isInField) {
     this.inField = !!isInField;
     return CharacterPalletManager.redraw(this);
+  };
+
+  CharacterBase.prototype.isMoved = function() {
+    return this.moved;
+  };
+
+  CharacterBase.prototype.setMoved = function(bool) {
+    return this.moved = !!bool;
   };
 
   return CharacterBase;
@@ -181,71 +190,59 @@ Cell = (function() {
 
   Cell.prototype.onMouseMiddleUp = function(evt) {
     if (!GameManager.isControllable()) {
-      return true;
+      return;
     }
     return true;
   };
 
   Cell.prototype.onMouseRightUp = function(evt) {
     if (!GameManager.isControllable()) {
-      return true;
+      return;
     }
     return true;
   };
 
   Cell.prototype.onMouseLeftUp = function(evt) {
     if (!GameManager.isControllable()) {
-      return true;
+      return;
     }
-    console.log('cell mouseup');
-    if (GameManager.flags.pickedCharacterObject !== null && this.isDroppableCharacter()) {
-      FieldManager.removeAllTempObject(this.tempObject);
-      this.setTempObject(GameManager.flags.pickedCharacterObject);
-    }
-    GameManager.flags.pickedCharacterObject = null;
-    if (GameManager.flags.pickedCharacterElement !== null) {
-      GameManager.flags.pickedCharacterElement.remove();
-      GameManager.flags.pickedCharacterElement = null;
-    }
-    CharacterPalletManager.redraw();
-    return true;
+    this.tryCharacterPut(evt);
+    return this.tryMovePick(evt);
   };
 
   Cell.prototype.onMouseLeftDown = function(evt) {
     if (!GameManager.isControllable()) {
-      return true;
+      return;
     }
     if (this.tempObject !== null) {
       CharacterPalletManager.pickCharacter(this.tempObject);
-      this.tempObject = null;
+      return this.tempObject = null;
     }
-    return true;
   };
 
   Cell.prototype.onMouseMiddleDown = function(evt) {
     if (!GameManager.isControllable()) {
-      return true;
+
     }
-    return true;
   };
 
   Cell.prototype.onMouseRightDown = function(evt) {
     if (!GameManager.isControllable()) {
-      return true;
+      return;
     }
     return true;
   };
 
   Cell.prototype.onMouseMove = function(evt) {
     if (!GameManager.isControllable()) {
-      return true;
+      return;
     }
     return true;
   };
 
   Cell.prototype.onMouseLeave = function(evt) {
     if (!GameManager.isControllable()) {
-      return true;
+      return;
     }
     return true;
   };
@@ -309,6 +306,7 @@ Cell = (function() {
         }
       };
     })(this)).on('mouseleave', this.onMouseLeave.bind(this)).appendTo(this.elements.mother);
+    this.elements.collision.get(0).addEventListener("mouseup", this.onMouseLeftUp.bind(this), false);
     this.elements.base = $('<img>').addClass('cell cell_base').css(cssPos).css(cssSize).appendTo(this.elements.mother);
     this.elements.object = $('<img>').addClass('cell cell_object').css(cssPos).css(cssSize).appendTo(this.elements.mother);
     this.elements.attackable = $('<img>').addClass('cell cell_attackable').css(cssPos).appendTo(this.elements.mother);
@@ -331,6 +329,48 @@ Cell = (function() {
 
   Cell.prototype.isDroppableCharacter = function() {
     return this.xIndex <= this.constructor.PUT_FIELD_MAX_X && this.object === null;
+  };
+
+  Cell.prototype.isEnterable = function() {
+    return this.object === null;
+  };
+
+  Cell.prototype.tryCharacterPut = function(evt) {
+    if (GameManager.flags.pickedCharacterObject === null && GameManager.flags.pickedCharacterElement === null) {
+      return;
+    }
+    if (GameManager.flags.pickedCharacterObject !== null && this.isDroppableCharacter()) {
+      FieldManager.removeAllTempObject(this.tempObject);
+      this.setTempObject(GameManager.flags.pickedCharacterObject);
+    }
+    GameManager.flags.pickedCharacterObject = null;
+    if (GameManager.flags.pickedCharacterElement !== null) {
+      GameManager.flags.pickedCharacterElement.remove();
+      GameManager.flags.pickedCharacterElement = null;
+    }
+    return CharacterPalletManager.redraw();
+  };
+
+  Cell.prototype.tryMovePick = function(evt) {
+    if (!GameManager.flags.isBattle) {
+      return;
+    }
+    if (GameManager.flags.movePickCell !== null) {
+      return;
+    }
+    if (!this.object.isCharacterObject()) {
+      return;
+    }
+    if (this.object.isMoved()) {
+      return;
+    }
+    return GameManager.movePick(this);
+  };
+
+  Cell.prototype.viewMovable = function() {
+    return this.elements.base.css({
+      'background-color': '#ff0000'
+    });
   };
 
   return Cell;
@@ -687,7 +727,8 @@ GameManager = (function() {
     pickedCharacterObject: null,
     pickedCharacterElement: null,
     isEnableBattle: true,
-    isBattle: false
+    isBattle: false,
+    movePickCell: null
   };
 
   GameManager.POSITION = {
@@ -707,42 +748,42 @@ GameManager = (function() {
 
   GameManager.onMouseMiddleDown = function(evt) {
     if (!this.isControllable()) {
-      return true;
+      return;
     }
     return true;
   };
 
   GameManager.onMouseMiddleUp = function(evt) {
     if (!this.isControllable()) {
-      return true;
+      return;
     }
     return true;
   };
 
   GameManager.onMouseRightDown = function(evt) {
     if (!this.isControllable()) {
-      return true;
+      return;
     }
     return true;
   };
 
   GameManager.onMouseRightUp = function(evt) {
     if (!this.isControllable()) {
-      return true;
+      return;
     }
     return true;
   };
 
   GameManager.onMouseLeftDown = function(evt) {
     if (!this.isControllable()) {
-      return true;
+      return;
     }
     return true;
   };
 
   GameManager.onMouseLeftUp = function(evt) {
     if (!this.isControllable()) {
-      return true;
+      return;
     }
     console.log('game mouseup');
     if (this.flags.pickedCharacterObject !== null) {
@@ -757,7 +798,7 @@ GameManager = (function() {
 
   GameManager.onMouseLeave = function(evt) {
     if (!this.isControllable()) {
-      return true;
+      return;
     }
     return true;
   };
@@ -765,7 +806,7 @@ GameManager = (function() {
   GameManager.onMouseMove = function(evt) {
     var ref;
     if (!this.isControllable()) {
-      return true;
+      return;
     }
     ref = Utl.e2localPos(evt), this.mousePos.x = ref[0], this.mousePos.y = ref[1];
     if (this.flags.pickedCharacterElement !== null) {
@@ -797,6 +838,7 @@ GameManager = (function() {
       this.flags.pickedCharacterElement.remove();
     }
     this.flags.pickedCharacterElement = null;
+    this.switchTempAll();
     return this.flags.isBattle = true;
   };
 
@@ -814,6 +856,7 @@ GameManager = (function() {
       this.flags.pickedCharacterElement.remove();
     }
     this.flags.pickedCharacterElement = null;
+    this.switchTempAll();
     return this.flags.isBattle = false;
   };
 
@@ -928,7 +971,8 @@ GameManager = (function() {
           level: 1,
           hp: null,
           items: [],
-          inField: false
+          inField: false,
+          moved: false
         };
       }
       this.characters[characterId] = new window[className](params);
@@ -950,11 +994,65 @@ GameManager = (function() {
   };
 
   GameManager.switchTempAll = function() {
-    return $.each(this.cells, function() {
+    return $.each(FieldManager.cells, function() {
       return $.each(this, function() {
         return this.switchTemp();
       });
     });
+  };
+
+  GameManager.movePick = function(cell) {
+    var allCellChecked, body, j, l, len, len1, len2, len3, movableMap, o, q, ref, ref1, ref2, ref3, results, value, x, xPlus, y, yPlus;
+    this.flags.movePickCell = cell;
+    movableMap = Utl.array2dFill(FieldManager.CELL_X, FieldManager.CELL_Y, null);
+    movableMap[cell.xIndex][cell.yIndex] = 0;
+    while (!allCellChecked) {
+      Utl.dumpNumArray2d(movableMap);
+      allCellChecked = true;
+      for (x = j = 0, len = movableMap.length; j < len; x = ++j) {
+        body = movableMap[x];
+        for (y = l = 0, len1 = body.length; l < len1; y = ++l) {
+          value = body[y];
+          if (value === null) {
+            if (FieldManager.cells[x][y].isEnterable()) {
+              allCellChecked = false;
+            }
+          } else {
+            ref = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+            for (o = 0, len2 = ref.length; o < len2; o++) {
+              ref1 = ref[o], xPlus = ref1[0], yPlus = ref1[1];
+              if (!((0 <= (ref2 = x + xPlus) && ref2 < FieldManager.cells.length))) {
+                continue;
+              }
+              if (!((0 <= (ref3 = y + yPlus) && ref3 < FieldManager.cells[0].length))) {
+                continue;
+              }
+              if (FieldManager.cells[x + xPlus][y + yPlus].isEnterable() && (movableMap[x + xPlus][y + yPlus] === null || value + 1 < movableMap[x + xPlus][y + yPlus])) {
+                movableMap[x + xPlus][y + yPlus] = value + 1;
+              }
+            }
+          }
+        }
+      }
+    }
+    results = [];
+    for (x = q = 0, len3 = movableMap.length; q < len3; x = ++q) {
+      body = movableMap[x];
+      results.push((function() {
+        var len4, r, results1;
+        results1 = [];
+        for (y = r = 0, len4 = body.length; r < len4; y = ++r) {
+          value = body[y];
+          if (value !== null && value <= cell.object.getMove()) {
+            results1.push(FieldManager.cells[x][y].viewMovable());
+          } else {
+            results1.push(void 0);
+          }
+        }
+        return results1;
+      })());
+    }
+    return results;
   };
 
   return GameManager;
@@ -986,16 +1084,16 @@ Panel = (function() {
 
   Panel.prototype.onIconDragStart = function(evt) {
     if (!GameManager.isControllable()) {
-      return true;
+      return;
     }
     if (!this.isCharacterPallet) {
-      return true;
+      return;
     }
     if (!GameManager.flags.isCharacterPick) {
-      return true;
+      return;
     }
     if (!this.object.isCharacterObject()) {
-      return true;
+      return;
     }
     if (this.object.isInField()) {
       return true;
@@ -1603,6 +1701,38 @@ Utl = (function() {
     return [e.clientX - boundingClientRect.left, e.clientY - boundingClientRect.top];
   };
 
+  Utl.dumpNumArray2d = function(ary) {
+    var j, l, ref, ref1, res, x, y;
+    res = '';
+    for (y = j = 0, ref = ary[0].length; 0 <= ref ? j < ref : j > ref; y = 0 <= ref ? ++j : --j) {
+      for (x = l = 0, ref1 = ary.length; 0 <= ref1 ? l < ref1 : l > ref1; x = 0 <= ref1 ? ++l : --l) {
+        if (ary[x][y] === null) {
+          res += '-';
+        } else if (ary[x][y] === 10) {
+          res += 'A';
+        } else if (ary[x][y] === 11) {
+          res += 'B';
+        } else if (ary[x][y] === 12) {
+          res += 'C';
+        } else if (ary[x][y] === 13) {
+          res += 'D';
+        } else if (ary[x][y] === 14) {
+          res += 'E';
+        } else if (ary[x][y] === 15) {
+          res += 'F';
+        } else if (ary[x][y] === 16) {
+          res += 'G';
+        } else if (ary[x][y] === 17) {
+          res += 'H';
+        } else {
+          res += '' + ary[x][y];
+        }
+      }
+      res += "\n";
+    }
+    return console.log(res);
+  };
+
   return Utl;
 
 })();
@@ -1647,7 +1777,7 @@ MenuManager = (function() {
 
   MenuManager.onClickCharacterPick = function(evt) {
     if (!GameManager.isControllable()) {
-      return true;
+      return;
     }
     GameManager.doCharacterPick();
     return true;
@@ -1655,7 +1785,7 @@ MenuManager = (function() {
 
   MenuManager.onClickBattle = function(evt) {
     if (!GameManager.isControllable()) {
-      return true;
+      return;
     }
     GameManager.doBattle();
     return true;

@@ -16,14 +16,14 @@ class Panel
 
   # アイコンがドラッグ開始された時
   onIconDragStart:(evt)->
-    return true unless GameManager.isControllable()
+    return unless GameManager.isControllable()
 
     # キャラクター出撃に使っていいパネルではないなら帰る
-    return true unless @isCharacterPallet
+    return unless @isCharacterPallet
     # キャラクター出撃モードではないので帰る
-    return true unless GameManager.flags.isCharacterPick
+    return unless GameManager.flags.isCharacterPick
     # キャラクターではないので帰る
-    return true unless @object.isCharacterObject()
+    return unless @object.isCharacterObject()
     # 既に出撃中なので帰る
     return true if @object.isInField()
 

@@ -41,6 +41,7 @@
 .picked_character {
   position: absolute;
   z-index: 100;
+  pointer-events: none;
 }
 .panel, .panel > * {
   position: absolute;

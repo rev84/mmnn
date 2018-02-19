@@ -39,14 +39,14 @@ class MenuManager
 
   # 出撃
   @onClickCharacterPick:(evt)->
-    return true unless GameManager.isControllable()
+    return unless GameManager.isControllable()
 
     GameManager.doCharacterPick()
     true
 
   # 出撃
   @onClickBattle:(evt)->
-    return true unless GameManager.isControllable()
+    return unless GameManager.isControllable()
 
     GameManager.doBattle()
     true

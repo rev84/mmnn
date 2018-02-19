@@ -17,7 +17,11 @@ class CharacterBase extends ObjectBase
     # 装備しているアイテム
     @items = params.items
 
+    # 出撃中であるか
     @inField = params.inField
+
+    # 行動済みであるか
+    @moved = params.moved
 
   getCharacterId:->
     @constructor.characterId
@@ -31,3 +35,9 @@ class CharacterBase extends ObjectBase
   setInField:(isInField)->
     @inField = !!isInField
     CharacterPalletManager.redraw @
+
+  isMoved:->
+    @moved
+
+  setMoved:(bool)->
+    @moved = !!bool

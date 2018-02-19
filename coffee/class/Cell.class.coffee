@@ -17,53 +17,41 @@ class Cell
     @initElements(borderSize)
 
   onMouseMiddleUp:(evt)->
-    return true unless GameManager.isControllable()
+    return unless GameManager.isControllable()
     true
 
   onMouseRightUp:(evt)->
-    return true unless GameManager.isControllable()
+    return unless GameManager.isControllable()
     true
 
   onMouseLeftUp:(evt)->
-    return true unless GameManager.isControllable()
+    return unless GameManager.isControllable()
 
-    console.log('cell mouseup')
-    # キャラクター出撃モードで、キャラクターがピックされている場合
-    if GameManager.flags.pickedCharacterObject isnt null and @isDroppableCharacter()
-      # ここに置いてあった仮キャラを全削除
-      FieldManager.removeAllTempObject @tempObject
-      # このセルに仮キャラを配置する
-      @setTempObject GameManager.flags.pickedCharacterObject
-    # 出撃選択を解除
-    GameManager.flags.pickedCharacterObject = null
-    if GameManager.flags.pickedCharacterElement isnt null
-      GameManager.flags.pickedCharacterElement.remove()
-      GameManager.flags.pickedCharacterElement = null
-    CharacterPalletManager.redraw()
-    true
+    # キャラを仮置きするトライ
+    @tryCharacterPut(evt)
+    # キャラを移動させるトライ
+    @tryMovePick(evt)
 
   onMouseLeftDown:(evt)->
-    return true unless GameManager.isControllable()
+    return unless GameManager.isControllable()
     # 仮置きがあった場合はつかむ
     if @tempObject isnt null
       CharacterPalletManager.pickCharacter @tempObject
       @tempObject = null
-    true
 
   onMouseMiddleDown:(evt)->
-    return true unless GameManager.isControllable()
-    true
+    return unless GameManager.isControllable()
 
   onMouseRightDown:(evt)->
-    return true unless GameManager.isControllable()
+    return unless GameManager.isControllable()
     true
 
   onMouseMove:(evt)->
-    return true unless GameManager.isControllable()
+    return unless GameManager.isControllable()
     true
 
   onMouseLeave:(evt)->
-    return true unless GameManager.isControllable()
+    return unless GameManager.isControllable()
     true
 
   setTempObject:(object)->
@@ -116,6 +104,7 @@ class Cell
                             )
                            .on('mouseleave', @onMouseLeave.bind(@))
                            .appendTo(@elements.mother)
+    @elements.collision.get(0).addEventListener("mouseup", @onMouseLeftUp.bind(@), false)
     @elements.base       = $('<img>').addClass('cell cell_base')
                            .css(cssPos).css(cssSize)
                            .appendTo(@elements.mother)
@@ -143,3 +132,40 @@ class Cell
 
   isDroppableCharacter:->
     @xIndex <= @constructor.PUT_FIELD_MAX_X and @object is null
+
+  # 進入可能か
+  isEnterable:->
+    @object is null
+
+  tryCharacterPut:(evt)->
+    return if GameManager.flags.pickedCharacterObject is null and GameManager.flags.pickedCharacterElement is null
+
+    # キャラクター出撃モードで、キャラクターがピックされている場合
+    if GameManager.flags.pickedCharacterObject isnt null and @isDroppableCharacter()
+      # ここに置いてあった仮キャラを全削除
+      FieldManager.removeAllTempObject @tempObject
+      # このセルに仮キャラを配置する
+      @setTempObject GameManager.flags.pickedCharacterObject
+    # 出撃選択を解除
+    GameManager.flags.pickedCharacterObject = null
+    if GameManager.flags.pickedCharacterElement isnt null
+      GameManager.flags.pickedCharacterElement.remove()
+      GameManager.flags.pickedCharacterElement = null
+    CharacterPalletManager.redraw()
+
+  tryMovePick:(evt)->
+    # 戦闘モード時のみ
+    return unless GameManager.flags.isBattle
+    # 既に移動させたいキャラを選んでいる場合はダメ
+    return if GameManager.flags.movePickCell isnt null
+    # キャラクターが置かれている場合のみ
+    return unless @object.isCharacterObject()
+    # 行動済みでない場合のみ
+    return if @object.isMoved()
+
+    GameManager.movePick @
+
+  viewMovable:->
+    @elements.base.css({
+      'background-color': '#ff0000'
+    })

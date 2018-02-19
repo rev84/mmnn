@@ -448,3 +448,29 @@ class Utl
     #[e.clientX - boundingClientRect.left, boundingClientRect.height - (e.clientY - boundingClientRect.top)]
     [e.clientX - boundingClientRect.left, e.clientY - boundingClientRect.top]
     
+  @dumpNumArray2d:(ary)->
+    res = ''
+    for y in [0...ary[0].length]
+      for x in [0...ary.length]
+        if ary[x][y] is null
+          res += '-'
+        else if ary[x][y] is 10
+          res += 'A'
+        else if ary[x][y] is 11
+          res += 'B'
+        else if ary[x][y] is 12
+          res += 'C'
+        else if ary[x][y] is 13
+          res += 'D'
+        else if ary[x][y] is 14
+          res += 'E'
+        else if ary[x][y] is 15
+          res += 'F'
+        else if ary[x][y] is 16
+          res += 'G'
+        else if ary[x][y] is 17
+          res += 'H'
+        else
+          res += ''+ary[x][y]
+      res += "\n"
+    console.log(res)
