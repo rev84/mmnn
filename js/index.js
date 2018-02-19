@@ -181,19 +181,21 @@ Cell = (function() {
 
   Cell.prototype.onMouseMiddleUp = function(evt) {
     if (!GameManager.isControllable()) {
-
+      return true;
     }
+    return true;
   };
 
   Cell.prototype.onMouseRightUp = function(evt) {
     if (!GameManager.isControllable()) {
-
+      return true;
     }
+    return true;
   };
 
   Cell.prototype.onMouseLeftUp = function(evt) {
     if (!GameManager.isControllable()) {
-      return;
+      return true;
     }
     console.log('cell mouseup');
     if (GameManager.flags.pickedCharacterObject !== null && this.isDroppableCharacter()) {
@@ -205,41 +207,47 @@ Cell = (function() {
       GameManager.flags.pickedCharacterElement.remove();
       GameManager.flags.pickedCharacterElement = null;
     }
-    return CharacterPalletManager.redraw();
+    CharacterPalletManager.redraw();
+    return true;
   };
 
   Cell.prototype.onMouseLeftDown = function(evt) {
     if (!GameManager.isControllable()) {
-      return;
+      return true;
     }
     if (this.tempObject !== null) {
       CharacterPalletManager.pickCharacter(this.tempObject);
-      return this.tempObject = null;
+      this.tempObject = null;
     }
+    return true;
   };
 
   Cell.prototype.onMouseMiddleDown = function(evt) {
     if (!GameManager.isControllable()) {
-
+      return true;
     }
+    return true;
   };
 
   Cell.prototype.onMouseRightDown = function(evt) {
     if (!GameManager.isControllable()) {
-
+      return true;
     }
+    return true;
   };
 
   Cell.prototype.onMouseMove = function(evt) {
     if (!GameManager.isControllable()) {
-
+      return true;
     }
+    return true;
   };
 
   Cell.prototype.onMouseLeave = function(evt) {
     if (!GameManager.isControllable()) {
-
+      return true;
     }
+    return true;
   };
 
   Cell.prototype.setTempObject = function(object) {
@@ -278,7 +286,7 @@ Cell = (function() {
       width: this.constructor.SIZE_X,
       height: this.constructor.SIZE_Y
     };
-    this.elements.collision = $('<div>').addClass('cell cell_collision').appendTo(this.elements.mother).css(cssPos).css(cssSize).on('mousemove', this.onMouseMove.bind(this)).on('mouseup', (function(_this) {
+    this.elements.collision = $('<div>').addClass('cell cell_collision').css(cssPos).css(cssSize).on('mousemove', this.onMouseMove.bind(this)).on('mouseup', (function(_this) {
       return function(evt) {
         switch (evt.which) {
           case 1:
@@ -300,10 +308,10 @@ Cell = (function() {
             return _this.onMouseRightDown.bind(_this)(evt);
         }
       };
-    })(this)).on('mouseleave', this.onMouseLeave.bind(this));
-    this.elements.base = $('<img>').addClass('cell cell_base').appendTo(this.elements.mother).css(cssPos).css(cssSize);
-    this.elements.object = $('<img>').addClass('cell cell_object').appendTo(this.elements.mother).css(cssPos).css(cssSize);
-    this.elements.attackable = $('<img>').addClass('cell cell_attackable').appendTo(this.elements.mother).css(cssPos);
+    })(this)).on('mouseleave', this.onMouseLeave.bind(this)).appendTo(this.elements.mother);
+    this.elements.base = $('<img>').addClass('cell cell_base').css(cssPos).css(cssSize).appendTo(this.elements.mother);
+    this.elements.object = $('<img>').addClass('cell cell_object').css(cssPos).css(cssSize).appendTo(this.elements.mother);
+    this.elements.attackable = $('<img>').addClass('cell cell_attackable').css(cssPos).appendTo(this.elements.mother);
     return $(this.elements.mother).appendTo(this.parentElement);
   };
 
@@ -674,7 +682,7 @@ GameManager = (function() {
   };
 
   GameManager.flags = {
-    isEnableCharacterPick: false,
+    isEnableCharacterPick: true,
     isCharacterPick: false,
     pickedCharacterObject: null,
     pickedCharacterElement: null,
@@ -699,37 +707,42 @@ GameManager = (function() {
 
   GameManager.onMouseMiddleDown = function(evt) {
     if (!this.isControllable()) {
-
+      return true;
     }
+    return true;
   };
 
   GameManager.onMouseMiddleUp = function(evt) {
     if (!this.isControllable()) {
-
+      return true;
     }
+    return true;
   };
 
   GameManager.onMouseRightDown = function(evt) {
     if (!this.isControllable()) {
-
+      return true;
     }
+    return true;
   };
 
   GameManager.onMouseRightUp = function(evt) {
     if (!this.isControllable()) {
-
+      return true;
     }
+    return true;
   };
 
   GameManager.onMouseLeftDown = function(evt) {
     if (!this.isControllable()) {
-
+      return true;
     }
+    return true;
   };
 
   GameManager.onMouseLeftUp = function(evt) {
     if (!this.isControllable()) {
-      return;
+      return true;
     }
     console.log('game mouseup');
     if (this.flags.pickedCharacterObject !== null) {
@@ -737,25 +750,28 @@ GameManager = (function() {
     }
     if (this.flags.pickedCharacterElement !== null) {
       this.flags.pickedCharacterElement.remove();
-      return this.flags.pickedCharacterElement = null;
+      this.flags.pickedCharacterElement = null;
     }
+    return true;
   };
 
   GameManager.onMouseLeave = function(evt) {
     if (!this.isControllable()) {
-
+      return true;
     }
+    return true;
   };
 
   GameManager.onMouseMove = function(evt) {
     var ref;
     if (!this.isControllable()) {
-      return;
+      return true;
     }
     ref = Utl.e2localPos(evt), this.mousePos.x = ref[0], this.mousePos.y = ref[1];
     if (this.flags.pickedCharacterElement !== null) {
-      return this.followPickedCharacterElement(evt);
+      this.followPickedCharacterElement(evt);
     }
+    return true;
   };
 
   GameManager.followPickedCharacterElement = function(evt) {
@@ -767,11 +783,14 @@ GameManager = (function() {
     }
   };
 
-  GameManager.doBattle = function() {
+  GameManager.doBattle = function(isSoon) {
+    if (isSoon == null) {
+      isSoon = false;
+    }
     if (!this.flags.isEnableBattle) {
       return;
     }
-    this.partsAnimation(this.POSITION.BATTLE);
+    this.partsAnimation(this.POSITION.BATTLE, isSoon);
     this.flags.isCharacterPick = false;
     this.flags.pickedCharacterObject = null;
     if (this.flags.pickedCharacterElement !== null) {
@@ -781,11 +800,14 @@ GameManager = (function() {
     return this.flags.isBattle = true;
   };
 
-  GameManager.doCharacterPick = function() {
+  GameManager.doCharacterPick = function(isSoon) {
+    if (isSoon == null) {
+      isSoon = false;
+    }
     if (!this.flags.isEnableCharacterPick) {
       return;
     }
-    this.partsAnimation(this.POSITION.CHARACTER_PICK);
+    this.partsAnimation(this.POSITION.CHARACTER_PICK, isSoon);
     this.flags.isCharacterPick = true;
     this.flags.pickedCharacterObject = null;
     if (this.flags.pickedCharacterElement !== null) {
@@ -795,37 +817,43 @@ GameManager = (function() {
     return this.flags.isBattle = false;
   };
 
-  GameManager.partsAnimation = function(ary) {
-    var id, pos;
+  GameManager.partsAnimation = function(ary, isSoon) {
+    var animationMsec, id, pos;
+    if (isSoon == null) {
+      isSoon = false;
+    }
     this.changeControllable(false);
+    animationMsec = isSoon ? 0 : this.ANIMATION_MSEC;
     for (id in ary) {
       pos = ary[id];
       if (pos === null) {
-        if (!$('#' + id).hasClass('no_display')) {
-          $('#' + id).fadeOut(this.ANIMATION_MSEC, function() {
-            return $(this).addClass('no_display');
-          });
-        }
+        $('#' + id).slideUp(animationMsec);
+
+        /*
+        if isSoon
+          $('#'+id).css('display', 'none')
+        else
+          $('#'+id).slideUp(@ANIMATION_MSEC)
+         */
       } else {
-        if ($('#' + id).hasClass('no_display')) {
-          $('#' + id).fadeIn(this.ANIMATION_MSEC);
-        }
         $('#' + id).animate({
           left: pos[0],
           top: pos[1]
-        }, {
-          duration: this.ANIMATION_MSEC,
-          complete: function() {
-            return $(this).removeClass('no_display');
-          }
-        });
+        }, animationMsec).slideDown(animationMsec);
+
+        /*
+        if isSoon
+          $('#'+id).css('display', 'block').css({left: pos[0], top: pos[1]})
+        else
+          $('#'+id).slideDown(@ANIMATION_MSEC).css({left: pos[0], top: pos[1]})
+         */
       }
     }
     return setTimeout((function(_this) {
       return function() {
         return _this.changeControllable(true);
       };
-    })(this), this.ANIMATION_MSEC);
+    })(this), animationMsec);
   };
 
   GameManager.init = function() {
@@ -862,7 +890,7 @@ GameManager = (function() {
     this.initField(null);
     this.initMenu(null);
     this.gameElement.appendTo('body');
-    return this.doBattle();
+    return this.doBattle(true);
   };
 
   GameManager.initMenu = function(savedata) {
@@ -921,6 +949,14 @@ GameManager = (function() {
     return this.controllable = !!bool;
   };
 
+  GameManager.switchTempAll = function() {
+    return $.each(this.cells, function() {
+      return $.each(this, function() {
+        return this.switchTemp();
+      });
+    });
+  };
+
   return GameManager;
 
 })();
@@ -950,21 +986,22 @@ Panel = (function() {
 
   Panel.prototype.onIconDragStart = function(evt) {
     if (!GameManager.isControllable()) {
-      return;
+      return true;
     }
     if (!this.isCharacterPallet) {
-      return;
+      return true;
     }
     if (!GameManager.flags.isCharacterPick) {
-      return;
+      return true;
     }
     if (!this.object.isCharacterObject()) {
-      return;
+      return true;
     }
     if (this.object.isInField()) {
-      return;
+      return true;
     }
-    return CharacterPalletManager.pickCharacter(this.object);
+    CharacterPalletManager.pickCharacter(this.object);
+    return true;
   };
 
   Panel.prototype.draw = function() {
@@ -1000,8 +1037,9 @@ Panel = (function() {
     }).on('mousedown', (function(_this) {
       return function(evt) {
         if (evt.which === 1) {
-          return _this.onIconDragStart.bind(_this)(evt);
+          _this.onIconDragStart.bind(_this)(evt);
         }
+        return true;
       };
     })(this)));
     $(this.divObject).append($('<div>').addClass('label_level').css({
@@ -1609,16 +1647,18 @@ MenuManager = (function() {
 
   MenuManager.onClickCharacterPick = function(evt) {
     if (!GameManager.isControllable()) {
-      return;
+      return true;
     }
-    return GameManager.doCharacterPick();
+    GameManager.doCharacterPick();
+    return true;
   };
 
   MenuManager.onClickBattle = function(evt) {
     if (!GameManager.isControllable()) {
-      return;
+      return true;
     }
-    return GameManager.doBattle();
+    GameManager.doBattle();
+    return true;
   };
 
   return MenuManager;

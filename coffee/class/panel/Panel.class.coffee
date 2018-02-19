@@ -16,18 +16,19 @@ class Panel
 
   # アイコンがドラッグ開始された時
   onIconDragStart:(evt)->
-    return unless GameManager.isControllable()
-    
+    return true unless GameManager.isControllable()
+
     # キャラクター出撃に使っていいパネルではないなら帰る
-    return unless @isCharacterPallet
+    return true unless @isCharacterPallet
     # キャラクター出撃モードではないので帰る
-    return unless GameManager.flags.isCharacterPick
+    return true unless GameManager.flags.isCharacterPick
     # キャラクターではないので帰る
-    return unless @object.isCharacterObject()
+    return true unless @object.isCharacterObject()
     # 既に出撃中なので帰る
-    return if @object.isInField()
+    return true if @object.isInField()
 
     CharacterPalletManager.pickCharacter @object
+    true
 
   draw:->
     $(@divObject).find('*').remove()
@@ -64,6 +65,7 @@ class Panel
         "background-image": 'url('+@object.getBaseImage()+')'
       }).on('mousedown', (evt)=>
         @onIconDragStart.bind(@)(evt) if evt.which is 1
+        true
       )
     )
 

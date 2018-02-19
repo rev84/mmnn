@@ -32,8 +32,8 @@
   overflow-y: scroll;
   z-index: 10;
 }
-#character_pallet {
-  z-index: 10;
+#field {
+  z-index: 20;
 }
 #character_pallet::-webkit-scrollbar {
   display: none;

@@ -17,11 +17,15 @@ class Cell
     @initElements(borderSize)
 
   onMouseMiddleUp:(evt)->
-    return unless GameManager.isControllable()
+    return true unless GameManager.isControllable()
+    true
+
   onMouseRightUp:(evt)->
-    return unless GameManager.isControllable()
+    return true unless GameManager.isControllable()
+    true
+
   onMouseLeftUp:(evt)->
-    return unless GameManager.isControllable()
+    return true unless GameManager.isControllable()
 
     console.log('cell mouseup')
     # キャラクター出撃モードで、キャラクターがピックされている場合
@@ -36,25 +40,31 @@ class Cell
       GameManager.flags.pickedCharacterElement.remove()
       GameManager.flags.pickedCharacterElement = null
     CharacterPalletManager.redraw()
+    true
 
   onMouseLeftDown:(evt)->
-    return unless GameManager.isControllable()
+    return true unless GameManager.isControllable()
     # 仮置きがあった場合はつかむ
     if @tempObject isnt null
       CharacterPalletManager.pickCharacter @tempObject
       @tempObject = null
+    true
 
   onMouseMiddleDown:(evt)->
-    return unless GameManager.isControllable()
+    return true unless GameManager.isControllable()
+    true
 
   onMouseRightDown:(evt)->
-    return unless GameManager.isControllable()
+    return true unless GameManager.isControllable()
+    true
 
   onMouseMove:(evt)->
-    return unless GameManager.isControllable()
+    return true unless GameManager.isControllable()
+    true
 
   onMouseLeave:(evt)->
-    return unless GameManager.isControllable()
+    return true unless GameManager.isControllable()
+    true
 
   setTempObject:(object)->
     # 仮置きに置く
@@ -76,7 +86,7 @@ class Cell
       @draw()
 
   initElements:(borderSize)->
-    @elements.mother     = $('<div>').addClass('cell cell_mother').css({
+    @elements.mother = $('<div>').addClass('cell cell_mother').css({
       left: @xIndex * @constructor.SIZE_X + borderSize * (@xIndex + 1)
       top : @yIndex * @constructor.SIZE_Y + borderSize * (@yIndex + 1)
       width:@constructor.SIZE_X
@@ -90,7 +100,7 @@ class Cell
       width:@constructor.SIZE_X
       height:@constructor.SIZE_Y
     @elements.collision  = $('<div>').addClass('cell cell_collision')
-                           .appendTo(@elements.mother).css(cssPos).css(cssSize)
+                           .css(cssPos).css(cssSize)
                            .on('mousemove', @onMouseMove.bind(@))
                            .on('mouseup', (evt)=>
                               switch evt.which
@@ -105,12 +115,16 @@ class Cell
                                 when 3 then @onMouseRightDown.bind(@)(evt)
                             )
                            .on('mouseleave', @onMouseLeave.bind(@))
+                           .appendTo(@elements.mother)
     @elements.base       = $('<img>').addClass('cell cell_base')
-                           .appendTo(@elements.mother).css(cssPos).css(cssSize)
+                           .css(cssPos).css(cssSize)
+                           .appendTo(@elements.mother)
     @elements.object     = $('<img>').addClass('cell cell_object')
-                           .appendTo(@elements.mother).css(cssPos).css(cssSize)
+                           .css(cssPos).css(cssSize)
+                           .appendTo(@elements.mother)
     @elements.attackable = $('<img>').addClass('cell cell_attackable')
-                           .appendTo(@elements.mother).css(cssPos)
+                           .css(cssPos)
+                           .appendTo(@elements.mother)
 
     $(@elements.mother).appendTo(@parentElement)
 
