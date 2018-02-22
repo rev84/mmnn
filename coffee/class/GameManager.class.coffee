@@ -10,6 +10,8 @@ class GameManager
     field:false
     menu:false
   @flags = 
+    # セルのオブジェクトのアニメーションを有効にするか
+    isCellObjectAnimation : true
     # キャラクター出撃モードに遷移していい状態であるか
     isEnableCharacterPick : true
     # 現在、キャラクター出撃モードであるか
@@ -24,6 +26,12 @@ class GameManager
     isBattle : false
     # 戦闘モードでキャラクターを動かしている場合、現在対象になっているセル
     movePickCell : null
+    # 「元に戻す」で戻れるセルのオブジェクト
+    # [0]元のセル [1]移動先のセル
+    moveToCell : null
+    # 攻撃待ちのセル
+    # [0]攻撃待ちのセル [1]攻撃可能なセル
+    waitAttackCell : null
 
   # アニメーション関係
   @POSITION =
@@ -245,14 +253,14 @@ class GameManager
   @movePick:(cell)->
     @flags.movePickCell = cell
     movableMap = Utl.array2dFill(FieldManager.CELL_X, FieldManager.CELL_Y, null)
-    movableMap[cell.xIndex][cell.yIndex] = 0
+    movableMap[cell.xIndex][cell.yIndex] = []
     while !allCellChecked
       Utl.dumpNumArray2d movableMap
       allCellChecked = true
       for body, x in movableMap
-        for value, y in body
+        for wayStack, y in body
           # まだ未調査のマス
-          if value is null
+          if wayStack is null
             # 進入不可でないなら、未調査であっては終われない
             if FieldManager.cells[x][y].isEnterable()
               allCellChecked = false
@@ -262,9 +270,12 @@ class GameManager
               # 調査する
               continue unless 0 <= x+xPlus < FieldManager.cells.length
               continue unless 0 <= y+yPlus < FieldManager.cells[0].length
-              if FieldManager.cells[x+xPlus][y+yPlus].isEnterable() and (movableMap[x+xPlus][y+yPlus] is null or value+1 < movableMap[x+xPlus][y+yPlus])
-                movableMap[x+xPlus][y+yPlus] = value+1
+              if FieldManager.cells[x+xPlus][y+yPlus].isEnterable() and (movableMap[x+xPlus][y+yPlus] is null or wayStack.length+1 < movableMap[x+xPlus][y+yPlus].length)
+                movableMap[x+xPlus][y+yPlus] = wayStack.concat([FieldManager.cells[x+xPlus][y+yPlus]])
     for body, x in movableMap
-      for value, y in body
-        if value isnt null and value <= cell.object.getMove()
-          FieldManager.cells[x][y].viewMovable()
+      for wayStack, y in body
+        if wayStack isnt null and 0 < wayStack.length <= cell.object.getMove()
+          FieldManager.cells[x][y].setMovable(wayStack)
+        else
+          FieldManager.cells[x][y].setMovable(null)
+    FieldManager.drawMovable()

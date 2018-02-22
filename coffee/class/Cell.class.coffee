@@ -1,18 +1,31 @@
 class Cell
   @SIZE_X : 100
   @SIZE_Y : 100
+  # セルのオブジェクトのアニメーションの間隔msec
+  @OBJECT_ANIMATION_MSEC : 500
   # キャラ出撃で置けるxIndex
-  @PUT_FIELD_MAX_X = 1
+  @PUT_FIELD_MAX_X : 1
+  # 画像
+  @IMAGE_BACKGROUND:[
+    './img/background/blue0003.png'
+  ]
+  @IMAGE_MOVABLE: './img/movable.png'
+  @IMAGE_FIN: './img/fin.png'
+
 
   constructor:(@parentElement, @xIndex, @yIndex, borderSize)->
     @elements =
       mother:null
       collision:null
-      base:null
+      background:null
       object:null
       attackable:null
+      movable:null
     @object = null
     @tempObject = null
+    @background = @constructor.IMAGE_BACKGROUND[Utl.rand 0, @constructor.IMAGE_BACKGROUND.length-1]
+    @wayStack = null
+    @objectAnimationIndex = 0
 
     @initElements(borderSize)
 
@@ -28,9 +41,11 @@ class Cell
     return unless GameManager.isControllable()
 
     # キャラを仮置きするトライ
-    @tryCharacterPut(evt)
+    return if @tryCharacterPut(evt)
     # キャラを移動させるトライ
-    @tryMovePick(evt)
+    return if @tryMovePick(evt)
+    # キャラの移動先を決めるトライ
+    return if @tryMoveTo(evt)
 
   onMouseLeftDown:(evt)->
     return unless GameManager.isControllable()
@@ -104,31 +119,75 @@ class Cell
                             )
                            .on('mouseleave', @onMouseLeave.bind(@))
                            .appendTo(@elements.mother)
-    @elements.collision.get(0).addEventListener("mouseup", @onMouseLeftUp.bind(@), false)
-    @elements.base       = $('<img>').addClass('cell cell_base')
+    @elements.background = $('<div>').addClass('cell cell_background')
                            .css(cssPos).css(cssSize)
                            .appendTo(@elements.mother)
-    @elements.object     = $('<img>').addClass('cell cell_object')
+    @elements.object     = $('<div>').addClass('cell cell_object')
                            .css(cssPos).css(cssSize)
                            .appendTo(@elements.mother)
-    @elements.attackable = $('<img>').addClass('cell cell_attackable')
-                           .css(cssPos)
+    @elements.attackable = $('<div>').addClass('cell cell_attackable')
+                           .css(cssPos).addClass('no_display')
+                           .appendTo(@elements.mother)
+    @elements.movable    = $('<div>').addClass('cell cell_movable')
+                           .css(cssPos).css(cssSize).addClass('no_display')
+                           .appendTo(@elements.mother)
+    @elements.fin        = $('<div>').addClass('cell cell_fin')
+                           .css(cssPos).css(cssSize).addClass('no_display')
                            .appendTo(@elements.mother)
 
+    @changeBackground @background
+    @changeMovable @constructor.IMAGE_MOVABLE
+    @changeFin @constructor.IMAGE_FIN
     $(@elements.mother).appendTo(@parentElement)
 
-  # 背景画像の変更
-  changeBase:(imagePath)->
-    @elements.base.attr('src', imagePath)
+  # 画像の変更
+  changeBackground:(imagePath = null)->
+    if imagePath is null
+      @elements.background.addClass('no_display')
+    else
+      @elements.background.css('background-image', 'url('+imagePath+')').removeClass('no_display')
+  changeObject:(imagePath = null)->
+    if imagePath is null
+      @elements.object.addClass('no_display')
+    else
+      @elements.object.css('background-image', 'url('+imagePath+')').removeClass('no_display')
+  changeAttackable:(imagePath = null)->
+    if imagePath is null
+      @elements.attackable.addClass('no_display')
+    else
+      @elements.attackable.css('background-image', 'url('+imagePath+')').removeClass('no_display')
+  changeMovable:(imagePath)->
+      @elements.movable.css('background-image', 'url('+imagePath+')')
+  changeFin:(imagePath)->
+      @elements.fin.css('background-image', 'url('+imagePath+')')
+  showMovable:(bool = true)->
+    if bool
+      @elements.movable.removeClass('no_display')
+    else
+      @elements.movable.addClass('no_display')
+  showFin:(bool = true)->
+    if bool
+      @elements.fin.removeClass('no_display')
+    else
+      @elements.fin.addClass('no_display')
 
   # 描画
   draw:->
+    # 背景
+    @changeBackground @background
+
+    # オブジェクト
     if @object isnt null
-      @elements.object.attr('src', @object.getBaseImage()).removeClass('no_display')
+      @changeObject @object.getBaseImage()
     else if @tempObject isnt null
-      @elements.object.attr('src', @tempObject.getBaseImage()).removeClass('no_display')
+      @changeObject @tempObject.getBaseImage()
     else
-      @elements.object.addClass('no_display')
+      @changeObject()
+
+    # 移動可能
+    @drawMovable()
+    # 行動終了
+    @drawFin()
 
   isDroppableCharacter:->
     @xIndex <= @constructor.PUT_FIELD_MAX_X and @object is null
@@ -152,6 +211,7 @@ class Cell
       GameManager.flags.pickedCharacterElement.remove()
       GameManager.flags.pickedCharacterElement = null
     CharacterPalletManager.redraw()
+    true
 
   tryMovePick:(evt)->
     # 戦闘モード時のみ
@@ -159,13 +219,34 @@ class Cell
     # 既に移動させたいキャラを選んでいる場合はダメ
     return if GameManager.flags.movePickCell isnt null
     # キャラクターが置かれている場合のみ
-    return unless @object.isCharacterObject()
+    return unless @object isnt null and @object.isCharacterObject()
     # 行動済みでない場合のみ
     return if @object.isMoved()
 
     GameManager.movePick @
+    true
 
-  viewMovable:->
-    @elements.base.css({
-      'background-color': '#ff0000'
-    })
+  tryMoveTo:(evt)->
+    # 既に移動させたいキャラを選んでいない場合はダメ
+    return if GameManager.flags.movePickCell is null
+
+    FieldManager.moveObject(GameManager.flags.movePickCell, @)
+    true
+
+  setMovable:(wayStack)->
+    @wayStack = wayStack
+
+  drawMovable:->
+    @showMovable(@wayStack isnt null)
+
+  drawFin:->
+    if @object isnt null and (@object.isCharacterObject() or @object.isEnemyObject()) and @object.isMoved()
+      @showFin(true)
+    else
+      @showFin(false)
+
+  stepObjectAnimation:=>
+    return if @object is null
+    @objectAnimationIndex++
+    @objectAnimationIndex = 0 if @object.getImage(@objectAnimationIndex) is null
+    @changeObject @object.getImage(@objectAnimationIndex)

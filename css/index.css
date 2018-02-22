@@ -50,19 +50,34 @@
 .cell {
   position: absolute;
   box-sizing: border-box;
+  pointer-events: none;
+}
+.cell.cell_collision {
+  position: absolute;
+  box-sizing: border-box;
+  pointer-events: auto;
 }
 .cell_mother {
 }
 .cell_collision {
   z-index: 999999999;
 }
-.cell_base {
+.cell_background {
   z-index: 9;
+  background-size: 100% 100%;
 }
 .cell_object {
   z-index: 99;
 }
 .cell_attackable {
   z-index: 999;
+}
+.cell_movable {
+  z-index: 9999;
+  background-size: 100% 100%;
+}
+.cell_fin {
+  z-index: 1000;
+  background-size: 100% 100%;
 }
 

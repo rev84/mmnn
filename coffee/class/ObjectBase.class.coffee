@@ -6,6 +6,9 @@ class ObjectBase
   constructor:(objectType)->
     @objectType = objectType
 
+  getObjectType:->
+    @objectType
+
   isCharacterObject:->
     @objectType is @constructor.OBJECT_TYPE.CHARACTER
 
@@ -62,3 +65,8 @@ class ObjectBase
     @constructor.abilityDesc
   getBaseImage:->
     @constructor.images[0]
+  getImages:->
+    @constructor.images
+  getImage:(index)->
+    return null unless 0 <= index < @constructor.images.length
+    @constructor.images[index]
