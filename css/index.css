@@ -93,4 +93,12 @@
   z-index: 1000;
   background-size: 100% 100%;
 }
+.cell_snipe {
+  z-index: 99999;
+  background-size: 100% 100%;
+}
+.cell_animation {
+  z-index: 999999;
+  background-size: 100% 100%;
+}
 

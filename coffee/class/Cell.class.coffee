@@ -7,10 +7,11 @@ class Cell
   @PUT_FIELD_MAX_X : 1
   # 画像
   @IMAGE_BACKGROUND:[
-    './img/background/blue0003.png'
+    './img/background/light_blue.png'
   ]
   @IMAGE_MOVABLE: './img/movable.png'
   @IMAGE_FIN: './img/fin.png'
+  @IMAGE_SNIPE: './img/target.png'
 
 
   constructor:(@parentElement, @xIndex, @yIndex, borderSize)->
@@ -167,10 +168,14 @@ class Cell
                            .css({width:@constructor.SIZE_X*0.3, height:@constructor.SIZE_Y*0.3})
                            .addClass('no_display')
                            .appendTo(@elements.mother)
+    @elements.animation  = $('<div>').addClass('cell cell_animation')
+                           .css(cssPos).css(cssSize).addClass('no_display')
+                           .appendTo(@elements.mother)
 
     @changeBackground @background
     @changeMovable @constructor.IMAGE_MOVABLE
     @changeFin @constructor.IMAGE_FIN
+    @changeSnipe @constructor.IMAGE_SNIPE
     $(@elements.mother).appendTo(@parentElement)
 
   # 画像の変更
@@ -195,6 +200,15 @@ class Cell
       @elements.fin.css('background-image', 'url('+imagePath+')')
   changeKnockout:(imagePath, num = '')->
       @elements.knockout.css('background-image', 'url('+imagePath+')').html(num).removeClass('no_display')
+
+  startAnimation:(imagePath, startMsec, endMsec)->
+    setTimeout =>
+      @elements.animation.css('background-image', 'url('+imagePath+')').removeClass('no_display')
+    , startMsec
+    setTimeout =>
+      @elements.animation.css('background-image', 'none').addClass('no_display')
+    , endMsec
+
   showMovable:(bool = true)->
     if bool
       @elements.movable.removeClass('no_display')
@@ -305,7 +319,7 @@ class Cell
     @showMovable(@wayStack isnt null)
 
   drawKnockout:->
-    if @knockout isnt null
+    if @object isnt null and @knockout isnt null
       # 攻撃側の攻撃タイプ
       attackType = @knockout.object.getAttackType()
       # 攻撃側の攻撃力

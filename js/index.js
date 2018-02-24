@@ -212,11 +212,13 @@ Cell = (function() {
 
   Cell.PUT_FIELD_MAX_X = 1;
 
-  Cell.IMAGE_BACKGROUND = ['./img/background/blue0003.png'];
+  Cell.IMAGE_BACKGROUND = ['./img/background/light_blue.png'];
 
   Cell.IMAGE_MOVABLE = './img/movable.png';
 
   Cell.IMAGE_FIN = './img/fin.png';
+
+  Cell.IMAGE_SNIPE = './img/target.png';
 
   function Cell(parentElement, xIndex1, yIndex1, borderSize) {
     this.parentElement = parentElement;
@@ -396,9 +398,11 @@ Cell = (function() {
       width: this.constructor.SIZE_X * 0.3,
       height: this.constructor.SIZE_Y * 0.3
     }).addClass('no_display').appendTo(this.elements.mother);
+    this.elements.animation = $('<div>').addClass('cell cell_animation').css(cssPos).css(cssSize).addClass('no_display').appendTo(this.elements.mother);
     this.changeBackground(this.background);
     this.changeMovable(this.constructor.IMAGE_MOVABLE);
     this.changeFin(this.constructor.IMAGE_FIN);
+    this.changeSnipe(this.constructor.IMAGE_SNIPE);
     return $(this.elements.mother).appendTo(this.parentElement);
   };
 
@@ -448,6 +452,19 @@ Cell = (function() {
       num = '';
     }
     return this.elements.knockout.css('background-image', 'url(' + imagePath + ')').html(num).removeClass('no_display');
+  };
+
+  Cell.prototype.startAnimation = function(imagePath, startMsec, endMsec) {
+    setTimeout((function(_this) {
+      return function() {
+        return _this.elements.animation.css('background-image', 'url(' + imagePath + ')').removeClass('no_display');
+      };
+    })(this), startMsec);
+    return setTimeout((function(_this) {
+      return function() {
+        return _this.elements.animation.css('background-image', 'none').addClass('no_display');
+      };
+    })(this), endMsec);
   };
 
   Cell.prototype.showMovable = function(bool) {
@@ -579,7 +596,7 @@ Cell = (function() {
 
   Cell.prototype.drawKnockout = function() {
     var attack, attackType, def, hp, knockout;
-    if (this.knockout !== null) {
+    if (this.object !== null && this.knockout !== null) {
       attackType = this.knockout.object.getAttackType();
       attack = this.knockout.object.getAttack();
       def = attackType === ObjectBase.ATTACK_TYPE.PHYSIC ? this.object.getPDef() : this.object.getMDef();
@@ -838,7 +855,7 @@ FieldManager = (function() {
     }
     return $.each(this.cells, function() {
       return $.each(this, function() {
-        if (this.tempObject !== null && this.tempObject.isCharacterObject() && this.tempObject.get() === characterObject.getId()) {
+        if (this.tempObject !== null && this.tempObject.isCharacterObject() && this.tempObject.getId() === characterObject.getId()) {
           this.tempObject.setInField(false);
           this.tempObject = null;
           return this.draw();
@@ -863,6 +880,16 @@ FieldManager = (function() {
     });
   };
 
+  FieldManager.resetAllMoved = function() {
+    return $.each(this.cells, function() {
+      return $.each(this, function() {
+        if (this.object !== null && (this.object.isCharacterObject() || this.object.isEnemyObject())) {
+          return this.object.setMoved(false);
+        }
+      });
+    });
+  };
+
   FieldManager.drawMovable = function() {
     return $.each(this.cells, function() {
       return $.each(this, function() {
@@ -875,6 +902,14 @@ FieldManager = (function() {
     return $.each(this.cells, function() {
       return $.each(this, function() {
         return this.drawKnockout();
+      });
+    });
+  };
+
+  FieldManager.drawFin = function() {
+    return $.each(this.cells, function() {
+      return $.each(this, function() {
+        return this.drawFin();
       });
     });
   };
@@ -1416,7 +1451,7 @@ GameManager = (function() {
         }
       }
     }
-    attackables = FieldManager.getAttackableCell(cell);
+    attackables = FieldManager.getAttackableCellsByCell(cell);
     for (o = 0, len2 = attackables.length; o < len2; o++) {
       attackableCell = attackables[o];
       attackableCell.knockout = cell;
@@ -1435,6 +1470,13 @@ GameManager = (function() {
     FieldManager.drawKnockout();
     ending = (function(_this) {
       return function() {
+        FieldManager.resetAllMoved();
+        FieldManager.drawMovable();
+        FieldManager.drawKnockout();
+        FieldManager.drawFin();
+        _this.flags.movePickCell = null;
+        _this.flags.moveToCell = null;
+        _this.flags.waitAttackCell = null;
         return _this.changeControllable(true);
       };
     })(this);
@@ -1577,29 +1619,42 @@ GameManager = (function() {
   };
 
   GameManager.attack = function(attackerCell, defenderCell, callback) {
-    var attack, attackType, attacker, damage, def, defender, hp;
+    var attacker, defender, leftObject, rightObject;
     if (callback == null) {
       callback = null;
     }
     attacker = attackerCell.object;
     defender = defenderCell.object;
-    attackType = attacker.getAttackType();
-    attack = attacker.getAttack();
-    def = attack === ObjectBase.ATTACK_TYPE.PHYSIC ? defender.getPDef() : defender.getMDef();
-    hp = defender.getHp();
-    damage = ObjectBase.getDamage(attack, def);
-    if (defender.damage(damage) <= 0) {
-      ExpManager.plusAmount(this.getExp());
-      defenderCell.object = null;
-    }
-    attacker.setMoved(true);
-    attackerCell.draw();
-    defenderCell.draw();
-    FieldManager.removeAllWayStack();
-    FieldManager.removeAllKnockout();
-    if (callback instanceof Function) {
-      return callback();
-    }
+    leftObject = attacker.isCharacterObject() ? attacker : defender;
+    rightObject = attacker.isCharacterObject() ? defender : attacker;
+    LeftInfoManager.setObject(leftObject);
+    RightInfoManager.setObject(rightObject);
+    defenderCell.startAnimation('./img/target.png', 0, 100);
+    defenderCell.startAnimation('./img/target.png', 200, 300);
+    defenderCell.startAnimation('./img/target.png', 400, 500);
+    defenderCell.startAnimation('./img/damage.png', 550, 1750);
+    return setTimeout(function() {
+      var attack, attackType, damage, def, hp;
+      attackType = attacker.getAttackType();
+      attack = attacker.getAttack();
+      def = attack === ObjectBase.ATTACK_TYPE.PHYSIC ? defender.getPDef() : defender.getMDef();
+      hp = defender.getHp();
+      damage = ObjectBase.getDamage(attack, def);
+      if (defender.damage(damage) <= 0) {
+        if (defender.isEnemyObject()) {
+          ExpManager.plusAmount(defender.getExp());
+        }
+        defenderCell.object = null;
+      }
+      attacker.setMoved(true);
+      attackerCell.draw();
+      defenderCell.draw();
+      FieldManager.removeAllWayStack();
+      FieldManager.removeAllKnockout();
+      if (callback instanceof Function) {
+        return callback();
+      }
+    }, 1700);
   };
 
   GameManager.terror = function(cell, callback) {

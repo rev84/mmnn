@@ -323,7 +323,7 @@ class GameManager
         else
           FieldManager.cells[x][y].setWayStack(null)
     # 攻撃可能判定
-    attackables = FieldManager.getAttackableCell cell
+    attackables = FieldManager.getAttackableCellsByCell cell
     for attackableCell in attackables
       attackableCell.knockout = cell
 
@@ -346,6 +346,14 @@ class GameManager
 
     # 終了時の処理
     ending = =>
+      FieldManager.resetAllMoved()
+      FieldManager.drawMovable()
+      FieldManager.drawKnockout()
+      FieldManager.drawFin()
+      # 移動・攻撃・戻るモードを解除
+      @flags.movePickCell = null
+      @flags.moveToCell = null
+      @flags.waitAttackCell = null
       @changeControllable true
 
     # 全マスから未行動の敵を探す
@@ -484,37 +492,55 @@ class GameManager
     attacker = attackerCell.object
     defender = defenderCell.object
 
-    # 攻撃側の攻撃タイプ
-    attackType = attacker.getAttackType()
-    # 攻撃側の攻撃力
-    attack = attacker.getAttack()
-    # 防御側の防御力
-    def = if attack is ObjectBase.ATTACK_TYPE.PHYSIC then defender.getPDef() else defender.getMDef()
-    # 防御側のHP
-    hp = defender.getHp()
+    # パネル用
+    leftObject = if attacker.isCharacterObject() then attacker else defender
+    rightObject = if attacker.isCharacterObject() then defender else attacker
+    # 左に味方の情報
+    LeftInfoManager.setObject leftObject
+    # 右に敵の情報
+    RightInfoManager.setObject rightObject
 
-    # 攻撃する
-    damage = ObjectBase.getDamage(attack, def)
+    # ターゲットマークを点滅させる
+    defenderCell.startAnimation './img/target.png', 0, 100
+    defenderCell.startAnimation './img/target.png', 200, 300
+    defenderCell.startAnimation './img/target.png', 400, 500
 
-    # 倒した
-    if defender.damage(damage) <= 0
-      # 経験値加算
-      ExpManager.plusAmount @getExp()
-      # オブジェクト消す
-      defenderCell.object = null
+    # 攻撃エフェクト
+    defenderCell.startAnimation './img/damage.png', 550, 1750
 
-    # 攻撃側を行動終了にする
-    attacker.setMoved true
+    setTimeout ->
+      # 攻撃側の攻撃タイプ
+      attackType = attacker.getAttackType()
+      # 攻撃側の攻撃力
+      attack = attacker.getAttack()
+      # 防御側の防御力
+      def = if attack is ObjectBase.ATTACK_TYPE.PHYSIC then defender.getPDef() else defender.getMDef()
+      # 防御側のHP
+      hp = defender.getHp()
 
-    # 再描画
-    attackerCell.draw()
-    defenderCell.draw()
+      # 攻撃する
+      damage = ObjectBase.getDamage(attack, def)
 
-    # 移動・攻撃対象を解除
-    FieldManager.removeAllWayStack()
-    FieldManager.removeAllKnockout()
+      # 倒した
+      if defender.damage(damage) <= 0
+        # 敵が死んだなら経験値加算
+        ExpManager.plusAmount defender.getExp() if defender.isEnemyObject()
+        # オブジェクト消す
+        defenderCell.object = null
 
-    callback() if callback instanceof Function
+      # 攻撃側を行動終了にする
+      attacker.setMoved true
+
+      # 再描画
+      attackerCell.draw()
+      defenderCell.draw()
+
+      # 移動・攻撃対象を解除
+      FieldManager.removeAllWayStack()
+      FieldManager.removeAllKnockout()
+
+      callback() if callback instanceof Function
+    , 1700
 
   @terror:(cell, callback = null)->
     # ライフを1下げる

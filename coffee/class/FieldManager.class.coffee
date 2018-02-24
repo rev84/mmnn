@@ -41,7 +41,7 @@ class FieldManager
     return if characterObject is null
     $.each @cells, ->
       $.each @, ->
-        if @tempObject isnt null and @tempObject.isCharacterObject() and @tempObject.get() is characterObject.getId()
+        if @tempObject isnt null and @tempObject.isCharacterObject() and @tempObject.getId() is characterObject.getId()
           # 出撃中を解除
           @tempObject.setInField false
           # 仮オブジェクトを削除
@@ -59,6 +59,13 @@ class FieldManager
       $.each @, ->
         @knockout = null    
 
+  @resetAllMoved:->
+    $.each @cells, ->
+      $.each @, ->
+        if @object isnt null and (@object.isCharacterObject() or @object.isEnemyObject())
+          @object.setMoved false
+
+
   @drawMovable:->
     $.each @cells, ->
       $.each @, ->
@@ -68,6 +75,11 @@ class FieldManager
     $.each @cells, ->
       $.each @, ->
         @drawKnockout()
+
+  @drawFin:->
+    $.each @cells, ->
+      $.each @, ->
+        @drawFin()
 
   @show:->
     $(@divObject).removeClass('no_display')
