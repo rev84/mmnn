@@ -30,7 +30,8 @@ Cell = (function() {
       background: null,
       object: null,
       attackable: null,
-      movable: null
+      movable: null,
+      knockout: null
     };
     this.object = null;
     this.tempObject = null;
@@ -170,6 +171,7 @@ Cell = (function() {
     this.elements.attackable = $('<div>').addClass('cell cell_attackable').css(cssPos).addClass('no_display').appendTo(this.elements.mother);
     this.elements.movable = $('<div>').addClass('cell cell_movable').css(cssPos).css(cssSize).addClass('no_display').appendTo(this.elements.mother);
     this.elements.fin = $('<div>').addClass('cell cell_fin').css(cssPos).css(cssSize).addClass('no_display').appendTo(this.elements.mother);
+    this.elements.knockout = $('<div>').addClass('cell cell_knockout').css(cssPos).css(cssSize).addClass('no_display').appendTo(this.elements.mother);
     this.changeBackground(this.background);
     this.changeMovable(this.constructor.IMAGE_MOVABLE);
     this.changeFin(this.constructor.IMAGE_FIN);
@@ -217,6 +219,10 @@ Cell = (function() {
     return this.elements.fin.css('background-image', 'url(' + imagePath + ')');
   };
 
+  Cell.prototype.changeKnockout = function(imagePath) {
+    return this.elements.knockout.css('background-image', 'url(' + imagePath + ')');
+  };
+
   Cell.prototype.showMovable = function(bool) {
     if (bool == null) {
       bool = true;
@@ -236,6 +242,17 @@ Cell = (function() {
       return this.elements.fin.removeClass('no_display');
     } else {
       return this.elements.fin.addClass('no_display');
+    }
+  };
+
+  Cell.prototype.showKnockout = function(bool) {
+    if (bool == null) {
+      bool = true;
+    }
+    if (bool) {
+      return this.elements.knockout.removeClass('no_display');
+    } else {
+      return this.elements.knockout.addClass('no_display');
     }
   };
 

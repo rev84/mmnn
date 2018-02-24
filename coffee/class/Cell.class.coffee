@@ -21,6 +21,7 @@ class Cell
       object:null
       attackable:null
       movable:null
+      knockout:null
     @object = null
     @tempObject = null
     @background = @constructor.IMAGE_BACKGROUND[Utl.rand 0, @constructor.IMAGE_BACKGROUND.length-1]
@@ -134,6 +135,9 @@ class Cell
     @elements.fin        = $('<div>').addClass('cell cell_fin')
                            .css(cssPos).css(cssSize).addClass('no_display')
                            .appendTo(@elements.mother)
+    @elements.knockout   = $('<div>').addClass('cell cell_knockout')
+                           .css(cssPos).css(cssSize).addClass('no_display')
+                           .appendTo(@elements.mother)
 
     @changeBackground @background
     @changeMovable @constructor.IMAGE_MOVABLE
@@ -160,6 +164,8 @@ class Cell
       @elements.movable.css('background-image', 'url('+imagePath+')')
   changeFin:(imagePath)->
       @elements.fin.css('background-image', 'url('+imagePath+')')
+  changeKnockout:(imagePath)->
+      @elements.knockout.css('background-image', 'url('+imagePath+')')
   showMovable:(bool = true)->
     if bool
       @elements.movable.removeClass('no_display')
@@ -170,6 +176,11 @@ class Cell
       @elements.fin.removeClass('no_display')
     else
       @elements.fin.addClass('no_display')
+  showKnockout:(bool = true)->
+    if bool
+      @elements.knockout.removeClass('no_display')
+    else
+      @elements.knockout.addClass('no_display')
 
   # 描画
   draw:->
