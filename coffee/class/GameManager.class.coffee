@@ -30,8 +30,7 @@ class GameManager
     # 「元に戻す」で戻れるセルのオブジェクト
     # [0]元のセル [1]移動先のセル
     moveToCell : null
-    # 攻撃待ちのセル
-    # [0]攻撃待ちのセル [1]攻撃可能なセル
+    # 戦闘モードで攻撃待ちの場合、現在対象になっているセル
     waitAttackCell : null
 
   # アニメーション関係
@@ -195,6 +194,7 @@ class GameManager
                     })
 
     @initField(null)
+    @initExp(null)
     @initMenu(null)
     @initCharacters(null)
     @initEnemys(null)
@@ -214,6 +214,12 @@ class GameManager
     @initialized.field = true
 
     FieldManager.init(@gameElement, 400, 50)
+
+  @initExp:(savedata)->
+    return if @initialized.exp
+    @initialized.exp = true
+
+    FieldManager.init(@gameElement, 0, 0)
 
 
   # キャラ初期化
@@ -266,7 +272,14 @@ class GameManager
         @switchTemp()
 
   @movePick:(cell)->
+    FieldManager.removeAllWayStack()
+    FieldManager.removeAllAttackable()
+
+    # 移動可能モード
     @flags.movePickCell = cell
+    # 攻撃可能モード
+    @flags.waitAttackCell = cell
+
     movableMap = Utl.array2dFill(FieldManager.CELL_X, FieldManager.CELL_Y, null)
     movableMap[cell.xIndex][cell.yIndex] = []
     while !allCellChecked
@@ -287,10 +300,17 @@ class GameManager
               continue unless 0 <= y+yPlus < FieldManager.cells[0].length
               if FieldManager.cells[x+xPlus][y+yPlus].isEnterable() and (movableMap[x+xPlus][y+yPlus] is null or wayStack.length+1 < movableMap[x+xPlus][y+yPlus].length)
                 movableMap[x+xPlus][y+yPlus] = wayStack.concat([FieldManager.cells[x+xPlus][y+yPlus]])
+    # 移動可能判定
     for body, x in movableMap
       for wayStack, y in body
         if wayStack isnt null and 0 < wayStack.length <= cell.object.getMove()
           FieldManager.cells[x][y].setMovable(wayStack)
         else
           FieldManager.cells[x][y].setMovable(null)
+    # 攻撃可能判定
+    attackables = FieldManager.getAttackableCell cell
+    for attackableCell in attackables
+      attackableCell.attackable = [cell.object.getAttackType(), cell.object.getAttack()]
+
     FieldManager.drawMovable()
+    FieldManager.drawAttackable()

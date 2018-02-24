@@ -33,10 +33,12 @@ window.EnemyList = {
 EOM;
 
   # キャラクター
-  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, '敵キャラ設定!A2:O');
+  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, '敵キャラ設定!A2:P');
   $values = $response->getValues();
   foreach ($values as $vAry) {
-    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $abilityName, $abilityDesc, $appearance) = $vAry;
+    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $abilityName, $abilityDesc, $appearance, $expRate) = $vAry;
+
+    $attackTypeBase = ($attackTypeBase == '物理' ? 'ObjectBase.ATTACK_TYPE.PHYSIC' : 'ObjectBase.ATTACK_TYPE.MAGIC');
 
     $targetImgDir = dirname(__FILE__).'/../../img/enemy/'.$characterId;
     $files = getFilelist($targetImgDir);
@@ -57,7 +59,7 @@ class {$className}Base extends EnemyBase
   # 画像のリスト
   @images = [{$filelist}]
   # 基本攻撃タイプ
-  @attackTypeBase = "{$attackTypeBase}"
+  @attackTypeBase = {$attackTypeBase}
   # 成長率：攻撃力
   @attackBase = {$attackBase}
   # 成長率：HP
@@ -76,6 +78,8 @@ class {$className}Base extends EnemyBase
   @dodgeRateBase = {$dodgeRateBase}
   # 出現階層
   @appearance = {$appearance}
+  # 経験値係数
+  @expRate = {$expRate}
 
   @abilityName = "{$abilityName}"
   @abilityDesc = "{$abilityDesc}"
@@ -131,12 +135,13 @@ window.CharacterList = {
 EOM;
 
   # キャラクター
-  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'キャラ設定!A2:P');
+  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'キャラ設定!A2:Q');
   $values = $response->getValues();
   foreach ($values as $vAry) {
-    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $itemMax, $abilityName, $abilityDesc, $defaultJoin) = $vAry;
+    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $itemMax, $expRate, $abilityName, $abilityDesc, $defaultJoin) = $vAry;
     $defaultJoin = $defaultJoin == '' ? 'false' : 'true';
 
+    $attackTypeBase = ($attackTypeBase == '物理' ? 'ObjectBase.ATTACK_TYPE.PHYSIC' : 'ObjectBase.ATTACK_TYPE.MAGIC');
 
     $targetImgDir = dirname(__FILE__).'/../../img/character/'.$characterId;
     $files = getFilelist($targetImgDir);
@@ -159,7 +164,7 @@ class {$className}Base extends CharacterBase
   # 画像のリスト
   @images = [{$filelist}]
   # 基本攻撃タイプ
-  @attackTypeBase = "{$attackTypeBase}"
+  @attackTypeBase = {$attackTypeBase}
   # 成長率：攻撃力
   @attackBase = {$attackBase}
   # 成長率：HP
@@ -176,8 +181,10 @@ class {$className}Base extends CharacterBase
   @hitRateBase = {$hitRateBase}
   # 基本回避率
   @dodgeRateBase = {$dodgeRateBase}
-
+  # アイテム装備可能数
   @itemMax = {$itemMax}
+  # 必要経験値
+  @expRate = {$expRate}
 
   @abilityName = "{$abilityName}"
   @abilityDesc = "{$abilityDesc}"

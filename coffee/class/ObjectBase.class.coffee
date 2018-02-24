@@ -2,6 +2,16 @@ class ObjectBase
   @OBJECT_TYPE:
     CHARACTER : 'CHARACTER'
     ENEMY : 'ENEMY'
+  @ATTACK_TYPE:
+    PHYSIC:'物理'
+    MAGIC:'魔法'
+  # ダメージの振れ幅
+  @DAMAGE_SHAKE_RATE: 0.1
+  # 倒せるか定数兼画像
+  @KNOCKOUT:
+    OK:'./img/circle.png'
+    MAY:'./img/triangle.png'
+    NG:'./img/cross.png'
 
   constructor:(objectType)->
     @objectType = objectType
@@ -70,3 +80,26 @@ class ObjectBase
   getImage:(index)->
     return null unless 0 <= index < @constructor.images.length
     @constructor.images[index]
+
+  # ダメージ計算式
+  @getDamageMin:(attack, def)->
+    damage = attack - def
+    return 1 if damage < 1
+    damage = Math.round(damage - damage * @DAMAGE_SHAKE_RATE)
+    return 1 if damage < 1
+    damage
+  @getDamageMax:(attack, def)->
+    damage = attack - def
+    return 1 if damage < 1
+    damage = Math.round(damage + damage * @DAMAGE_SHAKE_RATE)
+    return 1 if damage < 1
+    damage
+  @getDamage:(attack, def)->
+    Utl.rand(@getDamageMin(attack, def), @getDamageMax(attack, def))
+  @knockout:(hp, attack, def)->
+    if hp <= @getDamageMin(attack, def)
+      @KNOCKOUT.OK
+    else if hp <= @getDamageMax(attack, def)
+      @KNOCKOUT.MAY
+    else
+      @KNOCKOUT.NG

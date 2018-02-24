@@ -26,49 +26,67 @@ class Cell
     @tempObject = null
     @background = @constructor.IMAGE_BACKGROUND[Utl.rand 0, @constructor.IMAGE_BACKGROUND.length-1]
     @wayStack = null
+    @attackable = null
     @objectAnimationIndex = 0
 
     @initElements(borderSize)
 
   onMouseMiddleUp:(evt)->
     return unless GameManager.isControllable()
-    true
+    GameManager.changeControllable false
+    GameManager.changeControllable true
 
   onMouseRightUp:(evt)->
     return unless GameManager.isControllable()
-    true
+    GameManager.changeControllable false
+    GameManager.changeControllable true
 
   onMouseLeftUp:(evt)->
     return unless GameManager.isControllable()
+    GameManager.changeControllable false
 
     # キャラを仮置きするトライ
-    return if @tryCharacterPut(evt)
+    if @tryCharacterPut(evt)
+      ;
     # キャラを移動させるトライ
-    return if @tryMovePick(evt)
+    else if @tryMovePick(evt)
+      ;
     # キャラの移動先を決めるトライ
-    return if @tryMoveTo(evt)
+    else if @tryMoveTo(evt)
+      ;
+    # 攻撃先を決めるトライ
+    else if @tryAttack(evt)
+      ;
+
 
   onMouseLeftDown:(evt)->
     return unless GameManager.isControllable()
+    GameManager.changeControllable false
     # 仮置きがあった場合はつかむ
     if @tempObject isnt null
       CharacterPalletManager.pickCharacter @tempObject
       @tempObject = null
+    GameManager.changeControllable true
 
   onMouseMiddleDown:(evt)->
     return unless GameManager.isControllable()
+    GameManager.changeControllable false
+    GameManager.changeControllable true
 
   onMouseRightDown:(evt)->
     return unless GameManager.isControllable()
-    true
+    GameManager.changeControllable false
+    GameManager.changeControllable true
 
   onMouseMove:(evt)->
     return unless GameManager.isControllable()
-    true
+    GameManager.changeControllable false
+    GameManager.changeControllable true
 
   onMouseLeave:(evt)->
     return unless GameManager.isControllable()
-    true
+    GameManager.changeControllable false
+    GameManager.changeControllable true
 
   setTempObject:(object)->
     # 仮置きに置く
@@ -136,7 +154,9 @@ class Cell
                            .css(cssPos).css(cssSize).addClass('no_display')
                            .appendTo(@elements.mother)
     @elements.knockout   = $('<div>').addClass('cell cell_knockout')
-                           .css(cssPos).css(cssSize).addClass('no_display')
+                           .css({right:0, top:0})
+                           .css({width:@constructor.SIZE_X*0.3, height:@constructor.SIZE_Y*0.3})
+                           .addClass('no_display')
                            .appendTo(@elements.mother)
 
     @changeBackground @background
@@ -222,6 +242,8 @@ class Cell
       GameManager.flags.pickedCharacterElement.remove()
       GameManager.flags.pickedCharacterElement = null
     CharacterPalletManager.redraw()
+
+    GameManager.changeControllable true
     true
 
   tryMovePick:(evt)->
@@ -229,26 +251,70 @@ class Cell
     return unless GameManager.flags.isBattle
     # 既に移動させたいキャラを選んでいる場合はダメ
     return if GameManager.flags.movePickCell isnt null
+    # 攻撃待ち専用モードの時はダメ
+    return if GameManager.flags.waitAttackCell isnt null
     # キャラクターが置かれている場合のみ
     return unless @object isnt null and @object.isCharacterObject()
     # 行動済みでない場合のみ
     return if @object.isMoved()
 
     GameManager.movePick @
+    GameManager.changeControllable true
     true
 
   tryMoveTo:(evt)->
     # 既に移動させたいキャラを選んでいない場合はダメ
     return if GameManager.flags.movePickCell is null
 
-    FieldManager.moveObject(GameManager.flags.movePickCell, @)
+    FieldManager.moveObject(GameManager.flags.movePickCell, @, ->
+      GameManager.changeControllable true
+    )
     true
+
+  tryAttack:(evt)->
+    # 攻撃待ちでなければダメ
+    return if GameManager.flags.waitAttackCell is null
+    # 攻撃可能が設定されてないとダメ
+    return if @attackable is null
+
+    # 攻撃待ちのセル
+    #GameManager.flags.waitAttackCell
+
+    # 攻撃側の攻撃タイプ
+    attackType = GameManager.flags.waitAttackCell.getAttackType()
+    # 攻撃側の攻撃力
+    attack = GameManager.flags.waitAttackCell.getAttack()
+    # 防御側の防御力
+    def = if attack is ObjectBase.ATTACK_TYPE.PHYSIC then @object.getPDef() else @object.getMDef()
+    # 防御側のHP
+    hp = @object.getHp()
+
+    # 攻撃する
+    damage = @ObjectBase.getDamage(attack, def)
+
+    ###################
+    # ダメージを与える
+    ###################
+    # 倒せる
+    if hp <= damage
+      @object.hp = 0
+      # 経験値加算
+      ExpManager.plusAmount 
+    # 倒せない
+    else
+      @object.hp -= damage
 
   setMovable:(wayStack)->
     @wayStack = wayStack
 
   drawMovable:->
     @showMovable(@wayStack isnt null)
+
+  drawAttackable:->
+    if @attackable
+      @changeAttackable @attackable
+    else
+      @showAttackable false
 
   drawFin:->
     if @object isnt null and (@object.isCharacterObject() or @object.isEnemyObject()) and @object.isMoved()

@@ -56,10 +56,20 @@ class FieldManager
       $.each @, ->
         @wayStack = null    
 
+  @removeAllAttackable:->
+    $.each @cells, ->
+      $.each @, ->
+        @attackable = false    
+
   @drawMovable:->
     $.each @cells, ->
       $.each @, ->
         @drawMovable()
+
+  @drawAttackable:->
+    $.each @cells, ->
+      $.each @, ->
+        @drawAttackable()
 
   @show:->
     $(@divObject).removeClass('no_display')
@@ -79,14 +89,16 @@ class FieldManager
     clearInterval @cellAnimationTimer if @cellAnimationTimer isnt false
     
 
-  @moveObject:(startCell, endCell)->
+  @moveObject:(startCell, endCell, callback)->
     GameManager.changeControllable false
 
     wayStack = endCell.wayStack
 
     # 全wayStack削除、再描画
     @removeAllWayStack()
+    @removeAllAttackable()
     @drawMovable()
+    @drawAttackable()
 
     charaObject = startCell.object
 
@@ -107,15 +119,18 @@ class FieldManager
       
       # 攻撃できるセル
       attackables = @getAttackableCell endCell
-      # 攻撃できるセルがあるなら攻撃待ち
+      # 攻撃できるセルがないなら終了
       if attackables.length is 0
         GameManager.flags.waitAttackCell = null
         endCell.object.setMoved true
+      # あるなら攻撃選択待ちに
       else
-        GameManager.flags.waitAttackCell = [endCell, attackables]
+        GameManager.flags.waitAttackCell = endCell
+      # 移動選択を解除
+      GameManager.flags.movePickCell = null
       endCell.draw()
 
-      GameManager.changeControllable true
+      callback()
     , @MOVE_SPEED*(wayStack.length+1)
 
   # 指定したセルにいるオブジェクトから攻撃することができるセルを返す
