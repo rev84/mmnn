@@ -1,5 +1,9 @@
 class GameManager
-  @ID = 'game'
+  @DEBUG_CONFIG = 
+    # 右クリックでメニューをでなくする
+    DISABLE_RIGHT_CLICK_MENU : false
+
+  @ID:'game'
 
   @contorollable = false
   @mousePos = {x:0, y:0}
@@ -176,7 +180,8 @@ class GameManager
   @init:->
     # 右クリック禁止
     $(document).on 'contextmenu', ->
-      false
+      !GameManager.DEBUG_CONFIG.DISABLE_RIGHT_CLICK_MENU
+
     @gameElement = $('<div>').attr('id', @ID)
                    .on('mousemove', @onMouseMove.bind(@))
                    .on('mouseup', (evt)=>

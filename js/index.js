@@ -186,13 +186,16 @@ ObjectBase = (function() {
     return Utl.rand(this.getDamageMin(attack, def), this.getDamageMax(attack, def));
   };
 
-  ObjectBase.getKnockout = function(hp, attack, def) {
-    if (hp <= this.getDamageMin(attack, def)) {
-      return this.KNOCKOUT.OK;
-    } else if (hp <= this.getDamageMax(attack, def)) {
-      return this.KNOCKOUT.MAY;
+  ObjectBase.getKnockoutRate = function(hp, attack, def) {
+    var max, min;
+    min = this.getDamageMin(attack, def);
+    max = this.getDamageMax(attack, def);
+    if (hp <= min) {
+      return +2e308;
+    } else if (hp <= max) {
+      return Math.round((max - hp + 1) / (max - min + 1) * 100);
     } else {
-      return this.KNOCKOUT.NG;
+      return -2e308;
     }
   };
 
@@ -440,8 +443,11 @@ Cell = (function() {
     return this.elements.fin.css('background-image', 'url(' + imagePath + ')');
   };
 
-  Cell.prototype.changeKnockout = function(imagePath) {
-    return this.elements.knockout.css('background-image', 'url(' + imagePath + ')');
+  Cell.prototype.changeKnockout = function(imagePath, num) {
+    if (num == null) {
+      num = '';
+    }
+    return this.elements.knockout.css('background-image', 'url(' + imagePath + ')').html(num).removeClass('no_display');
   };
 
   Cell.prototype.showMovable = function(bool) {
@@ -585,14 +591,20 @@ Cell = (function() {
   };
 
   Cell.prototype.drawKnockout = function() {
-    var attack, attackType, def, hp, img;
+    var attack, attackType, def, hp, knockout;
     if (this.knockout !== null) {
       attackType = this.knockout.object.getAttackType();
       attack = this.knockout.object.getAttack();
       def = attackType === ObjectBase.ATTACK_TYPE.PHYSIC ? this.object.getPDef() : this.object.getMDef();
       hp = this.object.getHp();
-      img = ObjectBase.getKnockout(hp, attack, def);
-      return this.changeKnockout(img);
+      knockout = ObjectBase.getKnockoutRate(hp, attack, def);
+      if (knockout === +2e308) {
+        return this.changeKnockout(ObjectBase.KNOCKOUT.OK);
+      } else if (knockout === -2e308) {
+        return this.changeKnockout(ObjectBase.KNOCKOUT.NG);
+      } else {
+        return this.changeKnockout(ObjectBase.KNOCKOUT.MAY, knockout);
+      }
     } else {
       return this.showKnockout(false);
     }
@@ -944,6 +956,7 @@ FieldManager = (function() {
             attackableCell = attackables[l];
             attackableCell.knockout = endCell;
           }
+          FieldManager.drawKnockout();
         }
         GameManager.flags.movePickCell = null;
         endCell.draw();
@@ -981,6 +994,10 @@ FieldManager = (function() {
 
 GameManager = (function() {
   function GameManager() {}
+
+  GameManager.DEBUG_CONFIG = {
+    DISABLE_RIGHT_CLICK_MENU: false
+  };
 
   GameManager.ID = 'game';
 
@@ -1189,7 +1206,7 @@ GameManager = (function() {
 
   GameManager.init = function() {
     $(document).on('contextmenu', function() {
-      return false;
+      return !GameManager.DEBUG_CONFIG.DISABLE_RIGHT_CLICK_MENU;
     });
     this.gameElement = $('<div>').attr('id', this.ID).on('mousemove', this.onMouseMove.bind(this)).on('mouseup', (function(_this) {
       return function(evt) {
@@ -2336,6 +2353,65 @@ ExpManager = (function() {
 
 })();
 
+InfoManager = (function() {
+  function InfoManager() {}
+
+  InfoManager.init = function(parentElement) {
+    this.parentElement = parentElement;
+    this.divObject = $('<div>').attr('id', this.ID).css({
+      width: Panel.SIZE_X,
+      height: Panel.SIZE_Y,
+      "background-color": '#000000'
+    }).appendTo(this.parentElement);
+    return this.panel = new Panel(this.divObject, null);
+  };
+
+  InfoManager.setObject = function(object) {
+    if (object == null) {
+      object = null;
+    }
+    this.panel.object = object;
+    return this.panel.draw();
+  };
+
+  InfoManager.show = function() {
+    return this.divObject.addClass('no_display');
+  };
+
+  InfoManager.hide = function() {
+    return this.divObject.addClass('no_display');
+  };
+
+  return InfoManager;
+
+})();
+
+LeftInfoManager = (function(superClass) {
+  extend(LeftInfoManager, superClass);
+
+  function LeftInfoManager() {
+    return LeftInfoManager.__super__.constructor.apply(this, arguments);
+  }
+
+  LeftInfoManager.ID = 'left_info';
+
+  return LeftInfoManager;
+
+})(InfoManager);
+
+RightInfoManager = (function(superClass) {
+  extend(RightInfoManager, superClass);
+
+  function RightInfoManager() {
+    return RightInfoManager.__super__.constructor.apply(this, arguments);
+  }
+
+  RightInfoManager.ID = 'right_info';
+
+  return RightInfoManager;
+
+})(InfoManager);
+
 MatsuiyamateBase = (function(superClass) {
   extend(MatsuiyamateBase, superClass);
 
@@ -2567,62 +2643,3 @@ Akui = (function(superClass) {
 window.EnemyList = {
   "1": Akui
 };
-
-InfoManager = (function() {
-  function InfoManager() {}
-
-  InfoManager.init = function(parentElement) {
-    this.parentElement = parentElement;
-    this.divObject = $('<div>').attr('id', this.ID).css({
-      width: Panel.SIZE_X,
-      height: Panel.SIZE_Y,
-      "background-color": '#000000'
-    }).appendTo(this.parentElement);
-    return this.panel = new Panel(this.divObject, null);
-  };
-
-  InfoManager.setObject = function(object) {
-    if (object == null) {
-      object = null;
-    }
-    this.panel.object = object;
-    return this.panel.draw();
-  };
-
-  InfoManager.show = function() {
-    return this.divObject.addClass('no_display');
-  };
-
-  InfoManager.hide = function() {
-    return this.divObject.addClass('no_display');
-  };
-
-  return InfoManager;
-
-})();
-
-LeftInfoManager = (function(superClass) {
-  extend(LeftInfoManager, superClass);
-
-  function LeftInfoManager() {
-    return LeftInfoManager.__super__.constructor.apply(this, arguments);
-  }
-
-  LeftInfoManager.ID = 'left_info';
-
-  return LeftInfoManager;
-
-})(InfoManager);
-
-RightInfoManager = (function(superClass) {
-  extend(RightInfoManager, superClass);
-
-  function RightInfoManager() {
-    return RightInfoManager.__super__.constructor.apply(this, arguments);
-  }
-
-  RightInfoManager.ID = 'right_info';
-
-  return RightInfoManager;
-
-})(InfoManager);

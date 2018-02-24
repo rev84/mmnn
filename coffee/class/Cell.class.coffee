@@ -193,8 +193,8 @@ class Cell
       @elements.movable.css('background-image', 'url('+imagePath+')')
   changeFin:(imagePath)->
       @elements.fin.css('background-image', 'url('+imagePath+')')
-  changeKnockout:(imagePath)->
-      @elements.knockout.css('background-image', 'url('+imagePath+')')
+  changeKnockout:(imagePath, num = '')->
+      @elements.knockout.css('background-image', 'url('+imagePath+')').html(num).removeClass('no_display')
   showMovable:(bool = true)->
     if bool
       @elements.movable.removeClass('no_display')
@@ -342,9 +342,13 @@ class Cell
       # 防御側のHP
       hp = @object.getHp()
 
-      img = ObjectBase.getKnockout(hp, attack, def)
-
-      @changeKnockout img
+      knockout = ObjectBase.getKnockoutRate(hp, attack, def)
+      if knockout is +Infinity
+        @changeKnockout ObjectBase.KNOCKOUT.OK
+      else if knockout is -Infinity
+        @changeKnockout ObjectBase.KNOCKOUT.NG
+      else
+        @changeKnockout ObjectBase.KNOCKOUT.MAY, knockout
     else
       @showKnockout false
 

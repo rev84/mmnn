@@ -102,10 +102,12 @@ class ObjectBase
     damage
   @getDamage:(attack, def)->
     Utl.rand(@getDamageMin(attack, def), @getDamageMax(attack, def))
-  @getKnockout:(hp, attack, def)->
-    if hp <= @getDamageMin(attack, def)
-      @KNOCKOUT.OK
-    else if hp <= @getDamageMax(attack, def)
-      @KNOCKOUT.MAY
+  @getKnockoutRate:(hp, attack, def)->
+    min = @getDamageMin(attack, def)
+    max = @getDamageMax(attack, def)
+    if hp <= min
+      +Infinity
+    else if hp <= max
+      Math.round((max - hp + 1) / (max - min + 1) * 100)
     else
-      @KNOCKOUT.NG
+      -Infinity

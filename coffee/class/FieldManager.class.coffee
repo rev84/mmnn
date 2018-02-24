@@ -126,6 +126,7 @@ class FieldManager
         GameManager.flags.waitAttackCell = endCell
         for attackableCell in attackables
           attackableCell.knockout = endCell
+        FieldManager.drawKnockout()
       # 移動選択を解除
       GameManager.flags.movePickCell = null
       endCell.draw()
