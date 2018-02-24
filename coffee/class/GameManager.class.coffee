@@ -379,6 +379,7 @@ class GameManager
     #   [beatPossibility]倒せる可能性
     #   [damage]ダメージ量
     #   [xMove]移動後のx座標
+    #   [moveAmount]移動距離
     # [1]移動先のセル
     # [2]攻撃対象(-1:自爆してフィールドライフを減らす)
     # 
@@ -387,7 +388,8 @@ class GameManager
     # 確実に倒せる味方を倒せる（レベル高い順）＞
     # 倒せる可能性の高い味方を攻撃する（可能性順）＞
     # 与えるダメージが大きい味方に攻撃する（最高ダメージ順）＞
-    # なるべく端に近づく（近い順）
+    # なるべく端に近づく（近い順）＞
+    # 移動距離が少ない
     ####################################################################
     getAct = (params)->
       rtn = {
@@ -396,12 +398,14 @@ class GameManager
         beatPossibility: -Infinity
         damage: 0
         xMove: +Infinity
+        moveAmount:+Infinity
       }
       rtn.life = params.life if 'life' of params
       rtn.beatLevel = params.beatLevel if 'beatLevel' of params
       rtn.beatPossibility = params.beatPossibility if 'beatPossibility' of params
       rtn.damage = params.damage if 'damage' of params
       rtn.xMove = params.xMove if 'xMove' of params
+      rtn.moveAmount = params.moveAmount if 'moveAmount' of params
       rtn
     acts = []
     # 移動できる場所
@@ -424,11 +428,11 @@ class GameManager
         # 端っこに到達して、なおまだ移動力がある場合
         if xMove is 0 and (enemyCell.object.getMove() - wayStack.length) > 0
           # 突っ込む
-          acts.push [getAct({life: 1}), moveToCell, -1]
-          `break actsearch`
+          acts.push [getAct({life: 1, moveAmount: wayStack.length}), moveToCell, -1]
+          #`break actsearch`
 
         # ここでじっとするプランをまず入れる
-        acts.push [getAct({xMove:xMove}), moveToCell, null]
+        acts.push [getAct({xMove:xMove, moveAmount: wayStack.length}), moveToCell, null]
         # 攻撃可能な相手
         attackables = FieldManager.getAttackableCells enemyCell.object, xMove, yMove
         for atkCell in attackables
@@ -455,6 +459,7 @@ class GameManager
             beatPossibility:beatPossibility
             damage:damage
             xMove:xMove
+            moveAmount: wayStack.length
           }), moveToCell, atkCell]
     # 点数順にソートする
     acts.sort (aAry, bAry)->

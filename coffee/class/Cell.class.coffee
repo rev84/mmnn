@@ -175,7 +175,6 @@ class Cell
     @changeBackground @background
     @changeMovable @constructor.IMAGE_MOVABLE
     @changeFin @constructor.IMAGE_FIN
-    @changeSnipe @constructor.IMAGE_SNIPE
     $(@elements.mother).appendTo(@parentElement)
 
   # 画像の変更
@@ -290,6 +289,8 @@ class Cell
   tryMoveTo:(evt)->
     # 既に移動させたいキャラを選んでいない場合はダメ
     return if GameManager.flags.movePickCell is null
+    # ここにキャラがいる場合はダメ
+    return if @object isnt null
 
     FieldManager.moveObject(GameManager.flags.movePickCell, @, ->
       GameManager.changeControllable true

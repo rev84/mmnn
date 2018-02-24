@@ -402,7 +402,6 @@ Cell = (function() {
     this.changeBackground(this.background);
     this.changeMovable(this.constructor.IMAGE_MOVABLE);
     this.changeFin(this.constructor.IMAGE_FIN);
-    this.changeSnipe(this.constructor.IMAGE_SNIPE);
     return $(this.elements.mother).appendTo(this.parentElement);
   };
 
@@ -563,6 +562,9 @@ Cell = (function() {
 
   Cell.prototype.tryMoveTo = function(evt) {
     if (GameManager.flags.movePickCell === null) {
+      return;
+    }
+    if (this.object !== null) {
       return;
     }
     FieldManager.moveObject(GameManager.flags.movePickCell, this, function() {
@@ -1500,7 +1502,8 @@ GameManager = (function() {
         beatLevel: 0,
         beatPossibility: -2e308,
         damage: 0,
-        xMove: +2e308
+        xMove: +2e308,
+        moveAmount: +2e308
       };
       if ('life' in params) {
         rtn.life = params.life;
@@ -1516,6 +1519,9 @@ GameManager = (function() {
       }
       if ('xMove' in params) {
         rtn.xMove = params.xMove;
+      }
+      if ('moveAmount' in params) {
+        rtn.moveAmount = params.moveAmount;
       }
       return rtn;
     };
@@ -1536,14 +1542,15 @@ GameManager = (function() {
         if (xMove === 0 && (enemyCell.object.getMove() - wayStack.length) > 0) {
           acts.push([
             getAct({
-              life: 1
+              life: 1,
+              moveAmount: wayStack.length
             }), moveToCell, -1
           ]);
-          break actsearch;
         }
         acts.push([
           getAct({
-            xMove: xMove
+            xMove: xMove,
+            moveAmount: wayStack.length
           }), moveToCell, null
         ]);
         attackables = FieldManager.getAttackableCells(enemyCell.object, xMove, yMove);
@@ -1561,7 +1568,8 @@ GameManager = (function() {
               beatLevel: beatLevel,
               beatPossibility: beatPossibility,
               damage: damage,
-              xMove: xMove
+              xMove: xMove,
+              moveAmount: wayStack.length
             }), moveToCell, atkCell
           ]);
         }
