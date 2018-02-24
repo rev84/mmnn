@@ -35,17 +35,17 @@ class SimamuraUdukiBase extends CharacterBase
 
   constructor:(params)->
     super(params)
-class SyamugameBase extends CharacterBase
+class ShibuyaRinBase extends CharacterBase
   # ID
   @characterId = 2
   # キャラ名
-  @characterName = "syamu_game"
+  @characterName = "渋谷凛"
   # 最初からいるか
   @defaultJoin = true
   # 画像のリスト
-  @images = ["./img/character/2/1.jpg"]
+  @images = ["./img/character/2/1.png","./img/character/2/2.png"]
   # 基本攻撃タイプ
-  @attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
   @attackBase = 2
   # 成長率：HP
@@ -67,8 +67,8 @@ class SyamugameBase extends CharacterBase
   # 必要経験値
   @expRate = 2
 
-  @abilityName = "しゃむさんの能力"
-  @abilityDesc = "しゃむさんのせつめい"
+  @abilityName = "渋谷凛の能力"
+  @abilityDesc = "渋谷凛の能力"
 
   constructor:(params)->
     super(params)

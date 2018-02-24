@@ -1,5 +1,5 @@
 window.CharacterList = {
   "1" : SimamuraUduki
-  "2" : Syamugame
+  "2" : ShibuyaRin
   "3" : Revot
 }

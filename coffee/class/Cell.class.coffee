@@ -1,6 +1,6 @@
 class Cell
-  @SIZE_X : 75
-  @SIZE_Y : 75
+  @SIZE_X : 80
+  @SIZE_Y : 80
   # セルのオブジェクトのアニメーションの間隔msec
   @OBJECT_ANIMATION_MSEC : 500
   # キャラ出撃で置けるxIndex
@@ -154,8 +154,8 @@ class Cell
     @elements.background = $('<div>').addClass('cell cell_background')
                            .css(cssPos).css(cssSize)
                            .appendTo(@elements.mother)
-    @elements.object     = $('<div>').addClass('cell cell_object')
-                           .css(cssPos).css(cssSize)
+    @elements.object     = $('<img>').addClass('cell cell_object')
+                           .css({left:0, bottom:0}).css({width:'100%'})
                            .appendTo(@elements.mother)
     @elements.movable    = $('<div>').addClass('cell cell_movable')
                            .css(cssPos).css(cssSize).addClass('no_display')
@@ -187,7 +187,7 @@ class Cell
     if imagePath is null
       @elements.object.addClass('no_display')
     else
-      @elements.object.css('background-image', 'url('+imagePath+')').removeClass('no_display')
+      @elements.object.attr('src', imagePath).removeClass('no_display')
   changeAttackable:(imagePath = null)->
     if imagePath is null
       @elements.attackable.addClass('no_display')
