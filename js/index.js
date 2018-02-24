@@ -560,7 +560,7 @@ FieldManager = (function() {
   };
 
   FieldManager.getAttackableCell = function(cell) {
-    var body, dist, j, l, len, len1, ref, ref1, res, targetCell, targetType, xIndex, yIndex;
+    var body, dist, j, l, len, len1, ref, res, targetCell, targetType, xIndex, yIndex;
     targetType = cell.object === null ? [] : cell.object.isCharacterObject() ? [ObjectBase.OBJECT_TYPE.ENEMY] : cell.object.isEnemyObject() ? [ObjectBase.OBJECT_TYPE.CHARACTER] : void 0;
     if (targetType.length <= 0) {
       return [];
@@ -572,7 +572,7 @@ FieldManager = (function() {
       for (yIndex = l = 0, len1 = body.length; l < len1; yIndex = ++l) {
         targetCell = body[yIndex];
         dist = Math.abs(cell.xIndex - targetCell.xIndex) + Math.abs(cell.yIndex - targetCell.yIndex);
-        if ((0 < (ref1 = cell.object.getRange()) && ref1 <= dist)) {
+        if (dist <= cell.object.getRange()) {
           if (targetCell.object !== null && Utl.inArray(targetCell.object.getObjectType(), targetType)) {
             res.push(targetCell);
           }
@@ -820,10 +820,10 @@ GameManager = (function() {
       width: 1200,
       height: 800
     });
-    this.initCharacters(null);
-    this.initEnemys(null);
     this.initField(null);
     this.initMenu(null);
+    this.initCharacters(null);
+    this.initEnemys(null);
     this.gameElement.appendTo('body');
     return this.doBattle(true);
   };
@@ -881,7 +881,13 @@ GameManager = (function() {
     if (this.initialized.enemys) {
       return;
     }
-    return this.initialized.enemys = true;
+    this.initialized.enemys = true;
+    return FieldManager.cells[5][5].object = new Akui({
+      level: 1,
+      hp: null,
+      inField: false,
+      moved: false
+    });
   };
 
   GameManager.isControllable = function() {

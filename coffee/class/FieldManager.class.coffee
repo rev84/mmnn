@@ -139,7 +139,7 @@ class FieldManager
       for targetCell, yIndex in body
         dist = Math.abs(cell.xIndex - targetCell.xIndex) + Math.abs(cell.yIndex - targetCell.yIndex)
         # 攻撃可能
-        if 0 < cell.object.getRange() <= dist
+        if dist <= cell.object.getRange()
           # ターゲットである
           if targetCell.object isnt null and Utl.inArray(targetCell.object.getObjectType(), targetType)
             res.push targetCell

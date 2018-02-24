@@ -194,10 +194,10 @@ class GameManager
                       height: 800
                     })
 
-    @initCharacters(null)
-    @initEnemys(null)
     @initField(null)
     @initMenu(null)
+    @initCharacters(null)
+    @initEnemys(null)
 
     @gameElement.appendTo('body')
 
@@ -245,6 +245,14 @@ class GameManager
   @initEnemys:(savedata)->
     return if @initialized.enemys
     @initialized.enemys = true
+
+    #### デバッグ
+    FieldManager.cells[5][5].object = new Akui({
+      level : 1
+      hp : null
+      inField : false
+      moved: false      
+    })
 
   @isControllable:->
     @controllable
