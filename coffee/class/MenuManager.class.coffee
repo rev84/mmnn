@@ -35,6 +35,16 @@ class MenuManager
     .on('click', @onClickBattle.bind(@))
     .appendTo(@divObject)
 
+    # ターン終了
+    @turnEnd = $('<div>').html('ターン終了').css({
+      border: '1px solid #000000'
+      width: 100
+      height: 40
+      "font-size": '30px'
+    })
+    .on('click', @onClickTurnEnd.bind(@))
+    .appendTo(@divObject)
+
     @divObject.appendTo(@parentElement)
 
   # 出撃
@@ -44,10 +54,17 @@ class MenuManager
     GameManager.doCharacterPick()
     true
 
-  # 出撃
+  # 戦闘
   @onClickBattle:(evt)->
     return unless GameManager.isControllable()
 
     GameManager.doBattle()
+    true
+
+  # ターン終了
+  @onClickTurnEnd:(evt)->
+    return unless GameManager.isControllable()
+
+    GameManager.doTurnEnd()
     true
     

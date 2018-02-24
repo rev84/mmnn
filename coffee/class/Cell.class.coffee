@@ -298,7 +298,7 @@ class Cell
       GameManager.changeControllable true
     
 
-  setMovable:(wayStack)->
+  setWayStack:(wayStack)->
     @wayStack = wayStack
 
   drawMovable:->

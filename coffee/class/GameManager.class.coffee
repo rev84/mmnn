@@ -36,6 +36,8 @@ class GameManager
     moveToCell : null
     # 戦闘モードで攻撃待ちの場合、現在対象になっているセル
     waitAttackCell : null
+    # 戦闘モードでターン終了していい状態であるか
+    isEnableTurnEnd : true
 
   # アニメーション関係
   @POSITION =
@@ -145,6 +147,11 @@ class GameManager
     # 戦闘モードを切る
     @flags.isBattle = false
     
+  # ターン終了
+  @doTurnEnd:(isSoon = false)->
+    # ターン終了可能な状態ではない
+    return unless @flags.isEnableTurnEnd
+    @enemyMove()    
 
   @partsAnimation:(ary, isSoon = false)->
     # 操作不能にする
@@ -392,15 +399,15 @@ class GameManager
     # 移動できる場所
     movableMap = FieldManager.getMovableMap enemyCell
     # 攻撃側の攻撃タイプ
-    myAttackType = @enemyCell.object.getAttackType()
+    myAttackType = enemyCell.object.getAttackType()
     # 攻撃側の攻撃力
-    myAttack = @enemyCell.object.getAttack()
+    myAttack = enemyCell.object.getAttack()
     # すべての位置で攻撃可能な分岐をおこない、点数化する
     `actsearch://`
     for mBody, xMove in movableMap
       for wayStack, yMove in mBody
         # 行けないので飛ばす
-        continue unless 0 <= wayStack.length <= enemyCell.object.getMove()
+        continue unless wayStack isnt null and 0 <= wayStack.length <= enemyCell.object.getMove()
         # 行き先のセル
         moveToCell = FieldManager.cells[xMove][yMove]
         # 行き先にwayStackをセットしちゃう
@@ -416,34 +423,35 @@ class GameManager
         acts.push [getAct({xMove:xMove}), moveToCell, null]
         # 攻撃可能な相手
         attackables = FieldManager.getAttackableCells enemyCell.object, xMove, yMove
-        for aBody, xAtk in attackables
-          for atkCell, yAtk in aBody
-            # 倒せる確率を取得
-            # 防御側の防御力
-            def = if myAttackType is ObjectBase.ATTACK_TYPE.PHYSIC then atkCell.getPDef() else atkCell.getMDef()
-            # 防御側のHP
-            hp = atkCell.getHp()
+        for atkCell in attackables
+          atkObj = atkCell.object
+          # 防御側の防御力
+          def = if myAttackType is ObjectBase.ATTACK_TYPE.PHYSIC then atkObj.getPDef() else atkObj.getMDef()
+          # 防御側のHP
+          hp = atkObj.getHp()
 
-            # 防御側のレベル
-            level = atkCell.getLevel()
-            # 倒せる確率
-            beatPossibility = ObjectBase.getKnockoutRate(hp, myAttack, def)
-            # 与えられる最高ダメージ
-            damage = ObjectBase.getDamageMax(myAttack, def)
+          # 防御側のレベル
+          level = atkObj.getLevel()
+          # 倒せる確率
+          beatPossibility = ObjectBase.getKnockoutRate(hp, myAttack, def)
+          # 与えられる最高ダメージ
+          damage = ObjectBase.getDamageMax(myAttack, def)
 
-            beatLevel = 
-              if beatPossibility is +Infinity
-                level
-              else
-                0
-            acts.push [getAct({
-              beatLevel:beatLevel
-              beatPossibility:beatPossibility
-              damage:damage
-              xMove:xMove
-            }), moveToCell, atkCell]
+          beatLevel = 
+            if beatPossibility is +Infinity
+              level
+            else
+              0
+          acts.push [getAct({
+            beatLevel:beatLevel
+            beatPossibility:beatPossibility
+            damage:damage
+            xMove:xMove
+          }), moveToCell, atkCell]
     # 点数順にソートする
-    acts.sort (a, b)->
+    acts.sort (aAry, bAry)->
+      a = aAry[0]
+      b = bAry[0]
       return -1 if a.life > b.life
       return  1 if a.life < b.life
       return -1 if a.beatLevel > b.beatLevel
@@ -457,28 +465,21 @@ class GameManager
       0
     # 最高評価のものをおこなう
     [_, moveToCell, atkCell] = acts[0]
-    # アニメーションにかかる時間
-    animationMsecTotal = 0
-    # 移動
-    if wayStack.length isnt 0
-      animationMsecTotal = FieldManager.moveObject enemyCell, moveToCell, animationMsecTotal
-    else
-      moveToCell = enemyCell
-    # 攻撃しない
-    if atkCell is null
-      ;
-    # 自爆する
-    else if atkCell is -1
-      animationMsecTotal = @terror(moveToCell, ->, animationMsecTotal)
-    # 攻撃する
-    else
-      animationMsecTotal = @attack(moveToCell, atkCell, ->, animationMsecTotal)
 
-    # 次の敵の行動
-    setTimeout @enemyMove, animationMsecTotal
+    # 移動
+    FieldManager.moveObject enemyCell, moveToCell, =>
+      # 攻撃しない
+      if atkCell is null
+        ;
+      # 自爆する
+      else if atkCell is -1
+        @terror(moveToCell, @enemyMove.bind(@))
+      # 攻撃する
+      else
+        @attack(moveToCell, atkCell, @enemyMove.bind(@))
     true
 
-  @attack:(attackerCell, defenderCell, callback = ->, baseMsec = 0)->
+  @attack:(attackerCell, defenderCell, callback = null)->
     # それぞれのオブジェクト
     attacker = attackerCell.object
     defender = defenderCell.object
@@ -513,13 +514,13 @@ class GameManager
     FieldManager.removeAllWayStack()
     FieldManager.removeAllKnockout()
 
-    baseMsec+0
+    callback() if callback instanceof Function
 
-  @terror:(cell, callback = ->, baseMsec = 0)->
+  @terror:(cell, callback = null)->
     # ライフを1下げる
     FieldLifeManager.decrease()
     # 敵を消し去る
     cell.object = null
     cell.draw()
 
-    baseMsec+0
+    callback() if callback instanceof Function

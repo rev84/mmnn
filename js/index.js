@@ -569,7 +569,7 @@ Cell = (function() {
     });
   };
 
-  Cell.prototype.setMovable = function(wayStack) {
+  Cell.prototype.setWayStack = function(wayStack) {
     return this.wayStack = wayStack;
   };
 
@@ -910,9 +910,15 @@ FieldManager = (function() {
   FieldManager.moveObject = function(startCell, endCell, callback) {
     var charaObject, index, j, len, prevCell, showHide, targetCell, wayStack;
     if (callback == null) {
-      callback = function() {};
+      callback = null;
     }
     GameManager.changeControllable(false);
+    if (startCell === endCell) {
+      if (callback instanceof Function) {
+        callback();
+      }
+      return;
+    }
     wayStack = endCell.wayStack;
     this.removeAllWayStack();
     this.removeAllKnockout();
@@ -953,7 +959,7 @@ FieldManager = (function() {
         return callback();
       };
     })(this), this.MOVE_SPEED * (wayStack.length + 1));
-    return this.MOVE_SPEED * (wayStack.length + 1);
+    return this.MOVE_SPEED * (wayStack.length + 1) + this.MOVE_SPEED;
   };
 
   FieldManager.getAttackableCellsByCell = function(cell) {
@@ -972,8 +978,8 @@ FieldManager = (function() {
       body = ref[xIndex];
       for (yIndex = l = 0, len1 = body.length; l < len1; yIndex = ++l) {
         targetCell = body[yIndex];
-        dist = Math.abs(cell.xIndex - targetCell.xIndex) + Math.abs(cell.yIndex - targetCell.yIndex);
-        if (dist <= cell.object.getRange()) {
+        dist = Math.abs(x - targetCell.xIndex) + Math.abs(y - targetCell.yIndex);
+        if (dist <= object.getRange()) {
           if (targetCell.object !== null && Utl.inArray(targetCell.object.getObjectType(), targetType)) {
             res.push(targetCell);
           }
@@ -1060,7 +1066,8 @@ GameManager = (function() {
     isBattle: false,
     movePickCell: null,
     moveToCell: null,
-    waitAttackCell: null
+    waitAttackCell: null,
+    isEnableTurnEnd: true
   };
 
   GameManager.POSITION = {
@@ -1196,6 +1203,16 @@ GameManager = (function() {
     this.flags.pickedCharacterElement = null;
     this.switchTempAll();
     return this.flags.isBattle = false;
+  };
+
+  GameManager.doTurnEnd = function(isSoon) {
+    if (isSoon == null) {
+      isSoon = false;
+    }
+    if (!this.flags.isEnableTurnEnd) {
+      return;
+    }
+    return this.enemyMove();
   };
 
   GameManager.partsAnimation = function(ary, isSoon) {
@@ -1409,7 +1426,7 @@ GameManager = (function() {
   };
 
   GameManager.enemyMove = function() {
-    var _, aBody, acts, animationMsecTotal, atkCell, attackables, beatLevel, beatPossibility, c, damage, def, ending, enemyCell, getAct, hp, j, l, len, len1, len2, len3, level, mBody, movableMap, moveToCell, myAttack, myAttackType, o, q, r, ref, ref1, ref2, ref3, s, wayStack, x, xAtk, xMove, y, yAtk, yMove;
+    var _, acts, atkCell, atkObj, attackables, beatLevel, beatPossibility, c, damage, def, ending, enemyCell, getAct, hp, j, l, len, len1, len2, level, mBody, movableMap, moveToCell, myAttack, myAttackType, o, q, r, ref, ref1, ref2, ref3, wayStack, x, xMove, y, yMove;
     this.changeControllable(false);
     this.flags.moveToCell = null;
     FieldManager.removeAllWayStack();
@@ -1462,14 +1479,14 @@ GameManager = (function() {
     };
     acts = [];
     movableMap = FieldManager.getMovableMap(enemyCell);
-    myAttackType = this.enemyCell.object.getAttackType();
-    myAttack = this.enemyCell.object.getAttack();
+    myAttackType = enemyCell.object.getAttackType();
+    myAttack = enemyCell.object.getAttack();
     actsearch://;
     for (xMove = o = 0, len = movableMap.length; o < len; xMove = ++o) {
       mBody = movableMap[xMove];
       for (yMove = q = 0, len1 = mBody.length; q < len1; yMove = ++q) {
         wayStack = mBody[yMove];
-        if (!((0 <= (ref2 = wayStack.length) && ref2 <= enemyCell.object.getMove()))) {
+        if (!(wayStack !== null && (0 <= (ref2 = wayStack.length) && ref2 <= enemyCell.object.getMove()))) {
           continue;
         }
         moveToCell = FieldManager.cells[xMove][yMove];
@@ -1488,29 +1505,30 @@ GameManager = (function() {
           }), moveToCell, null
         ]);
         attackables = FieldManager.getAttackableCells(enemyCell.object, xMove, yMove);
-        for (xAtk = r = 0, len2 = attackables.length; r < len2; xAtk = ++r) {
-          aBody = attackables[xAtk];
-          for (yAtk = s = 0, len3 = aBody.length; s < len3; yAtk = ++s) {
-            atkCell = aBody[yAtk];
-            def = myAttackType === ObjectBase.ATTACK_TYPE.PHYSIC ? atkCell.getPDef() : atkCell.getMDef();
-            hp = atkCell.getHp();
-            level = atkCell.getLevel();
-            beatPossibility = ObjectBase.getKnockoutRate(hp, myAttack, def);
-            damage = ObjectBase.getDamageMax(myAttack, def);
-            beatLevel = beatPossibility === +2e308 ? level : 0;
-            acts.push([
-              getAct({
-                beatLevel: beatLevel,
-                beatPossibility: beatPossibility,
-                damage: damage,
-                xMove: xMove
-              }), moveToCell, atkCell
-            ]);
-          }
+        for (r = 0, len2 = attackables.length; r < len2; r++) {
+          atkCell = attackables[r];
+          atkObj = atkCell.object;
+          def = myAttackType === ObjectBase.ATTACK_TYPE.PHYSIC ? atkObj.getPDef() : atkObj.getMDef();
+          hp = atkObj.getHp();
+          level = atkObj.getLevel();
+          beatPossibility = ObjectBase.getKnockoutRate(hp, myAttack, def);
+          damage = ObjectBase.getDamageMax(myAttack, def);
+          beatLevel = beatPossibility === +2e308 ? level : 0;
+          acts.push([
+            getAct({
+              beatLevel: beatLevel,
+              beatPossibility: beatPossibility,
+              damage: damage,
+              xMove: xMove
+            }), moveToCell, atkCell
+          ]);
         }
       }
     }
-    acts.sort(function(a, b) {
+    acts.sort(function(aAry, bAry) {
+      var a, b;
+      a = aAry[0];
+      b = bAry[0];
       if (a.life > b.life) {
         return -1;
       }
@@ -1544,28 +1562,24 @@ GameManager = (function() {
       return 0;
     });
     ref3 = acts[0], _ = ref3[0], moveToCell = ref3[1], atkCell = ref3[2];
-    animationMsecTotal = 0;
-    if (wayStack.length !== 0) {
-      animationMsecTotal += FieldManager.moveObject(enemyCell, moveToCell, animationMsecTotal);
-    } else {
-      moveToCell = enemyCell;
-    }
-    if (atkCell === null) {
+    FieldManager.moveObject(enemyCell, moveToCell, (function(_this) {
+      return function() {
+        if (atkCell === null) {
 
-    } else if (atkCell === -1) {
-      FieldLifeManager.decrease();
-      moveToCell.object = null;
-      moveToCell.draw();
-    } else {
-      animationMsecTotal += this.attack(moveToCell, atkCell);
-    }
+        } else if (atkCell === -1) {
+          return _this.terror(moveToCell, _this.enemyMove.bind(_this));
+        } else {
+          return _this.attack(moveToCell, atkCell, _this.enemyMove.bind(_this));
+        }
+      };
+    })(this));
     return true;
   };
 
   GameManager.attack = function(attackerCell, defenderCell, callback) {
     var attack, attackType, attacker, damage, def, defender, hp;
     if (callback == null) {
-      callback = function() {};
+      callback = null;
     }
     attacker = attackerCell.object;
     defender = defenderCell.object;
@@ -1583,7 +1597,21 @@ GameManager = (function() {
     defenderCell.draw();
     FieldManager.removeAllWayStack();
     FieldManager.removeAllKnockout();
-    return 0;
+    if (callback instanceof Function) {
+      return callback();
+    }
+  };
+
+  GameManager.terror = function(cell, callback) {
+    if (callback == null) {
+      callback = null;
+    }
+    FieldLifeManager.decrease();
+    cell.object = null;
+    cell.draw();
+    if (callback instanceof Function) {
+      return callback();
+    }
   };
 
   return GameManager;
@@ -1625,6 +1653,12 @@ MenuManager = (function() {
       height: 40,
       "font-size": '30px'
     }).on('click', this.onClickBattle.bind(this)).appendTo(this.divObject);
+    this.turnEnd = $('<div>').html('ターン終了').css({
+      border: '1px solid #000000',
+      width: 100,
+      height: 40,
+      "font-size": '30px'
+    }).on('click', this.onClickTurnEnd.bind(this)).appendTo(this.divObject);
     return this.divObject.appendTo(this.parentElement);
   };
 
@@ -1641,6 +1675,14 @@ MenuManager = (function() {
       return;
     }
     GameManager.doBattle();
+    return true;
+  };
+
+  MenuManager.onClickTurnEnd = function(evt) {
+    if (!GameManager.isControllable()) {
+      return;
+    }
+    GameManager.doTurnEnd();
     return true;
   };
 

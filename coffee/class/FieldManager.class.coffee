@@ -87,8 +87,14 @@ class FieldManager
     clearInterval @cellAnimationTimer if @cellAnimationTimer isnt false
     
 
-  @moveObject:(startCell, endCell, callback = ->, baseMsec = 0)->
+  @moveObject:(startCell, endCell, callback = null)->
     GameManager.changeControllable false
+
+    # 移動しないのですぐコールバック
+    if startCell is endCell
+      if callback instanceof Function
+        callback()
+      return
 
     wayStack = endCell.wayStack
 
@@ -108,7 +114,7 @@ class FieldManager
 
     prevCell = startCell
     for targetCell, index in wayStack
-      setTimeout showHide.bind(null, prevCell, targetCell), baseMsec+@MOVE_SPEED*(index+1)
+      setTimeout showHide.bind(null, prevCell, targetCell), @MOVE_SPEED*(index+1)
       prevCell = targetCell
 
     setTimeout =>
@@ -132,9 +138,9 @@ class FieldManager
       endCell.draw()
 
       callback()
-    , baseMsec+@MOVE_SPEED*(wayStack.length+1)
+    , @MOVE_SPEED*(wayStack.length+1)
     # アニメーション終了までの時間を返す
-    baseMsec+@MOVE_SPEED*(wayStack.length+1)+@MOVE_SPEED
+    @MOVE_SPEED*(wayStack.length+1)+@MOVE_SPEED
 
   # 指定したセルにいるオブジェクトから攻撃することができるセルを返す
   @getAttackableCellsByCell:(cell)->
@@ -160,9 +166,9 @@ class FieldManager
     res = []
     for body, xIndex in @cells
       for targetCell, yIndex in body
-        dist = Math.abs(cell.xIndex - targetCell.xIndex) + Math.abs(cell.yIndex - targetCell.yIndex)
+        dist = Math.abs(x - targetCell.xIndex) + Math.abs(y - targetCell.yIndex)
         # 攻撃可能
-        if dist <= cell.object.getRange()
+        if dist <= object.getRange()
           # ターゲットである
           if targetCell.object isnt null and Utl.inArray(targetCell.object.getObjectType(), targetType)
             res.push targetCell
