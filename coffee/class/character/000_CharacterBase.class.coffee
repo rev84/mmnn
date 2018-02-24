@@ -23,10 +23,10 @@ class CharacterBase extends ObjectBase
     # 行動済みであるか
     @moved = params.moved
 
-  getCharacterId:->
+  getId:->
     @constructor.characterId
 
-  getCharacterName:->
+  getName:->
     @constructor.characterName
 
   isInField:->

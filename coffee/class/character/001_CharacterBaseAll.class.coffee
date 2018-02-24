@@ -6,7 +6,7 @@ class MatsuiyamateBase extends CharacterBase
   # 最初からいるか
   @defaultJoin = true
   # 画像のリスト
-  @images = ["./img/character/1/1.jpg", "./img/character/1/2.png"]
+  @images = ["./img/character/1/1.jpg","./img/character/1/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = "物理"
   # 成長率：攻撃力

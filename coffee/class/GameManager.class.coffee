@@ -9,6 +9,7 @@ class GameManager
     characters:false
     field:false
     menu:false
+    enemys:false
   @flags = 
     # セルのオブジェクトのアニメーションを有効にするか
     isCellObjectAnimation : true
@@ -194,6 +195,7 @@ class GameManager
                     })
 
     @initCharacters(null)
+    @initEnemys(null)
     @initField(null)
     @initMenu(null)
 
@@ -238,6 +240,11 @@ class GameManager
     for characterId, characterObject of @characters
       CharacterPalletManager.addCharacter(characterObject)
     CharacterPalletManager.show()
+
+  # キャラ初期化
+  @initEnemys:(savedata)->
+    return if @initialized.enemys
+    @initialized.enemys = true
 
   @isControllable:->
     @controllable
