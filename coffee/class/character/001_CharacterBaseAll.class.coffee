@@ -8,7 +8,7 @@ class MatsuiyamateBase extends CharacterBase
   # 画像のリスト
   @images = ["./img/character/1/1.jpg","./img/character/1/2.png"]
   # 基本攻撃タイプ
-  @attackTypeBase = "物理"
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
   @attackBase = 1
   # 成長率：HP
@@ -25,8 +25,10 @@ class MatsuiyamateBase extends CharacterBase
   @hitRateBase = 1
   # 基本回避率
   @dodgeRateBase = 1
-
+  # アイテム装備可能数
   @itemMax = 1
+  # 必要経験値
+  @expRate = 1
 
   @abilityName = "松井山手の能力"
   @abilityDesc = "松井山手の説明"
@@ -43,7 +45,7 @@ class SyamugameBase extends CharacterBase
   # 画像のリスト
   @images = ["./img/character/2/1.jpg"]
   # 基本攻撃タイプ
-  @attackTypeBase = "魔法"
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC
   # 成長率：攻撃力
   @attackBase = 2
   # 成長率：HP
@@ -60,8 +62,10 @@ class SyamugameBase extends CharacterBase
   @hitRateBase = 2
   # 基本回避率
   @dodgeRateBase = 2
-
+  # アイテム装備可能数
   @itemMax = 2
+  # 必要経験値
+  @expRate = 2
 
   @abilityName = "しゃむさんの能力"
   @abilityDesc = "しゃむさんのせつめい"
@@ -78,7 +82,7 @@ class RevotBase extends CharacterBase
   # 画像のリスト
   @images = ["./img/character/3/1.png"]
   # 基本攻撃タイプ
-  @attackTypeBase = "物理"
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
   @attackBase = 3
   # 成長率：HP
@@ -95,8 +99,10 @@ class RevotBase extends CharacterBase
   @hitRateBase = 3
   # 基本回避率
   @dodgeRateBase = 3
-
+  # アイテム装備可能数
   @itemMax = 3
+  # 必要経験値
+  @expRate = 3
 
   @abilityName = "れぼっとの能力"
   @abilityDesc = "れぼっとのせつめい"

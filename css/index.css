@@ -25,7 +25,7 @@
 #menu > * {
   float: left;
 }
-#menu, #character_pallet, #field {
+#menu, #character_pallet, #field, #left_info, #right_info {
   position: absolute;
 }
 #character_pallet {
@@ -74,6 +74,10 @@
 }
 .cell_movable {
   z-index: 9999;
+  background-size: 100% 100%;
+}
+.cell_knockout {
+  z-index: 1001;
   background-size: 100% 100%;
 }
 .cell_fin {

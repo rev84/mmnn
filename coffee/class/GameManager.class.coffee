@@ -39,10 +39,14 @@ class GameManager
       menu:[0,0]
       character_pallet:null
       field:[0,50]
+      left_info:[0,660]
+      right_info:[400,660]
     CHARACTER_PICK:
       menu:[0,0]
       character_pallet:[0,50]
       field:[400,50]
+      left_info:null
+      right_info:null
   @ANIMATION_MSEC = 500
 
   @onMouseMiddleDown:(evt)->
@@ -196,6 +200,7 @@ class GameManager
     @initField(null)
     @initExp(null)
     @initMenu(null)
+    @initPanels(null)
     @initCharacters(null)
     @initEnemys(null)
 
@@ -219,7 +224,14 @@ class GameManager
     return if @initialized.exp
     @initialized.exp = true
 
-    FieldManager.init(@gameElement, 0, 0)
+    ExpManager.init(@gameElement, 0, 0)
+
+  @initPanels:(savedata)->
+    return if @initialized.panels
+    @initialized.panels = true
+
+    LeftInfoManager.init(@gameElement)
+    RightInfoManager.init(@gameElement)
 
 
   # キャラ初期化
@@ -273,7 +285,7 @@ class GameManager
 
   @movePick:(cell)->
     FieldManager.removeAllWayStack()
-    FieldManager.removeAllAttackable()
+    FieldManager.removeAllKnockout()
 
     # 移動可能モード
     @flags.movePickCell = cell
@@ -310,7 +322,7 @@ class GameManager
     # 攻撃可能判定
     attackables = FieldManager.getAttackableCell cell
     for attackableCell in attackables
-      attackableCell.attackable = [cell.object.getAttackType(), cell.object.getAttack()]
+      attackableCell.knockout = cell
 
     FieldManager.drawMovable()
-    FieldManager.drawAttackable()
+    FieldManager.drawKnockout()

@@ -19,14 +19,13 @@ class Cell
       collision:null
       background:null
       object:null
-      attackable:null
       movable:null
       knockout:null
     @object = null
     @tempObject = null
     @background = @constructor.IMAGE_BACKGROUND[Utl.rand 0, @constructor.IMAGE_BACKGROUND.length-1]
     @wayStack = null
-    @attackable = null
+    @knockout = null
     @objectAnimationIndex = 0
 
     @initElements(borderSize)
@@ -80,13 +79,26 @@ class Cell
 
   onMouseMove:(evt)->
     return unless GameManager.isControllable()
-    GameManager.changeControllable false
-    GameManager.changeControllable true
+
+    # 戦闘中モードのみ
+    if GameManager.flags.isBattle
+      # 敵キャラだったら右ウインドウに出す
+      if @object is null
+        LeftInfoManager.setObject null
+        RightInfoManager.setObject null
+      else if @object.isCharacterObject()
+        LeftInfoManager.setObject @object
+        RightInfoManager.setObject null
+      else if @object.isEnemyObject()
+        LeftInfoManager.setObject null
+        RightInfoManager.setObject @object
 
   onMouseLeave:(evt)->
     return unless GameManager.isControllable()
     GameManager.changeControllable false
     GameManager.changeControllable true
+
+
 
   setTempObject:(object)->
     # 仮置きに置く
@@ -143,9 +155,6 @@ class Cell
                            .appendTo(@elements.mother)
     @elements.object     = $('<div>').addClass('cell cell_object')
                            .css(cssPos).css(cssSize)
-                           .appendTo(@elements.mother)
-    @elements.attackable = $('<div>').addClass('cell cell_attackable')
-                           .css(cssPos).addClass('no_display')
                            .appendTo(@elements.mother)
     @elements.movable    = $('<div>').addClass('cell cell_movable')
                            .css(cssPos).css(cssSize).addClass('no_display')
@@ -219,6 +228,8 @@ class Cell
     @drawMovable()
     # 行動終了
     @drawFin()
+    # 倒す
+    @drawKnockout()
 
   isDroppableCharacter:->
     @xIndex <= @constructor.PUT_FIELD_MAX_X and @object is null
@@ -275,34 +286,44 @@ class Cell
     # 攻撃待ちでなければダメ
     return if GameManager.flags.waitAttackCell is null
     # 攻撃可能が設定されてないとダメ
-    return if @attackable is null
-
-    # 攻撃待ちのセル
-    #GameManager.flags.waitAttackCell
+    return if @knockout is null
 
     # 攻撃側の攻撃タイプ
-    attackType = GameManager.flags.waitAttackCell.getAttackType()
+    attackType = @knockout.object.getAttackType()
     # 攻撃側の攻撃力
-    attack = GameManager.flags.waitAttackCell.getAttack()
+    attack = @knockout.object.getAttack()
     # 防御側の防御力
     def = if attack is ObjectBase.ATTACK_TYPE.PHYSIC then @object.getPDef() else @object.getMDef()
     # 防御側のHP
     hp = @object.getHp()
 
     # 攻撃する
-    damage = @ObjectBase.getDamage(attack, def)
+    damage = ObjectBase.getDamage(attack, def)
 
-    ###################
-    # ダメージを与える
-    ###################
-    # 倒せる
-    if hp <= damage
-      @object.hp = 0
+    # 倒した
+    if @object.damage(damage) <= 0
       # 経験値加算
-      ExpManager.plusAmount 
-    # 倒せない
-    else
-      @object.hp -= damage
+      ExpManager.plusAmount @getExp()
+      # オブジェクト消す
+      @object = null
+
+    # 攻撃側を行動終了にする
+    @knockout.object.setMoved true
+
+    # 再描画
+    @knockout.draw()
+    @draw()
+
+    # 移動・攻撃対象を解除
+    FieldManager.removeAllWayStack()
+    FieldManager.removeAllKnockout()
+    # 移動・攻撃・戻るモードを解除
+    GameManager.flags.movePickCell = null
+    GameManager.flags.moveToCell = null
+    GameManager.flags.waitAttackCell = null
+
+    # 操作可能にする（アニメーションとかする時はコールバックに入れる）
+    GameManager.changeControllable true
 
   setMovable:(wayStack)->
     @wayStack = wayStack
@@ -310,11 +331,22 @@ class Cell
   drawMovable:->
     @showMovable(@wayStack isnt null)
 
-  drawAttackable:->
-    if @attackable
-      @changeAttackable @attackable
+  drawKnockout:->
+    if @knockout isnt null
+      # 攻撃側の攻撃タイプ
+      attackType = @knockout.object.getAttackType()
+      # 攻撃側の攻撃力
+      attack = @knockout.object.getAttack()
+      # 防御側の防御力
+      def = if attackType is ObjectBase.ATTACK_TYPE.PHYSIC then @object.getPDef() else @object.getMDef()
+      # 防御側のHP
+      hp = @object.getHp()
+
+      img = ObjectBase.getKnockout(hp, attack, def)
+
+      @changeKnockout img
     else
-      @showAttackable false
+      @showKnockout false
 
   drawFin:->
     if @object isnt null and (@object.isCharacterObject() or @object.isEnemyObject()) and @object.isMoved()
@@ -327,3 +359,4 @@ class Cell
     @objectAnimationIndex++
     @objectAnimationIndex = 0 if @object.getImage(@objectAnimationIndex) is null
     @changeObject @object.getImage(@objectAnimationIndex)
+

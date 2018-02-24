@@ -57,6 +57,12 @@ class SpreadsheetClient
 
         // Refresh the token if it's expired.
         if ($client->isAccessTokenExpired()) {
+            $refreshToken = $client->getRefreshToken();
+            $client->refreshToken($refreshToken);
+            $newAccessToken = $client->getAccessToken();
+            $newAccessToken['refresh_token'] = $refreshToken;
+            file_put_contents($credentialsPath, json_encode($newAccessToken));            
+            /*
             $refreshTokenSaved = $client->getRefreshToken();
             $client->fetchAccessTokenWithRefreshToken($refreshTokenSaved);
 
@@ -65,6 +71,7 @@ class SpreadsheetClient
             
             $client->setAccessToken($refreshTokenSaved);
             file_put_contents($credentialsPath, json_encode($client->getAccessToken()));
+            */
         }
         static::$_client = $client;
 

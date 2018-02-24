@@ -6,7 +6,7 @@ class AkuiBase extends EnemyBase
   # 画像のリスト
   @images = ["./img/enemy/1/1.png"]
   # 基本攻撃タイプ
-  @attackTypeBase = "物理"
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
   @attackBase = 5
   # 成長率：HP
@@ -25,6 +25,8 @@ class AkuiBase extends EnemyBase
   @dodgeRateBase = 5
   # 出現階層
   @appearance = 1
+  # 経験値係数
+  @expRate = 10
 
   @abilityName = "悪意"
   @abilityDesc = "悪意だ"

@@ -12,10 +12,8 @@ class FieldManager
   @nextField = []
   @cellAnimationTimer = false
 
-  @init:(@parentElement, @posX, @posY)->
+  @init:(@parentElement)->
     @divObject = $('<div>').attr('id', @ID).css({
-      top: @posY
-      left: @posX
       width: @CELL_X * Cell.SIZE_X + @BORDER_SIZE * (@CELL_X + 1)
       height: @CELL_Y * Cell.SIZE_Y + @BORDER_SIZE * (@CELL_Y + 1)
       "background-color" : '#000000'
@@ -43,7 +41,7 @@ class FieldManager
     return if characterObject is null
     $.each @cells, ->
       $.each @, ->
-        if @tempObject isnt null and @tempObject.isCharacterObject() and @tempObject.getCharacterId() is characterObject.getCharacterId()
+        if @tempObject isnt null and @tempObject.isCharacterObject() and @tempObject.get() is characterObject.getId()
           # 出撃中を解除
           @tempObject.setInField false
           # 仮オブジェクトを削除
@@ -56,20 +54,20 @@ class FieldManager
       $.each @, ->
         @wayStack = null    
 
-  @removeAllAttackable:->
+  @removeAllKnockout:->
     $.each @cells, ->
       $.each @, ->
-        @attackable = false    
+        @knockout = null    
 
   @drawMovable:->
     $.each @cells, ->
       $.each @, ->
         @drawMovable()
 
-  @drawAttackable:->
+  @drawKnockout:->
     $.each @cells, ->
       $.each @, ->
-        @drawAttackable()
+        @drawKnockout()
 
   @show:->
     $(@divObject).removeClass('no_display')
@@ -96,9 +94,9 @@ class FieldManager
 
     # 全wayStack削除、再描画
     @removeAllWayStack()
-    @removeAllAttackable()
+    @removeAllKnockout()
     @drawMovable()
-    @drawAttackable()
+    @drawKnockout()
 
     charaObject = startCell.object
 
@@ -126,6 +124,8 @@ class FieldManager
       # あるなら攻撃選択待ちに
       else
         GameManager.flags.waitAttackCell = endCell
+        for attackableCell in attackables
+          attackableCell.knockout = endCell
       # 移動選択を解除
       GameManager.flags.movePickCell = null
       endCell.draw()

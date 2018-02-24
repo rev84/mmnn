@@ -35,6 +35,10 @@ class ObjectBase
       0
     else
       @hp
+  damage:(amount)->
+    return false if amount <= 0
+    @hp = @getHp() - amount
+    @getHp()
   getLevel:->
     @level
   getCharacterName:->
@@ -69,6 +73,8 @@ class ObjectBase
     @constructor.dodgeRateBase
   getDodgeRateBase:->
     @constructor.dodgeRateBase
+  getExp:->
+    @level * @constructor.expRate
   getAbilityName:->
     @constructor.abilityName
   getAbilityDesc:->
@@ -96,7 +102,7 @@ class ObjectBase
     damage
   @getDamage:(attack, def)->
     Utl.rand(@getDamageMin(attack, def), @getDamageMax(attack, def))
-  @knockout:(hp, attack, def)->
+  @getKnockout:(hp, attack, def)->
     if hp <= @getDamageMin(attack, def)
       @KNOCKOUT.OK
     else if hp <= @getDamageMax(attack, def)
