@@ -1,8 +1,8 @@
 class FieldManager
   @ID = 'field'
 
-  @CELL_X = 10
-  @CELL_Y = 6
+  @CELL_X = 19
+  @CELL_Y = 9
   @BORDER_SIZE = 1
   # キャラが移動する時のmsec/マス
   @MOVE_SPEED = 200

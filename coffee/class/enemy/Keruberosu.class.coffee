@@ -1,3 +1,3 @@
-class Akui extends AkuiBase
+class Keruberosu extends KeruberosuBase
   constructor:(params)->
     super(params)

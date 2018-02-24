@@ -5,7 +5,6 @@ class GameManager
 
   @ID:'game'
 
-  @contorollable = false
   @mousePos = {x:0, y:0}
   @gameElement = null
   @characters = []
@@ -15,6 +14,8 @@ class GameManager
     menu:false
     enemys:false
   @flags = 
+    # 操作可能か
+    isControllable : true
     # セルのオブジェクトのアニメーションを有効にするか
     isCellObjectAnimation : true
     # キャラクター出撃モードに遷移していい状態であるか
@@ -286,7 +287,7 @@ class GameManager
     @initialized.enemys = true
 
     #### デバッグ
-    FieldManager.cells[5][5].object = new Akui({
+    FieldManager.cells[5][5].object = new Keruberosu({
       level : 1
       hp : null
       inField : false
@@ -294,10 +295,10 @@ class GameManager
     })
 
   @isControllable:->
-    @controllable
+    @flags.controllable
 
   @changeControllable:(bool)->
-    @controllable = !!bool
+    @flags.controllable = !!bool
 
   @switchTempAll:->
     $.each FieldManager.cells, ->
@@ -475,6 +476,8 @@ class GameManager
       return  1 if a.damage < b.damage
       return -1 if a.xMove < b.xMove
       return  1 if a.xMove > b.xMove
+      return -1 if a.moveAmount < b.moveAmount
+      return  1 if a.moveAmount > b.moveAmount
       0
     # 最高評価のものをおこなう
     [_, moveToCell, atkCell] = acts[0]
@@ -483,7 +486,7 @@ class GameManager
     FieldManager.moveObject enemyCell, moveToCell, =>
       # 攻撃しない
       if atkCell is null
-        ;
+        setTimeout @enemyMove.bind(@), 1
       # 自爆する
       else if atkCell is -1
         @terror(moveToCell, @enemyMove.bind(@))
@@ -544,7 +547,7 @@ class GameManager
       FieldManager.removeAllWayStack()
       FieldManager.removeAllKnockout()
 
-      callback() if callback instanceof Function
+      setTimeout callback, 1 if callback instanceof Function
     , 1700
 
   @terror:(cell, callback = null)->
@@ -554,4 +557,4 @@ class GameManager
     cell.object = null
     cell.draw()
 
-    callback() if callback instanceof Function
+    setTimeout callback, 1 if callback instanceof Function

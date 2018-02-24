@@ -1,6 +1,6 @@
 class Cell
-  @SIZE_X : 100
-  @SIZE_Y : 100
+  @SIZE_X : 75
+  @SIZE_Y : 75
   # セルのオブジェクトのアニメーションの間隔msec
   @OBJECT_ANIMATION_MSEC : 500
   # キャラ出撃で置けるxIndex

@@ -1,3 +1,3 @@
 window.EnemyList = {
-  "1" : Akui
+  "1" : Keruberosu
 }

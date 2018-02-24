@@ -1,12 +1,12 @@
-class MatsuiyamateBase extends CharacterBase
+class SimamuraUdukiBase extends CharacterBase
   # ID
   @characterId = 1
   # キャラ名
-  @characterName = "松井山手"
+  @characterName = "島村卯月"
   # 最初からいるか
   @defaultJoin = true
   # 画像のリスト
-  @images = ["./img/character/1/1.jpg","./img/character/1/2.png"]
+  @images = ["./img/character/1/1.png","./img/character/1/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -30,8 +30,8 @@ class MatsuiyamateBase extends CharacterBase
   # 必要経験値
   @expRate = 1
 
-  @abilityName = "松井山手の能力"
-  @abilityDesc = "松井山手の説明"
+  @abilityName = "島村卯月の能力"
+  @abilityDesc = "島村卯月の説明"
 
   constructor:(params)->
     super(params)
