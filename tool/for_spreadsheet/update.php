@@ -98,7 +98,7 @@ EOM;
   }
 
   $characterList .= '}';
-  file_put_contents(dirname(__FILE__).'/../../coffee/class/enemy/002_EnemyList.coffee', $characterList);
+  file_put_contents(dirname(__FILE__).'/../../coffee/class/enemy/ZZZ_EnemyList.coffee', $characterList);
 
   file_put_contents(dirname(__FILE__).'/../../coffee/class/enemy/001_EnemyBaseAll.class.coffee', $script);
 
@@ -200,7 +200,7 @@ EOM;
   }
 
   $characterList .= '}';
-  file_put_contents(dirname(__FILE__).'/../../coffee/class/character/002_CharacterList.coffee', $characterList);
+  file_put_contents(dirname(__FILE__).'/../../coffee/class/character/ZZZ_CharacterList.coffee', $characterList);
 
   file_put_contents(dirname(__FILE__).'/../../coffee/class/character/001_CharacterBaseAll.class.coffee', $script);
 

@@ -393,7 +393,7 @@ CharacterPalletManager = (function() {
       object = null;
     }
     return $.each(this.panels, function() {
-      if (object === null || this.object !== null && object.getCharacterId() === this.object.getCharacterId()) {
+      if (object === null || this.object !== null && object.getId() === this.object.getId()) {
         return this.draw();
       }
     });
@@ -867,7 +867,7 @@ GameManager = (function() {
           moved: false
         };
       }
-      this.characters[characterId] = new window[className](params);
+      this.characters[characterId] = new window.CharacterList[characterId](params);
     }
     ref1 = this.characters;
     for (characterId in ref1) {
@@ -2034,12 +2034,6 @@ RevotBase = (function(superClass) {
 
 })(CharacterBase);
 
-window.CharacterList = {
-  "1": Matsuiyamate,
-  "2": Syamugame,
-  "3": Revot
-};
-
 Matsuiyamate = (function(superClass) {
   extend(Matsuiyamate, superClass);
 
@@ -2072,6 +2066,12 @@ Syamugame = (function(superClass) {
   return Syamugame;
 
 })(SyamugameBase);
+
+window.CharacterList = {
+  "1": Matsuiyamate,
+  "2": Syamugame,
+  "3": Revot
+};
 
 AkuiBase = (function(superClass) {
   extend(AkuiBase, superClass);
@@ -2114,10 +2114,6 @@ AkuiBase = (function(superClass) {
 
 })(EnemyBase);
 
-window.EnemyList = {
-  "1": Akui
-};
-
 Akui = (function(superClass) {
   extend(Akui, superClass);
 
@@ -2128,3 +2124,7 @@ Akui = (function(superClass) {
   return Akui;
 
 })(AkuiBase);
+
+window.EnemyList = {
+  "1": Akui
+};

@@ -38,7 +38,7 @@ class CharacterPalletManager
 
   @redraw:(object = null)->
     $.each @panels, ->
-      if object is null or @object isnt null and object.getCharacterId() is @object.getCharacterId()
+      if object is null or @object isnt null and object.getId() is @object.getId()
         @draw()
 
   @pickCharacter:(characterObject)->

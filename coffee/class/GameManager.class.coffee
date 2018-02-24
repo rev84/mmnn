@@ -236,7 +236,7 @@ class GameManager
           inField : false
           moved: false
 
-      @characters[characterId] = new window[className](params)
+      @characters[characterId] = new window.CharacterList[characterId](params)
     for characterId, characterObject of @characters
       CharacterPalletManager.addCharacter(characterObject)
     CharacterPalletManager.show()
