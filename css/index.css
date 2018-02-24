@@ -25,7 +25,7 @@
 #menu > * {
   float: left;
 }
-#menu, #character_pallet, #field, #left_info, #right_info {
+#menu, #character_pallet, #field, #left_info, #right_info, #field_life {
   position: absolute;
 }
 #character_pallet {
@@ -43,7 +43,16 @@
   z-index: 100;
   pointer-events: none;
 }
-.panel, .panel > * {
+#field_life {
+  border: double 5px #000000;
+}
+#field_life > span {
+  font-size: 50px;
+}
+.panel {
+  border: double 5px #000000;
+}
+.panel, .panel > *, #field_life > * {
   position: absolute;
   box-sizing: border-box;
 }

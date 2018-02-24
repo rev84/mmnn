@@ -87,7 +87,7 @@ class FieldManager
     clearInterval @cellAnimationTimer if @cellAnimationTimer isnt false
     
 
-  @moveObject:(startCell, endCell, callback)->
+  @moveObject:(startCell, endCell, callback = ->, baseMsec = 0)->
     GameManager.changeControllable false
 
     wayStack = endCell.wayStack
@@ -108,7 +108,7 @@ class FieldManager
 
     prevCell = startCell
     for targetCell, index in wayStack
-      setTimeout showHide.bind(null, prevCell, targetCell), @MOVE_SPEED*(index+1)
+      setTimeout showHide.bind(null, prevCell, targetCell), baseMsec+@MOVE_SPEED*(index+1)
       prevCell = targetCell
 
     setTimeout =>
@@ -116,7 +116,7 @@ class FieldManager
       GameManager.flags.moveToCell = [startCell, endCell]
       
       # 攻撃できるセル
-      attackables = @getAttackableCell endCell
+      attackables = @getAttackableCellsByCell endCell
       # 攻撃できるセルがないなら終了
       if attackables.length is 0
         GameManager.flags.waitAttackCell = null
@@ -132,20 +132,27 @@ class FieldManager
       endCell.draw()
 
       callback()
-    , @MOVE_SPEED*(wayStack.length+1)
+    , baseMsec+@MOVE_SPEED*(wayStack.length+1)
+    # アニメーション終了までの時間を返す
+    baseMsec+@MOVE_SPEED*(wayStack.length+1)+@MOVE_SPEED
 
   # 指定したセルにいるオブジェクトから攻撃することができるセルを返す
-  @getAttackableCell:(cell)->
+  @getAttackableCellsByCell:(cell)->
+    @getAttackableCells cell.object, cell.xIndex, cell.yIndex
+
+  @getAttackableCells:(object, x, y)->
     targetType = 
       # 何もない
-      if cell.object is null
+      if object is null
         []
       # キャラクター
-      else if cell.object.isCharacterObject()
+      else if object.isCharacterObject()
         [ObjectBase.OBJECT_TYPE.ENEMY]
       # 敵キャラクター 
-      else if cell.object.isEnemyObject()
+      else if object.isEnemyObject()
         [ObjectBase.OBJECT_TYPE.CHARACTER]
+      else
+        []
 
     # 対象のタイプがないんじゃ攻撃対象もない
     return [] if targetType.length <= 0
@@ -160,3 +167,27 @@ class FieldManager
           if targetCell.object isnt null and Utl.inArray(targetCell.object.getObjectType(), targetType)
             res.push targetCell
     res
+
+  @getMovableMap:(cell)->
+    movableMap = Utl.array2dFill(@CELL_X, @CELL_Y, null)
+    movableMap[cell.xIndex][cell.yIndex] = []
+
+    while !allCellChecked
+      Utl.dumpNumArray2d movableMap
+      allCellChecked = true
+      for body, x in movableMap
+        for wayStack, y in body
+          # まだ未調査のマス
+          if wayStack is null
+            # 進入不可でないなら、未調査であっては終われない
+            if @cells[x][y].isEnterable()
+              allCellChecked = false
+          # 調査済みのマス
+          else
+            for [xPlus, yPlus] in [[-1, 0], [1, 0], [0, -1], [0, 1]]
+              # 調査する
+              continue unless 0 <= x+xPlus < @cells.length
+              continue unless 0 <= y+yPlus < @cells[0].length
+              if FieldManager.cells[x+xPlus][y+yPlus].isEnterable() and (movableMap[x+xPlus][y+yPlus] is null or wayStack.length+1 < movableMap[x+xPlus][y+yPlus].length)
+                movableMap[x+xPlus][y+yPlus] = wayStack.concat([@cells[x+xPlus][y+yPlus]])
+    movableMap

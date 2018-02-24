@@ -10,7 +10,6 @@ class Panel
       height: @constructor.SIZE_Y
       top : @posY
       left : @posX
-      border: 'double 5px #000000'
     }).appendTo(@parentElement)
     @draw()
 

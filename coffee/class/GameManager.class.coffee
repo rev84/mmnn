@@ -43,14 +43,16 @@ class GameManager
       menu:[0,0]
       character_pallet:null
       field:[0,50]
-      left_info:[0,660]
-      right_info:[400,660]
+      left_info:[200,660]
+      right_info:[600,660]
+      field_life:[0, 660]
     CHARACTER_PICK:
       menu:[0,0]
       character_pallet:[0,50]
       field:[400,50]
       left_info:null
       right_info:null
+      field_life:null
   @ANIMATION_MSEC = 500
 
   @onMouseMiddleDown:(evt)->
@@ -204,6 +206,7 @@ class GameManager
 
     @initField(null)
     @initExp(null)
+    @initLife(null)
     @initMenu(null)
     @initPanels(null)
     @initCharacters(null)
@@ -217,19 +220,25 @@ class GameManager
     return if @initialized.menu
     @initialized.menu = true
 
-    MenuManager.init(@gameElement, 0, 0)
+    MenuManager.init(@gameElement)
 
   @initField:(savedata)->
     return if @initialized.field
     @initialized.field = true
 
-    FieldManager.init(@gameElement, 400, 50)
+    FieldManager.init(@gameElement)
 
   @initExp:(savedata)->
     return if @initialized.exp
     @initialized.exp = true
 
-    ExpManager.init(@gameElement, 0, 0)
+    ExpManager.init(@gameElement)
+
+  @initLife:(savedata)->
+    return if @initialized.life
+    @initialized.life = true
+
+    FieldLifeManager.init(@gameElement, 5)
 
   @initPanels:(savedata)->
     return if @initialized.panels
@@ -297,33 +306,15 @@ class GameManager
     # 攻撃可能モード
     @flags.waitAttackCell = cell
 
-    movableMap = Utl.array2dFill(FieldManager.CELL_X, FieldManager.CELL_Y, null)
-    movableMap[cell.xIndex][cell.yIndex] = []
-    while !allCellChecked
-      Utl.dumpNumArray2d movableMap
-      allCellChecked = true
-      for body, x in movableMap
-        for wayStack, y in body
-          # まだ未調査のマス
-          if wayStack is null
-            # 進入不可でないなら、未調査であっては終われない
-            if FieldManager.cells[x][y].isEnterable()
-              allCellChecked = false
-          # 調査済みのマス
-          else
-            for [xPlus, yPlus] in [[-1, 0], [1, 0], [0, -1], [0, 1]]
-              # 調査する
-              continue unless 0 <= x+xPlus < FieldManager.cells.length
-              continue unless 0 <= y+yPlus < FieldManager.cells[0].length
-              if FieldManager.cells[x+xPlus][y+yPlus].isEnterable() and (movableMap[x+xPlus][y+yPlus] is null or wayStack.length+1 < movableMap[x+xPlus][y+yPlus].length)
-                movableMap[x+xPlus][y+yPlus] = wayStack.concat([FieldManager.cells[x+xPlus][y+yPlus]])
+    movableMap = FieldManager.getMovableMap(cell)
+
     # 移動可能判定
     for body, x in movableMap
       for wayStack, y in body
         if wayStack isnt null and 0 < wayStack.length <= cell.object.getMove()
-          FieldManager.cells[x][y].setMovable(wayStack)
+          FieldManager.cells[x][y].setWayStack(wayStack)
         else
-          FieldManager.cells[x][y].setMovable(null)
+          FieldManager.cells[x][y].setWayStack(null)
     # 攻撃可能判定
     attackables = FieldManager.getAttackableCell cell
     for attackableCell in attackables
@@ -331,3 +322,204 @@ class GameManager
 
     FieldManager.drawMovable()
     FieldManager.drawKnockout()
+
+  # 敵が行動する
+  @enemyMove:->
+    @changeControllable false
+
+    # 戻すは不可能になる
+    @flags.moveToCell = null
+    # 全マスのwayStack解除
+    FieldManager.removeAllWayStack()
+    # 全マスの移動可能表示解除
+    FieldManager.removeAllKnockout()
+    # 全マスの再描画
+    FieldManager.drawMovable()
+    FieldManager.drawKnockout()
+
+    # 終了時の処理
+    ending = =>
+      @changeControllable true
+
+    # 全マスから未行動の敵を探す
+    enemyCell = null
+    for y in [0...FieldManager.cells[0].length]
+      for x in [0...FieldManager.cells.length]
+        c = FieldManager.cells[x][y]
+        # 未行動の敵
+        if c.object isnt null and c.object.isEnemyObject() and !c.object.isMoved()
+          enemyCell = FieldManager.cells[x][y]
+          break
+
+    # 行動してない敵はいなかった
+    if enemyCell is null
+      return ending()
+
+    ####################################################################
+    # 全行動表
+    # 
+    # [0]評価構造体
+    #   [life] 減らせるライフ
+    #   [beatLevel]倒せるレベル
+    #   [beatPossibility]倒せる可能性
+    #   [damage]ダメージ量
+    #   [xMove]移動後のx座標
+    # [1]移動先のセル
+    # [2]攻撃対象(-1:自爆してフィールドライフを減らす)
+    # 
+    # ★優先度
+    # ライフ減らせる＞
+    # 確実に倒せる味方を倒せる（レベル高い順）＞
+    # 倒せる可能性の高い味方を攻撃する（可能性順）＞
+    # 与えるダメージが大きい味方に攻撃する（最高ダメージ順）＞
+    # なるべく端に近づく（近い順）
+    ####################################################################
+    getAct = (params)->
+      rtn = {
+        life: 0
+        beatLevel: 0
+        beatPossibility: -Infinity
+        damage: 0
+        xMove: +Infinity
+      }
+      rtn.life = params.life if 'life' of params
+      rtn.beatLevel = params.beatLevel if 'beatLevel' of params
+      rtn.beatPossibility = params.beatPossibility if 'beatPossibility' of params
+      rtn.damage = params.damage if 'damage' of params
+      rtn.xMove = params.xMove if 'xMove' of params
+      rtn
+    acts = []
+    # 移動できる場所
+    movableMap = FieldManager.getMovableMap enemyCell
+    # 攻撃側の攻撃タイプ
+    myAttackType = @enemyCell.object.getAttackType()
+    # 攻撃側の攻撃力
+    myAttack = @enemyCell.object.getAttack()
+    # すべての位置で攻撃可能な分岐をおこない、点数化する
+    `actsearch://`
+    for mBody, xMove in movableMap
+      for wayStack, yMove in mBody
+        # 行けないので飛ばす
+        continue unless 0 <= wayStack.length <= enemyCell.object.getMove()
+        # 行き先のセル
+        moveToCell = FieldManager.cells[xMove][yMove]
+        # 行き先にwayStackをセットしちゃう
+        moveToCell.setWayStack wayStack
+
+        # 端っこに到達して、なおまだ移動力がある場合
+        if xMove is 0 and (enemyCell.object.getMove() - wayStack.length) > 0
+          # 突っ込む
+          acts.push [getAct({life: 1}), moveToCell, -1]
+          `break actsearch`
+
+        # ここでじっとするプランをまず入れる
+        acts.push [getAct({xMove:xMove}), moveToCell, null]
+        # 攻撃可能な相手
+        attackables = FieldManager.getAttackableCells enemyCell.object, xMove, yMove
+        for aBody, xAtk in attackables
+          for atkCell, yAtk in aBody
+            # 倒せる確率を取得
+            # 防御側の防御力
+            def = if myAttackType is ObjectBase.ATTACK_TYPE.PHYSIC then atkCell.getPDef() else atkCell.getMDef()
+            # 防御側のHP
+            hp = atkCell.getHp()
+
+            # 防御側のレベル
+            level = atkCell.getLevel()
+            # 倒せる確率
+            beatPossibility = ObjectBase.getKnockoutRate(hp, myAttack, def)
+            # 与えられる最高ダメージ
+            damage = ObjectBase.getDamageMax(myAttack, def)
+
+            beatLevel = 
+              if beatPossibility is +Infinity
+                level
+              else
+                0
+            acts.push [getAct({
+              beatLevel:beatLevel
+              beatPossibility:beatPossibility
+              damage:damage
+              xMove:xMove
+            }), moveToCell, atkCell]
+    # 点数順にソートする
+    acts.sort (a, b)->
+      return -1 if a.life > b.life
+      return  1 if a.life < b.life
+      return -1 if a.beatLevel > b.beatLevel
+      return  1 if a.beatLevel < b.beatLevel
+      return -1 if a.beatPossibility > b.beatPossibility
+      return  1 if a.beatPossibility < b.beatPossibility
+      return -1 if a.damage > b.damage
+      return  1 if a.damage < b.damage
+      return -1 if a.xMove < b.xMove
+      return  1 if a.xMove > b.xMove
+      0
+    # 最高評価のものをおこなう
+    [_, moveToCell, atkCell] = acts[0]
+    # アニメーションにかかる時間
+    animationMsecTotal = 0
+    # 移動
+    if wayStack.length isnt 0
+      animationMsecTotal = FieldManager.moveObject enemyCell, moveToCell, animationMsecTotal
+    else
+      moveToCell = enemyCell
+    # 攻撃しない
+    if atkCell is null
+      ;
+    # 自爆する
+    else if atkCell is -1
+      animationMsecTotal = @terror(moveToCell, ->, animationMsecTotal)
+    # 攻撃する
+    else
+      animationMsecTotal = @attack(moveToCell, atkCell, ->, animationMsecTotal)
+
+    # 次の敵の行動
+    setTimeout @enemyMove, animationMsecTotal
+    true
+
+  @attack:(attackerCell, defenderCell, callback = ->, baseMsec = 0)->
+    # それぞれのオブジェクト
+    attacker = attackerCell.object
+    defender = defenderCell.object
+
+    # 攻撃側の攻撃タイプ
+    attackType = attacker.getAttackType()
+    # 攻撃側の攻撃力
+    attack = attacker.getAttack()
+    # 防御側の防御力
+    def = if attack is ObjectBase.ATTACK_TYPE.PHYSIC then defender.getPDef() else defender.getMDef()
+    # 防御側のHP
+    hp = defender.getHp()
+
+    # 攻撃する
+    damage = ObjectBase.getDamage(attack, def)
+
+    # 倒した
+    if defender.damage(damage) <= 0
+      # 経験値加算
+      ExpManager.plusAmount @getExp()
+      # オブジェクト消す
+      defenderCell.object = null
+
+    # 攻撃側を行動終了にする
+    attacker.setMoved true
+
+    # 再描画
+    attackerCell.draw()
+    defenderCell.draw()
+
+    # 移動・攻撃対象を解除
+    FieldManager.removeAllWayStack()
+    FieldManager.removeAllKnockout()
+
+    baseMsec+0
+
+  @terror:(cell, callback = ->, baseMsec = 0)->
+    # ライフを1下げる
+    FieldLifeManager.decrease()
+    # 敵を消し去る
+    cell.object = null
+    cell.draw()
+
+    baseMsec+0

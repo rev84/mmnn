@@ -288,42 +288,15 @@ class Cell
     # 攻撃可能が設定されてないとダメ
     return if @knockout is null
 
-    # 攻撃側の攻撃タイプ
-    attackType = @knockout.object.getAttackType()
-    # 攻撃側の攻撃力
-    attack = @knockout.object.getAttack()
-    # 防御側の防御力
-    def = if attack is ObjectBase.ATTACK_TYPE.PHYSIC then @object.getPDef() else @object.getMDef()
-    # 防御側のHP
-    hp = @object.getHp()
-
     # 攻撃する
-    damage = ObjectBase.getDamage(attack, def)
-
-    # 倒した
-    if @object.damage(damage) <= 0
-      # 経験値加算
-      ExpManager.plusAmount @getExp()
-      # オブジェクト消す
-      @object = null
-
-    # 攻撃側を行動終了にする
-    @knockout.object.setMoved true
-
-    # 再描画
-    @knockout.draw()
-    @draw()
-
-    # 移動・攻撃対象を解除
-    FieldManager.removeAllWayStack()
-    FieldManager.removeAllKnockout()
-    # 移動・攻撃・戻るモードを解除
-    GameManager.flags.movePickCell = null
-    GameManager.flags.moveToCell = null
-    GameManager.flags.waitAttackCell = null
-
-    # 操作可能にする（アニメーションとかする時はコールバックに入れる）
-    GameManager.changeControllable true
+    GameManager.attack @knockout, @, ->
+      # 移動・攻撃・戻るモードを解除
+      GameManager.flags.movePickCell = null
+      GameManager.flags.moveToCell = null
+      GameManager.flags.waitAttackCell = null
+      # コールバックで操作可能にする
+      GameManager.changeControllable true
+    
 
   setMovable:(wayStack)->
     @wayStack = wayStack
