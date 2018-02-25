@@ -386,13 +386,15 @@ class GameManager
 
     # 全マスから未行動の敵を探す
     enemyCell = null
-    for y in [0...FieldManager.cells[0].length]
-      for x in [0...FieldManager.cells.length]
+
+    `enemysearch://`
+    for x in [0...FieldManager.cells.length]
+      for y in [0...FieldManager.cells[x].length]
         c = FieldManager.cells[x][y]
         # 未行動の敵
         if c.object isnt null and c.object.isEnemyObject() and !c.object.isMoved()
-          enemyCell = FieldManager.cells[x][y]
-          break
+          enemyCell = c
+          `break enemysearch`
 
     # 行動してない敵はいなかった
     if enemyCell is null
@@ -450,7 +452,6 @@ class GameManager
     
     # すべての位置で攻撃可能な分岐をおこない、点数化する
     `actsearch://`
-    
     for mBody, xMove in movableMap
       for wayStack, yMove in mBody
         # 行けないので飛ばす
@@ -522,6 +523,7 @@ class GameManager
       # 攻撃しない
       if atkCell is null
         moveToCell.object.setMoved true
+        moveToCell.drawFin()
         setTimeout @enemyMove.bind(@), 1
       # 自爆する
       else if atkCell is -1

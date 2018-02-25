@@ -138,3 +138,38 @@ class MajisukoBase extends EnemyBase
 
   constructor:(params)->
     super(params)
+class BakudaniwaBase extends EnemyBase
+  # ID
+  @characterId = 5
+  # キャラ名
+  @characterName = "ばくだんいわ"
+  # 画像のリスト
+  @images = ["./img/enemy/5/1.png"]
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 0
+  # 成長率：HP
+  @hpBase = 3
+  # 成長率：物理防御
+  @pDefBase = 8
+  # 成長率：魔法防御
+  @mDefBase = 8
+  # 基本移動力
+  @moveBase = 0
+  # 基本射程
+  @rangeBase = 0
+  # 基本命中率
+  @hitRateBase = 95
+  # 基本回避率
+  @dodgeRateBase = 10
+  # 出現階層
+  @appearance = 1
+  # 経験値係数
+  @expRate = 2
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
