@@ -86,11 +86,16 @@ input[type="range"]::-webkit-slider-thumb:active {
 .levelup_level_button {
   top:70px;
   left:0px;
-  background-color: #333;
+  background-color: #2626ef;
   color: #fff;
 }
 .levelup_level_button:hover {
   background-color: #59b1eb;
+}
+.levelup_level_button:disabled {
+  background-color: #222222;
+  border-color: #222222;
+  color: #666666;
 }
 .levelup_exp_label {
   top:35px;

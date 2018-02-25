@@ -1,3 +1,3 @@
-class Revot extends RevotBase
+class HondaMio extends HondaMioBase
   constructor:(params)->
     super(params)

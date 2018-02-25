@@ -35,6 +35,7 @@ class LevelupController
 
     @levelButton = $('<button>').addClass('levelup_level_button')
                    .css({width:200})
+                   .on('click', @onLevelup.bind(@))
                    .appendTo(@divObject)
 
     @onChange()
@@ -42,7 +43,24 @@ class LevelupController
 
   onChange:->
     levelup = Number @input.val()
+    neededExp = @parentLevelupPanel.object.getNeededExp(levelup)
     @levelButton.html(levelup+'レベルUP')
-    @expNum.html(@parentLevelupPanel.object.getNeededExp(levelup))
+    @expNum.html(neededExp)
+    @levelButton.prop 'disabled', true if ExpManager.get() < neededExp
 
     @parentLevelupPanel.setLevel levelup
+
+  onLevelup:->
+    GameManager.changeControllable false
+
+    levelup = Number @input.val()
+    neededExp = @parentLevelupPanel.object.getNeededExp(levelup)
+    # なんでか経験値足りてない
+    return if ExpManager.decreaseExp(neededExp) is false
+    # レベルを上げる
+    @parentLevelupPanel.object.levelup levelup
+    # 再描画
+    LevelupManager.draw()
+    CharacterPalletManager.draw()
+    # 動かせるようにする
+    GameManager.changeControllable true

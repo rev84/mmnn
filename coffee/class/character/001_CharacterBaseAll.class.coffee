@@ -72,15 +72,15 @@ class ShibuyaRinBase extends CharacterBase
 
   constructor:(params)->
     super(params)
-class RevotBase extends CharacterBase
+class HondaMioBase extends CharacterBase
   # ID
   @characterId = 3
   # キャラ名
-  @characterName = "Revot"
+  @characterName = "本田未央"
   # 最初からいるか
   @defaultJoin = true
   # 画像のリスト
-  @images = ["./img/character/3/1.png"]
+  @images = ["./img/character/3/1.png","./img/character/3/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -104,8 +104,8 @@ class RevotBase extends CharacterBase
   # 必要経験値
   @expRate = 3
 
-  @abilityName = "れぼっとの能力"
-  @abilityDesc = "れぼっとのせつめい"
+  @abilityName = "本田未央の能力"
+  @abilityDesc = "本田未央のせつめい"
 
   constructor:(params)->
     super(params)

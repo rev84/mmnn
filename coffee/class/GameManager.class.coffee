@@ -49,13 +49,13 @@ class GameManager
       menu:[0,0]
       character_pallet:null
       field:[0,50]
-      left_info:[200,700]
-      right_info:[600,700]
-      field_life:[0, 700]
+      left_info:[200,630]
+      right_info:[600,630]
+      field_life:[0, 630]
       levelup:null
     CHARACTER_PICK:
       menu:[0,0]
-      character_pallet:[160,50]
+      character_pallet:[140,50]
       field:[0,50]
       left_info:null
       right_info:null

@@ -46,6 +46,10 @@ class ObjectBase
       @level
     else
       level
+  setLevel:(level)->
+    @level = level
+  levelup:(level)->
+    @level += level
   getCharacterName:->
     @constructor.characterName
   getAttackType:->
@@ -115,7 +119,7 @@ class ObjectBase
     baseExp   = (@constructor.expRate ** 2) * (0.5 * @level) * (@level + 1)
     targetExp = baseExp + exp
 
-    Math.floor(Math.sqrt(exp / @constructor.expRate))
+    Math.floor(((-1 + Math.sqrt(1 + 8 * targetExp / (@constructor.expRate ** 2))) / 2)) - @level
 
   # ダメージ計算式
   @getDamageMin:(attack, def)->

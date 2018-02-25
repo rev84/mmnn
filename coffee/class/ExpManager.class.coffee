@@ -1,10 +1,16 @@
 class ExpManager
-  @expAmount = 99990
+  @expAmount = 5
 
   @init:(@gameElement, @xPos, @yPos)->
 
-  @plusExp:(amount)->
+  @increaseExp:(amount)->
     @expAmount += amount
+    @expAmount
+
+  @decreaseExp:(amount)->
+    return false if @expAmount < amount
+    @expAmount -= amount
+    @expAmount
 
   @get:->
     @expAmount
