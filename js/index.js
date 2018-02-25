@@ -1042,8 +1042,9 @@ FieldManager = (function() {
     return $.each(this.cells, function() {
       return $.each(this, function() {
         if (this.object !== null && (this.object.isCharacterObject() || this.object.isEnemyObject())) {
-          return this.object.setMoved(false);
+          this.object.setMoved(false);
         }
+        return true;
       });
     });
   };

@@ -64,6 +64,7 @@ class FieldManager
       $.each @, ->
         if @object isnt null and (@object.isCharacterObject() or @object.isEnemyObject())
           @object.setMoved false
+        true
 
 
   @drawMovable:->
