@@ -382,7 +382,7 @@ class GameManager
       # 敵を湧かせる
       FieldManager.randomEnemyAppear ->
         GameManager.changeControllable true
-        setTimeout GameManager.doTurnEnd.bind(GameManager), 10
+        #setTimeout GameManager.doTurnEnd.bind(GameManager), 10
 
     # 全マスから未行動の敵を探す
     enemyCell = null
@@ -420,7 +420,7 @@ class GameManager
     # 倒せる可能性の高い味方を攻撃する（可能性順）＞
     # 与えるダメージが大きい味方に攻撃する（最高ダメージ順）＞
     # なるべく端に近づく（近い順）＞
-    # 移動距離が少ない
+    # 移動距離が長い
     ####################################################################
     getAct = (params)->
       rtn = {
@@ -512,8 +512,8 @@ class GameManager
       return  1 if a.damage < b.damage
       return -1 if a.xMove < b.xMove
       return  1 if a.xMove > b.xMove
-      return -1 if a.moveAmount < b.moveAmount
-      return  1 if a.moveAmount > b.moveAmount
+      return -1 if a.moveAmount > b.moveAmount
+      return  1 if a.moveAmount < b.moveAmount
       0
     # 最高評価のものをおこなう
     [_, moveToCell, atkCell] = acts[0]

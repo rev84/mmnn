@@ -1680,8 +1680,7 @@ GameManager = (function() {
         _this.flags.moveToCell = null;
         _this.flags.waitAttackCell = null;
         return FieldManager.randomEnemyAppear(function() {
-          GameManager.changeControllable(true);
-          return setTimeout(GameManager.doTurnEnd.bind(GameManager), 10);
+          return GameManager.changeControllable(true);
         });
       };
     })(this);
@@ -1813,10 +1812,10 @@ GameManager = (function() {
       if (a.xMove > b.xMove) {
         return 1;
       }
-      if (a.moveAmount < b.moveAmount) {
+      if (a.moveAmount > b.moveAmount) {
         return -1;
       }
-      if (a.moveAmount > b.moveAmount) {
+      if (a.moveAmount < b.moveAmount) {
         return 1;
       }
       return 0;
