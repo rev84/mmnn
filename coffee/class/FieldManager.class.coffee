@@ -149,10 +149,10 @@ class FieldManager
       GameManager.flags.movePickCell = null
       endCell.draw()
 
-      callback()
+      callback() if callback instanceof Function
+
     , @MOVE_SPEED*(wayStack.length+1)
-    # アニメーション終了までの時間を返す
-    @MOVE_SPEED*(wayStack.length+1)+@MOVE_SPEED
+    true
 
   # 指定したセルにいるオブジェクトから攻撃することができるセルを返す
   @getAttackableCellsByCell:(cell)->

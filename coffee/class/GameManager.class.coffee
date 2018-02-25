@@ -16,7 +16,7 @@ class GameManager
     levelup:false
   @flags = 
     # 操作可能か
-    isControllable : true
+    controllable : true
     # セルのオブジェクトのアニメーションを有効にするか
     isCellObjectAnimation : true
     # キャラクター出撃モードに遷移していい状態であるか
@@ -49,9 +49,9 @@ class GameManager
       menu:[0,0]
       character_pallet:null
       field:[0,50]
-      left_info:[200,660]
-      right_info:[600,660]
-      field_life:[0, 660]
+      left_info:[200,700]
+      right_info:[600,700]
+      field_life:[0, 700]
       levelup:null
     CHARACTER_PICK:
       menu:[0,0]

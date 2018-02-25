@@ -192,10 +192,18 @@ ObjectBase = (function() {
   };
 
   ObjectBase.prototype.getNeededExp = function(level) {
-    return Math.ceil((this.level + level) * Math.pow(this.constructor.expRate, 2)) - Math.ceil(this.level * Math.pow(this.constructor.expRate, 2));
+    var baseExp, baseLevel, targetExp, targetLevel;
+    targetLevel = this.level + level;
+    baseLevel = this.level;
+    targetExp = (Math.pow(this.constructor.expRate, 2)) * (0.5 * targetLevel) * (targetLevel + 1);
+    baseExp = (Math.pow(this.constructor.expRate, 2)) * (0.5 * baseLevel) * (baseLevel + 1);
+    return targetExp - baseExp;
   };
 
   ObjectBase.prototype.getLevelUpMax = function(exp) {
+    var baseExp, targetExp;
+    baseExp = (Math.pow(this.constructor.expRate, 2)) * (0.5 * this.level) * (this.level + 1);
+    targetExp = baseExp + exp;
     return Math.floor(Math.sqrt(exp / this.constructor.expRate));
   };
 
@@ -314,6 +322,8 @@ Cell = (function() {
 
     } else if (this.tryAttack(evt)) {
 
+    } else {
+      return GameManager.changeControllable(true);
     }
   };
 
@@ -613,6 +623,9 @@ Cell = (function() {
       return;
     }
     if (this.object !== null) {
+      return;
+    }
+    if (this.wayStack === null) {
       return;
     }
     FieldManager.moveObject(GameManager.flags.movePickCell, this, function() {
@@ -1351,10 +1364,12 @@ FieldManager = (function() {
         }
         GameManager.flags.movePickCell = null;
         endCell.draw();
-        return callback();
+        if (callback instanceof Function) {
+          return callback();
+        }
       };
     })(this), this.MOVE_SPEED * (wayStack.length + 1));
-    return this.MOVE_SPEED * (wayStack.length + 1) + this.MOVE_SPEED;
+    return true;
   };
 
   FieldManager.getAttackableCellsByCell = function(cell) {
@@ -1450,7 +1465,7 @@ GameManager = (function() {
   };
 
   GameManager.flags = {
-    isControllable: true,
+    controllable: true,
     isCellObjectAnimation: true,
     isEnableCharacterPick: true,
     isCharacterPick: false,
@@ -1470,9 +1485,9 @@ GameManager = (function() {
       menu: [0, 0],
       character_pallet: null,
       field: [0, 50],
-      left_info: [200, 660],
-      right_info: [600, 660],
-      field_life: [0, 660],
+      left_info: [200, 700],
+      right_info: [600, 700],
+      field_life: [0, 700],
       levelup: null
     },
     CHARACTER_PICK: {
@@ -3172,29 +3187,37 @@ LevelupController = (function() {
 
   LevelupController.POS_Y = 0;
 
-  function LevelupController(parentLevelupPanel, parentElement) {
+  function LevelupController(parentLevelupPanel) {
     this.parentLevelupPanel = parentLevelupPanel;
-    this.parentElement = parentElement;
     this.divObject = $('<div>').addClass(this.constructor.CLASSNAME).css({
       width: this.constructor.SIZE_X,
       height: this.constructor.SIZE_Y,
       top: this.constructor.POS_Y,
       left: this.constructor.POS_X,
       'background-color': '#ffffff'
-    }).appendTo(this.parentElement);
+    });
     this.input = $('<input>').attr({
       type: 'range',
       min: 1,
       max: this.parentLevelupPanel.object.getLevelUpMax(ExpManager.get()),
       step: 1
-    }).on('change', this.onChange.bind(this)).appendTo(this.divObject);
-    this.num = $('<span>').appendTo(this.divObject);
+    }).addClass('levelup_range').css({
+      width: '' + (this.constructor.SIZE_X - 20) + 'px'
+    }).on('mousemove', this.onChange.bind(this)).val(1).appendTo(this.divObject);
+    this.expLabel = $('<div>').addClass('levelup_exp_label').html('EXP').appendTo(this.divObject);
+    this.expNum = $('<div>').addClass('levelup_exp').appendTo(this.divObject);
+    this.levelButton = $('<button>').addClass('levelup_level_button').css({
+      width: 200
+    }).appendTo(this.divObject);
+    this.onChange();
+    this.divObject.appendTo(this.parentLevelupPanel.divObject);
   }
 
   LevelupController.prototype.onChange = function() {
     var levelup;
     levelup = Number(this.input.val());
-    this.num.html(levelup);
+    this.levelButton.html(levelup + 'レベルUP');
+    this.expNum.html(this.parentLevelupPanel.object.getNeededExp(levelup));
     return this.parentLevelupPanel.setLevel(levelup);
   };
 

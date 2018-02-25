@@ -57,6 +57,9 @@ class Cell
     # 攻撃先を決めるトライ
     else if @tryAttack(evt)
       ;
+    # どれにもならなかったら操作解放
+    else
+      GameManager.changeControllable true
 
 
   onMouseLeftDown:(evt)->
@@ -291,6 +294,8 @@ class Cell
     return if GameManager.flags.movePickCell is null
     # ここにキャラがいる場合はダメ
     return if @object isnt null
+    # ここにいけない場合はダメ
+    return if @wayStack is null
 
     FieldManager.moveObject(GameManager.flags.movePickCell, @, ->
       GameManager.changeControllable true

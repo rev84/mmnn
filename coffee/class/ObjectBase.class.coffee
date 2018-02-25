@@ -103,10 +103,20 @@ class ObjectBase
     @constructor.images[index]
   # 指定したレベル上がるために必要な経験値量
   getNeededExp:(level)->
-    Math.ceil((@level + level) * @constructor.expRate ** 2) - Math.ceil(@level * @constructor.expRate ** 2)
+    targetLevel = @level + level
+    baseLevel   = @level
+
+    targetExp = (@constructor.expRate ** 2) * (0.5 * targetLevel) * (targetLevel + 1)
+    baseExp   = (@constructor.expRate ** 2) * (0.5 * baseLevel) * (baseLevel + 1)
+    targetExp - baseExp
+
   # 経験値で上げられるレベル量
   getLevelUpMax:(exp)->
+    baseExp   = (@constructor.expRate ** 2) * (0.5 * @level) * (@level + 1)
+    targetExp = baseExp + exp
+
     Math.floor(Math.sqrt(exp / @constructor.expRate))
+
   # ダメージ計算式
   @getDamageMin:(attack, def)->
     damage = attack - def
