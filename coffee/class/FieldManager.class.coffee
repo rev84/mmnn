@@ -210,3 +210,17 @@ class FieldManager
               if FieldManager.cells[x+xPlus][y+yPlus].isEnterable() and (movableMap[x+xPlus][y+yPlus] is null or wayStack.length+1 < movableMap[x+xPlus][y+yPlus].length)
                 movableMap[x+xPlus][y+yPlus] = wayStack.concat([@cells[x+xPlus][y+yPlus]])
     movableMap
+
+  @randomEnemyAppear:->
+    enemyAmount = Utl.gacha [
+      [0, 10]
+      [1, 20]
+      [2, 30]
+      [3, 40]
+      [4, 30]
+      [5, 20]
+      [6, 10]
+    ]
+
+    putEnemy = ->
+      GameManager

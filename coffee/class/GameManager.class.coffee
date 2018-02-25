@@ -8,12 +8,14 @@ class GameManager
   @mousePos = {x:0, y:0}
   @gameElement = null
   @characters = []
+  @enemy = []
   @initialized = 
     characters:false
     field:false
     menu:false
     enemys:false
     levelup:false
+    env:false
   @flags = 
     # 操作可能か
     controllable : true
@@ -51,7 +53,7 @@ class GameManager
       field:[0,50]
       left_info:[200,630]
       right_info:[600,630]
-      field_life:[0, 630]
+      env:[0, 630]
       levelup:null
     CHARACTER_PICK:
       menu:[0,0]
@@ -59,7 +61,7 @@ class GameManager
       field:[0,50]
       left_info:null
       right_info:null
-      field_life:null
+      env:[0, 630]
       levelup:null
     LEVELUP:
       menu:[0,0]
@@ -67,8 +69,8 @@ class GameManager
       field:[0,50]
       left_info:null
       right_info:null
-      field_life:null
-      levelup:[0,50]
+      env:[0, 630]
+      levelup:[0, 50]
   @ANIMATION_MSEC = 500
 
   @onMouseMiddleDown:(evt)->
@@ -207,6 +209,7 @@ class GameManager
       @changeControllable true
     , animationMsec
 
+  # 初期化
   @init:->
     # 右クリック禁止
     $(document).on 'contextmenu', ->
@@ -233,8 +236,7 @@ class GameManager
                     })
 
     @initField(null)
-    @initExp(null)
-    @initLife(null)
+    @initEnv(null)
     @initMenu(null)
     @initPanels(null)
     @initCharacters(null)
@@ -257,17 +259,15 @@ class GameManager
 
     FieldManager.init(@gameElement)
 
-  @initExp:(savedata)->
-    return if @initialized.exp
-    @initialized.exp = true
+  @initEnv:(savedata)->
+    return if @initialized.env
+    @initialized.env = true
 
-    ExpManager.init(@gameElement)
-
-  @initLife:(savedata)->
-    return if @initialized.life
-    @initialized.life = true
-
-    FieldLifeManager.init(@gameElement, 5)
+    EnvManager.init(@gameElement)
+    # デバッグ
+    EnvManager.setLife 5
+    EnvManager.setExp 0
+    EnvManager.setFloor 1
 
   @initPanels:(savedata)->
     return if @initialized.panels
@@ -283,7 +283,6 @@ class GameManager
     LevelupManager.init(@gameElement)
     for characterId, characterObject of @characters
       LevelupManager.addCharacter(characterObject)
-
 
   # キャラ初期化
   @initCharacters:(savedata)->
@@ -315,13 +314,7 @@ class GameManager
     return if @initialized.enemys
     @initialized.enemys = true
 
-    #### デバッグ
-    FieldManager.cells[5][5].object = new Keruberosu({
-      level : 1
-      hp : null
-      inField : false
-      moved: false      
-    })
+    @enemys = window.EnemyList
 
   @isControllable:->
     @flags.controllable

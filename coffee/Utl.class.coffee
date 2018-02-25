@@ -474,3 +474,17 @@ class Utl
           res += ''+ary[x][y]
       res += "\n"
     console.log(res)
+
+  @gacha:(map)->
+    return false if map.length <= 0
+
+    pTotal = 0
+    pTotal += p for [target, p] in map
+    return false if pTotal <= 0
+    
+    seed = Utl.rand(1, pTotal)
+    pTotal = 0
+    for [target, p] in map
+      pTotal += p
+      return target if seed <= pTotal
+    map[map.legnth - 1][0]

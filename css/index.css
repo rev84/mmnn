@@ -44,7 +44,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 #menu > * {
   float: left;
 }
-#menu, #character_pallet, #field, #left_info, #right_info, #field_life, #levelup {
+#menu, #character_pallet, #field, #left_info, #right_info, #env, #levelup {
   position: absolute;
 }
 #character_pallet {
@@ -66,16 +66,17 @@ input[type="range"]::-webkit-slider-thumb:active {
   z-index: 100;
   pointer-events: none;
 }
-#field_life {
+#env {
   border: double 5px #000000;
 }
-#field_life > span {
-  font-size: 50px;
+#env > div {
+  font-size: 25px;
+  vertical-align: middle;
 }
 .panel {
   border: double 5px #000000;
 }
-.panel, .panel > *, #field_life > *, .levelup_panel, .levelup_panel > *, .levelup_controller, .levelup_controller > * {
+.panel, .panel > *, #env > div, .levelup_panel, .levelup_panel > *, .levelup_controller, .levelup_controller > * {
   position: absolute;
   box-sizing: border-box;
 }

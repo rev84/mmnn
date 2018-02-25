@@ -19,7 +19,7 @@ class LevelupController
     @input =  $('<input>').attr({
                 type: 'range'
                 min: 1
-                max: @parentLevelupPanel.object.getLevelUpMax(ExpManager.get())
+                max: @parentLevelupPanel.object.getLevelUpMax(EnvManager.getExp())
                 step: 1
               }).addClass('levelup_range').css({width:''+(@constructor.SIZE_X-20)+'px'})
               .on('mousemove', @onChange.bind(@))
@@ -46,7 +46,7 @@ class LevelupController
     neededExp = @parentLevelupPanel.object.getNeededExp(levelup)
     @levelButton.html(levelup+'レベルUP')
     @expNum.html(neededExp)
-    @levelButton.prop 'disabled', true if ExpManager.get() < neededExp
+    @levelButton.prop 'disabled', true if EnvManager.getExp() < neededExp
 
     @parentLevelupPanel.setLevel levelup
 
@@ -56,7 +56,7 @@ class LevelupController
     levelup = Number @input.val()
     neededExp = @parentLevelupPanel.object.getNeededExp(levelup)
     # なんでか経験値足りてない
-    return if ExpManager.decreaseExp(neededExp) is false
+    return if EnvManager.decreaseExp(neededExp) is false
     # レベルを上げる
     @parentLevelupPanel.object.levelup levelup
     # 再描画
