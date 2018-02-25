@@ -191,7 +191,7 @@ class FieldManager
     movableMap[cell.xIndex][cell.yIndex] = []
 
     while !allCellChecked
-      Utl.dumpNumArray2d movableMap
+      #Utl.dumpNumArray2d movableMap
       allCellChecked = true
       for body, x in movableMap
         for wayStack, y in body

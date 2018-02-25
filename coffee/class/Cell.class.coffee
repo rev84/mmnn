@@ -155,7 +155,7 @@ class Cell
                            .css(cssPos).css(cssSize)
                            .appendTo(@elements.mother)
     @elements.object     = $('<img>').addClass('cell cell_object')
-                           .css({left:0, bottom:0}).css({width:'100%'})
+                           .css({left:0, bottom:10}).css({width:'100%'})
                            .appendTo(@elements.mother)
     @elements.movable    = $('<div>').addClass('cell cell_movable')
                            .css(cssPos).css(cssSize).addClass('no_display')

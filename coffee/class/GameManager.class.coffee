@@ -13,6 +13,7 @@ class GameManager
     field:false
     menu:false
     enemys:false
+    levelup:false
   @flags = 
     # 操作可能か
     isControllable : true
@@ -39,6 +40,8 @@ class GameManager
     waitAttackCell : null
     # 戦闘モードでターン終了していい状態であるか
     isEnableTurnEnd : true
+    # レベルアップに遷移していい状態であるか
+    isEnableLevelup : true
 
   # アニメーション関係
   @POSITION =
@@ -49,13 +52,23 @@ class GameManager
       left_info:[200,660]
       right_info:[600,660]
       field_life:[0, 660]
+      levelup:null
     CHARACTER_PICK:
       menu:[0,0]
-      character_pallet:[0,50]
-      field:[400,50]
+      character_pallet:[160,50]
+      field:[0,50]
       left_info:null
       right_info:null
       field_life:null
+      levelup:null
+    LEVELUP:
+      menu:[0,0]
+      character_pallet:null
+      field:[0,50]
+      left_info:null
+      right_info:null
+      field_life:null
+      levelup:[0,50]
   @ANIMATION_MSEC = 500
 
   @onMouseMiddleDown:(evt)->
@@ -154,6 +167,13 @@ class GameManager
     return unless @flags.isEnableTurnEnd
     @enemyMove()    
 
+  # レベルアップ
+  @doLevelup:(isSoon = false)->
+    # ターン終了可能な状態ではない
+    return unless @flags.isEnableLevelup
+     
+    @partsAnimation @POSITION.LEVELUP, isSoon
+
   @partsAnimation:(ary, isSoon = false)->
     # 操作不能にする
     @changeControllable false
@@ -218,6 +238,7 @@ class GameManager
     @initMenu(null)
     @initPanels(null)
     @initCharacters(null)
+    @initLevelup(null)
     @initEnemys(null)
 
     @gameElement.appendTo('body')
@@ -254,6 +275,14 @@ class GameManager
 
     LeftInfoManager.init(@gameElement)
     RightInfoManager.init(@gameElement)
+
+  @initLevelup:(savedata)->
+    return if @initialized.levelup
+    @initialized.levelup = true
+
+    LevelupManager.init(@gameElement)
+    for characterId, characterObject of @characters
+      LevelupManager.addCharacter(characterObject)
 
 
   # キャラ初期化

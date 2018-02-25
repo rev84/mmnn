@@ -45,6 +45,16 @@ class MenuManager
     .on('click', @onClickTurnEnd.bind(@))
     .appendTo(@divObject)
 
+    # レベルアップ
+    @turnEnd = $('<div>').html('レベルアップ').css({
+      border: '1px solid #000000'
+      width: 100
+      height: 40
+      "font-size": '30px'
+    })
+    .on('click', @onClickLevelup.bind(@))
+    .appendTo(@divObject)
+
     @divObject.appendTo(@parentElement)
 
   # 出撃
@@ -66,5 +76,12 @@ class MenuManager
     return unless GameManager.isControllable()
 
     GameManager.doTurnEnd()
+    true
+
+  # レベルアップ
+  @onClickLevelup:(evt)->
+    return unless GameManager.isControllable()
+
+    GameManager.doLevelup()
     true
     

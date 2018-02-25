@@ -50,12 +50,13 @@ class CharacterPalletManager
     FieldManager.removeAllTempObject characterObject
 
     # 移動中のアイコンを作成
-    GameManager.flags.pickedCharacterElement = $('<div>')
+    GameManager.flags.pickedCharacterElement = $('<img>')
       .addClass('picked_character')
       .css({
-        width:90
-        height:90
-        'background-image': 'url('+characterObject.getBaseImage()+')'
+        width:Cell.SIZE_X
+      })
+      .attr({
+        src: characterObject.getBaseImage()
       })
       .appendTo(GameManager.gameElement)
     # 追随させる

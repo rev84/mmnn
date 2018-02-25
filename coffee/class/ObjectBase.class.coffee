@@ -25,9 +25,11 @@ class ObjectBase
   isEnemyObject:->
     @objectType is @constructor.OBJECT_TYPE.ENEMY
 
-  getHpMax:->
-    @constructor.hpBase * @level
-
+  getHpMax:(level = null)->
+    if level is null
+      @constructor.hpBase * @level
+    else
+      @constructor.hpBase * level
   getHp:->
     if @hp is null or @getHpMax() < @hp
       @getHpMax()
@@ -39,22 +41,35 @@ class ObjectBase
     return false if amount <= 0
     @hp = @getHp() - amount
     @getHp()
-  getLevel:->
-    @level
+  getLevel:(level = null)->
+    if level is null
+      @level
+    else
+      level
   getCharacterName:->
     @constructor.characterName
   getAttackType:->
     @constructor.attackTypeBase
-  getAttack:->
-    @constructor.attackBase * @level
+  getAttack:(level = null)->
+    if level is null
+      @constructor.attackBase * @level
+    else
+      @constructor.attackBase * level
   getAttackBase:->
     @constructor.attackBase
-  getPDef:->
-    @constructor.pDefBase * @level
+  getPDef:(level = null)->
+    if level is null
+      @constructor.pDefBase * @level
+    else
+      @constructor.pDefBase * level
   getPDefBase:->
     @constructor.pDefBase
-  getMDef:->
-    @constructor.mDefBase * @level
+  getMDef:(level = null)->
+    if level is null
+      @constructor.mDefBase * @level
+    else
+      @constructor.mDefBase * level
+
   getMDefBase:->
     @constructor.mDefBase
   getMove:->
@@ -86,7 +101,12 @@ class ObjectBase
   getImage:(index)->
     return null unless 0 <= index < @constructor.images.length
     @constructor.images[index]
-
+  # 指定したレベル上がるために必要な経験値量
+  getNeededExp:(level)->
+    Math.ceil((@level + level) * @constructor.expRate ** 2) - Math.ceil(@level * @constructor.expRate ** 2)
+  # 経験値で上げられるレベル量
+  getLevelUpMax:(exp)->
+    Math.floor(Math.sqrt(exp / @constructor.expRate))
   # ダメージ計算式
   @getDamageMin:(attack, def)->
     damage = attack - def

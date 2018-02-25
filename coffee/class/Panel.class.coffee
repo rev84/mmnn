@@ -29,17 +29,17 @@ class Panel
     CharacterPalletManager.pickCharacter @object
     true
 
-  draw:->
+  draw:(level = null)->
     $(@divObject).find('*').remove()
 
     if @object isnt null
       switch @object.objectType
         when ObjectBase.OBJECT_TYPE.CHARACTER
-          @drawCharacter()
+          @drawCharacter(level)
         when ObjectBase.OBJECT_TYPE.ENEMY
           @drawEnemy()
 
-  drawCharacter:->
+  drawCharacter:(level = null)->
     # キャラ出撃用のパネルなら、出撃中判定
     if @isCharacterPallet and @object.isInField()
       $('<div>').addClass('in_field').css({
@@ -92,7 +92,7 @@ class Panel
         height: 20
         "font-size" : "16px"
         "background-color" : '#ffffff'
-      }).html(@object.getLevel())
+      }).html(@object.getLevel(level))
     )
 
     # 名前
@@ -136,7 +136,7 @@ class Panel
         width: 20
         height: 20
         "font-size" : "16px"
-      }).html(@object.getAttack())
+      }).html(@object.getAttack(level))
     )
 
     # 物理防御力ラベル
@@ -158,7 +158,7 @@ class Panel
         width: 20
         height: 20
         "font-size" : "16px"
-      }).html(@object.getPDef())
+      }).html(@object.getPDef(level))
     )
 
     # 魔法防御力ラベル
@@ -180,7 +180,7 @@ class Panel
         width: 20
         height: 20
         "font-size" : "16px"
-      }).html(@object.getMDef())
+      }).html(@object.getMDef(level))
     )
 
     # HPラベル
@@ -222,7 +222,7 @@ class Panel
         width: 20
         height: 20
         "font-size" : "16px"
-      }).html(@object.getHpMax())
+      }).html(@object.getHpMax(level))
     )
 
     # 命中率ラベル

@@ -25,15 +25,19 @@
 #menu > * {
   float: left;
 }
-#menu, #character_pallet, #field, #left_info, #right_info, #field_life {
+#menu, #character_pallet, #field, #left_info, #right_info, #field_life, #levelup {
   position: absolute;
 }
 #character_pallet {
   overflow-y: scroll;
-  z-index: 10;
+  z-index: 20;
+}
+#levelup {
+  overflow-y: scroll;
+  z-index: 20;
 }
 #field {
-  z-index: 20;
+  z-index: 10;
 }
 #character_pallet::-webkit-scrollbar {
   display: none;
@@ -52,7 +56,7 @@
 .panel {
   border: double 5px #000000;
 }
-.panel, .panel > *, #field_life > * {
+.panel, .panel > *, #field_life > *, .levelup_panel, .levelup_panel > *, .levelup_controller, .levelup_controller > * {
   position: absolute;
   box-sizing: border-box;
 }
