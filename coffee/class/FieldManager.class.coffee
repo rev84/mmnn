@@ -5,7 +5,9 @@ class FieldManager
   @CELL_Y = 8
   @BORDER_SIZE = 1
   # キャラが移動する時のmsec/マス
-  @MOVE_SPEED = 200
+  @MOVE_SPEED = 50
+  # 敵が湧くのは右から何マスか
+  @ENEMY_APPEAR_WIDTH = 5
 
   @divObject = null
   @cells = []
@@ -100,7 +102,7 @@ class FieldManager
     clearInterval @cellAnimationTimer if @cellAnimationTimer isnt false
     
 
-  @moveObject:(startCell, endCell, callback = null)->
+  @moveObject:(startCell, endCell, callback = null)=>
     GameManager.changeControllable false
 
     # 移動しないのですぐコールバック
@@ -119,18 +121,7 @@ class FieldManager
 
     charaObject = startCell.object
 
-    showHide = (prev, next)->
-      prev.setObject null
-      next.setObject charaObject
-      prev.draw()
-      next.draw()
-
-    prevCell = startCell
-    for targetCell, index in wayStack
-      setTimeout showHide.bind(null, prevCell, targetCell), @MOVE_SPEED*(index+1)
-      prevCell = targetCell
-
-    setTimeout =>
+    finish = =>
       GameManager.flags.movePickCell = null
       GameManager.flags.moveToCell = [startCell, endCell]
       
@@ -139,6 +130,8 @@ class FieldManager
       # 攻撃できるセルがないなら終了
       if attackables.length is 0
         GameManager.flags.waitAttackCell = null
+        if endCell.object is null
+          console.log endCell
         endCell.object.setMoved true
       # あるなら攻撃選択待ちに
       else
@@ -152,7 +145,18 @@ class FieldManager
 
       callback() if callback instanceof Function
 
-    , @MOVE_SPEED*(wayStack.length+1)
+    showHide = (prevCell, wayStack)=>
+      if wayStack.length is 0
+        finish()
+      else
+        nextCell = wayStack.shift()
+        prevCell.setObject null
+        nextCell.setObject charaObject
+        prevCell.draw()
+        nextCell.draw()
+        setTimeout showHide.bind(null, nextCell, wayStack), @MOVE_SPEED
+
+    setTimeout showHide.bind(null, startCell, wayStack), @MOVE_SPEED
     true
 
   # 指定したセルにいるオブジェクトから攻撃することができるセルを返す
@@ -191,7 +195,10 @@ class FieldManager
     movableMap = Utl.array2dFill(@CELL_X, @CELL_Y, null)
     movableMap[cell.xIndex][cell.yIndex] = []
 
-    while !allCellChecked
+    # セルの数以上の移動距離はありえないので上限を設定
+    loopCount = 0
+    while !allCellChecked and (loopCount <= @CELL_X * @CELL_Y)
+      loopCount++
       #Utl.dumpNumArray2d movableMap
       allCellChecked = true
       for body, x in movableMap
@@ -211,7 +218,10 @@ class FieldManager
                 movableMap[x+xPlus][y+yPlus] = wayStack.concat([@cells[x+xPlus][y+yPlus]])
     movableMap
 
-  @randomEnemyAppear:->
+  @randomEnemyAppear:(callback = null)->
+    # 一時的にアニメーションしないようにする
+    GameManager.flags.isCellObjectAnimation = false
+
     enemyAmount = Utl.gacha [
       [0, 10]
       [1, 20]
@@ -221,6 +231,50 @@ class FieldManager
       [5, 20]
       [6, 10]
     ]
+    flushCount = 5
 
-    putEnemy = ->
-      GameManager
+    getEnemyObject = =>
+      ids = []
+      for id, enemyClass of GameManager.enemys
+        ids.push id if enemyClass.appearance <= EnvManager.getFloor()
+      return null if ids.length <= 0
+      targetId = Utl.shuffle(ids).pop()
+      
+      new GameManager.enemys[targetId]({
+        level: EnvManager.getFloor()
+        hp: null
+        inField: true
+        moved: false
+      })
+
+    putEnemy = (enemyObject)=>
+      return false if enemyObject is null
+      # 空いてるセルを探す
+      emptyCells = []
+      for x in [@cells.length-@ENEMY_APPEAR_WIDTH...@cells.length]
+        for cell in @cells[x]
+          if cell.object is null
+            emptyCells.push cell
+      return false if emptyCells.length <= 0
+
+      targetCell = Utl.shuffle(emptyCells).pop()
+      targetCell.setObject enemyObject
+
+      targetCell.draw()
+
+      for cnt in [0...flushCount]
+        setTimeout targetCell.showObject.bind(targetCell, false), cnt*100+50
+        setTimeout targetCell.showObject.bind(targetCell, true), cnt*100+100
+      true
+
+    isNotEmpty = false
+    for cnt in [0...enemyAmount]
+      res = putEnemy getEnemyObject()
+    # 後処理
+    setTimeout =>
+      # アニメーション復活
+      GameManager.flags.isCellObjectAnimation = true
+      callback()
+    , (flushCount+1)*100      
+    true
+

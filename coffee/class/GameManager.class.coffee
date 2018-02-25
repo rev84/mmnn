@@ -355,6 +355,8 @@ class GameManager
 
   # 敵が行動する
   @enemyMove:->
+    debugCount = 0
+
     @changeControllable false
 
     # 戻すは不可能になる
@@ -377,7 +379,10 @@ class GameManager
       @flags.movePickCell = null
       @flags.moveToCell = null
       @flags.waitAttackCell = null
-      @changeControllable true
+      # 敵を湧かせる
+      FieldManager.randomEnemyAppear ->
+        GameManager.changeControllable true
+        setTimeout GameManager.doTurnEnd.bind(GameManager), 10
 
     # 全マスから未行動の敵を探す
     enemyCell = null
@@ -392,6 +397,7 @@ class GameManager
     # 行動してない敵はいなかった
     if enemyCell is null
       return ending()
+    
 
     ####################################################################
     # 全行動表
@@ -430,15 +436,21 @@ class GameManager
       rtn.xMove = params.xMove if 'xMove' of params
       rtn.moveAmount = params.moveAmount if 'moveAmount' of params
       rtn
+    
     acts = []
+    
     # 移動できる場所
     movableMap = FieldManager.getMovableMap enemyCell
+    
     # 攻撃側の攻撃タイプ
     myAttackType = enemyCell.object.getAttackType()
+    
     # 攻撃側の攻撃力
     myAttack = enemyCell.object.getAttack()
+    
     # すべての位置で攻撃可能な分岐をおこない、点数化する
     `actsearch://`
+    
     for mBody, xMove in movableMap
       for wayStack, yMove in mBody
         # 行けないので飛ばす
@@ -484,6 +496,7 @@ class GameManager
             xMove:xMove
             moveAmount: wayStack.length
           }), moveToCell, atkCell]
+    
     # 点数順にソートする
     acts.sort (aAry, bAry)->
       a = aAry[0]
@@ -508,6 +521,7 @@ class GameManager
     FieldManager.moveObject enemyCell, moveToCell, =>
       # 攻撃しない
       if atkCell is null
+        moveToCell.object.setMoved true
         setTimeout @enemyMove.bind(@), 1
       # 自爆する
       else if atkCell is -1
@@ -574,7 +588,7 @@ class GameManager
 
   @terror:(cell, callback = null)->
     # ライフを1下げる
-    FieldLifeManager.decrease()
+    EnvManager.decreaseLife()
     # 敵を消し去る
     cell.object = null
     cell.draw()

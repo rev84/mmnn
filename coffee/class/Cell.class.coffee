@@ -203,14 +203,20 @@ class Cell
   changeKnockout:(imagePath, num = '')->
       @elements.knockout.css('background-image', 'url('+imagePath+')').html(num).removeClass('no_display')
 
-  startAnimation:(imagePath, startMsec, endMsec)->
+  startAnimation:(imagePath, startMsec, endMsec, callback = null)->
     setTimeout =>
       @elements.animation.css('background-image', 'url('+imagePath+')').removeClass('no_display')
     , startMsec
     setTimeout =>
       @elements.animation.css('background-image', 'none').addClass('no_display')
+      callback() if callback instanceof Function
     , endMsec
 
+  showObject:(bool = true)->
+    if bool
+      @elements.object.removeClass('no_display')
+    else
+      @elements.object.addClass('no_display')
   showMovable:(bool = true)->
     if bool
       @elements.movable.removeClass('no_display')
@@ -352,7 +358,7 @@ class Cell
       @showFin(false)
 
   stepObjectAnimation:=>
-    return if @object is null
+    return @showObject false if @object is null
     @objectAnimationIndex++
     @objectAnimationIndex = 0 if @object.getImage(@objectAnimationIndex) is null
     @changeObject @object.getImage(@objectAnimationIndex)
