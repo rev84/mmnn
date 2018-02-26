@@ -44,7 +44,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 #menu > * {
   float: left;
 }
-#menu, #character_pallet, #field, #left_info, #right_info, #env, #levelup {
+#menu, #character_pallet, #field, #left_info, #right_info, #env, #levelup, #battle_result {
   position: absolute;
 }
 #character_pallet {
@@ -73,10 +73,54 @@ input[type="range"]::-webkit-slider-thumb:active {
   font-size: 25px;
   vertical-align: middle;
 }
+#battle_result {
+  background-image: url('../img/battle_result.png');
+  left: 245px;
+  top: 80px;
+  width: 800px;
+  height: 500px;
+  z-index: 9999999999999999;
+  background-size:cover;
+}
+#battle_result > .progress {
+  top: 150px;
+  left: 10%;
+  width: 80%;
+  height: 50px;
+  background-color: #ff0000;
+}
+#battle_result > .character {
+  left: 50px;
+  bottom: 100px;
+  width: 150px;
+  height: 150px;
+  background-image: url('../img/character/1/1.png');
+}
+#battle_result > .character_type {
+  left: 200px;
+  bottom: 125px;  
+  width: 100px;
+  height: 100px;
+  background-image: url('../img/sword.png');
+}
+#battle_result > .enemy_type {
+  right: 200px;
+  bottom: 125px;
+  width: 100px;
+  height: 100px;
+  background-image: url('../img/shield.png');
+}
+#battle_result > .enemy {
+  right: 50px;
+  bottom: 100px;
+  width: 150px;
+  height: 150px;
+  background-image: url('../img/enemy/1/1005010301_001.png');
+}
 .panel {
   border: double 5px #000000;
 }
-.panel, .panel > *, #env > div, .levelup_panel, .levelup_panel > *, .levelup_controller, .levelup_controller > * {
+.panel, .panel > *, #env > div, .levelup_panel, .levelup_panel > *, .levelup_controller, .levelup_controller > *, #battle_result > * {
   position: absolute;
   box-sizing: border-box;
 }

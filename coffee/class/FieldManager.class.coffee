@@ -20,7 +20,7 @@ class FieldManager
       height: @CELL_Y * Cell.SIZE_Y + @BORDER_SIZE * (@CELL_Y + 1)
       "background-color" : '#000000'
     }).appendTo(@parentElement)
- 
+    
     # フィールド初期化
     @cells = []
     for x in [0...@CELL_X]
@@ -225,10 +225,10 @@ class FieldManager
     enemyAmount = Utl.gacha [
       [0, 10]
       [1, 20]
-      [2, 30]
-      [3, 40]
-      [4, 30]
-      [5, 20]
+      [2, 50]
+      [3, 20]
+      [4, 20]
+      [5, 10]
       [6, 10]
     ]
     flushCount = 5

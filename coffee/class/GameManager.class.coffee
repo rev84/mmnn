@@ -246,6 +246,7 @@ class GameManager
     @initCharacters(null)
     @initLevelup(null)
     @initEnemys(null)
+    @initBattleResult(null)
 
     @gameElement.appendTo('body')
 
@@ -288,6 +289,12 @@ class GameManager
     for characterId, characterObject of @characters
       LevelupManager.addCharacter(characterObject)
     LevelupManager.draw()
+
+  @initBattleResult:(savedata)->
+    return if @initialized.battleResult
+    @initialized.battleResult = true
+
+    BattleResultManager.init(@gameElement)
 
   # キャラ初期化
   @initCharacters:(savedata)->
@@ -557,36 +564,54 @@ class GameManager
     defenderCell.startAnimation './img/target.png', 400, 500
 
     # 攻撃エフェクト
-    defenderCell.startAnimation './img/damage.png', 550, 1750
+    #defenderCell.startAnimation './img/damage.png', 550, 1750
 
-    setTimeout ->
+    setTimeout =>
       # 攻撃側の攻撃タイプ
       attackType = attacker.getAttackType()
       # 攻撃側の攻撃力
       attack = attacker.getAttack()
       # 防御側の防御力
-      def = if attack is ObjectBase.ATTACK_TYPE.PHYSIC then defender.getPDef() else defender.getMDef()
+      def = if attackType is ObjectBase.ATTACK_TYPE.PHYSIC then defender.getPDef() else defender.getMDef()
       # 防御側のHP
       hp = defender.getHp()
 
-      # ダメージを与える
-      defender.damage ObjectBase.getDamage(attack, def)
+      # ダメージ
+      damage = ObjectBase.getDamage(attack, def)
 
+      # 攻撃アニメーション
+      if attacker.isCharacterObject()
+        character = attacker
+        enemy = defender
+        isCharacterOffence = true
+      else
+        character = defender
+        enemy = attacker
+        isCharacterOffence = false
 
-      # 倒したキャラの台詞チェック
-      FieldManager.checkDeath =>
-        # 攻撃側を行動終了にする
-        attacker.setMoved true
-        # 再描画
-        attackerCell.draw()
+      hpMax = defender.getHpMax()
+      hpBase = defender.getHp()
+      hpTo = defender.getHp() - damage
+      hpTo = 0 if hpTo < 0
+      BattleResultManager.animate character, enemy, isCharacterOffence, hpMax, hpBase, hpTo, =>
+        # ダメージを与える
+        defender.damage damage
+        # 倒したキャラの台詞チェック
+        FieldManager.checkDeath =>
+          # 攻撃側を行動終了にする
+          attacker.setMoved true
+          # 再描画
+          attackerCell.draw()
+          defenderCell.draw()
 
-        # 移動・攻撃対象を解除
-        FieldManager.removeAllWayStack()
-        FieldManager.removeAllKnockout()
+          # 移動・攻撃対象を解除
+          FieldManager.removeAllWayStack()
+          FieldManager.removeAllKnockout()
+          FieldManager.drawMovable()
+          FieldManager.drawKnockout()
 
-        setTimeout callback, 1 if callback instanceof Function
-    , 1700
-
+          setTimeout callback, 1 if callback instanceof Function
+    , 550
   @terror:(cell, callback = null)->
     # ライフを1下げる
     EnvManager.decreaseLife()
