@@ -41,3 +41,6 @@ class CharacterBase extends ObjectBase
 
   setMoved:(bool)->
     @moved = !!bool
+
+  getTextOnDeath:->
+    @constructor.textDeath

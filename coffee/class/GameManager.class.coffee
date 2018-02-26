@@ -141,6 +141,7 @@ class GameManager
     @flags.pickedCharacterObject = null
     @flags.pickedCharacterElement.remove() if @flags.pickedCharacterElement isnt null
     @flags.pickedCharacterElement = null
+    @flags.isCellObjectAnimation = true
     @switchTempAll()
 
     # 戦闘モードにする
@@ -158,6 +159,7 @@ class GameManager
     @flags.pickedCharacterObject = null
     @flags.pickedCharacterElement.remove() if @flags.pickedCharacterElement isnt null
     @flags.pickedCharacterElement = null
+    @flags.isCellObjectAnimation = false
     @switchTempAll()
 
     # 戦闘モードを切る
@@ -173,8 +175,10 @@ class GameManager
   @doLevelup:(isSoon = false)->
     # ターン終了可能な状態ではない
     return unless @flags.isEnableLevelup
-     
+    
     @partsAnimation @POSITION.LEVELUP, isSoon
+
+    @flags.isCellObjectAnimation = false
 
   @partsAnimation:(ary, isSoon = false)->
     # 操作不能にする
@@ -283,6 +287,7 @@ class GameManager
     LevelupManager.init(@gameElement)
     for characterId, characterObject of @characters
       LevelupManager.addCharacter(characterObject)
+    LevelupManager.draw()
 
   # キャラ初期化
   @initCharacters:(savedata)->
@@ -307,7 +312,7 @@ class GameManager
       @characters[characterId] = new window.CharacterList[characterId](params)
     for characterId, characterObject of @characters
       CharacterPalletManager.addCharacter(characterObject)
-    CharacterPalletManager.show()
+    CharacterPalletManager.draw()
 
   # キャラ初期化
   @initEnemys:(savedata)->
@@ -564,28 +569,22 @@ class GameManager
       # 防御側のHP
       hp = defender.getHp()
 
-      # 攻撃する
-      damage = ObjectBase.getDamage(attack, def)
+      # ダメージを与える
+      defender.damage ObjectBase.getDamage(attack, def)
 
-      # 倒した
-      if defender.damage(damage) <= 0
-        # 敵が死んだなら経験値加算
-        ExpManager.plusAmount defender.getExp() if defender.isEnemyObject()
-        # オブジェクト消す
-        defenderCell.object = null
 
-      # 攻撃側を行動終了にする
-      attacker.setMoved true
+      # 倒したキャラの台詞チェック
+      FieldManager.checkDeath =>
+        # 攻撃側を行動終了にする
+        attacker.setMoved true
+        # 再描画
+        attackerCell.draw()
 
-      # 再描画
-      attackerCell.draw()
-      defenderCell.draw()
+        # 移動・攻撃対象を解除
+        FieldManager.removeAllWayStack()
+        FieldManager.removeAllKnockout()
 
-      # 移動・攻撃対象を解除
-      FieldManager.removeAllWayStack()
-      FieldManager.removeAllKnockout()
-
-      setTimeout callback, 1 if callback instanceof Function
+        setTimeout callback, 1 if callback instanceof Function
     , 1700
 
   @terror:(cell, callback = null)->

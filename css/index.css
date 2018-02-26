@@ -161,4 +161,6 @@ input[type="range"]::-webkit-slider-thumb:active {
   z-index: 999999;
   background-size: 100% 100%;
 }
-
+.popover {
+  font-size:30px;
+}

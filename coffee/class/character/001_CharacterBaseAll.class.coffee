@@ -29,6 +29,8 @@ class Character1Base extends CharacterBase
   @itemMax = 1
   # 必要経験値
   @expRate = 1
+  # 死んだ時の台詞
+  @textDeath = "島村卯月"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -66,6 +68,8 @@ class Character2Base extends CharacterBase
   @itemMax = 2
   # 必要経験値
   @expRate = 2
+  # 死んだ時の台詞
+  @textDeath = "渋谷凛"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -103,6 +107,8 @@ class Character3Base extends CharacterBase
   @itemMax = 3
   # 必要経験値
   @expRate = 3
+  # 死んだ時の台詞
+  @textDeath = "本田未央"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -140,6 +146,8 @@ class Character4Base extends CharacterBase
   @itemMax = 4
   # 必要経験値
   @expRate = 4
+  # 死んだ時の台詞
+  @textDeath = "相川千夏"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -177,6 +185,8 @@ class Character5Base extends CharacterBase
   @itemMax = 5
   # 必要経験値
   @expRate = 5
+  # 死んだ時の台詞
+  @textDeath = "愛野渚"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -214,6 +224,8 @@ class Character6Base extends CharacterBase
   @itemMax = 6
   # 必要経験値
   @expRate = 6
+  # 死んだ時の台詞
+  @textDeath = "相葉夕美"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -251,6 +263,8 @@ class Character7Base extends CharacterBase
   @itemMax = 7
   # 必要経験値
   @expRate = 7
+  # 死んだ時の台詞
+  @textDeath = "相原雪乃"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -288,6 +302,8 @@ class Character8Base extends CharacterBase
   @itemMax = 8
   # 必要経験値
   @expRate = 8
+  # 死んだ時の台詞
+  @textDeath = "赤城みりあ"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -325,6 +341,8 @@ class Character9Base extends CharacterBase
   @itemMax = 9
   # 必要経験値
   @expRate = 9
+  # 死んだ時の台詞
+  @textDeath = "赤西瑛梨華"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -362,6 +380,8 @@ class Character10Base extends CharacterBase
   @itemMax = 10
   # 必要経験値
   @expRate = 10
+  # 死んだ時の台詞
+  @textDeath = "浅野風香"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -399,6 +419,8 @@ class Character11Base extends CharacterBase
   @itemMax = 11
   # 必要経験値
   @expRate = 11
+  # 死んだ時の台詞
+  @textDeath = "浅利七海"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -436,6 +458,8 @@ class Character12Base extends CharacterBase
   @itemMax = 12
   # 必要経験値
   @expRate = 12
+  # 死んだ時の台詞
+  @textDeath = "アナスタシア"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -473,6 +497,8 @@ class Character13Base extends CharacterBase
   @itemMax = 13
   # 必要経験値
   @expRate = 13
+  # 死んだ時の台詞
+  @textDeath = "安部菜々"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -510,6 +536,8 @@ class Character14Base extends CharacterBase
   @itemMax = 14
   # 必要経験値
   @expRate = 14
+  # 死んだ時の台詞
+  @textDeath = "綾瀬穂乃香"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -547,6 +575,8 @@ class Character15Base extends CharacterBase
   @itemMax = 15
   # 必要経験値
   @expRate = 15
+  # 死んだ時の台詞
+  @textDeath = "荒木比奈"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -584,6 +614,8 @@ class Character16Base extends CharacterBase
   @itemMax = 16
   # 必要経験値
   @expRate = 16
+  # 死んだ時の台詞
+  @textDeath = "有浦柑奈"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -621,6 +653,8 @@ class Character17Base extends CharacterBase
   @itemMax = 17
   # 必要経験値
   @expRate = 17
+  # 死んだ時の台詞
+  @textDeath = "安斎都"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -658,6 +692,8 @@ class Character18Base extends CharacterBase
   @itemMax = 18
   # 必要経験値
   @expRate = 18
+  # 死んだ時の台詞
+  @textDeath = "イヴ・サンタクロース"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -695,6 +731,8 @@ class Character19Base extends CharacterBase
   @itemMax = 19
   # 必要経験値
   @expRate = 19
+  # 死んだ時の台詞
+  @textDeath = "五十嵐響子"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -732,6 +770,8 @@ class Character20Base extends CharacterBase
   @itemMax = 20
   # 必要経験値
   @expRate = 20
+  # 死んだ時の台詞
+  @textDeath = "池袋晶葉"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -769,6 +809,8 @@ class Character21Base extends CharacterBase
   @itemMax = 21
   # 必要経験値
   @expRate = 21
+  # 死んだ時の台詞
+  @textDeath = "伊集院惠"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -806,6 +848,8 @@ class Character22Base extends CharacterBase
   @itemMax = 22
   # 必要経験値
   @expRate = 22
+  # 死んだ時の台詞
+  @textDeath = "一ノ瀬志希"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -843,6 +887,8 @@ class Character23Base extends CharacterBase
   @itemMax = 23
   # 必要経験値
   @expRate = 23
+  # 死んだ時の台詞
+  @textDeath = "市原仁奈"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -880,6 +926,8 @@ class Character24Base extends CharacterBase
   @itemMax = 24
   # 必要経験値
   @expRate = 24
+  # 死んだ時の台詞
+  @textDeath = "今井加奈"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -917,6 +965,8 @@ class Character25Base extends CharacterBase
   @itemMax = 25
   # 必要経験値
   @expRate = 25
+  # 死んだ時の台詞
+  @textDeath = "井村雪菜"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -954,6 +1004,8 @@ class Character26Base extends CharacterBase
   @itemMax = 26
   # 必要経験値
   @expRate = 26
+  # 死んだ時の台詞
+  @textDeath = "上田鈴帆"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -991,6 +1043,8 @@ class Character27Base extends CharacterBase
   @itemMax = 27
   # 必要経験値
   @expRate = 27
+  # 死んだ時の台詞
+  @textDeath = "氏家むつみ"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1028,6 +1082,8 @@ class Character28Base extends CharacterBase
   @itemMax = 28
   # 必要経験値
   @expRate = 28
+  # 死んだ時の台詞
+  @textDeath = "梅木音葉"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1065,6 +1121,8 @@ class Character29Base extends CharacterBase
   @itemMax = 29
   # 必要経験値
   @expRate = 29
+  # 死んだ時の台詞
+  @textDeath = "江上椿"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1102,6 +1160,8 @@ class Character30Base extends CharacterBase
   @itemMax = 30
   # 必要経験値
   @expRate = 30
+  # 死んだ時の台詞
+  @textDeath = "衛藤美紗希"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1139,6 +1199,8 @@ class Character31Base extends CharacterBase
   @itemMax = 31
   # 必要経験値
   @expRate = 31
+  # 死んだ時の台詞
+  @textDeath = "海老原菜帆"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1176,6 +1238,8 @@ class Character32Base extends CharacterBase
   @itemMax = 32
   # 必要経験値
   @expRate = 32
+  # 死んだ時の台詞
+  @textDeath = "及川雫"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1213,6 +1277,8 @@ class Character33Base extends CharacterBase
   @itemMax = 33
   # 必要経験値
   @expRate = 33
+  # 死んだ時の台詞
+  @textDeath = "大石泉"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1250,6 +1316,8 @@ class Character34Base extends CharacterBase
   @itemMax = 34
   # 必要経験値
   @expRate = 34
+  # 死んだ時の台詞
+  @textDeath = "太田優"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1287,6 +1355,8 @@ class Character35Base extends CharacterBase
   @itemMax = 35
   # 必要経験値
   @expRate = 35
+  # 死んだ時の台詞
+  @textDeath = "大槻唯"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1324,6 +1394,8 @@ class Character36Base extends CharacterBase
   @itemMax = 36
   # 必要経験値
   @expRate = 36
+  # 死んだ時の台詞
+  @textDeath = "大西由里子"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1361,6 +1433,8 @@ class Character37Base extends CharacterBase
   @itemMax = 37
   # 必要経験値
   @expRate = 37
+  # 死んだ時の台詞
+  @textDeath = "大沼くるみ"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1398,6 +1472,8 @@ class Character38Base extends CharacterBase
   @itemMax = 38
   # 必要経験値
   @expRate = 38
+  # 死んだ時の台詞
+  @textDeath = "大原みちる"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1435,6 +1511,8 @@ class Character39Base extends CharacterBase
   @itemMax = 39
   # 必要経験値
   @expRate = 39
+  # 死んだ時の台詞
+  @textDeath = "岡崎泰葉"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1472,6 +1550,8 @@ class Character40Base extends CharacterBase
   @itemMax = 40
   # 必要経験値
   @expRate = 40
+  # 死んだ時の台詞
+  @textDeath = "緒方智絵里"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1509,6 +1589,8 @@ class Character41Base extends CharacterBase
   @itemMax = 41
   # 必要経験値
   @expRate = 41
+  # 死んだ時の台詞
+  @textDeath = "奥山沙織"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1546,6 +1628,8 @@ class Character42Base extends CharacterBase
   @itemMax = 42
   # 必要経験値
   @expRate = 42
+  # 死んだ時の台詞
+  @textDeath = "乙倉悠貴"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1583,6 +1667,8 @@ class Character43Base extends CharacterBase
   @itemMax = 43
   # 必要経験値
   @expRate = 43
+  # 死んだ時の台詞
+  @textDeath = "片桐早苗"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1620,6 +1706,8 @@ class Character44Base extends CharacterBase
   @itemMax = 44
   # 必要経験値
   @expRate = 44
+  # 死んだ時の台詞
+  @textDeath = "上条春菜"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1657,6 +1745,8 @@ class Character45Base extends CharacterBase
   @itemMax = 45
   # 必要経験値
   @expRate = 45
+  # 死んだ時の台詞
+  @textDeath = "神谷奈緒"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1694,6 +1784,8 @@ class Character46Base extends CharacterBase
   @itemMax = 46
   # 必要経験値
   @expRate = 46
+  # 死んだ時の台詞
+  @textDeath = "川島瑞樹"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1731,6 +1823,8 @@ class Character47Base extends CharacterBase
   @itemMax = 47
   # 必要経験値
   @expRate = 47
+  # 死んだ時の台詞
+  @textDeath = "神崎蘭子"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1768,6 +1862,8 @@ class Character48Base extends CharacterBase
   @itemMax = 48
   # 必要経験値
   @expRate = 48
+  # 死んだ時の台詞
+  @textDeath = "岸部彩華"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1805,6 +1901,8 @@ class Character49Base extends CharacterBase
   @itemMax = 49
   # 必要経験値
   @expRate = 49
+  # 死んだ時の台詞
+  @textDeath = "北川真尋"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1842,6 +1940,8 @@ class Character50Base extends CharacterBase
   @itemMax = 50
   # 必要経験値
   @expRate = 50
+  # 死んだ時の台詞
+  @textDeath = "喜多日菜子"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1879,6 +1979,8 @@ class Character51Base extends CharacterBase
   @itemMax = 51
   # 必要経験値
   @expRate = 51
+  # 死んだ時の台詞
+  @textDeath = "喜多見柚"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1916,6 +2018,8 @@ class Character52Base extends CharacterBase
   @itemMax = 52
   # 必要経験値
   @expRate = 52
+  # 死んだ時の台詞
+  @textDeath = "木場真奈美"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1953,6 +2057,8 @@ class Character53Base extends CharacterBase
   @itemMax = 53
   # 必要経験値
   @expRate = 53
+  # 死んだ時の台詞
+  @textDeath = "木村夏樹"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1990,6 +2096,8 @@ class Character54Base extends CharacterBase
   @itemMax = 54
   # 必要経験値
   @expRate = 54
+  # 死んだ時の台詞
+  @textDeath = "キャシー・グラハム"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2027,6 +2135,8 @@ class Character55Base extends CharacterBase
   @itemMax = 55
   # 必要経験値
   @expRate = 55
+  # 死んだ時の台詞
+  @textDeath = "桐野アヤ"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2064,6 +2174,8 @@ class Character56Base extends CharacterBase
   @itemMax = 56
   # 必要経験値
   @expRate = 56
+  # 死んだ時の台詞
+  @textDeath = "桐生つかさ"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2101,6 +2213,8 @@ class Character57Base extends CharacterBase
   @itemMax = 57
   # 必要経験値
   @expRate = 57
+  # 死んだ時の台詞
+  @textDeath = "日下部若葉"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2138,6 +2252,8 @@ class Character58Base extends CharacterBase
   @itemMax = 58
   # 必要経験値
   @expRate = 58
+  # 死んだ時の台詞
+  @textDeath = "工藤忍"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2175,6 +2291,8 @@ class Character59Base extends CharacterBase
   @itemMax = 59
   # 必要経験値
   @expRate = 59
+  # 死んだ時の台詞
+  @textDeath = "クラリス"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2212,6 +2330,8 @@ class Character60Base extends CharacterBase
   @itemMax = 60
   # 必要経験値
   @expRate = 60
+  # 死んだ時の台詞
+  @textDeath = "栗原ネネ"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2249,6 +2369,8 @@ class Character61Base extends CharacterBase
   @itemMax = 61
   # 必要経験値
   @expRate = 61
+  # 死んだ時の台詞
+  @textDeath = "黒川千秋"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2286,6 +2408,8 @@ class Character62Base extends CharacterBase
   @itemMax = 62
   # 必要経験値
   @expRate = 62
+  # 死んだ時の台詞
+  @textDeath = "ケイト"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2323,6 +2447,8 @@ class Character63Base extends CharacterBase
   @itemMax = 63
   # 必要経験値
   @expRate = 63
+  # 死んだ時の台詞
+  @textDeath = "古賀小春"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2360,6 +2486,8 @@ class Character64Base extends CharacterBase
   @itemMax = 64
   # 必要経験値
   @expRate = 64
+  # 死んだ時の台詞
+  @textDeath = "輿水幸子"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2397,6 +2525,8 @@ class Character65Base extends CharacterBase
   @itemMax = 65
   # 必要経験値
   @expRate = 65
+  # 死んだ時の台詞
+  @textDeath = "小関麗奈"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2434,6 +2564,8 @@ class Character66Base extends CharacterBase
   @itemMax = 66
   # 必要経験値
   @expRate = 66
+  # 死んだ時の台詞
+  @textDeath = "小早川紗枝"
 
   @abilityName = "なし"
   @abilityDesc = "なし"

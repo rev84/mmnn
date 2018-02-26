@@ -136,10 +136,10 @@ window.CharacterList = {
 EOM;
 
   # キャラクター
-  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'キャラ設定!A2:Q');
+  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'キャラ設定!A2:R');
   $values = $response->getValues();
   foreach ($values as $vAry) {
-    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $itemMax, $expRate, $abilityName, $abilityDesc, $defaultJoin) = $vAry;
+    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $itemMax, $expRate, $abilityName, $abilityDesc, $defaultJoin, $textDeath) = $vAry;
     $defaultJoin = $defaultJoin == '' ? 'false' : 'true';
 
     $attackTypeBase = ($attackTypeBase == '物理' ? 'ObjectBase.ATTACK_TYPE.PHYSIC' : 'ObjectBase.ATTACK_TYPE.MAGIC');
@@ -186,6 +186,8 @@ class {$className}Base extends CharacterBase
   @itemMax = {$itemMax}
   # 必要経験値
   @expRate = {$expRate}
+  # 死んだ時の台詞
+  @textDeath = "{$textDeath}"
 
   @abilityName = "{$abilityName}"
   @abilityDesc = "{$abilityDesc}"

@@ -1,5 +1,5 @@
 class LevelupPanel
-  @SIZE_X : Panel.SIZE_X*2 + 200
+  @SIZE_X : 400*2 + 200
   @SIZE_Y : 120
 
   @CLASSNAME : 'levelup_panel'

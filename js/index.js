@@ -582,6 +582,42 @@ Cell = (function() {
     }
   };
 
+  Cell.prototype.showPopover = function(text, msec, callback) {
+    var position;
+    if (text == null) {
+      text = null;
+    }
+    if (msec == null) {
+      msec = null;
+    }
+    if (callback == null) {
+      callback = null;
+    }
+    if (text === null) {
+      return $(this.elements.mother).popover('destroy');
+    } else {
+      position = this.xIndex < FieldManager.SIZE_X / 4 ? 'right' : FieldManager.SIZE_X / 4 * 3 < this.xIndex ? 'left' : this.yIndex < FieldManager.SIZE_Y / 4 ? 'bottom' : 'top';
+      $(this.elements.mother).popover({
+        content: text,
+        placement: position
+      }).popover('show');
+      if (msec === null) {
+        if (callback instanceof Function) {
+          return callback();
+        }
+      } else {
+        return setTimeout((function(_this) {
+          return function() {
+            $(_this.elements.mother).popover('destroy');
+            if (callback instanceof Function) {
+              return callback();
+            }
+          };
+        })(this), msec);
+      }
+    }
+  };
+
   Cell.prototype.draw = function() {
     this.changeBackground(this.background);
     if (this.object !== null) {
@@ -767,6 +803,10 @@ CharacterBase = (function(superClass) {
     return this.moved = !!bool;
   };
 
+  CharacterBase.prototype.getTextOnDeath = function() {
+    return this.constructor.textDeath;
+  };
+
   return CharacterBase;
 
 })(ObjectBase);
@@ -805,8 +845,7 @@ CharacterPalletManager = (function() {
   };
 
   CharacterPalletManager.addCharacter = function(characterObject) {
-    this.characters.push(characterObject);
-    return this.draw();
+    return this.characters.push(characterObject);
   };
 
   CharacterPalletManager.draw = function() {
@@ -1333,7 +1372,7 @@ FieldManager = (function() {
       callback = null;
     }
     GameManager.flags.isCellObjectAnimation = false;
-    enemyAmount = Utl.gacha([[0, 10], [11, 20], [12, 30], [13, 40], [14, 30], [15, 20], [16, 10]]);
+    enemyAmount = Utl.gacha([[0, 10], [1, 20], [2, 30], [3, 40], [4, 30], [5, 20], [6, 10]]);
     flushCount = 5;
     getEnemyObject = (function(_this) {
       return function() {
@@ -1398,6 +1437,32 @@ FieldManager = (function() {
       };
     })(this), (flushCount + 1) * 100);
     return true;
+  };
+
+  FieldManager.checkDeath = function(callback) {
+    var body, c, j, l, len, len1, noExistDeath, ref;
+    if (callback == null) {
+      callback = null;
+    }
+    noExistDeath = true;
+    ref = FieldManager.cells;
+    for (j = 0, len = ref.length; j < len; j++) {
+      body = ref[j];
+      for (l = 0, len1 = body.length; l < len1; l++) {
+        c = body[l];
+        if (c.object !== null && c.object.isCharacterObject() && c.object.getHp() <= 0) {
+          return c.showPopover(c.object.getTextOnDeath(), 2000, function() {
+            if (c.object.isEnemyObject()) {
+              ExpManager.plusAmount(c.object.getExp());
+            }
+            c.object = null;
+            c.draw();
+            return FieldManager.checkDeath(callback);
+          });
+        }
+      }
+    }
+    return callback();
   };
 
   return FieldManager;
@@ -1573,6 +1638,7 @@ GameManager = (function() {
       this.flags.pickedCharacterElement.remove();
     }
     this.flags.pickedCharacterElement = null;
+    this.flags.isCellObjectAnimation = true;
     this.switchTempAll();
     return this.flags.isBattle = true;
   };
@@ -1591,6 +1657,7 @@ GameManager = (function() {
       this.flags.pickedCharacterElement.remove();
     }
     this.flags.pickedCharacterElement = null;
+    this.flags.isCellObjectAnimation = false;
     this.switchTempAll();
     return this.flags.isBattle = false;
   };
@@ -1612,7 +1679,8 @@ GameManager = (function() {
     if (!this.flags.isEnableLevelup) {
       return;
     }
-    return this.partsAnimation(this.POSITION.LEVELUP, isSoon);
+    this.partsAnimation(this.POSITION.LEVELUP, isSoon);
+    return this.flags.isCellObjectAnimation = false;
   };
 
   GameManager.partsAnimation = function(ary, isSoon) {
@@ -1732,19 +1800,18 @@ GameManager = (function() {
   };
 
   GameManager.initLevelup = function(savedata) {
-    var characterId, characterObject, ref, results;
+    var characterId, characterObject, ref;
     if (this.initialized.levelup) {
       return;
     }
     this.initialized.levelup = true;
     LevelupManager.init(this.gameElement);
     ref = this.characters;
-    results = [];
     for (characterId in ref) {
       characterObject = ref[characterId];
-      results.push(LevelupManager.addCharacter(characterObject));
+      LevelupManager.addCharacter(characterObject);
     }
-    return results;
+    return LevelupManager.draw();
   };
 
   GameManager.initCharacters = function(savedata) {
@@ -1777,7 +1844,7 @@ GameManager = (function() {
       characterObject = ref1[characterId];
       CharacterPalletManager.addCharacter(characterObject);
     }
-    return CharacterPalletManager.show();
+    return CharacterPalletManager.draw();
   };
 
   GameManager.initEnemys = function(savedata) {
@@ -2023,26 +2090,23 @@ GameManager = (function() {
     defenderCell.startAnimation('./img/target.png', 400, 500);
     defenderCell.startAnimation('./img/damage.png', 550, 1750);
     return setTimeout(function() {
-      var attack, attackType, damage, def, hp;
+      var attack, attackType, def, hp;
       attackType = attacker.getAttackType();
       attack = attacker.getAttack();
       def = attack === ObjectBase.ATTACK_TYPE.PHYSIC ? defender.getPDef() : defender.getMDef();
       hp = defender.getHp();
-      damage = ObjectBase.getDamage(attack, def);
-      if (defender.damage(damage) <= 0) {
-        if (defender.isEnemyObject()) {
-          ExpManager.plusAmount(defender.getExp());
-        }
-        defenderCell.object = null;
-      }
-      attacker.setMoved(true);
-      attackerCell.draw();
-      defenderCell.draw();
-      FieldManager.removeAllWayStack();
-      FieldManager.removeAllKnockout();
-      if (callback instanceof Function) {
-        return setTimeout(callback, 1);
-      }
+      defender.damage(ObjectBase.getDamage(attack, def));
+      return FieldManager.checkDeath((function(_this) {
+        return function() {
+          attacker.setMoved(true);
+          attackerCell.draw();
+          FieldManager.removeAllWayStack();
+          FieldManager.removeAllKnockout();
+          if (callback instanceof Function) {
+            return setTimeout(callback, 1);
+          }
+        };
+      })(this));
     }, 1700);
   };
 
@@ -2115,7 +2179,7 @@ LevelupController = (function() {
 
   LevelupController.SIZE_Y = 120;
 
-  LevelupController.POS_X = Panel.SIZE_X;
+  LevelupController.POS_X = 400;
 
   LevelupController.POS_Y = 0;
 
@@ -2194,8 +2258,7 @@ LevelupManager = (function() {
   };
 
   LevelupManager.addCharacter = function(characterObject) {
-    this.characters.push(characterObject);
-    return this.draw();
+    return this.characters.push(characterObject);
   };
 
   LevelupManager.draw = function() {
@@ -2228,7 +2291,7 @@ LevelupManager = (function() {
 })();
 
 LevelupPanel = (function() {
-  LevelupPanel.SIZE_X = Panel.SIZE_X * 2 + 200;
+  LevelupPanel.SIZE_X = 400 * 2 + 200;
 
   LevelupPanel.SIZE_Y = 120;
 
@@ -3301,6 +3364,8 @@ Character1Base = (function(superClass) {
 
   Character1Base.expRate = 1;
 
+  Character1Base.textDeath = "島村卯月";
+
   Character1Base.abilityName = "なし";
 
   Character1Base.abilityDesc = "なし";
@@ -3345,6 +3410,8 @@ Character2Base = (function(superClass) {
   Character2Base.itemMax = 2;
 
   Character2Base.expRate = 2;
+
+  Character2Base.textDeath = "渋谷凛";
 
   Character2Base.abilityName = "なし";
 
@@ -3391,6 +3458,8 @@ Character3Base = (function(superClass) {
 
   Character3Base.expRate = 3;
 
+  Character3Base.textDeath = "本田未央";
+
   Character3Base.abilityName = "なし";
 
   Character3Base.abilityDesc = "なし";
@@ -3435,6 +3504,8 @@ Character4Base = (function(superClass) {
   Character4Base.itemMax = 4;
 
   Character4Base.expRate = 4;
+
+  Character4Base.textDeath = "相川千夏";
 
   Character4Base.abilityName = "なし";
 
@@ -3481,6 +3552,8 @@ Character5Base = (function(superClass) {
 
   Character5Base.expRate = 5;
 
+  Character5Base.textDeath = "愛野渚";
+
   Character5Base.abilityName = "なし";
 
   Character5Base.abilityDesc = "なし";
@@ -3525,6 +3598,8 @@ Character6Base = (function(superClass) {
   Character6Base.itemMax = 6;
 
   Character6Base.expRate = 6;
+
+  Character6Base.textDeath = "相葉夕美";
 
   Character6Base.abilityName = "なし";
 
@@ -3571,6 +3646,8 @@ Character7Base = (function(superClass) {
 
   Character7Base.expRate = 7;
 
+  Character7Base.textDeath = "相原雪乃";
+
   Character7Base.abilityName = "なし";
 
   Character7Base.abilityDesc = "なし";
@@ -3615,6 +3692,8 @@ Character8Base = (function(superClass) {
   Character8Base.itemMax = 8;
 
   Character8Base.expRate = 8;
+
+  Character8Base.textDeath = "赤城みりあ";
 
   Character8Base.abilityName = "なし";
 
@@ -3661,6 +3740,8 @@ Character9Base = (function(superClass) {
 
   Character9Base.expRate = 9;
 
+  Character9Base.textDeath = "赤西瑛梨華";
+
   Character9Base.abilityName = "なし";
 
   Character9Base.abilityDesc = "なし";
@@ -3705,6 +3786,8 @@ Character10Base = (function(superClass) {
   Character10Base.itemMax = 10;
 
   Character10Base.expRate = 10;
+
+  Character10Base.textDeath = "浅野風香";
 
   Character10Base.abilityName = "なし";
 
@@ -3751,6 +3834,8 @@ Character11Base = (function(superClass) {
 
   Character11Base.expRate = 11;
 
+  Character11Base.textDeath = "浅利七海";
+
   Character11Base.abilityName = "なし";
 
   Character11Base.abilityDesc = "なし";
@@ -3795,6 +3880,8 @@ Character12Base = (function(superClass) {
   Character12Base.itemMax = 12;
 
   Character12Base.expRate = 12;
+
+  Character12Base.textDeath = "アナスタシア";
 
   Character12Base.abilityName = "なし";
 
@@ -3841,6 +3928,8 @@ Character13Base = (function(superClass) {
 
   Character13Base.expRate = 13;
 
+  Character13Base.textDeath = "安部菜々";
+
   Character13Base.abilityName = "なし";
 
   Character13Base.abilityDesc = "なし";
@@ -3885,6 +3974,8 @@ Character14Base = (function(superClass) {
   Character14Base.itemMax = 14;
 
   Character14Base.expRate = 14;
+
+  Character14Base.textDeath = "綾瀬穂乃香";
 
   Character14Base.abilityName = "なし";
 
@@ -3931,6 +4022,8 @@ Character15Base = (function(superClass) {
 
   Character15Base.expRate = 15;
 
+  Character15Base.textDeath = "荒木比奈";
+
   Character15Base.abilityName = "なし";
 
   Character15Base.abilityDesc = "なし";
@@ -3975,6 +4068,8 @@ Character16Base = (function(superClass) {
   Character16Base.itemMax = 16;
 
   Character16Base.expRate = 16;
+
+  Character16Base.textDeath = "有浦柑奈";
 
   Character16Base.abilityName = "なし";
 
@@ -4021,6 +4116,8 @@ Character17Base = (function(superClass) {
 
   Character17Base.expRate = 17;
 
+  Character17Base.textDeath = "安斎都";
+
   Character17Base.abilityName = "なし";
 
   Character17Base.abilityDesc = "なし";
@@ -4065,6 +4162,8 @@ Character18Base = (function(superClass) {
   Character18Base.itemMax = 18;
 
   Character18Base.expRate = 18;
+
+  Character18Base.textDeath = "イヴ・サンタクロース";
 
   Character18Base.abilityName = "なし";
 
@@ -4111,6 +4210,8 @@ Character19Base = (function(superClass) {
 
   Character19Base.expRate = 19;
 
+  Character19Base.textDeath = "五十嵐響子";
+
   Character19Base.abilityName = "なし";
 
   Character19Base.abilityDesc = "なし";
@@ -4155,6 +4256,8 @@ Character20Base = (function(superClass) {
   Character20Base.itemMax = 20;
 
   Character20Base.expRate = 20;
+
+  Character20Base.textDeath = "池袋晶葉";
 
   Character20Base.abilityName = "なし";
 
@@ -4201,6 +4304,8 @@ Character21Base = (function(superClass) {
 
   Character21Base.expRate = 21;
 
+  Character21Base.textDeath = "伊集院惠";
+
   Character21Base.abilityName = "なし";
 
   Character21Base.abilityDesc = "なし";
@@ -4245,6 +4350,8 @@ Character22Base = (function(superClass) {
   Character22Base.itemMax = 22;
 
   Character22Base.expRate = 22;
+
+  Character22Base.textDeath = "一ノ瀬志希";
 
   Character22Base.abilityName = "なし";
 
@@ -4291,6 +4398,8 @@ Character23Base = (function(superClass) {
 
   Character23Base.expRate = 23;
 
+  Character23Base.textDeath = "市原仁奈";
+
   Character23Base.abilityName = "なし";
 
   Character23Base.abilityDesc = "なし";
@@ -4335,6 +4444,8 @@ Character24Base = (function(superClass) {
   Character24Base.itemMax = 24;
 
   Character24Base.expRate = 24;
+
+  Character24Base.textDeath = "今井加奈";
 
   Character24Base.abilityName = "なし";
 
@@ -4381,6 +4492,8 @@ Character25Base = (function(superClass) {
 
   Character25Base.expRate = 25;
 
+  Character25Base.textDeath = "井村雪菜";
+
   Character25Base.abilityName = "なし";
 
   Character25Base.abilityDesc = "なし";
@@ -4425,6 +4538,8 @@ Character26Base = (function(superClass) {
   Character26Base.itemMax = 26;
 
   Character26Base.expRate = 26;
+
+  Character26Base.textDeath = "上田鈴帆";
 
   Character26Base.abilityName = "なし";
 
@@ -4471,6 +4586,8 @@ Character27Base = (function(superClass) {
 
   Character27Base.expRate = 27;
 
+  Character27Base.textDeath = "氏家むつみ";
+
   Character27Base.abilityName = "なし";
 
   Character27Base.abilityDesc = "なし";
@@ -4515,6 +4632,8 @@ Character28Base = (function(superClass) {
   Character28Base.itemMax = 28;
 
   Character28Base.expRate = 28;
+
+  Character28Base.textDeath = "梅木音葉";
 
   Character28Base.abilityName = "なし";
 
@@ -4561,6 +4680,8 @@ Character29Base = (function(superClass) {
 
   Character29Base.expRate = 29;
 
+  Character29Base.textDeath = "江上椿";
+
   Character29Base.abilityName = "なし";
 
   Character29Base.abilityDesc = "なし";
@@ -4605,6 +4726,8 @@ Character30Base = (function(superClass) {
   Character30Base.itemMax = 30;
 
   Character30Base.expRate = 30;
+
+  Character30Base.textDeath = "衛藤美紗希";
 
   Character30Base.abilityName = "なし";
 
@@ -4651,6 +4774,8 @@ Character31Base = (function(superClass) {
 
   Character31Base.expRate = 31;
 
+  Character31Base.textDeath = "海老原菜帆";
+
   Character31Base.abilityName = "なし";
 
   Character31Base.abilityDesc = "なし";
@@ -4695,6 +4820,8 @@ Character32Base = (function(superClass) {
   Character32Base.itemMax = 32;
 
   Character32Base.expRate = 32;
+
+  Character32Base.textDeath = "及川雫";
 
   Character32Base.abilityName = "なし";
 
@@ -4741,6 +4868,8 @@ Character33Base = (function(superClass) {
 
   Character33Base.expRate = 33;
 
+  Character33Base.textDeath = "大石泉";
+
   Character33Base.abilityName = "なし";
 
   Character33Base.abilityDesc = "なし";
@@ -4785,6 +4914,8 @@ Character34Base = (function(superClass) {
   Character34Base.itemMax = 34;
 
   Character34Base.expRate = 34;
+
+  Character34Base.textDeath = "太田優";
 
   Character34Base.abilityName = "なし";
 
@@ -4831,6 +4962,8 @@ Character35Base = (function(superClass) {
 
   Character35Base.expRate = 35;
 
+  Character35Base.textDeath = "大槻唯";
+
   Character35Base.abilityName = "なし";
 
   Character35Base.abilityDesc = "なし";
@@ -4875,6 +5008,8 @@ Character36Base = (function(superClass) {
   Character36Base.itemMax = 36;
 
   Character36Base.expRate = 36;
+
+  Character36Base.textDeath = "大西由里子";
 
   Character36Base.abilityName = "なし";
 
@@ -4921,6 +5056,8 @@ Character37Base = (function(superClass) {
 
   Character37Base.expRate = 37;
 
+  Character37Base.textDeath = "大沼くるみ";
+
   Character37Base.abilityName = "なし";
 
   Character37Base.abilityDesc = "なし";
@@ -4965,6 +5102,8 @@ Character38Base = (function(superClass) {
   Character38Base.itemMax = 38;
 
   Character38Base.expRate = 38;
+
+  Character38Base.textDeath = "大原みちる";
 
   Character38Base.abilityName = "なし";
 
@@ -5011,6 +5150,8 @@ Character39Base = (function(superClass) {
 
   Character39Base.expRate = 39;
 
+  Character39Base.textDeath = "岡崎泰葉";
+
   Character39Base.abilityName = "なし";
 
   Character39Base.abilityDesc = "なし";
@@ -5055,6 +5196,8 @@ Character40Base = (function(superClass) {
   Character40Base.itemMax = 40;
 
   Character40Base.expRate = 40;
+
+  Character40Base.textDeath = "緒方智絵里";
 
   Character40Base.abilityName = "なし";
 
@@ -5101,6 +5244,8 @@ Character41Base = (function(superClass) {
 
   Character41Base.expRate = 41;
 
+  Character41Base.textDeath = "奥山沙織";
+
   Character41Base.abilityName = "なし";
 
   Character41Base.abilityDesc = "なし";
@@ -5145,6 +5290,8 @@ Character42Base = (function(superClass) {
   Character42Base.itemMax = 42;
 
   Character42Base.expRate = 42;
+
+  Character42Base.textDeath = "乙倉悠貴";
 
   Character42Base.abilityName = "なし";
 
@@ -5191,6 +5338,8 @@ Character43Base = (function(superClass) {
 
   Character43Base.expRate = 43;
 
+  Character43Base.textDeath = "片桐早苗";
+
   Character43Base.abilityName = "なし";
 
   Character43Base.abilityDesc = "なし";
@@ -5235,6 +5384,8 @@ Character44Base = (function(superClass) {
   Character44Base.itemMax = 44;
 
   Character44Base.expRate = 44;
+
+  Character44Base.textDeath = "上条春菜";
 
   Character44Base.abilityName = "なし";
 
@@ -5281,6 +5432,8 @@ Character45Base = (function(superClass) {
 
   Character45Base.expRate = 45;
 
+  Character45Base.textDeath = "神谷奈緒";
+
   Character45Base.abilityName = "なし";
 
   Character45Base.abilityDesc = "なし";
@@ -5325,6 +5478,8 @@ Character46Base = (function(superClass) {
   Character46Base.itemMax = 46;
 
   Character46Base.expRate = 46;
+
+  Character46Base.textDeath = "川島瑞樹";
 
   Character46Base.abilityName = "なし";
 
@@ -5371,6 +5526,8 @@ Character47Base = (function(superClass) {
 
   Character47Base.expRate = 47;
 
+  Character47Base.textDeath = "神崎蘭子";
+
   Character47Base.abilityName = "なし";
 
   Character47Base.abilityDesc = "なし";
@@ -5415,6 +5572,8 @@ Character48Base = (function(superClass) {
   Character48Base.itemMax = 48;
 
   Character48Base.expRate = 48;
+
+  Character48Base.textDeath = "岸部彩華";
 
   Character48Base.abilityName = "なし";
 
@@ -5461,6 +5620,8 @@ Character49Base = (function(superClass) {
 
   Character49Base.expRate = 49;
 
+  Character49Base.textDeath = "北川真尋";
+
   Character49Base.abilityName = "なし";
 
   Character49Base.abilityDesc = "なし";
@@ -5505,6 +5666,8 @@ Character50Base = (function(superClass) {
   Character50Base.itemMax = 50;
 
   Character50Base.expRate = 50;
+
+  Character50Base.textDeath = "喜多日菜子";
 
   Character50Base.abilityName = "なし";
 
@@ -5551,6 +5714,8 @@ Character51Base = (function(superClass) {
 
   Character51Base.expRate = 51;
 
+  Character51Base.textDeath = "喜多見柚";
+
   Character51Base.abilityName = "なし";
 
   Character51Base.abilityDesc = "なし";
@@ -5595,6 +5760,8 @@ Character52Base = (function(superClass) {
   Character52Base.itemMax = 52;
 
   Character52Base.expRate = 52;
+
+  Character52Base.textDeath = "木場真奈美";
 
   Character52Base.abilityName = "なし";
 
@@ -5641,6 +5808,8 @@ Character53Base = (function(superClass) {
 
   Character53Base.expRate = 53;
 
+  Character53Base.textDeath = "木村夏樹";
+
   Character53Base.abilityName = "なし";
 
   Character53Base.abilityDesc = "なし";
@@ -5685,6 +5854,8 @@ Character54Base = (function(superClass) {
   Character54Base.itemMax = 54;
 
   Character54Base.expRate = 54;
+
+  Character54Base.textDeath = "キャシー・グラハム";
 
   Character54Base.abilityName = "なし";
 
@@ -5731,6 +5902,8 @@ Character55Base = (function(superClass) {
 
   Character55Base.expRate = 55;
 
+  Character55Base.textDeath = "桐野アヤ";
+
   Character55Base.abilityName = "なし";
 
   Character55Base.abilityDesc = "なし";
@@ -5775,6 +5948,8 @@ Character56Base = (function(superClass) {
   Character56Base.itemMax = 56;
 
   Character56Base.expRate = 56;
+
+  Character56Base.textDeath = "桐生つかさ";
 
   Character56Base.abilityName = "なし";
 
@@ -5821,6 +5996,8 @@ Character57Base = (function(superClass) {
 
   Character57Base.expRate = 57;
 
+  Character57Base.textDeath = "日下部若葉";
+
   Character57Base.abilityName = "なし";
 
   Character57Base.abilityDesc = "なし";
@@ -5865,6 +6042,8 @@ Character58Base = (function(superClass) {
   Character58Base.itemMax = 58;
 
   Character58Base.expRate = 58;
+
+  Character58Base.textDeath = "工藤忍";
 
   Character58Base.abilityName = "なし";
 
@@ -5911,6 +6090,8 @@ Character59Base = (function(superClass) {
 
   Character59Base.expRate = 59;
 
+  Character59Base.textDeath = "クラリス";
+
   Character59Base.abilityName = "なし";
 
   Character59Base.abilityDesc = "なし";
@@ -5955,6 +6136,8 @@ Character60Base = (function(superClass) {
   Character60Base.itemMax = 60;
 
   Character60Base.expRate = 60;
+
+  Character60Base.textDeath = "栗原ネネ";
 
   Character60Base.abilityName = "なし";
 
@@ -6001,6 +6184,8 @@ Character61Base = (function(superClass) {
 
   Character61Base.expRate = 61;
 
+  Character61Base.textDeath = "黒川千秋";
+
   Character61Base.abilityName = "なし";
 
   Character61Base.abilityDesc = "なし";
@@ -6045,6 +6230,8 @@ Character62Base = (function(superClass) {
   Character62Base.itemMax = 62;
 
   Character62Base.expRate = 62;
+
+  Character62Base.textDeath = "ケイト";
 
   Character62Base.abilityName = "なし";
 
@@ -6091,6 +6278,8 @@ Character63Base = (function(superClass) {
 
   Character63Base.expRate = 63;
 
+  Character63Base.textDeath = "古賀小春";
+
   Character63Base.abilityName = "なし";
 
   Character63Base.abilityDesc = "なし";
@@ -6135,6 +6324,8 @@ Character64Base = (function(superClass) {
   Character64Base.itemMax = 64;
 
   Character64Base.expRate = 64;
+
+  Character64Base.textDeath = "輿水幸子";
 
   Character64Base.abilityName = "なし";
 
@@ -6181,6 +6372,8 @@ Character65Base = (function(superClass) {
 
   Character65Base.expRate = 65;
 
+  Character65Base.textDeath = "小関麗奈";
+
   Character65Base.abilityName = "なし";
 
   Character65Base.abilityDesc = "なし";
@@ -6225,6 +6418,8 @@ Character66Base = (function(superClass) {
   Character66Base.itemMax = 66;
 
   Character66Base.expRate = 66;
+
+  Character66Base.textDeath = "小早川紗枝";
 
   Character66Base.abilityName = "なし";
 

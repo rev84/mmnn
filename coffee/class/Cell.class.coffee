@@ -232,6 +232,31 @@ class Cell
       @elements.knockout.removeClass('no_display')
     else
       @elements.knockout.addClass('no_display')
+  # 吹き出しを出す
+  showPopover:(text = null, msec = null, callback = null)->
+    if text is null
+      $(@elements.mother).popover('destroy')
+    else
+      position = 
+        if @xIndex < FieldManager.SIZE_X / 4
+          'right'
+        else if FieldManager.SIZE_X / 4 * 3 < @xIndex
+          'left'
+        else if @yIndex < FieldManager.SIZE_Y / 4
+          'bottom'
+        else
+          'top'
+      $(@elements.mother).popover({
+        content: text
+        placement: position
+      }).popover('show')
+      if msec is null
+        callback() if callback instanceof Function
+      else
+        setTimeout =>
+          $(@elements.mother).popover('destroy')
+          callback() if callback instanceof Function
+        , msec
 
   # 描画
   draw:->

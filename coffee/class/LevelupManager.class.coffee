@@ -13,7 +13,6 @@ class LevelupManager
 
   @addCharacter:(characterObject)->
     @characters.push characterObject
-    @draw()
 
   @draw:->
     @characters.sort (a, b)->

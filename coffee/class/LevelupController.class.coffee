@@ -4,7 +4,7 @@ class LevelupController
   @SIZE_X : 200
   @SIZE_Y : 120
 
-  @POS_X : Panel.SIZE_X
+  @POS_X : 400
   @POS_Y : 0
 
   constructor:(@parentLevelupPanel)->

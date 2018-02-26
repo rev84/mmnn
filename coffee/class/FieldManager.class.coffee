@@ -224,12 +224,12 @@ class FieldManager
 
     enemyAmount = Utl.gacha [
       [0, 10]
-      [11, 20]
-      [12, 30]
-      [13, 40]
-      [14, 30]
-      [15, 20]
-      [16, 10]
+      [1, 20]
+      [2, 30]
+      [3, 40]
+      [4, 30]
+      [5, 20]
+      [6, 10]
     ]
     flushCount = 5
 
@@ -278,3 +278,21 @@ class FieldManager
     , (flushCount+1)*100      
     true
 
+  # 全キャラを見ていって、やられていたら台詞を言わせながら戻す
+  @checkDeath:(callback = null)=>
+    noExistDeath = true
+    for body in @cells
+      for c in body
+        if c.object isnt null and c.object.isCharacterObject() and c.object.getHp() <= 0
+          return c.showPopover c.object.getTextOnDeath(), 2000, =>
+            # 敵が死んだなら経験値加算
+            ExpManager.plusAmount c.object.getExp() if c.object.isEnemyObject()
+            # オブジェクト消す
+            c.object = null
+            # 再描画
+            c.draw()
+            # 別のキャラを走査
+            @checkDeath callback
+    callback()
+
+          
