@@ -1450,15 +1450,19 @@ FieldManager = (function() {
       body = ref[j];
       for (l = 0, len1 = body.length; l < len1; l++) {
         c = body[l];
-        if (c.object !== null && c.object.isCharacterObject() && c.object.getHp() <= 0) {
-          return c.showPopover(c.object.getTextOnDeath(), 2000, function() {
-            if (c.object.isEnemyObject()) {
-              ExpManager.plusAmount(c.object.getExp());
-            }
+        if (c.object !== null && c.object.getHp() <= 0) {
+          if (c.object.isCharacterObject()) {
+            return c.showPopover(c.object.getTextOnDeath(), 2000, function() {
+              c.object = null;
+              c.draw();
+              return FieldManager.checkDeath(callback);
+            });
+          } else if (c.object.isEnemyObject()) {
+            EnvManager.increaseExp(c.object.getExp());
             c.object = null;
             c.draw();
-            return FieldManager.checkDeath(callback);
-          });
+            FieldManager.checkDeath(callback);
+          }
         }
       }
     }

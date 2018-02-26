@@ -283,10 +283,21 @@ class FieldManager
     noExistDeath = true
     for body in @cells
       for c in body
-        if c.object isnt null and c.object.isCharacterObject() and c.object.getHp() <= 0
-          return c.showPopover c.object.getTextOnDeath(), 2000, =>
+        # 死んでる
+        if c.object isnt null and c.object.getHp() <= 0
+          # 死んでるのがキャラクターなら
+          if c.object.isCharacterObject()
+            return c.showPopover c.object.getTextOnDeath(), 2000, =>
+              # オブジェクト消す
+              c.object = null
+              # 再描画
+              c.draw()
+              # 別のキャラを走査
+              @checkDeath callback
+          # 死んでるのが敵キャラなら
+          else if c.object.isEnemyObject()
             # 敵が死んだなら経験値加算
-            ExpManager.plusAmount c.object.getExp() if c.object.isEnemyObject()
+            EnvManager.increaseExp c.object.getExp()
             # オブジェクト消す
             c.object = null
             # 再描画
