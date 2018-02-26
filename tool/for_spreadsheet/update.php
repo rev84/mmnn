@@ -92,6 +92,7 @@ EOM;
     $filename = dirname(__FILE__).'/../../coffee/class/enemy/'.$className.'.class.coffee';
     if (!file_exists($filename)) {
       $buf = <<<EOM
+# {$characterName}
 class {$className} extends {$className}Base
   constructor:(params)->
     super(params)
@@ -197,6 +198,7 @@ EOM;
     $filename = dirname(__FILE__).'/../../coffee/class/character/'.$className.'.class.coffee';
     if (!file_exists($filename)) {
       $buf = <<<EOM
+# {$characterName}
 class {$className} extends {$className}Base
   constructor:(params)->
     super(params)

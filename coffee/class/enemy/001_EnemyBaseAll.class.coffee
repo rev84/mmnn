@@ -1,4 +1,4 @@
-class KeruberosuBase extends EnemyBase
+class Enemy1Base extends EnemyBase
   # ID
   @characterId = 1
   # キャラ名
@@ -33,7 +33,7 @@ class KeruberosuBase extends EnemyBase
 
   constructor:(params)->
     super(params)
-class MeatballBase extends EnemyBase
+class Enemy2Base extends EnemyBase
   # ID
   @characterId = 2
   # キャラ名
@@ -68,7 +68,7 @@ class MeatballBase extends EnemyBase
 
   constructor:(params)->
     super(params)
-class PixyFoxBase extends EnemyBase
+class Enemy3Base extends EnemyBase
   # ID
   @characterId = 3
   # キャラ名
@@ -103,7 +103,7 @@ class PixyFoxBase extends EnemyBase
 
   constructor:(params)->
     super(params)
-class MajisukoBase extends EnemyBase
+class Enemy4Base extends EnemyBase
   # ID
   @characterId = 4
   # キャラ名
@@ -138,7 +138,7 @@ class MajisukoBase extends EnemyBase
 
   constructor:(params)->
     super(params)
-class BakudaniwaBase extends EnemyBase
+class Enemy5Base extends EnemyBase
   # ID
   @characterId = 5
   # キャラ名

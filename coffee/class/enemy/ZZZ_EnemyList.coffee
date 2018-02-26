@@ -1,7 +1,7 @@
 window.EnemyList = {
-  "1" : Keruberosu
-  "2" : Meatball
-  "3" : PixyFox
-  "4" : Majisuko
-  "5" : Bakudaniwa
+  "1" : Enemy1
+  "2" : Enemy2
+  "3" : Enemy3
+  "4" : Enemy4
+  "5" : Enemy5
 }
