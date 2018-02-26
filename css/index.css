@@ -44,7 +44,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 #menu > * {
   float: left;
 }
-#menu, #character_pallet, #field, #left_info, #right_info, #env, #levelup, #battle_result {
+#menu, #character_pallet, #field_visible, #field, #left_info, #right_info, #env, #levelup, #battle_result {
   position: absolute;
 }
 #character_pallet {
@@ -55,8 +55,14 @@ input[type="range"]::-webkit-slider-thumb:active {
   overflow-y: scroll;
   z-index: 20;
 }
-#field {
+#field_visible {
   z-index: 10;
+  overflow: hidden;
+  pointer-events: none;
+}
+#field {
+  background-color: #000000;
+  bottom: 0;
 }
 #character_pallet::-webkit-scrollbar {
   display: none;

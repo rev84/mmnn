@@ -44,13 +44,17 @@ class GameManager
     isEnableTurnEnd : true
     # レベルアップに遷移していい状態であるか
     isEnableLevelup : true
+    # 階層を進めていい状態であるか
+    isEnableWalk : true
+    # このターン、階層を進めたか
+    isWalkInThisTurn : false
 
   # アニメーション関係
   @POSITION =
     BATTLE:
       menu:[0,0]
       character_pallet:null
-      field:[0,50]
+      field_visible:[0,0]
       left_info:[200,630]
       right_info:[600,630]
       env:[0, 630]
@@ -58,7 +62,7 @@ class GameManager
     CHARACTER_PICK:
       menu:[0,0]
       character_pallet:[140,50]
-      field:[0,50]
+      field_visible:[0,0]
       left_info:null
       right_info:null
       env:[0, 630]
@@ -66,7 +70,7 @@ class GameManager
     LEVELUP:
       menu:[0,0]
       character_pallet:null
-      field:[0,50]
+      field_visible:[0,0]
       left_info:null
       right_info:null
       env:[0, 630]
@@ -169,7 +173,9 @@ class GameManager
   @doTurnEnd:(isSoon = false)->
     # ターン終了可能な状態ではない
     return unless @flags.isEnableTurnEnd
-    @enemyMove()    
+    @enemyMove()
+    # 階層進行制限解除
+    @flags.isWalkInThisTurn = false 
 
   # レベルアップ
   @doLevelup:(isSoon = false)->
@@ -612,6 +618,8 @@ class GameManager
 
           setTimeout callback, 1 if callback instanceof Function
     , 550
+
+  # 自爆
   @terror:(cell, callback = null)->
     # ライフを1下げる
     EnvManager.decreaseLife()
@@ -620,3 +628,69 @@ class GameManager
     cell.draw()
 
     setTimeout callback, 1 if callback instanceof Function
+
+  # 指定した階層で出得る敵を一体返す
+  @getEnemyObject:(level = EnvManager.getFloor())->
+    ids = []
+    for id, enemyClass of GameManager.enemys
+      ids.push id if enemyClass.appearance <= level
+    return null if ids.length <= 0
+    targetId = Utl.shuffle(ids).pop()
+    
+    new GameManager.enemys[targetId]({
+      level: level
+      hp: null
+      inField: true
+      moved: false
+    })
+
+  # 階層をひとつ進める
+  @doWalk:->
+    @changeControllable false
+
+    # 既にこのターン進んでいた場合
+    if @flags.isWalkInThisTurn
+      window.alert('このターンは既に階層を進んだので、次のターンになるまで進めません')
+      return @changeControllable true
+    # 左端に味方がいるので進めない場合
+    for cell in FieldManager.cells[0]
+      if cell.object isnt null and cell.object.isCharacterObject()
+        window.alert('左端に味方がいるので進めません')
+        return @changeControllable true
+
+
+    # 次の列を生んでおく
+    nextField = FieldManager.generateNextField()
+
+    # 全マスずらすアニメーション
+    $.each FieldManager.cells, ->
+      $.each @, ->
+        @xIndex--
+        @elements.mother.animate({
+          left: @xIndex * @constructor.SIZE_X + FieldManager.BORDER_SIZE * (@xIndex + 1)
+        }, 1000)
+    $.each nextField, ->
+      @xIndex--
+      @elements.mother.animate({
+        left: @xIndex * @constructor.SIZE_X + FieldManager.BORDER_SIZE * (@xIndex + 1)
+      }, 1000)
+    # 事後
+    setTimeout =>
+      # 階層インクリメント
+      EnvManager.increaseFloor(1)
+      # 階層進行制限
+      @flags.isWalkInThisTurn = true
+      @changeControllable true
+    , 1100
+
+    # 左端のセルをぜんぶ消す
+    for y in [0...FieldManager.cells[0].length]
+      FieldManager.cells[0][y].removeMe()
+    # 既存のセルをいっこ左にずらす
+    for x in [1...FieldManager.cells.length]
+      for y in [0...FieldManager.cells[x].length]
+        FieldManager.cells[x-1][y] = FieldManager.cells[x][y]
+    # 右端に新規の列を追加する
+    for y in [0...nextField.length]
+      FieldManager.cells[FieldManager.CELL_X-1][y] = nextField[y]
+

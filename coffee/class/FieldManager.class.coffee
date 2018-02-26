@@ -11,15 +11,19 @@ class FieldManager
 
   @divObject = null
   @cells = []
-  @nextField = []
   @cellAnimationTimer = false
 
   @init:(@parentElement)->
+    # 見える領域を制限するためにしかたなく置いた親エレメント
+    @visibleObject = $('<div>').attr('id', 'field_visible').css({
+      width: @CELL_X * Cell.SIZE_X + @BORDER_SIZE * (@CELL_X + 1)
+      height: @CELL_Y * Cell.SIZE_Y + @BORDER_SIZE * (@CELL_Y + 1) + 50
+    }).appendTo(@parentElement)
+
     @divObject = $('<div>').attr('id', @ID).css({
       width: @CELL_X * Cell.SIZE_X + @BORDER_SIZE * (@CELL_X + 1)
       height: @CELL_Y * Cell.SIZE_Y + @BORDER_SIZE * (@CELL_Y + 1)
-      "background-color" : '#000000'
-    }).appendTo(@parentElement)
+    }).appendTo(@visibleObject)
     
     # フィールド初期化
     @cells = []
@@ -35,8 +39,6 @@ class FieldManager
 
     # アニメーションスタート
     @startCellAnimation()
-
-  @generateNextField:->
 
   # このキャラオブジェクトに該当する仮置きを全削除
   @removeAllTempObject:(characterObject)->
@@ -233,20 +235,6 @@ class FieldManager
     ]
     flushCount = 5
 
-    getEnemyObject = =>
-      ids = []
-      for id, enemyClass of GameManager.enemys
-        ids.push id if enemyClass.appearance <= EnvManager.getFloor()
-      return null if ids.length <= 0
-      targetId = Utl.shuffle(ids).pop()
-      
-      new GameManager.enemys[targetId]({
-        level: EnvManager.getFloor()
-        hp: null
-        inField: true
-        moved: false
-      })
-
     putEnemy = (enemyObject)=>
       return false if enemyObject is null
       # 空いてるセルを探す
@@ -269,7 +257,7 @@ class FieldManager
 
     isNotEmpty = false
     for cnt in [0...enemyAmount]
-      res = putEnemy getEnemyObject()
+      res = putEnemy GameManager.getEnemyObject()
     # 後処理
     setTimeout =>
       # アニメーション復活
@@ -306,4 +294,22 @@ class FieldManager
             @checkDeath callback
     callback()
 
-          
+
+  # 次の列を生成する
+  @generateNextField:->
+    GACHA_ORDER = [
+      ['ENEMY', 100]  # ランダムな敵
+      ['EMPTY', 100]  # 空っぽ
+    ]
+
+    nextField = []
+    for yIndex in [0...@CELL_Y]
+      cell = new Cell(@divObject, @CELL_X, yIndex, @BORDER_SIZE)
+      switch Utl.gacha GACHA_ORDER
+        when 'ENEMY'
+          cell.object = GameManager.getEnemyObject(EnvManager.getFloor()+1)
+        when 'EMPTY'
+          ;
+      nextField.push cell
+      cell.draw()
+    nextField

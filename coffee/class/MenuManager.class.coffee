@@ -55,6 +55,16 @@ class MenuManager
     .on('click', @onClickLevelup.bind(@))
     .appendTo(@divObject)
 
+    # 前進
+    @turnEnd = $('<div>').html('前進').css({
+      border: '1px solid #000000'
+      width: 100
+      height: 40
+      "font-size": '30px'
+    })
+    .on('click', @onClickWalk.bind(@))
+    .appendTo(@divObject)
+
     @divObject.appendTo(@parentElement)
 
   # 出撃
@@ -83,5 +93,11 @@ class MenuManager
     return unless GameManager.isControllable()
 
     GameManager.doLevelup()
+    true
+  # 前進
+  @onClickWalk:(evt)->
+    return unless GameManager.isControllable()
+
+    GameManager.doWalk()
     true
     

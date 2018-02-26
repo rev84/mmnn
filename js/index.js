@@ -283,6 +283,7 @@ Cell = (function() {
     this.parentElement = parentElement;
     this.xIndex = xIndex1;
     this.yIndex = yIndex1;
+    this.removeMe = bind(this.removeMe, this);
     this.stepObjectAnimation = bind(this.stepObjectAnimation, this);
     this.elements = {
       mother: null,
@@ -757,6 +758,17 @@ Cell = (function() {
     return this.changeObject(this.object.getImage(this.objectAnimationIndex));
   };
 
+  Cell.prototype.removeMe = function() {
+    var e, j, len, ref, results;
+    ref = this.elements;
+    results = [];
+    for (j = 0, len = ref.length; j < len; j++) {
+      e = ref[j];
+      results.push(e.remove());
+    }
+    return results;
+  };
+
   return Cell;
 
 })();
@@ -1120,18 +1132,19 @@ FieldManager = (function() {
 
   FieldManager.cells = [];
 
-  FieldManager.nextField = [];
-
   FieldManager.cellAnimationTimer = false;
 
   FieldManager.init = function(parentElement) {
     var j, l, o, ref, ref1, ref2, x, y;
     this.parentElement = parentElement;
+    this.visibleObject = $('<div>').attr('id', 'field_visible').css({
+      width: this.CELL_X * Cell.SIZE_X + this.BORDER_SIZE * (this.CELL_X + 1),
+      height: this.CELL_Y * Cell.SIZE_Y + this.BORDER_SIZE * (this.CELL_Y + 1) + 50
+    }).appendTo(this.parentElement);
     this.divObject = $('<div>').attr('id', this.ID).css({
       width: this.CELL_X * Cell.SIZE_X + this.BORDER_SIZE * (this.CELL_X + 1),
-      height: this.CELL_Y * Cell.SIZE_Y + this.BORDER_SIZE * (this.CELL_Y + 1),
-      "background-color": '#000000'
-    }).appendTo(this.parentElement);
+      height: this.CELL_Y * Cell.SIZE_Y + this.BORDER_SIZE * (this.CELL_Y + 1)
+    }).appendTo(this.visibleObject);
     this.cells = [];
     for (x = j = 0, ref = this.CELL_X; 0 <= ref ? j < ref : j > ref; x = 0 <= ref ? ++j : --j) {
       this.cells[x] = [];
@@ -1145,8 +1158,6 @@ FieldManager = (function() {
     }
     return this.startCellAnimation();
   };
-
-  FieldManager.generateNextField = function() {};
 
   FieldManager.removeAllTempObject = function(characterObject) {
     if (characterObject === null) {
@@ -1367,36 +1378,13 @@ FieldManager = (function() {
   };
 
   FieldManager.randomEnemyAppear = function(callback) {
-    var cnt, enemyAmount, flushCount, getEnemyObject, isNotEmpty, j, putEnemy, ref, res;
+    var cnt, enemyAmount, flushCount, isNotEmpty, j, putEnemy, ref, res;
     if (callback == null) {
       callback = null;
     }
     GameManager.flags.isCellObjectAnimation = false;
     enemyAmount = Utl.gacha([[0, 10], [1, 20], [2, 50], [3, 20], [4, 20], [5, 10], [6, 10]]);
     flushCount = 5;
-    getEnemyObject = (function(_this) {
-      return function() {
-        var enemyClass, id, ids, ref, targetId;
-        ids = [];
-        ref = GameManager.enemys;
-        for (id in ref) {
-          enemyClass = ref[id];
-          if (enemyClass.appearance <= EnvManager.getFloor()) {
-            ids.push(id);
-          }
-        }
-        if (ids.length <= 0) {
-          return null;
-        }
-        targetId = Utl.shuffle(ids).pop();
-        return new GameManager.enemys[targetId]({
-          level: EnvManager.getFloor(),
-          hp: null,
-          inField: true,
-          moved: false
-        });
-      };
-    })(this);
     putEnemy = (function(_this) {
       return function(enemyObject) {
         var cell, cnt, emptyCells, j, l, len, o, ref, ref1, ref2, ref3, targetCell, x;
@@ -1428,7 +1416,7 @@ FieldManager = (function() {
     })(this);
     isNotEmpty = false;
     for (cnt = j = 0, ref = enemyAmount; 0 <= ref ? j < ref : j > ref; cnt = 0 <= ref ? ++j : --j) {
-      res = putEnemy(getEnemyObject());
+      res = putEnemy(GameManager.getEnemyObject());
     }
     setTimeout((function(_this) {
       return function() {
@@ -1467,6 +1455,24 @@ FieldManager = (function() {
       }
     }
     return callback();
+  };
+
+  FieldManager.generateNextField = function() {
+    var GACHA_ORDER, cell, j, nextField, ref, yIndex;
+    GACHA_ORDER = [['ENEMY', 100], ['EMPTY', 100]];
+    nextField = [];
+    for (yIndex = j = 0, ref = this.CELL_Y; 0 <= ref ? j < ref : j > ref; yIndex = 0 <= ref ? ++j : --j) {
+      cell = new Cell(this.divObject, this.CELL_X, yIndex, this.BORDER_SIZE);
+      switch (Utl.gacha(GACHA_ORDER)) {
+        case 'ENEMY':
+          cell.object = GameManager.getEnemyObject(EnvManager.getFloor() + 1);
+          break;
+        case 'EMPTY':
+      }
+      nextField.push(cell);
+      cell.draw();
+    }
+    return nextField;
   };
 
   return FieldManager;
@@ -1515,14 +1521,16 @@ GameManager = (function() {
     moveToCell: null,
     waitAttackCell: null,
     isEnableTurnEnd: true,
-    isEnableLevelup: true
+    isEnableLevelup: true,
+    isEnableWalk: true,
+    isWalkInThisTurn: false
   };
 
   GameManager.POSITION = {
     BATTLE: {
       menu: [0, 0],
       character_pallet: null,
-      field: [0, 50],
+      field_visible: [0, 0],
       left_info: [200, 630],
       right_info: [600, 630],
       env: [0, 630],
@@ -1531,7 +1539,7 @@ GameManager = (function() {
     CHARACTER_PICK: {
       menu: [0, 0],
       character_pallet: [140, 50],
-      field: [0, 50],
+      field_visible: [0, 0],
       left_info: null,
       right_info: null,
       env: [0, 630],
@@ -1540,7 +1548,7 @@ GameManager = (function() {
     LEVELUP: {
       menu: [0, 0],
       character_pallet: null,
-      field: [0, 50],
+      field_visible: [0, 0],
       left_info: null,
       right_info: null,
       env: [0, 630],
@@ -1673,7 +1681,8 @@ GameManager = (function() {
     if (!this.flags.isEnableTurnEnd) {
       return;
     }
-    return this.enemyMove();
+    this.enemyMove();
+    return this.flags.isWalkInThisTurn = false;
   };
 
   GameManager.doLevelup = function(isSoon) {
@@ -2155,6 +2164,83 @@ GameManager = (function() {
     }
   };
 
+  GameManager.getEnemyObject = function(level) {
+    var enemyClass, id, ids, ref, targetId;
+    if (level == null) {
+      level = EnvManager.getFloor();
+    }
+    ids = [];
+    ref = GameManager.enemys;
+    for (id in ref) {
+      enemyClass = ref[id];
+      if (enemyClass.appearance <= level) {
+        ids.push(id);
+      }
+    }
+    if (ids.length <= 0) {
+      return null;
+    }
+    targetId = Utl.shuffle(ids).pop();
+    return new GameManager.enemys[targetId]({
+      level: level,
+      hp: null,
+      inField: true,
+      moved: false
+    });
+  };
+
+  GameManager.doWalk = function() {
+    var cell, j, l, len, nextField, o, q, r, ref, ref1, ref2, ref3, ref4, results, x, y;
+    this.changeControllable(false);
+    if (this.flags.isWalkInThisTurn) {
+      window.alert('このターンは既に階層を進んだので、次のターンになるまで進めません');
+      return this.changeControllable(true);
+    }
+    ref = FieldManager.cells[0];
+    for (j = 0, len = ref.length; j < len; j++) {
+      cell = ref[j];
+      if (cell.object !== null && cell.object.isCharacterObject()) {
+        window.alert('左端に味方がいるので進めません');
+        return this.changeControllable(true);
+      }
+    }
+    nextField = FieldManager.generateNextField();
+    $.each(FieldManager.cells, function() {
+      return $.each(this, function() {
+        this.xIndex--;
+        return this.elements.mother.animate({
+          left: this.xIndex * this.constructor.SIZE_X + FieldManager.BORDER_SIZE * (this.xIndex + 1)
+        }, 1000);
+      });
+    });
+    $.each(nextField, function() {
+      this.xIndex--;
+      return this.elements.mother.animate({
+        left: this.xIndex * this.constructor.SIZE_X + FieldManager.BORDER_SIZE * (this.xIndex + 1)
+      }, 1000);
+    });
+    setTimeout((function(_this) {
+      return function() {
+        EnvManager.increaseFloor(1);
+        _this.flags.isWalkInThisTurn = true;
+        return _this.changeControllable(true);
+      };
+    })(this), 1100);
+    for (y = l = 0, ref1 = FieldManager.cells[0].length; 0 <= ref1 ? l < ref1 : l > ref1; y = 0 <= ref1 ? ++l : --l) {
+      FieldManager.cells[0][y].removeMe();
+    }
+    for (x = o = 1, ref2 = FieldManager.cells.length; 1 <= ref2 ? o < ref2 : o > ref2; x = 1 <= ref2 ? ++o : --o) {
+      for (y = q = 0, ref3 = FieldManager.cells[x].length; 0 <= ref3 ? q < ref3 : q > ref3; y = 0 <= ref3 ? ++q : --q) {
+        FieldManager.cells[x - 1][y] = FieldManager.cells[x][y];
+      }
+    }
+    results = [];
+    for (y = r = 0, ref4 = nextField.length; 0 <= ref4 ? r < ref4 : r > ref4; y = 0 <= ref4 ? ++r : --r) {
+      results.push(FieldManager.cells[FieldManager.CELL_X - 1][y] = nextField[y]);
+    }
+    return results;
+  };
+
   return GameManager;
 
 })();
@@ -2406,6 +2492,12 @@ MenuManager = (function() {
       height: 40,
       "font-size": '30px'
     }).on('click', this.onClickLevelup.bind(this)).appendTo(this.divObject);
+    this.turnEnd = $('<div>').html('前進').css({
+      border: '1px solid #000000',
+      width: 100,
+      height: 40,
+      "font-size": '30px'
+    }).on('click', this.onClickWalk.bind(this)).appendTo(this.divObject);
     return this.divObject.appendTo(this.parentElement);
   };
 
@@ -2438,6 +2530,14 @@ MenuManager = (function() {
       return;
     }
     GameManager.doLevelup();
+    return true;
+  };
+
+  MenuManager.onClickWalk = function(evt) {
+    if (!GameManager.isControllable()) {
+      return;
+    }
+    GameManager.doWalk();
     return true;
   };
 

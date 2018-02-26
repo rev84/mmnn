@@ -388,3 +388,6 @@ class Cell
     @objectAnimationIndex = 0 if @object.getImage(@objectAnimationIndex) is null
     @changeObject @object.getImage(@objectAnimationIndex)
 
+  removeMe:=>
+    for e in @elements
+      e.remove()
