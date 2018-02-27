@@ -4,7 +4,7 @@ class Enemy1Base extends EnemyBase
   # キャラ名
   @characterName = "きゃんきゃん"
   # 画像のリスト
-  @images = ["./img/enemy/1/1005010301_001.png","./img/enemy/1/1005010301_002.png","./img/enemy/1/1005010301_003.png"]
+  @images = ["./img/enemy/1/1005010301_001.png","./img/enemy/1/1005010301_003.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -39,7 +39,7 @@ class Enemy2Base extends EnemyBase
   # キャラ名
   @characterName = "ミートボール"
   # 画像のリスト
-  @images = ["./img/enemy/2/1036010301_001.png","./img/enemy/2/1036010301_002.png","./img/enemy/2/1036010301_003.png"]
+  @images = ["./img/enemy/2/1036010301_001.png","./img/enemy/2/1036010301_003.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -74,7 +74,7 @@ class Enemy3Base extends EnemyBase
   # キャラ名
   @characterName = "ピクシーFOX"
   # 画像のリスト
-  @images = ["./img/enemy/3/1082010301_001.png","./img/enemy/3/1082010301_002.png","./img/enemy/3/1082010301_003.png"]
+  @images = ["./img/enemy/3/1082010301_001.png","./img/enemy/3/1082010301_003.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -109,7 +109,7 @@ class Enemy4Base extends EnemyBase
   # キャラ名
   @characterName = "マジスコ"
   # 画像のリスト
-  @images = ["./img/enemy/4/1084010301_001.png","./img/enemy/4/1084010301_002.png","./img/enemy/4/1084010301_003.png"]
+  @images = ["./img/enemy/4/1084010301_001.png","./img/enemy/4/1084010301_003.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC
   # 成長率：攻撃力

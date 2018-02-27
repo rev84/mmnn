@@ -2,6 +2,7 @@ class ObjectBase
   @OBJECT_TYPE:
     CHARACTER : 'CHARACTER'
     ENEMY : 'ENEMY'
+    PRESENTBOX : 'PRESENTBOX'
   @ATTACK_TYPE:
     PHYSIC:'物理'
     MAGIC:'魔法'
@@ -24,6 +25,9 @@ class ObjectBase
 
   isEnemyObject:->
     @objectType is @constructor.OBJECT_TYPE.ENEMY
+
+  isPresentObject:->
+    @objectType is @constructor.OBJECT_TYPE.PRESENTBOX
 
   getHpMax:(level = null)->
     if level is null
