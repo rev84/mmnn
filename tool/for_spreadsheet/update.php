@@ -136,7 +136,7 @@ window.CharacterList = {
 EOM;
 
   # キャラクター
-  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'キャラ設定!A2:R');
+  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'キャラ設定!A3:R');
   $values = $response->getValues();
   foreach ($values as $vAry) {
     list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $itemMax, $expRate, $abilityName, $abilityDesc, $defaultJoin, $textDeath) = $vAry;

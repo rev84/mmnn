@@ -309,7 +309,7 @@ class Panel
         width: 50
         height: 20
         "font-size" : "16px"
-      }).html(@object.getMove())
+      }).html(@object.getRange())
     )
     # 能力ラベル
     $(@divObject).append(
@@ -588,7 +588,7 @@ class Panel
         width: 50
         height: 20
         "font-size" : "16px"
-      }).html(@object.getMove())
+      }).html(@object.getRange())
     )
     # 能力ラベル
     $(@divObject).append(

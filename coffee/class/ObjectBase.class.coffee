@@ -60,23 +60,23 @@ class ObjectBase
     @constructor.attackTypeBase
   getAttack:(level = null)->
     if level is null
-      @constructor.attackBase * @level
+      Math.ceil(@constructor.attackBase * @level)
     else
-      @constructor.attackBase * level
+      Math.ceil(@constructor.attackBase * level)
   getAttackBase:->
     @constructor.attackBase
   getPDef:(level = null)->
     if level is null
-      @constructor.pDefBase * @level
+      Math.ceil(@constructor.pDefBase * @level)
     else
-      @constructor.pDefBase * level
+      Math.ceil(@constructor.pDefBase * level)
   getPDefBase:->
     @constructor.pDefBase
   getMDef:(level = null)->
     if level is null
-      @constructor.mDefBase * @level
+      Math.ceil(@constructor.mDefBase * @level)
     else
-      @constructor.mDefBase * level
+      Math.ceil(@constructor.mDefBase * level)
 
   getMDefBase:->
     @constructor.mDefBase
@@ -97,7 +97,7 @@ class ObjectBase
   getDodgeRateBase:->
     @constructor.dodgeRateBase
   getExp:->
-    @level * @constructor.expRate
+    Math.ceil(@level * @constructor.expRate)
   getAbilityName:->
     @constructor.abilityName
   getAbilityDesc:->
@@ -114,17 +114,16 @@ class ObjectBase
     targetLevel = @level + level
     baseLevel   = @level
 
-    targetExp = (@constructor.expRate ** 2) * (0.5 * targetLevel) * (targetLevel + 1)
-    baseExp   = (@constructor.expRate ** 2) * (0.5 * baseLevel) * (baseLevel + 1)
-    targetExp - baseExp
+    targetExp = (targetLevel ** 2) * @constructor.expRate
+    baseExp   = (baseLevel ** 2) * @constructor.expRate
+    Math.ceil(targetExp - baseExp)
 
   # 経験値で上げられるレベル量
   getLevelUpMax:(exp)->
-    baseExp   = (@constructor.expRate ** 2) * (0.5 * @level) * (@level + 1)
+    baseExp   = (@level ** 2) * @constructor.expRate
     targetExp = baseExp + exp
 
-    Math.floor(((-1 + Math.sqrt(1 + 8 * targetExp / (@constructor.expRate ** 2))) / 2)) - @level
-
+    Math.floor(Math.sqrt(targetExp / @constructor.expRate) - @level)
   # ダメージ計算式
   @getDamageMin:(attack, def)->
     damage = attack - def

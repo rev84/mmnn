@@ -10,30 +10,30 @@ class Character1Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 1
+  @attackBase = 12
   # 成長率：HP
-  @hpBase = 1
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 1
+  @pDefBase = 1.7
   # 成長率：魔法防御
-  @mDefBase = 1
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 1
+  @moveBase = 4
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 1
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 1
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 1
+  @itemMax = 10
   # 必要経験値
-  @expRate = 1
+  @expRate = 1.8
   # 死んだ時の台詞
   @textDeath = "島村卯月"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "笑顔の魔法"
+  @abilityDesc = "周囲8マスの味方の攻撃を10%上げる"
 
   constructor:(params)->
     super(params)
@@ -49,30 +49,30 @@ class Character2Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 2
+  @attackBase = 15
   # 成長率：HP
-  @hpBase = 2
+  @hpBase = 16
   # 成長率：物理防御
-  @pDefBase = 2
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 2
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 2
+  @moveBase = 5
   # 基本射程
-  @rangeBase = 2
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 2
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 2
+  @dodgeRateBase = 5
   # アイテム装備可能数
-  @itemMax = 2
+  @itemMax = 10
   # 必要経験値
-  @expRate = 2
+  @expRate = 1.8
   # 死んだ時の台詞
   @textDeath = "渋谷凛"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "蒼の波動"
+  @abilityDesc = "周囲8マスの味方の回避を10%上げる"
 
   constructor:(params)->
     super(params)
@@ -88,30 +88,30 @@ class Character3Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 3
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 3
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 3
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 3
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 3
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 3
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 3
+  @hitRateBase = 97
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 3
+  @itemMax = 10
   # 必要経験値
-  @expRate = 3
+  @expRate = 1.8
   # 死んだ時の台詞
   @textDeath = "本田未央"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "フレンドリー"
+  @abilityDesc = "周囲8マスの味方の物防・魔防を10%上げる"
 
   constructor:(params)->
     super(params)
@@ -127,25 +127,25 @@ class Character4Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 4
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 4
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 4
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 4
+  @mDefBase = 1.5
   # 基本移動力
   @moveBase = 4
   # 基本射程
-  @rangeBase = 4
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 4
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 4
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 4
+  @itemMax = 10
   # 必要経験値
-  @expRate = 4
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "相川千夏"
 
@@ -166,25 +166,25 @@ class Character5Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 5
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 5
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 5
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 5
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 5
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 5
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 5
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 5
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 5
+  @itemMax = 10
   # 必要経験値
-  @expRate = 5
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "愛野渚"
 
@@ -205,30 +205,30 @@ class Character6Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 6
+  @attackBase = 12
   # 成長率：HP
-  @hpBase = 6
+  @hpBase = 18
   # 成長率：物理防御
-  @pDefBase = 6
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 6
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 6
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 6
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 6
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 6
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 6
+  @itemMax = 15
   # 必要経験値
-  @expRate = 6
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "相葉夕美"
 
   @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityDesc = "ターン終了時、周囲の空いているマスに花を出現させることがある"
 
   constructor:(params)->
     super(params)
@@ -244,25 +244,25 @@ class Character7Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 7
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 7
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 7
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 7
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 7
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 7
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 7
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 7
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 7
+  @itemMax = 10
   # 必要経験値
-  @expRate = 7
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "相原雪乃"
 
@@ -283,30 +283,30 @@ class Character8Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 8
+  @attackBase = 12
   # 成長率：HP
-  @hpBase = 8
+  @hpBase = 15
   # 成長率：物理防御
-  @pDefBase = 8
+  @pDefBase = 1.3
   # 成長率：魔法防御
-  @mDefBase = 8
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 8
+  @moveBase = 5
   # 基本射程
-  @rangeBase = 8
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 8
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 8
+  @dodgeRateBase = 5
   # アイテム装備可能数
-  @itemMax = 8
+  @itemMax = 10
   # 必要経験値
-  @expRate = 8
+  @expRate = 2.0
   # 死んだ時の台詞
   @textDeath = "赤城みりあ"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "みりあもやるー！"
+  @abilityDesc = "行動終了後に味方が攻撃した時、1%の確率で再行動できる"
 
   constructor:(params)->
     super(params)
@@ -322,25 +322,25 @@ class Character9Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 9
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 9
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 9
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 9
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 9
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 9
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 9
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 9
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 9
+  @itemMax = 10
   # 必要経験値
-  @expRate = 9
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "赤西瑛梨華"
 
@@ -361,25 +361,25 @@ class Character10Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 10
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 10
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 10
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 10
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 10
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 10
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 10
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 10
+  @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
   # 必要経験値
-  @expRate = 10
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "浅野風香"
 
@@ -400,25 +400,25 @@ class Character11Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 11
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 11
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 11
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 11
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 11
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 11
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 11
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 11
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 11
+  @itemMax = 10
   # 必要経験値
-  @expRate = 11
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "浅利七海"
 
@@ -439,25 +439,25 @@ class Character12Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 12
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 12
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 12
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 12
+  @mDefBase = 1.7
   # 基本移動力
-  @moveBase = 12
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 12
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 12
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 12
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 12
+  @itemMax = 10
   # 必要経験値
-  @expRate = 12
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "アナスタシア"
 
@@ -480,23 +480,23 @@ class Character13Base extends CharacterBase
   # 成長率：攻撃力
   @attackBase = 13
   # 成長率：HP
-  @hpBase = 13
+  @hpBase = 15
   # 成長率：物理防御
-  @pDefBase = 13
+  @pDefBase = 1.4
   # 成長率：魔法防御
-  @mDefBase = 13
+  @mDefBase = 1.4
   # 基本移動力
-  @moveBase = 13
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 13
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 13
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 13
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 13
+  @itemMax = 10
   # 必要経験値
-  @expRate = 13
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "安部菜々"
 
@@ -517,25 +517,25 @@ class Character14Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 14
+  @attackBase = 13
   # 成長率：HP
   @hpBase = 14
   # 成長率：物理防御
-  @pDefBase = 14
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 14
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 14
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 14
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 14
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 14
+  @dodgeRateBase = 10
   # アイテム装備可能数
-  @itemMax = 14
+  @itemMax = 10
   # 必要経験値
-  @expRate = 14
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "綾瀬穂乃香"
 
@@ -556,25 +556,25 @@ class Character15Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 15
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 15
+  @hpBase = 16
   # 成長率：物理防御
-  @pDefBase = 15
+  @pDefBase = 1.4
   # 成長率：魔法防御
-  @mDefBase = 15
+  @mDefBase = 1.4
   # 基本移動力
-  @moveBase = 15
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 15
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 15
+  @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 15
+  @dodgeRateBase = 2
   # アイテム装備可能数
-  @itemMax = 15
+  @itemMax = 10
   # 必要経験値
-  @expRate = 15
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "荒木比奈"
 
@@ -595,25 +595,25 @@ class Character16Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 16
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 16
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 16
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 16
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 16
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 16
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 16
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 16
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 16
+  @itemMax = 10
   # 必要経験値
-  @expRate = 16
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "有浦柑奈"
 
@@ -634,25 +634,25 @@ class Character17Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 17
+  @attackBase = 13
   # 成長率：HP
   @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 17
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 17
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 17
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 17
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 17
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 17
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 17
+  @itemMax = 10
   # 必要経験値
-  @expRate = 17
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "安斎都"
 
@@ -673,30 +673,30 @@ class Character18Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 18
+  @attackBase = 12
   # 成長率：HP
-  @hpBase = 18
+  @hpBase = 14
   # 成長率：物理防御
-  @pDefBase = 18
+  @pDefBase = 1.4
   # 成長率：魔法防御
-  @mDefBase = 18
+  @mDefBase = 1.8
   # 基本移動力
-  @moveBase = 18
+  @moveBase = 5
   # 基本射程
-  @rangeBase = 18
+  @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 18
+  @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 18
+  @dodgeRateBase = 4
   # アイテム装備可能数
-  @itemMax = 18
+  @itemMax = 20
   # 必要経験値
-  @expRate = 18
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "イヴ・サンタクロース"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "プレゼント"
+  @abilityDesc = "プレゼントに与えるダメージが2倍になる"
 
   constructor:(params)->
     super(params)
@@ -712,30 +712,30 @@ class Character19Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 19
+  @attackBase = 12
   # 成長率：HP
-  @hpBase = 19
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 19
+  @pDefBase = 1.6
   # 成長率：魔法防御
-  @mDefBase = 19
+  @mDefBase = 1.6
   # 基本移動力
-  @moveBase = 19
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 19
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 19
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 19
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 19
+  @itemMax = 10
   # 必要経験値
-  @expRate = 19
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "五十嵐響子"
 
   @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityDesc = "ターン終了時、周囲の味方のHPを回復することがある"
 
   constructor:(params)->
     super(params)
@@ -751,30 +751,30 @@ class Character20Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 20
+  @attackBase = 14
   # 成長率：HP
-  @hpBase = 20
+  @hpBase = 13
   # 成長率：物理防御
-  @pDefBase = 20
+  @pDefBase = 1.8
   # 成長率：魔法防御
-  @mDefBase = 20
+  @mDefBase = 1.2
   # 基本移動力
-  @moveBase = 20
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 20
+  @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 20
+  @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 20
+  @dodgeRateBase = 2
   # アイテム装備可能数
-  @itemMax = 20
+  @itemMax = 12
   # 必要経験値
-  @expRate = 20
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "池袋晶葉"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "大丈夫博士"
+  @abilityDesc = "ターン開始時、周囲にいる味方一人の攻撃、物防、魔防を30%上げるか下げるかすることがある"
 
   constructor:(params)->
     super(params)
@@ -790,25 +790,25 @@ class Character21Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 21
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 21
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 21
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 21
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 21
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 21
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 21
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 21
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 21
+  @itemMax = 10
   # 必要経験値
-  @expRate = 21
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "伊集院惠"
 
@@ -829,30 +829,30 @@ class Character22Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 22
+  @attackBase = 15
   # 成長率：HP
-  @hpBase = 22
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 22
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 22
+  @mDefBase = 1.8
   # 基本移動力
-  @moveBase = 22
+  @moveBase = 5
   # 基本射程
-  @rangeBase = 22
+  @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 22
+  @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 22
+  @dodgeRateBase = 4
   # アイテム装備可能数
-  @itemMax = 22
+  @itemMax = 10
   # 必要経験値
-  @expRate = 22
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "一ノ瀬志希"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "失踪"
+  @abilityDesc = "味方ターン終了時に、ランダムなマスに移動することがある"
 
   constructor:(params)->
     super(params)
@@ -868,30 +868,30 @@ class Character23Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 23
+  @attackBase = 11
   # 成長率：HP
-  @hpBase = 23
+  @hpBase = 13
   # 成長率：物理防御
-  @pDefBase = 23
+  @pDefBase = 1.4
   # 成長率：魔法防御
-  @mDefBase = 23
+  @mDefBase = 1.4
   # 基本移動力
-  @moveBase = 23
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 23
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 23
+  @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 23
+  @dodgeRateBase = 5
   # アイテム装備可能数
-  @itemMax = 23
+  @itemMax = 10
   # 必要経験値
-  @expRate = 23
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "市原仁奈"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "誰かのきもちになるですよ"
+  @abilityDesc = "敵ターン終了時に、ランダムなステータスがフィールド内の誰かの値に変わる"
 
   constructor:(params)->
     super(params)
@@ -907,25 +907,25 @@ class Character24Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 24
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 24
+  @hpBase = 15
   # 成長率：物理防御
-  @pDefBase = 24
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 24
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 24
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 24
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 24
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 24
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 24
+  @itemMax = 10
   # 必要経験値
-  @expRate = 24
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "今井加奈"
 
@@ -946,25 +946,25 @@ class Character25Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 25
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 25
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 25
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 25
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 25
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 25
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 25
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 25
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 25
+  @itemMax = 10
   # 必要経験値
-  @expRate = 25
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "井村雪菜"
 
@@ -985,25 +985,25 @@ class Character26Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 26
+  @attackBase = 12
   # 成長率：HP
-  @hpBase = 26
+  @hpBase = 15
   # 成長率：物理防御
-  @pDefBase = 26
+  @pDefBase = 3.5
   # 成長率：魔法防御
-  @mDefBase = 26
+  @mDefBase = 3.5
   # 基本移動力
-  @moveBase = 26
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 26
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 26
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 26
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 26
+  @itemMax = 15
   # 必要経験値
-  @expRate = 26
+  @expRate = 2.3
   # 死んだ時の台詞
   @textDeath = "上田鈴帆"
 
@@ -1024,25 +1024,25 @@ class Character27Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 27
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 27
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 27
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 27
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 27
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 27
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 27
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 27
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 27
+  @itemMax = 10
   # 必要経験値
-  @expRate = 27
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "氏家むつみ"
 
@@ -1063,25 +1063,25 @@ class Character28Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 28
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 28
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 28
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 28
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 28
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 28
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 28
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 28
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 28
+  @itemMax = 10
   # 必要経験値
-  @expRate = 28
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "梅木音葉"
 
@@ -1102,25 +1102,25 @@ class Character29Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 29
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 29
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 29
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 29
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 29
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 29
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 29
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 29
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 29
+  @itemMax = 10
   # 必要経験値
-  @expRate = 29
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "江上椿"
 
@@ -1141,25 +1141,25 @@ class Character30Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 30
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 30
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 30
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 30
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 30
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 30
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 30
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 30
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 30
+  @itemMax = 10
   # 必要経験値
-  @expRate = 30
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "衛藤美紗希"
 
@@ -1180,25 +1180,25 @@ class Character31Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 31
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 31
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 31
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 31
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 31
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 31
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 31
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 31
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 31
+  @itemMax = 10
   # 必要経験値
-  @expRate = 31
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "海老原菜帆"
 
@@ -1219,25 +1219,25 @@ class Character32Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 32
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 32
+  @hpBase = 20
   # 成長率：物理防御
-  @pDefBase = 32
+  @pDefBase = 1.7
   # 成長率：魔法防御
-  @mDefBase = 32
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 32
+  @moveBase = 3
   # 基本射程
-  @rangeBase = 32
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 32
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 32
+  @dodgeRateBase = 2
   # アイテム装備可能数
-  @itemMax = 32
+  @itemMax = 14
   # 必要経験値
-  @expRate = 32
+  @expRate = 2.3
   # 死んだ時の台詞
   @textDeath = "及川雫"
 
@@ -1258,25 +1258,25 @@ class Character33Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 33
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 33
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 33
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 33
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 33
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 33
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 33
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 33
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 33
+  @itemMax = 10
   # 必要経験値
-  @expRate = 33
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "大石泉"
 
@@ -1297,25 +1297,25 @@ class Character34Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 34
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 34
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 34
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 34
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 34
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 34
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 34
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 34
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 34
+  @itemMax = 10
   # 必要経験値
-  @expRate = 34
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "太田優"
 
@@ -1336,25 +1336,25 @@ class Character35Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 35
+  @attackBase = 14
   # 成長率：HP
-  @hpBase = 35
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 35
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 35
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 35
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 35
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 35
+  @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 35
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 35
+  @itemMax = 10
   # 必要経験値
-  @expRate = 35
+  @expRate = 2.0
   # 死んだ時の台詞
   @textDeath = "大槻唯"
 
@@ -1375,25 +1375,25 @@ class Character36Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 36
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 36
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 36
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 36
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 36
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 36
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 36
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 36
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 36
+  @itemMax = 10
   # 必要経験値
-  @expRate = 36
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "大西由里子"
 
@@ -1414,25 +1414,25 @@ class Character37Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 37
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 37
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 37
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 37
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 37
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 37
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 37
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 37
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 37
+  @itemMax = 10
   # 必要経験値
-  @expRate = 37
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "大沼くるみ"
 
@@ -1453,25 +1453,25 @@ class Character38Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 38
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 38
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 38
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 38
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 38
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 38
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 38
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 38
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 38
+  @itemMax = 10
   # 必要経験値
-  @expRate = 38
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "大原みちる"
 
@@ -1492,25 +1492,25 @@ class Character39Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 39
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 39
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 39
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 39
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 39
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 39
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 39
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 39
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 39
+  @itemMax = 10
   # 必要経験値
-  @expRate = 39
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "岡崎泰葉"
 
@@ -1531,25 +1531,25 @@ class Character40Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 40
+  @attackBase = 11
   # 成長率：HP
-  @hpBase = 40
+  @hpBase = 15
   # 成長率：物理防御
-  @pDefBase = 40
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 40
+  @mDefBase = 1.6
   # 基本移動力
-  @moveBase = 40
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 40
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 40
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 40
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 40
+  @itemMax = 12
   # 必要経験値
-  @expRate = 40
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "緒方智絵里"
 
@@ -1570,25 +1570,25 @@ class Character41Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 41
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 41
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 41
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 41
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 41
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 41
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 41
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 41
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 41
+  @itemMax = 10
   # 必要経験値
-  @expRate = 41
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "奥山沙織"
 
@@ -1609,25 +1609,25 @@ class Character42Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 42
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 42
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 42
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 42
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 42
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 42
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 42
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 42
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 42
+  @itemMax = 10
   # 必要経験値
-  @expRate = 42
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "乙倉悠貴"
 
@@ -1648,30 +1648,30 @@ class Character43Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 43
+  @attackBase = 14
   # 成長率：HP
-  @hpBase = 43
+  @hpBase = 18
   # 成長率：物理防御
-  @pDefBase = 43
+  @pDefBase = 1.7
   # 成長率：魔法防御
-  @mDefBase = 43
+  @mDefBase = 1.4
   # 基本移動力
-  @moveBase = 43
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 43
+  @rangeBase = 3
   # 基本命中率
-  @hitRateBase = 43
+  @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 43
+  @dodgeRateBase = 2
   # アイテム装備可能数
-  @itemMax = 43
+  @itemMax = 12
   # 必要経験値
-  @expRate = 43
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "片桐早苗"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "取り締まり"
+  @abilityDesc = "攻撃した敵の移動力を1下げる"
 
   constructor:(params)->
     super(params)
@@ -1687,25 +1687,25 @@ class Character44Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 44
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 44
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 44
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 44
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 44
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 44
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 44
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 44
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 44
+  @itemMax = 10
   # 必要経験値
-  @expRate = 44
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "上条春菜"
 
@@ -1726,25 +1726,25 @@ class Character45Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 45
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 45
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 45
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 45
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 45
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 45
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 45
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 45
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 45
+  @itemMax = 10
   # 必要経験値
-  @expRate = 45
+  @expRate = 1.8
   # 死んだ時の台詞
   @textDeath = "神谷奈緒"
 
@@ -1765,25 +1765,25 @@ class Character46Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 46
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 46
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 46
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 46
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 46
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 46
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 46
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 46
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 46
+  @itemMax = 12
   # 必要経験値
-  @expRate = 46
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "川島瑞樹"
 
@@ -1804,30 +1804,30 @@ class Character47Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 47
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 47
+  @hpBase = 14
   # 成長率：物理防御
-  @pDefBase = 47
+  @pDefBase = 1.3
   # 成長率：魔法防御
-  @mDefBase = 47
+  @mDefBase = 3
   # 基本移動力
-  @moveBase = 47
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 47
+  @rangeBase = 3
   # 基本命中率
-  @hitRateBase = 47
+  @hitRateBase = 92
   # 基本回避率
-  @dodgeRateBase = 47
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 47
+  @itemMax = 10
   # 必要経験値
-  @expRate = 47
+  @expRate = 2.0
   # 死んだ時の台詞
   @textDeath = "神崎蘭子"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "黒魔術"
+  @abilityDesc = "攻撃した敵を一撃で倒すことがある"
 
   constructor:(params)->
     super(params)
@@ -1843,25 +1843,25 @@ class Character48Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 48
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 48
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 48
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 48
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 48
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 48
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 48
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 48
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 48
+  @itemMax = 10
   # 必要経験値
-  @expRate = 48
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "岸部彩華"
 
@@ -1882,25 +1882,25 @@ class Character49Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 49
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 49
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 49
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 49
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 49
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 49
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 49
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 49
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 49
+  @itemMax = 10
   # 必要経験値
-  @expRate = 49
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "北川真尋"
 
@@ -1921,25 +1921,25 @@ class Character50Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 50
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 50
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 50
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 50
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 50
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 50
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 50
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 50
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 50
+  @itemMax = 10
   # 必要経験値
-  @expRate = 50
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "喜多日菜子"
 
@@ -1960,25 +1960,25 @@ class Character51Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 51
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 51
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 51
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 51
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 51
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 51
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 51
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 51
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 51
+  @itemMax = 10
   # 必要経験値
-  @expRate = 51
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "喜多見柚"
 
@@ -1999,25 +1999,25 @@ class Character52Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 52
+  @attackBase = 15
   # 成長率：HP
-  @hpBase = 52
+  @hpBase = 18
   # 成長率：物理防御
-  @pDefBase = 52
+  @pDefBase = 1.7
   # 成長率：魔法防御
-  @mDefBase = 52
+  @mDefBase = 1.4
   # 基本移動力
-  @moveBase = 52
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 52
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 52
+  @hitRateBase = 99
   # 基本回避率
-  @dodgeRateBase = 52
+  @dodgeRateBase = 5
   # アイテム装備可能数
-  @itemMax = 52
+  @itemMax = 12
   # 必要経験値
-  @expRate = 52
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "木場真奈美"
 
@@ -2038,25 +2038,25 @@ class Character53Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 53
+  @attackBase = 15
   # 成長率：HP
-  @hpBase = 53
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 53
+  @pDefBase = 1.6
   # 成長率：魔法防御
-  @mDefBase = 53
+  @mDefBase = 1.6
   # 基本移動力
-  @moveBase = 53
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 53
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 53
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 53
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 53
+  @itemMax = 10
   # 必要経験値
-  @expRate = 53
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "木村夏樹"
 
@@ -2077,25 +2077,25 @@ class Character54Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 54
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 54
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 54
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 54
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 54
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 54
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 54
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 54
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 54
+  @itemMax = 10
   # 必要経験値
-  @expRate = 54
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "キャシー・グラハム"
 
@@ -2116,25 +2116,25 @@ class Character55Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 55
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 55
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 55
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 55
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 55
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 55
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 55
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 55
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 55
+  @itemMax = 10
   # 必要経験値
-  @expRate = 55
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "桐野アヤ"
 
@@ -2155,25 +2155,25 @@ class Character56Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 56
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 56
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 56
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 56
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 56
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 56
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 56
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 56
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 56
+  @itemMax = 10
   # 必要経験値
-  @expRate = 56
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "桐生つかさ"
 
@@ -2194,25 +2194,25 @@ class Character57Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 57
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 57
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 57
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 57
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 57
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 57
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 57
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 57
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 57
+  @itemMax = 10
   # 必要経験値
-  @expRate = 57
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "日下部若葉"
 
@@ -2233,25 +2233,25 @@ class Character58Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 58
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 58
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 58
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 58
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 58
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 58
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 58
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 58
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 58
+  @itemMax = 10
   # 必要経験値
-  @expRate = 58
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "工藤忍"
 
@@ -2272,25 +2272,25 @@ class Character59Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 59
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 59
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 59
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 59
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 59
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 59
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 59
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 59
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 59
+  @itemMax = 10
   # 必要経験値
-  @expRate = 59
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "クラリス"
 
@@ -2311,25 +2311,25 @@ class Character60Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 60
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 60
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 60
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 60
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 60
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 60
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 60
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 60
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 60
+  @itemMax = 10
   # 必要経験値
-  @expRate = 60
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "栗原ネネ"
 
@@ -2350,25 +2350,25 @@ class Character61Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 61
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 61
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 61
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 61
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 61
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 61
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 61
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 61
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 61
+  @itemMax = 10
   # 必要経験値
-  @expRate = 61
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "黒川千秋"
 
@@ -2389,25 +2389,25 @@ class Character62Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 62
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 62
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 62
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 62
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 62
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 62
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 62
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 62
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 62
+  @itemMax = 10
   # 必要経験値
-  @expRate = 62
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "ケイト"
 
@@ -2428,25 +2428,25 @@ class Character63Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 63
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 63
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 63
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 63
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 63
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 63
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 63
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 63
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 63
+  @itemMax = 10
   # 必要経験値
-  @expRate = 63
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "古賀小春"
 
@@ -2467,25 +2467,25 @@ class Character64Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 64
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 64
+  @hpBase = 22
   # 成長率：物理防御
-  @pDefBase = 64
+  @pDefBase = 1.2
   # 成長率：魔法防御
-  @mDefBase = 64
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 64
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 64
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 64
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 64
+  @dodgeRateBase = 1
   # アイテム装備可能数
-  @itemMax = 64
+  @itemMax = 10
   # 必要経験値
-  @expRate = 64
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "輿水幸子"
 
@@ -2506,30 +2506,30 @@ class Character65Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 65
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 65
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 65
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 65
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 65
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 65
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 65
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 65
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 65
+  @itemMax = 10
   # 必要経験値
-  @expRate = 65
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "小関麗奈"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "いたずら"
+  @abilityDesc = "味方ターン開始時に、10%の確率で周囲4マスのどこかに岩を置く"
 
   constructor:(params)->
     super(params)
@@ -2545,30 +2545,5412 @@ class Character66Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 66
+  @attackBase = 13
   # 成長率：HP
-  @hpBase = 66
+  @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 66
+  @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 66
+  @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 66
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 66
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 66
+  @hitRateBase = 97
   # 基本回避率
-  @dodgeRateBase = 66
+  @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 66
+  @itemMax = 10
   # 必要経験値
-  @expRate = 66
+  @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "小早川紗枝"
 
   @abilityName = "なし"
   @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character67Base extends CharacterBase
+  # ID
+  @characterId = 67
+  # キャラ名
+  @characterName = "秋月律子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "秋月律子"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character68Base extends CharacterBase
+  # ID
+  @characterId = 68
+  # キャラ名
+  @characterName = "秋月涼"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "秋月涼"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character69Base extends CharacterBase
+  # ID
+  @characterId = 69
+  # キャラ名
+  @characterName = "天海春香"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "天海春香"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character70Base extends CharacterBase
+  # ID
+  @characterId = 70
+  # キャラ名
+  @characterName = "我那覇響"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "我那覇響"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character71Base extends CharacterBase
+  # ID
+  @characterId = 71
+  # キャラ名
+  @characterName = "菊地真"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 19
+  # 成長率：HP
+  @hpBase = 19
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "菊地真"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character72Base extends CharacterBase
+  # ID
+  @characterId = 72
+  # キャラ名
+  @characterName = "如月千早"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 18
+  # 成長率：HP
+  @hpBase = 16
+  # 成長率：物理防御
+  @pDefBase = 1.8
+  # 成長率：魔法防御
+  @mDefBase = 1.4
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "如月千早"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character73Base extends CharacterBase
+  # ID
+  @characterId = 73
+  # キャラ名
+  @characterName = "小日向美穂"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 8
+  # 必要経験値
+  @expRate = 2.0
+  # 死んだ時の台詞
+  @textDeath = "小日向美穂"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character74Base extends CharacterBase
+  # ID
+  @characterId = 74
+  # キャラ名
+  @characterName = "小松伊吹"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "小松伊吹"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character75Base extends CharacterBase
+  # ID
+  @characterId = 75
+  # キャラ名
+  @characterName = "小室千奈美"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "小室千奈美"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character76Base extends CharacterBase
+  # ID
+  @characterId = 76
+  # キャラ名
+  @characterName = "西園寺琴歌"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 11
+  # 成長率：HP
+  @hpBase = 19
+  # 成長率：物理防御
+  @pDefBase = 1.6
+  # 成長率：魔法防御
+  @mDefBase = 1.6
+  # 基本移動力
+  @moveBase = 3
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 95
+  # 基本回避率
+  @dodgeRateBase = 2
+  # アイテム装備可能数
+  @itemMax = 20
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "西園寺琴歌"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character77Base extends CharacterBase
+  # ID
+  @characterId = 77
+  # キャラ名
+  @characterName = "財前時子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 21
+  # 成長率：HP
+  @hpBase = 18
+  # 成長率：物理防御
+  @pDefBase = 1.7
+  # 成長率：魔法防御
+  @mDefBase = 1.4
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 2
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 2
+  # アイテム装備可能数
+  @itemMax = 6
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "財前時子"
+
+  @abilityName = "ムチ"
+  @abilityDesc = "後ろにいる敵にもダメージを与えることがある"
+
+  constructor:(params)->
+    super(params)
+class Character78Base extends CharacterBase
+  # ID
+  @characterId = 78
+  # キャラ名
+  @characterName = "斉藤洋子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "斉藤洋子"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character79Base extends CharacterBase
+  # ID
+  @characterId = 79
+  # キャラ名
+  @characterName = "冴島清美"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "冴島清美"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character80Base extends CharacterBase
+  # ID
+  @characterId = 80
+  # キャラ名
+  @characterName = "榊原里美"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "榊原里美"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character81Base extends CharacterBase
+  # ID
+  @characterId = 81
+  # キャラ名
+  @characterName = "鷺沢文香"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 10
+  # 成長率：HP
+  @hpBase = 14
+  # 成長率：物理防御
+  @pDefBase = 1
+  # 成長率：魔法防御
+  @mDefBase = 1
+  # 基本移動力
+  @moveBase = 2
+  # 基本射程
+  @rangeBase = 2
+  # 基本命中率
+  @hitRateBase = 90
+  # 基本回避率
+  @dodgeRateBase = 1
+  # アイテム装備可能数
+  @itemMax = 20
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "鷺沢文香"
+
+  @abilityName = "なし"
+  @abilityDesc = "装備したアイテムの効果が倍になる"
+
+  constructor:(params)->
+    super(params)
+class Character82Base extends CharacterBase
+  # ID
+  @characterId = 82
+  # キャラ名
+  @characterName = "佐久間まゆ"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 15
+  # 成長率：HP
+  @hpBase = 18
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 2
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 2
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "佐久間まゆ"
+
+  @abilityName = "道連れ"
+  @abilityDesc = "敵に倒された時、その敵を消し去ることがある"
+
+  constructor:(params)->
+    super(params)
+class Character83Base extends CharacterBase
+  # ID
+  @characterId = 83
+  # キャラ名
+  @characterName = "櫻井桃華"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 15
+  # 成長率：物理防御
+  @pDefBase = 1.3
+  # 成長率：魔法防御
+  @mDefBase = 2.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "櫻井桃華"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character84Base extends CharacterBase
+  # ID
+  @characterId = 84
+  # キャラ名
+  @characterName = "佐々木千枝"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "佐々木千枝"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character85Base extends CharacterBase
+  # ID
+  @characterId = 85
+  # キャラ名
+  @characterName = "佐城雪美"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "佐城雪美"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character86Base extends CharacterBase
+  # ID
+  @characterId = 86
+  # キャラ名
+  @characterName = "佐藤心"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 15
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 2
+  # 基本移動力
+  @moveBase = 3
+  # 基本射程
+  @rangeBase = 2
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "佐藤心"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character87Base extends CharacterBase
+  # ID
+  @characterId = 87
+  # キャラ名
+  @characterName = "沢田麻理菜"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "沢田麻理菜"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character88Base extends CharacterBase
+  # ID
+  @characterId = 88
+  # キャラ名
+  @characterName = "椎名法子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 12
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.4
+  # 成長率：魔法防御
+  @mDefBase = 1.4
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 95
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "椎名法子"
+
+  @abilityName = "ドーナツ配布"
+  @abilityDesc = "周囲8マスの味方のHPを10%回復することがある"
+
+  constructor:(params)->
+    super(params)
+class Character89Base extends CharacterBase
+  # ID
+  @characterId = 89
+  # キャラ名
+  @characterName = "塩見周子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 12
+  # 成長率：HP
+  @hpBase = 16
+  # 成長率：物理防御
+  @pDefBase = 1.4
+  # 成長率：魔法防御
+  @mDefBase = 1.6
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 2
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 12
+  # 必要経験値
+  @expRate = 2.3
+  # 死んだ時の台詞
+  @textDeath = "塩見周子"
+
+  @abilityName = "気まぐれ"
+  @abilityDesc = "ターン開始時、HPが10%回復するか、5%のダメージを受ける"
+
+  constructor:(params)->
+    super(params)
+class Character90Base extends CharacterBase
+  # ID
+  @characterId = 90
+  # キャラ名
+  @characterName = "四条貴音"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "四条貴音"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character91Base extends CharacterBase
+  # ID
+  @characterId = 91
+  # キャラ名
+  @characterName = "篠原礼"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "篠原礼"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character92Base extends CharacterBase
+  # ID
+  @characterId = 92
+  # キャラ名
+  @characterName = "首藤葵"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "首藤葵"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character93Base extends CharacterBase
+  # ID
+  @characterId = 93
+  # キャラ名
+  @characterName = "城ヶ崎美嘉"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 14
+  # 成長率：HP
+  @hpBase = 18
+  # 成長率：物理防御
+  @pDefBase = 1
+  # 成長率：魔法防御
+  @mDefBase = 2
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 12
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "城ヶ崎美嘉"
+
+  @abilityName = "姉妹"
+  @abilityDesc = "城ヶ崎莉嘉が出撃している間、物防が2倍になり、移動、射程が1上がる"
+
+  constructor:(params)->
+    super(params)
+class Character94Base extends CharacterBase
+  # ID
+  @characterId = 94
+  # キャラ名
+  @characterName = "城ヶ崎莉嘉"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 14
+  # 成長率：HP
+  @hpBase = 16
+  # 成長率：物理防御
+  @pDefBase = 2
+  # 成長率：魔法防御
+  @mDefBase = 1
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 96
+  # 基本回避率
+  @dodgeRateBase = 4
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "城ヶ崎莉嘉"
+
+  @abilityName = "姉妹"
+  @abilityDesc = "城ヶ崎美嘉が出撃している間、魔防が2倍になり、移動、射程が1上がる"
+
+  constructor:(params)->
+    super(params)
+class Character95Base extends CharacterBase
+  # ID
+  @characterId = 95
+  # キャラ名
+  @characterName = "白菊ほたる"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "白菊ほたる"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character96Base extends CharacterBase
+  # ID
+  @characterId = 96
+  # キャラ名
+  @characterName = "白坂小梅"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "白坂小梅"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character97Base extends CharacterBase
+  # ID
+  @characterId = 97
+  # キャラ名
+  @characterName = "杉坂海"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "杉坂海"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character98Base extends CharacterBase
+  # ID
+  @characterId = 98
+  # キャラ名
+  @characterName = "涼宮星花"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "涼宮星花"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character99Base extends CharacterBase
+  # ID
+  @characterId = 99
+  # キャラ名
+  @characterName = "関裕美"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "関裕美"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character100Base extends CharacterBase
+  # ID
+  @characterId = 100
+  # キャラ名
+  @characterName = "瀬名詩織"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "瀬名詩織"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character101Base extends CharacterBase
+  # ID
+  @characterId = 101
+  # キャラ名
+  @characterName = "仙崎恵磨"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "仙崎恵磨"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character102Base extends CharacterBase
+  # ID
+  @characterId = 102
+  # キャラ名
+  @characterName = "相馬夏美"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "相馬夏美"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character103Base extends CharacterBase
+  # ID
+  @characterId = 103
+  # キャラ名
+  @characterName = "高垣楓"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 16
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 2
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "高垣楓"
+
+  @abilityName = "ダジャレおばさん"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character104Base extends CharacterBase
+  # ID
+  @characterId = 104
+  # キャラ名
+  @characterName = "高槻やよい"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "高槻やよい"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character105Base extends CharacterBase
+  # ID
+  @characterId = 105
+  # キャラ名
+  @characterName = "高橋礼子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "高橋礼子"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character106Base extends CharacterBase
+  # ID
+  @characterId = 106
+  # キャラ名
+  @characterName = "鷹富士茄子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 10
+  # 成長率：HP
+  @hpBase = 15
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.7
+  # 基本移動力
+  @moveBase = 3
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 90
+  # 基本回避率
+  @dodgeRateBase = 15
+  # アイテム装備可能数
+  @itemMax = 12
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "鷹富士茄子"
+
+  @abilityName = "幸運"
+  @abilityDesc = "攻撃したプレゼントのランクが1上がる"
+
+  constructor:(params)->
+    super(params)
+class Character107Base extends CharacterBase
+  # ID
+  @characterId = 107
+  # キャラ名
+  @characterName = "高峯のあ"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.7
+  # 成長率：魔法防御
+  @mDefBase = 2
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 98
+  # 基本回避率
+  @dodgeRateBase = 4
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "高峯のあ"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character108Base extends CharacterBase
+  # ID
+  @characterId = 108
+  # キャラ名
+  @characterName = "高森藍子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 10
+  # 成長率：HP
+  @hpBase = 18
+  # 成長率：物理防御
+  @pDefBase = 1.7
+  # 成長率：魔法防御
+  @mDefBase = 1.7
+  # 基本移動力
+  @moveBase = 3
+  # 基本射程
+  @rangeBase = 2
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 1
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "高森藍子"
+
+  @abilityName = "ゆるふわ時間"
+  @abilityDesc = "攻撃した相手を行動終了にすることがある"
+
+  constructor:(params)->
+    super(params)
+class Character109Base extends CharacterBase
+  # ID
+  @characterId = 109
+  # キャラ名
+  @characterName = "多田李衣菜"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "多田李衣菜"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character110Base extends CharacterBase
+  # ID
+  @characterId = 110
+  # キャラ名
+  @characterName = "橘ありす"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 13
+  # 成長率：物理防御
+  @pDefBase = 1.4
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 3
+  # 基本射程
+  @rangeBase = 2
+  # 基本命中率
+  @hitRateBase = 96
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "橘ありす"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character111Base extends CharacterBase
+  # ID
+  @characterId = 111
+  # キャラ名
+  @characterName = "月宮雅"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "月宮雅"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character112Base extends CharacterBase
+  # ID
+  @characterId = 112
+  # キャラ名
+  @characterName = "土屋亜子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "土屋亜子"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character113Base extends CharacterBase
+  # ID
+  @characterId = 113
+  # キャラ名
+  @characterName = "東郷あい"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "東郷あい"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character114Base extends CharacterBase
+  # ID
+  @characterId = 114
+  # キャラ名
+  @characterName = "道明寺歌鈴"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 18
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 2
+  # 基本移動力
+  @moveBase = 6
+  # 基本射程
+  @rangeBase = 2
+  # 基本命中率
+  @hitRateBase = 93
+  # 基本回避率
+  @dodgeRateBase = 1
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "道明寺歌鈴"
+
+  @abilityName = "ドジ"
+  @abilityDesc = "移動時、途中で止まることがある"
+
+  constructor:(params)->
+    super(params)
+class Character115Base extends CharacterBase
+  # ID
+  @characterId = 115
+  # キャラ名
+  @characterName = "十時愛梨"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 14
+  # 成長率：HP
+  @hpBase = 22
+  # 成長率：物理防御
+  @pDefBase = 1.8
+  # 成長率：魔法防御
+  @mDefBase = 1.8
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "十時愛梨"
+
+  @abilityName = "すぐ脱ぐ"
+  @abilityDesc = "ターン開始時、物防と魔防が10%下がることがある"
+
+  constructor:(params)->
+    super(params)
+class Character116Base extends CharacterBase
+  # ID
+  @characterId = 116
+  # キャラ名
+  @characterName = "トレーナー"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "トレーナー"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character117Base extends CharacterBase
+  # ID
+  @characterId = 117
+  # キャラ名
+  @characterName = "長富蓮実"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "長富蓮実"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character118Base extends CharacterBase
+  # ID
+  @characterId = 118
+  # キャラ名
+  @characterName = "中野有香"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 18
+  # 成長率：HP
+  @hpBase = 19
+  # 成長率：物理防御
+  @pDefBase = 2
+  # 成長率：魔法防御
+  @mDefBase = 1
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 99
+  # 基本回避率
+  @dodgeRateBase = 5
+  # アイテム装備可能数
+  @itemMax = 8
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "中野有香"
+
+  @abilityName = "会心の一撃"
+  @abilityDesc = "攻撃時、敵の防御力を無視することがある"
+
+  constructor:(params)->
+    super(params)
+class Character119Base extends CharacterBase
+  # ID
+  @characterId = 119
+  # キャラ名
+  @characterName = "ナターリア"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "ナターリア"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character120Base extends CharacterBase
+  # ID
+  @characterId = 120
+  # キャラ名
+  @characterName = "並木芽衣子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "並木芽衣子"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character121Base extends CharacterBase
+  # ID
+  @characterId = 121
+  # キャラ名
+  @characterName = "成宮由愛"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "成宮由愛"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character122Base extends CharacterBase
+  # ID
+  @characterId = 122
+  # キャラ名
+  @characterName = "南条光"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "南条光"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character123Base extends CharacterBase
+  # ID
+  @characterId = 123
+  # キャラ名
+  @characterName = "難波笑美"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 15
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.6
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "難波笑美"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character124Base extends CharacterBase
+  # ID
+  @characterId = 124
+  # キャラ名
+  @characterName = "西川保奈美"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "西川保奈美"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character125Base extends CharacterBase
+  # ID
+  @characterId = 125
+  # キャラ名
+  @characterName = "西島櫂"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "西島櫂"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character126Base extends CharacterBase
+  # ID
+  @characterId = 126
+  # キャラ名
+  @characterName = "新田美波"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 14
+  # 成長率：HP
+  @hpBase = 18
+  # 成長率：物理防御
+  @pDefBase = 1.6
+  # 成長率：魔法防御
+  @mDefBase = 1.6
+  # 基本移動力
+  @moveBase = 5
+  # 基本射程
+  @rangeBase = 2
+  # 基本命中率
+  @hitRateBase = 98
+  # 基本回避率
+  @dodgeRateBase = 4
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "新田美波"
+
+  @abilityName = "万能"
+  @abilityDesc = "ターン終了時、ランダムなステータスが10%上昇する（フィールドから出ると戻る）"
+
+  constructor:(params)->
+    super(params)
+class Character127Base extends CharacterBase
+  # ID
+  @characterId = 127
+  # キャラ名
+  @characterName = "二宮飛鳥"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 15
+  # 成長率：HP
+  @hpBase = 16
+  # 成長率：物理防御
+  @pDefBase = 1.4
+  # 成長率：魔法防御
+  @mDefBase = 1.6
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 4
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "二宮飛鳥"
+
+  @abilityName = "孤高"
+  @abilityDesc = "ターン開始時、周りにユニットがいなければ、そのターン、全ステータスが10%上がる"
+
+  constructor:(params)->
+    super(params)
+class Character128Base extends CharacterBase
+  # ID
+  @characterId = 128
+  # キャラ名
+  @characterName = "丹羽仁美"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "丹羽仁美"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character129Base extends CharacterBase
+  # ID
+  @characterId = 129
+  # キャラ名
+  @characterName = "野々村そら"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "野々村そら"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character130Base extends CharacterBase
+  # ID
+  @characterId = 130
+  # キャラ名
+  @characterName = "萩原雪歩"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "萩原雪歩"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character131Base extends CharacterBase
+  # ID
+  @characterId = 131
+  # キャラ名
+  @characterName = "服部瞳子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "服部瞳子"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character132Base extends CharacterBase
+  # ID
+  @characterId = 132
+  # キャラ名
+  @characterName = "浜川愛結奈"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "浜川愛結奈"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character133Base extends CharacterBase
+  # ID
+  @characterId = 133
+  # キャラ名
+  @characterName = "浜口あやめ"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 15
+  # 成長率：HP
+  @hpBase = 11
+  # 成長率：物理防御
+  @pDefBase = 0.8
+  # 成長率：魔法防御
+  @mDefBase = 0.8
+  # 基本移動力
+  @moveBase = 6
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 99
+  # 基本回避率
+  @dodgeRateBase = 35
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "浜口あやめ"
+
+  @abilityName = "忍法変わり身の術"
+  @abilityDesc = "回避時に、味方と入れ替わることがある"
+
+  constructor:(params)->
+    super(params)
+class Character134Base extends CharacterBase
+  # ID
+  @characterId = 134
+  # キャラ名
+  @characterName = "早坂美玲"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "早坂美玲"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character135Base extends CharacterBase
+  # ID
+  @characterId = 135
+  # キャラ名
+  @characterName = "速水奏"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "速水奏"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character136Base extends CharacterBase
+  # ID
+  @characterId = 136
+  # キャラ名
+  @characterName = "原田美世"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "原田美世"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character137Base extends CharacterBase
+  # ID
+  @characterId = 137
+  # キャラ名
+  @characterName = "柊志乃"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "柊志乃"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character138Base extends CharacterBase
+  # ID
+  @characterId = 138
+  # キャラ名
+  @characterName = "日高愛"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "日高愛"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character139Base extends CharacterBase
+  # ID
+  @characterId = 139
+  # キャラ名
+  @characterName = "日野茜"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 15
+  # 成長率：HP
+  @hpBase = 18
+  # 成長率：物理防御
+  @pDefBase = 2.5
+  # 成長率：魔法防御
+  @mDefBase = 1
+  # 基本移動力
+  @moveBase = 5
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 5
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "日野茜"
+
+  @abilityName = "全力疾走"
+  @abilityDesc = "移動後に攻撃をせずに行動終了した時、20%の確率でもう一度行動できる"
+
+  constructor:(params)->
+    super(params)
+class Character140Base extends CharacterBase
+  # ID
+  @characterId = 140
+  # キャラ名
+  @characterName = "姫川友紀"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 15
+  # 成長率：HP
+  @hpBase = 16
+  # 成長率：物理防御
+  @pDefBase = 1.6
+  # 成長率：魔法防御
+  @mDefBase = 1.4
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 3
+  # 基本命中率
+  @hitRateBase = 98
+  # 基本回避率
+  @dodgeRateBase = 2
+  # アイテム装備可能数
+  @itemMax = 8
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "姫川友紀"
+
+  @abilityName = "かっとばせー"
+  @abilityDesc = "ターン開始時、隣接している味方をランダムなマスに飛ばすことがある"
+
+  constructor:(params)->
+    super(params)
+class Character141Base extends CharacterBase
+  # ID
+  @characterId = 141
+  # キャラ名
+  @characterName = "兵藤レナ"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "兵藤レナ"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character142Base extends CharacterBase
+  # ID
+  @characterId = 142
+  # キャラ名
+  @characterName = "福山舞"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "福山舞"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character143Base extends CharacterBase
+  # ID
+  @characterId = 143
+  # キャラ名
+  @characterName = "藤居朋"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "藤居朋"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character144Base extends CharacterBase
+  # ID
+  @characterId = 144
+  # キャラ名
+  @characterName = "藤本里奈"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 19
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "藤本里奈"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character145Base extends CharacterBase
+  # ID
+  @characterId = 145
+  # キャラ名
+  @characterName = "藤原肇"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "藤原肇"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character146Base extends CharacterBase
+  # ID
+  @characterId = 146
+  # キャラ名
+  @characterName = "双葉杏"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 0
+  # 成長率：HP
+  @hpBase = 18
+  # 成長率：物理防御
+  @pDefBase = 2.5
+  # 成長率：魔法防御
+  @mDefBase = 2.5
+  # 基本移動力
+  @moveBase = 0
+  # 基本射程
+  @rangeBase = 0
+  # 基本命中率
+  @hitRateBase = 0
+  # 基本回避率
+  @dodgeRateBase = 0
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "双葉杏"
+
+  @abilityName = "印税"
+  @abilityDesc = "ターン終了時に出撃していると、階層✕3の経験値を得る"
+
+  constructor:(params)->
+    super(params)
+class Character147Base extends CharacterBase
+  # ID
+  @characterId = 147
+  # キャラ名
+  @characterName = "双海亜美"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "双海亜美"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character148Base extends CharacterBase
+  # ID
+  @characterId = 148
+  # キャラ名
+  @characterName = "双海真美"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "双海真美"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character149Base extends CharacterBase
+  # ID
+  @characterId = 149
+  # キャラ名
+  @characterName = "古澤頼子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "古澤頼子"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character150Base extends CharacterBase
+  # ID
+  @characterId = 150
+  # キャラ名
+  @characterName = "ベテラントレーナー"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "ベテラントレーナー"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character151Base extends CharacterBase
+  # ID
+  @characterId = 151
+  # キャラ名
+  @characterName = "ヘレン"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 0
+  # 成長率：HP
+  @hpBase = 30
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 0
+  # 基本命中率
+  @hitRateBase = 0
+  # 基本回避率
+  @dodgeRateBase = 0
+  # アイテム装備可能数
+  @itemMax = 20
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "ヘレン"
+
+  @abilityName = "世界のヘレン"
+  @abilityDesc = "ターン開始時、HPが全回復することがある"
+
+  constructor:(params)->
+    super(params)
+class Character152Base extends CharacterBase
+  # ID
+  @characterId = 152
+  # キャラ名
+  @characterName = "北条加蓮"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 15
+  # 成長率：HP
+  @hpBase = 11
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 2.3
+  # 基本移動力
+  @moveBase = 3
+  # 基本射程
+  @rangeBase = 2
+  # 基本命中率
+  @hitRateBase = 95
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 1.8
+  # 死んだ時の台詞
+  @textDeath = "北条加蓮"
+
+  @abilityName = "なし"
+  @abilityDesc = ""
+
+  constructor:(params)->
+    super(params)
+class Character153Base extends CharacterBase
+  # ID
+  @characterId = 153
+  # キャラ名
+  @characterName = "星井美希"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "星井美希"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character154Base extends CharacterBase
+  # ID
+  @characterId = 154
+  # キャラ名
+  @characterName = "星輝子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "星輝子"
+
+  @abilityName = "インキャ"
+  @abilityDesc = "上か下の壁際で行動終了した時、再行動することがある"
+
+  constructor:(params)->
+    super(params)
+class Character155Base extends CharacterBase
+  # ID
+  @characterId = 155
+  # キャラ名
+  @characterName = "堀裕子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "堀裕子"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character156Base extends CharacterBase
+  # ID
+  @characterId = 156
+  # キャラ名
+  @characterName = "前川みく"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 16
+  # 成長率：物理防御
+  @pDefBase = 1.3
+  # 成長率：魔法防御
+  @mDefBase = 1.3
+  # 基本移動力
+  @moveBase = 5
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 8
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.0
+  # 死んだ時の台詞
+  @textDeath = "前川みく"
+
+  @abilityName = "なし"
+  @abilityDesc = "味方が敵からの攻撃を回避した時に、その敵に反撃する"
+
+  constructor:(params)->
+    super(params)
+class Character157Base extends CharacterBase
+  # ID
+  @characterId = 157
+  # キャラ名
+  @characterName = "槙原志保"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "槙原志保"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character158Base extends CharacterBase
+  # ID
+  @characterId = 158
+  # キャラ名
+  @characterName = "マスタートレーナー"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "マスタートレーナー"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character159Base extends CharacterBase
+  # ID
+  @characterId = 159
+  # キャラ名
+  @characterName = "松尾千鶴"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "松尾千鶴"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character160Base extends CharacterBase
+  # ID
+  @characterId = 160
+  # キャラ名
+  @characterName = "松永涼"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "松永涼"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character161Base extends CharacterBase
+  # ID
+  @characterId = 161
+  # キャラ名
+  @characterName = "松原早耶"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "松原早耶"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character162Base extends CharacterBase
+  # ID
+  @characterId = 162
+  # キャラ名
+  @characterName = "松本沙理奈"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "松本沙理奈"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character163Base extends CharacterBase
+  # ID
+  @characterId = 163
+  # キャラ名
+  @characterName = "松山久美子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "松山久美子"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character164Base extends CharacterBase
+  # ID
+  @characterId = 164
+  # キャラ名
+  @characterName = "的場梨沙"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "的場梨沙"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character165Base extends CharacterBase
+  # ID
+  @characterId = 165
+  # キャラ名
+  @characterName = "間中美里"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "間中美里"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character166Base extends CharacterBase
+  # ID
+  @characterId = 166
+  # キャラ名
+  @characterName = "真鍋いつき"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "真鍋いつき"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character167Base extends CharacterBase
+  # ID
+  @characterId = 167
+  # キャラ名
+  @characterName = "三浦あずさ"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.3
+  # 死んだ時の台詞
+  @textDeath = "三浦あずさ"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character168Base extends CharacterBase
+  # ID
+  @characterId = 168
+  # キャラ名
+  @characterName = "水木聖來"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "水木聖來"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character169Base extends CharacterBase
+  # ID
+  @characterId = 169
+  # キャラ名
+  @characterName = "水谷絵理"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "水谷絵理"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character170Base extends CharacterBase
+  # ID
+  @characterId = 170
+  # キャラ名
+  @characterName = "水野翠"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "水野翠"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character171Base extends CharacterBase
+  # ID
+  @characterId = 171
+  # キャラ名
+  @characterName = "水本ゆかり"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "水本ゆかり"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character172Base extends CharacterBase
+  # ID
+  @characterId = 172
+  # キャラ名
+  @characterName = "水瀬伊織"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "水瀬伊織"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character173Base extends CharacterBase
+  # ID
+  @characterId = 173
+  # キャラ名
+  @characterName = "三船美優"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "三船美優"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character174Base extends CharacterBase
+  # ID
+  @characterId = 174
+  # キャラ名
+  @characterName = "三村かな子"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 10
+  # 成長率：HP
+  @hpBase = 24
+  # 成長率：物理防御
+  @pDefBase = 3.5
+  # 成長率：魔法防御
+  @mDefBase = 2.5
+  # 基本移動力
+  @moveBase = 3
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 95
+  # 基本回避率
+  @dodgeRateBase = 1
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "三村かな子"
+
+  @abilityName = "なし"
+  @abilityDesc = "最大HPの50%以上のダメージを受けてHPが0になった時、一度だけHP1で耐える"
+
+  constructor:(params)->
+    super(params)
+class Character175Base extends CharacterBase
+  # ID
+  @characterId = 175
+  # キャラ名
+  @characterName = "宮本フレデリカ"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 14
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 5
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "宮本フレデリカ"
+
+  @abilityName = "なし"
+  @abilityDesc = "ターン開始時、攻撃タイプがランダムに変化する"
+
+  constructor:(params)->
+    super(params)
+class Character176Base extends CharacterBase
+  # ID
+  @characterId = 176
+  # キャラ名
+  @characterName = "三好紗南"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "三好紗南"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character177Base extends CharacterBase
+  # ID
+  @characterId = 177
+  # キャラ名
+  @characterName = "向井拓海"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 23
+  # 成長率：HP
+  @hpBase = 22
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.2
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 93
+  # 基本回避率
+  @dodgeRateBase = 2
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.4
+  # 死んだ時の台詞
+  @textDeath = "向井拓海"
+
+  @abilityName = "喧嘩上等"
+  @abilityDesc = "敵の攻撃を寄せつける"
+
+  constructor:(params)->
+    super(params)
+class Character178Base extends CharacterBase
+  # ID
+  @characterId = 178
+  # キャラ名
+  @characterName = "棟方愛海"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "棟方愛海"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character179Base extends CharacterBase
+  # ID
+  @characterId = 179
+  # キャラ名
+  @characterName = "村上巴"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 17
+  # 成長率：HP
+  @hpBase = 16
+  # 成長率：物理防御
+  @pDefBase = 1.6
+  # 成長率：魔法防御
+  @mDefBase = 1.2
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 95
+  # 基本回避率
+  @dodgeRateBase = 6
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "村上巴"
+
+  @abilityName = "なし"
+  @abilityDesc = "自分よりレベルが高い相手に攻撃する時、攻撃が10%上がる"
+
+  constructor:(params)->
+    super(params)
+class Character180Base extends CharacterBase
+  # ID
+  @characterId = 180
+  # キャラ名
+  @characterName = "村松さくら"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "村松さくら"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character181Base extends CharacterBase
+  # ID
+  @characterId = 181
+  # キャラ名
+  @characterName = "メアリー・コクラン"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "メアリー・コクラン"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character182Base extends CharacterBase
+  # ID
+  @characterId = 182
+  # キャラ名
+  @characterName = "持田亜里沙"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 11
+  # 成長率：HP
+  @hpBase = 19
+  # 成長率：物理防御
+  @pDefBase = 2
+  # 成長率：魔法防御
+  @mDefBase = 2
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 2
+  # 基本命中率
+  @hitRateBase = 95
+  # 基本回避率
+  @dodgeRateBase = 2
+  # アイテム装備可能数
+  @itemMax = 15
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "持田亜里沙"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character183Base extends CharacterBase
+  # ID
+  @characterId = 183
+  # キャラ名
+  @characterName = "望月聖"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "望月聖"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character184Base extends CharacterBase
+  # ID
+  @characterId = 184
+  # キャラ名
+  @characterName = "桃井あずき"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 18
+  # 成長率：物理防御
+  @pDefBase = 1.2
+  # 成長率：魔法防御
+  @mDefBase = 1.2
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "桃井あずき"
+
+  @abilityName = "呉服"
+  @abilityDesc = "ターン開始時、物防・魔防が10%上がる"
+
+  constructor:(params)->
+    super(params)
+class Character185Base extends CharacterBase
+  # ID
+  @characterId = 185
+  # キャラ名
+  @characterName = "森久保乃々"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 9
+  # 成長率：HP
+  @hpBase = 16
+  # 成長率：物理防御
+  @pDefBase = 2.7
+  # 成長率：魔法防御
+  @mDefBase = 2.7
+  # 基本移動力
+  @moveBase = 3
+  # 基本射程
+  @rangeBase = 3
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "森久保乃々"
+
+  @abilityName = "む～り～"
+  @abilityDesc = "敵ターン終了時、周りに3体以上のユニットがいる時、マップ左端のランダムなマスにワープする"
+
+  constructor:(params)->
+    super(params)
+class Character186Base extends CharacterBase
+  # ID
+  @characterId = 186
+  # キャラ名
+  @characterName = "諸星きらり"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 18
+  # 成長率：HP
+  @hpBase = 22
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 2.3
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 95
+  # 基本回避率
+  @dodgeRateBase = 2
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "諸星きらり"
+
+  @abilityName = "きらりん☆ストロング"
+  @abilityDesc = "最大HPの50%以上のダメージを受けてHPが0になった時、一度だけHP1で耐える。"
+
+  constructor:(params)->
+    super(params)
+class Character187Base extends CharacterBase
+  # ID
+  @characterId = 187
+  # キャラ名
+  @characterName = "楊菲菲"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 16
+  # 成長率：HP
+  @hpBase = 10
+  # 成長率：物理防御
+  @pDefBase = 1.4
+  # 成長率：魔法防御
+  @mDefBase = 1.4
+  # 基本移動力
+  @moveBase = 5
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 10
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "楊菲菲"
+
+  @abilityName = "カンフー"
+  @abilityDesc = "最大HP以上のダメージを受ける時、10%の確率で回避する"
+
+  constructor:(params)->
+    super(params)
+class Character188Base extends CharacterBase
+  # ID
+  @characterId = 188
+  # キャラ名
+  @characterName = "八神マキノ"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "八神マキノ"
+
+  @abilityName = "諜報"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character189Base extends CharacterBase
+  # ID
+  @characterId = 189
+  # キャラ名
+  @characterName = "矢口美羽"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "矢口美羽"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character190Base extends CharacterBase
+  # ID
+  @characterId = 190
+  # キャラ名
+  @characterName = "柳清良"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 7
+  # 成長率：HP
+  @hpBase = 13
+  # 成長率：物理防御
+  @pDefBase = 0.9
+  # 成長率：魔法防御
+  @mDefBase = 1.2
+  # 基本移動力
+  @moveBase = 3
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 92
+  # 基本回避率
+  @dodgeRateBase = 1
+  # アイテム装備可能数
+  @itemMax = 12
+  # 必要経験値
+  @expRate = 2.4
+  # 死んだ時の台詞
+  @textDeath = "柳清良"
+
+  @abilityName = "看護"
+  @abilityDesc = "ターンごとの体力現象を半分にする"
+
+  constructor:(params)->
+    super(params)
+class Character191Base extends CharacterBase
+  # ID
+  @characterId = 191
+  # キャラ名
+  @characterName = "柳瀬美由紀"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "柳瀬美由紀"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character192Base extends CharacterBase
+  # ID
+  @characterId = 192
+  # キャラ名
+  @characterName = "大和亜季"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 19
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1
+  # 基本移動力
+  @moveBase = 5
+  # 基本射程
+  @rangeBase = 6
+  # 基本命中率
+  @hitRateBase = 70
+  # 基本回避率
+  @dodgeRateBase = 5
+  # アイテム装備可能数
+  @itemMax = 15
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "大和亜季"
+
+  @abilityName = "掃射"
+  @abilityDesc = "攻撃時、周囲8マスの味方、敵にも同じダメージを与えることがある"
+
+  constructor:(params)->
+    super(params)
+class Character193Base extends CharacterBase
+  # ID
+  @characterId = 193
+  # キャラ名
+  @characterName = "結城晴"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 16
+  # 成長率：HP
+  @hpBase = 16
+  # 成長率：物理防御
+  @pDefBase = 1.4
+  # 成長率：魔法防御
+  @mDefBase = 1.4
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 5
+  # アイテム装備可能数
+  @itemMax = 8
+  # 必要経験値
+  @expRate = 1.8
+  # 死んだ時の台詞
+  @textDeath = "結城晴"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character194Base extends CharacterBase
+  # ID
+  @characterId = 194
+  # キャラ名
+  @characterName = "遊佐こずえ"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 10
+  # 成長率：HP
+  @hpBase = 13
+  # 成長率：物理防御
+  @pDefBase = 1
+  # 成長率：魔法防御
+  @mDefBase = 3.5
+  # 基本移動力
+  @moveBase = 3
+  # 基本射程
+  @rangeBase = 4
+  # 基本命中率
+  @hitRateBase = 90
+  # 基本回避率
+  @dodgeRateBase = 7
+  # アイテム装備可能数
+  @itemMax = 8
+  # 必要経験値
+  @expRate = 2.0
+  # 死んだ時の台詞
+  @textDeath = "遊佐こずえ"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character195Base extends CharacterBase
+  # ID
+  @characterId = 195
+  # キャラ名
+  @characterName = "横山千佳"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 14
+  # 成長率：HP
+  @hpBase = 13
+  # 成長率：物理防御
+  @pDefBase = 1
+  # 成長率：魔法防御
+  @mDefBase = 4.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 1.8
+  # 死んだ時の台詞
+  @textDeath = "横山千佳"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character196Base extends CharacterBase
+  # ID
+  @characterId = 196
+  # キャラ名
+  @characterName = "吉岡沙紀"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "吉岡沙紀"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character197Base extends CharacterBase
+  # ID
+  @characterId = 197
+  # キャラ名
+  @characterName = "依田芳乃"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "依田芳乃"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character198Base extends CharacterBase
+  # ID
+  @characterId = 198
+  # キャラ名
+  @characterName = "ライラ"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 12
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "ライラ"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character199Base extends CharacterBase
+  # ID
+  @characterId = 199
+  # キャラ名
+  @characterName = "龍崎薫"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 1.8
+  # 死んだ時の台詞
+  @textDeath = "龍崎薫"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character200Base extends CharacterBase
+  # ID
+  @characterId = 200
+  # キャラ名
+  @characterName = "ルーキートレーナー"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "ルーキートレーナー"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character201Base extends CharacterBase
+  # ID
+  @characterId = 201
+  # キャラ名
+  @characterName = "若林智香"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.2
+  # 死んだ時の台詞
+  @textDeath = "若林智香"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character202Base extends CharacterBase
+  # ID
+  @characterId = 202
+  # キャラ名
+  @characterName = "脇山珠美"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 18
+  # 成長率：HP
+  @hpBase = 12
+  # 成長率：物理防御
+  @pDefBase = 3.5
+  # 成長率：魔法防御
+  @mDefBase = 1
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 99
+  # 基本回避率
+  @dodgeRateBase = 8
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.0
+  # 死んだ時の台詞
+  @textDeath = "脇山珠美"
+
+  @abilityName = "剣道"
+  @abilityDesc = "敵の攻撃を回避した時、反撃する"
+
+  constructor:(params)->
+    super(params)
+class Character203Base extends CharacterBase
+  # ID
+  @characterId = 203
+  # キャラ名
+  @characterName = "和久井留美"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 13
+  # 成長率：HP
+  @hpBase = 17
+  # 成長率：物理防御
+  @pDefBase = 1.5
+  # 成長率：魔法防御
+  @mDefBase = 1.5
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 1
+  # 基本命中率
+  @hitRateBase = 97
+  # 基本回避率
+  @dodgeRateBase = 3
+  # アイテム装備可能数
+  @itemMax = 10
+  # 必要経験値
+  @expRate = 2.6
+  # 死んだ時の台詞
+  @textDeath = "和久井留美"
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Character204Base extends CharacterBase
+  # ID
+  @characterId = 204
+  # キャラ名
+  @characterName = "千川ちひろ"
+  # 最初からいるか
+  @defaultJoin = false
+  # 画像のリスト
+  @images = []
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  # 成長率：攻撃力
+  @attackBase = 0
+  # 成長率：HP
+  @hpBase = 14
+  # 成長率：物理防御
+  @pDefBase = 0.5
+  # 成長率：魔法防御
+  @mDefBase = 0.5
+  # 基本移動力
+  @moveBase = 1
+  # 基本射程
+  @rangeBase = 0
+  # 基本命中率
+  @hitRateBase = 0
+  # 基本回避率
+  @dodgeRateBase = 1
+  # アイテム装備可能数
+  @itemMax = 15
+  # 必要経験値
+  @expRate = 3.2
+  # 死んだ時の台詞
+  @textDeath = "千川ちひろ"
+
+  @abilityName = "マネジメント"
+  @abilityDesc = "出撃中に得るジュエルが2倍になる"
 
   constructor:(params)->
     super(params)

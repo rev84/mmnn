@@ -2,6 +2,8 @@ class GameManager
   @DEBUG_CONFIG = 
     # 右クリックでメニューをでなくする
     DISABLE_RIGHT_CLICK_MENU : false
+    # 初期経験値
+    START_EXP : 10000
 
   @ID:'game'
 
@@ -277,7 +279,7 @@ class GameManager
     EnvManager.init(@gameElement)
     # デバッグ
     EnvManager.setLife 5
-    EnvManager.setExp 0
+    EnvManager.setExp (if @DEBUG_CONFIG.startExp is false then 0 else @DEBUG_CONFIG.START_EXP)
     EnvManager.setFloor 1
 
   @initPanels:(savedata)->
