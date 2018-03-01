@@ -22,11 +22,13 @@ class Character1Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
@@ -61,11 +63,13 @@ class Character2Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
@@ -100,11 +104,13 @@ class Character3Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
@@ -139,11 +145,13 @@ class Character4Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -178,11 +186,13 @@ class Character5Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -217,11 +227,13 @@ class Character6Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 15
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -256,11 +268,13 @@ class Character7Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -295,11 +309,13 @@ class Character8Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
@@ -334,11 +350,13 @@ class Character9Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -373,11 +391,13 @@ class Character10Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -412,11 +432,13 @@ class Character11Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -451,11 +473,13 @@ class Character12Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -490,11 +514,13 @@ class Character13Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -529,11 +555,13 @@ class Character14Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 10
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -568,11 +596,13 @@ class Character15Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -607,11 +637,13 @@ class Character16Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -646,11 +678,13 @@ class Character17Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -685,11 +719,13 @@ class Character18Base extends CharacterBase
   # 基本射程
   @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 4
   # アイテム装備可能数
   @itemMax = 20
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -724,11 +760,13 @@ class Character19Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -763,11 +801,13 @@ class Character20Base extends CharacterBase
   # 基本射程
   @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数
   @itemMax = 12
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -802,11 +842,13 @@ class Character21Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -831,7 +873,7 @@ class Character22Base extends CharacterBase
   # 成長率：攻撃力
   @attackBase = 15
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 18
   # 成長率：物理防御
   @pDefBase = 1.5
   # 成長率：魔法防御
@@ -841,11 +883,13 @@ class Character22Base extends CharacterBase
   # 基本射程
   @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 4
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -880,11 +924,13 @@ class Character23Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -919,11 +965,13 @@ class Character24Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -958,11 +1006,13 @@ class Character25Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -997,11 +1047,13 @@ class Character26Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 15
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.3
   # 死んだ時の台詞
@@ -1036,11 +1088,13 @@ class Character27Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1075,11 +1129,13 @@ class Character28Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1114,11 +1170,13 @@ class Character29Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1153,11 +1211,13 @@ class Character30Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1192,11 +1252,13 @@ class Character31Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1231,11 +1293,13 @@ class Character32Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数
   @itemMax = 14
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.3
   # 死んだ時の台詞
@@ -1258,25 +1322,27 @@ class Character33Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 12
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 16
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1.3
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1.4
   # 基本移動力
   @moveBase = 4
   # 基本射程
-  @rangeBase = 1
+  @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
-  @expRate = 2.2
+  @expRate = 2.3
   # 死んだ時の台詞
   @textDeath = "大石泉"
 
@@ -1309,11 +1375,13 @@ class Character34Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1348,11 +1416,13 @@ class Character35Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
@@ -1387,11 +1457,13 @@ class Character36Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1426,11 +1498,13 @@ class Character37Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1465,11 +1539,13 @@ class Character38Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1504,11 +1580,13 @@ class Character39Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1543,11 +1621,13 @@ class Character40Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 12
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1582,11 +1662,13 @@ class Character41Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1621,11 +1703,13 @@ class Character42Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1660,18 +1744,20 @@ class Character43Base extends CharacterBase
   # 基本射程
   @rangeBase = 3
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数
   @itemMax = 12
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "片桐早苗"
 
   @abilityName = "取り締まり"
-  @abilityDesc = "攻撃した敵の移動力を1下げる"
+  @abilityDesc = "すべてのユニットの特殊能力を無効化する"
 
   constructor:(params)->
     super(params)
@@ -1699,11 +1785,13 @@ class Character44Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1738,11 +1826,13 @@ class Character45Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
@@ -1777,11 +1867,13 @@ class Character46Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 12
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1816,11 +1908,13 @@ class Character47Base extends CharacterBase
   # 基本射程
   @rangeBase = 3
   # 基本命中率
-  @hitRateBase = 92
+  @hitRateBase = 90
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
@@ -1855,11 +1949,13 @@ class Character48Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1894,11 +1990,13 @@ class Character49Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1933,11 +2031,13 @@ class Character50Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -1972,11 +2072,13 @@ class Character51Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2011,11 +2113,13 @@ class Character52Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 99
+  @hitRateBase = 97
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数
   @itemMax = 12
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2050,11 +2154,13 @@ class Character53Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2089,11 +2195,13 @@ class Character54Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2128,11 +2236,13 @@ class Character55Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2167,11 +2277,13 @@ class Character56Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2206,11 +2318,13 @@ class Character57Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2245,11 +2359,13 @@ class Character58Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2284,11 +2400,13 @@ class Character59Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2323,11 +2441,13 @@ class Character60Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2362,11 +2482,13 @@ class Character61Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2401,11 +2523,13 @@ class Character62Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2440,11 +2564,13 @@ class Character63Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2479,11 +2605,13 @@ class Character64Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2518,11 +2646,13 @@ class Character65Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2557,11 +2687,13 @@ class Character66Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2596,11 +2728,13 @@ class Character67Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2635,11 +2769,13 @@ class Character68Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2674,11 +2810,13 @@ class Character69Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2713,11 +2851,13 @@ class Character70Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2752,11 +2892,13 @@ class Character71Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2791,11 +2933,13 @@ class Character72Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2830,11 +2974,13 @@ class Character73Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 8
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
@@ -2869,11 +3015,13 @@ class Character74Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2908,11 +3056,13 @@ class Character75Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2947,11 +3097,13 @@ class Character76Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数
   @itemMax = 20
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -2986,11 +3138,13 @@ class Character77Base extends CharacterBase
   # 基本射程
   @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数
   @itemMax = 6
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3025,11 +3179,13 @@ class Character78Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3064,11 +3220,13 @@ class Character79Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3103,11 +3261,13 @@ class Character80Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3142,11 +3302,13 @@ class Character81Base extends CharacterBase
   # 基本射程
   @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 90
+  @hitRateBase = 88
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数
   @itemMax = 20
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3181,11 +3343,13 @@ class Character82Base extends CharacterBase
   # 基本射程
   @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3220,11 +3384,13 @@ class Character83Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3259,11 +3425,13 @@ class Character84Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3298,11 +3466,13 @@ class Character85Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3325,7 +3495,7 @@ class Character86Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 14
   # 成長率：HP
   @hpBase = 15
   # 成長率：物理防御
@@ -3337,18 +3507,20 @@ class Character86Base extends CharacterBase
   # 基本射程
   @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "佐藤心"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "キャラ付け"
+  @abilityDesc = "HPが50%以上ある時、攻撃が30%上がる"
 
   constructor:(params)->
     super(params)
@@ -3376,11 +3548,13 @@ class Character87Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3415,11 +3589,13 @@ class Character88Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3454,11 +3630,13 @@ class Character89Base extends CharacterBase
   # 基本射程
   @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 12
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.3
   # 死んだ時の台詞
@@ -3493,11 +3671,13 @@ class Character90Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3532,11 +3712,13 @@ class Character91Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3571,11 +3753,13 @@ class Character92Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3610,11 +3794,13 @@ class Character93Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 3
+  @dodgeRateBase = 5
   # アイテム装備可能数
   @itemMax = 12
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3649,11 +3835,13 @@ class Character94Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 96
+  @hitRateBase = 93
   # 基本回避率
-  @dodgeRateBase = 4
+  @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3688,11 +3876,13 @@ class Character95Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3717,7 +3907,7 @@ class Character96Base extends CharacterBase
   # 成長率：攻撃力
   @attackBase = 13
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 13
   # 成長率：物理防御
   @pDefBase = 1.5
   # 成長率：魔法防御
@@ -3727,18 +3917,20 @@ class Character96Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "白坂小梅"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "あの子が遊びにきた"
+  @abilityDesc = "敵ターンの間だけ、自身の周囲のマスにランダムで進行・攻撃不可のユニットが出現する"
 
   constructor:(params)->
     super(params)
@@ -3766,11 +3958,13 @@ class Character97Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3805,11 +3999,13 @@ class Character98Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3844,11 +4040,13 @@ class Character99Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3883,11 +4081,13 @@ class Character100Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3922,11 +4122,13 @@ class Character101Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3961,11 +4163,13 @@ class Character102Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -3988,9 +4192,9 @@ class Character103Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 16
   # 成長率：HP
-  @hpBase = 16
+  @hpBase = 17
   # 成長率：物理防御
   @pDefBase = 1.5
   # 成長率：魔法防御
@@ -3998,20 +4202,22 @@ class Character103Base extends CharacterBase
   # 基本移動力
   @moveBase = 4
   # 基本射程
-  @rangeBase = 1
+  @rangeBase = 3
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 99
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 10
+  @itemMax = 12
+  # コスト
+  @costBase = 1.5
   # 必要経験値
-  @expRate = 2.2
+  @expRate = 4.4
   # 死んだ時の台詞
   @textDeath = "高垣楓"
 
-  @abilityName = "ダジャレおばさん"
-  @abilityDesc = "なし"
+  @abilityName = "歌姫"
+  @abilityDesc = "攻撃した敵の周囲の敵にもダメージ、味方を回復する"
 
   constructor:(params)->
     super(params)
@@ -4039,11 +4245,13 @@ class Character104Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4078,11 +4286,13 @@ class Character105Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4117,11 +4327,13 @@ class Character106Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 90
+  @hitRateBase = 88
   # 基本回避率
   @dodgeRateBase = 15
   # アイテム装備可能数
   @itemMax = 12
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4156,11 +4368,13 @@ class Character107Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 98
+  @hitRateBase = 96
   # 基本回避率
   @dodgeRateBase = 4
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4195,11 +4409,13 @@ class Character108Base extends CharacterBase
   # 基本射程
   @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4234,11 +4450,13 @@ class Character109Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4273,11 +4491,13 @@ class Character110Base extends CharacterBase
   # 基本射程
   @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 96
+  @hitRateBase = 94
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4312,11 +4532,13 @@ class Character111Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4351,11 +4573,13 @@ class Character112Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4390,11 +4614,13 @@ class Character113Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4429,18 +4655,20 @@ class Character114Base extends CharacterBase
   # 基本射程
   @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 93
+  @hitRateBase = 90
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "道明寺歌鈴"
 
   @abilityName = "ドジ"
-  @abilityDesc = "移動時、途中で止まることがある"
+  @abilityDesc = "移動後、周囲の味方・敵にダメージを与えることがある"
 
   constructor:(params)->
     super(params)
@@ -4468,11 +4696,13 @@ class Character115Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4486,45 +4716,6 @@ class Character115Base extends CharacterBase
 class Character116Base extends CharacterBase
   # ID
   @characterId = 116
-  # キャラ名
-  @characterName = "トレーナー"
-  # 最初からいるか
-  @defaultJoin = false
-  # 画像のリスト
-  @images = []
-  # 基本攻撃タイプ
-  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
-  # 成長率：攻撃力
-  @attackBase = 13
-  # 成長率：HP
-  @hpBase = 17
-  # 成長率：物理防御
-  @pDefBase = 1.5
-  # 成長率：魔法防御
-  @mDefBase = 1.5
-  # 基本移動力
-  @moveBase = 4
-  # 基本射程
-  @rangeBase = 1
-  # 基本命中率
-  @hitRateBase = 97
-  # 基本回避率
-  @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
-  # 必要経験値
-  @expRate = 2.2
-  # 死んだ時の台詞
-  @textDeath = "トレーナー"
-
-  @abilityName = "なし"
-  @abilityDesc = "なし"
-
-  constructor:(params)->
-    super(params)
-class Character117Base extends CharacterBase
-  # ID
-  @characterId = 117
   # キャラ名
   @characterName = "長富蓮実"
   # 最初からいるか
@@ -4546,11 +4737,13 @@ class Character117Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4561,9 +4754,9 @@ class Character117Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character118Base extends CharacterBase
+class Character117Base extends CharacterBase
   # ID
-  @characterId = 118
+  @characterId = 117
   # キャラ名
   @characterName = "中野有香"
   # 最初からいるか
@@ -4585,11 +4778,13 @@ class Character118Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 99
+  @hitRateBase = 98
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数
   @itemMax = 8
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4600,9 +4795,9 @@ class Character118Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character119Base extends CharacterBase
+class Character118Base extends CharacterBase
   # ID
-  @characterId = 119
+  @characterId = 118
   # キャラ名
   @characterName = "ナターリア"
   # 最初からいるか
@@ -4624,11 +4819,13 @@ class Character119Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4639,9 +4836,9 @@ class Character119Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character120Base extends CharacterBase
+class Character119Base extends CharacterBase
   # ID
-  @characterId = 120
+  @characterId = 119
   # キャラ名
   @characterName = "並木芽衣子"
   # 最初からいるか
@@ -4663,11 +4860,13 @@ class Character120Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4678,9 +4877,9 @@ class Character120Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character121Base extends CharacterBase
+class Character120Base extends CharacterBase
   # ID
-  @characterId = 121
+  @characterId = 120
   # キャラ名
   @characterName = "成宮由愛"
   # 最初からいるか
@@ -4702,11 +4901,13 @@ class Character121Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4717,9 +4918,9 @@ class Character121Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character122Base extends CharacterBase
+class Character121Base extends CharacterBase
   # ID
-  @characterId = 122
+  @characterId = 121
   # キャラ名
   @characterName = "南条光"
   # 最初からいるか
@@ -4741,11 +4942,13 @@ class Character122Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4756,9 +4959,9 @@ class Character122Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character123Base extends CharacterBase
+class Character122Base extends CharacterBase
   # ID
-  @characterId = 123
+  @characterId = 122
   # キャラ名
   @characterName = "難波笑美"
   # 最初からいるか
@@ -4780,11 +4983,13 @@ class Character123Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4795,9 +5000,9 @@ class Character123Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character124Base extends CharacterBase
+class Character123Base extends CharacterBase
   # ID
-  @characterId = 124
+  @characterId = 123
   # キャラ名
   @characterName = "西川保奈美"
   # 最初からいるか
@@ -4819,11 +5024,13 @@ class Character124Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4834,9 +5041,9 @@ class Character124Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character125Base extends CharacterBase
+class Character124Base extends CharacterBase
   # ID
-  @characterId = 125
+  @characterId = 124
   # キャラ名
   @characterName = "西島櫂"
   # 最初からいるか
@@ -4858,11 +5065,13 @@ class Character125Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4873,9 +5082,9 @@ class Character125Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character126Base extends CharacterBase
+class Character125Base extends CharacterBase
   # ID
-  @characterId = 126
+  @characterId = 125
   # キャラ名
   @characterName = "新田美波"
   # 最初からいるか
@@ -4897,11 +5106,13 @@ class Character126Base extends CharacterBase
   # 基本射程
   @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 98
+  @hitRateBase = 96
   # 基本回避率
   @dodgeRateBase = 4
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4912,9 +5123,9 @@ class Character126Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character127Base extends CharacterBase
+class Character126Base extends CharacterBase
   # ID
-  @characterId = 127
+  @characterId = 126
   # キャラ名
   @characterName = "二宮飛鳥"
   # 最初からいるか
@@ -4936,11 +5147,13 @@ class Character127Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 4
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4951,9 +5164,9 @@ class Character127Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character128Base extends CharacterBase
+class Character127Base extends CharacterBase
   # ID
-  @characterId = 128
+  @characterId = 127
   # キャラ名
   @characterName = "丹羽仁美"
   # 最初からいるか
@@ -4975,11 +5188,13 @@ class Character128Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -4990,9 +5205,9 @@ class Character128Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character129Base extends CharacterBase
+class Character128Base extends CharacterBase
   # ID
-  @characterId = 129
+  @characterId = 128
   # キャラ名
   @characterName = "野々村そら"
   # 最初からいるか
@@ -5014,11 +5229,13 @@ class Character129Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5029,9 +5246,9 @@ class Character129Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character130Base extends CharacterBase
+class Character129Base extends CharacterBase
   # ID
-  @characterId = 130
+  @characterId = 129
   # キャラ名
   @characterName = "萩原雪歩"
   # 最初からいるか
@@ -5053,11 +5270,13 @@ class Character130Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5068,9 +5287,9 @@ class Character130Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character131Base extends CharacterBase
+class Character130Base extends CharacterBase
   # ID
-  @characterId = 131
+  @characterId = 130
   # キャラ名
   @characterName = "服部瞳子"
   # 最初からいるか
@@ -5092,11 +5311,13 @@ class Character131Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5107,9 +5328,9 @@ class Character131Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character132Base extends CharacterBase
+class Character131Base extends CharacterBase
   # ID
-  @characterId = 132
+  @characterId = 131
   # キャラ名
   @characterName = "浜川愛結奈"
   # 最初からいるか
@@ -5131,11 +5352,13 @@ class Character132Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5146,9 +5369,9 @@ class Character132Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character133Base extends CharacterBase
+class Character132Base extends CharacterBase
   # ID
-  @characterId = 133
+  @characterId = 132
   # キャラ名
   @characterName = "浜口あやめ"
   # 最初からいるか
@@ -5170,11 +5393,13 @@ class Character133Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 99
+  @hitRateBase = 97
   # 基本回避率
   @dodgeRateBase = 35
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5185,9 +5410,9 @@ class Character133Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character134Base extends CharacterBase
+class Character133Base extends CharacterBase
   # ID
-  @characterId = 134
+  @characterId = 133
   # キャラ名
   @characterName = "早坂美玲"
   # 最初からいるか
@@ -5209,11 +5434,13 @@ class Character134Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5224,9 +5451,9 @@ class Character134Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character135Base extends CharacterBase
+class Character134Base extends CharacterBase
   # ID
-  @characterId = 135
+  @characterId = 134
   # キャラ名
   @characterName = "速水奏"
   # 最初からいるか
@@ -5236,13 +5463,13 @@ class Character135Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 15
   # 成長率：HP
   @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1.3
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1.4
   # 基本移動力
   @moveBase = 4
   # 基本射程
@@ -5253,19 +5480,21 @@ class Character135Base extends CharacterBase
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "速水奏"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "ムーンサイド"
+  @abilityDesc = "味方ターン終了時、最大HPとHPの差がHPになることがある"
 
   constructor:(params)->
     super(params)
-class Character136Base extends CharacterBase
+class Character135Base extends CharacterBase
   # ID
-  @characterId = 136
+  @characterId = 135
   # キャラ名
   @characterName = "原田美世"
   # 最初からいるか
@@ -5277,34 +5506,36 @@ class Character136Base extends CharacterBase
   # 成長率：攻撃力
   @attackBase = 13
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 18
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1.7
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1.4
   # 基本移動力
-  @moveBase = 4
+  @moveBase = 6
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
-  @expRate = 2.2
+  @expRate = 2.8
   # 死んだ時の台詞
   @textDeath = "原田美世"
 
   @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityDesc = "再行動することがある"
 
   constructor:(params)->
     super(params)
-class Character137Base extends CharacterBase
+class Character136Base extends CharacterBase
   # ID
-  @characterId = 137
+  @characterId = 136
   # キャラ名
   @characterName = "柊志乃"
   # 最初からいるか
@@ -5326,11 +5557,13 @@ class Character137Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5341,9 +5574,9 @@ class Character137Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character138Base extends CharacterBase
+class Character137Base extends CharacterBase
   # ID
-  @characterId = 138
+  @characterId = 137
   # キャラ名
   @characterName = "日高愛"
   # 最初からいるか
@@ -5365,11 +5598,13 @@ class Character138Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5380,9 +5615,9 @@ class Character138Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character139Base extends CharacterBase
+class Character138Base extends CharacterBase
   # ID
-  @characterId = 139
+  @characterId = 138
   # キャラ名
   @characterName = "日野茜"
   # 最初からいるか
@@ -5404,11 +5639,13 @@ class Character139Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5419,9 +5656,9 @@ class Character139Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character140Base extends CharacterBase
+class Character139Base extends CharacterBase
   # ID
-  @characterId = 140
+  @characterId = 139
   # キャラ名
   @characterName = "姫川友紀"
   # 最初からいるか
@@ -5443,11 +5680,13 @@ class Character140Base extends CharacterBase
   # 基本射程
   @rangeBase = 3
   # 基本命中率
-  @hitRateBase = 98
+  @hitRateBase = 96
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数
   @itemMax = 8
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5458,9 +5697,9 @@ class Character140Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character141Base extends CharacterBase
+class Character140Base extends CharacterBase
   # ID
-  @characterId = 141
+  @characterId = 140
   # キャラ名
   @characterName = "兵藤レナ"
   # 最初からいるか
@@ -5482,11 +5721,13 @@ class Character141Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5497,9 +5738,9 @@ class Character141Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character142Base extends CharacterBase
+class Character141Base extends CharacterBase
   # ID
-  @characterId = 142
+  @characterId = 141
   # キャラ名
   @characterName = "福山舞"
   # 最初からいるか
@@ -5521,11 +5762,13 @@ class Character142Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5536,9 +5779,9 @@ class Character142Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character143Base extends CharacterBase
+class Character142Base extends CharacterBase
   # ID
-  @characterId = 143
+  @characterId = 142
   # キャラ名
   @characterName = "藤居朋"
   # 最初からいるか
@@ -5560,11 +5803,13 @@ class Character143Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5575,9 +5820,9 @@ class Character143Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character144Base extends CharacterBase
+class Character143Base extends CharacterBase
   # ID
-  @characterId = 144
+  @characterId = 143
   # キャラ名
   @characterName = "藤本里奈"
   # 最初からいるか
@@ -5587,25 +5832,27 @@ class Character144Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 14
   # 成長率：HP
   @hpBase = 19
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 3
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1.2
   # 基本移動力
-  @moveBase = 4
+  @moveBase = 5
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 10
+  @itemMax = 12
+  # コスト
+  @costBase = 1.5
   # 必要経験値
-  @expRate = 2.2
+  @expRate = 2.4
   # 死んだ時の台詞
   @textDeath = "藤本里奈"
 
@@ -5614,9 +5861,9 @@ class Character144Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character145Base extends CharacterBase
+class Character144Base extends CharacterBase
   # ID
-  @characterId = 145
+  @characterId = 144
   # キャラ名
   @characterName = "藤原肇"
   # 最初からいるか
@@ -5638,11 +5885,13 @@ class Character145Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5653,9 +5902,9 @@ class Character145Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character146Base extends CharacterBase
+class Character145Base extends CharacterBase
   # ID
-  @characterId = 146
+  @characterId = 145
   # キャラ名
   @characterName = "双葉杏"
   # 最初からいるか
@@ -5665,7 +5914,7 @@ class Character146Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 0
+  @attackBase = 8
   # 成長率：HP
   @hpBase = 18
   # 成長率：物理防御
@@ -5675,13 +5924,15 @@ class Character146Base extends CharacterBase
   # 基本移動力
   @moveBase = 0
   # 基本射程
-  @rangeBase = 0
+  @rangeBase = 20
   # 基本命中率
-  @hitRateBase = 0
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 0
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5692,9 +5943,9 @@ class Character146Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character147Base extends CharacterBase
+class Character146Base extends CharacterBase
   # ID
-  @characterId = 147
+  @characterId = 146
   # キャラ名
   @characterName = "双海亜美"
   # 最初からいるか
@@ -5704,36 +5955,38 @@ class Character147Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 12
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 16
   # 成長率：物理防御
   @pDefBase = 1.5
   # 成長率：魔法防御
   @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 4
+  @moveBase = 5
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 3
+  @dodgeRateBase = 7
   # アイテム装備可能数
-  @itemMax = 10
+  @itemMax = 8
+  # コスト
+  @costBase = 1.5
   # 必要経験値
-  @expRate = 2.2
+  @expRate = 2.0
   # 死んだ時の台詞
   @textDeath = "双海亜美"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "双子"
+  @abilityDesc = "双海真美が出撃している場合、味方ターン開始時に、HPが二人のうちどちらか高い方になる"
 
   constructor:(params)->
     super(params)
-class Character148Base extends CharacterBase
+class Character147Base extends CharacterBase
   # ID
-  @characterId = 148
+  @characterId = 147
   # キャラ名
   @characterName = "双海真美"
   # 最初からいるか
@@ -5743,36 +5996,38 @@ class Character148Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 12
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 16
   # 成長率：物理防御
   @pDefBase = 1.5
   # 成長率：魔法防御
   @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 4
+  @moveBase = 5
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 96
   # 基本回避率
-  @dodgeRateBase = 3
+  @dodgeRateBase = 6
   # アイテム装備可能数
-  @itemMax = 10
+  @itemMax = 8
+  # コスト
+  @costBase = 1.5
   # 必要経験値
-  @expRate = 2.2
+  @expRate = 2.0
   # 死んだ時の台詞
   @textDeath = "双海真美"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "双子"
+  @abilityDesc = "双海亜美が出撃している場合、味方ターン開始時に、HPが二人のうちどちらか高い方になる"
 
   constructor:(params)->
     super(params)
-class Character149Base extends CharacterBase
+class Character148Base extends CharacterBase
   # ID
-  @characterId = 149
+  @characterId = 148
   # キャラ名
   @characterName = "古澤頼子"
   # 最初からいるか
@@ -5794,11 +6049,13 @@ class Character149Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5809,48 +6066,9 @@ class Character149Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character150Base extends CharacterBase
+class Character149Base extends CharacterBase
   # ID
-  @characterId = 150
-  # キャラ名
-  @characterName = "ベテラントレーナー"
-  # 最初からいるか
-  @defaultJoin = false
-  # 画像のリスト
-  @images = []
-  # 基本攻撃タイプ
-  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
-  # 成長率：攻撃力
-  @attackBase = 13
-  # 成長率：HP
-  @hpBase = 17
-  # 成長率：物理防御
-  @pDefBase = 1.5
-  # 成長率：魔法防御
-  @mDefBase = 1.5
-  # 基本移動力
-  @moveBase = 4
-  # 基本射程
-  @rangeBase = 1
-  # 基本命中率
-  @hitRateBase = 97
-  # 基本回避率
-  @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
-  # 必要経験値
-  @expRate = 2.2
-  # 死んだ時の台詞
-  @textDeath = "ベテラントレーナー"
-
-  @abilityName = "なし"
-  @abilityDesc = "なし"
-
-  constructor:(params)->
-    super(params)
-class Character151Base extends CharacterBase
-  # ID
-  @characterId = 151
+  @characterId = 149
   # キャラ名
   @characterName = "ヘレン"
   # 最初からいるか
@@ -5877,6 +6095,8 @@ class Character151Base extends CharacterBase
   @dodgeRateBase = 0
   # アイテム装備可能数
   @itemMax = 20
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5887,9 +6107,9 @@ class Character151Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character152Base extends CharacterBase
+class Character150Base extends CharacterBase
   # ID
-  @characterId = 152
+  @characterId = 150
   # キャラ名
   @characterName = "北条加蓮"
   # 最初からいるか
@@ -5916,19 +6136,21 @@ class Character152Base extends CharacterBase
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
   @textDeath = "北条加蓮"
 
   @abilityName = "なし"
-  @abilityDesc = ""
+  @abilityDesc = "なし"
 
   constructor:(params)->
     super(params)
-class Character153Base extends CharacterBase
+class Character151Base extends CharacterBase
   # ID
-  @characterId = 153
+  @characterId = 151
   # キャラ名
   @characterName = "星井美希"
   # 最初からいるか
@@ -5950,11 +6172,13 @@ class Character153Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -5965,9 +6189,9 @@ class Character153Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character154Base extends CharacterBase
+class Character152Base extends CharacterBase
   # ID
-  @characterId = 154
+  @characterId = 152
   # キャラ名
   @characterName = "星輝子"
   # 最初からいるか
@@ -5989,11 +6213,13 @@ class Character154Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6004,9 +6230,9 @@ class Character154Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character155Base extends CharacterBase
+class Character153Base extends CharacterBase
   # ID
-  @characterId = 155
+  @characterId = 153
   # キャラ名
   @characterName = "堀裕子"
   # 最初からいるか
@@ -6016,36 +6242,38 @@ class Character155Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 12
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 15
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 2
   # 基本移動力
-  @moveBase = 4
+  @moveBase = 2
   # 基本射程
-  @rangeBase = 1
+  @rangeBase = 3
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 70
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "堀裕子"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "サイキック"
+  @abilityDesc = "攻撃が命中した敵を好きな場所に移動することができる"
 
   constructor:(params)->
     super(params)
-class Character156Base extends CharacterBase
+class Character154Base extends CharacterBase
   # ID
-  @characterId = 156
+  @characterId = 154
   # キャラ名
   @characterName = "前川みく"
   # 最初からいるか
@@ -6067,11 +6295,13 @@ class Character156Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 8
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
@@ -6082,9 +6312,9 @@ class Character156Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character157Base extends CharacterBase
+class Character155Base extends CharacterBase
   # ID
-  @characterId = 157
+  @characterId = 155
   # キャラ名
   @characterName = "槙原志保"
   # 最初からいるか
@@ -6106,11 +6336,13 @@ class Character157Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6121,48 +6353,9 @@ class Character157Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character158Base extends CharacterBase
+class Character156Base extends CharacterBase
   # ID
-  @characterId = 158
-  # キャラ名
-  @characterName = "マスタートレーナー"
-  # 最初からいるか
-  @defaultJoin = false
-  # 画像のリスト
-  @images = []
-  # 基本攻撃タイプ
-  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
-  # 成長率：攻撃力
-  @attackBase = 13
-  # 成長率：HP
-  @hpBase = 17
-  # 成長率：物理防御
-  @pDefBase = 1.5
-  # 成長率：魔法防御
-  @mDefBase = 1.5
-  # 基本移動力
-  @moveBase = 4
-  # 基本射程
-  @rangeBase = 1
-  # 基本命中率
-  @hitRateBase = 97
-  # 基本回避率
-  @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
-  # 必要経験値
-  @expRate = 2.2
-  # 死んだ時の台詞
-  @textDeath = "マスタートレーナー"
-
-  @abilityName = "なし"
-  @abilityDesc = "なし"
-
-  constructor:(params)->
-    super(params)
-class Character159Base extends CharacterBase
-  # ID
-  @characterId = 159
+  @characterId = 156
   # キャラ名
   @characterName = "松尾千鶴"
   # 最初からいるか
@@ -6184,11 +6377,13 @@ class Character159Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6199,9 +6394,9 @@ class Character159Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character160Base extends CharacterBase
+class Character157Base extends CharacterBase
   # ID
-  @characterId = 160
+  @characterId = 157
   # キャラ名
   @characterName = "松永涼"
   # 最初からいるか
@@ -6211,23 +6406,25 @@ class Character160Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 15
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 18
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1.8
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1.3
   # 基本移動力
   @moveBase = 4
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6238,9 +6435,9 @@ class Character160Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character161Base extends CharacterBase
+class Character158Base extends CharacterBase
   # ID
-  @characterId = 161
+  @characterId = 158
   # キャラ名
   @characterName = "松原早耶"
   # 最初からいるか
@@ -6262,11 +6459,13 @@ class Character161Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6277,9 +6476,9 @@ class Character161Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character162Base extends CharacterBase
+class Character159Base extends CharacterBase
   # ID
-  @characterId = 162
+  @characterId = 159
   # キャラ名
   @characterName = "松本沙理奈"
   # 最初からいるか
@@ -6301,11 +6500,13 @@ class Character162Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6316,9 +6517,9 @@ class Character162Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character163Base extends CharacterBase
+class Character160Base extends CharacterBase
   # ID
-  @characterId = 163
+  @characterId = 160
   # キャラ名
   @characterName = "松山久美子"
   # 最初からいるか
@@ -6340,11 +6541,13 @@ class Character163Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6355,9 +6558,9 @@ class Character163Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character164Base extends CharacterBase
+class Character161Base extends CharacterBase
   # ID
-  @characterId = 164
+  @characterId = 161
   # キャラ名
   @characterName = "的場梨沙"
   # 最初からいるか
@@ -6379,11 +6582,13 @@ class Character164Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6394,9 +6599,9 @@ class Character164Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character165Base extends CharacterBase
+class Character162Base extends CharacterBase
   # ID
-  @characterId = 165
+  @characterId = 162
   # キャラ名
   @characterName = "間中美里"
   # 最初からいるか
@@ -6418,11 +6623,13 @@ class Character165Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6433,9 +6640,9 @@ class Character165Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character166Base extends CharacterBase
+class Character163Base extends CharacterBase
   # ID
-  @characterId = 166
+  @characterId = 163
   # キャラ名
   @characterName = "真鍋いつき"
   # 最初からいるか
@@ -6445,36 +6652,38 @@ class Character166Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 15
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 19
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1.8
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1.3
   # 基本移動力
-  @moveBase = 4
+  @moveBase = 5
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 3
+  @dodgeRateBase = 5
   # アイテム装備可能数
-  @itemMax = 10
+  @itemMax = 8
+  # コスト
+  @costBase = 1.5
   # 必要経験値
-  @expRate = 2.2
+  @expRate = 2.0
   # 死んだ時の台詞
   @textDeath = "真鍋いつき"
 
   @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityDesc = "行動後、再行動できることがある"
 
   constructor:(params)->
     super(params)
-class Character167Base extends CharacterBase
+class Character164Base extends CharacterBase
   # ID
-  @characterId = 167
+  @characterId = 164
   # キャラ名
   @characterName = "三浦あずさ"
   # 最初からいるか
@@ -6496,11 +6705,13 @@ class Character167Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.3
   # 死んだ時の台詞
@@ -6511,9 +6722,9 @@ class Character167Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character168Base extends CharacterBase
+class Character165Base extends CharacterBase
   # ID
-  @characterId = 168
+  @characterId = 165
   # キャラ名
   @characterName = "水木聖來"
   # 最初からいるか
@@ -6535,11 +6746,13 @@ class Character168Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6550,9 +6763,9 @@ class Character168Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character169Base extends CharacterBase
+class Character166Base extends CharacterBase
   # ID
-  @characterId = 169
+  @characterId = 166
   # キャラ名
   @characterName = "水谷絵理"
   # 最初からいるか
@@ -6574,11 +6787,13 @@ class Character169Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6589,9 +6804,9 @@ class Character169Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character170Base extends CharacterBase
+class Character167Base extends CharacterBase
   # ID
-  @characterId = 170
+  @characterId = 167
   # キャラ名
   @characterName = "水野翠"
   # 最初からいるか
@@ -6601,36 +6816,38 @@ class Character170Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 14
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 16
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1.2
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1.2
   # 基本移動力
   @moveBase = 4
   # 基本射程
-  @rangeBase = 1
+  @rangeBase = 6
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 90
   # 基本回避率
-  @dodgeRateBase = 3
+  @dodgeRateBase = 2
   # アイテム装備可能数
-  @itemMax = 10
+  @itemMax = 8
+  # コスト
+  @costBase = 1.5
   # 必要経験値
-  @expRate = 2.2
+  @expRate = 2.4
   # 死んだ時の台詞
   @textDeath = "水野翠"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "貫通の矢"
+  @abilityDesc = "攻撃を外した時、その敵より後ろにいる敵全員にダメージを与える"
 
   constructor:(params)->
     super(params)
-class Character171Base extends CharacterBase
+class Character168Base extends CharacterBase
   # ID
-  @characterId = 171
+  @characterId = 168
   # キャラ名
   @characterName = "水本ゆかり"
   # 最初からいるか
@@ -6652,11 +6869,13 @@ class Character171Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6667,9 +6886,9 @@ class Character171Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character172Base extends CharacterBase
+class Character169Base extends CharacterBase
   # ID
-  @characterId = 172
+  @characterId = 169
   # キャラ名
   @characterName = "水瀬伊織"
   # 最初からいるか
@@ -6691,11 +6910,13 @@ class Character172Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6706,9 +6927,9 @@ class Character172Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character173Base extends CharacterBase
+class Character170Base extends CharacterBase
   # ID
-  @characterId = 173
+  @characterId = 170
   # キャラ名
   @characterName = "三船美優"
   # 最初からいるか
@@ -6730,11 +6951,13 @@ class Character173Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6745,9 +6968,9 @@ class Character173Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character174Base extends CharacterBase
+class Character171Base extends CharacterBase
   # ID
-  @characterId = 174
+  @characterId = 171
   # キャラ名
   @characterName = "三村かな子"
   # 最初からいるか
@@ -6774,6 +6997,8 @@ class Character174Base extends CharacterBase
   @dodgeRateBase = 1
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6784,9 +7009,9 @@ class Character174Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character175Base extends CharacterBase
+class Character172Base extends CharacterBase
   # ID
-  @characterId = 175
+  @characterId = 172
   # キャラ名
   @characterName = "宮本フレデリカ"
   # 最初からいるか
@@ -6808,11 +7033,13 @@ class Character175Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6823,9 +7050,9 @@ class Character175Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character176Base extends CharacterBase
+class Character173Base extends CharacterBase
   # ID
-  @characterId = 176
+  @characterId = 173
   # キャラ名
   @characterName = "三好紗南"
   # 最初からいるか
@@ -6847,11 +7074,13 @@ class Character176Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -6862,9 +7091,9 @@ class Character176Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character177Base extends CharacterBase
+class Character174Base extends CharacterBase
   # ID
-  @characterId = 177
+  @characterId = 174
   # キャラ名
   @characterName = "向井拓海"
   # 最初からいるか
@@ -6886,11 +7115,13 @@ class Character177Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 93
+  @hitRateBase = 91
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.4
   # 死んだ時の台詞
@@ -6901,9 +7132,9 @@ class Character177Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character178Base extends CharacterBase
+class Character175Base extends CharacterBase
   # ID
-  @characterId = 178
+  @characterId = 175
   # キャラ名
   @characterName = "棟方愛海"
   # 最初からいるか
@@ -6913,9 +7144,9 @@ class Character178Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 11
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 16
   # 成長率：物理防御
   @pDefBase = 1.5
   # 成長率：魔法防御
@@ -6925,24 +7156,26 @@ class Character178Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
-  @expRate = 2.2
+  @expRate = 2.3
   # 死んだ時の台詞
   @textDeath = "棟方愛海"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "登山"
+  @abilityDesc = "ターン開始時、周りに味方の数に応じてHPが回復する"
 
   constructor:(params)->
     super(params)
-class Character179Base extends CharacterBase
+class Character176Base extends CharacterBase
   # ID
-  @characterId = 179
+  @characterId = 176
   # キャラ名
   @characterName = "村上巴"
   # 最初からいるか
@@ -6964,24 +7197,26 @@ class Character179Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 93
   # 基本回避率
-  @dodgeRateBase = 6
+  @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "村上巴"
 
-  @abilityName = "なし"
-  @abilityDesc = "自分よりレベルが高い相手に攻撃する時、攻撃が10%上がる"
+  @abilityName = "喝！"
+  @abilityDesc = "行動終了時、周りの行動終了済みの味方を再行動させることがある"
 
   constructor:(params)->
     super(params)
-class Character180Base extends CharacterBase
+class Character177Base extends CharacterBase
   # ID
-  @characterId = 180
+  @characterId = 177
   # キャラ名
   @characterName = "村松さくら"
   # 最初からいるか
@@ -7003,11 +7238,13 @@ class Character180Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -7018,9 +7255,9 @@ class Character180Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character181Base extends CharacterBase
+class Character178Base extends CharacterBase
   # ID
-  @characterId = 181
+  @characterId = 178
   # キャラ名
   @characterName = "メアリー・コクラン"
   # 最初からいるか
@@ -7042,11 +7279,13 @@ class Character181Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -7057,9 +7296,9 @@ class Character181Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character182Base extends CharacterBase
+class Character179Base extends CharacterBase
   # ID
-  @characterId = 182
+  @characterId = 179
   # キャラ名
   @characterName = "持田亜里沙"
   # 最初からいるか
@@ -7081,11 +7320,13 @@ class Character182Base extends CharacterBase
   # 基本射程
   @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数
   @itemMax = 15
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -7096,9 +7337,9 @@ class Character182Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character183Base extends CharacterBase
+class Character180Base extends CharacterBase
   # ID
-  @characterId = 183
+  @characterId = 180
   # キャラ名
   @characterName = "望月聖"
   # 最初からいるか
@@ -7120,11 +7361,13 @@ class Character183Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -7135,9 +7378,9 @@ class Character183Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character184Base extends CharacterBase
+class Character181Base extends CharacterBase
   # ID
-  @characterId = 184
+  @characterId = 181
   # キャラ名
   @characterName = "桃井あずき"
   # 最初からいるか
@@ -7159,11 +7402,13 @@ class Character184Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -7174,9 +7419,9 @@ class Character184Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character185Base extends CharacterBase
+class Character182Base extends CharacterBase
   # ID
-  @characterId = 185
+  @characterId = 182
   # キャラ名
   @characterName = "森久保乃々"
   # 最初からいるか
@@ -7190,19 +7435,21 @@ class Character185Base extends CharacterBase
   # 成長率：HP
   @hpBase = 16
   # 成長率：物理防御
-  @pDefBase = 2.7
+  @pDefBase = 2
   # 成長率：魔法防御
-  @mDefBase = 2.7
+  @mDefBase = 2
   # 基本移動力
   @moveBase = 3
   # 基本射程
   @rangeBase = 3
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 3
+  @dodgeRateBase = 5
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -7213,9 +7460,9 @@ class Character185Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character186Base extends CharacterBase
+class Character183Base extends CharacterBase
   # ID
-  @characterId = 186
+  @characterId = 183
   # キャラ名
   @characterName = "諸星きらり"
   # 最初からいるか
@@ -7227,7 +7474,7 @@ class Character186Base extends CharacterBase
   # 成長率：攻撃力
   @attackBase = 18
   # 成長率：HP
-  @hpBase = 22
+  @hpBase = 23
   # 成長率：物理防御
   @pDefBase = 1.5
   # 成長率：魔法防御
@@ -7237,11 +7484,13 @@ class Character186Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -7252,9 +7501,9 @@ class Character186Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character187Base extends CharacterBase
+class Character184Base extends CharacterBase
   # ID
-  @characterId = 187
+  @characterId = 184
   # キャラ名
   @characterName = "楊菲菲"
   # 最初からいるか
@@ -7276,11 +7525,13 @@ class Character187Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 10
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -7291,9 +7542,9 @@ class Character187Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character188Base extends CharacterBase
+class Character185Base extends CharacterBase
   # ID
-  @characterId = 188
+  @characterId = 185
   # キャラ名
   @characterName = "八神マキノ"
   # 最初からいるか
@@ -7303,36 +7554,38 @@ class Character188Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 11
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 18
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1.7
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1.9
   # 基本移動力
-  @moveBase = 4
+  @moveBase = 5
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 3
+  @dodgeRateBase = 5
   # アイテム装備可能数
-  @itemMax = 10
+  @itemMax = 12
+  # コスト
+  @costBase = 1.5
   # 必要経験値
-  @expRate = 2.2
+  @expRate = 2.4
   # 死んだ時の台詞
   @textDeath = "八神マキノ"
 
   @abilityName = "諜報"
-  @abilityDesc = "なし"
+  @abilityDesc = "自分が攻撃する時を除き、周囲にいる敵が受けるダメージが2倍になる"
 
   constructor:(params)->
     super(params)
-class Character189Base extends CharacterBase
+class Character186Base extends CharacterBase
   # ID
-  @characterId = 189
+  @characterId = 186
   # キャラ名
   @characterName = "矢口美羽"
   # 最初からいるか
@@ -7354,11 +7607,13 @@ class Character189Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -7369,9 +7624,9 @@ class Character189Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character190Base extends CharacterBase
+class Character187Base extends CharacterBase
   # ID
-  @characterId = 190
+  @characterId = 187
   # キャラ名
   @characterName = "柳清良"
   # 最初からいるか
@@ -7393,24 +7648,26 @@ class Character190Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 92
+  @hitRateBase = 90
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数
   @itemMax = 12
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.4
   # 死んだ時の台詞
   @textDeath = "柳清良"
 
   @abilityName = "看護"
-  @abilityDesc = "ターンごとの体力現象を半分にする"
+  @abilityDesc = "ターンごとのHP減少を半分にする"
 
   constructor:(params)->
     super(params)
-class Character191Base extends CharacterBase
+class Character188Base extends CharacterBase
   # ID
-  @characterId = 191
+  @characterId = 188
   # キャラ名
   @characterName = "柳瀬美由紀"
   # 最初からいるか
@@ -7432,11 +7689,13 @@ class Character191Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -7447,9 +7706,9 @@ class Character191Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character192Base extends CharacterBase
+class Character189Base extends CharacterBase
   # ID
-  @characterId = 192
+  @characterId = 189
   # キャラ名
   @characterName = "大和亜季"
   # 最初からいるか
@@ -7469,13 +7728,15 @@ class Character192Base extends CharacterBase
   # 基本移動力
   @moveBase = 5
   # 基本射程
-  @rangeBase = 6
+  @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 70
+  @hitRateBase = 68
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数
   @itemMax = 15
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -7486,9 +7747,9 @@ class Character192Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character193Base extends CharacterBase
+class Character190Base extends CharacterBase
   # ID
-  @characterId = 193
+  @characterId = 190
   # キャラ名
   @characterName = "結城晴"
   # 最初からいるか
@@ -7510,11 +7771,13 @@ class Character193Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数
   @itemMax = 8
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
@@ -7525,9 +7788,9 @@ class Character193Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character194Base extends CharacterBase
+class Character191Base extends CharacterBase
   # ID
-  @characterId = 194
+  @characterId = 191
   # キャラ名
   @characterName = "遊佐こずえ"
   # 最初からいるか
@@ -7549,11 +7812,13 @@ class Character194Base extends CharacterBase
   # 基本射程
   @rangeBase = 4
   # 基本命中率
-  @hitRateBase = 90
+  @hitRateBase = 88
   # 基本回避率
-  @dodgeRateBase = 7
+  @dodgeRateBase = 1
   # アイテム装備可能数
   @itemMax = 8
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
@@ -7564,9 +7829,9 @@ class Character194Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character195Base extends CharacterBase
+class Character192Base extends CharacterBase
   # ID
-  @characterId = 195
+  @characterId = 192
   # キャラ名
   @characterName = "横山千佳"
   # 最初からいるか
@@ -7576,7 +7841,7 @@ class Character195Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 14
+  @attackBase = 12
   # 成長率：HP
   @hpBase = 13
   # 成長率：物理防御
@@ -7586,26 +7851,28 @@ class Character195Base extends CharacterBase
   # 基本移動力
   @moveBase = 4
   # 基本射程
-  @rangeBase = 1
+  @rangeBase = 4
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 10
+  @itemMax = 8
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
   @textDeath = "横山千佳"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "魔法知識"
+  @abilityDesc = "魔法攻撃を受ける時、回避率が5倍になる"
 
   constructor:(params)->
     super(params)
-class Character196Base extends CharacterBase
+class Character193Base extends CharacterBase
   # ID
-  @characterId = 196
+  @characterId = 193
   # キャラ名
   @characterName = "吉岡沙紀"
   # 最初からいるか
@@ -7627,24 +7894,26 @@ class Character196Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
   @textDeath = "吉岡沙紀"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "ペイント"
+  @abilityDesc = "味方ターン開始時、周囲の敵をランダムな別の敵に変化させることがある"
 
   constructor:(params)->
     super(params)
-class Character197Base extends CharacterBase
+class Character194Base extends CharacterBase
   # ID
-  @characterId = 197
+  @characterId = 194
   # キャラ名
   @characterName = "依田芳乃"
   # 最初からいるか
@@ -7664,13 +7933,15 @@ class Character197Base extends CharacterBase
   # 基本移動力
   @moveBase = 4
   # 基本射程
-  @rangeBase = 1
+  @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -7681,9 +7952,9 @@ class Character197Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character198Base extends CharacterBase
+class Character195Base extends CharacterBase
   # ID
-  @characterId = 198
+  @characterId = 195
   # キャラ名
   @characterName = "ライラ"
   # 最初からいるか
@@ -7693,36 +7964,38 @@ class Character198Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 11
   # 成長率：HP
   @hpBase = 12
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1
   # 基本移動力
   @moveBase = 4
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 10
+  @itemMax = 6
+  # コスト
+  @costBase = 1.5
   # 必要経験値
-  @expRate = 2.2
+  @expRate = 1.2
   # 死んだ時の台詞
   @textDeath = "ライラ"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "節約"
+  @abilityDesc = "レベルが上がりやすい"
 
   constructor:(params)->
     super(params)
-class Character199Base extends CharacterBase
+class Character196Base extends CharacterBase
   # ID
-  @characterId = 199
+  @characterId = 196
   # キャラ名
   @characterName = "龍崎薫"
   # 最初からいるか
@@ -7732,23 +8005,25 @@ class Character199Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 12
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 15
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1.3
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1.3
   # 基本移動力
   @moveBase = 4
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 93
   # 基本回避率
-  @dodgeRateBase = 3
+  @dodgeRateBase = 7
   # アイテム装備可能数
-  @itemMax = 10
+  @itemMax = 4
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
@@ -7759,48 +8034,9 @@ class Character199Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character200Base extends CharacterBase
+class Character197Base extends CharacterBase
   # ID
-  @characterId = 200
-  # キャラ名
-  @characterName = "ルーキートレーナー"
-  # 最初からいるか
-  @defaultJoin = false
-  # 画像のリスト
-  @images = []
-  # 基本攻撃タイプ
-  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
-  # 成長率：攻撃力
-  @attackBase = 13
-  # 成長率：HP
-  @hpBase = 17
-  # 成長率：物理防御
-  @pDefBase = 1.5
-  # 成長率：魔法防御
-  @mDefBase = 1.5
-  # 基本移動力
-  @moveBase = 4
-  # 基本射程
-  @rangeBase = 1
-  # 基本命中率
-  @hitRateBase = 97
-  # 基本回避率
-  @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
-  # 必要経験値
-  @expRate = 2.2
-  # 死んだ時の台詞
-  @textDeath = "ルーキートレーナー"
-
-  @abilityName = "なし"
-  @abilityDesc = "なし"
-
-  constructor:(params)->
-    super(params)
-class Character201Base extends CharacterBase
-  # ID
-  @characterId = 201
+  @characterId = 197
   # キャラ名
   @characterName = "若林智香"
   # 最初からいるか
@@ -7822,11 +8058,13 @@ class Character201Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
@@ -7837,9 +8075,9 @@ class Character201Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character202Base extends CharacterBase
+class Character198Base extends CharacterBase
   # ID
-  @characterId = 202
+  @characterId = 198
   # キャラ名
   @characterName = "脇山珠美"
   # 最初からいるか
@@ -7861,11 +8099,13 @@ class Character202Base extends CharacterBase
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 99
+  @hitRateBase = 97
   # 基本回避率
   @dodgeRateBase = 8
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
@@ -7876,9 +8116,9 @@ class Character202Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character203Base extends CharacterBase
+class Character199Base extends CharacterBase
   # ID
-  @characterId = 203
+  @characterId = 199
   # キャラ名
   @characterName = "和久井留美"
   # 最初からいるか
@@ -7892,19 +8132,21 @@ class Character203Base extends CharacterBase
   # 成長率：HP
   @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 2
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1.8
   # 基本移動力
   @moveBase = 4
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 97
+  @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
   @itemMax = 10
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 2.6
   # 死んだ時の台詞
@@ -7915,9 +8157,9 @@ class Character203Base extends CharacterBase
 
   constructor:(params)->
     super(params)
-class Character204Base extends CharacterBase
+class Character200Base extends CharacterBase
   # ID
-  @characterId = 204
+  @characterId = 200
   # キャラ名
   @characterName = "千川ちひろ"
   # 最初からいるか
@@ -7944,12 +8186,14 @@ class Character204Base extends CharacterBase
   @dodgeRateBase = 1
   # アイテム装備可能数
   @itemMax = 15
+  # コスト
+  @costBase = 1.5
   # 必要経験値
   @expRate = 3.2
   # 死んだ時の台詞
   @textDeath = "千川ちひろ"
 
-  @abilityName = "マネジメント"
+  @abilityName = "事務"
   @abilityDesc = "出撃中に得るジュエルが2倍になる"
 
   constructor:(params)->

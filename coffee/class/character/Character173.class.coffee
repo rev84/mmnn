@@ -1,4 +1,4 @@
-# 三船美優
+# 三好紗南
 class Character173 extends Character173Base
   constructor:(params)->
     super(params)

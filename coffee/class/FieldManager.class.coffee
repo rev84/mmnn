@@ -104,14 +104,11 @@ class FieldManager
     clearInterval @cellAnimationTimer if @cellAnimationTimer isnt false
     
 
-  @moveObject:(startCell, endCell, callback = null)=>
+  @moveObject:(startCell, endCell)=>
     GameManager.changeControllable false
 
-    # 移動しないのですぐコールバック
-    if startCell is endCell
-      if callback instanceof Function
-        callback()
-      return
+    # 移動しないのですぐ返る
+    return if startCell is endCell
 
     wayStack = endCell.wayStack
 
@@ -123,7 +120,7 @@ class FieldManager
 
     charaObject = startCell.object
 
-    finish = =>
+    finish = (startCell, endCell)=>
       GameManager.flags.movePickCell = null
       GameManager.flags.moveToCell = [startCell, endCell]
       
@@ -145,21 +142,17 @@ class FieldManager
       GameManager.flags.movePickCell = null
       endCell.draw()
 
-      callback() if callback instanceof Function
+    prevCell = startCell
+    while wayStack.length > 0
+      nextCell = wayStack.shift()
+      prevCell.setObject null
+      nextCell.setObject charaObject
+      prevCell.draw()
+      nextCell.draw()
+      await Utl.sleep @MOVE_SPEED
+      prevCell = nextCell
 
-    showHide = (prevCell, wayStack)=>
-      if wayStack.length is 0
-        finish()
-      else
-        nextCell = wayStack.shift()
-        prevCell.setObject null
-        nextCell.setObject charaObject
-        prevCell.draw()
-        nextCell.draw()
-        setTimeout showHide.bind(null, nextCell, wayStack), @MOVE_SPEED
-
-    setTimeout showHide.bind(null, startCell, wayStack), @MOVE_SPEED
-    true
+    finish(startCell, endCell)
 
   # 指定したセルにいるオブジェクトから攻撃することができるセルを返す
   @getAttackableCellsByCell:(cell)->
@@ -220,7 +213,7 @@ class FieldManager
                 movableMap[x+xPlus][y+yPlus] = wayStack.concat([@cells[x+xPlus][y+yPlus]])
     movableMap
 
-  @randomEnemyAppear:(callback = null)->
+  @randomEnemyAppear:->
     # 一時的にアニメーションしないようにする
     GameManager.flags.isCellObjectAnimation = false
 
@@ -233,7 +226,6 @@ class FieldManager
       [5, 10]
       [6, 10]
     ]
-    flushCount = 5
 
     putEnemy = (enemyObject)=>
       return false if enemyObject is null
@@ -247,27 +239,31 @@ class FieldManager
 
       targetCell = Utl.shuffle(emptyCells).pop()
       targetCell.setObject enemyObject
+      targetCell
 
-      targetCell.draw()
-
-      for cnt in [0...flushCount]
-        setTimeout targetCell.showObject.bind(targetCell, false), cnt*100+50
-        setTimeout targetCell.showObject.bind(targetCell, true), cnt*100+100
-      true
-
-    isNotEmpty = false
+    targetCells = []
     for cnt in [0...enemyAmount]
-      res = putEnemy GameManager.getEnemyObject()
-    # 後処理
-    setTimeout =>
-      # アニメーション復活
-      GameManager.flags.isCellObjectAnimation = true
-      callback()
-    , (flushCount+1)*100      
+      c = putEnemy GameManager.getEnemyObject()
+      targetCells.push c if c isnt false
+
+    # 敵が出たならアニメーション待ち
+    if targetCells.length > 0
+      for cnt in [0...5]
+        $.each targetCells, ->
+          @hideObject()
+        await Utl.sleep(50)
+        $.each targetCells, ->
+          @showObject()
+        await Utl.sleep(50)
+
+    # アニメーション復活
+    Utl.sleep(100)
+    GameManager.flags.isCellObjectAnimation = true
+
     true
 
   # 全キャラを見ていって、やられていたら台詞を言わせながら戻す
-  @checkDeath:(callback = null)=>
+  @checkDeath:=>
     noExistDeath = true
     for body in @cells
       for c in body
@@ -275,24 +271,17 @@ class FieldManager
         if c.object isnt null and c.object.getHp() <= 0
           # 死んでるのがキャラクターなら
           if c.object.isCharacterObject()
-            return c.showPopover c.object.getTextOnDeath(), 2000, =>
-              # オブジェクト消す
-              c.object = null
-              # 再描画
-              c.draw()
-              # 別のキャラを走査
-              @checkDeath callback
+            await c.showPopover c.object.getTextOnDeath(), 2000
           # 死んでるのが敵キャラなら
           else if c.object.isEnemyObject()
             # 敵が死んだなら経験値加算
             EnvManager.increaseExp c.object.getExp()
-            # オブジェクト消す
-            c.object = null
-            # 再描画
-            c.draw()
-            # 別のキャラを走査
-            @checkDeath callback
-    callback()
+          # オブジェクト消す
+          c.object = null
+          # 再描画
+          c.draw()
+          # 別のキャラを走査
+          @checkDeath callback
 
 
   # 次の列を生成する

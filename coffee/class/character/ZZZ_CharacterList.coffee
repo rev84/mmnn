@@ -199,8 +199,4 @@ window.CharacterList = {
   "198" : Character198
   "199" : Character199
   "200" : Character200
-  "201" : Character201
-  "202" : Character202
-  "203" : Character203
-  "204" : Character204
 }

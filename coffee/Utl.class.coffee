@@ -488,3 +488,9 @@ class Utl
       pTotal += p
       return target if seed <= pTotal
     map[map.legnth - 1][0]
+
+  @sleep:(msec)->
+    new Promise (resolve, reject) =>
+      setTimeout =>
+        resolve()
+      , msec

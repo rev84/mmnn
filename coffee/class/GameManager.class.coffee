@@ -175,7 +175,9 @@ class GameManager
   @doTurnEnd:(isSoon = false)->
     # ターン終了可能な状態ではない
     return unless @flags.isEnableTurnEnd
-    @enemyMove()
+
+    while await @enemyMove()
+      ;
     # 階層進行制限解除
     @flags.isWalkInThisTurn = false 
 
@@ -400,9 +402,9 @@ class GameManager
       @flags.moveToCell = null
       @flags.waitAttackCell = null
       # 敵を湧かせる
-      FieldManager.randomEnemyAppear ->
-        GameManager.changeControllable true
-        #setTimeout GameManager.doTurnEnd.bind(GameManager), 10
+      await FieldManager.randomEnemyAppear()
+      GameManager.changeControllable true
+      false
 
     # 全マスから未行動の敵を探す
     enemyCell = null
@@ -419,7 +421,6 @@ class GameManager
     # 行動してない敵はいなかった
     if enemyCell is null
       return ending()
-    
 
     ####################################################################
     # 全行動表
@@ -539,21 +540,22 @@ class GameManager
     [_, moveToCell, atkCell] = acts[0]
 
     # 移動
-    FieldManager.moveObject enemyCell, moveToCell, =>
-      # 攻撃しない
-      if atkCell is null
-        moveToCell.object.setMoved true
-        moveToCell.drawFin()
-        setTimeout @enemyMove.bind(@), 1
-      # 自爆する
-      else if atkCell is -1
-        @terror(moveToCell, @enemyMove.bind(@))
-      # 攻撃する
-      else
-        @attack(moveToCell, atkCell, @enemyMove.bind(@))
-    true
+    await FieldManager.moveObject enemyCell, moveToCell
 
-  @attack:(attackerCell, defenderCell, callback = null)->
+    # 攻撃しない
+    if atkCell is null
+      moveToCell.object.setMoved true
+      moveToCell.drawFin()
+    # 自爆する
+    else if atkCell is -1
+      await @terror(moveToCell)
+    # 攻撃する
+    else
+      await @attack(moveToCell, atkCell)
+
+    @enemyMove()
+
+  @attack:(attackerCell, defenderCell)->
     # それぞれのオブジェクト
     attacker = attackerCell.object
     defender = defenderCell.object
@@ -567,69 +569,71 @@ class GameManager
     RightInfoManager.setObject rightObject
 
     # ターゲットマークを点滅させる
-    defenderCell.startAnimation './img/target.png', 0, 100
-    defenderCell.startAnimation './img/target.png', 200, 300
-    defenderCell.startAnimation './img/target.png', 400, 500
+    times = 5
+    for index in [0...times]
+      defenderCell.showAnimation './img/target.png'
+      await Utl.sleep(100)
+      defenderCell.hideAnimation()
+      await Utl.sleep(100)
 
-    # 攻撃エフェクト
-    #defenderCell.startAnimation './img/damage.png', 550, 1750
+    await Utl.sleep(50)
 
-    setTimeout =>
-      # 攻撃側の攻撃タイプ
-      attackType = attacker.getAttackType()
-      # 攻撃側の攻撃力
-      attack = attacker.getAttack()
-      # 防御側の防御力
-      def = if attackType is ObjectBase.ATTACK_TYPE.PHYSIC then defender.getPDef() else defender.getMDef()
-      # 防御側のHP
-      hp = defender.getHp()
+    # 攻撃側の攻撃タイプ
+    attackType = attacker.getAttackType()
+    # 攻撃側の攻撃力
+    attack = attacker.getAttack()
+    # 防御側の防御力
+    def = if attackType is ObjectBase.ATTACK_TYPE.PHYSIC then defender.getPDef() else defender.getMDef()
+    # 防御側のHP
+    hp = defender.getHp()
 
-      # ダメージ
-      damage = ObjectBase.getDamage(attack, def)
+    # ダメージ
+    damage = ObjectBase.getDamage(attack, def)
 
-      # 攻撃アニメーション
-      if attacker.isCharacterObject()
-        character = attacker
-        enemy = defender
-        isCharacterOffence = true
-      else
-        character = defender
-        enemy = attacker
-        isCharacterOffence = false
+    # 攻撃アニメーション
+    if attacker.isCharacterObject()
+      character = attacker
+      enemy = defender
+      isCharacterOffence = true
+    else
+      character = defender
+      enemy = attacker
+      isCharacterOffence = false
 
-      hpMax = defender.getHpMax()
-      hpBase = defender.getHp()
-      hpTo = defender.getHp() - damage
-      hpTo = 0 if hpTo < 0
-      BattleResultManager.animate character, enemy, isCharacterOffence, hpMax, hpBase, hpTo, =>
-        # ダメージを与える
-        defender.damage damage
-        # 倒したキャラの台詞チェック
-        FieldManager.checkDeath =>
-          # 攻撃側を行動終了にする
-          attacker.setMoved true
-          # 再描画
-          attackerCell.draw()
-          defenderCell.draw()
+    hpMax = defender.getHpMax()
+    hpBase = defender.getHp()
+    hpTo = defender.getHp() - damage
+    hpTo = 0 if hpTo < 0
 
-          # 移動・攻撃対象を解除
-          FieldManager.removeAllWayStack()
-          FieldManager.removeAllKnockout()
-          FieldManager.drawMovable()
-          FieldManager.drawKnockout()
+    # アニメーションを待つ
+    await BattleResultManager.animate character, enemy, isCharacterOffence, hpMax, hpBase, hpTo
+    await Utl.sleep(100)
 
-          setTimeout callback, 1 if callback instanceof Function
-    , 550
+
+    # ダメージを与える
+    defender.damage damage
+    # 倒したキャラの台詞チェック
+    FieldManager.checkDeath()
+
+    # 攻撃側を行動終了にする
+    attacker.setMoved true
+    # 再描画
+    attackerCell.draw()
+    defenderCell.draw()
+
+    # 移動・攻撃対象を解除
+    FieldManager.removeAllWayStack()
+    FieldManager.removeAllKnockout()
+    FieldManager.drawMovable()
+    FieldManager.drawKnockout()
 
   # 自爆
-  @terror:(cell, callback = null)->
+  @terror:(cell)->
     # ライフを1下げる
     EnvManager.decreaseLife()
     # 敵を消し去る
     cell.object = null
     cell.draw()
-
-    setTimeout callback, 1 if callback instanceof Function
 
   # 指定した階層で出得る敵を一体返す
   @getEnemyObject:(level = EnvManager.getFloor())->

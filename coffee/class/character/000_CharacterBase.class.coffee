@@ -44,3 +44,12 @@ class CharacterBase extends ObjectBase
 
   getTextOnDeath:->
     @constructor.textDeath
+
+  getCostBase:->
+    @constructor.costBase
+
+  getCost:(level = null)->
+    if level is null
+      Math.ceil(@constructor.costBase * @level)
+    else
+      Math.ceil(@constructor.costBase * level)

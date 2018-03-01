@@ -203,20 +203,16 @@ class Cell
   changeKnockout:(imagePath, num = '')->
       @elements.knockout.css('background-image', 'url('+imagePath+')').html(num).removeClass('no_display')
 
-  startAnimation:(imagePath, startMsec, endMsec, callback = null)->
-    setTimeout =>
-      @elements.animation.css('background-image', 'url('+imagePath+')').removeClass('no_display')
-    , startMsec
-    setTimeout =>
-      @elements.animation.css('background-image', 'none').addClass('no_display')
-      callback() if callback instanceof Function
-    , endMsec
+  showAnimation:(imagePath)->
+    @elements.animation.css('background-image', 'url('+imagePath+')').removeClass('no_display')
 
-  showObject:(bool = true)->
-    if bool
-      @elements.object.removeClass('no_display')
-    else
-      @elements.object.addClass('no_display')
+  hideAnimation:->
+    @elements.animation.css('background-image', 'none').addClass('no_display')
+
+  showObject:->
+    @elements.object.removeClass('no_display')
+  hideObject:->
+    @elements.object.addClass('no_display')
   showMovable:(bool = true)->
     if bool
       @elements.movable.removeClass('no_display')
@@ -233,7 +229,7 @@ class Cell
     else
       @elements.knockout.addClass('no_display')
   # 吹き出しを出す
-  showPopover:(text = null, msec = null, callback = null)->
+  showPopover:(text = null, msec = null)->
     if text is null
       $(@elements.mother).popover('destroy')
     else
@@ -250,13 +246,10 @@ class Cell
         content: text
         placement: position
       }).popover('show')
-      if msec is null
-        callback() if callback instanceof Function
-      else
-        setTimeout =>
-          $(@elements.mother).popover('destroy')
-          callback() if callback instanceof Function
-        , msec
+      
+      if msec isnt null
+        await Utl.sleep msec 
+        $(@elements.mother).popover('destroy')
 
   # 描画
   draw:->
@@ -383,7 +376,7 @@ class Cell
       @showFin(false)
 
   stepObjectAnimation:=>
-    return @showObject false if @object is null
+    return @hideObject if @object is null
     @objectAnimationIndex++
     @objectAnimationIndex = 0 if @object.getImage(@objectAnimationIndex) is null
     @changeObject @object.getImage(@objectAnimationIndex)

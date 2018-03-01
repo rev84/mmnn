@@ -136,10 +136,10 @@ window.CharacterList = {
 EOM;
 
   # キャラクター
-  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'キャラ設定!A3:R');
+  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'キャラ設定!A3:S');
   $values = $response->getValues();
   foreach ($values as $vAry) {
-    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $itemMax, $expRate, $abilityName, $abilityDesc, $defaultJoin, $textDeath) = $vAry;
+    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $itemMax, $cost, $expRate, $abilityName, $abilityDesc, $defaultJoin, $textDeath) = $vAry;
     $defaultJoin = $defaultJoin == '' ? 'false' : 'true';
 
     $attackTypeBase = ($attackTypeBase == '物理' ? 'ObjectBase.ATTACK_TYPE.PHYSIC' : 'ObjectBase.ATTACK_TYPE.MAGIC');
@@ -184,6 +184,8 @@ class {$className}Base extends CharacterBase
   @dodgeRateBase = {$dodgeRateBase}
   # アイテム装備可能数
   @itemMax = {$itemMax}
+  # コスト
+  @costBase = {$cost}
   # 必要経験値
   @expRate = {$expRate}
   # 死んだ時の台詞
