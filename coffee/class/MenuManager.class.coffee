@@ -75,6 +75,16 @@ class MenuManager
     .on('click', @onClickUndo.bind(@))
     .appendTo(@divObject)
 
+    # アイテム
+    @item = $('<div>').html('アイテム').css({
+      border: '1px solid #000000'
+      width: 100
+      height: 40
+      "font-size": '30px'
+    })
+    .on('click', @onClickItem.bind(@))
+    .appendTo(@divObject)
+
     @divObject.appendTo(@parentElement)
 
   # 出撃
@@ -89,6 +99,7 @@ class MenuManager
     # 戦闘・レベルアップに遷移可能
     GameManager.isEnable.battle = true
     GameManager.isEnable.levelup = true
+    GameManager.isEnable.item = true
     GameManager.flags.isCellObjectAnimation = false
 
     GameManager.doCharacterPick()
@@ -111,6 +122,7 @@ class MenuManager
     GameManager.isEnable.undo = true
     GameManager.isEnable.leftPanel = true
     GameManager.isEnable.rightPanel = true
+    GameManager.isEnable.item = true
     GameManager.flags.isCellObjectAnimation = true
 
     GameManager.doBattle()
@@ -136,6 +148,7 @@ class MenuManager
     GameManager.isMode.levelup = true
     GameManager.isEnable.characterPick = true
     GameManager.isEnable.battle = true
+    GameManager.isEnable.item = true
     GameManager.flags.isCellObjectAnimation = false
 
     GameManager.doLevelup()
@@ -159,5 +172,25 @@ class MenuManager
     return unless GameManager.isEnable.undo
 
     GameManager.doUndo()
+    true
+
+  # アイテム画面へ
+  @onClickItem:(evt)->
+    return unless GameManager.isControllable()
+    # アイテムモードにできないなら返る
+    return unless GameManager.isEnable.item
+
+    # 描画
+    ItemCharacterPicker.draw()
+
+    # レベルアップモードにする
+    GameManager.resetFlags()
+    GameManager.isMode.item = true
+    GameManager.isEnable.characterPick = true
+    GameManager.isEnable.battle = true
+    GameManager.isEnable.levelup = true
+    GameManager.flags.isCellObjectAnimation = false
+
+    GameManager.doItem()
     true
         

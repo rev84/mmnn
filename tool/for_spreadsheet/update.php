@@ -6,7 +6,55 @@ define('SPREAD_SHEET_ID', '1QtuXjepseAXTZ27y4lLrMs_DJHbjUTutheaTVeezUMs');
 
 updateCharacter();
 updateEnemy();
+updateItem();
 
+
+function updateItem()
+{
+  $c = SpreadsheetClient::getClient();
+
+  $service = new Google_Service_Sheets($c);
+
+  $script = '';
+  $characterList = <<<EOM
+window.ItemList = {
+
+EOM;
+
+  # キャラクター
+  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'アイテム設定!A3:W');
+  $values = $response->getValues();
+  $items = [];
+  foreach ($values as $vAry) {
+    list($itemId, $displayOrder, $name, $description, $cost1, $cost2, $cost3, $cost4, $cost5, $expense2, $expense3, $expense4, $expense5, $hpRate, $atkRate, $pDefRate, $mDefRate, $costRate, $movePlus, $rangePlus, $hitPlus, $dodgePlus, $returnPlus) = array_merge($vAry, array_fill(0, 100, null));
+
+    $imgFile = './img/item/'.$itemId.'.png';
+
+    $items[$itemId] = [
+      'displayOrder' => $displayOrder,
+      'name' => $name,
+      'description' => $description,
+      'cost' => [
+        $cost1,$cost2,$cost3,$cost4,$cost5,
+      ],
+      'expense' => [
+        $expense2, $expense3, $expense4, $expense5,
+      ],
+      'hpRate' => ($hpRate == '' ? null : $hpRate),
+      'atkRate' => ($atkRate == '' ? null : $atkRate),
+      'pDefRate' => ($pDefRate == '' ? null : $pDefRate),
+      'mDefRate' => ($mDefRate == '' ? null : $mDefRate),
+      'costRate' => ($costRate == '' ? null : $costRate),
+      'movePlus' => ($movePlus == '' ? null : $movePlus),
+      'rangePlus' => ($rangePlus == '' ? null : $rangePlus),
+      'hitPlus' => ($hitPlus == '' ? null : $hitPlus),
+      'dodgePlus' => ($dodgePlus == '' ? null : $dodgePlus),
+      'returnPlus' => ($returnPlus == '' ? null : $returnPlus),
+    ];
+  }
+
+  file_put_contents(dirname(__FILE__).'/../../coffee/class/item/ItemList.coffee', 'window.itemList = '.json_encode($items).';');
+}
 
 function updateEnemy()
 {

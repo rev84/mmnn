@@ -40,11 +40,13 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 #game {
   position: relative;
+  width: 1280px;
+  height: 1000px;
 }
 #menu > * {
   float: left;
 }
-#menu, #character_pallet, #field_visible, #field, #left_info, #right_info, #env, #levelup, #battle_result {
+#menu, #character_pallet, #field_visible, #field, #left_info, #right_info, #env, #levelup, #battle_result, #item, #item_character_picker, #item_equipment_editor, #item_editor {
   position: absolute;
 }
 #character_pallet {
@@ -126,7 +128,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 .panel {
   border: double 5px #000000;
 }
-.panel, .panel > *, #env > div, .levelup_panel, .levelup_panel > *, .levelup_controller, .levelup_controller > *, #battle_result > * {
+.panel, .panel > *, #env > div, .levelup_panel, .levelup_panel > *, .levelup_controller, .levelup_controller > *, #battle_result > *, #item_character_picker, #item_character_picker > * {
   position: absolute;
   box-sizing: border-box;
 }
@@ -213,4 +215,30 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 .popover {
   font-size:30px;
+}
+#item {
+  width: 1000px;
+  height: 600px;
+}
+#item_character_picker {
+  top:0px;
+  left:0px;
+  width: 420px;
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#item_equipment_editor {
+  top:0px;
+  left:420px;
+  width: 300px;
+  height: 600px;
+}
+#item_editor {
+  top:0px;
+  left:720px;
+  width: 500px;
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

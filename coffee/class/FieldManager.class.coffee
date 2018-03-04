@@ -14,6 +14,9 @@ class FieldManager
   @cellAnimationTimer = false
 
   @init:(@parentElement)->
+    @SIZE_X = @CELL_X * Cell.SIZE_X + @BORDER_SIZE * (@CELL_X + 1)
+    @SIZE_Y = @CELL_Y * Cell.SIZE_Y + @BORDER_SIZE * (@CELL_Y + 1) + 50
+
     # 見える領域を制限するためにしかたなく置いた親エレメント
     @visibleObject = $('<div>').attr('id', 'field_visible').css({
       width: @CELL_X * Cell.SIZE_X + @BORDER_SIZE * (@CELL_X + 1)

@@ -10,7 +10,8 @@ class GameManager
   @mousePos = {x:0, y:0}
   @gameElement = null
   @characters = []
-  @enemy = []
+  @enemys = []
+  @items = []
   @initialized = 
     characters:false
     field:false
@@ -18,10 +19,12 @@ class GameManager
     enemys:false
     levelup:false
     env:false
+    items:false
   @isMode = 
     battle: false
     characterPick: false
     levelup: false
+    item: false
   @isEnable = 
     battle: false
     characterPick: false
@@ -31,6 +34,7 @@ class GameManager
     undo: false
     leftPanel: false
     rightPanel: false
+    item: false
   @flags = 
     # 操作可能か
     controllable : true
@@ -60,6 +64,7 @@ class GameManager
       right_info:[600,630]
       env:[0, 630]
       levelup:null
+      item:null
     CHARACTER_PICK:
       menu:[0,0]
       character_pallet:[140,50]
@@ -68,6 +73,7 @@ class GameManager
       right_info:null
       env:[0, 630]
       levelup:null
+      item:null
     LEVELUP:
       menu:[0,0]
       character_pallet:null
@@ -76,7 +82,17 @@ class GameManager
       right_info:null
       env:[0, 630]
       levelup:[0, 50]
-  @ANIMATION_MSEC = 500
+      item:null
+    ITEM:
+      menu:[0,0]
+      character_pallet:null
+      field_visible:null
+      left_info:null
+      right_info:null
+      env:[0, 630]
+      levelup:null
+      item:[0, 50]
+  @ANIMATION_MSEC = 300
 
   @onMouseMiddleDown:(evt)->
     return unless @isControllable()
@@ -141,15 +157,9 @@ class GameManager
     # キャラクター設置を確定
     CharacterPalletManager.onExit()
 
-    # 戦闘モードにする
-    @flags.isBattle = true
-
   # キャラクター出撃に移行
   @doCharacterPick:(isSoon = false)->
     @partsAnimation @POSITION.CHARACTER_PICK, isSoon
-
-    # 戦闘モードを切る
-    @flags.isBattle = false
     
   # ターン終了
   @doTurnEnd:(isSoon = false)->
@@ -170,6 +180,17 @@ class GameManager
 
     @flags.isCellObjectAnimation = false
 
+  # アイテム画面
+  @doItem:(isSoon = false)->
+    @partsAnimation @POSITION.ITEM, isSoon
+
+    # キャラクター設置を確定
+    CharacterPalletManager.onExit()
+
+    # コントロールを戻す
+    @changeControllable true
+
+
   @partsAnimation:(ary, isSoon = false)->
     # 操作不能にする
     @changeControllable false
@@ -180,28 +201,14 @@ class GameManager
     for id, pos of ary
       # 消す
       if pos is null
-        $('#'+id).slideUp(animationMsec)
-        ###
-        if isSoon
-          $('#'+id).css('display', 'none')
-        else
-          $('#'+id).slideUp(@ANIMATION_MSEC)
-        ###
-
+        $('#'+id).fadeOut(animationMsec)
       # 表す
       else
-        $('#'+id).animate({left: pos[0], top: pos[1]}, animationMsec).slideDown(animationMsec)
-        ###
-        if isSoon
-          $('#'+id).css('display', 'block').css({left: pos[0], top: pos[1]})
-        else
-          $('#'+id).slideDown(@ANIMATION_MSEC).css({left: pos[0], top: pos[1]})
-        ###
+        $('#'+id).animate({left: pos[0], top: pos[1]}, animationMsec).fadeIn(animationMsec)
 
     # 指定時間後に操作可能
-    setTimeout =>
-      @changeControllable true
-    , animationMsec
+    Utl.sleep animationMsec
+    @changeControllable true
 
   # 初期化
   @init:->
@@ -224,10 +231,6 @@ class GameManager
                         when 3 then @onMouseRightDown.bind(@)(evt)
                     )
                    .on('mouseleave', @onMouseLeave.bind(@))
-                   .css({
-                      width: 1200
-                      height: 800
-                    })
 
     @initField(null)
     @initEnv(null)
@@ -236,6 +239,7 @@ class GameManager
     @initCharacters(null)
     @initLevelup(null)
     @initEnemys(null)
+    @initItems(null)
     @initBattleResult(null)
 
     @gameElement.appendTo('body')
@@ -249,6 +253,7 @@ class GameManager
     GameManager.isEnable.turnEnd = true
     GameManager.isEnable.walk = true
     GameManager.isEnable.undo = true
+    GameManager.isEnable.item = true
     GameManager.isEnable.leftPanel = true
     GameManager.isEnable.rightPanel = true
     GameManager.flags.isCellObjectAnimation = true
@@ -288,8 +293,6 @@ class GameManager
     @initialized.levelup = true
 
     LevelupManager.init(@gameElement)
-    for characterId, characterObject of @characters
-      LevelupManager.addCharacter(characterObject)
     LevelupManager.draw()
 
   @initBattleResult:(savedata)->
@@ -329,6 +332,18 @@ class GameManager
     @initialized.enemys = true
 
     @enemys = window.EnemyList
+    window.EnemyList = undefined
+
+  # アイテム初期化
+  @initItems:(savedata)->
+    return if @initialized.items
+    @initialized.items = true
+
+    @items = window.ItemList
+    window.ItemList = undefined
+
+    ItemManager.init(@gameElement)
+    ItemManager.setItems(savedata)
 
   @isControllable:->
     @flags.controllable

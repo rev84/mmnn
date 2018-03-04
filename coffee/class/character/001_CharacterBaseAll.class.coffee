@@ -1470,7 +1470,7 @@ class Character36Base extends CharacterBase
   @textDeath = "大西由里子"
 
   @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityDesc = "ターン開始時、別の敵に隣接している敵の3マス以内にいると、物防・魔防が10%上がることがある"
 
   constructor:(params)->
     super(params)
@@ -1742,7 +1742,7 @@ class Character43Base extends CharacterBase
   # 基本移動力
   @moveBase = 4
   # 基本射程
-  @rangeBase = 3
+  @rangeBase = 4
   # 基本命中率
   @hitRateBase = 93
   # 基本回避率
@@ -1752,12 +1752,12 @@ class Character43Base extends CharacterBase
   # コスト
   @costBase = 1.5
   # 必要経験値
-  @expRate = 2.2
+  @expRate = 2.4
   # 死んだ時の台詞
   @textDeath = "片桐早苗"
 
-  @abilityName = "取り締まり"
-  @abilityDesc = "すべてのユニットの特殊能力を無効化する"
+  @abilityName = "なし"
+  @abilityDesc = "なし"
 
   constructor:(params)->
     super(params)
@@ -2716,9 +2716,9 @@ class Character67Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 14
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 18
   # 成長率：物理防御
   @pDefBase = 1.5
   # 成長率：魔法防御
@@ -2726,13 +2726,13 @@ class Character67Base extends CharacterBase
   # 基本移動力
   @moveBase = 4
   # 基本射程
-  @rangeBase = 1
+  @rangeBase = 2
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 99
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数
-  @itemMax = 10
+  @itemMax = 14
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2931,7 +2931,7 @@ class Character72Base extends CharacterBase
   # 基本移動力
   @moveBase = 4
   # 基本射程
-  @rangeBase = 1
+  @rangeBase = 4
   # 基本命中率
   @hitRateBase = 95
   # 基本回避率
@@ -3150,8 +3150,8 @@ class Character77Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "財前時子"
 
-  @abilityName = "ムチ"
-  @abilityDesc = "後ろにいる敵にもダメージを与えることがある"
+  @abilityName = "愛のムチ"
+  @abilityDesc = "時子が攻撃した敵は、このターン以降、なるべく時子に近づこうとする"
 
   constructor:(params)->
     super(params)
@@ -3212,9 +3212,9 @@ class Character79Base extends CharacterBase
   # 成長率：HP
   @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1.8
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1.3
   # 基本移動力
   @moveBase = 4
   # 基本射程
@@ -3232,8 +3232,8 @@ class Character79Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "冴島清美"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "風紀"
+  @abilityDesc = "すべてのユニットの特殊能力を無効化する"
 
   constructor:(params)->
     super(params)
@@ -3355,8 +3355,8 @@ class Character82Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "佐久間まゆ"
 
-  @abilityName = "道連れ"
-  @abilityDesc = "敵に倒された時、その敵を消し去ることがある"
+  @abilityName = "恐怖"
+  @abilityDesc = "まゆが攻撃した敵は、次のターン、移動力が+1され、なるべくまゆから遠ざかろうとする"
 
   constructor:(params)->
     super(params)
@@ -3913,9 +3913,9 @@ class Character96Base extends CharacterBase
   # 成長率：魔法防御
   @mDefBase = 1.5
   # 基本移動力
-  @moveBase = 4
+  @moveBase = 3
   # 基本射程
-  @rangeBase = 1
+  @rangeBase = 4
   # 基本命中率
   @hitRateBase = 95
   # 基本回避率
@@ -3930,7 +3930,7 @@ class Character96Base extends CharacterBase
   @textDeath = "白坂小梅"
 
   @abilityName = "あの子が遊びにきた"
-  @abilityDesc = "敵ターンの間だけ、自身の周囲のマスにランダムで進行・攻撃不可のユニットが出現する"
+  @abilityDesc = "敵ターンの間だけ、自身の周囲のマスにランダムで攻撃不可のユニットが出現する"
 
   constructor:(params)->
     super(params)
