@@ -657,23 +657,28 @@ Cell = (function() {
     }
 
     tryCharacterPut(evt) {
+      var redrawCharacter;
       if (GameManager.flags.pickedCharacterObject === null && GameManager.flags.pickedCharacterElement === null) {
         return;
       }
+      redrawCharacter = null;
       // キャラクター出撃モードで、キャラクターがピックされている場合
       if (GameManager.flags.pickedCharacterObject !== null && this.isDroppableCharacter()) {
         // ここに置いてあった仮キャラを全削除
         FieldManager.removeAllTempObject(this.tempObject);
         // このセルに仮キャラを配置する
         this.setTempObject(GameManager.flags.pickedCharacterObject);
+        redrawCharacter = GameManager.flags.pickedCharacterObject;
       }
       // 出撃選択を解除
-      GameManager.flags.pickedCharacterObject = null;
       if (GameManager.flags.pickedCharacterElement !== null) {
         GameManager.flags.pickedCharacterElement.remove();
         GameManager.flags.pickedCharacterElement = null;
+        if (redrawCharacter !== null) {
+          CharacterPalletManager.redraw(redrawCharacter);
+        }
+        GameManager.flags.pickedCharacterObject = null;
       }
-      CharacterPalletManager.redraw();
       GameManager.changeControllable(true);
       return true;
     }
@@ -18895,23 +18900,6 @@ PresentboxBase = (function() {
 
 }).call(this);
 
-PresentboxBasic = (function() {
-  class PresentboxBasic extends PresentboxBase {};
-
-  // キャラ名
-  PresentboxBasic.characterName = "プレゼント（白）";
-
-  // 画像のリスト
-  PresentboxBasic.images = ["./img/presentbox/presentbox_basic.png"];
-
-  PresentboxBasic.abilityName = "アイテムを出す";
-
-  PresentboxBasic.abilityDesc = "倒すとアイテムを入手できる";
-
-  return PresentboxBasic;
-
-}).call(this);
-
 RightInfoManager = (function() {
   class RightInfoManager extends InfoManager {};
 
@@ -19527,3 +19515,20 @@ Utl = class Utl {
   }
 
 };
+
+PresentboxBasic = (function() {
+  class PresentboxBasic extends PresentboxBase {};
+
+  // キャラ名
+  PresentboxBasic.characterName = "プレゼント（白）";
+
+  // 画像のリスト
+  PresentboxBasic.images = ["./img/presentbox/presentbox_basic.png"];
+
+  PresentboxBasic.abilityName = "アイテムを出す";
+
+  PresentboxBasic.abilityDesc = "倒すとアイテムを入手できる";
+
+  return PresentboxBasic;
+
+}).call(this);
