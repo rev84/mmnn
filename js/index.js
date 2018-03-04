@@ -372,7 +372,13 @@ Cell = (function() {
         return;
       }
       GameManager.changeControllable(false);
-      return GameManager.changeControllable(true);
+      
+      // キャラ移動選択をキャンセルするトライ
+      if (this.tryMovePickCancel(evt)) {
+
+      } else {
+        return GameManager.changeControllable(true);
+      }
     }
 
     onMouseLeftUp(evt) {
@@ -709,6 +715,37 @@ Cell = (function() {
       return true;
     }
 
+    tryMovePickCancel(evt) {
+      var body, cell, j, l, len, len1, ref, x, y;
+      // 戦闘モード時のみ
+      if (!GameManager.flags.isBattle) {
+        return;
+      }
+      // 既に移動させたいキャラを選んでいない場合はダメ
+      if (GameManager.flags.movePickCell === null) {
+        return;
+      }
+      // 移動可能モード
+      GameManager.flags.movePickCell = null;
+      // 攻撃可能モード
+      GameManager.flags.waitAttackCell = null;
+      ref = FieldManager.cells;
+      // 移動可能などをすべて消す
+      for (x = j = 0, len = ref.length; j < len; x = ++j) {
+        body = ref[x];
+        for (y = l = 0, len1 = body.length; l < len1; y = ++l) {
+          cell = body[y];
+          cell.setWayStack(null);
+          cell.setKnockout(null);
+          cell.drawMovable();
+          cell.drawKnockout();
+        }
+      }
+      // 操作可能に
+      GameManager.changeControllable(true);
+      return true;
+    }
+
     tryMoveTo(evt) {
       // 既に移動させたいキャラを選んでいない場合はダメ
       if (GameManager.flags.movePickCell === null) {
@@ -750,6 +787,10 @@ Cell = (function() {
 
     setWayStack(wayStack) {
       return this.wayStack = wayStack;
+    }
+
+    setKnockout(knockout) {
+      return this.knockout = knockout;
     }
 
     drawMovable() {
@@ -18900,6 +18941,23 @@ PresentboxBase = (function() {
 
 }).call(this);
 
+PresentboxBasic = (function() {
+  class PresentboxBasic extends PresentboxBase {};
+
+  // キャラ名
+  PresentboxBasic.characterName = "プレゼント（白）";
+
+  // 画像のリスト
+  PresentboxBasic.images = ["./img/presentbox/presentbox_basic.png"];
+
+  PresentboxBasic.abilityName = "アイテムを出す";
+
+  PresentboxBasic.abilityDesc = "倒すとアイテムを入手できる";
+
+  return PresentboxBasic;
+
+}).call(this);
+
 RightInfoManager = (function() {
   class RightInfoManager extends InfoManager {};
 
@@ -19515,20 +19573,3 @@ Utl = class Utl {
   }
 
 };
-
-PresentboxBasic = (function() {
-  class PresentboxBasic extends PresentboxBase {};
-
-  // キャラ名
-  PresentboxBasic.characterName = "プレゼント（白）";
-
-  // 画像のリスト
-  PresentboxBasic.images = ["./img/presentbox/presentbox_basic.png"];
-
-  PresentboxBasic.abilityName = "アイテムを出す";
-
-  PresentboxBasic.abilityDesc = "倒すとアイテムを入手できる";
-
-  return PresentboxBasic;
-
-}).call(this);

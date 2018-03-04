@@ -39,7 +39,12 @@ class Cell
   onMouseRightUp:(evt)->
     return unless GameManager.isControllable()
     GameManager.changeControllable false
-    GameManager.changeControllable true
+ 
+    # キャラ移動選択をキャンセルするトライ
+    if @tryMovePickCancel(evt)
+      ;
+    else
+      GameManager.changeControllable true
 
   onMouseLeftUp:(evt)->
     return unless GameManager.isControllable()
@@ -315,6 +320,28 @@ class Cell
     GameManager.changeControllable true
     true
 
+  tryMovePickCancel:(evt)->
+    # 戦闘モード時のみ
+    return unless GameManager.flags.isBattle
+    # 既に移動させたいキャラを選んでいない場合はダメ
+    return if GameManager.flags.movePickCell is null
+
+    # 移動可能モード
+    GameManager.flags.movePickCell = null
+    # 攻撃可能モード
+    GameManager.flags.waitAttackCell = null
+
+    # 移動可能などをすべて消す
+    for body, x in FieldManager.cells
+      for cell, y in body
+        cell.setWayStack(null)
+        cell.setKnockout(null)
+        cell.drawMovable()
+        cell.drawKnockout()
+    # 操作可能に
+    GameManager.changeControllable true
+    true
+
   tryMoveTo:(evt)->
     # 既に移動させたいキャラを選んでいない場合はダメ
     return if GameManager.flags.movePickCell is null
@@ -346,6 +373,9 @@ class Cell
 
   setWayStack:(wayStack)->
     @wayStack = wayStack
+
+  setKnockout:(knockout)->
+    @knockout = knockout
 
   drawMovable:->
     @showMovable(@wayStack isnt null)
