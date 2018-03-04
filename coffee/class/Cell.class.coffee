@@ -43,6 +43,9 @@ class Cell
     # キャラ移動選択をキャンセルするトライ
     if @tryMovePickCancel(evt)
       ;
+    # 移動後の攻撃先選択をキャンセルするトライ
+    else if @tryAttackCancel(evt)
+      ;
     else
       GameManager.changeControllable true
 
@@ -89,18 +92,9 @@ class Cell
   onMouseMove:(evt)->
     return unless GameManager.isControllable()
 
-    # 戦闘中モードのみ
-    if GameManager.flags.isBattle
-      # 敵キャラだったら右ウインドウに出す
-      if @object is null
-        LeftInfoManager.setObject null
-        RightInfoManager.setObject null
-      else if @object.isCharacterObject()
-        LeftInfoManager.setObject @object
-        RightInfoManager.setObject null
-      else if @object.isEnemyObject()
-        LeftInfoManager.setObject null
-        RightInfoManager.setObject @object
+    # マス目移動時のパネルキャラ切り替え
+    @changePanels(evt)
+
 
   onMouseLeave:(evt)->
     return unless GameManager.isControllable()
@@ -316,7 +310,11 @@ class Cell
     # 行動済みでない場合のみ
     return if @object.isMoved()
 
+    # 移動選択
     GameManager.movePick @
+    # 左キャラ固定
+    GameManager.isEnable.leftPanel = false
+
     GameManager.changeControllable true
     true
 
@@ -338,6 +336,11 @@ class Cell
         cell.setKnockout(null)
         cell.drawMovable()
         cell.drawKnockout()
+
+    # パネル解放
+    GameManager.isEnable.leftPanel = true
+    GameManager.isEnable.rightPanel = true
+
     # 操作可能に
     GameManager.changeControllable true
     true
@@ -350,9 +353,10 @@ class Cell
     # ここにいけない場合はダメ
     return if @wayStack is null
 
-    FieldManager.moveObject(GameManager.flags.movePickCell, @, ->
-      GameManager.changeControllable true
-    )
+    await FieldManager.moveObject(GameManager.flags.movePickCell, @)
+
+    GameManager.changeControllable true
+
     true
 
   tryAttack:(evt)->
@@ -362,13 +366,23 @@ class Cell
     return if @knockout is null
 
     # 攻撃する
-    GameManager.attack @knockout, @, ->
-      # 移動・攻撃・戻るモードを解除
-      GameManager.flags.movePickCell = null
-      GameManager.flags.moveToCell = null
-      GameManager.flags.waitAttackCell = null
-      # コールバックで操作可能にする
-      GameManager.changeControllable true
+    await GameManager.attack @knockout, @
+    # 移動・攻撃・戻るモードを解除
+    GameManager.flags.movePickCell = null
+    GameManager.flags.moveToCell = null
+    GameManager.flags.waitAttackCell = null
+    # コールバックで操作可能にする
+    GameManager.changeControllable true
+    
+  tryAttackCancel:(evt)->
+    # 攻撃待ちでなければダメ
+    return if GameManager.flags.waitAttackCell is null
+
+    # 移動・攻撃モードを解除
+    GameManager.flags.movePickCell = null
+    GameManager.flags.waitAttackCell = null
+    # コールバックで操作可能にする
+    GameManager.changeControllable true
     
 
   setWayStack:(wayStack)->
@@ -416,3 +430,25 @@ class Cell
   removeMe:=>
     for e in @elements
       e.remove()
+
+  changePanels:(evt)->
+    # 戦闘中モードのみ
+    return unless GameManager.flags.isBattle
+
+    # 左パネル切り替え可能
+    if GameManager.isEnable.leftPanel
+      if @object is null
+        LeftInfoManager.setObject null
+      else if @object.isCharacterObject()
+        LeftInfoManager.setObject @object
+      else if @object.isEnemyObject()
+        LeftInfoManager.setObject null
+
+    # 右パネル切り替え可能
+    if GameManager.isEnable.rightPanel
+      if @object is null
+        RightInfoManager.setObject null
+      else if @object.isCharacterObject()
+        RightInfoManager.setObject null
+      else if @object.isEnemyObject()
+        RightInfoManager.setObject @object

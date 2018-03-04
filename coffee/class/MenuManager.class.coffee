@@ -65,11 +65,31 @@ class MenuManager
     .on('click', @onClickWalk.bind(@))
     .appendTo(@divObject)
 
+    # やりなおし
+    @undo = $('<div>').html('移動やりなおし').css({
+      border: '1px solid #000000'
+      width: 100
+      height: 40
+      "font-size": '30px'
+    })
+    .on('click', @onClickUndo.bind(@))
+    .appendTo(@divObject)
+
     @divObject.appendTo(@parentElement)
 
   # 出撃
   @onClickCharacterPick:(evt)->
     return unless GameManager.isControllable()
+    # 出撃できないモードなら返る
+    return unless GameManager.isEnable.characterPick
+
+    # キャラクター出撃モードにする
+    GameManager.resetFlags()
+    GameManager.isMode.characterPick = true
+    # 戦闘・レベルアップに遷移可能
+    GameManager.isEnable.battle = true
+    GameManager.isEnable.levelup = true
+    GameManager.flags.isCellObjectAnimation = false
 
     GameManager.doCharacterPick()
     true
@@ -77,6 +97,21 @@ class MenuManager
   # 戦闘
   @onClickBattle:(evt)->
     return unless GameManager.isControllable()
+    # 戦闘にできないモードなら返る
+    return unless GameManager.isEnable.battle
+
+    # 戦闘モードにする
+    GameManager.resetFlags()
+    GameManager.isMode.battle = true
+    GameManager.isEnable.characterPick = true
+    GameManager.isEnable.levelup = true
+    GameManager.isEnable.battle = true
+    GameManager.isEnable.turnEnd = true
+    GameManager.isEnable.walk = true
+    GameManager.isEnable.undo = true
+    GameManager.isEnable.leftPanel = true
+    GameManager.isEnable.rightPanel = true
+    GameManager.flags.isCellObjectAnimation = true
 
     GameManager.doBattle()
     true
@@ -84,6 +119,8 @@ class MenuManager
   # ターン終了
   @onClickTurnEnd:(evt)->
     return unless GameManager.isControllable()
+    # 前進できないモードなら返る
+    return unless GameManager.isEnable.turnEnd
 
     GameManager.doTurnEnd()
     true
@@ -91,13 +128,36 @@ class MenuManager
   # レベルアップ
   @onClickLevelup:(evt)->
     return unless GameManager.isControllable()
+    # 前進できないモードなら返る
+    return unless GameManager.isEnable.levelup
+
+    # レベルアップモードにする
+    GameManager.resetFlags()
+    GameManager.isMode.levelup = true
+    GameManager.isEnable.characterPick = true
+    GameManager.isEnable.battle = true
+    GameManager.flags.isCellObjectAnimation = false
 
     GameManager.doLevelup()
     true
+
   # 前進
   @onClickWalk:(evt)->
     return unless GameManager.isControllable()
+    # 前進できないモードなら返る
+    return unless GameManager.isEnable.walk
 
     GameManager.doWalk()
     true
-    
+
+  # 移動やりなおし
+  @onClickUndo:(evt)->
+    return unless GameManager.isControllable()
+    # やりなおし不可能なら返る
+    return if GameManager.flags.moveToCell is null
+    # やりなおしできないモードなら返る
+    return unless GameManager.isEnable.undo
+
+    GameManager.doUndo()
+    true
+        

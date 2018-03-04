@@ -60,3 +60,12 @@ class CharacterPalletManager
       .appendTo(GameManager.gameElement)
     # 追随させる
     GameManager.followPickedCharacterElement()
+
+  @onExit:->
+    # キャラクター出撃モードから出る
+    GameManager.flags.pickedCharacterObject = null
+    if GameManager.flags.pickedCharacterElement isnt null
+      GameManager.flags.pickedCharacterElement.remove()
+    GameManager.flags.pickedCharacterElement = null
+    GameManager.switchTempAll()
+

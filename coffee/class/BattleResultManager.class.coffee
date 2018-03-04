@@ -6,7 +6,7 @@ class BattleResultManager
   # HPが減る時間
   @ANIMATION_DECREASE_MSEC: 1000
   # HPが減るFPS
-  @ANIMATION_DECREASE_FPS = 30
+  @ANIMATION_DECREASE_FPS: 10
   # アニメーション終わってから待つ時間
   @ANIMATION_WAIT_AFTER_MSEC: 1000
 
@@ -62,21 +62,23 @@ class BattleResultManager
     # 規定秒待つ
     await Utl.sleep @ANIMATION_WAIT_BEFORE_MSEC
 
-    restTime = Math.ceil(@ANIMATION_DECREASE_MSEC / @ANIMATION_DECREASE_FPS)
+    restTime = Math.ceil(@ANIMATION_DECREASE_MSEC / (1000 / @ANIMATION_DECREASE_FPS))
     nowRate = hpBase / hpMax
     decreaseRate = (nowRate - (hpTo / hpMax)) / restTime
 
-    decrease = (restTime, nowRate, decreaseRate)=>
+    decrease = =>
       nowRate -= decreaseRate
       restTime--
       @setRate nowRate
-      if restTime > 0
-        decrease restTime, nowRate, decreaseRate
-        await Utl.sleep(1 / @ANIMATION_DECREASE_FPS)
-      else
-        @divObject.addClass 'no_display'
-        await Utl.sleep @ANIMATION_WAIT_AFTER_MSEC
-    await decrease restTime, nowRate, decreaseRate
+      await Utl.sleep(1000 / @ANIMATION_DECREASE_FPS)
+      restTime > 0
+
+    while true
+      res = await decrease()
+      break if res is false
+
+    await Utl.sleep @ANIMATION_WAIT_AFTER_MSEC
+    @divObject.addClass 'no_display'
 
   @setRate:(rate)->
     rate = 1 if rate > 1

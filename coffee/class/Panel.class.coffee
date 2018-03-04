@@ -20,7 +20,7 @@ class Panel
     # キャラクター出撃に使っていいパネルではないなら帰る
     return unless @isCharacterPallet
     # キャラクター出撃モードではないので帰る
-    return unless GameManager.flags.isCharacterPick
+    return unless GameManager.isMode.characterPick
     # キャラクターではないので帰る
     return unless @object.isCharacterObject()
     # 既に出撃中なので帰る

@@ -275,7 +275,7 @@ BattleResultManager = (function() {
 
     // HPを減らす演出
     static async animate(characterObject, enemyObject, isCharacterOffence, hpMax, hpBase, hpTo) {
-      var characterTypeImg, decrease, decreaseRate, enemyTypeImg, nowRate, restTime;
+      var characterTypeImg, decrease, decreaseRate, enemyTypeImg, nowRate, res, restTime;
       characterTypeImg = characterObject.getAttackType() === ObjectBase.ATTACK_TYPE.PHYSIC && isCharacterOffence ? './img/sword.png' : characterObject.getAttackType() === ObjectBase.ATTACK_TYPE.MAGIC && isCharacterOffence ? './img/magic.png' : characterObject.getAttackType() === ObjectBase.ATTACK_TYPE.PHYSIC && !isCharacterOffence ? './img/shield.png' : './img/resist.png';
       enemyTypeImg = enemyObject.getAttackType() === ObjectBase.ATTACK_TYPE.PHYSIC && !isCharacterOffence ? './img/sword.png' : enemyObject.getAttackType() === ObjectBase.ATTACK_TYPE.MAGIC && !isCharacterOffence ? './img/magic.png' : enemyObject.getAttackType() === ObjectBase.ATTACK_TYPE.PHYSIC && isCharacterOffence ? './img/shield.png' : './img/resist.png';
       this.character.css('background-image', 'url(' + characterObject.getBaseImage() + ')');
@@ -286,22 +286,24 @@ BattleResultManager = (function() {
       this.divObject.removeClass('no_display');
       // 規定秒待つ
       await Utl.sleep(this.ANIMATION_WAIT_BEFORE_MSEC);
-      restTime = Math.ceil(this.ANIMATION_DECREASE_MSEC / this.ANIMATION_DECREASE_FPS);
+      restTime = Math.ceil(this.ANIMATION_DECREASE_MSEC / (1000 / this.ANIMATION_DECREASE_FPS));
       nowRate = hpBase / hpMax;
       decreaseRate = (nowRate - (hpTo / hpMax)) / restTime;
-      decrease = async(restTime, nowRate, decreaseRate) => {
+      decrease = async() => {
         nowRate -= decreaseRate;
         restTime--;
         this.setRate(nowRate);
-        if (restTime > 0) {
-          decrease(restTime, nowRate, decreaseRate);
-          return (await Utl.sleep(1 / this.ANIMATION_DECREASE_FPS));
-        } else {
-          this.divObject.addClass('no_display');
-          return (await Utl.sleep(this.ANIMATION_WAIT_AFTER_MSEC));
-        }
+        await Utl.sleep(1000 / this.ANIMATION_DECREASE_FPS);
+        return restTime > 0;
       };
-      return (await decrease(restTime, nowRate, decreaseRate));
+      while (true) {
+        res = (await decrease());
+        if (res === false) {
+          break;
+        }
+      }
+      await Utl.sleep(this.ANIMATION_WAIT_AFTER_MSEC);
+      return this.divObject.addClass('no_display');
     }
 
     static setRate(rate) {
@@ -325,7 +327,7 @@ BattleResultManager = (function() {
   BattleResultManager.ANIMATION_DECREASE_MSEC = 1000;
 
   // HPが減るFPS
-  BattleResultManager.ANIMATION_DECREASE_FPS = 30;
+  BattleResultManager.ANIMATION_DECREASE_FPS = 10;
 
   // アニメーション終わってから待つ時間
   BattleResultManager.ANIMATION_WAIT_AFTER_MSEC = 1000;
@@ -375,6 +377,8 @@ Cell = (function() {
       
       // キャラ移動選択をキャンセルするトライ
       if (this.tryMovePickCancel(evt)) {
+
+      } else if (this.tryAttackCancel(evt)) {
 
       } else {
         return GameManager.changeControllable(true);
@@ -433,20 +437,8 @@ Cell = (function() {
       if (!GameManager.isControllable()) {
         return;
       }
-      // 戦闘中モードのみ
-      if (GameManager.flags.isBattle) {
-        // 敵キャラだったら右ウインドウに出す
-        if (this.object === null) {
-          LeftInfoManager.setObject(null);
-          return RightInfoManager.setObject(null);
-        } else if (this.object.isCharacterObject()) {
-          LeftInfoManager.setObject(this.object);
-          return RightInfoManager.setObject(null);
-        } else if (this.object.isEnemyObject()) {
-          LeftInfoManager.setObject(null);
-          return RightInfoManager.setObject(this.object);
-        }
-      }
+      // マス目移動時のパネルキャラ切り替え
+      return this.changePanels(evt);
     }
 
     onMouseLeave(evt) {
@@ -710,7 +702,10 @@ Cell = (function() {
       if (this.object.isMoved()) {
         return;
       }
+      // 移動選択
       GameManager.movePick(this);
+      // 左キャラ固定
+      GameManager.isEnable.leftPanel = false;
       GameManager.changeControllable(true);
       return true;
     }
@@ -741,12 +736,15 @@ Cell = (function() {
           cell.drawKnockout();
         }
       }
+      // パネル解放
+      GameManager.isEnable.leftPanel = true;
+      GameManager.isEnable.rightPanel = true;
       // 操作可能に
       GameManager.changeControllable(true);
       return true;
     }
 
-    tryMoveTo(evt) {
+    async tryMoveTo(evt) {
       // 既に移動させたいキャラを選んでいない場合はダメ
       if (GameManager.flags.movePickCell === null) {
         return;
@@ -759,13 +757,12 @@ Cell = (function() {
       if (this.wayStack === null) {
         return;
       }
-      FieldManager.moveObject(GameManager.flags.movePickCell, this, function() {
-        return GameManager.changeControllable(true);
-      });
+      await FieldManager.moveObject(GameManager.flags.movePickCell, this);
+      GameManager.changeControllable(true);
       return true;
     }
 
-    tryAttack(evt) {
+    async tryAttack(evt) {
       // 攻撃待ちでなければダメ
       if (GameManager.flags.waitAttackCell === null) {
         return;
@@ -775,14 +772,25 @@ Cell = (function() {
         return;
       }
       // 攻撃する
-      return GameManager.attack(this.knockout, this, function() {
-        // 移動・攻撃・戻るモードを解除
-        GameManager.flags.movePickCell = null;
-        GameManager.flags.moveToCell = null;
-        GameManager.flags.waitAttackCell = null;
-        // コールバックで操作可能にする
-        return GameManager.changeControllable(true);
-      });
+      await GameManager.attack(this.knockout, this);
+      // 移動・攻撃・戻るモードを解除
+      GameManager.flags.movePickCell = null;
+      GameManager.flags.moveToCell = null;
+      GameManager.flags.waitAttackCell = null;
+      // コールバックで操作可能にする
+      return GameManager.changeControllable(true);
+    }
+
+    tryAttackCancel(evt) {
+      // 攻撃待ちでなければダメ
+      if (GameManager.flags.waitAttackCell === null) {
+        return;
+      }
+      // 移動・攻撃モードを解除
+      GameManager.flags.movePickCell = null;
+      GameManager.flags.waitAttackCell = null;
+      // コールバックで操作可能にする
+      return GameManager.changeControllable(true);
     }
 
     setWayStack(wayStack) {
@@ -849,6 +857,33 @@ Cell = (function() {
         results.push(e.remove());
       }
       return results;
+    }
+
+    changePanels(evt) {
+      // 戦闘中モードのみ
+      if (!GameManager.flags.isBattle) {
+        return;
+      }
+      // 左パネル切り替え可能
+      if (GameManager.isEnable.leftPanel) {
+        if (this.object === null) {
+          LeftInfoManager.setObject(null);
+        } else if (this.object.isCharacterObject()) {
+          LeftInfoManager.setObject(this.object);
+        } else if (this.object.isEnemyObject()) {
+          LeftInfoManager.setObject(null);
+        }
+      }
+      // 右パネル切り替え可能
+      if (GameManager.isEnable.rightPanel) {
+        if (this.object === null) {
+          return RightInfoManager.setObject(null);
+        } else if (this.object.isCharacterObject()) {
+          return RightInfoManager.setObject(null);
+        } else if (this.object.isEnemyObject()) {
+          return RightInfoManager.setObject(this.object);
+        }
+      }
     }
 
   };
@@ -16211,6 +16246,16 @@ CharacterPalletManager = (function() {
       return GameManager.followPickedCharacterElement();
     }
 
+    static onExit() {
+      // キャラクター出撃モードから出る
+      GameManager.flags.pickedCharacterObject = null;
+      if (GameManager.flags.pickedCharacterElement !== null) {
+        GameManager.flags.pickedCharacterElement.remove();
+      }
+      GameManager.flags.pickedCharacterElement = null;
+      return GameManager.switchTempAll();
+    }
+
   };
 
   CharacterPalletManager.ID = 'character_pallet';
@@ -17111,7 +17156,7 @@ FieldManager = (function() {
               // 再描画
               c.draw();
               // 別のキャラを走査
-              results1.push(this.checkDeath(callback));
+              results1.push(this.checkDeath());
             } else {
               results1.push(void 0);
             }
@@ -17263,40 +17308,16 @@ GameManager = (function() {
 
     // 戦闘に移行
     static doBattle(isSoon = false) {
-      // 戦闘モードに遷移可能な状態ではない
-      if (!this.flags.isEnableBattle) {
-        return;
-      }
       this.partsAnimation(this.POSITION.BATTLE, isSoon);
-      // キャラクター出撃モードを切る
-      this.flags.isCharacterPick = false;
-      this.flags.pickedCharacterObject = null;
-      if (this.flags.pickedCharacterElement !== null) {
-        this.flags.pickedCharacterElement.remove();
-      }
-      this.flags.pickedCharacterElement = null;
-      this.flags.isCellObjectAnimation = true;
-      this.switchTempAll();
+      // キャラクター設置を確定
+      CharacterPalletManager.onExit();
       // 戦闘モードにする
       return this.flags.isBattle = true;
     }
 
     // キャラクター出撃に移行
     static doCharacterPick(isSoon = false) {
-      // キャラクター出撃モードに遷移可能な状態ではない
-      if (!this.flags.isEnableCharacterPick) {
-        return;
-      }
       this.partsAnimation(this.POSITION.CHARACTER_PICK, isSoon);
-      // キャラクター出撃モードにする
-      this.flags.isCharacterPick = true;
-      this.flags.pickedCharacterObject = null;
-      if (this.flags.pickedCharacterElement !== null) {
-        this.flags.pickedCharacterElement.remove();
-      }
-      this.flags.pickedCharacterElement = null;
-      this.flags.isCellObjectAnimation = false;
-      this.switchTempAll();
       // 戦闘モードを切る
       return this.flags.isBattle = false;
     }
@@ -17304,22 +17325,18 @@ GameManager = (function() {
     
     // ターン終了
     static async doTurnEnd(isSoon = false) {
-      // ターン終了可能な状態ではない
-      if (!this.flags.isEnableTurnEnd) {
-        return;
-      }
+      // 動ける敵がいる限り動かす
       while ((await this.enemyMove())) {}
-      return this.flags.isWalkInThisTurn = false;
+      this.flags.isWalkInThisTurn = false;
+      // コントロール可能に
+      return this.changeControllable(true);
     }
 
-    
     // レベルアップ
     static doLevelup(isSoon = false) {
-      // ターン終了可能な状態ではない
-      if (!this.flags.isEnableLevelup) {
-        return;
-      }
       this.partsAnimation(this.POSITION.LEVELUP, isSoon);
+      // キャラクター設置を確定
+      CharacterPalletManager.onExit();
       return this.flags.isCellObjectAnimation = false;
     }
 
@@ -17397,6 +17414,18 @@ GameManager = (function() {
       this.initEnemys(null);
       this.initBattleResult(null);
       this.gameElement.appendTo('body');
+      // 戦闘モードにする
+      GameManager.resetFlags();
+      GameManager.isMode.battle = true;
+      GameManager.isEnable.characterPick = true;
+      GameManager.isEnable.levelup = true;
+      GameManager.isEnable.battle = true;
+      GameManager.isEnable.turnEnd = true;
+      GameManager.isEnable.walk = true;
+      GameManager.isEnable.undo = true;
+      GameManager.isEnable.leftPanel = true;
+      GameManager.isEnable.rightPanel = true;
+      GameManager.flags.isCellObjectAnimation = true;
       return this.doBattle(true);
     }
 
@@ -17566,6 +17595,9 @@ GameManager = (function() {
       FieldManager.drawKnockout();
       // 終了時の処理
       ending = async() => {
+        // パネルリセット
+        LeftInfoManager.setObject(null);
+        RightInfoManager.setObject(null);
         FieldManager.resetAllMoved();
         FieldManager.drawMovable();
         FieldManager.drawKnockout();
@@ -17576,7 +17608,6 @@ GameManager = (function() {
         this.flags.waitAttackCell = null;
         // 敵を湧かせる
         await FieldManager.randomEnemyAppear();
-        GameManager.changeControllable(true);
         return false;
       };
       // 全マスから未行動の敵を探す
@@ -17793,6 +17824,8 @@ GameManager = (function() {
       attacker = attackerCell.object;
       defender = defenderCell.object;
       // パネル用
+      this.isEnable.leftObject = false;
+      this.isEnable.rightObject = false;
       leftObject = attacker.isCharacterObject() ? attacker : defender;
       rightObject = attacker.isCharacterObject() ? defender : attacker;
       // 左に味方の情報
@@ -17840,7 +17873,7 @@ GameManager = (function() {
       // ダメージを与える
       defender.damage(damage);
       // 倒したキャラの台詞チェック
-      FieldManager.checkDeath();
+      await FieldManager.checkDeath();
       // 攻撃側を行動終了にする
       attacker.setMoved(true);
       // 再描画
@@ -17886,8 +17919,8 @@ GameManager = (function() {
     }
 
     // 階層をひとつ進める
-    static doWalk() {
-      var cell, j, l, len, nextField, o, q, r, ref, ref1, ref2, ref3, ref4, results, x, y;
+    static async doWalk() {
+      var cell, j, l, len, nextField, o, q, r, ref, ref1, ref2, ref3, ref4, x, y;
       this.changeControllable(false);
       // 既にこのターン進んでいた場合
       if (this.flags.isWalkInThisTurn) {
@@ -17920,14 +17953,7 @@ GameManager = (function() {
           left: this.xIndex * this.constructor.SIZE_X + FieldManager.BORDER_SIZE * (this.xIndex + 1)
         }, 1000);
       });
-      // 事後
-      setTimeout(() => {
-        // 階層インクリメント
-        EnvManager.increaseFloor(1);
-        // 階層進行制限
-        this.flags.isWalkInThisTurn = true;
-        return this.changeControllable(true);
-      }, 1100);
+      await Utl.sleep(1100);
 // 左端のセルをぜんぶ消す
       for (y = l = 0, ref1 = FieldManager.cells[0].length; (0 <= ref1 ? l < ref1 : l > ref1); y = 0 <= ref1 ? ++l : --l) {
         FieldManager.cells[0][y].removeMe();
@@ -17939,9 +17965,48 @@ GameManager = (function() {
         }
       }
 // 右端に新規の列を追加する
-      results = [];
       for (y = r = 0, ref4 = nextField.length; (0 <= ref4 ? r < ref4 : r > ref4); y = 0 <= ref4 ? ++r : --r) {
-        results.push(FieldManager.cells[FieldManager.CELL_X - 1][y] = nextField[y]);
+        FieldManager.cells[FieldManager.CELL_X - 1][y] = nextField[y];
+      }
+      // 階層インクリメント
+      EnvManager.increaseFloor(1);
+      // 階層進行制限
+      this.flags.isWalkInThisTurn = true;
+      // 移動やりなおし不可
+      this.flags.moveToCell = null;
+      return this.changeControllable(true);
+    }
+
+    static doUndo() {
+      var nowCell, preCell;
+      this.changeControllable(false);
+      // 戻す
+      [preCell, nowCell] = this.flags.moveToCell;
+      preCell.object = nowCell.object;
+      nowCell.object = null;
+      // 行動終了を解除
+      preCell.object.setMoved(false);
+      // 戻せなくする
+      this.flags.moveToCell = null;
+      // 再描画
+      preCell.draw();
+      nowCell.draw();
+      // コントロールを戻す
+      return this.changeControllable(true);
+    }
+
+    static resetFlags() {
+      var key, ref, ref1, results, val;
+      ref = this.isEnable;
+      for (key in ref) {
+        val = ref[key];
+        this.isEnable[key] = false;
+      }
+      ref1 = this.isMode;
+      results = [];
+      for (key in ref1) {
+        val = ref1[key];
+        results.push(this.isMode[key] = false);
       }
       return results;
     }
@@ -17978,24 +18043,33 @@ GameManager = (function() {
     env: false
   };
 
+  GameManager.isMode = {
+    battle: false,
+    characterPick: false,
+    levelup: false
+  };
+
+  GameManager.isEnable = {
+    battle: false,
+    characterPick: false,
+    levelup: false,
+    turnEnd: false,
+    walk: false,
+    undo: false,
+    leftPanel: false,
+    rightPanel: false
+  };
+
   GameManager.flags = {
     
     // 操作可能か
     controllable: true,
     // セルのオブジェクトのアニメーションを有効にするか
     isCellObjectAnimation: true,
-    // キャラクター出撃モードに遷移していい状態であるか
-    isEnableCharacterPick: true,
-    // 現在、キャラクター出撃モードであるか
-    isCharacterPick: false,
     // キャラクター出撃をしている場合、現在ドラッグされているキャラクターオブジェクト
     pickedCharacterObject: null,
     // キャラクター出撃をしている場合、現在ドラッグされているキャラクターの要素
     pickedCharacterElement: null,
-    // 戦闘モードに遷移していい状態であるか
-    isEnableBattle: true,
-    // 現在、戦闘モードであるか
-    isBattle: false,
     // 戦闘モードでキャラクターを動かしている場合、現在対象になっているセル
     movePickCell: null,
     // 「元に戻す」で戻れるセルのオブジェクト
@@ -18003,12 +18077,6 @@ GameManager = (function() {
     moveToCell: null,
     // 戦闘モードで攻撃待ちの場合、現在対象になっているセル
     waitAttackCell: null,
-    // 戦闘モードでターン終了していい状態であるか
-    isEnableTurnEnd: true,
-    // レベルアップに遷移していい状態であるか
-    isEnableLevelup: true,
-    // 階層を進めていい状態であるか
-    isEnableWalk: true,
     // このターン、階層を進めたか
     isWalkInThisTurn: false
   };
@@ -18119,8 +18187,11 @@ LevelupController = (function() {
       neededExp = this.parentLevelupPanel.object.getNeededExp(levelup);
       this.levelButton.html(levelup + 'レベルUP');
       this.expNum.html(neededExp);
-      if (EnvManager.getExp() < neededExp) {
+      // 経験値が足りないか、出撃中ならレベル上げれない
+      if (EnvManager.getExp() < neededExp || this.parentLevelupPanel.object.isInField()) {
         this.levelButton.prop('disabled', true);
+      } else {
+        this.levelButton.prop('disabled', false);
       }
       return this.parentLevelupPanel.setLevel(levelup);
     }
@@ -18297,6 +18368,13 @@ MenuManager = (function() {
         height: 40,
         "font-size": '30px'
       }).on('click', this.onClickWalk.bind(this)).appendTo(this.divObject);
+      // やりなおし
+      this.undo = $('<div>').html('移動やりなおし').css({
+        border: '1px solid #000000',
+        width: 100,
+        height: 40,
+        "font-size": '30px'
+      }).on('click', this.onClickUndo.bind(this)).appendTo(this.divObject);
       return this.divObject.appendTo(this.parentElement);
     }
 
@@ -18305,6 +18383,17 @@ MenuManager = (function() {
       if (!GameManager.isControllable()) {
         return;
       }
+      // 出撃できないモードなら返る
+      if (!GameManager.isEnable.characterPick) {
+        return;
+      }
+      // キャラクター出撃モードにする
+      GameManager.resetFlags();
+      GameManager.isMode.characterPick = true;
+      // 戦闘・レベルアップに遷移可能
+      GameManager.isEnable.battle = true;
+      GameManager.isEnable.levelup = true;
+      GameManager.flags.isCellObjectAnimation = false;
       GameManager.doCharacterPick();
       return true;
     }
@@ -18314,6 +18403,22 @@ MenuManager = (function() {
       if (!GameManager.isControllable()) {
         return;
       }
+      // 戦闘にできないモードなら返る
+      if (!GameManager.isEnable.battle) {
+        return;
+      }
+      // 戦闘モードにする
+      GameManager.resetFlags();
+      GameManager.isMode.battle = true;
+      GameManager.isEnable.characterPick = true;
+      GameManager.isEnable.levelup = true;
+      GameManager.isEnable.battle = true;
+      GameManager.isEnable.turnEnd = true;
+      GameManager.isEnable.walk = true;
+      GameManager.isEnable.undo = true;
+      GameManager.isEnable.leftPanel = true;
+      GameManager.isEnable.rightPanel = true;
+      GameManager.flags.isCellObjectAnimation = true;
       GameManager.doBattle();
       return true;
     }
@@ -18321,6 +18426,10 @@ MenuManager = (function() {
     // ターン終了
     static onClickTurnEnd(evt) {
       if (!GameManager.isControllable()) {
+        return;
+      }
+      // 前進できないモードなら返る
+      if (!GameManager.isEnable.turnEnd) {
         return;
       }
       GameManager.doTurnEnd();
@@ -18332,6 +18441,16 @@ MenuManager = (function() {
       if (!GameManager.isControllable()) {
         return;
       }
+      // 前進できないモードなら返る
+      if (!GameManager.isEnable.levelup) {
+        return;
+      }
+      // レベルアップモードにする
+      GameManager.resetFlags();
+      GameManager.isMode.levelup = true;
+      GameManager.isEnable.characterPick = true;
+      GameManager.isEnable.battle = true;
+      GameManager.flags.isCellObjectAnimation = false;
       GameManager.doLevelup();
       return true;
     }
@@ -18341,7 +18460,28 @@ MenuManager = (function() {
       if (!GameManager.isControllable()) {
         return;
       }
+      // 前進できないモードなら返る
+      if (!GameManager.isEnable.walk) {
+        return;
+      }
       GameManager.doWalk();
+      return true;
+    }
+
+    // 移動やりなおし
+    static onClickUndo(evt) {
+      if (!GameManager.isControllable()) {
+        return;
+      }
+      // やりなおし不可能なら返る
+      if (GameManager.flags.moveToCell === null) {
+        return;
+      }
+      // やりなおしできないモードなら返る
+      if (!GameManager.isEnable.undo) {
+        return;
+      }
+      GameManager.doUndo();
       return true;
     }
 
@@ -18388,7 +18528,7 @@ Panel = (function() {
         return;
       }
       // キャラクター出撃モードではないので帰る
-      if (!GameManager.flags.isCharacterPick) {
+      if (!GameManager.isMode.characterPick) {
         return;
       }
       // キャラクターではないので帰る

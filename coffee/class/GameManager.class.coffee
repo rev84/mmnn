@@ -18,23 +18,28 @@ class GameManager
     enemys:false
     levelup:false
     env:false
+  @isMode = 
+    battle: false
+    characterPick: false
+    levelup: false
+  @isEnable = 
+    battle: false
+    characterPick: false
+    levelup: false
+    turnEnd: false
+    walk: false
+    undo: false
+    leftPanel: false
+    rightPanel: false
   @flags = 
     # 操作可能か
     controllable : true
     # セルのオブジェクトのアニメーションを有効にするか
     isCellObjectAnimation : true
-    # キャラクター出撃モードに遷移していい状態であるか
-    isEnableCharacterPick : true
-    # 現在、キャラクター出撃モードであるか
-    isCharacterPick : false
     # キャラクター出撃をしている場合、現在ドラッグされているキャラクターオブジェクト
     pickedCharacterObject : null
     # キャラクター出撃をしている場合、現在ドラッグされているキャラクターの要素
     pickedCharacterElement : null
-    # 戦闘モードに遷移していい状態であるか
-    isEnableBattle : true
-    # 現在、戦闘モードであるか
-    isBattle : false
     # 戦闘モードでキャラクターを動かしている場合、現在対象になっているセル
     movePickCell : null
     # 「元に戻す」で戻れるセルのオブジェクト
@@ -42,12 +47,6 @@ class GameManager
     moveToCell : null
     # 戦闘モードで攻撃待ちの場合、現在対象になっているセル
     waitAttackCell : null
-    # 戦闘モードでターン終了していい状態であるか
-    isEnableTurnEnd : true
-    # レベルアップに遷移していい状態であるか
-    isEnableLevelup : true
-    # 階層を進めていい状態であるか
-    isEnableWalk : true
     # このターン、階層を進めたか
     isWalkInThisTurn : false
 
@@ -137,56 +136,37 @@ class GameManager
 
   # 戦闘に移行
   @doBattle:(isSoon = false)->
-    # 戦闘モードに遷移可能な状態ではない
-    return unless @flags.isEnableBattle
-
     @partsAnimation @POSITION.BATTLE, isSoon
 
-    # キャラクター出撃モードを切る
-    @flags.isCharacterPick = false
-    @flags.pickedCharacterObject = null
-    @flags.pickedCharacterElement.remove() if @flags.pickedCharacterElement isnt null
-    @flags.pickedCharacterElement = null
-    @flags.isCellObjectAnimation = true
-    @switchTempAll()
+    # キャラクター設置を確定
+    CharacterPalletManager.onExit()
 
     # 戦闘モードにする
     @flags.isBattle = true
 
   # キャラクター出撃に移行
   @doCharacterPick:(isSoon = false)->
-    # キャラクター出撃モードに遷移可能な状態ではない
-    return unless @flags.isEnableCharacterPick
-
     @partsAnimation @POSITION.CHARACTER_PICK, isSoon
-
-    # キャラクター出撃モードにする
-    @flags.isCharacterPick = true
-    @flags.pickedCharacterObject = null
-    @flags.pickedCharacterElement.remove() if @flags.pickedCharacterElement isnt null
-    @flags.pickedCharacterElement = null
-    @flags.isCellObjectAnimation = false
-    @switchTempAll()
 
     # 戦闘モードを切る
     @flags.isBattle = false
     
   # ターン終了
   @doTurnEnd:(isSoon = false)->
-    # ターン終了可能な状態ではない
-    return unless @flags.isEnableTurnEnd
-
+    # 動ける敵がいる限り動かす
     while await @enemyMove()
       ;
     # 階層進行制限解除
-    @flags.isWalkInThisTurn = false 
+    @flags.isWalkInThisTurn = false
+    # コントロール可能に
+    @changeControllable true
 
   # レベルアップ
   @doLevelup:(isSoon = false)->
-    # ターン終了可能な状態ではない
-    return unless @flags.isEnableLevelup
-    
     @partsAnimation @POSITION.LEVELUP, isSoon
+
+    # キャラクター設置を確定
+    CharacterPalletManager.onExit()
 
     @flags.isCellObjectAnimation = false
 
@@ -260,6 +240,18 @@ class GameManager
 
     @gameElement.appendTo('body')
 
+    # 戦闘モードにする
+    GameManager.resetFlags()
+    GameManager.isMode.battle = true
+    GameManager.isEnable.characterPick = true
+    GameManager.isEnable.levelup = true
+    GameManager.isEnable.battle = true
+    GameManager.isEnable.turnEnd = true
+    GameManager.isEnable.walk = true
+    GameManager.isEnable.undo = true
+    GameManager.isEnable.leftPanel = true
+    GameManager.isEnable.rightPanel = true
+    GameManager.flags.isCellObjectAnimation = true
     @doBattle(true)
 
   @initMenu:(savedata)->
@@ -393,6 +385,10 @@ class GameManager
 
     # 終了時の処理
     ending = =>
+      # パネルリセット
+      LeftInfoManager.setObject null
+      RightInfoManager.setObject null
+
       FieldManager.resetAllMoved()
       FieldManager.drawMovable()
       FieldManager.drawKnockout()
@@ -403,7 +399,6 @@ class GameManager
       @flags.waitAttackCell = null
       # 敵を湧かせる
       await FieldManager.randomEnemyAppear()
-      GameManager.changeControllable true
       false
 
     # 全マスから未行動の敵を探す
@@ -561,6 +556,8 @@ class GameManager
     defender = defenderCell.object
 
     # パネル用
+    @isEnable.leftObject = false
+    @isEnable.rightObject = false
     leftObject = if attacker.isCharacterObject() then attacker else defender
     rightObject = if attacker.isCharacterObject() then defender else attacker
     # 左に味方の情報
@@ -609,11 +606,10 @@ class GameManager
     await BattleResultManager.animate character, enemy, isCharacterOffence, hpMax, hpBase, hpTo
     await Utl.sleep(100)
 
-
     # ダメージを与える
     defender.damage damage
     # 倒したキャラの台詞チェック
-    FieldManager.checkDeath()
+    await FieldManager.checkDeath()
 
     # 攻撃側を行動終了にする
     attacker.setMoved true
@@ -664,7 +660,6 @@ class GameManager
         window.alert('左端に味方がいるので進めません')
         return @changeControllable true
 
-
     # 次の列を生んでおく
     nextField = FieldManager.generateNextField()
 
@@ -680,14 +675,8 @@ class GameManager
       @elements.mother.animate({
         left: @xIndex * @constructor.SIZE_X + FieldManager.BORDER_SIZE * (@xIndex + 1)
       }, 1000)
-    # 事後
-    setTimeout =>
-      # 階層インクリメント
-      EnvManager.increaseFloor(1)
-      # 階層進行制限
-      @flags.isWalkInThisTurn = true
-      @changeControllable true
-    , 1100
+
+    await Utl.sleep 1100
 
     # 左端のセルをぜんぶ消す
     for y in [0...FieldManager.cells[0].length]
@@ -700,3 +689,36 @@ class GameManager
     for y in [0...nextField.length]
       FieldManager.cells[FieldManager.CELL_X-1][y] = nextField[y]
 
+    # 階層インクリメント
+    EnvManager.increaseFloor(1)
+    # 階層進行制限
+    @flags.isWalkInThisTurn = true
+    # 移動やりなおし不可
+    @flags.moveToCell = null
+    @changeControllable true
+
+
+  @doUndo:->
+    @changeControllable false
+
+    # 戻す
+    [preCell, nowCell] = @flags.moveToCell
+    preCell.object = nowCell.object
+    nowCell.object = null
+
+    # 行動終了を解除
+    preCell.object.setMoved false
+
+    # 戻せなくする
+    @flags.moveToCell = null
+
+    # 再描画
+    preCell.draw()
+    nowCell.draw()
+
+    # コントロールを戻す
+    @changeControllable true
+
+  @resetFlags:->
+    @isEnable[key] = false for key, val of @isEnable
+    @isMode[key] = false for key, val of @isMode

@@ -46,7 +46,11 @@ class LevelupController
     neededExp = @parentLevelupPanel.object.getNeededExp(levelup)
     @levelButton.html(levelup+'レベルUP')
     @expNum.html(neededExp)
-    @levelButton.prop 'disabled', true if EnvManager.getExp() < neededExp
+    # 経験値が足りないか、出撃中ならレベル上げれない
+    if EnvManager.getExp() < neededExp or @parentLevelupPanel.object.isInField()
+      @levelButton.prop 'disabled', true
+    else
+      @levelButton.prop 'disabled', false
 
     @parentLevelupPanel.setLevel levelup
 

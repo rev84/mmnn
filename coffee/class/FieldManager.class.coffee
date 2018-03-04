@@ -281,7 +281,7 @@ class FieldManager
           # 再描画
           c.draw()
           # 別のキャラを走査
-          @checkDeath callback
+          @checkDeath()
 
 
   # 次の列を生成する
