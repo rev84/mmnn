@@ -369,35 +369,35 @@ Cell = (function() {
       return GameManager.changeControllable(true);
     }
 
-    onMouseRightUp(evt) {
+    async onMouseRightUp(evt) {
       if (!GameManager.isControllable()) {
         return;
       }
       GameManager.changeControllable(false);
       
       // キャラ移動選択をキャンセルするトライ
-      if (this.tryMovePickCancel(evt)) {
+      if ((await this.tryMovePickCancel(evt))) {
 
-      } else if (this.tryAttackCancel(evt)) {
+      } else if ((await this.tryAttackCancel(evt))) {
 
       } else {
         return GameManager.changeControllable(true);
       }
     }
 
-    onMouseLeftUp(evt) {
+    async onMouseLeftUp(evt) {
       if (!GameManager.isControllable()) {
         return;
       }
       GameManager.changeControllable(false);
       // キャラを仮置きするトライ
-      if (this.tryCharacterPut(evt)) {
+      if ((await this.tryCharacterPut(evt))) {
 
-      } else if (this.tryMovePick(evt)) {
+      } else if ((await this.tryMovePick(evt))) {
 
-      } else if (this.tryMoveTo(evt)) {
+      } else if ((await this.tryMoveTo(evt))) {
 
-      } else if (this.tryAttack(evt)) {
+      } else if ((await this.tryAttack(evt))) {
 
       } else {
         return GameManager.changeControllable(true);
@@ -683,7 +683,7 @@ Cell = (function() {
 
     tryMovePick(evt) {
       // 戦闘モード時のみ
-      if (!GameManager.flags.isBattle) {
+      if (!GameManager.isMode.battle) {
         return;
       }
       // 既に移動させたいキャラを選んでいる場合はダメ
@@ -713,7 +713,7 @@ Cell = (function() {
     tryMovePickCancel(evt) {
       var body, cell, j, l, len, len1, ref, x, y;
       // 戦闘モード時のみ
-      if (!GameManager.flags.isBattle) {
+      if (!GameManager.isMode.battle) {
         return;
       }
       // 既に移動させたいキャラを選んでいない場合はダメ
@@ -745,6 +745,10 @@ Cell = (function() {
     }
 
     async tryMoveTo(evt) {
+      // 戦闘モード時のみ
+      if (!GameManager.isMode.battle) {
+        return;
+      }
       // 既に移動させたいキャラを選んでいない場合はダメ
       if (GameManager.flags.movePickCell === null) {
         return;
@@ -763,6 +767,10 @@ Cell = (function() {
     }
 
     async tryAttack(evt) {
+      // 戦闘モード時のみ
+      if (!GameManager.isMode.battle) {
+        return;
+      }
       // 攻撃待ちでなければダメ
       if (GameManager.flags.waitAttackCell === null) {
         return;
@@ -782,6 +790,10 @@ Cell = (function() {
     }
 
     tryAttackCancel(evt) {
+      // 戦闘モード時のみ
+      if (!GameManager.isMode.battle) {
+        return;
+      }
       // 攻撃待ちでなければダメ
       if (GameManager.flags.waitAttackCell === null) {
         return;

@@ -41,10 +41,10 @@ class Cell
     GameManager.changeControllable false
  
     # キャラ移動選択をキャンセルするトライ
-    if @tryMovePickCancel(evt)
+    if await @tryMovePickCancel(evt)
       ;
     # 移動後の攻撃先選択をキャンセルするトライ
-    else if @tryAttackCancel(evt)
+    else if await @tryAttackCancel(evt)
       ;
     else
       GameManager.changeControllable true
@@ -54,16 +54,16 @@ class Cell
     GameManager.changeControllable false
 
     # キャラを仮置きするトライ
-    if @tryCharacterPut(evt)
+    if await @tryCharacterPut(evt)
       ;
     # キャラを移動させるトライ
-    else if @tryMovePick(evt)
+    else if await @tryMovePick(evt)
       ;
     # キャラの移動先を決めるトライ
-    else if @tryMoveTo(evt)
+    else if await @tryMoveTo(evt)
       ;
     # 攻撃先を決めるトライ
-    else if @tryAttack(evt)
+    else if await @tryAttack(evt)
       ;
     # どれにもならなかったら操作解放
     else
@@ -300,7 +300,7 @@ class Cell
 
   tryMovePick:(evt)->
     # 戦闘モード時のみ
-    return unless GameManager.flags.isBattle
+    return unless GameManager.isMode.battle
     # 既に移動させたいキャラを選んでいる場合はダメ
     return if GameManager.flags.movePickCell isnt null
     # 攻撃待ち専用モードの時はダメ
@@ -320,7 +320,7 @@ class Cell
 
   tryMovePickCancel:(evt)->
     # 戦闘モード時のみ
-    return unless GameManager.flags.isBattle
+    return unless GameManager.isMode.battle
     # 既に移動させたいキャラを選んでいない場合はダメ
     return if GameManager.flags.movePickCell is null
 
@@ -346,6 +346,8 @@ class Cell
     true
 
   tryMoveTo:(evt)->
+    # 戦闘モード時のみ
+    return unless GameManager.isMode.battle
     # 既に移動させたいキャラを選んでいない場合はダメ
     return if GameManager.flags.movePickCell is null
     # ここにキャラがいる場合はダメ
@@ -356,10 +358,11 @@ class Cell
     await FieldManager.moveObject(GameManager.flags.movePickCell, @)
 
     GameManager.changeControllable true
-
     true
 
   tryAttack:(evt)->
+    # 戦闘モード時のみ
+    return unless GameManager.isMode.battle
     # 攻撃待ちでなければダメ
     return if GameManager.flags.waitAttackCell is null
     # 攻撃可能が設定されてないとダメ
@@ -375,6 +378,8 @@ class Cell
     GameManager.changeControllable true
     
   tryAttackCancel:(evt)->
+    # 戦闘モード時のみ
+    return unless GameManager.isMode.battle
     # 攻撃待ちでなければダメ
     return if GameManager.flags.waitAttackCell is null
 
