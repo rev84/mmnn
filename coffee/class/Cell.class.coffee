@@ -288,18 +288,20 @@ class Cell
   tryCharacterPut:(evt)->
     return if GameManager.flags.pickedCharacterObject is null and GameManager.flags.pickedCharacterElement is null
 
+    redrawCharacter = null
     # キャラクター出撃モードで、キャラクターがピックされている場合
     if GameManager.flags.pickedCharacterObject isnt null and @isDroppableCharacter()
       # ここに置いてあった仮キャラを全削除
       FieldManager.removeAllTempObject @tempObject
       # このセルに仮キャラを配置する
       @setTempObject GameManager.flags.pickedCharacterObject
+      redrawCharacter = GameManager.flags.pickedCharacterObject
     # 出撃選択を解除
-    GameManager.flags.pickedCharacterObject = null
     if GameManager.flags.pickedCharacterElement isnt null
       GameManager.flags.pickedCharacterElement.remove()
       GameManager.flags.pickedCharacterElement = null
-    CharacterPalletManager.redraw()
+      CharacterPalletManager.redraw redrawCharacter if redrawCharacter isnt null
+      GameManager.flags.pickedCharacterObject = null
 
     GameManager.changeControllable true
     true
