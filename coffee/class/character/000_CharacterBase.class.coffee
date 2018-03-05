@@ -23,6 +23,12 @@ class CharacterBase extends ObjectBase
     # 行動済みであるか
     @moved = params.moved
 
+    # アイテム装備可能数
+    @itemCapacityPlus = params.itemCapacityPlus
+
+    # 装備中のアイテム
+    @items = params.items
+
   getId:->
     @constructor.characterId
 
@@ -53,3 +59,29 @@ class CharacterBase extends ObjectBase
       Math.ceil(@constructor.costBase * @level)
     else
       Math.ceil(@constructor.costBase * level)
+  # アイテム装備可能数（開始時）
+  getItemCapacityStart:->
+    @constructor.itemCapacityStart
+  # アイテム装備可能数（開始時）
+  getItemCapacityLimit:->
+    @constructor.itemCapacityLimit
+  # アイテム装備可能数
+  getItemCapacity:->
+    @getItemCapacityStart() + @getItemCapacityPlus()
+  # アイテム装備可能数の加算値
+  getItemCapacityPlus:->
+    @itemCapacityPlus
+  # アイテム装備可能数を増やす
+  increaseItemCapacity:(amount = 1)->
+    @itemCapacityPlus += amount
+    @itemCapacityPlus = @getItemCapacityLimit() - @getItemCapacityStart() if @getItemCapacityLimit() - @getItemCapacityStart() < @itemCapacityPlus
+  # アイテム装備可能数を増やせるか
+  canIncreaseItemCapacity:(amount = 1)->
+    @itemCapacityPlus + amount <= @getItemCapacityLimit() - @getItemCapacityStart()
+  # 装備中のアイテムを取得
+  getItems:->
+    @items
+  # 装備中のアイテムのコストの合計を取得
+  getItemsCost:->
+    total = 0
+    total += GameManager.items[itemId].getCost() for itemId in @items

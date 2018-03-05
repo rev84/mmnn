@@ -33,11 +33,10 @@ class Panel
     $(@divObject).find('*').remove()
 
     if @object isnt null
-      switch @object.objectType
-        when ObjectBase.OBJECT_TYPE.CHARACTER
-          @drawCharacter(level)
-        when ObjectBase.OBJECT_TYPE.ENEMY
-          @drawEnemy()
+      if @object.isCharacterObject()
+        @drawCharacter(level)
+      else if @object.isEnemyObject()
+        @drawEnemy()
 
   drawCharacter:(level = null)->
     # キャラ出撃用のパネルなら、出撃中判定
@@ -616,3 +615,7 @@ class Panel
         'title' : @object.getAbilityDesc()
       })
     )
+
+  removeMe:->
+    $(@divObject).find('*').remove()
+    $(@divObject).remove()

@@ -20,4 +20,4 @@ class ItemCharacterPicker
       @panels.push panel
 
   @onClick:(characterObject)->
-    
+    ItemEquipmentEditor.select characterObject

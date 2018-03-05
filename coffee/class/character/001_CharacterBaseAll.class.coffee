@@ -25,14 +25,16 @@ class Character1Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
-  @textDeath = "島村卯月"
+  @textDeath = ""
 
   @abilityName = "笑顔の魔法"
   @abilityDesc = "周囲8マスの味方の攻撃を10%上げる"
@@ -66,14 +68,16 @@ class Character2Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
-  @textDeath = "渋谷凛"
+  @textDeath = ""
 
   @abilityName = "蒼の波動"
   @abilityDesc = "周囲8マスの味方の回避を10%上げる"
@@ -107,14 +111,16 @@ class Character3Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
-  @textDeath = "本田未央"
+  @textDeath = ""
 
   @abilityName = "フレンドリー"
   @abilityDesc = "周囲8マスの味方の物防・魔防を10%上げる"
@@ -148,14 +154,16 @@ class Character4Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "相川千夏"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -189,14 +197,16 @@ class Character5Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "愛野渚"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -230,14 +240,16 @@ class Character6Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 15
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "相葉夕美"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "ターン終了時、周囲の空いているマスに花を出現させることがある"
@@ -271,14 +283,16 @@ class Character7Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "相原雪乃"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -312,14 +326,16 @@ class Character8Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
-  @textDeath = "赤城みりあ"
+  @textDeath = ""
 
   @abilityName = "みりあもやるー！"
   @abilityDesc = "行動終了後に味方が攻撃した時、1%の確率で再行動できる"
@@ -353,14 +369,16 @@ class Character9Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "赤西瑛梨華"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -394,14 +412,16 @@ class Character10Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "浅野風香"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -435,14 +455,16 @@ class Character11Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "浅利七海"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -476,14 +498,16 @@ class Character12Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "アナスタシア"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -517,14 +541,16 @@ class Character13Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "安部菜々"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -558,14 +584,16 @@ class Character14Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 10
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "綾瀬穂乃香"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -599,14 +627,16 @@ class Character15Base extends CharacterBase
   @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 2
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "荒木比奈"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -640,14 +670,16 @@ class Character16Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "有浦柑奈"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -681,14 +713,16 @@ class Character17Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "安斎都"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -707,7 +741,7 @@ class Character18Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 12
+  @attackBase = 10
   # 成長率：HP
   @hpBase = 14
   # 成長率：物理防御
@@ -717,19 +751,21 @@ class Character18Base extends CharacterBase
   # 基本移動力
   @moveBase = 5
   # 基本射程
-  @rangeBase = 2
+  @rangeBase = 1
   # 基本命中率
   @hitRateBase = 93
   # 基本回避率
-  @dodgeRateBase = 4
-  # アイテム装備可能数
-  @itemMax = 20
+  @dodgeRateBase = 1
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 35
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 60
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "イヴ・サンタクロース"
+  @textDeath = ""
 
   @abilityName = "プレゼント"
   @abilityDesc = "プレゼントに与えるダメージが2倍になる"
@@ -763,14 +799,16 @@ class Character19Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "五十嵐響子"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "ターン終了時、周囲の味方のHPを回復することがある"
@@ -804,14 +842,16 @@ class Character20Base extends CharacterBase
   @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 2
-  # アイテム装備可能数
-  @itemMax = 12
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 30
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 55
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "池袋晶葉"
+  @textDeath = ""
 
   @abilityName = "大丈夫博士"
   @abilityDesc = "ターン開始時、周囲にいる味方一人の攻撃、物防、魔防を30%上げるか下げるかすることがある"
@@ -845,14 +885,16 @@ class Character21Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "伊集院惠"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -886,14 +928,16 @@ class Character22Base extends CharacterBase
   @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 4
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "一ノ瀬志希"
+  @textDeath = ""
 
   @abilityName = "失踪"
   @abilityDesc = "味方ターン終了時に、ランダムなマスに移動することがある"
@@ -927,14 +971,16 @@ class Character23Base extends CharacterBase
   @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 5
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "市原仁奈"
+  @textDeath = ""
 
   @abilityName = "誰かのきもちになるですよ"
   @abilityDesc = "敵ターン終了時に、ランダムなステータスがフィールド内の誰かの値に変わる"
@@ -968,14 +1014,16 @@ class Character24Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "今井加奈"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1009,14 +1057,16 @@ class Character25Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "井村雪菜"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1043,24 +1093,26 @@ class Character26Base extends CharacterBase
   # 成長率：魔法防御
   @mDefBase = 3.5
   # 基本移動力
-  @moveBase = 4
+  @moveBase = 3
   # 基本射程
   @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 90
   # 基本回避率
-  @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 15
+  @dodgeRateBase = 1
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 30
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 55
   # コスト
   @costBase = 1.5
   # 必要経験値
-  @expRate = 2.3
+  @expRate = 2.4
   # 死んだ時の台詞
-  @textDeath = "上田鈴帆"
+  @textDeath = ""
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "きぐるみ"
+  @abilityDesc = "攻撃した相手の"
 
   constructor:(params)->
     super(params)
@@ -1091,14 +1143,16 @@ class Character27Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "氏家むつみ"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1132,14 +1186,16 @@ class Character28Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "梅木音葉"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1173,14 +1229,16 @@ class Character29Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "江上椿"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1214,14 +1272,16 @@ class Character30Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "衛藤美紗希"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1255,14 +1315,16 @@ class Character31Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "海老原菜帆"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1296,14 +1358,16 @@ class Character32Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 2
-  # アイテム装備可能数
-  @itemMax = 14
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 27
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 45
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.3
   # 死んだ時の台詞
-  @textDeath = "及川雫"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1337,14 +1401,16 @@ class Character33Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.3
   # 死んだ時の台詞
-  @textDeath = "大石泉"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1378,14 +1444,16 @@ class Character34Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "太田優"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1419,14 +1487,16 @@ class Character35Base extends CharacterBase
   @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
-  @textDeath = "大槻唯"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1460,14 +1530,16 @@ class Character36Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "大西由里子"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "ターン開始時、別の敵に隣接している敵の3マス以内にいると、物防・魔防が10%上がることがある"
@@ -1501,14 +1573,16 @@ class Character37Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "大沼くるみ"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1542,14 +1616,16 @@ class Character38Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "大原みちる"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1583,14 +1659,16 @@ class Character39Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "岡崎泰葉"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1624,14 +1702,16 @@ class Character40Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 12
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "緒方智絵里"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1665,14 +1745,16 @@ class Character41Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "奥山沙織"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1706,14 +1788,16 @@ class Character42Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "乙倉悠貴"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1747,14 +1831,16 @@ class Character43Base extends CharacterBase
   @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 2
-  # アイテム装備可能数
-  @itemMax = 12
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 30
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.4
   # 死んだ時の台詞
-  @textDeath = "片桐早苗"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1788,14 +1874,16 @@ class Character44Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "上条春菜"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1829,14 +1917,16 @@ class Character45Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
-  @textDeath = "神谷奈緒"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1870,14 +1960,16 @@ class Character46Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 12
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 30
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "川島瑞樹"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1911,14 +2003,16 @@ class Character47Base extends CharacterBase
   @hitRateBase = 90
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
-  @textDeath = "神崎蘭子"
+  @textDeath = ""
 
   @abilityName = "黒魔術"
   @abilityDesc = "攻撃した敵を一撃で倒すことがある"
@@ -1952,14 +2046,16 @@ class Character48Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "岸部彩華"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -1993,14 +2089,16 @@ class Character49Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "北川真尋"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2034,14 +2132,16 @@ class Character50Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "喜多日菜子"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2075,14 +2175,16 @@ class Character51Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "喜多見柚"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2116,14 +2218,16 @@ class Character52Base extends CharacterBase
   @hitRateBase = 97
   # 基本回避率
   @dodgeRateBase = 5
-  # アイテム装備可能数
-  @itemMax = 12
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 15
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 30
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "木場真奈美"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2157,14 +2261,16 @@ class Character53Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "木村夏樹"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2198,14 +2304,16 @@ class Character54Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "キャシー・グラハム"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2239,14 +2347,16 @@ class Character55Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "桐野アヤ"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2280,14 +2390,16 @@ class Character56Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "桐生つかさ"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2321,14 +2433,16 @@ class Character57Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "日下部若葉"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2362,14 +2476,16 @@ class Character58Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "工藤忍"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2403,14 +2519,16 @@ class Character59Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "クラリス"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2444,14 +2562,16 @@ class Character60Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "栗原ネネ"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2485,14 +2605,16 @@ class Character61Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "黒川千秋"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2526,14 +2648,16 @@ class Character62Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "ケイト"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2567,14 +2691,16 @@ class Character63Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "古賀小春"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2593,11 +2719,11 @@ class Character64Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 12
   # 成長率：HP
-  @hpBase = 22
+  @hpBase = 18
   # 成長率：物理防御
-  @pDefBase = 1.2
+  @pDefBase = 2
   # 成長率：魔法防御
   @mDefBase = 1.5
   # 基本移動力
@@ -2608,14 +2734,16 @@ class Character64Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 1
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "輿水幸子"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2649,14 +2777,16 @@ class Character65Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "小関麗奈"
+  @textDeath = ""
 
   @abilityName = "いたずら"
   @abilityDesc = "味方ターン開始時に、10%の確率で周囲4マスのどこかに岩を置く"
@@ -2690,14 +2820,16 @@ class Character66Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "小早川紗枝"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2731,14 +2863,16 @@ class Character67Base extends CharacterBase
   @hitRateBase = 99
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 14
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 30
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 50
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "秋月律子"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2772,14 +2906,16 @@ class Character68Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "秋月涼"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2813,14 +2949,16 @@ class Character69Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "天海春香"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2854,14 +2992,16 @@ class Character70Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "我那覇響"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2895,14 +3035,16 @@ class Character71Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "菊地真"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2936,14 +3078,16 @@ class Character72Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "如月千早"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -2977,14 +3121,16 @@ class Character73Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 8
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 23
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
-  @textDeath = "小日向美穂"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -3018,14 +3164,16 @@ class Character74Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "小松伊吹"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -3059,14 +3207,16 @@ class Character75Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "小室千奈美"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -3100,14 +3250,16 @@ class Character76Base extends CharacterBase
   @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 2
-  # アイテム装備可能数
-  @itemMax = 20
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 35
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "西園寺琴歌"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -3141,14 +3293,16 @@ class Character77Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 2
-  # アイテム装備可能数
-  @itemMax = 6
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 21
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "財前時子"
+  @textDeath = ""
 
   @abilityName = "愛のムチ"
   @abilityDesc = "時子が攻撃した敵は、このターン以降、なるべく時子に近づこうとする"
@@ -3182,14 +3336,16 @@ class Character78Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "斉藤洋子"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -3223,14 +3379,16 @@ class Character79Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "冴島清美"
+  @textDeath = ""
 
   @abilityName = "風紀"
   @abilityDesc = "すべてのユニットの特殊能力を無効化する"
@@ -3264,14 +3422,16 @@ class Character80Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "榊原里美"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -3305,14 +3465,16 @@ class Character81Base extends CharacterBase
   @hitRateBase = 88
   # 基本回避率
   @dodgeRateBase = 1
-  # アイテム装備可能数
-  @itemMax = 20
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 35
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "鷺沢文香"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "装備したアイテムの効果が倍になる"
@@ -3346,14 +3508,16 @@ class Character82Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 2
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "佐久間まゆ"
+  @textDeath = ""
 
   @abilityName = "恐怖"
   @abilityDesc = "まゆが攻撃した敵は、次のターン、移動力が+1され、なるべくまゆから遠ざかろうとする"
@@ -3378,7 +3542,7 @@ class Character83Base extends CharacterBase
   # 成長率：物理防御
   @pDefBase = 1.3
   # 成長率：魔法防御
-  @mDefBase = 2.5
+  @mDefBase = 2
   # 基本移動力
   @moveBase = 4
   # 基本射程
@@ -3387,14 +3551,16 @@ class Character83Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "櫻井桃華"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -3428,14 +3594,16 @@ class Character84Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "佐々木千枝"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -3469,14 +3637,16 @@ class Character85Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "佐城雪美"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -3510,14 +3680,16 @@ class Character86Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "佐藤心"
+  @textDeath = ""
 
   @abilityName = "キャラ付け"
   @abilityDesc = "HPが50%以上ある時、攻撃が30%上がる"
@@ -3551,14 +3723,16 @@ class Character87Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "沢田麻理菜"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -3592,14 +3766,16 @@ class Character88Base extends CharacterBase
   @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "椎名法子"
+  @textDeath = ""
 
   @abilityName = "ドーナツ配布"
   @abilityDesc = "周囲8マスの味方のHPを10%回復することがある"
@@ -3633,14 +3809,16 @@ class Character89Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 12
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 27
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.3
   # 死んだ時の台詞
-  @textDeath = "塩見周子"
+  @textDeath = ""
 
   @abilityName = "気まぐれ"
   @abilityDesc = "ターン開始時、HPが10%回復するか、5%のダメージを受ける"
@@ -3674,14 +3852,16 @@ class Character90Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "四条貴音"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -3715,14 +3895,16 @@ class Character91Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "篠原礼"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -3756,14 +3938,16 @@ class Character92Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "首藤葵"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -3797,14 +3981,16 @@ class Character93Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
-  # アイテム装備可能数
-  @itemMax = 12
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 27
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "城ヶ崎美嘉"
+  @textDeath = ""
 
   @abilityName = "姉妹"
   @abilityDesc = "城ヶ崎莉嘉が出撃している間、物防が2倍になり、移動、射程が1上がる"
@@ -3838,14 +4024,16 @@ class Character94Base extends CharacterBase
   @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "城ヶ崎莉嘉"
+  @textDeath = ""
 
   @abilityName = "姉妹"
   @abilityDesc = "城ヶ崎美嘉が出撃している間、魔防が2倍になり、移動、射程が1上がる"
@@ -3864,13 +4052,13 @@ class Character95Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 11
   # 成長率：HP
   @hpBase = 17
   # 成長率：物理防御
   @pDefBase = 1.5
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1.8
   # 基本移動力
   @moveBase = 4
   # 基本射程
@@ -3878,18 +4066,20 @@ class Character95Base extends CharacterBase
   # 基本命中率
   @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  @dodgeRateBase = 0
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "白菊ほたる"
+  @textDeath = ""
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "不幸"
+  @abilityDesc = "味方が攻撃を受ける時、代わりに攻撃されることがある"
 
   constructor:(params)->
     super(params)
@@ -3909,9 +4099,9 @@ class Character96Base extends CharacterBase
   # 成長率：HP
   @hpBase = 13
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1.3
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 2.5
   # 基本移動力
   @moveBase = 3
   # 基本射程
@@ -3920,14 +4110,16 @@ class Character96Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "白坂小梅"
+  @textDeath = ""
 
   @abilityName = "あの子が遊びにきた"
   @abilityDesc = "敵ターンの間だけ、自身の周囲のマスにランダムで攻撃不可のユニットが出現する"
@@ -3961,14 +4153,16 @@ class Character97Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "杉坂海"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4002,14 +4196,16 @@ class Character98Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "涼宮星花"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4043,14 +4239,16 @@ class Character99Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "関裕美"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4084,14 +4282,16 @@ class Character100Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "瀬名詩織"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4110,29 +4310,31 @@ class Character101Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 16
   # 成長率：HP
-  @hpBase = 17
+  @hpBase = 19
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1.4
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1.4
   # 基本移動力
   @moveBase = 4
   # 基本射程
-  @rangeBase = 1
+  @rangeBase = 3
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 98
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "仙崎恵磨"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4166,14 +4368,16 @@ class Character102Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "相馬夏美"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4207,14 +4411,16 @@ class Character103Base extends CharacterBase
   @hitRateBase = 99
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 12
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 27
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 4.4
   # 死んだ時の台詞
-  @textDeath = "高垣楓"
+  @textDeath = ""
 
   @abilityName = "歌姫"
   @abilityDesc = "攻撃した敵の周囲の敵にもダメージ、味方を回復する"
@@ -4248,14 +4454,16 @@ class Character104Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "高槻やよい"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4289,14 +4497,16 @@ class Character105Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "高橋礼子"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4330,14 +4540,16 @@ class Character106Base extends CharacterBase
   @hitRateBase = 88
   # 基本回避率
   @dodgeRateBase = 15
-  # アイテム装備可能数
-  @itemMax = 12
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 27
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "鷹富士茄子"
+  @textDeath = ""
 
   @abilityName = "幸運"
   @abilityDesc = "攻撃したプレゼントのランクが1上がる"
@@ -4371,14 +4583,16 @@ class Character107Base extends CharacterBase
   @hitRateBase = 96
   # 基本回避率
   @dodgeRateBase = 4
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "高峯のあ"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4412,14 +4626,16 @@ class Character108Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 1
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "高森藍子"
+  @textDeath = ""
 
   @abilityName = "ゆるふわ時間"
   @abilityDesc = "攻撃した相手を行動終了にすることがある"
@@ -4453,14 +4669,16 @@ class Character109Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "多田李衣菜"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4494,14 +4712,16 @@ class Character110Base extends CharacterBase
   @hitRateBase = 94
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "橘ありす"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4535,14 +4755,16 @@ class Character111Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "月宮雅"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4576,14 +4798,16 @@ class Character112Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "土屋亜子"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4617,14 +4841,16 @@ class Character113Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "東郷あい"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4658,14 +4884,16 @@ class Character114Base extends CharacterBase
   @hitRateBase = 90
   # 基本回避率
   @dodgeRateBase = 1
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "道明寺歌鈴"
+  @textDeath = ""
 
   @abilityName = "ドジ"
   @abilityDesc = "移動後、周囲の味方・敵にダメージを与えることがある"
@@ -4699,14 +4927,16 @@ class Character115Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "十時愛梨"
+  @textDeath = ""
 
   @abilityName = "すぐ脱ぐ"
   @abilityDesc = "ターン開始時、物防と魔防が10%下がることがある"
@@ -4740,14 +4970,16 @@ class Character116Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "長富蓮実"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4781,14 +5013,16 @@ class Character117Base extends CharacterBase
   @hitRateBase = 98
   # 基本回避率
   @dodgeRateBase = 5
-  # アイテム装備可能数
-  @itemMax = 8
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 23
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "中野有香"
+  @textDeath = ""
 
   @abilityName = "会心の一撃"
   @abilityDesc = "攻撃時、敵の防御力を無視することがある"
@@ -4822,14 +5056,16 @@ class Character118Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "ナターリア"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4863,14 +5099,16 @@ class Character119Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "並木芽衣子"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4904,14 +5142,16 @@ class Character120Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "成宮由愛"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4945,14 +5185,16 @@ class Character121Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "南条光"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -4986,14 +5228,16 @@ class Character122Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "難波笑美"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5027,14 +5271,16 @@ class Character123Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "西川保奈美"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5068,14 +5314,16 @@ class Character124Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "西島櫂"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5109,14 +5357,16 @@ class Character125Base extends CharacterBase
   @hitRateBase = 96
   # 基本回避率
   @dodgeRateBase = 4
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "新田美波"
+  @textDeath = ""
 
   @abilityName = "万能"
   @abilityDesc = "ターン終了時、ランダムなステータスが10%上昇する（フィールドから出ると戻る）"
@@ -5150,14 +5400,16 @@ class Character126Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 4
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "二宮飛鳥"
+  @textDeath = ""
 
   @abilityName = "孤高"
   @abilityDesc = "ターン開始時、周りにユニットがいなければ、そのターン、全ステータスが10%上がる"
@@ -5191,14 +5443,16 @@ class Character127Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "丹羽仁美"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5232,14 +5486,16 @@ class Character128Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "野々村そら"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5273,14 +5529,16 @@ class Character129Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "萩原雪歩"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5314,14 +5572,16 @@ class Character130Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "服部瞳子"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5355,14 +5615,16 @@ class Character131Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "浜川愛結奈"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5396,14 +5658,16 @@ class Character132Base extends CharacterBase
   @hitRateBase = 97
   # 基本回避率
   @dodgeRateBase = 35
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "浜口あやめ"
+  @textDeath = ""
 
   @abilityName = "忍法変わり身の術"
   @abilityDesc = "回避時に、味方と入れ替わることがある"
@@ -5437,14 +5701,16 @@ class Character133Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "早坂美玲"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5478,14 +5744,16 @@ class Character134Base extends CharacterBase
   @hitRateBase = 97
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "速水奏"
+  @textDeath = ""
 
   @abilityName = "ムーンサイド"
   @abilityDesc = "味方ターン終了時、最大HPとHPの差がHPになることがある"
@@ -5519,14 +5787,16 @@ class Character135Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.8
   # 死んだ時の台詞
-  @textDeath = "原田美世"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "再行動することがある"
@@ -5560,14 +5830,16 @@ class Character136Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "柊志乃"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5601,14 +5873,16 @@ class Character137Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "日高愛"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5642,14 +5916,16 @@ class Character138Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "日野茜"
+  @textDeath = ""
 
   @abilityName = "全力疾走"
   @abilityDesc = "移動後に攻撃をせずに行動終了した時、20%の確率でもう一度行動できる"
@@ -5683,14 +5959,16 @@ class Character139Base extends CharacterBase
   @hitRateBase = 96
   # 基本回避率
   @dodgeRateBase = 2
-  # アイテム装備可能数
-  @itemMax = 8
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 23
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "姫川友紀"
+  @textDeath = ""
 
   @abilityName = "かっとばせー"
   @abilityDesc = "ターン開始時、隣接している味方をランダムなマスに飛ばすことがある"
@@ -5724,14 +6002,16 @@ class Character140Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "兵藤レナ"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5765,14 +6045,16 @@ class Character141Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "福山舞"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5806,14 +6088,16 @@ class Character142Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "藤居朋"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5847,14 +6131,16 @@ class Character143Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 12
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 27
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.4
   # 死んだ時の台詞
-  @textDeath = "藤本里奈"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5888,14 +6174,16 @@ class Character144Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "藤原肇"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -5929,14 +6217,16 @@ class Character145Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 0
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "双葉杏"
+  @textDeath = ""
 
   @abilityName = "印税"
   @abilityDesc = "ターン終了時に出撃していると、階層✕3の経験値を得る"
@@ -5970,14 +6260,16 @@ class Character146Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 7
-  # アイテム装備可能数
-  @itemMax = 8
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 23
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
-  @textDeath = "双海亜美"
+  @textDeath = ""
 
   @abilityName = "双子"
   @abilityDesc = "双海真美が出撃している場合、味方ターン開始時に、HPが二人のうちどちらか高い方になる"
@@ -6011,14 +6303,16 @@ class Character147Base extends CharacterBase
   @hitRateBase = 96
   # 基本回避率
   @dodgeRateBase = 6
-  # アイテム装備可能数
-  @itemMax = 8
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 23
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
-  @textDeath = "双海真美"
+  @textDeath = ""
 
   @abilityName = "双子"
   @abilityDesc = "双海亜美が出撃している場合、味方ターン開始時に、HPが二人のうちどちらか高い方になる"
@@ -6052,14 +6346,16 @@ class Character148Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "古澤頼子"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6093,14 +6389,16 @@ class Character149Base extends CharacterBase
   @hitRateBase = 0
   # 基本回避率
   @dodgeRateBase = 0
-  # アイテム装備可能数
-  @itemMax = 20
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 35
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "ヘレン"
+  @textDeath = ""
 
   @abilityName = "世界のヘレン"
   @abilityDesc = "ターン開始時、HPが全回復することがある"
@@ -6134,14 +6432,16 @@ class Character150Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
-  @textDeath = "北条加蓮"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6175,14 +6475,16 @@ class Character151Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "星井美希"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6216,14 +6518,16 @@ class Character152Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "星輝子"
+  @textDeath = ""
 
   @abilityName = "インキャ"
   @abilityDesc = "上か下の壁際で行動終了した時、再行動することがある"
@@ -6257,14 +6561,16 @@ class Character153Base extends CharacterBase
   @hitRateBase = 70
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "堀裕子"
+  @textDeath = ""
 
   @abilityName = "サイキック"
   @abilityDesc = "攻撃が命中した敵を好きな場所に移動することができる"
@@ -6298,14 +6604,16 @@ class Character154Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 8
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
-  @textDeath = "前川みく"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "味方が敵からの攻撃を回避した時に、その敵に反撃する"
@@ -6339,14 +6647,16 @@ class Character155Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "槙原志保"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6380,14 +6690,16 @@ class Character156Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "松尾千鶴"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6421,14 +6733,16 @@ class Character157Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "松永涼"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6462,14 +6776,16 @@ class Character158Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "松原早耶"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6503,14 +6819,16 @@ class Character159Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "松本沙理奈"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6544,14 +6862,16 @@ class Character160Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "松山久美子"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6585,14 +6905,16 @@ class Character161Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "的場梨沙"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6626,14 +6948,16 @@ class Character162Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "間中美里"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6667,14 +6991,16 @@ class Character163Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
-  # アイテム装備可能数
-  @itemMax = 8
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 23
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
-  @textDeath = "真鍋いつき"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "行動後、再行動できることがある"
@@ -6708,14 +7034,16 @@ class Character164Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.3
   # 死んだ時の台詞
-  @textDeath = "三浦あずさ"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6749,14 +7077,16 @@ class Character165Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "水木聖來"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6790,14 +7120,16 @@ class Character166Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "水谷絵理"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6831,14 +7163,16 @@ class Character167Base extends CharacterBase
   @hitRateBase = 90
   # 基本回避率
   @dodgeRateBase = 2
-  # アイテム装備可能数
-  @itemMax = 8
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 23
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.4
   # 死んだ時の台詞
-  @textDeath = "水野翠"
+  @textDeath = ""
 
   @abilityName = "貫通の矢"
   @abilityDesc = "攻撃を外した時、その敵より後ろにいる敵全員にダメージを与える"
@@ -6872,14 +7206,16 @@ class Character168Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "水本ゆかり"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6913,14 +7249,16 @@ class Character169Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "水瀬伊織"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6954,14 +7292,16 @@ class Character170Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "三船美優"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -6995,14 +7335,16 @@ class Character171Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 1
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "三村かな子"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "最大HPの50%以上のダメージを受けてHPが0になった時、一度だけHP1で耐える"
@@ -7036,14 +7378,16 @@ class Character172Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "宮本フレデリカ"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "ターン開始時、攻撃タイプがランダムに変化する"
@@ -7077,14 +7421,16 @@ class Character173Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "三好紗南"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -7118,14 +7464,16 @@ class Character174Base extends CharacterBase
   @hitRateBase = 91
   # 基本回避率
   @dodgeRateBase = 2
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.4
   # 死んだ時の台詞
-  @textDeath = "向井拓海"
+  @textDeath = ""
 
   @abilityName = "喧嘩上等"
   @abilityDesc = "敵の攻撃を寄せつける"
@@ -7159,14 +7507,16 @@ class Character175Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.3
   # 死んだ時の台詞
-  @textDeath = "棟方愛海"
+  @textDeath = ""
 
   @abilityName = "登山"
   @abilityDesc = "ターン開始時、周りに味方の数に応じてHPが回復する"
@@ -7200,14 +7550,16 @@ class Character176Base extends CharacterBase
   @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "村上巴"
+  @textDeath = ""
 
   @abilityName = "喝！"
   @abilityDesc = "行動終了時、周りの行動終了済みの味方を再行動させることがある"
@@ -7241,14 +7593,16 @@ class Character177Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "村松さくら"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -7282,14 +7636,16 @@ class Character178Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "メアリー・コクラン"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -7323,14 +7679,16 @@ class Character179Base extends CharacterBase
   @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 2
-  # アイテム装備可能数
-  @itemMax = 15
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 30
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "持田亜里沙"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -7364,14 +7722,16 @@ class Character180Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "望月聖"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -7405,14 +7765,16 @@ class Character181Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "桃井あずき"
+  @textDeath = ""
 
   @abilityName = "呉服"
   @abilityDesc = "ターン開始時、物防・魔防が10%上がる"
@@ -7446,14 +7808,16 @@ class Character182Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "森久保乃々"
+  @textDeath = ""
 
   @abilityName = "む～り～"
   @abilityDesc = "敵ターン終了時、周りに3体以上のユニットがいる時、マップ左端のランダムなマスにワープする"
@@ -7487,14 +7851,16 @@ class Character183Base extends CharacterBase
   @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 2
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "諸星きらり"
+  @textDeath = ""
 
   @abilityName = "きらりん☆ストロング"
   @abilityDesc = "最大HPの50%以上のダメージを受けてHPが0になった時、一度だけHP1で耐える。"
@@ -7528,14 +7894,16 @@ class Character184Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 10
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "楊菲菲"
+  @textDeath = ""
 
   @abilityName = "カンフー"
   @abilityDesc = "最大HP以上のダメージを受ける時、10%の確率で回避する"
@@ -7569,14 +7937,16 @@ class Character185Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
-  # アイテム装備可能数
-  @itemMax = 12
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 27
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.4
   # 死んだ時の台詞
-  @textDeath = "八神マキノ"
+  @textDeath = ""
 
   @abilityName = "諜報"
   @abilityDesc = "自分が攻撃する時を除き、周囲にいる敵が受けるダメージが2倍になる"
@@ -7610,14 +7980,16 @@ class Character186Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "矢口美羽"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -7651,14 +8023,16 @@ class Character187Base extends CharacterBase
   @hitRateBase = 90
   # 基本回避率
   @dodgeRateBase = 1
-  # アイテム装備可能数
-  @itemMax = 12
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 27
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.4
   # 死んだ時の台詞
-  @textDeath = "柳清良"
+  @textDeath = ""
 
   @abilityName = "看護"
   @abilityDesc = "ターンごとのHP減少を半分にする"
@@ -7692,14 +8066,16 @@ class Character188Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "柳瀬美由紀"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -7733,14 +8109,16 @@ class Character189Base extends CharacterBase
   @hitRateBase = 68
   # 基本回避率
   @dodgeRateBase = 5
-  # アイテム装備可能数
-  @itemMax = 15
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 30
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "大和亜季"
+  @textDeath = ""
 
   @abilityName = "掃射"
   @abilityDesc = "攻撃時、周囲8マスの味方、敵にも同じダメージを与えることがある"
@@ -7774,14 +8152,16 @@ class Character190Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 5
-  # アイテム装備可能数
-  @itemMax = 8
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 23
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
-  @textDeath = "結城晴"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -7815,14 +8195,16 @@ class Character191Base extends CharacterBase
   @hitRateBase = 88
   # 基本回避率
   @dodgeRateBase = 1
-  # アイテム装備可能数
-  @itemMax = 8
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 23
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
-  @textDeath = "遊佐こずえ"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -7856,14 +8238,16 @@ class Character192Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 8
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 23
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
-  @textDeath = "横山千佳"
+  @textDeath = ""
 
   @abilityName = "魔法知識"
   @abilityDesc = "魔法攻撃を受ける時、回避率が5倍になる"
@@ -7897,14 +8281,16 @@ class Character193Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "吉岡沙紀"
+  @textDeath = ""
 
   @abilityName = "ペイント"
   @abilityDesc = "味方ターン開始時、周囲の敵をランダムな別の敵に変化させることがある"
@@ -7938,14 +8324,16 @@ class Character194Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "依田芳乃"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -7979,14 +8367,16 @@ class Character195Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 6
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 21
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 1.2
   # 死んだ時の台詞
-  @textDeath = "ライラ"
+  @textDeath = ""
 
   @abilityName = "節約"
   @abilityDesc = "レベルが上がりやすい"
@@ -8020,14 +8410,16 @@ class Character196Base extends CharacterBase
   @hitRateBase = 93
   # 基本回避率
   @dodgeRateBase = 7
-  # アイテム装備可能数
-  @itemMax = 4
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 19
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
-  @textDeath = "龍崎薫"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -8061,14 +8453,16 @@ class Character197Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.2
   # 死んだ時の台詞
-  @textDeath = "若林智香"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -8102,14 +8496,16 @@ class Character198Base extends CharacterBase
   @hitRateBase = 97
   # 基本回避率
   @dodgeRateBase = 8
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.0
   # 死んだ時の台詞
-  @textDeath = "脇山珠美"
+  @textDeath = ""
 
   @abilityName = "剣道"
   @abilityDesc = "敵の攻撃を回避した時、反撃する"
@@ -8143,14 +8539,16 @@ class Character199Base extends CharacterBase
   @hitRateBase = 95
   # 基本回避率
   @dodgeRateBase = 3
-  # アイテム装備可能数
-  @itemMax = 10
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 25
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 2.6
   # 死んだ時の台詞
-  @textDeath = "和久井留美"
+  @textDeath = ""
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -8184,14 +8582,16 @@ class Character200Base extends CharacterBase
   @hitRateBase = 0
   # 基本回避率
   @dodgeRateBase = 1
-  # アイテム装備可能数
-  @itemMax = 15
+  # アイテム装備可能数（開始時）
+  @itemMaxStart = 30
+  # アイテム装備可能数（限界）
+  @itemMaxEnd = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
   @expRate = 3.2
   # 死んだ時の台詞
-  @textDeath = "千川ちひろ"
+  @textDeath = ""
 
   @abilityName = "事務"
   @abilityDesc = "出撃中に得るジュエルが2倍になる"

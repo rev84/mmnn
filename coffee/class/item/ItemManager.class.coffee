@@ -12,8 +12,8 @@ class ItemManager
     @items = {}
 
     ItemCharacterPicker.init(@)
-    ItemEquipmentEditor.init(@divObject)
-    ItemEditor.init(@divObject)
+    ItemEquipmentEditor.init(@)
+    ItemEditor.init(@)
 
     @divObject.appendTo @gameElement
 

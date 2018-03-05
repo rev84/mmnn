@@ -128,7 +128,13 @@ input[type="range"]::-webkit-slider-thumb:active {
 .panel {
   border: double 5px #000000;
 }
-.panel, .panel > *, #env > div, .levelup_panel, .levelup_panel > *, .levelup_controller, .levelup_controller > *, #battle_result > *, #item_character_picker, #item_character_picker > * {
+.panel, .panel > *, #env > div,
+.levelup_panel, .levelup_panel > *,
+.levelup_controller, .levelup_controller > *,
+#battle_result > *,
+#item_character_picker, #item_character_picker > *,
+#item_equipment_editor, #item_equipment_editor > *,
+#item_editor, #item_editor > * {
   position: absolute;
   box-sizing: border-box;
 }
@@ -231,8 +237,44 @@ input[type="range"]::-webkit-slider-thumb:active {
 #item_equipment_editor {
   top:0px;
   left:420px;
-  width: 300px;
+  width: 400px;
   height: 600px;
+}
+.equipment_editor_section {
+  top: 120px;
+  left: 0px;
+  width: 400px;
+  height: 50px;
+  background-image: url('../img/equipment.png');
+}
+.equipment_editor_items {
+  top: 170px;
+  left: 0px;
+  width: 400px;
+  height: 330px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.equipment_editor_cost_section {
+  top:500px;
+  left:0px;
+  width: 100px;
+  height: 100px;
+  background-image: url('../img/equipment_cost.png');
+}
+.equipment_editor_cost_max {
+  top:500px;
+  left:100px;
+  width: 100px;
+  height: 100px;
+  font-size: 70px;
+}
+.equipment_editor_cost_now {
+  top:500px;
+  left:0px;
+  width: 100px;
+  height: 100px;
+  font-size: 70px;
 }
 #item_editor {
   top:0px;

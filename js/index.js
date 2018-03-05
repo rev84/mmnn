@@ -942,6 +942,10 @@ CharacterBase = class CharacterBase extends ObjectBase {
     this.inField = params.inField;
     // 行動済みであるか
     this.moved = params.moved;
+    // アイテム装備可能数
+    this.itemCapacityPlus = params.itemCapacityPlus;
+    // 装備中のアイテム
+    this.items = params.items;
   }
 
   getId() {
@@ -983,6 +987,57 @@ CharacterBase = class CharacterBase extends ObjectBase {
     } else {
       return Math.ceil(this.constructor.costBase * level);
     }
+  }
+
+  // アイテム装備可能数（開始時）
+  getItemCapacityStart() {
+    return this.constructor.itemCapacityStart;
+  }
+
+  // アイテム装備可能数（開始時）
+  getItemCapacityLimit() {
+    return this.constructor.itemCapacityLimit;
+  }
+
+  // アイテム装備可能数
+  getItemCapacity() {
+    return this.getItemCapacityStart() + this.getItemCapacityPlus();
+  }
+
+  // アイテム装備可能数の加算値
+  getItemCapacityPlus() {
+    return this.itemCapacityPlus;
+  }
+
+  // アイテム装備可能数を増やす
+  increaseItemCapacity(amount = 1) {
+    this.itemCapacityPlus += amount;
+    if (this.getItemCapacityLimit() - this.getItemCapacityStart() < this.itemCapacityPlus) {
+      return this.itemCapacityPlus = this.getItemCapacityLimit() - this.getItemCapacityStart();
+    }
+  }
+
+  // アイテム装備可能数を増やせるか
+  canIncreaseItemCapacity(amount = 1) {
+    return this.itemCapacityPlus + amount <= this.getItemCapacityLimit() - this.getItemCapacityStart();
+  }
+
+  // 装備中のアイテムを取得
+  getItems() {
+    return this.items;
+  }
+
+  // 装備中のアイテムのコストの合計を取得
+  getItemsCost() {
+    var itemId, j, len, ref, results, total;
+    total = 0;
+    ref = this.items;
+    results = [];
+    for (j = 0, len = ref.length; j < len; j++) {
+      itemId = ref[j];
+      results.push(total += GameManager.items[itemId].getCost());
+    }
+    return results;
   }
 
 };
@@ -1034,8 +1089,11 @@ Character1Base = (function() {
   // 基本回避率
   Character1Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character1Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character1Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character1Base.itemMaxEnd = 40;
 
   // コスト
   Character1Base.costBase = 1.5;
@@ -1044,7 +1102,7 @@ Character1Base = (function() {
   Character1Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character1Base.textDeath = "島村卯月";
+  Character1Base.textDeath = "";
 
   Character1Base.abilityName = "笑顔の魔法";
 
@@ -1101,8 +1159,11 @@ Character2Base = (function() {
   // 基本回避率
   Character2Base.dodgeRateBase = 5;
 
-  // アイテム装備可能数
-  Character2Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character2Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character2Base.itemMaxEnd = 40;
 
   // コスト
   Character2Base.costBase = 1.5;
@@ -1111,7 +1172,7 @@ Character2Base = (function() {
   Character2Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character2Base.textDeath = "渋谷凛";
+  Character2Base.textDeath = "";
 
   Character2Base.abilityName = "蒼の波動";
 
@@ -1168,8 +1229,11 @@ Character3Base = (function() {
   // 基本回避率
   Character3Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character3Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character3Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character3Base.itemMaxEnd = 40;
 
   // コスト
   Character3Base.costBase = 1.5;
@@ -1178,7 +1242,7 @@ Character3Base = (function() {
   Character3Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character3Base.textDeath = "本田未央";
+  Character3Base.textDeath = "";
 
   Character3Base.abilityName = "フレンドリー";
 
@@ -1235,8 +1299,11 @@ Character4Base = (function() {
   // 基本回避率
   Character4Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character4Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character4Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character4Base.itemMaxEnd = 40;
 
   // コスト
   Character4Base.costBase = 1.5;
@@ -1245,7 +1312,7 @@ Character4Base = (function() {
   Character4Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character4Base.textDeath = "相川千夏";
+  Character4Base.textDeath = "";
 
   Character4Base.abilityName = "なし";
 
@@ -1302,8 +1369,11 @@ Character5Base = (function() {
   // 基本回避率
   Character5Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character5Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character5Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character5Base.itemMaxEnd = 40;
 
   // コスト
   Character5Base.costBase = 1.5;
@@ -1312,7 +1382,7 @@ Character5Base = (function() {
   Character5Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character5Base.textDeath = "愛野渚";
+  Character5Base.textDeath = "";
 
   Character5Base.abilityName = "なし";
 
@@ -1369,8 +1439,11 @@ Character6Base = (function() {
   // 基本回避率
   Character6Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character6Base.itemMax = 15;
+  // アイテム装備可能数（開始時）
+  Character6Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character6Base.itemMaxEnd = 40;
 
   // コスト
   Character6Base.costBase = 1.5;
@@ -1379,7 +1452,7 @@ Character6Base = (function() {
   Character6Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character6Base.textDeath = "相葉夕美";
+  Character6Base.textDeath = "";
 
   Character6Base.abilityName = "なし";
 
@@ -1436,8 +1509,11 @@ Character7Base = (function() {
   // 基本回避率
   Character7Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character7Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character7Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character7Base.itemMaxEnd = 40;
 
   // コスト
   Character7Base.costBase = 1.5;
@@ -1446,7 +1522,7 @@ Character7Base = (function() {
   Character7Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character7Base.textDeath = "相原雪乃";
+  Character7Base.textDeath = "";
 
   Character7Base.abilityName = "なし";
 
@@ -1503,8 +1579,11 @@ Character8Base = (function() {
   // 基本回避率
   Character8Base.dodgeRateBase = 5;
 
-  // アイテム装備可能数
-  Character8Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character8Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character8Base.itemMaxEnd = 40;
 
   // コスト
   Character8Base.costBase = 1.5;
@@ -1513,7 +1592,7 @@ Character8Base = (function() {
   Character8Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character8Base.textDeath = "赤城みりあ";
+  Character8Base.textDeath = "";
 
   Character8Base.abilityName = "みりあもやるー！";
 
@@ -1570,8 +1649,11 @@ Character9Base = (function() {
   // 基本回避率
   Character9Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character9Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character9Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character9Base.itemMaxEnd = 40;
 
   // コスト
   Character9Base.costBase = 1.5;
@@ -1580,7 +1662,7 @@ Character9Base = (function() {
   Character9Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character9Base.textDeath = "赤西瑛梨華";
+  Character9Base.textDeath = "";
 
   Character9Base.abilityName = "なし";
 
@@ -1637,8 +1719,11 @@ Character10Base = (function() {
   // 基本回避率
   Character10Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character10Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character10Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character10Base.itemMaxEnd = 40;
 
   // コスト
   Character10Base.costBase = 1.5;
@@ -1647,7 +1732,7 @@ Character10Base = (function() {
   Character10Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character10Base.textDeath = "浅野風香";
+  Character10Base.textDeath = "";
 
   Character10Base.abilityName = "なし";
 
@@ -1704,8 +1789,11 @@ Character11Base = (function() {
   // 基本回避率
   Character11Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character11Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character11Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character11Base.itemMaxEnd = 40;
 
   // コスト
   Character11Base.costBase = 1.5;
@@ -1714,7 +1802,7 @@ Character11Base = (function() {
   Character11Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character11Base.textDeath = "浅利七海";
+  Character11Base.textDeath = "";
 
   Character11Base.abilityName = "なし";
 
@@ -1771,8 +1859,11 @@ Character12Base = (function() {
   // 基本回避率
   Character12Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character12Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character12Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character12Base.itemMaxEnd = 40;
 
   // コスト
   Character12Base.costBase = 1.5;
@@ -1781,7 +1872,7 @@ Character12Base = (function() {
   Character12Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character12Base.textDeath = "アナスタシア";
+  Character12Base.textDeath = "";
 
   Character12Base.abilityName = "なし";
 
@@ -1838,8 +1929,11 @@ Character13Base = (function() {
   // 基本回避率
   Character13Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character13Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character13Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character13Base.itemMaxEnd = 40;
 
   // コスト
   Character13Base.costBase = 1.5;
@@ -1848,7 +1942,7 @@ Character13Base = (function() {
   Character13Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character13Base.textDeath = "安部菜々";
+  Character13Base.textDeath = "";
 
   Character13Base.abilityName = "なし";
 
@@ -1905,8 +1999,11 @@ Character14Base = (function() {
   // 基本回避率
   Character14Base.dodgeRateBase = 10;
 
-  // アイテム装備可能数
-  Character14Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character14Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character14Base.itemMaxEnd = 40;
 
   // コスト
   Character14Base.costBase = 1.5;
@@ -1915,7 +2012,7 @@ Character14Base = (function() {
   Character14Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character14Base.textDeath = "綾瀬穂乃香";
+  Character14Base.textDeath = "";
 
   Character14Base.abilityName = "なし";
 
@@ -1972,8 +2069,11 @@ Character15Base = (function() {
   // 基本回避率
   Character15Base.dodgeRateBase = 2;
 
-  // アイテム装備可能数
-  Character15Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character15Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character15Base.itemMaxEnd = 40;
 
   // コスト
   Character15Base.costBase = 1.5;
@@ -1982,7 +2082,7 @@ Character15Base = (function() {
   Character15Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character15Base.textDeath = "荒木比奈";
+  Character15Base.textDeath = "";
 
   Character15Base.abilityName = "なし";
 
@@ -2039,8 +2139,11 @@ Character16Base = (function() {
   // 基本回避率
   Character16Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character16Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character16Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character16Base.itemMaxEnd = 40;
 
   // コスト
   Character16Base.costBase = 1.5;
@@ -2049,7 +2152,7 @@ Character16Base = (function() {
   Character16Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character16Base.textDeath = "有浦柑奈";
+  Character16Base.textDeath = "";
 
   Character16Base.abilityName = "なし";
 
@@ -2106,8 +2209,11 @@ Character17Base = (function() {
   // 基本回避率
   Character17Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character17Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character17Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character17Base.itemMaxEnd = 40;
 
   // コスト
   Character17Base.costBase = 1.5;
@@ -2116,7 +2222,7 @@ Character17Base = (function() {
   Character17Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character17Base.textDeath = "安斎都";
+  Character17Base.textDeath = "";
 
   Character17Base.abilityName = "なし";
 
@@ -2150,7 +2256,7 @@ Character18Base = (function() {
   Character18Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
 
   // 成長率：攻撃力
-  Character18Base.attackBase = 12;
+  Character18Base.attackBase = 10;
 
   // 成長率：HP
   Character18Base.hpBase = 14;
@@ -2165,16 +2271,19 @@ Character18Base = (function() {
   Character18Base.moveBase = 5;
 
   // 基本射程
-  Character18Base.rangeBase = 2;
+  Character18Base.rangeBase = 1;
 
   // 基本命中率
   Character18Base.hitRateBase = 93;
 
   // 基本回避率
-  Character18Base.dodgeRateBase = 4;
+  Character18Base.dodgeRateBase = 1;
 
-  // アイテム装備可能数
-  Character18Base.itemMax = 20;
+  // アイテム装備可能数（開始時）
+  Character18Base.itemMaxStart = 35;
+
+  // アイテム装備可能数（限界）
+  Character18Base.itemMaxEnd = 60;
 
   // コスト
   Character18Base.costBase = 1.5;
@@ -2183,7 +2292,7 @@ Character18Base = (function() {
   Character18Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character18Base.textDeath = "イヴ・サンタクロース";
+  Character18Base.textDeath = "";
 
   Character18Base.abilityName = "プレゼント";
 
@@ -2240,8 +2349,11 @@ Character19Base = (function() {
   // 基本回避率
   Character19Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character19Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character19Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character19Base.itemMaxEnd = 40;
 
   // コスト
   Character19Base.costBase = 1.5;
@@ -2250,7 +2362,7 @@ Character19Base = (function() {
   Character19Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character19Base.textDeath = "五十嵐響子";
+  Character19Base.textDeath = "";
 
   Character19Base.abilityName = "なし";
 
@@ -2307,8 +2419,11 @@ Character20Base = (function() {
   // 基本回避率
   Character20Base.dodgeRateBase = 2;
 
-  // アイテム装備可能数
-  Character20Base.itemMax = 12;
+  // アイテム装備可能数（開始時）
+  Character20Base.itemMaxStart = 30;
+
+  // アイテム装備可能数（限界）
+  Character20Base.itemMaxEnd = 55;
 
   // コスト
   Character20Base.costBase = 1.5;
@@ -2317,7 +2432,7 @@ Character20Base = (function() {
   Character20Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character20Base.textDeath = "池袋晶葉";
+  Character20Base.textDeath = "";
 
   Character20Base.abilityName = "大丈夫博士";
 
@@ -2374,8 +2489,11 @@ Character21Base = (function() {
   // 基本回避率
   Character21Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character21Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character21Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character21Base.itemMaxEnd = 40;
 
   // コスト
   Character21Base.costBase = 1.5;
@@ -2384,7 +2502,7 @@ Character21Base = (function() {
   Character21Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character21Base.textDeath = "伊集院惠";
+  Character21Base.textDeath = "";
 
   Character21Base.abilityName = "なし";
 
@@ -2441,8 +2559,11 @@ Character22Base = (function() {
   // 基本回避率
   Character22Base.dodgeRateBase = 4;
 
-  // アイテム装備可能数
-  Character22Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character22Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character22Base.itemMaxEnd = 40;
 
   // コスト
   Character22Base.costBase = 1.5;
@@ -2451,7 +2572,7 @@ Character22Base = (function() {
   Character22Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character22Base.textDeath = "一ノ瀬志希";
+  Character22Base.textDeath = "";
 
   Character22Base.abilityName = "失踪";
 
@@ -2508,8 +2629,11 @@ Character23Base = (function() {
   // 基本回避率
   Character23Base.dodgeRateBase = 5;
 
-  // アイテム装備可能数
-  Character23Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character23Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character23Base.itemMaxEnd = 40;
 
   // コスト
   Character23Base.costBase = 1.5;
@@ -2518,7 +2642,7 @@ Character23Base = (function() {
   Character23Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character23Base.textDeath = "市原仁奈";
+  Character23Base.textDeath = "";
 
   Character23Base.abilityName = "誰かのきもちになるですよ";
 
@@ -2575,8 +2699,11 @@ Character24Base = (function() {
   // 基本回避率
   Character24Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character24Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character24Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character24Base.itemMaxEnd = 40;
 
   // コスト
   Character24Base.costBase = 1.5;
@@ -2585,7 +2712,7 @@ Character24Base = (function() {
   Character24Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character24Base.textDeath = "今井加奈";
+  Character24Base.textDeath = "";
 
   Character24Base.abilityName = "なし";
 
@@ -2642,8 +2769,11 @@ Character25Base = (function() {
   // 基本回避率
   Character25Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character25Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character25Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character25Base.itemMaxEnd = 40;
 
   // コスト
   Character25Base.costBase = 1.5;
@@ -2652,7 +2782,7 @@ Character25Base = (function() {
   Character25Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character25Base.textDeath = "井村雪菜";
+  Character25Base.textDeath = "";
 
   Character25Base.abilityName = "なし";
 
@@ -2698,32 +2828,35 @@ Character26Base = (function() {
   Character26Base.mDefBase = 3.5;
 
   // 基本移動力
-  Character26Base.moveBase = 4;
+  Character26Base.moveBase = 3;
 
   // 基本射程
   Character26Base.rangeBase = 1;
 
   // 基本命中率
-  Character26Base.hitRateBase = 95;
+  Character26Base.hitRateBase = 90;
 
   // 基本回避率
-  Character26Base.dodgeRateBase = 3;
+  Character26Base.dodgeRateBase = 1;
 
-  // アイテム装備可能数
-  Character26Base.itemMax = 15;
+  // アイテム装備可能数（開始時）
+  Character26Base.itemMaxStart = 30;
+
+  // アイテム装備可能数（限界）
+  Character26Base.itemMaxEnd = 55;
 
   // コスト
   Character26Base.costBase = 1.5;
 
   // 必要経験値
-  Character26Base.expRate = 2.3;
+  Character26Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character26Base.textDeath = "上田鈴帆";
+  Character26Base.textDeath = "";
 
-  Character26Base.abilityName = "なし";
+  Character26Base.abilityName = "きぐるみ";
 
-  Character26Base.abilityDesc = "なし";
+  Character26Base.abilityDesc = "攻撃した相手の";
 
   return Character26Base;
 
@@ -2776,8 +2909,11 @@ Character27Base = (function() {
   // 基本回避率
   Character27Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character27Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character27Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character27Base.itemMaxEnd = 40;
 
   // コスト
   Character27Base.costBase = 1.5;
@@ -2786,7 +2922,7 @@ Character27Base = (function() {
   Character27Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character27Base.textDeath = "氏家むつみ";
+  Character27Base.textDeath = "";
 
   Character27Base.abilityName = "なし";
 
@@ -2843,8 +2979,11 @@ Character28Base = (function() {
   // 基本回避率
   Character28Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character28Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character28Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character28Base.itemMaxEnd = 40;
 
   // コスト
   Character28Base.costBase = 1.5;
@@ -2853,7 +2992,7 @@ Character28Base = (function() {
   Character28Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character28Base.textDeath = "梅木音葉";
+  Character28Base.textDeath = "";
 
   Character28Base.abilityName = "なし";
 
@@ -2910,8 +3049,11 @@ Character29Base = (function() {
   // 基本回避率
   Character29Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character29Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character29Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character29Base.itemMaxEnd = 40;
 
   // コスト
   Character29Base.costBase = 1.5;
@@ -2920,7 +3062,7 @@ Character29Base = (function() {
   Character29Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character29Base.textDeath = "江上椿";
+  Character29Base.textDeath = "";
 
   Character29Base.abilityName = "なし";
 
@@ -2977,8 +3119,11 @@ Character30Base = (function() {
   // 基本回避率
   Character30Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character30Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character30Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character30Base.itemMaxEnd = 40;
 
   // コスト
   Character30Base.costBase = 1.5;
@@ -2987,7 +3132,7 @@ Character30Base = (function() {
   Character30Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character30Base.textDeath = "衛藤美紗希";
+  Character30Base.textDeath = "";
 
   Character30Base.abilityName = "なし";
 
@@ -3044,8 +3189,11 @@ Character31Base = (function() {
   // 基本回避率
   Character31Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character31Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character31Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character31Base.itemMaxEnd = 40;
 
   // コスト
   Character31Base.costBase = 1.5;
@@ -3054,7 +3202,7 @@ Character31Base = (function() {
   Character31Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character31Base.textDeath = "海老原菜帆";
+  Character31Base.textDeath = "";
 
   Character31Base.abilityName = "なし";
 
@@ -3111,8 +3259,11 @@ Character32Base = (function() {
   // 基本回避率
   Character32Base.dodgeRateBase = 2;
 
-  // アイテム装備可能数
-  Character32Base.itemMax = 14;
+  // アイテム装備可能数（開始時）
+  Character32Base.itemMaxStart = 27;
+
+  // アイテム装備可能数（限界）
+  Character32Base.itemMaxEnd = 45;
 
   // コスト
   Character32Base.costBase = 1.5;
@@ -3121,7 +3272,7 @@ Character32Base = (function() {
   Character32Base.expRate = 2.3;
 
   // 死んだ時の台詞
-  Character32Base.textDeath = "及川雫";
+  Character32Base.textDeath = "";
 
   Character32Base.abilityName = "なし";
 
@@ -3178,8 +3329,11 @@ Character33Base = (function() {
   // 基本回避率
   Character33Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character33Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character33Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character33Base.itemMaxEnd = 40;
 
   // コスト
   Character33Base.costBase = 1.5;
@@ -3188,7 +3342,7 @@ Character33Base = (function() {
   Character33Base.expRate = 2.3;
 
   // 死んだ時の台詞
-  Character33Base.textDeath = "大石泉";
+  Character33Base.textDeath = "";
 
   Character33Base.abilityName = "なし";
 
@@ -3245,8 +3399,11 @@ Character34Base = (function() {
   // 基本回避率
   Character34Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character34Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character34Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character34Base.itemMaxEnd = 40;
 
   // コスト
   Character34Base.costBase = 1.5;
@@ -3255,7 +3412,7 @@ Character34Base = (function() {
   Character34Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character34Base.textDeath = "太田優";
+  Character34Base.textDeath = "";
 
   Character34Base.abilityName = "なし";
 
@@ -3312,8 +3469,11 @@ Character35Base = (function() {
   // 基本回避率
   Character35Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character35Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character35Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character35Base.itemMaxEnd = 40;
 
   // コスト
   Character35Base.costBase = 1.5;
@@ -3322,7 +3482,7 @@ Character35Base = (function() {
   Character35Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character35Base.textDeath = "大槻唯";
+  Character35Base.textDeath = "";
 
   Character35Base.abilityName = "なし";
 
@@ -3379,8 +3539,11 @@ Character36Base = (function() {
   // 基本回避率
   Character36Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character36Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character36Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character36Base.itemMaxEnd = 40;
 
   // コスト
   Character36Base.costBase = 1.5;
@@ -3389,7 +3552,7 @@ Character36Base = (function() {
   Character36Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character36Base.textDeath = "大西由里子";
+  Character36Base.textDeath = "";
 
   Character36Base.abilityName = "なし";
 
@@ -3446,8 +3609,11 @@ Character37Base = (function() {
   // 基本回避率
   Character37Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character37Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character37Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character37Base.itemMaxEnd = 40;
 
   // コスト
   Character37Base.costBase = 1.5;
@@ -3456,7 +3622,7 @@ Character37Base = (function() {
   Character37Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character37Base.textDeath = "大沼くるみ";
+  Character37Base.textDeath = "";
 
   Character37Base.abilityName = "なし";
 
@@ -3513,8 +3679,11 @@ Character38Base = (function() {
   // 基本回避率
   Character38Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character38Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character38Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character38Base.itemMaxEnd = 40;
 
   // コスト
   Character38Base.costBase = 1.5;
@@ -3523,7 +3692,7 @@ Character38Base = (function() {
   Character38Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character38Base.textDeath = "大原みちる";
+  Character38Base.textDeath = "";
 
   Character38Base.abilityName = "なし";
 
@@ -3580,8 +3749,11 @@ Character39Base = (function() {
   // 基本回避率
   Character39Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character39Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character39Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character39Base.itemMaxEnd = 40;
 
   // コスト
   Character39Base.costBase = 1.5;
@@ -3590,7 +3762,7 @@ Character39Base = (function() {
   Character39Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character39Base.textDeath = "岡崎泰葉";
+  Character39Base.textDeath = "";
 
   Character39Base.abilityName = "なし";
 
@@ -3647,8 +3819,11 @@ Character40Base = (function() {
   // 基本回避率
   Character40Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character40Base.itemMax = 12;
+  // アイテム装備可能数（開始時）
+  Character40Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character40Base.itemMaxEnd = 40;
 
   // コスト
   Character40Base.costBase = 1.5;
@@ -3657,7 +3832,7 @@ Character40Base = (function() {
   Character40Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character40Base.textDeath = "緒方智絵里";
+  Character40Base.textDeath = "";
 
   Character40Base.abilityName = "なし";
 
@@ -3714,8 +3889,11 @@ Character41Base = (function() {
   // 基本回避率
   Character41Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character41Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character41Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character41Base.itemMaxEnd = 40;
 
   // コスト
   Character41Base.costBase = 1.5;
@@ -3724,7 +3902,7 @@ Character41Base = (function() {
   Character41Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character41Base.textDeath = "奥山沙織";
+  Character41Base.textDeath = "";
 
   Character41Base.abilityName = "なし";
 
@@ -3781,8 +3959,11 @@ Character42Base = (function() {
   // 基本回避率
   Character42Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character42Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character42Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character42Base.itemMaxEnd = 40;
 
   // コスト
   Character42Base.costBase = 1.5;
@@ -3791,7 +3972,7 @@ Character42Base = (function() {
   Character42Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character42Base.textDeath = "乙倉悠貴";
+  Character42Base.textDeath = "";
 
   Character42Base.abilityName = "なし";
 
@@ -3848,8 +4029,11 @@ Character43Base = (function() {
   // 基本回避率
   Character43Base.dodgeRateBase = 2;
 
-  // アイテム装備可能数
-  Character43Base.itemMax = 12;
+  // アイテム装備可能数（開始時）
+  Character43Base.itemMaxStart = 30;
+
+  // アイテム装備可能数（限界）
+  Character43Base.itemMaxEnd = 40;
 
   // コスト
   Character43Base.costBase = 1.5;
@@ -3858,7 +4042,7 @@ Character43Base = (function() {
   Character43Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character43Base.textDeath = "片桐早苗";
+  Character43Base.textDeath = "";
 
   Character43Base.abilityName = "なし";
 
@@ -3915,8 +4099,11 @@ Character44Base = (function() {
   // 基本回避率
   Character44Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character44Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character44Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character44Base.itemMaxEnd = 40;
 
   // コスト
   Character44Base.costBase = 1.5;
@@ -3925,7 +4112,7 @@ Character44Base = (function() {
   Character44Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character44Base.textDeath = "上条春菜";
+  Character44Base.textDeath = "";
 
   Character44Base.abilityName = "なし";
 
@@ -3982,8 +4169,11 @@ Character45Base = (function() {
   // 基本回避率
   Character45Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character45Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character45Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character45Base.itemMaxEnd = 40;
 
   // コスト
   Character45Base.costBase = 1.5;
@@ -3992,7 +4182,7 @@ Character45Base = (function() {
   Character45Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character45Base.textDeath = "神谷奈緒";
+  Character45Base.textDeath = "";
 
   Character45Base.abilityName = "なし";
 
@@ -4049,8 +4239,11 @@ Character46Base = (function() {
   // 基本回避率
   Character46Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character46Base.itemMax = 12;
+  // アイテム装備可能数（開始時）
+  Character46Base.itemMaxStart = 30;
+
+  // アイテム装備可能数（限界）
+  Character46Base.itemMaxEnd = 40;
 
   // コスト
   Character46Base.costBase = 1.5;
@@ -4059,7 +4252,7 @@ Character46Base = (function() {
   Character46Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character46Base.textDeath = "川島瑞樹";
+  Character46Base.textDeath = "";
 
   Character46Base.abilityName = "なし";
 
@@ -4116,8 +4309,11 @@ Character47Base = (function() {
   // 基本回避率
   Character47Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character47Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character47Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character47Base.itemMaxEnd = 40;
 
   // コスト
   Character47Base.costBase = 1.5;
@@ -4126,7 +4322,7 @@ Character47Base = (function() {
   Character47Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character47Base.textDeath = "神崎蘭子";
+  Character47Base.textDeath = "";
 
   Character47Base.abilityName = "黒魔術";
 
@@ -4183,8 +4379,11 @@ Character48Base = (function() {
   // 基本回避率
   Character48Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character48Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character48Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character48Base.itemMaxEnd = 40;
 
   // コスト
   Character48Base.costBase = 1.5;
@@ -4193,7 +4392,7 @@ Character48Base = (function() {
   Character48Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character48Base.textDeath = "岸部彩華";
+  Character48Base.textDeath = "";
 
   Character48Base.abilityName = "なし";
 
@@ -4250,8 +4449,11 @@ Character49Base = (function() {
   // 基本回避率
   Character49Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character49Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character49Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character49Base.itemMaxEnd = 40;
 
   // コスト
   Character49Base.costBase = 1.5;
@@ -4260,7 +4462,7 @@ Character49Base = (function() {
   Character49Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character49Base.textDeath = "北川真尋";
+  Character49Base.textDeath = "";
 
   Character49Base.abilityName = "なし";
 
@@ -4317,8 +4519,11 @@ Character50Base = (function() {
   // 基本回避率
   Character50Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character50Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character50Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character50Base.itemMaxEnd = 40;
 
   // コスト
   Character50Base.costBase = 1.5;
@@ -4327,7 +4532,7 @@ Character50Base = (function() {
   Character50Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character50Base.textDeath = "喜多日菜子";
+  Character50Base.textDeath = "";
 
   Character50Base.abilityName = "なし";
 
@@ -4384,8 +4589,11 @@ Character51Base = (function() {
   // 基本回避率
   Character51Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character51Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character51Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character51Base.itemMaxEnd = 40;
 
   // コスト
   Character51Base.costBase = 1.5;
@@ -4394,7 +4602,7 @@ Character51Base = (function() {
   Character51Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character51Base.textDeath = "喜多見柚";
+  Character51Base.textDeath = "";
 
   Character51Base.abilityName = "なし";
 
@@ -4451,8 +4659,11 @@ Character52Base = (function() {
   // 基本回避率
   Character52Base.dodgeRateBase = 5;
 
-  // アイテム装備可能数
-  Character52Base.itemMax = 12;
+  // アイテム装備可能数（開始時）
+  Character52Base.itemMaxStart = 15;
+
+  // アイテム装備可能数（限界）
+  Character52Base.itemMaxEnd = 30;
 
   // コスト
   Character52Base.costBase = 1.5;
@@ -4461,7 +4672,7 @@ Character52Base = (function() {
   Character52Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character52Base.textDeath = "木場真奈美";
+  Character52Base.textDeath = "";
 
   Character52Base.abilityName = "なし";
 
@@ -4518,8 +4729,11 @@ Character53Base = (function() {
   // 基本回避率
   Character53Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character53Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character53Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character53Base.itemMaxEnd = 40;
 
   // コスト
   Character53Base.costBase = 1.5;
@@ -4528,7 +4742,7 @@ Character53Base = (function() {
   Character53Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character53Base.textDeath = "木村夏樹";
+  Character53Base.textDeath = "";
 
   Character53Base.abilityName = "なし";
 
@@ -4585,8 +4799,11 @@ Character54Base = (function() {
   // 基本回避率
   Character54Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character54Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character54Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character54Base.itemMaxEnd = 40;
 
   // コスト
   Character54Base.costBase = 1.5;
@@ -4595,7 +4812,7 @@ Character54Base = (function() {
   Character54Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character54Base.textDeath = "キャシー・グラハム";
+  Character54Base.textDeath = "";
 
   Character54Base.abilityName = "なし";
 
@@ -4652,8 +4869,11 @@ Character55Base = (function() {
   // 基本回避率
   Character55Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character55Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character55Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character55Base.itemMaxEnd = 40;
 
   // コスト
   Character55Base.costBase = 1.5;
@@ -4662,7 +4882,7 @@ Character55Base = (function() {
   Character55Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character55Base.textDeath = "桐野アヤ";
+  Character55Base.textDeath = "";
 
   Character55Base.abilityName = "なし";
 
@@ -4719,8 +4939,11 @@ Character56Base = (function() {
   // 基本回避率
   Character56Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character56Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character56Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character56Base.itemMaxEnd = 40;
 
   // コスト
   Character56Base.costBase = 1.5;
@@ -4729,7 +4952,7 @@ Character56Base = (function() {
   Character56Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character56Base.textDeath = "桐生つかさ";
+  Character56Base.textDeath = "";
 
   Character56Base.abilityName = "なし";
 
@@ -4786,8 +5009,11 @@ Character57Base = (function() {
   // 基本回避率
   Character57Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character57Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character57Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character57Base.itemMaxEnd = 40;
 
   // コスト
   Character57Base.costBase = 1.5;
@@ -4796,7 +5022,7 @@ Character57Base = (function() {
   Character57Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character57Base.textDeath = "日下部若葉";
+  Character57Base.textDeath = "";
 
   Character57Base.abilityName = "なし";
 
@@ -4853,8 +5079,11 @@ Character58Base = (function() {
   // 基本回避率
   Character58Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character58Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character58Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character58Base.itemMaxEnd = 40;
 
   // コスト
   Character58Base.costBase = 1.5;
@@ -4863,7 +5092,7 @@ Character58Base = (function() {
   Character58Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character58Base.textDeath = "工藤忍";
+  Character58Base.textDeath = "";
 
   Character58Base.abilityName = "なし";
 
@@ -4920,8 +5149,11 @@ Character59Base = (function() {
   // 基本回避率
   Character59Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character59Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character59Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character59Base.itemMaxEnd = 40;
 
   // コスト
   Character59Base.costBase = 1.5;
@@ -4930,7 +5162,7 @@ Character59Base = (function() {
   Character59Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character59Base.textDeath = "クラリス";
+  Character59Base.textDeath = "";
 
   Character59Base.abilityName = "なし";
 
@@ -4987,8 +5219,11 @@ Character60Base = (function() {
   // 基本回避率
   Character60Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character60Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character60Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character60Base.itemMaxEnd = 40;
 
   // コスト
   Character60Base.costBase = 1.5;
@@ -4997,7 +5232,7 @@ Character60Base = (function() {
   Character60Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character60Base.textDeath = "栗原ネネ";
+  Character60Base.textDeath = "";
 
   Character60Base.abilityName = "なし";
 
@@ -5054,8 +5289,11 @@ Character61Base = (function() {
   // 基本回避率
   Character61Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character61Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character61Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character61Base.itemMaxEnd = 40;
 
   // コスト
   Character61Base.costBase = 1.5;
@@ -5064,7 +5302,7 @@ Character61Base = (function() {
   Character61Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character61Base.textDeath = "黒川千秋";
+  Character61Base.textDeath = "";
 
   Character61Base.abilityName = "なし";
 
@@ -5121,8 +5359,11 @@ Character62Base = (function() {
   // 基本回避率
   Character62Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character62Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character62Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character62Base.itemMaxEnd = 40;
 
   // コスト
   Character62Base.costBase = 1.5;
@@ -5131,7 +5372,7 @@ Character62Base = (function() {
   Character62Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character62Base.textDeath = "ケイト";
+  Character62Base.textDeath = "";
 
   Character62Base.abilityName = "なし";
 
@@ -5188,8 +5429,11 @@ Character63Base = (function() {
   // 基本回避率
   Character63Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character63Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character63Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character63Base.itemMaxEnd = 40;
 
   // コスト
   Character63Base.costBase = 1.5;
@@ -5198,7 +5442,7 @@ Character63Base = (function() {
   Character63Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character63Base.textDeath = "古賀小春";
+  Character63Base.textDeath = "";
 
   Character63Base.abilityName = "なし";
 
@@ -5232,13 +5476,13 @@ Character64Base = (function() {
   Character64Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
 
   // 成長率：攻撃力
-  Character64Base.attackBase = 13;
+  Character64Base.attackBase = 12;
 
   // 成長率：HP
-  Character64Base.hpBase = 22;
+  Character64Base.hpBase = 18;
 
   // 成長率：物理防御
-  Character64Base.pDefBase = 1.2;
+  Character64Base.pDefBase = 2;
 
   // 成長率：魔法防御
   Character64Base.mDefBase = 1.5;
@@ -5255,8 +5499,11 @@ Character64Base = (function() {
   // 基本回避率
   Character64Base.dodgeRateBase = 1;
 
-  // アイテム装備可能数
-  Character64Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character64Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character64Base.itemMaxEnd = 40;
 
   // コスト
   Character64Base.costBase = 1.5;
@@ -5265,7 +5512,7 @@ Character64Base = (function() {
   Character64Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character64Base.textDeath = "輿水幸子";
+  Character64Base.textDeath = "";
 
   Character64Base.abilityName = "なし";
 
@@ -5322,8 +5569,11 @@ Character65Base = (function() {
   // 基本回避率
   Character65Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character65Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character65Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character65Base.itemMaxEnd = 40;
 
   // コスト
   Character65Base.costBase = 1.5;
@@ -5332,7 +5582,7 @@ Character65Base = (function() {
   Character65Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character65Base.textDeath = "小関麗奈";
+  Character65Base.textDeath = "";
 
   Character65Base.abilityName = "いたずら";
 
@@ -5389,8 +5639,11 @@ Character66Base = (function() {
   // 基本回避率
   Character66Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character66Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character66Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character66Base.itemMaxEnd = 40;
 
   // コスト
   Character66Base.costBase = 1.5;
@@ -5399,7 +5652,7 @@ Character66Base = (function() {
   Character66Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character66Base.textDeath = "小早川紗枝";
+  Character66Base.textDeath = "";
 
   Character66Base.abilityName = "なし";
 
@@ -5456,8 +5709,11 @@ Character67Base = (function() {
   // 基本回避率
   Character67Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character67Base.itemMax = 14;
+  // アイテム装備可能数（開始時）
+  Character67Base.itemMaxStart = 30;
+
+  // アイテム装備可能数（限界）
+  Character67Base.itemMaxEnd = 50;
 
   // コスト
   Character67Base.costBase = 1.5;
@@ -5466,7 +5722,7 @@ Character67Base = (function() {
   Character67Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character67Base.textDeath = "秋月律子";
+  Character67Base.textDeath = "";
 
   Character67Base.abilityName = "なし";
 
@@ -5523,8 +5779,11 @@ Character68Base = (function() {
   // 基本回避率
   Character68Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character68Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character68Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character68Base.itemMaxEnd = 40;
 
   // コスト
   Character68Base.costBase = 1.5;
@@ -5533,7 +5792,7 @@ Character68Base = (function() {
   Character68Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character68Base.textDeath = "秋月涼";
+  Character68Base.textDeath = "";
 
   Character68Base.abilityName = "なし";
 
@@ -5590,8 +5849,11 @@ Character69Base = (function() {
   // 基本回避率
   Character69Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character69Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character69Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character69Base.itemMaxEnd = 40;
 
   // コスト
   Character69Base.costBase = 1.5;
@@ -5600,7 +5862,7 @@ Character69Base = (function() {
   Character69Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character69Base.textDeath = "天海春香";
+  Character69Base.textDeath = "";
 
   Character69Base.abilityName = "なし";
 
@@ -5657,8 +5919,11 @@ Character70Base = (function() {
   // 基本回避率
   Character70Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character70Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character70Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character70Base.itemMaxEnd = 40;
 
   // コスト
   Character70Base.costBase = 1.5;
@@ -5667,7 +5932,7 @@ Character70Base = (function() {
   Character70Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character70Base.textDeath = "我那覇響";
+  Character70Base.textDeath = "";
 
   Character70Base.abilityName = "なし";
 
@@ -5724,8 +5989,11 @@ Character71Base = (function() {
   // 基本回避率
   Character71Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character71Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character71Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character71Base.itemMaxEnd = 40;
 
   // コスト
   Character71Base.costBase = 1.5;
@@ -5734,7 +6002,7 @@ Character71Base = (function() {
   Character71Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character71Base.textDeath = "菊地真";
+  Character71Base.textDeath = "";
 
   Character71Base.abilityName = "なし";
 
@@ -5791,8 +6059,11 @@ Character72Base = (function() {
   // 基本回避率
   Character72Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character72Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character72Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character72Base.itemMaxEnd = 40;
 
   // コスト
   Character72Base.costBase = 1.5;
@@ -5801,7 +6072,7 @@ Character72Base = (function() {
   Character72Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character72Base.textDeath = "如月千早";
+  Character72Base.textDeath = "";
 
   Character72Base.abilityName = "なし";
 
@@ -5858,8 +6129,11 @@ Character73Base = (function() {
   // 基本回避率
   Character73Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character73Base.itemMax = 8;
+  // アイテム装備可能数（開始時）
+  Character73Base.itemMaxStart = 23;
+
+  // アイテム装備可能数（限界）
+  Character73Base.itemMaxEnd = 40;
 
   // コスト
   Character73Base.costBase = 1.5;
@@ -5868,7 +6142,7 @@ Character73Base = (function() {
   Character73Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character73Base.textDeath = "小日向美穂";
+  Character73Base.textDeath = "";
 
   Character73Base.abilityName = "なし";
 
@@ -5925,8 +6199,11 @@ Character74Base = (function() {
   // 基本回避率
   Character74Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character74Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character74Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character74Base.itemMaxEnd = 40;
 
   // コスト
   Character74Base.costBase = 1.5;
@@ -5935,7 +6212,7 @@ Character74Base = (function() {
   Character74Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character74Base.textDeath = "小松伊吹";
+  Character74Base.textDeath = "";
 
   Character74Base.abilityName = "なし";
 
@@ -5992,8 +6269,11 @@ Character75Base = (function() {
   // 基本回避率
   Character75Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character75Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character75Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character75Base.itemMaxEnd = 40;
 
   // コスト
   Character75Base.costBase = 1.5;
@@ -6002,7 +6282,7 @@ Character75Base = (function() {
   Character75Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character75Base.textDeath = "小室千奈美";
+  Character75Base.textDeath = "";
 
   Character75Base.abilityName = "なし";
 
@@ -6059,8 +6339,11 @@ Character76Base = (function() {
   // 基本回避率
   Character76Base.dodgeRateBase = 2;
 
-  // アイテム装備可能数
-  Character76Base.itemMax = 20;
+  // アイテム装備可能数（開始時）
+  Character76Base.itemMaxStart = 35;
+
+  // アイテム装備可能数（限界）
+  Character76Base.itemMaxEnd = 40;
 
   // コスト
   Character76Base.costBase = 1.5;
@@ -6069,7 +6352,7 @@ Character76Base = (function() {
   Character76Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character76Base.textDeath = "西園寺琴歌";
+  Character76Base.textDeath = "";
 
   Character76Base.abilityName = "なし";
 
@@ -6126,8 +6409,11 @@ Character77Base = (function() {
   // 基本回避率
   Character77Base.dodgeRateBase = 2;
 
-  // アイテム装備可能数
-  Character77Base.itemMax = 6;
+  // アイテム装備可能数（開始時）
+  Character77Base.itemMaxStart = 21;
+
+  // アイテム装備可能数（限界）
+  Character77Base.itemMaxEnd = 40;
 
   // コスト
   Character77Base.costBase = 1.5;
@@ -6136,7 +6422,7 @@ Character77Base = (function() {
   Character77Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character77Base.textDeath = "財前時子";
+  Character77Base.textDeath = "";
 
   Character77Base.abilityName = "愛のムチ";
 
@@ -6193,8 +6479,11 @@ Character78Base = (function() {
   // 基本回避率
   Character78Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character78Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character78Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character78Base.itemMaxEnd = 40;
 
   // コスト
   Character78Base.costBase = 1.5;
@@ -6203,7 +6492,7 @@ Character78Base = (function() {
   Character78Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character78Base.textDeath = "斉藤洋子";
+  Character78Base.textDeath = "";
 
   Character78Base.abilityName = "なし";
 
@@ -6260,8 +6549,11 @@ Character79Base = (function() {
   // 基本回避率
   Character79Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character79Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character79Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character79Base.itemMaxEnd = 40;
 
   // コスト
   Character79Base.costBase = 1.5;
@@ -6270,7 +6562,7 @@ Character79Base = (function() {
   Character79Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character79Base.textDeath = "冴島清美";
+  Character79Base.textDeath = "";
 
   Character79Base.abilityName = "風紀";
 
@@ -6327,8 +6619,11 @@ Character80Base = (function() {
   // 基本回避率
   Character80Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character80Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character80Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character80Base.itemMaxEnd = 40;
 
   // コスト
   Character80Base.costBase = 1.5;
@@ -6337,7 +6632,7 @@ Character80Base = (function() {
   Character80Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character80Base.textDeath = "榊原里美";
+  Character80Base.textDeath = "";
 
   Character80Base.abilityName = "なし";
 
@@ -6394,8 +6689,11 @@ Character81Base = (function() {
   // 基本回避率
   Character81Base.dodgeRateBase = 1;
 
-  // アイテム装備可能数
-  Character81Base.itemMax = 20;
+  // アイテム装備可能数（開始時）
+  Character81Base.itemMaxStart = 35;
+
+  // アイテム装備可能数（限界）
+  Character81Base.itemMaxEnd = 40;
 
   // コスト
   Character81Base.costBase = 1.5;
@@ -6404,7 +6702,7 @@ Character81Base = (function() {
   Character81Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character81Base.textDeath = "鷺沢文香";
+  Character81Base.textDeath = "";
 
   Character81Base.abilityName = "なし";
 
@@ -6461,8 +6759,11 @@ Character82Base = (function() {
   // 基本回避率
   Character82Base.dodgeRateBase = 2;
 
-  // アイテム装備可能数
-  Character82Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character82Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character82Base.itemMaxEnd = 40;
 
   // コスト
   Character82Base.costBase = 1.5;
@@ -6471,7 +6772,7 @@ Character82Base = (function() {
   Character82Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character82Base.textDeath = "佐久間まゆ";
+  Character82Base.textDeath = "";
 
   Character82Base.abilityName = "恐怖";
 
@@ -6514,7 +6815,7 @@ Character83Base = (function() {
   Character83Base.pDefBase = 1.3;
 
   // 成長率：魔法防御
-  Character83Base.mDefBase = 2.5;
+  Character83Base.mDefBase = 2;
 
   // 基本移動力
   Character83Base.moveBase = 4;
@@ -6528,8 +6829,11 @@ Character83Base = (function() {
   // 基本回避率
   Character83Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character83Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character83Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character83Base.itemMaxEnd = 40;
 
   // コスト
   Character83Base.costBase = 1.5;
@@ -6538,7 +6842,7 @@ Character83Base = (function() {
   Character83Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character83Base.textDeath = "櫻井桃華";
+  Character83Base.textDeath = "";
 
   Character83Base.abilityName = "なし";
 
@@ -6595,8 +6899,11 @@ Character84Base = (function() {
   // 基本回避率
   Character84Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character84Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character84Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character84Base.itemMaxEnd = 40;
 
   // コスト
   Character84Base.costBase = 1.5;
@@ -6605,7 +6912,7 @@ Character84Base = (function() {
   Character84Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character84Base.textDeath = "佐々木千枝";
+  Character84Base.textDeath = "";
 
   Character84Base.abilityName = "なし";
 
@@ -6662,8 +6969,11 @@ Character85Base = (function() {
   // 基本回避率
   Character85Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character85Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character85Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character85Base.itemMaxEnd = 40;
 
   // コスト
   Character85Base.costBase = 1.5;
@@ -6672,7 +6982,7 @@ Character85Base = (function() {
   Character85Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character85Base.textDeath = "佐城雪美";
+  Character85Base.textDeath = "";
 
   Character85Base.abilityName = "なし";
 
@@ -6729,8 +7039,11 @@ Character86Base = (function() {
   // 基本回避率
   Character86Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character86Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character86Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character86Base.itemMaxEnd = 40;
 
   // コスト
   Character86Base.costBase = 1.5;
@@ -6739,7 +7052,7 @@ Character86Base = (function() {
   Character86Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character86Base.textDeath = "佐藤心";
+  Character86Base.textDeath = "";
 
   Character86Base.abilityName = "キャラ付け";
 
@@ -6796,8 +7109,11 @@ Character87Base = (function() {
   // 基本回避率
   Character87Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character87Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character87Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character87Base.itemMaxEnd = 40;
 
   // コスト
   Character87Base.costBase = 1.5;
@@ -6806,7 +7122,7 @@ Character87Base = (function() {
   Character87Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character87Base.textDeath = "沢田麻理菜";
+  Character87Base.textDeath = "";
 
   Character87Base.abilityName = "なし";
 
@@ -6863,8 +7179,11 @@ Character88Base = (function() {
   // 基本回避率
   Character88Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character88Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character88Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character88Base.itemMaxEnd = 40;
 
   // コスト
   Character88Base.costBase = 1.5;
@@ -6873,7 +7192,7 @@ Character88Base = (function() {
   Character88Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character88Base.textDeath = "椎名法子";
+  Character88Base.textDeath = "";
 
   Character88Base.abilityName = "ドーナツ配布";
 
@@ -6930,8 +7249,11 @@ Character89Base = (function() {
   // 基本回避率
   Character89Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character89Base.itemMax = 12;
+  // アイテム装備可能数（開始時）
+  Character89Base.itemMaxStart = 27;
+
+  // アイテム装備可能数（限界）
+  Character89Base.itemMaxEnd = 40;
 
   // コスト
   Character89Base.costBase = 1.5;
@@ -6940,7 +7262,7 @@ Character89Base = (function() {
   Character89Base.expRate = 2.3;
 
   // 死んだ時の台詞
-  Character89Base.textDeath = "塩見周子";
+  Character89Base.textDeath = "";
 
   Character89Base.abilityName = "気まぐれ";
 
@@ -6997,8 +7319,11 @@ Character90Base = (function() {
   // 基本回避率
   Character90Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character90Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character90Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character90Base.itemMaxEnd = 40;
 
   // コスト
   Character90Base.costBase = 1.5;
@@ -7007,7 +7332,7 @@ Character90Base = (function() {
   Character90Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character90Base.textDeath = "四条貴音";
+  Character90Base.textDeath = "";
 
   Character90Base.abilityName = "なし";
 
@@ -7064,8 +7389,11 @@ Character91Base = (function() {
   // 基本回避率
   Character91Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character91Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character91Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character91Base.itemMaxEnd = 40;
 
   // コスト
   Character91Base.costBase = 1.5;
@@ -7074,7 +7402,7 @@ Character91Base = (function() {
   Character91Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character91Base.textDeath = "篠原礼";
+  Character91Base.textDeath = "";
 
   Character91Base.abilityName = "なし";
 
@@ -7131,8 +7459,11 @@ Character92Base = (function() {
   // 基本回避率
   Character92Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character92Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character92Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character92Base.itemMaxEnd = 40;
 
   // コスト
   Character92Base.costBase = 1.5;
@@ -7141,7 +7472,7 @@ Character92Base = (function() {
   Character92Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character92Base.textDeath = "首藤葵";
+  Character92Base.textDeath = "";
 
   Character92Base.abilityName = "なし";
 
@@ -7198,8 +7529,11 @@ Character93Base = (function() {
   // 基本回避率
   Character93Base.dodgeRateBase = 5;
 
-  // アイテム装備可能数
-  Character93Base.itemMax = 12;
+  // アイテム装備可能数（開始時）
+  Character93Base.itemMaxStart = 27;
+
+  // アイテム装備可能数（限界）
+  Character93Base.itemMaxEnd = 40;
 
   // コスト
   Character93Base.costBase = 1.5;
@@ -7208,7 +7542,7 @@ Character93Base = (function() {
   Character93Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character93Base.textDeath = "城ヶ崎美嘉";
+  Character93Base.textDeath = "";
 
   Character93Base.abilityName = "姉妹";
 
@@ -7265,8 +7599,11 @@ Character94Base = (function() {
   // 基本回避率
   Character94Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character94Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character94Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character94Base.itemMaxEnd = 40;
 
   // コスト
   Character94Base.costBase = 1.5;
@@ -7275,7 +7612,7 @@ Character94Base = (function() {
   Character94Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character94Base.textDeath = "城ヶ崎莉嘉";
+  Character94Base.textDeath = "";
 
   Character94Base.abilityName = "姉妹";
 
@@ -7309,7 +7646,7 @@ Character95Base = (function() {
   Character95Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
 
   // 成長率：攻撃力
-  Character95Base.attackBase = 13;
+  Character95Base.attackBase = 11;
 
   // 成長率：HP
   Character95Base.hpBase = 17;
@@ -7318,7 +7655,7 @@ Character95Base = (function() {
   Character95Base.pDefBase = 1.5;
 
   // 成長率：魔法防御
-  Character95Base.mDefBase = 1.5;
+  Character95Base.mDefBase = 1.8;
 
   // 基本移動力
   Character95Base.moveBase = 4;
@@ -7330,10 +7667,13 @@ Character95Base = (function() {
   Character95Base.hitRateBase = 95;
 
   // 基本回避率
-  Character95Base.dodgeRateBase = 3;
+  Character95Base.dodgeRateBase = 0;
 
-  // アイテム装備可能数
-  Character95Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character95Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character95Base.itemMaxEnd = 40;
 
   // コスト
   Character95Base.costBase = 1.5;
@@ -7342,11 +7682,11 @@ Character95Base = (function() {
   Character95Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character95Base.textDeath = "白菊ほたる";
+  Character95Base.textDeath = "";
 
-  Character95Base.abilityName = "なし";
+  Character95Base.abilityName = "不幸";
 
-  Character95Base.abilityDesc = "なし";
+  Character95Base.abilityDesc = "味方が攻撃を受ける時、代わりに攻撃されることがある";
 
   return Character95Base;
 
@@ -7382,10 +7722,10 @@ Character96Base = (function() {
   Character96Base.hpBase = 13;
 
   // 成長率：物理防御
-  Character96Base.pDefBase = 1.5;
+  Character96Base.pDefBase = 1.3;
 
   // 成長率：魔法防御
-  Character96Base.mDefBase = 1.5;
+  Character96Base.mDefBase = 2.5;
 
   // 基本移動力
   Character96Base.moveBase = 3;
@@ -7399,8 +7739,11 @@ Character96Base = (function() {
   // 基本回避率
   Character96Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character96Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character96Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character96Base.itemMaxEnd = 40;
 
   // コスト
   Character96Base.costBase = 1.5;
@@ -7409,7 +7752,7 @@ Character96Base = (function() {
   Character96Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character96Base.textDeath = "白坂小梅";
+  Character96Base.textDeath = "";
 
   Character96Base.abilityName = "あの子が遊びにきた";
 
@@ -7466,8 +7809,11 @@ Character97Base = (function() {
   // 基本回避率
   Character97Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character97Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character97Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character97Base.itemMaxEnd = 40;
 
   // コスト
   Character97Base.costBase = 1.5;
@@ -7476,7 +7822,7 @@ Character97Base = (function() {
   Character97Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character97Base.textDeath = "杉坂海";
+  Character97Base.textDeath = "";
 
   Character97Base.abilityName = "なし";
 
@@ -7533,8 +7879,11 @@ Character98Base = (function() {
   // 基本回避率
   Character98Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character98Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character98Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character98Base.itemMaxEnd = 40;
 
   // コスト
   Character98Base.costBase = 1.5;
@@ -7543,7 +7892,7 @@ Character98Base = (function() {
   Character98Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character98Base.textDeath = "涼宮星花";
+  Character98Base.textDeath = "";
 
   Character98Base.abilityName = "なし";
 
@@ -7600,8 +7949,11 @@ Character99Base = (function() {
   // 基本回避率
   Character99Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character99Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character99Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character99Base.itemMaxEnd = 40;
 
   // コスト
   Character99Base.costBase = 1.5;
@@ -7610,7 +7962,7 @@ Character99Base = (function() {
   Character99Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character99Base.textDeath = "関裕美";
+  Character99Base.textDeath = "";
 
   Character99Base.abilityName = "なし";
 
@@ -7667,8 +8019,11 @@ Character100Base = (function() {
   // 基本回避率
   Character100Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character100Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character100Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character100Base.itemMaxEnd = 40;
 
   // コスト
   Character100Base.costBase = 1.5;
@@ -7677,7 +8032,7 @@ Character100Base = (function() {
   Character100Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character100Base.textDeath = "瀬名詩織";
+  Character100Base.textDeath = "";
 
   Character100Base.abilityName = "なし";
 
@@ -7711,31 +8066,34 @@ Character101Base = (function() {
   Character101Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
 
   // 成長率：攻撃力
-  Character101Base.attackBase = 13;
+  Character101Base.attackBase = 16;
 
   // 成長率：HP
-  Character101Base.hpBase = 17;
+  Character101Base.hpBase = 19;
 
   // 成長率：物理防御
-  Character101Base.pDefBase = 1.5;
+  Character101Base.pDefBase = 1.4;
 
   // 成長率：魔法防御
-  Character101Base.mDefBase = 1.5;
+  Character101Base.mDefBase = 1.4;
 
   // 基本移動力
   Character101Base.moveBase = 4;
 
   // 基本射程
-  Character101Base.rangeBase = 1;
+  Character101Base.rangeBase = 3;
 
   // 基本命中率
-  Character101Base.hitRateBase = 95;
+  Character101Base.hitRateBase = 98;
 
   // 基本回避率
   Character101Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character101Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character101Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character101Base.itemMaxEnd = 40;
 
   // コスト
   Character101Base.costBase = 1.5;
@@ -7744,7 +8102,7 @@ Character101Base = (function() {
   Character101Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character101Base.textDeath = "仙崎恵磨";
+  Character101Base.textDeath = "";
 
   Character101Base.abilityName = "なし";
 
@@ -7801,8 +8159,11 @@ Character102Base = (function() {
   // 基本回避率
   Character102Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character102Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character102Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character102Base.itemMaxEnd = 40;
 
   // コスト
   Character102Base.costBase = 1.5;
@@ -7811,7 +8172,7 @@ Character102Base = (function() {
   Character102Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character102Base.textDeath = "相馬夏美";
+  Character102Base.textDeath = "";
 
   Character102Base.abilityName = "なし";
 
@@ -7868,8 +8229,11 @@ Character103Base = (function() {
   // 基本回避率
   Character103Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character103Base.itemMax = 12;
+  // アイテム装備可能数（開始時）
+  Character103Base.itemMaxStart = 27;
+
+  // アイテム装備可能数（限界）
+  Character103Base.itemMaxEnd = 40;
 
   // コスト
   Character103Base.costBase = 1.5;
@@ -7878,7 +8242,7 @@ Character103Base = (function() {
   Character103Base.expRate = 4.4;
 
   // 死んだ時の台詞
-  Character103Base.textDeath = "高垣楓";
+  Character103Base.textDeath = "";
 
   Character103Base.abilityName = "歌姫";
 
@@ -7935,8 +8299,11 @@ Character104Base = (function() {
   // 基本回避率
   Character104Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character104Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character104Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character104Base.itemMaxEnd = 40;
 
   // コスト
   Character104Base.costBase = 1.5;
@@ -7945,7 +8312,7 @@ Character104Base = (function() {
   Character104Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character104Base.textDeath = "高槻やよい";
+  Character104Base.textDeath = "";
 
   Character104Base.abilityName = "なし";
 
@@ -8002,8 +8369,11 @@ Character105Base = (function() {
   // 基本回避率
   Character105Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character105Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character105Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character105Base.itemMaxEnd = 40;
 
   // コスト
   Character105Base.costBase = 1.5;
@@ -8012,7 +8382,7 @@ Character105Base = (function() {
   Character105Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character105Base.textDeath = "高橋礼子";
+  Character105Base.textDeath = "";
 
   Character105Base.abilityName = "なし";
 
@@ -8069,8 +8439,11 @@ Character106Base = (function() {
   // 基本回避率
   Character106Base.dodgeRateBase = 15;
 
-  // アイテム装備可能数
-  Character106Base.itemMax = 12;
+  // アイテム装備可能数（開始時）
+  Character106Base.itemMaxStart = 27;
+
+  // アイテム装備可能数（限界）
+  Character106Base.itemMaxEnd = 40;
 
   // コスト
   Character106Base.costBase = 1.5;
@@ -8079,7 +8452,7 @@ Character106Base = (function() {
   Character106Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character106Base.textDeath = "鷹富士茄子";
+  Character106Base.textDeath = "";
 
   Character106Base.abilityName = "幸運";
 
@@ -8136,8 +8509,11 @@ Character107Base = (function() {
   // 基本回避率
   Character107Base.dodgeRateBase = 4;
 
-  // アイテム装備可能数
-  Character107Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character107Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character107Base.itemMaxEnd = 40;
 
   // コスト
   Character107Base.costBase = 1.5;
@@ -8146,7 +8522,7 @@ Character107Base = (function() {
   Character107Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character107Base.textDeath = "高峯のあ";
+  Character107Base.textDeath = "";
 
   Character107Base.abilityName = "なし";
 
@@ -8203,8 +8579,11 @@ Character108Base = (function() {
   // 基本回避率
   Character108Base.dodgeRateBase = 1;
 
-  // アイテム装備可能数
-  Character108Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character108Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character108Base.itemMaxEnd = 40;
 
   // コスト
   Character108Base.costBase = 1.5;
@@ -8213,7 +8592,7 @@ Character108Base = (function() {
   Character108Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character108Base.textDeath = "高森藍子";
+  Character108Base.textDeath = "";
 
   Character108Base.abilityName = "ゆるふわ時間";
 
@@ -8270,8 +8649,11 @@ Character109Base = (function() {
   // 基本回避率
   Character109Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character109Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character109Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character109Base.itemMaxEnd = 40;
 
   // コスト
   Character109Base.costBase = 1.5;
@@ -8280,7 +8662,7 @@ Character109Base = (function() {
   Character109Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character109Base.textDeath = "多田李衣菜";
+  Character109Base.textDeath = "";
 
   Character109Base.abilityName = "なし";
 
@@ -8337,8 +8719,11 @@ Character110Base = (function() {
   // 基本回避率
   Character110Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character110Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character110Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character110Base.itemMaxEnd = 40;
 
   // コスト
   Character110Base.costBase = 1.5;
@@ -8347,7 +8732,7 @@ Character110Base = (function() {
   Character110Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character110Base.textDeath = "橘ありす";
+  Character110Base.textDeath = "";
 
   Character110Base.abilityName = "なし";
 
@@ -8404,8 +8789,11 @@ Character111Base = (function() {
   // 基本回避率
   Character111Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character111Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character111Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character111Base.itemMaxEnd = 40;
 
   // コスト
   Character111Base.costBase = 1.5;
@@ -8414,7 +8802,7 @@ Character111Base = (function() {
   Character111Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character111Base.textDeath = "月宮雅";
+  Character111Base.textDeath = "";
 
   Character111Base.abilityName = "なし";
 
@@ -8471,8 +8859,11 @@ Character112Base = (function() {
   // 基本回避率
   Character112Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character112Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character112Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character112Base.itemMaxEnd = 40;
 
   // コスト
   Character112Base.costBase = 1.5;
@@ -8481,7 +8872,7 @@ Character112Base = (function() {
   Character112Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character112Base.textDeath = "土屋亜子";
+  Character112Base.textDeath = "";
 
   Character112Base.abilityName = "なし";
 
@@ -8538,8 +8929,11 @@ Character113Base = (function() {
   // 基本回避率
   Character113Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character113Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character113Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character113Base.itemMaxEnd = 40;
 
   // コスト
   Character113Base.costBase = 1.5;
@@ -8548,7 +8942,7 @@ Character113Base = (function() {
   Character113Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character113Base.textDeath = "東郷あい";
+  Character113Base.textDeath = "";
 
   Character113Base.abilityName = "なし";
 
@@ -8605,8 +8999,11 @@ Character114Base = (function() {
   // 基本回避率
   Character114Base.dodgeRateBase = 1;
 
-  // アイテム装備可能数
-  Character114Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character114Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character114Base.itemMaxEnd = 40;
 
   // コスト
   Character114Base.costBase = 1.5;
@@ -8615,7 +9012,7 @@ Character114Base = (function() {
   Character114Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character114Base.textDeath = "道明寺歌鈴";
+  Character114Base.textDeath = "";
 
   Character114Base.abilityName = "ドジ";
 
@@ -8672,8 +9069,11 @@ Character115Base = (function() {
   // 基本回避率
   Character115Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character115Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character115Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character115Base.itemMaxEnd = 40;
 
   // コスト
   Character115Base.costBase = 1.5;
@@ -8682,7 +9082,7 @@ Character115Base = (function() {
   Character115Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character115Base.textDeath = "十時愛梨";
+  Character115Base.textDeath = "";
 
   Character115Base.abilityName = "すぐ脱ぐ";
 
@@ -8739,8 +9139,11 @@ Character116Base = (function() {
   // 基本回避率
   Character116Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character116Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character116Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character116Base.itemMaxEnd = 40;
 
   // コスト
   Character116Base.costBase = 1.5;
@@ -8749,7 +9152,7 @@ Character116Base = (function() {
   Character116Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character116Base.textDeath = "長富蓮実";
+  Character116Base.textDeath = "";
 
   Character116Base.abilityName = "なし";
 
@@ -8806,8 +9209,11 @@ Character117Base = (function() {
   // 基本回避率
   Character117Base.dodgeRateBase = 5;
 
-  // アイテム装備可能数
-  Character117Base.itemMax = 8;
+  // アイテム装備可能数（開始時）
+  Character117Base.itemMaxStart = 23;
+
+  // アイテム装備可能数（限界）
+  Character117Base.itemMaxEnd = 40;
 
   // コスト
   Character117Base.costBase = 1.5;
@@ -8816,7 +9222,7 @@ Character117Base = (function() {
   Character117Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character117Base.textDeath = "中野有香";
+  Character117Base.textDeath = "";
 
   Character117Base.abilityName = "会心の一撃";
 
@@ -8873,8 +9279,11 @@ Character118Base = (function() {
   // 基本回避率
   Character118Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character118Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character118Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character118Base.itemMaxEnd = 40;
 
   // コスト
   Character118Base.costBase = 1.5;
@@ -8883,7 +9292,7 @@ Character118Base = (function() {
   Character118Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character118Base.textDeath = "ナターリア";
+  Character118Base.textDeath = "";
 
   Character118Base.abilityName = "なし";
 
@@ -8940,8 +9349,11 @@ Character119Base = (function() {
   // 基本回避率
   Character119Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character119Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character119Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character119Base.itemMaxEnd = 40;
 
   // コスト
   Character119Base.costBase = 1.5;
@@ -8950,7 +9362,7 @@ Character119Base = (function() {
   Character119Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character119Base.textDeath = "並木芽衣子";
+  Character119Base.textDeath = "";
 
   Character119Base.abilityName = "なし";
 
@@ -9007,8 +9419,11 @@ Character120Base = (function() {
   // 基本回避率
   Character120Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character120Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character120Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character120Base.itemMaxEnd = 40;
 
   // コスト
   Character120Base.costBase = 1.5;
@@ -9017,7 +9432,7 @@ Character120Base = (function() {
   Character120Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character120Base.textDeath = "成宮由愛";
+  Character120Base.textDeath = "";
 
   Character120Base.abilityName = "なし";
 
@@ -9074,8 +9489,11 @@ Character121Base = (function() {
   // 基本回避率
   Character121Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character121Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character121Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character121Base.itemMaxEnd = 40;
 
   // コスト
   Character121Base.costBase = 1.5;
@@ -9084,7 +9502,7 @@ Character121Base = (function() {
   Character121Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character121Base.textDeath = "南条光";
+  Character121Base.textDeath = "";
 
   Character121Base.abilityName = "なし";
 
@@ -9141,8 +9559,11 @@ Character122Base = (function() {
   // 基本回避率
   Character122Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character122Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character122Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character122Base.itemMaxEnd = 40;
 
   // コスト
   Character122Base.costBase = 1.5;
@@ -9151,7 +9572,7 @@ Character122Base = (function() {
   Character122Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character122Base.textDeath = "難波笑美";
+  Character122Base.textDeath = "";
 
   Character122Base.abilityName = "なし";
 
@@ -9208,8 +9629,11 @@ Character123Base = (function() {
   // 基本回避率
   Character123Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character123Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character123Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character123Base.itemMaxEnd = 40;
 
   // コスト
   Character123Base.costBase = 1.5;
@@ -9218,7 +9642,7 @@ Character123Base = (function() {
   Character123Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character123Base.textDeath = "西川保奈美";
+  Character123Base.textDeath = "";
 
   Character123Base.abilityName = "なし";
 
@@ -9275,8 +9699,11 @@ Character124Base = (function() {
   // 基本回避率
   Character124Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character124Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character124Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character124Base.itemMaxEnd = 40;
 
   // コスト
   Character124Base.costBase = 1.5;
@@ -9285,7 +9712,7 @@ Character124Base = (function() {
   Character124Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character124Base.textDeath = "西島櫂";
+  Character124Base.textDeath = "";
 
   Character124Base.abilityName = "なし";
 
@@ -9342,8 +9769,11 @@ Character125Base = (function() {
   // 基本回避率
   Character125Base.dodgeRateBase = 4;
 
-  // アイテム装備可能数
-  Character125Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character125Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character125Base.itemMaxEnd = 40;
 
   // コスト
   Character125Base.costBase = 1.5;
@@ -9352,7 +9782,7 @@ Character125Base = (function() {
   Character125Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character125Base.textDeath = "新田美波";
+  Character125Base.textDeath = "";
 
   Character125Base.abilityName = "万能";
 
@@ -9409,8 +9839,11 @@ Character126Base = (function() {
   // 基本回避率
   Character126Base.dodgeRateBase = 4;
 
-  // アイテム装備可能数
-  Character126Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character126Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character126Base.itemMaxEnd = 40;
 
   // コスト
   Character126Base.costBase = 1.5;
@@ -9419,7 +9852,7 @@ Character126Base = (function() {
   Character126Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character126Base.textDeath = "二宮飛鳥";
+  Character126Base.textDeath = "";
 
   Character126Base.abilityName = "孤高";
 
@@ -9476,8 +9909,11 @@ Character127Base = (function() {
   // 基本回避率
   Character127Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character127Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character127Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character127Base.itemMaxEnd = 40;
 
   // コスト
   Character127Base.costBase = 1.5;
@@ -9486,7 +9922,7 @@ Character127Base = (function() {
   Character127Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character127Base.textDeath = "丹羽仁美";
+  Character127Base.textDeath = "";
 
   Character127Base.abilityName = "なし";
 
@@ -9543,8 +9979,11 @@ Character128Base = (function() {
   // 基本回避率
   Character128Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character128Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character128Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character128Base.itemMaxEnd = 40;
 
   // コスト
   Character128Base.costBase = 1.5;
@@ -9553,7 +9992,7 @@ Character128Base = (function() {
   Character128Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character128Base.textDeath = "野々村そら";
+  Character128Base.textDeath = "";
 
   Character128Base.abilityName = "なし";
 
@@ -9610,8 +10049,11 @@ Character129Base = (function() {
   // 基本回避率
   Character129Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character129Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character129Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character129Base.itemMaxEnd = 40;
 
   // コスト
   Character129Base.costBase = 1.5;
@@ -9620,7 +10062,7 @@ Character129Base = (function() {
   Character129Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character129Base.textDeath = "萩原雪歩";
+  Character129Base.textDeath = "";
 
   Character129Base.abilityName = "なし";
 
@@ -9677,8 +10119,11 @@ Character130Base = (function() {
   // 基本回避率
   Character130Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character130Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character130Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character130Base.itemMaxEnd = 40;
 
   // コスト
   Character130Base.costBase = 1.5;
@@ -9687,7 +10132,7 @@ Character130Base = (function() {
   Character130Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character130Base.textDeath = "服部瞳子";
+  Character130Base.textDeath = "";
 
   Character130Base.abilityName = "なし";
 
@@ -9744,8 +10189,11 @@ Character131Base = (function() {
   // 基本回避率
   Character131Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character131Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character131Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character131Base.itemMaxEnd = 40;
 
   // コスト
   Character131Base.costBase = 1.5;
@@ -9754,7 +10202,7 @@ Character131Base = (function() {
   Character131Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character131Base.textDeath = "浜川愛結奈";
+  Character131Base.textDeath = "";
 
   Character131Base.abilityName = "なし";
 
@@ -9811,8 +10259,11 @@ Character132Base = (function() {
   // 基本回避率
   Character132Base.dodgeRateBase = 35;
 
-  // アイテム装備可能数
-  Character132Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character132Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character132Base.itemMaxEnd = 40;
 
   // コスト
   Character132Base.costBase = 1.5;
@@ -9821,7 +10272,7 @@ Character132Base = (function() {
   Character132Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character132Base.textDeath = "浜口あやめ";
+  Character132Base.textDeath = "";
 
   Character132Base.abilityName = "忍法変わり身の術";
 
@@ -9878,8 +10329,11 @@ Character133Base = (function() {
   // 基本回避率
   Character133Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character133Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character133Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character133Base.itemMaxEnd = 40;
 
   // コスト
   Character133Base.costBase = 1.5;
@@ -9888,7 +10342,7 @@ Character133Base = (function() {
   Character133Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character133Base.textDeath = "早坂美玲";
+  Character133Base.textDeath = "";
 
   Character133Base.abilityName = "なし";
 
@@ -9945,8 +10399,11 @@ Character134Base = (function() {
   // 基本回避率
   Character134Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character134Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character134Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character134Base.itemMaxEnd = 40;
 
   // コスト
   Character134Base.costBase = 1.5;
@@ -9955,7 +10412,7 @@ Character134Base = (function() {
   Character134Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character134Base.textDeath = "速水奏";
+  Character134Base.textDeath = "";
 
   Character134Base.abilityName = "ムーンサイド";
 
@@ -10012,8 +10469,11 @@ Character135Base = (function() {
   // 基本回避率
   Character135Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character135Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character135Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character135Base.itemMaxEnd = 40;
 
   // コスト
   Character135Base.costBase = 1.5;
@@ -10022,7 +10482,7 @@ Character135Base = (function() {
   Character135Base.expRate = 2.8;
 
   // 死んだ時の台詞
-  Character135Base.textDeath = "原田美世";
+  Character135Base.textDeath = "";
 
   Character135Base.abilityName = "なし";
 
@@ -10079,8 +10539,11 @@ Character136Base = (function() {
   // 基本回避率
   Character136Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character136Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character136Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character136Base.itemMaxEnd = 40;
 
   // コスト
   Character136Base.costBase = 1.5;
@@ -10089,7 +10552,7 @@ Character136Base = (function() {
   Character136Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character136Base.textDeath = "柊志乃";
+  Character136Base.textDeath = "";
 
   Character136Base.abilityName = "なし";
 
@@ -10146,8 +10609,11 @@ Character137Base = (function() {
   // 基本回避率
   Character137Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character137Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character137Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character137Base.itemMaxEnd = 40;
 
   // コスト
   Character137Base.costBase = 1.5;
@@ -10156,7 +10622,7 @@ Character137Base = (function() {
   Character137Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character137Base.textDeath = "日高愛";
+  Character137Base.textDeath = "";
 
   Character137Base.abilityName = "なし";
 
@@ -10213,8 +10679,11 @@ Character138Base = (function() {
   // 基本回避率
   Character138Base.dodgeRateBase = 5;
 
-  // アイテム装備可能数
-  Character138Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character138Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character138Base.itemMaxEnd = 40;
 
   // コスト
   Character138Base.costBase = 1.5;
@@ -10223,7 +10692,7 @@ Character138Base = (function() {
   Character138Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character138Base.textDeath = "日野茜";
+  Character138Base.textDeath = "";
 
   Character138Base.abilityName = "全力疾走";
 
@@ -10280,8 +10749,11 @@ Character139Base = (function() {
   // 基本回避率
   Character139Base.dodgeRateBase = 2;
 
-  // アイテム装備可能数
-  Character139Base.itemMax = 8;
+  // アイテム装備可能数（開始時）
+  Character139Base.itemMaxStart = 23;
+
+  // アイテム装備可能数（限界）
+  Character139Base.itemMaxEnd = 40;
 
   // コスト
   Character139Base.costBase = 1.5;
@@ -10290,7 +10762,7 @@ Character139Base = (function() {
   Character139Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character139Base.textDeath = "姫川友紀";
+  Character139Base.textDeath = "";
 
   Character139Base.abilityName = "かっとばせー";
 
@@ -10347,8 +10819,11 @@ Character140Base = (function() {
   // 基本回避率
   Character140Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character140Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character140Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character140Base.itemMaxEnd = 40;
 
   // コスト
   Character140Base.costBase = 1.5;
@@ -10357,7 +10832,7 @@ Character140Base = (function() {
   Character140Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character140Base.textDeath = "兵藤レナ";
+  Character140Base.textDeath = "";
 
   Character140Base.abilityName = "なし";
 
@@ -10414,8 +10889,11 @@ Character141Base = (function() {
   // 基本回避率
   Character141Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character141Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character141Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character141Base.itemMaxEnd = 40;
 
   // コスト
   Character141Base.costBase = 1.5;
@@ -10424,7 +10902,7 @@ Character141Base = (function() {
   Character141Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character141Base.textDeath = "福山舞";
+  Character141Base.textDeath = "";
 
   Character141Base.abilityName = "なし";
 
@@ -10481,8 +10959,11 @@ Character142Base = (function() {
   // 基本回避率
   Character142Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character142Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character142Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character142Base.itemMaxEnd = 40;
 
   // コスト
   Character142Base.costBase = 1.5;
@@ -10491,7 +10972,7 @@ Character142Base = (function() {
   Character142Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character142Base.textDeath = "藤居朋";
+  Character142Base.textDeath = "";
 
   Character142Base.abilityName = "なし";
 
@@ -10548,8 +11029,11 @@ Character143Base = (function() {
   // 基本回避率
   Character143Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character143Base.itemMax = 12;
+  // アイテム装備可能数（開始時）
+  Character143Base.itemMaxStart = 27;
+
+  // アイテム装備可能数（限界）
+  Character143Base.itemMaxEnd = 40;
 
   // コスト
   Character143Base.costBase = 1.5;
@@ -10558,7 +11042,7 @@ Character143Base = (function() {
   Character143Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character143Base.textDeath = "藤本里奈";
+  Character143Base.textDeath = "";
 
   Character143Base.abilityName = "なし";
 
@@ -10615,8 +11099,11 @@ Character144Base = (function() {
   // 基本回避率
   Character144Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character144Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character144Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character144Base.itemMaxEnd = 40;
 
   // コスト
   Character144Base.costBase = 1.5;
@@ -10625,7 +11112,7 @@ Character144Base = (function() {
   Character144Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character144Base.textDeath = "藤原肇";
+  Character144Base.textDeath = "";
 
   Character144Base.abilityName = "なし";
 
@@ -10682,8 +11169,11 @@ Character145Base = (function() {
   // 基本回避率
   Character145Base.dodgeRateBase = 0;
 
-  // アイテム装備可能数
-  Character145Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character145Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character145Base.itemMaxEnd = 40;
 
   // コスト
   Character145Base.costBase = 1.5;
@@ -10692,7 +11182,7 @@ Character145Base = (function() {
   Character145Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character145Base.textDeath = "双葉杏";
+  Character145Base.textDeath = "";
 
   Character145Base.abilityName = "印税";
 
@@ -10749,8 +11239,11 @@ Character146Base = (function() {
   // 基本回避率
   Character146Base.dodgeRateBase = 7;
 
-  // アイテム装備可能数
-  Character146Base.itemMax = 8;
+  // アイテム装備可能数（開始時）
+  Character146Base.itemMaxStart = 23;
+
+  // アイテム装備可能数（限界）
+  Character146Base.itemMaxEnd = 40;
 
   // コスト
   Character146Base.costBase = 1.5;
@@ -10759,7 +11252,7 @@ Character146Base = (function() {
   Character146Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character146Base.textDeath = "双海亜美";
+  Character146Base.textDeath = "";
 
   Character146Base.abilityName = "双子";
 
@@ -10816,8 +11309,11 @@ Character147Base = (function() {
   // 基本回避率
   Character147Base.dodgeRateBase = 6;
 
-  // アイテム装備可能数
-  Character147Base.itemMax = 8;
+  // アイテム装備可能数（開始時）
+  Character147Base.itemMaxStart = 23;
+
+  // アイテム装備可能数（限界）
+  Character147Base.itemMaxEnd = 40;
 
   // コスト
   Character147Base.costBase = 1.5;
@@ -10826,7 +11322,7 @@ Character147Base = (function() {
   Character147Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character147Base.textDeath = "双海真美";
+  Character147Base.textDeath = "";
 
   Character147Base.abilityName = "双子";
 
@@ -10883,8 +11379,11 @@ Character148Base = (function() {
   // 基本回避率
   Character148Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character148Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character148Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character148Base.itemMaxEnd = 40;
 
   // コスト
   Character148Base.costBase = 1.5;
@@ -10893,7 +11392,7 @@ Character148Base = (function() {
   Character148Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character148Base.textDeath = "古澤頼子";
+  Character148Base.textDeath = "";
 
   Character148Base.abilityName = "なし";
 
@@ -10950,8 +11449,11 @@ Character149Base = (function() {
   // 基本回避率
   Character149Base.dodgeRateBase = 0;
 
-  // アイテム装備可能数
-  Character149Base.itemMax = 20;
+  // アイテム装備可能数（開始時）
+  Character149Base.itemMaxStart = 35;
+
+  // アイテム装備可能数（限界）
+  Character149Base.itemMaxEnd = 40;
 
   // コスト
   Character149Base.costBase = 1.5;
@@ -10960,7 +11462,7 @@ Character149Base = (function() {
   Character149Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character149Base.textDeath = "ヘレン";
+  Character149Base.textDeath = "";
 
   Character149Base.abilityName = "世界のヘレン";
 
@@ -11017,8 +11519,11 @@ Character150Base = (function() {
   // 基本回避率
   Character150Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character150Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character150Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character150Base.itemMaxEnd = 40;
 
   // コスト
   Character150Base.costBase = 1.5;
@@ -11027,7 +11532,7 @@ Character150Base = (function() {
   Character150Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character150Base.textDeath = "北条加蓮";
+  Character150Base.textDeath = "";
 
   Character150Base.abilityName = "なし";
 
@@ -11084,8 +11589,11 @@ Character151Base = (function() {
   // 基本回避率
   Character151Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character151Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character151Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character151Base.itemMaxEnd = 40;
 
   // コスト
   Character151Base.costBase = 1.5;
@@ -11094,7 +11602,7 @@ Character151Base = (function() {
   Character151Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character151Base.textDeath = "星井美希";
+  Character151Base.textDeath = "";
 
   Character151Base.abilityName = "なし";
 
@@ -11151,8 +11659,11 @@ Character152Base = (function() {
   // 基本回避率
   Character152Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character152Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character152Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character152Base.itemMaxEnd = 40;
 
   // コスト
   Character152Base.costBase = 1.5;
@@ -11161,7 +11672,7 @@ Character152Base = (function() {
   Character152Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character152Base.textDeath = "星輝子";
+  Character152Base.textDeath = "";
 
   Character152Base.abilityName = "インキャ";
 
@@ -11218,8 +11729,11 @@ Character153Base = (function() {
   // 基本回避率
   Character153Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character153Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character153Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character153Base.itemMaxEnd = 40;
 
   // コスト
   Character153Base.costBase = 1.5;
@@ -11228,7 +11742,7 @@ Character153Base = (function() {
   Character153Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character153Base.textDeath = "堀裕子";
+  Character153Base.textDeath = "";
 
   Character153Base.abilityName = "サイキック";
 
@@ -11285,8 +11799,11 @@ Character154Base = (function() {
   // 基本回避率
   Character154Base.dodgeRateBase = 8;
 
-  // アイテム装備可能数
-  Character154Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character154Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character154Base.itemMaxEnd = 40;
 
   // コスト
   Character154Base.costBase = 1.5;
@@ -11295,7 +11812,7 @@ Character154Base = (function() {
   Character154Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character154Base.textDeath = "前川みく";
+  Character154Base.textDeath = "";
 
   Character154Base.abilityName = "なし";
 
@@ -11352,8 +11869,11 @@ Character155Base = (function() {
   // 基本回避率
   Character155Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character155Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character155Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character155Base.itemMaxEnd = 40;
 
   // コスト
   Character155Base.costBase = 1.5;
@@ -11362,7 +11882,7 @@ Character155Base = (function() {
   Character155Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character155Base.textDeath = "槙原志保";
+  Character155Base.textDeath = "";
 
   Character155Base.abilityName = "なし";
 
@@ -11419,8 +11939,11 @@ Character156Base = (function() {
   // 基本回避率
   Character156Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character156Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character156Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character156Base.itemMaxEnd = 40;
 
   // コスト
   Character156Base.costBase = 1.5;
@@ -11429,7 +11952,7 @@ Character156Base = (function() {
   Character156Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character156Base.textDeath = "松尾千鶴";
+  Character156Base.textDeath = "";
 
   Character156Base.abilityName = "なし";
 
@@ -11486,8 +12009,11 @@ Character157Base = (function() {
   // 基本回避率
   Character157Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character157Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character157Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character157Base.itemMaxEnd = 40;
 
   // コスト
   Character157Base.costBase = 1.5;
@@ -11496,7 +12022,7 @@ Character157Base = (function() {
   Character157Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character157Base.textDeath = "松永涼";
+  Character157Base.textDeath = "";
 
   Character157Base.abilityName = "なし";
 
@@ -11553,8 +12079,11 @@ Character158Base = (function() {
   // 基本回避率
   Character158Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character158Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character158Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character158Base.itemMaxEnd = 40;
 
   // コスト
   Character158Base.costBase = 1.5;
@@ -11563,7 +12092,7 @@ Character158Base = (function() {
   Character158Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character158Base.textDeath = "松原早耶";
+  Character158Base.textDeath = "";
 
   Character158Base.abilityName = "なし";
 
@@ -11620,8 +12149,11 @@ Character159Base = (function() {
   // 基本回避率
   Character159Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character159Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character159Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character159Base.itemMaxEnd = 40;
 
   // コスト
   Character159Base.costBase = 1.5;
@@ -11630,7 +12162,7 @@ Character159Base = (function() {
   Character159Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character159Base.textDeath = "松本沙理奈";
+  Character159Base.textDeath = "";
 
   Character159Base.abilityName = "なし";
 
@@ -11687,8 +12219,11 @@ Character160Base = (function() {
   // 基本回避率
   Character160Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character160Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character160Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character160Base.itemMaxEnd = 40;
 
   // コスト
   Character160Base.costBase = 1.5;
@@ -11697,7 +12232,7 @@ Character160Base = (function() {
   Character160Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character160Base.textDeath = "松山久美子";
+  Character160Base.textDeath = "";
 
   Character160Base.abilityName = "なし";
 
@@ -11754,8 +12289,11 @@ Character161Base = (function() {
   // 基本回避率
   Character161Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character161Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character161Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character161Base.itemMaxEnd = 40;
 
   // コスト
   Character161Base.costBase = 1.5;
@@ -11764,7 +12302,7 @@ Character161Base = (function() {
   Character161Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character161Base.textDeath = "的場梨沙";
+  Character161Base.textDeath = "";
 
   Character161Base.abilityName = "なし";
 
@@ -11821,8 +12359,11 @@ Character162Base = (function() {
   // 基本回避率
   Character162Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character162Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character162Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character162Base.itemMaxEnd = 40;
 
   // コスト
   Character162Base.costBase = 1.5;
@@ -11831,7 +12372,7 @@ Character162Base = (function() {
   Character162Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character162Base.textDeath = "間中美里";
+  Character162Base.textDeath = "";
 
   Character162Base.abilityName = "なし";
 
@@ -11888,8 +12429,11 @@ Character163Base = (function() {
   // 基本回避率
   Character163Base.dodgeRateBase = 5;
 
-  // アイテム装備可能数
-  Character163Base.itemMax = 8;
+  // アイテム装備可能数（開始時）
+  Character163Base.itemMaxStart = 23;
+
+  // アイテム装備可能数（限界）
+  Character163Base.itemMaxEnd = 40;
 
   // コスト
   Character163Base.costBase = 1.5;
@@ -11898,7 +12442,7 @@ Character163Base = (function() {
   Character163Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character163Base.textDeath = "真鍋いつき";
+  Character163Base.textDeath = "";
 
   Character163Base.abilityName = "なし";
 
@@ -11955,8 +12499,11 @@ Character164Base = (function() {
   // 基本回避率
   Character164Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character164Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character164Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character164Base.itemMaxEnd = 40;
 
   // コスト
   Character164Base.costBase = 1.5;
@@ -11965,7 +12512,7 @@ Character164Base = (function() {
   Character164Base.expRate = 2.3;
 
   // 死んだ時の台詞
-  Character164Base.textDeath = "三浦あずさ";
+  Character164Base.textDeath = "";
 
   Character164Base.abilityName = "なし";
 
@@ -12022,8 +12569,11 @@ Character165Base = (function() {
   // 基本回避率
   Character165Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character165Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character165Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character165Base.itemMaxEnd = 40;
 
   // コスト
   Character165Base.costBase = 1.5;
@@ -12032,7 +12582,7 @@ Character165Base = (function() {
   Character165Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character165Base.textDeath = "水木聖來";
+  Character165Base.textDeath = "";
 
   Character165Base.abilityName = "なし";
 
@@ -12089,8 +12639,11 @@ Character166Base = (function() {
   // 基本回避率
   Character166Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character166Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character166Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character166Base.itemMaxEnd = 40;
 
   // コスト
   Character166Base.costBase = 1.5;
@@ -12099,7 +12652,7 @@ Character166Base = (function() {
   Character166Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character166Base.textDeath = "水谷絵理";
+  Character166Base.textDeath = "";
 
   Character166Base.abilityName = "なし";
 
@@ -12156,8 +12709,11 @@ Character167Base = (function() {
   // 基本回避率
   Character167Base.dodgeRateBase = 2;
 
-  // アイテム装備可能数
-  Character167Base.itemMax = 8;
+  // アイテム装備可能数（開始時）
+  Character167Base.itemMaxStart = 23;
+
+  // アイテム装備可能数（限界）
+  Character167Base.itemMaxEnd = 40;
 
   // コスト
   Character167Base.costBase = 1.5;
@@ -12166,7 +12722,7 @@ Character167Base = (function() {
   Character167Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character167Base.textDeath = "水野翠";
+  Character167Base.textDeath = "";
 
   Character167Base.abilityName = "貫通の矢";
 
@@ -12223,8 +12779,11 @@ Character168Base = (function() {
   // 基本回避率
   Character168Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character168Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character168Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character168Base.itemMaxEnd = 40;
 
   // コスト
   Character168Base.costBase = 1.5;
@@ -12233,7 +12792,7 @@ Character168Base = (function() {
   Character168Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character168Base.textDeath = "水本ゆかり";
+  Character168Base.textDeath = "";
 
   Character168Base.abilityName = "なし";
 
@@ -12290,8 +12849,11 @@ Character169Base = (function() {
   // 基本回避率
   Character169Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character169Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character169Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character169Base.itemMaxEnd = 40;
 
   // コスト
   Character169Base.costBase = 1.5;
@@ -12300,7 +12862,7 @@ Character169Base = (function() {
   Character169Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character169Base.textDeath = "水瀬伊織";
+  Character169Base.textDeath = "";
 
   Character169Base.abilityName = "なし";
 
@@ -12357,8 +12919,11 @@ Character170Base = (function() {
   // 基本回避率
   Character170Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character170Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character170Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character170Base.itemMaxEnd = 40;
 
   // コスト
   Character170Base.costBase = 1.5;
@@ -12367,7 +12932,7 @@ Character170Base = (function() {
   Character170Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character170Base.textDeath = "三船美優";
+  Character170Base.textDeath = "";
 
   Character170Base.abilityName = "なし";
 
@@ -12424,8 +12989,11 @@ Character171Base = (function() {
   // 基本回避率
   Character171Base.dodgeRateBase = 1;
 
-  // アイテム装備可能数
-  Character171Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character171Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character171Base.itemMaxEnd = 40;
 
   // コスト
   Character171Base.costBase = 1.5;
@@ -12434,7 +13002,7 @@ Character171Base = (function() {
   Character171Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character171Base.textDeath = "三村かな子";
+  Character171Base.textDeath = "";
 
   Character171Base.abilityName = "なし";
 
@@ -12491,8 +13059,11 @@ Character172Base = (function() {
   // 基本回避率
   Character172Base.dodgeRateBase = 5;
 
-  // アイテム装備可能数
-  Character172Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character172Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character172Base.itemMaxEnd = 40;
 
   // コスト
   Character172Base.costBase = 1.5;
@@ -12501,7 +13072,7 @@ Character172Base = (function() {
   Character172Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character172Base.textDeath = "宮本フレデリカ";
+  Character172Base.textDeath = "";
 
   Character172Base.abilityName = "なし";
 
@@ -12558,8 +13129,11 @@ Character173Base = (function() {
   // 基本回避率
   Character173Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character173Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character173Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character173Base.itemMaxEnd = 40;
 
   // コスト
   Character173Base.costBase = 1.5;
@@ -12568,7 +13142,7 @@ Character173Base = (function() {
   Character173Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character173Base.textDeath = "三好紗南";
+  Character173Base.textDeath = "";
 
   Character173Base.abilityName = "なし";
 
@@ -12625,8 +13199,11 @@ Character174Base = (function() {
   // 基本回避率
   Character174Base.dodgeRateBase = 2;
 
-  // アイテム装備可能数
-  Character174Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character174Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character174Base.itemMaxEnd = 40;
 
   // コスト
   Character174Base.costBase = 1.5;
@@ -12635,7 +13212,7 @@ Character174Base = (function() {
   Character174Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character174Base.textDeath = "向井拓海";
+  Character174Base.textDeath = "";
 
   Character174Base.abilityName = "喧嘩上等";
 
@@ -12692,8 +13269,11 @@ Character175Base = (function() {
   // 基本回避率
   Character175Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character175Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character175Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character175Base.itemMaxEnd = 40;
 
   // コスト
   Character175Base.costBase = 1.5;
@@ -12702,7 +13282,7 @@ Character175Base = (function() {
   Character175Base.expRate = 2.3;
 
   // 死んだ時の台詞
-  Character175Base.textDeath = "棟方愛海";
+  Character175Base.textDeath = "";
 
   Character175Base.abilityName = "登山";
 
@@ -12759,8 +13339,11 @@ Character176Base = (function() {
   // 基本回避率
   Character176Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character176Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character176Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character176Base.itemMaxEnd = 40;
 
   // コスト
   Character176Base.costBase = 1.5;
@@ -12769,7 +13352,7 @@ Character176Base = (function() {
   Character176Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character176Base.textDeath = "村上巴";
+  Character176Base.textDeath = "";
 
   Character176Base.abilityName = "喝！";
 
@@ -12826,8 +13409,11 @@ Character177Base = (function() {
   // 基本回避率
   Character177Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character177Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character177Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character177Base.itemMaxEnd = 40;
 
   // コスト
   Character177Base.costBase = 1.5;
@@ -12836,7 +13422,7 @@ Character177Base = (function() {
   Character177Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character177Base.textDeath = "村松さくら";
+  Character177Base.textDeath = "";
 
   Character177Base.abilityName = "なし";
 
@@ -12893,8 +13479,11 @@ Character178Base = (function() {
   // 基本回避率
   Character178Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character178Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character178Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character178Base.itemMaxEnd = 40;
 
   // コスト
   Character178Base.costBase = 1.5;
@@ -12903,7 +13492,7 @@ Character178Base = (function() {
   Character178Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character178Base.textDeath = "メアリー・コクラン";
+  Character178Base.textDeath = "";
 
   Character178Base.abilityName = "なし";
 
@@ -12960,8 +13549,11 @@ Character179Base = (function() {
   // 基本回避率
   Character179Base.dodgeRateBase = 2;
 
-  // アイテム装備可能数
-  Character179Base.itemMax = 15;
+  // アイテム装備可能数（開始時）
+  Character179Base.itemMaxStart = 30;
+
+  // アイテム装備可能数（限界）
+  Character179Base.itemMaxEnd = 40;
 
   // コスト
   Character179Base.costBase = 1.5;
@@ -12970,7 +13562,7 @@ Character179Base = (function() {
   Character179Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character179Base.textDeath = "持田亜里沙";
+  Character179Base.textDeath = "";
 
   Character179Base.abilityName = "なし";
 
@@ -13027,8 +13619,11 @@ Character180Base = (function() {
   // 基本回避率
   Character180Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character180Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character180Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character180Base.itemMaxEnd = 40;
 
   // コスト
   Character180Base.costBase = 1.5;
@@ -13037,7 +13632,7 @@ Character180Base = (function() {
   Character180Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character180Base.textDeath = "望月聖";
+  Character180Base.textDeath = "";
 
   Character180Base.abilityName = "なし";
 
@@ -13094,8 +13689,11 @@ Character181Base = (function() {
   // 基本回避率
   Character181Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character181Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character181Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character181Base.itemMaxEnd = 40;
 
   // コスト
   Character181Base.costBase = 1.5;
@@ -13104,7 +13702,7 @@ Character181Base = (function() {
   Character181Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character181Base.textDeath = "桃井あずき";
+  Character181Base.textDeath = "";
 
   Character181Base.abilityName = "呉服";
 
@@ -13161,8 +13759,11 @@ Character182Base = (function() {
   // 基本回避率
   Character182Base.dodgeRateBase = 5;
 
-  // アイテム装備可能数
-  Character182Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character182Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character182Base.itemMaxEnd = 40;
 
   // コスト
   Character182Base.costBase = 1.5;
@@ -13171,7 +13772,7 @@ Character182Base = (function() {
   Character182Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character182Base.textDeath = "森久保乃々";
+  Character182Base.textDeath = "";
 
   Character182Base.abilityName = "む～り～";
 
@@ -13228,8 +13829,11 @@ Character183Base = (function() {
   // 基本回避率
   Character183Base.dodgeRateBase = 2;
 
-  // アイテム装備可能数
-  Character183Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character183Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character183Base.itemMaxEnd = 40;
 
   // コスト
   Character183Base.costBase = 1.5;
@@ -13238,7 +13842,7 @@ Character183Base = (function() {
   Character183Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character183Base.textDeath = "諸星きらり";
+  Character183Base.textDeath = "";
 
   Character183Base.abilityName = "きらりん☆ストロング";
 
@@ -13295,8 +13899,11 @@ Character184Base = (function() {
   // 基本回避率
   Character184Base.dodgeRateBase = 10;
 
-  // アイテム装備可能数
-  Character184Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character184Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character184Base.itemMaxEnd = 40;
 
   // コスト
   Character184Base.costBase = 1.5;
@@ -13305,7 +13912,7 @@ Character184Base = (function() {
   Character184Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character184Base.textDeath = "楊菲菲";
+  Character184Base.textDeath = "";
 
   Character184Base.abilityName = "カンフー";
 
@@ -13362,8 +13969,11 @@ Character185Base = (function() {
   // 基本回避率
   Character185Base.dodgeRateBase = 5;
 
-  // アイテム装備可能数
-  Character185Base.itemMax = 12;
+  // アイテム装備可能数（開始時）
+  Character185Base.itemMaxStart = 27;
+
+  // アイテム装備可能数（限界）
+  Character185Base.itemMaxEnd = 40;
 
   // コスト
   Character185Base.costBase = 1.5;
@@ -13372,7 +13982,7 @@ Character185Base = (function() {
   Character185Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character185Base.textDeath = "八神マキノ";
+  Character185Base.textDeath = "";
 
   Character185Base.abilityName = "諜報";
 
@@ -13429,8 +14039,11 @@ Character186Base = (function() {
   // 基本回避率
   Character186Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character186Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character186Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character186Base.itemMaxEnd = 40;
 
   // コスト
   Character186Base.costBase = 1.5;
@@ -13439,7 +14052,7 @@ Character186Base = (function() {
   Character186Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character186Base.textDeath = "矢口美羽";
+  Character186Base.textDeath = "";
 
   Character186Base.abilityName = "なし";
 
@@ -13496,8 +14109,11 @@ Character187Base = (function() {
   // 基本回避率
   Character187Base.dodgeRateBase = 1;
 
-  // アイテム装備可能数
-  Character187Base.itemMax = 12;
+  // アイテム装備可能数（開始時）
+  Character187Base.itemMaxStart = 27;
+
+  // アイテム装備可能数（限界）
+  Character187Base.itemMaxEnd = 40;
 
   // コスト
   Character187Base.costBase = 1.5;
@@ -13506,7 +14122,7 @@ Character187Base = (function() {
   Character187Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character187Base.textDeath = "柳清良";
+  Character187Base.textDeath = "";
 
   Character187Base.abilityName = "看護";
 
@@ -13563,8 +14179,11 @@ Character188Base = (function() {
   // 基本回避率
   Character188Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character188Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character188Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character188Base.itemMaxEnd = 40;
 
   // コスト
   Character188Base.costBase = 1.5;
@@ -13573,7 +14192,7 @@ Character188Base = (function() {
   Character188Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character188Base.textDeath = "柳瀬美由紀";
+  Character188Base.textDeath = "";
 
   Character188Base.abilityName = "なし";
 
@@ -13630,8 +14249,11 @@ Character189Base = (function() {
   // 基本回避率
   Character189Base.dodgeRateBase = 5;
 
-  // アイテム装備可能数
-  Character189Base.itemMax = 15;
+  // アイテム装備可能数（開始時）
+  Character189Base.itemMaxStart = 30;
+
+  // アイテム装備可能数（限界）
+  Character189Base.itemMaxEnd = 40;
 
   // コスト
   Character189Base.costBase = 1.5;
@@ -13640,7 +14262,7 @@ Character189Base = (function() {
   Character189Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character189Base.textDeath = "大和亜季";
+  Character189Base.textDeath = "";
 
   Character189Base.abilityName = "掃射";
 
@@ -13697,8 +14319,11 @@ Character190Base = (function() {
   // 基本回避率
   Character190Base.dodgeRateBase = 5;
 
-  // アイテム装備可能数
-  Character190Base.itemMax = 8;
+  // アイテム装備可能数（開始時）
+  Character190Base.itemMaxStart = 23;
+
+  // アイテム装備可能数（限界）
+  Character190Base.itemMaxEnd = 40;
 
   // コスト
   Character190Base.costBase = 1.5;
@@ -13707,7 +14332,7 @@ Character190Base = (function() {
   Character190Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character190Base.textDeath = "結城晴";
+  Character190Base.textDeath = "";
 
   Character190Base.abilityName = "なし";
 
@@ -13764,8 +14389,11 @@ Character191Base = (function() {
   // 基本回避率
   Character191Base.dodgeRateBase = 1;
 
-  // アイテム装備可能数
-  Character191Base.itemMax = 8;
+  // アイテム装備可能数（開始時）
+  Character191Base.itemMaxStart = 23;
+
+  // アイテム装備可能数（限界）
+  Character191Base.itemMaxEnd = 40;
 
   // コスト
   Character191Base.costBase = 1.5;
@@ -13774,7 +14402,7 @@ Character191Base = (function() {
   Character191Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character191Base.textDeath = "遊佐こずえ";
+  Character191Base.textDeath = "";
 
   Character191Base.abilityName = "なし";
 
@@ -13831,8 +14459,11 @@ Character192Base = (function() {
   // 基本回避率
   Character192Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character192Base.itemMax = 8;
+  // アイテム装備可能数（開始時）
+  Character192Base.itemMaxStart = 23;
+
+  // アイテム装備可能数（限界）
+  Character192Base.itemMaxEnd = 40;
 
   // コスト
   Character192Base.costBase = 1.5;
@@ -13841,7 +14472,7 @@ Character192Base = (function() {
   Character192Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character192Base.textDeath = "横山千佳";
+  Character192Base.textDeath = "";
 
   Character192Base.abilityName = "魔法知識";
 
@@ -13898,8 +14529,11 @@ Character193Base = (function() {
   // 基本回避率
   Character193Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character193Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character193Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character193Base.itemMaxEnd = 40;
 
   // コスト
   Character193Base.costBase = 1.5;
@@ -13908,7 +14542,7 @@ Character193Base = (function() {
   Character193Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character193Base.textDeath = "吉岡沙紀";
+  Character193Base.textDeath = "";
 
   Character193Base.abilityName = "ペイント";
 
@@ -13965,8 +14599,11 @@ Character194Base = (function() {
   // 基本回避率
   Character194Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character194Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character194Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character194Base.itemMaxEnd = 40;
 
   // コスト
   Character194Base.costBase = 1.5;
@@ -13975,7 +14612,7 @@ Character194Base = (function() {
   Character194Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character194Base.textDeath = "依田芳乃";
+  Character194Base.textDeath = "";
 
   Character194Base.abilityName = "なし";
 
@@ -14032,8 +14669,11 @@ Character195Base = (function() {
   // 基本回避率
   Character195Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character195Base.itemMax = 6;
+  // アイテム装備可能数（開始時）
+  Character195Base.itemMaxStart = 21;
+
+  // アイテム装備可能数（限界）
+  Character195Base.itemMaxEnd = 40;
 
   // コスト
   Character195Base.costBase = 1.5;
@@ -14042,7 +14682,7 @@ Character195Base = (function() {
   Character195Base.expRate = 1.2;
 
   // 死んだ時の台詞
-  Character195Base.textDeath = "ライラ";
+  Character195Base.textDeath = "";
 
   Character195Base.abilityName = "節約";
 
@@ -14099,8 +14739,11 @@ Character196Base = (function() {
   // 基本回避率
   Character196Base.dodgeRateBase = 7;
 
-  // アイテム装備可能数
-  Character196Base.itemMax = 4;
+  // アイテム装備可能数（開始時）
+  Character196Base.itemMaxStart = 19;
+
+  // アイテム装備可能数（限界）
+  Character196Base.itemMaxEnd = 40;
 
   // コスト
   Character196Base.costBase = 1.5;
@@ -14109,7 +14752,7 @@ Character196Base = (function() {
   Character196Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character196Base.textDeath = "龍崎薫";
+  Character196Base.textDeath = "";
 
   Character196Base.abilityName = "なし";
 
@@ -14166,8 +14809,11 @@ Character197Base = (function() {
   // 基本回避率
   Character197Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character197Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character197Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character197Base.itemMaxEnd = 40;
 
   // コスト
   Character197Base.costBase = 1.5;
@@ -14176,7 +14822,7 @@ Character197Base = (function() {
   Character197Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character197Base.textDeath = "若林智香";
+  Character197Base.textDeath = "";
 
   Character197Base.abilityName = "なし";
 
@@ -14233,8 +14879,11 @@ Character198Base = (function() {
   // 基本回避率
   Character198Base.dodgeRateBase = 8;
 
-  // アイテム装備可能数
-  Character198Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character198Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character198Base.itemMaxEnd = 40;
 
   // コスト
   Character198Base.costBase = 1.5;
@@ -14243,7 +14892,7 @@ Character198Base = (function() {
   Character198Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character198Base.textDeath = "脇山珠美";
+  Character198Base.textDeath = "";
 
   Character198Base.abilityName = "剣道";
 
@@ -14300,8 +14949,11 @@ Character199Base = (function() {
   // 基本回避率
   Character199Base.dodgeRateBase = 3;
 
-  // アイテム装備可能数
-  Character199Base.itemMax = 10;
+  // アイテム装備可能数（開始時）
+  Character199Base.itemMaxStart = 25;
+
+  // アイテム装備可能数（限界）
+  Character199Base.itemMaxEnd = 40;
 
   // コスト
   Character199Base.costBase = 1.5;
@@ -14310,7 +14962,7 @@ Character199Base = (function() {
   Character199Base.expRate = 2.6;
 
   // 死んだ時の台詞
-  Character199Base.textDeath = "和久井留美";
+  Character199Base.textDeath = "";
 
   Character199Base.abilityName = "なし";
 
@@ -14367,8 +15019,11 @@ Character200Base = (function() {
   // 基本回避率
   Character200Base.dodgeRateBase = 1;
 
-  // アイテム装備可能数
-  Character200Base.itemMax = 15;
+  // アイテム装備可能数（開始時）
+  Character200Base.itemMaxStart = 30;
+
+  // アイテム装備可能数（限界）
+  Character200Base.itemMaxEnd = 40;
 
   // コスト
   Character200Base.costBase = 1.5;
@@ -14377,7 +15032,7 @@ Character200Base = (function() {
   Character200Base.expRate = 3.2;
 
   // 死んだ時の台詞
-  Character200Base.textDeath = "千川ちひろ";
+  Character200Base.textDeath = "";
 
   Character200Base.abilityName = "事務";
 
@@ -18174,6 +18829,20 @@ InfoManager = class InfoManager {
 
 };
 
+Item = class Item {
+  constructor(itemId1, params1) {
+    this.itemId = itemId1;
+    this.params = params1;
+    this.amount = 0;
+  }
+
+  // 持ってる数を設定
+  setAmount(amount) {
+    return this.amount = amount;
+  }
+
+};
+
 ItemCharacterPicker = (function() {
   class ItemCharacterPicker {
     static init(parentObject) {
@@ -18202,7 +18871,9 @@ ItemCharacterPicker = (function() {
       return results;
     }
 
-    static onClick(characterObject) {}
+    static onClick(characterObject) {
+      return ItemEquipmentEditor.select(characterObject);
+    }
 
   };
 
@@ -18233,7 +18904,37 @@ ItemEquipmentEditor = (function() {
     static init(parentObject) {
       this.parentObject = parentObject;
       this.divObject = $('<div>').attr('id', this.ID);
+      // ラベル
+      $('<div>').addClass('equipment_editor_section').appendTo(this.divObject);
+      // パネル
+      this.panel = null;
+      // 装備品一覧
+      this.equipItems = $('<div>').addClass('equipment_editor_items').appendTo(this.divObject);
+      // コスト
+      $('<div>').addClass('equipment_editor_cost_section').appendTo(this.divObject);
+      this.costMax = $('<div>').addClass('equipment_editor_cost_max').appendTo(this.divObject);
+      this.costNow = $('<div>').addClass('equipment_editor_cost_now').appendTo(this.divObject);
+      this.characterObject = null;
       return this.divObject.appendTo(this.parentObject.divObject);
+    }
+
+    static select(characterObject) {
+      this.characterObject = characterObject;
+      return this.draw();
+    }
+
+    static draw(newItem = null, dropItem = null) {
+      if (this.panel !== null) {
+        this.panel.removeMe();
+      }
+      // パネル
+      return this.panel = new Panel(this.divObject, this.characterObject);
+    }
+
+    static drawCost(newItem = null, dropItem = null) {
+      this.costNow.html(this.characterObject.getItemCapacity());
+      // パネル
+      return this.panel = new Panel(this.divObject, this.characterObject);
     }
 
   };
@@ -18348,8 +19049,8 @@ ItemManager = (function() {
       // アイテムのインスタンス
       this.items = {};
       ItemCharacterPicker.init(this);
-      ItemEquipmentEditor.init(this.divObject);
-      ItemEditor.init(this.divObject);
+      ItemEquipmentEditor.init(this);
+      ItemEditor.init(this);
       return this.divObject.appendTo(this.gameElement);
     }
 
@@ -18832,11 +19533,10 @@ Panel = (function() {
     draw(level = null) {
       $(this.divObject).find('*').remove();
       if (this.object !== null) {
-        switch (this.object.objectType) {
-          case ObjectBase.OBJECT_TYPE.CHARACTER:
-            return this.drawCharacter(level);
-          case ObjectBase.OBJECT_TYPE.ENEMY:
-            return this.drawEnemy();
+        if (this.object.isCharacterObject()) {
+          return this.drawCharacter(level);
+        } else if (this.object.isEnemyObject()) {
+          return this.drawEnemy();
         }
       }
     }
@@ -19297,6 +19997,11 @@ Panel = (function() {
         'placement': 'top',
         'title': this.object.getAbilityDesc()
       }));
+    }
+
+    removeMe() {
+      $(this.divObject).find('*').remove();
+      return $(this.divObject).remove();
     }
 
   };
@@ -19996,20 +20701,6 @@ Utl = class Utl {
         return resolve();
       }, msec);
     });
-  }
-
-};
-
-Item = class Item {
-  constructor(itemId1, params1) {
-    this.itemId = itemId1;
-    this.params = params1;
-    this.amount = 0;
-  }
-
-  // 持ってる数を設定
-  setAmount(amount) {
-    return this.amount = amount;
   }
 
 };
