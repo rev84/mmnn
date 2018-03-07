@@ -158,6 +158,8 @@ class GameManager
 
     # キャラクター設置を確定
     CharacterPalletManager.onExit()
+    # コントロール可能に
+    @changeControllable true
 
   # キャラクター出撃に移行
   @doCharacterPick:(isSoon = false)->
@@ -183,6 +185,8 @@ class GameManager
     CharacterPalletManager.onExit()
 
     @flags.isCellObjectAnimation = false
+    # コントロール可能に
+    @changeControllable true
 
   # アイテム画面
   @doItem:(isSoon = false)->

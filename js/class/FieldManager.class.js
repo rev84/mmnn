@@ -161,6 +161,11 @@ FieldManager = (function() {
             console.log(endCell);
           }
           endCell.object.setMoved(true);
+          // パネル解放
+          if (endCell.object.isCharacterObject()) {
+            GameManager.isEnable.leftPanel = true;
+            GameManager.isEnable.rightPanel = true;
+          }
         } else {
           // あるなら攻撃選択待ちに
           GameManager.flags.waitAttackCell = endCell;

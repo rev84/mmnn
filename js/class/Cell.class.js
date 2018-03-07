@@ -538,7 +538,7 @@ Cell = (function() {
 
     changePanels(evt) {
       // 戦闘中モードのみ
-      if (!GameManager.flags.isBattle) {
+      if (!GameManager.isMode.battle) {
         return;
       }
       // 左パネル切り替え可能

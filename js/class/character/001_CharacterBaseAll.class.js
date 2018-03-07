@@ -61,7 +61,7 @@ Character1Base = (function() {
   Character1Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character1Base.textDeath = "";
+  Character1Base.textDeath = "島村卯月";
 
   Character1Base.abilityName = "笑顔の魔法";
 
@@ -131,7 +131,7 @@ Character2Base = (function() {
   Character2Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character2Base.textDeath = "";
+  Character2Base.textDeath = "渋谷凛";
 
   Character2Base.abilityName = "蒼の波動";
 
@@ -201,7 +201,7 @@ Character3Base = (function() {
   Character3Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character3Base.textDeath = "";
+  Character3Base.textDeath = "本田未央";
 
   Character3Base.abilityName = "フレンドリー";
 
@@ -271,7 +271,7 @@ Character4Base = (function() {
   Character4Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character4Base.textDeath = "";
+  Character4Base.textDeath = "相川千夏";
 
   Character4Base.abilityName = "なし";
 
@@ -341,7 +341,7 @@ Character5Base = (function() {
   Character5Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character5Base.textDeath = "";
+  Character5Base.textDeath = "愛野渚";
 
   Character5Base.abilityName = "なし";
 
@@ -411,7 +411,7 @@ Character6Base = (function() {
   Character6Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character6Base.textDeath = "";
+  Character6Base.textDeath = "相葉夕美";
 
   Character6Base.abilityName = "なし";
 
@@ -481,7 +481,7 @@ Character7Base = (function() {
   Character7Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character7Base.textDeath = "";
+  Character7Base.textDeath = "相原雪乃";
 
   Character7Base.abilityName = "なし";
 
@@ -551,7 +551,7 @@ Character8Base = (function() {
   Character8Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character8Base.textDeath = "";
+  Character8Base.textDeath = "赤城みりあ";
 
   Character8Base.abilityName = "みりあもやるー！";
 
@@ -621,7 +621,7 @@ Character9Base = (function() {
   Character9Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character9Base.textDeath = "";
+  Character9Base.textDeath = "赤西瑛梨華";
 
   Character9Base.abilityName = "なし";
 
@@ -691,7 +691,7 @@ Character10Base = (function() {
   Character10Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character10Base.textDeath = "";
+  Character10Base.textDeath = "浅野風香";
 
   Character10Base.abilityName = "なし";
 
@@ -761,7 +761,7 @@ Character11Base = (function() {
   Character11Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character11Base.textDeath = "";
+  Character11Base.textDeath = "浅利七海";
 
   Character11Base.abilityName = "なし";
 
@@ -831,7 +831,7 @@ Character12Base = (function() {
   Character12Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character12Base.textDeath = "";
+  Character12Base.textDeath = "アナスタシア";
 
   Character12Base.abilityName = "なし";
 
@@ -901,7 +901,7 @@ Character13Base = (function() {
   Character13Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character13Base.textDeath = "";
+  Character13Base.textDeath = "安部菜々";
 
   Character13Base.abilityName = "なし";
 
@@ -971,7 +971,7 @@ Character14Base = (function() {
   Character14Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character14Base.textDeath = "";
+  Character14Base.textDeath = "綾瀬穂乃香";
 
   Character14Base.abilityName = "なし";
 
@@ -1041,7 +1041,7 @@ Character15Base = (function() {
   Character15Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character15Base.textDeath = "";
+  Character15Base.textDeath = "荒木比奈";
 
   Character15Base.abilityName = "なし";
 
@@ -1111,7 +1111,7 @@ Character16Base = (function() {
   Character16Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character16Base.textDeath = "";
+  Character16Base.textDeath = "有浦柑奈";
 
   Character16Base.abilityName = "なし";
 
@@ -1181,7 +1181,7 @@ Character17Base = (function() {
   Character17Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character17Base.textDeath = "";
+  Character17Base.textDeath = "安斎都";
 
   Character17Base.abilityName = "なし";
 
@@ -1251,7 +1251,7 @@ Character18Base = (function() {
   Character18Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character18Base.textDeath = "";
+  Character18Base.textDeath = "イヴ・サンタクロース";
 
   Character18Base.abilityName = "プレゼント";
 
@@ -1321,7 +1321,7 @@ Character19Base = (function() {
   Character19Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character19Base.textDeath = "";
+  Character19Base.textDeath = "五十嵐響子";
 
   Character19Base.abilityName = "なし";
 
@@ -1391,7 +1391,7 @@ Character20Base = (function() {
   Character20Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character20Base.textDeath = "";
+  Character20Base.textDeath = "池袋晶葉";
 
   Character20Base.abilityName = "大丈夫博士";
 
@@ -1461,7 +1461,7 @@ Character21Base = (function() {
   Character21Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character21Base.textDeath = "";
+  Character21Base.textDeath = "伊集院惠";
 
   Character21Base.abilityName = "なし";
 
@@ -1531,7 +1531,7 @@ Character22Base = (function() {
   Character22Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character22Base.textDeath = "";
+  Character22Base.textDeath = "一ノ瀬志希";
 
   Character22Base.abilityName = "失踪";
 
@@ -1601,7 +1601,7 @@ Character23Base = (function() {
   Character23Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character23Base.textDeath = "";
+  Character23Base.textDeath = "市原仁奈";
 
   Character23Base.abilityName = "誰かのきもちになるですよ";
 
@@ -1671,7 +1671,7 @@ Character24Base = (function() {
   Character24Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character24Base.textDeath = "";
+  Character24Base.textDeath = "今井加奈";
 
   Character24Base.abilityName = "なし";
 
@@ -1741,7 +1741,7 @@ Character25Base = (function() {
   Character25Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character25Base.textDeath = "";
+  Character25Base.textDeath = "井村雪菜";
 
   Character25Base.abilityName = "なし";
 
@@ -1811,7 +1811,7 @@ Character26Base = (function() {
   Character26Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character26Base.textDeath = "";
+  Character26Base.textDeath = "上田鈴帆";
 
   Character26Base.abilityName = "きぐるみ";
 
@@ -1881,7 +1881,7 @@ Character27Base = (function() {
   Character27Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character27Base.textDeath = "";
+  Character27Base.textDeath = "氏家むつみ";
 
   Character27Base.abilityName = "なし";
 
@@ -1951,7 +1951,7 @@ Character28Base = (function() {
   Character28Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character28Base.textDeath = "";
+  Character28Base.textDeath = "梅木音葉";
 
   Character28Base.abilityName = "なし";
 
@@ -2021,7 +2021,7 @@ Character29Base = (function() {
   Character29Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character29Base.textDeath = "";
+  Character29Base.textDeath = "江上椿";
 
   Character29Base.abilityName = "なし";
 
@@ -2091,7 +2091,7 @@ Character30Base = (function() {
   Character30Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character30Base.textDeath = "";
+  Character30Base.textDeath = "衛藤美紗希";
 
   Character30Base.abilityName = "なし";
 
@@ -2161,7 +2161,7 @@ Character31Base = (function() {
   Character31Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character31Base.textDeath = "";
+  Character31Base.textDeath = "海老原菜帆";
 
   Character31Base.abilityName = "なし";
 
@@ -2231,7 +2231,7 @@ Character32Base = (function() {
   Character32Base.expRate = 2.3;
 
   // 死んだ時の台詞
-  Character32Base.textDeath = "";
+  Character32Base.textDeath = "及川雫";
 
   Character32Base.abilityName = "なし";
 
@@ -2301,7 +2301,7 @@ Character33Base = (function() {
   Character33Base.expRate = 2.3;
 
   // 死んだ時の台詞
-  Character33Base.textDeath = "";
+  Character33Base.textDeath = "大石泉";
 
   Character33Base.abilityName = "なし";
 
@@ -2371,7 +2371,7 @@ Character34Base = (function() {
   Character34Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character34Base.textDeath = "";
+  Character34Base.textDeath = "太田優";
 
   Character34Base.abilityName = "なし";
 
@@ -2441,7 +2441,7 @@ Character35Base = (function() {
   Character35Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character35Base.textDeath = "";
+  Character35Base.textDeath = "大槻唯";
 
   Character35Base.abilityName = "なし";
 
@@ -2511,7 +2511,7 @@ Character36Base = (function() {
   Character36Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character36Base.textDeath = "";
+  Character36Base.textDeath = "大西由里子";
 
   Character36Base.abilityName = "なし";
 
@@ -2581,7 +2581,7 @@ Character37Base = (function() {
   Character37Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character37Base.textDeath = "";
+  Character37Base.textDeath = "大沼くるみ";
 
   Character37Base.abilityName = "なし";
 
@@ -2651,7 +2651,7 @@ Character38Base = (function() {
   Character38Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character38Base.textDeath = "";
+  Character38Base.textDeath = "大原みちる";
 
   Character38Base.abilityName = "なし";
 
@@ -2721,7 +2721,7 @@ Character39Base = (function() {
   Character39Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character39Base.textDeath = "";
+  Character39Base.textDeath = "岡崎泰葉";
 
   Character39Base.abilityName = "なし";
 
@@ -2791,7 +2791,7 @@ Character40Base = (function() {
   Character40Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character40Base.textDeath = "";
+  Character40Base.textDeath = "緒方智絵里";
 
   Character40Base.abilityName = "なし";
 
@@ -2861,7 +2861,7 @@ Character41Base = (function() {
   Character41Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character41Base.textDeath = "";
+  Character41Base.textDeath = "奥山沙織";
 
   Character41Base.abilityName = "なし";
 
@@ -2931,7 +2931,7 @@ Character42Base = (function() {
   Character42Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character42Base.textDeath = "";
+  Character42Base.textDeath = "乙倉悠貴";
 
   Character42Base.abilityName = "なし";
 
@@ -3001,7 +3001,7 @@ Character43Base = (function() {
   Character43Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character43Base.textDeath = "";
+  Character43Base.textDeath = "片桐早苗";
 
   Character43Base.abilityName = "なし";
 
@@ -3071,7 +3071,7 @@ Character44Base = (function() {
   Character44Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character44Base.textDeath = "";
+  Character44Base.textDeath = "上条春菜";
 
   Character44Base.abilityName = "なし";
 
@@ -3141,7 +3141,7 @@ Character45Base = (function() {
   Character45Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character45Base.textDeath = "";
+  Character45Base.textDeath = "神谷奈緒";
 
   Character45Base.abilityName = "なし";
 
@@ -3211,7 +3211,7 @@ Character46Base = (function() {
   Character46Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character46Base.textDeath = "";
+  Character46Base.textDeath = "川島瑞樹";
 
   Character46Base.abilityName = "なし";
 
@@ -3281,7 +3281,7 @@ Character47Base = (function() {
   Character47Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character47Base.textDeath = "";
+  Character47Base.textDeath = "神崎蘭子";
 
   Character47Base.abilityName = "黒魔術";
 
@@ -3351,7 +3351,7 @@ Character48Base = (function() {
   Character48Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character48Base.textDeath = "";
+  Character48Base.textDeath = "岸部彩華";
 
   Character48Base.abilityName = "なし";
 
@@ -3421,7 +3421,7 @@ Character49Base = (function() {
   Character49Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character49Base.textDeath = "";
+  Character49Base.textDeath = "北川真尋";
 
   Character49Base.abilityName = "なし";
 
@@ -3491,7 +3491,7 @@ Character50Base = (function() {
   Character50Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character50Base.textDeath = "";
+  Character50Base.textDeath = "喜多日菜子";
 
   Character50Base.abilityName = "なし";
 
@@ -3561,7 +3561,7 @@ Character51Base = (function() {
   Character51Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character51Base.textDeath = "";
+  Character51Base.textDeath = "喜多見柚";
 
   Character51Base.abilityName = "なし";
 
@@ -3631,7 +3631,7 @@ Character52Base = (function() {
   Character52Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character52Base.textDeath = "";
+  Character52Base.textDeath = "木場真奈美";
 
   Character52Base.abilityName = "なし";
 
@@ -3701,7 +3701,7 @@ Character53Base = (function() {
   Character53Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character53Base.textDeath = "";
+  Character53Base.textDeath = "木村夏樹";
 
   Character53Base.abilityName = "なし";
 
@@ -3771,7 +3771,7 @@ Character54Base = (function() {
   Character54Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character54Base.textDeath = "";
+  Character54Base.textDeath = "キャシー・グラハム";
 
   Character54Base.abilityName = "なし";
 
@@ -3841,7 +3841,7 @@ Character55Base = (function() {
   Character55Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character55Base.textDeath = "";
+  Character55Base.textDeath = "桐野アヤ";
 
   Character55Base.abilityName = "なし";
 
@@ -3911,7 +3911,7 @@ Character56Base = (function() {
   Character56Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character56Base.textDeath = "";
+  Character56Base.textDeath = "桐生つかさ";
 
   Character56Base.abilityName = "なし";
 
@@ -3981,7 +3981,7 @@ Character57Base = (function() {
   Character57Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character57Base.textDeath = "";
+  Character57Base.textDeath = "日下部若葉";
 
   Character57Base.abilityName = "なし";
 
@@ -4051,7 +4051,7 @@ Character58Base = (function() {
   Character58Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character58Base.textDeath = "";
+  Character58Base.textDeath = "工藤忍";
 
   Character58Base.abilityName = "なし";
 
@@ -4121,7 +4121,7 @@ Character59Base = (function() {
   Character59Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character59Base.textDeath = "";
+  Character59Base.textDeath = "クラリス";
 
   Character59Base.abilityName = "なし";
 
@@ -4191,7 +4191,7 @@ Character60Base = (function() {
   Character60Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character60Base.textDeath = "";
+  Character60Base.textDeath = "栗原ネネ";
 
   Character60Base.abilityName = "なし";
 
@@ -4261,7 +4261,7 @@ Character61Base = (function() {
   Character61Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character61Base.textDeath = "";
+  Character61Base.textDeath = "黒川千秋";
 
   Character61Base.abilityName = "なし";
 
@@ -4331,7 +4331,7 @@ Character62Base = (function() {
   Character62Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character62Base.textDeath = "";
+  Character62Base.textDeath = "ケイト";
 
   Character62Base.abilityName = "なし";
 
@@ -4401,7 +4401,7 @@ Character63Base = (function() {
   Character63Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character63Base.textDeath = "";
+  Character63Base.textDeath = "古賀小春";
 
   Character63Base.abilityName = "なし";
 
@@ -4471,7 +4471,7 @@ Character64Base = (function() {
   Character64Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character64Base.textDeath = "";
+  Character64Base.textDeath = "輿水幸子";
 
   Character64Base.abilityName = "なし";
 
@@ -4541,7 +4541,7 @@ Character65Base = (function() {
   Character65Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character65Base.textDeath = "";
+  Character65Base.textDeath = "小関麗奈";
 
   Character65Base.abilityName = "いたずら";
 
@@ -4611,7 +4611,7 @@ Character66Base = (function() {
   Character66Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character66Base.textDeath = "";
+  Character66Base.textDeath = "小早川紗枝";
 
   Character66Base.abilityName = "なし";
 
@@ -4681,7 +4681,7 @@ Character67Base = (function() {
   Character67Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character67Base.textDeath = "";
+  Character67Base.textDeath = "秋月律子";
 
   Character67Base.abilityName = "なし";
 
@@ -4751,7 +4751,7 @@ Character68Base = (function() {
   Character68Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character68Base.textDeath = "";
+  Character68Base.textDeath = "秋月涼";
 
   Character68Base.abilityName = "なし";
 
@@ -4821,7 +4821,7 @@ Character69Base = (function() {
   Character69Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character69Base.textDeath = "";
+  Character69Base.textDeath = "天海春香";
 
   Character69Base.abilityName = "なし";
 
@@ -4891,7 +4891,7 @@ Character70Base = (function() {
   Character70Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character70Base.textDeath = "";
+  Character70Base.textDeath = "我那覇響";
 
   Character70Base.abilityName = "なし";
 
@@ -4961,7 +4961,7 @@ Character71Base = (function() {
   Character71Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character71Base.textDeath = "";
+  Character71Base.textDeath = "菊地真";
 
   Character71Base.abilityName = "なし";
 
@@ -5031,7 +5031,7 @@ Character72Base = (function() {
   Character72Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character72Base.textDeath = "";
+  Character72Base.textDeath = "如月千早";
 
   Character72Base.abilityName = "なし";
 
@@ -5101,7 +5101,7 @@ Character73Base = (function() {
   Character73Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character73Base.textDeath = "";
+  Character73Base.textDeath = "小日向美穂";
 
   Character73Base.abilityName = "なし";
 
@@ -5171,7 +5171,7 @@ Character74Base = (function() {
   Character74Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character74Base.textDeath = "";
+  Character74Base.textDeath = "小松伊吹";
 
   Character74Base.abilityName = "なし";
 
@@ -5241,7 +5241,7 @@ Character75Base = (function() {
   Character75Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character75Base.textDeath = "";
+  Character75Base.textDeath = "小室千奈美";
 
   Character75Base.abilityName = "なし";
 
@@ -5311,7 +5311,7 @@ Character76Base = (function() {
   Character76Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character76Base.textDeath = "";
+  Character76Base.textDeath = "西園寺琴歌";
 
   Character76Base.abilityName = "なし";
 
@@ -5381,7 +5381,7 @@ Character77Base = (function() {
   Character77Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character77Base.textDeath = "";
+  Character77Base.textDeath = "財前時子";
 
   Character77Base.abilityName = "愛のムチ";
 
@@ -5451,7 +5451,7 @@ Character78Base = (function() {
   Character78Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character78Base.textDeath = "";
+  Character78Base.textDeath = "斉藤洋子";
 
   Character78Base.abilityName = "なし";
 
@@ -5521,7 +5521,7 @@ Character79Base = (function() {
   Character79Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character79Base.textDeath = "";
+  Character79Base.textDeath = "冴島清美";
 
   Character79Base.abilityName = "風紀";
 
@@ -5591,7 +5591,7 @@ Character80Base = (function() {
   Character80Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character80Base.textDeath = "";
+  Character80Base.textDeath = "榊原里美";
 
   Character80Base.abilityName = "なし";
 
@@ -5661,7 +5661,7 @@ Character81Base = (function() {
   Character81Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character81Base.textDeath = "";
+  Character81Base.textDeath = "鷺沢文香";
 
   Character81Base.abilityName = "なし";
 
@@ -5731,7 +5731,7 @@ Character82Base = (function() {
   Character82Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character82Base.textDeath = "";
+  Character82Base.textDeath = "佐久間まゆ";
 
   Character82Base.abilityName = "恐怖";
 
@@ -5801,7 +5801,7 @@ Character83Base = (function() {
   Character83Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character83Base.textDeath = "";
+  Character83Base.textDeath = "櫻井桃華";
 
   Character83Base.abilityName = "なし";
 
@@ -5871,7 +5871,7 @@ Character84Base = (function() {
   Character84Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character84Base.textDeath = "";
+  Character84Base.textDeath = "佐々木千枝";
 
   Character84Base.abilityName = "なし";
 
@@ -5941,7 +5941,7 @@ Character85Base = (function() {
   Character85Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character85Base.textDeath = "";
+  Character85Base.textDeath = "佐城雪美";
 
   Character85Base.abilityName = "なし";
 
@@ -6011,7 +6011,7 @@ Character86Base = (function() {
   Character86Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character86Base.textDeath = "";
+  Character86Base.textDeath = "佐藤心";
 
   Character86Base.abilityName = "キャラ付け";
 
@@ -6081,7 +6081,7 @@ Character87Base = (function() {
   Character87Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character87Base.textDeath = "";
+  Character87Base.textDeath = "沢田麻理菜";
 
   Character87Base.abilityName = "なし";
 
@@ -6151,7 +6151,7 @@ Character88Base = (function() {
   Character88Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character88Base.textDeath = "";
+  Character88Base.textDeath = "椎名法子";
 
   Character88Base.abilityName = "ドーナツ配布";
 
@@ -6221,7 +6221,7 @@ Character89Base = (function() {
   Character89Base.expRate = 2.3;
 
   // 死んだ時の台詞
-  Character89Base.textDeath = "";
+  Character89Base.textDeath = "塩見周子";
 
   Character89Base.abilityName = "気まぐれ";
 
@@ -6291,7 +6291,7 @@ Character90Base = (function() {
   Character90Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character90Base.textDeath = "";
+  Character90Base.textDeath = "四条貴音";
 
   Character90Base.abilityName = "なし";
 
@@ -6361,7 +6361,7 @@ Character91Base = (function() {
   Character91Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character91Base.textDeath = "";
+  Character91Base.textDeath = "篠原礼";
 
   Character91Base.abilityName = "なし";
 
@@ -6431,7 +6431,7 @@ Character92Base = (function() {
   Character92Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character92Base.textDeath = "";
+  Character92Base.textDeath = "首藤葵";
 
   Character92Base.abilityName = "なし";
 
@@ -6501,7 +6501,7 @@ Character93Base = (function() {
   Character93Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character93Base.textDeath = "";
+  Character93Base.textDeath = "城ヶ崎美嘉";
 
   Character93Base.abilityName = "姉妹";
 
@@ -6571,7 +6571,7 @@ Character94Base = (function() {
   Character94Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character94Base.textDeath = "";
+  Character94Base.textDeath = "城ヶ崎莉嘉";
 
   Character94Base.abilityName = "姉妹";
 
@@ -6641,7 +6641,7 @@ Character95Base = (function() {
   Character95Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character95Base.textDeath = "";
+  Character95Base.textDeath = "白菊ほたる";
 
   Character95Base.abilityName = "不幸";
 
@@ -6711,7 +6711,7 @@ Character96Base = (function() {
   Character96Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character96Base.textDeath = "";
+  Character96Base.textDeath = "白坂小梅";
 
   Character96Base.abilityName = "あの子が遊びにきた";
 
@@ -6781,7 +6781,7 @@ Character97Base = (function() {
   Character97Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character97Base.textDeath = "";
+  Character97Base.textDeath = "杉坂海";
 
   Character97Base.abilityName = "なし";
 
@@ -6851,7 +6851,7 @@ Character98Base = (function() {
   Character98Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character98Base.textDeath = "";
+  Character98Base.textDeath = "涼宮星花";
 
   Character98Base.abilityName = "なし";
 
@@ -6921,7 +6921,7 @@ Character99Base = (function() {
   Character99Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character99Base.textDeath = "";
+  Character99Base.textDeath = "関裕美";
 
   Character99Base.abilityName = "なし";
 
@@ -6991,7 +6991,7 @@ Character100Base = (function() {
   Character100Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character100Base.textDeath = "";
+  Character100Base.textDeath = "瀬名詩織";
 
   Character100Base.abilityName = "なし";
 
@@ -7061,7 +7061,7 @@ Character101Base = (function() {
   Character101Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character101Base.textDeath = "";
+  Character101Base.textDeath = "仙崎恵磨";
 
   Character101Base.abilityName = "なし";
 
@@ -7131,7 +7131,7 @@ Character102Base = (function() {
   Character102Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character102Base.textDeath = "";
+  Character102Base.textDeath = "相馬夏美";
 
   Character102Base.abilityName = "なし";
 
@@ -7201,7 +7201,7 @@ Character103Base = (function() {
   Character103Base.expRate = 4.4;
 
   // 死んだ時の台詞
-  Character103Base.textDeath = "";
+  Character103Base.textDeath = "高垣楓";
 
   Character103Base.abilityName = "歌姫";
 
@@ -7271,7 +7271,7 @@ Character104Base = (function() {
   Character104Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character104Base.textDeath = "";
+  Character104Base.textDeath = "高槻やよい";
 
   Character104Base.abilityName = "なし";
 
@@ -7341,7 +7341,7 @@ Character105Base = (function() {
   Character105Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character105Base.textDeath = "";
+  Character105Base.textDeath = "高橋礼子";
 
   Character105Base.abilityName = "なし";
 
@@ -7411,7 +7411,7 @@ Character106Base = (function() {
   Character106Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character106Base.textDeath = "";
+  Character106Base.textDeath = "鷹富士茄子";
 
   Character106Base.abilityName = "幸運";
 
@@ -7481,7 +7481,7 @@ Character107Base = (function() {
   Character107Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character107Base.textDeath = "";
+  Character107Base.textDeath = "高峯のあ";
 
   Character107Base.abilityName = "なし";
 
@@ -7551,7 +7551,7 @@ Character108Base = (function() {
   Character108Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character108Base.textDeath = "";
+  Character108Base.textDeath = "高森藍子";
 
   Character108Base.abilityName = "ゆるふわ時間";
 
@@ -7621,7 +7621,7 @@ Character109Base = (function() {
   Character109Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character109Base.textDeath = "";
+  Character109Base.textDeath = "多田李衣菜";
 
   Character109Base.abilityName = "なし";
 
@@ -7691,7 +7691,7 @@ Character110Base = (function() {
   Character110Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character110Base.textDeath = "";
+  Character110Base.textDeath = "橘ありす";
 
   Character110Base.abilityName = "なし";
 
@@ -7761,7 +7761,7 @@ Character111Base = (function() {
   Character111Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character111Base.textDeath = "";
+  Character111Base.textDeath = "月宮雅";
 
   Character111Base.abilityName = "なし";
 
@@ -7831,7 +7831,7 @@ Character112Base = (function() {
   Character112Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character112Base.textDeath = "";
+  Character112Base.textDeath = "土屋亜子";
 
   Character112Base.abilityName = "なし";
 
@@ -7901,7 +7901,7 @@ Character113Base = (function() {
   Character113Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character113Base.textDeath = "";
+  Character113Base.textDeath = "東郷あい";
 
   Character113Base.abilityName = "なし";
 
@@ -7971,7 +7971,7 @@ Character114Base = (function() {
   Character114Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character114Base.textDeath = "";
+  Character114Base.textDeath = "道明寺歌鈴";
 
   Character114Base.abilityName = "ドジ";
 
@@ -8041,7 +8041,7 @@ Character115Base = (function() {
   Character115Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character115Base.textDeath = "";
+  Character115Base.textDeath = "十時愛梨";
 
   Character115Base.abilityName = "すぐ脱ぐ";
 
@@ -8111,7 +8111,7 @@ Character116Base = (function() {
   Character116Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character116Base.textDeath = "";
+  Character116Base.textDeath = "長富蓮実";
 
   Character116Base.abilityName = "なし";
 
@@ -8181,7 +8181,7 @@ Character117Base = (function() {
   Character117Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character117Base.textDeath = "";
+  Character117Base.textDeath = "中野有香";
 
   Character117Base.abilityName = "会心の一撃";
 
@@ -8251,7 +8251,7 @@ Character118Base = (function() {
   Character118Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character118Base.textDeath = "";
+  Character118Base.textDeath = "ナターリア";
 
   Character118Base.abilityName = "なし";
 
@@ -8321,7 +8321,7 @@ Character119Base = (function() {
   Character119Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character119Base.textDeath = "";
+  Character119Base.textDeath = "並木芽衣子";
 
   Character119Base.abilityName = "なし";
 
@@ -8391,7 +8391,7 @@ Character120Base = (function() {
   Character120Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character120Base.textDeath = "";
+  Character120Base.textDeath = "成宮由愛";
 
   Character120Base.abilityName = "なし";
 
@@ -8461,7 +8461,7 @@ Character121Base = (function() {
   Character121Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character121Base.textDeath = "";
+  Character121Base.textDeath = "南条光";
 
   Character121Base.abilityName = "なし";
 
@@ -8531,7 +8531,7 @@ Character122Base = (function() {
   Character122Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character122Base.textDeath = "";
+  Character122Base.textDeath = "難波笑美";
 
   Character122Base.abilityName = "なし";
 
@@ -8601,7 +8601,7 @@ Character123Base = (function() {
   Character123Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character123Base.textDeath = "";
+  Character123Base.textDeath = "西川保奈美";
 
   Character123Base.abilityName = "なし";
 
@@ -8671,7 +8671,7 @@ Character124Base = (function() {
   Character124Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character124Base.textDeath = "";
+  Character124Base.textDeath = "西島櫂";
 
   Character124Base.abilityName = "なし";
 
@@ -8741,7 +8741,7 @@ Character125Base = (function() {
   Character125Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character125Base.textDeath = "";
+  Character125Base.textDeath = "新田美波";
 
   Character125Base.abilityName = "万能";
 
@@ -8811,7 +8811,7 @@ Character126Base = (function() {
   Character126Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character126Base.textDeath = "";
+  Character126Base.textDeath = "二宮飛鳥";
 
   Character126Base.abilityName = "孤高";
 
@@ -8881,7 +8881,7 @@ Character127Base = (function() {
   Character127Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character127Base.textDeath = "";
+  Character127Base.textDeath = "丹羽仁美";
 
   Character127Base.abilityName = "なし";
 
@@ -8951,7 +8951,7 @@ Character128Base = (function() {
   Character128Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character128Base.textDeath = "";
+  Character128Base.textDeath = "野々村そら";
 
   Character128Base.abilityName = "なし";
 
@@ -9021,7 +9021,7 @@ Character129Base = (function() {
   Character129Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character129Base.textDeath = "";
+  Character129Base.textDeath = "萩原雪歩";
 
   Character129Base.abilityName = "なし";
 
@@ -9091,7 +9091,7 @@ Character130Base = (function() {
   Character130Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character130Base.textDeath = "";
+  Character130Base.textDeath = "服部瞳子";
 
   Character130Base.abilityName = "なし";
 
@@ -9161,7 +9161,7 @@ Character131Base = (function() {
   Character131Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character131Base.textDeath = "";
+  Character131Base.textDeath = "浜川愛結奈";
 
   Character131Base.abilityName = "なし";
 
@@ -9231,7 +9231,7 @@ Character132Base = (function() {
   Character132Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character132Base.textDeath = "";
+  Character132Base.textDeath = "浜口あやめ";
 
   Character132Base.abilityName = "忍法変わり身の術";
 
@@ -9301,7 +9301,7 @@ Character133Base = (function() {
   Character133Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character133Base.textDeath = "";
+  Character133Base.textDeath = "早坂美玲";
 
   Character133Base.abilityName = "なし";
 
@@ -9371,7 +9371,7 @@ Character134Base = (function() {
   Character134Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character134Base.textDeath = "";
+  Character134Base.textDeath = "速水奏";
 
   Character134Base.abilityName = "ムーンサイド";
 
@@ -9441,7 +9441,7 @@ Character135Base = (function() {
   Character135Base.expRate = 2.8;
 
   // 死んだ時の台詞
-  Character135Base.textDeath = "";
+  Character135Base.textDeath = "原田美世";
 
   Character135Base.abilityName = "なし";
 
@@ -9511,7 +9511,7 @@ Character136Base = (function() {
   Character136Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character136Base.textDeath = "";
+  Character136Base.textDeath = "柊志乃";
 
   Character136Base.abilityName = "なし";
 
@@ -9581,7 +9581,7 @@ Character137Base = (function() {
   Character137Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character137Base.textDeath = "";
+  Character137Base.textDeath = "日高愛";
 
   Character137Base.abilityName = "なし";
 
@@ -9651,7 +9651,7 @@ Character138Base = (function() {
   Character138Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character138Base.textDeath = "";
+  Character138Base.textDeath = "日野茜";
 
   Character138Base.abilityName = "全力疾走";
 
@@ -9721,7 +9721,7 @@ Character139Base = (function() {
   Character139Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character139Base.textDeath = "";
+  Character139Base.textDeath = "姫川友紀";
 
   Character139Base.abilityName = "かっとばせー";
 
@@ -9791,7 +9791,7 @@ Character140Base = (function() {
   Character140Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character140Base.textDeath = "";
+  Character140Base.textDeath = "兵藤レナ";
 
   Character140Base.abilityName = "なし";
 
@@ -9861,7 +9861,7 @@ Character141Base = (function() {
   Character141Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character141Base.textDeath = "";
+  Character141Base.textDeath = "福山舞";
 
   Character141Base.abilityName = "なし";
 
@@ -9931,7 +9931,7 @@ Character142Base = (function() {
   Character142Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character142Base.textDeath = "";
+  Character142Base.textDeath = "藤居朋";
 
   Character142Base.abilityName = "なし";
 
@@ -10001,7 +10001,7 @@ Character143Base = (function() {
   Character143Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character143Base.textDeath = "";
+  Character143Base.textDeath = "藤本里奈";
 
   Character143Base.abilityName = "なし";
 
@@ -10071,7 +10071,7 @@ Character144Base = (function() {
   Character144Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character144Base.textDeath = "";
+  Character144Base.textDeath = "藤原肇";
 
   Character144Base.abilityName = "なし";
 
@@ -10141,7 +10141,7 @@ Character145Base = (function() {
   Character145Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character145Base.textDeath = "";
+  Character145Base.textDeath = "双葉杏";
 
   Character145Base.abilityName = "印税";
 
@@ -10211,7 +10211,7 @@ Character146Base = (function() {
   Character146Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character146Base.textDeath = "";
+  Character146Base.textDeath = "双海亜美";
 
   Character146Base.abilityName = "双子";
 
@@ -10281,7 +10281,7 @@ Character147Base = (function() {
   Character147Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character147Base.textDeath = "";
+  Character147Base.textDeath = "双海真美";
 
   Character147Base.abilityName = "双子";
 
@@ -10351,7 +10351,7 @@ Character148Base = (function() {
   Character148Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character148Base.textDeath = "";
+  Character148Base.textDeath = "古澤頼子";
 
   Character148Base.abilityName = "なし";
 
@@ -10421,7 +10421,7 @@ Character149Base = (function() {
   Character149Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character149Base.textDeath = "";
+  Character149Base.textDeath = "ヘレン";
 
   Character149Base.abilityName = "世界のヘレン";
 
@@ -10491,7 +10491,7 @@ Character150Base = (function() {
   Character150Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character150Base.textDeath = "";
+  Character150Base.textDeath = "北条加蓮";
 
   Character150Base.abilityName = "なし";
 
@@ -10561,7 +10561,7 @@ Character151Base = (function() {
   Character151Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character151Base.textDeath = "";
+  Character151Base.textDeath = "星井美希";
 
   Character151Base.abilityName = "なし";
 
@@ -10631,7 +10631,7 @@ Character152Base = (function() {
   Character152Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character152Base.textDeath = "";
+  Character152Base.textDeath = "星輝子";
 
   Character152Base.abilityName = "インキャ";
 
@@ -10701,7 +10701,7 @@ Character153Base = (function() {
   Character153Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character153Base.textDeath = "";
+  Character153Base.textDeath = "堀裕子";
 
   Character153Base.abilityName = "サイキック";
 
@@ -10771,7 +10771,7 @@ Character154Base = (function() {
   Character154Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character154Base.textDeath = "";
+  Character154Base.textDeath = "前川みく";
 
   Character154Base.abilityName = "なし";
 
@@ -10841,7 +10841,7 @@ Character155Base = (function() {
   Character155Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character155Base.textDeath = "";
+  Character155Base.textDeath = "槙原志保";
 
   Character155Base.abilityName = "なし";
 
@@ -10911,7 +10911,7 @@ Character156Base = (function() {
   Character156Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character156Base.textDeath = "";
+  Character156Base.textDeath = "松尾千鶴";
 
   Character156Base.abilityName = "なし";
 
@@ -10981,7 +10981,7 @@ Character157Base = (function() {
   Character157Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character157Base.textDeath = "";
+  Character157Base.textDeath = "松永涼";
 
   Character157Base.abilityName = "なし";
 
@@ -11051,7 +11051,7 @@ Character158Base = (function() {
   Character158Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character158Base.textDeath = "";
+  Character158Base.textDeath = "松原早耶";
 
   Character158Base.abilityName = "なし";
 
@@ -11121,7 +11121,7 @@ Character159Base = (function() {
   Character159Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character159Base.textDeath = "";
+  Character159Base.textDeath = "松本沙理奈";
 
   Character159Base.abilityName = "なし";
 
@@ -11191,7 +11191,7 @@ Character160Base = (function() {
   Character160Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character160Base.textDeath = "";
+  Character160Base.textDeath = "松山久美子";
 
   Character160Base.abilityName = "なし";
 
@@ -11261,7 +11261,7 @@ Character161Base = (function() {
   Character161Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character161Base.textDeath = "";
+  Character161Base.textDeath = "的場梨沙";
 
   Character161Base.abilityName = "なし";
 
@@ -11331,7 +11331,7 @@ Character162Base = (function() {
   Character162Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character162Base.textDeath = "";
+  Character162Base.textDeath = "間中美里";
 
   Character162Base.abilityName = "なし";
 
@@ -11401,7 +11401,7 @@ Character163Base = (function() {
   Character163Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character163Base.textDeath = "";
+  Character163Base.textDeath = "真鍋いつき";
 
   Character163Base.abilityName = "なし";
 
@@ -11471,7 +11471,7 @@ Character164Base = (function() {
   Character164Base.expRate = 2.3;
 
   // 死んだ時の台詞
-  Character164Base.textDeath = "";
+  Character164Base.textDeath = "三浦あずさ";
 
   Character164Base.abilityName = "なし";
 
@@ -11541,7 +11541,7 @@ Character165Base = (function() {
   Character165Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character165Base.textDeath = "";
+  Character165Base.textDeath = "水木聖來";
 
   Character165Base.abilityName = "なし";
 
@@ -11611,7 +11611,7 @@ Character166Base = (function() {
   Character166Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character166Base.textDeath = "";
+  Character166Base.textDeath = "水谷絵理";
 
   Character166Base.abilityName = "なし";
 
@@ -11681,7 +11681,7 @@ Character167Base = (function() {
   Character167Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character167Base.textDeath = "";
+  Character167Base.textDeath = "水野翠";
 
   Character167Base.abilityName = "貫通の矢";
 
@@ -11751,7 +11751,7 @@ Character168Base = (function() {
   Character168Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character168Base.textDeath = "";
+  Character168Base.textDeath = "水本ゆかり";
 
   Character168Base.abilityName = "なし";
 
@@ -11821,7 +11821,7 @@ Character169Base = (function() {
   Character169Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character169Base.textDeath = "";
+  Character169Base.textDeath = "水瀬伊織";
 
   Character169Base.abilityName = "なし";
 
@@ -11891,7 +11891,7 @@ Character170Base = (function() {
   Character170Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character170Base.textDeath = "";
+  Character170Base.textDeath = "三船美優";
 
   Character170Base.abilityName = "なし";
 
@@ -11961,7 +11961,7 @@ Character171Base = (function() {
   Character171Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character171Base.textDeath = "";
+  Character171Base.textDeath = "三村かな子";
 
   Character171Base.abilityName = "なし";
 
@@ -12031,7 +12031,7 @@ Character172Base = (function() {
   Character172Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character172Base.textDeath = "";
+  Character172Base.textDeath = "宮本フレデリカ";
 
   Character172Base.abilityName = "なし";
 
@@ -12101,7 +12101,7 @@ Character173Base = (function() {
   Character173Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character173Base.textDeath = "";
+  Character173Base.textDeath = "三好紗南";
 
   Character173Base.abilityName = "なし";
 
@@ -12171,7 +12171,7 @@ Character174Base = (function() {
   Character174Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character174Base.textDeath = "";
+  Character174Base.textDeath = "向井拓海";
 
   Character174Base.abilityName = "喧嘩上等";
 
@@ -12241,7 +12241,7 @@ Character175Base = (function() {
   Character175Base.expRate = 2.3;
 
   // 死んだ時の台詞
-  Character175Base.textDeath = "";
+  Character175Base.textDeath = "棟方愛海";
 
   Character175Base.abilityName = "登山";
 
@@ -12311,7 +12311,7 @@ Character176Base = (function() {
   Character176Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character176Base.textDeath = "";
+  Character176Base.textDeath = "村上巴";
 
   Character176Base.abilityName = "喝！";
 
@@ -12381,7 +12381,7 @@ Character177Base = (function() {
   Character177Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character177Base.textDeath = "";
+  Character177Base.textDeath = "村松さくら";
 
   Character177Base.abilityName = "なし";
 
@@ -12451,7 +12451,7 @@ Character178Base = (function() {
   Character178Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character178Base.textDeath = "";
+  Character178Base.textDeath = "メアリー・コクラン";
 
   Character178Base.abilityName = "なし";
 
@@ -12521,7 +12521,7 @@ Character179Base = (function() {
   Character179Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character179Base.textDeath = "";
+  Character179Base.textDeath = "持田亜里沙";
 
   Character179Base.abilityName = "なし";
 
@@ -12591,7 +12591,7 @@ Character180Base = (function() {
   Character180Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character180Base.textDeath = "";
+  Character180Base.textDeath = "望月聖";
 
   Character180Base.abilityName = "なし";
 
@@ -12661,7 +12661,7 @@ Character181Base = (function() {
   Character181Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character181Base.textDeath = "";
+  Character181Base.textDeath = "桃井あずき";
 
   Character181Base.abilityName = "呉服";
 
@@ -12731,7 +12731,7 @@ Character182Base = (function() {
   Character182Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character182Base.textDeath = "";
+  Character182Base.textDeath = "森久保乃々";
 
   Character182Base.abilityName = "む～り～";
 
@@ -12801,7 +12801,7 @@ Character183Base = (function() {
   Character183Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character183Base.textDeath = "";
+  Character183Base.textDeath = "諸星きらり";
 
   Character183Base.abilityName = "きらりん☆ストロング";
 
@@ -12871,7 +12871,7 @@ Character184Base = (function() {
   Character184Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character184Base.textDeath = "";
+  Character184Base.textDeath = "楊菲菲";
 
   Character184Base.abilityName = "カンフー";
 
@@ -12941,7 +12941,7 @@ Character185Base = (function() {
   Character185Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character185Base.textDeath = "";
+  Character185Base.textDeath = "八神マキノ";
 
   Character185Base.abilityName = "諜報";
 
@@ -13011,7 +13011,7 @@ Character186Base = (function() {
   Character186Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character186Base.textDeath = "";
+  Character186Base.textDeath = "矢口美羽";
 
   Character186Base.abilityName = "なし";
 
@@ -13081,7 +13081,7 @@ Character187Base = (function() {
   Character187Base.expRate = 2.4;
 
   // 死んだ時の台詞
-  Character187Base.textDeath = "";
+  Character187Base.textDeath = "柳清良";
 
   Character187Base.abilityName = "看護";
 
@@ -13151,7 +13151,7 @@ Character188Base = (function() {
   Character188Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character188Base.textDeath = "";
+  Character188Base.textDeath = "柳瀬美由紀";
 
   Character188Base.abilityName = "なし";
 
@@ -13221,7 +13221,7 @@ Character189Base = (function() {
   Character189Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character189Base.textDeath = "";
+  Character189Base.textDeath = "大和亜季";
 
   Character189Base.abilityName = "掃射";
 
@@ -13291,7 +13291,7 @@ Character190Base = (function() {
   Character190Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character190Base.textDeath = "";
+  Character190Base.textDeath = "結城晴";
 
   Character190Base.abilityName = "なし";
 
@@ -13361,7 +13361,7 @@ Character191Base = (function() {
   Character191Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character191Base.textDeath = "";
+  Character191Base.textDeath = "遊佐こずえ";
 
   Character191Base.abilityName = "なし";
 
@@ -13431,7 +13431,7 @@ Character192Base = (function() {
   Character192Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character192Base.textDeath = "";
+  Character192Base.textDeath = "横山千佳";
 
   Character192Base.abilityName = "魔法知識";
 
@@ -13501,7 +13501,7 @@ Character193Base = (function() {
   Character193Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character193Base.textDeath = "";
+  Character193Base.textDeath = "吉岡沙紀";
 
   Character193Base.abilityName = "ペイント";
 
@@ -13571,7 +13571,7 @@ Character194Base = (function() {
   Character194Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character194Base.textDeath = "";
+  Character194Base.textDeath = "依田芳乃";
 
   Character194Base.abilityName = "なし";
 
@@ -13641,7 +13641,7 @@ Character195Base = (function() {
   Character195Base.expRate = 1.2;
 
   // 死んだ時の台詞
-  Character195Base.textDeath = "";
+  Character195Base.textDeath = "ライラ";
 
   Character195Base.abilityName = "節約";
 
@@ -13711,7 +13711,7 @@ Character196Base = (function() {
   Character196Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character196Base.textDeath = "";
+  Character196Base.textDeath = "龍崎薫";
 
   Character196Base.abilityName = "なし";
 
@@ -13781,7 +13781,7 @@ Character197Base = (function() {
   Character197Base.expRate = 2.2;
 
   // 死んだ時の台詞
-  Character197Base.textDeath = "";
+  Character197Base.textDeath = "若林智香";
 
   Character197Base.abilityName = "なし";
 
@@ -13851,7 +13851,7 @@ Character198Base = (function() {
   Character198Base.expRate = 2.0;
 
   // 死んだ時の台詞
-  Character198Base.textDeath = "";
+  Character198Base.textDeath = "脇山珠美";
 
   Character198Base.abilityName = "剣道";
 
@@ -13921,7 +13921,7 @@ Character199Base = (function() {
   Character199Base.expRate = 2.6;
 
   // 死んだ時の台詞
-  Character199Base.textDeath = "";
+  Character199Base.textDeath = "和久井留美";
 
   Character199Base.abilityName = "なし";
 
@@ -13991,7 +13991,7 @@ Character200Base = (function() {
   Character200Base.expRate = 3.2;
 
   // 死んだ時の台詞
-  Character200Base.textDeath = "";
+  Character200Base.textDeath = "千川ちひろ";
 
   Character200Base.abilityName = "事務";
 

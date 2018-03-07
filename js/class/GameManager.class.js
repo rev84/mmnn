@@ -90,7 +90,9 @@ GameManager = (function() {
     static doBattle(isSoon = false) {
       this.partsAnimation(this.POSITION.BATTLE, isSoon);
       // キャラクター設置を確定
-      return CharacterPalletManager.onExit();
+      CharacterPalletManager.onExit();
+      // コントロール可能に
+      return this.changeControllable(true);
     }
 
     // キャラクター出撃に移行
@@ -120,7 +122,9 @@ GameManager = (function() {
       this.partsAnimation(this.POSITION.LEVELUP, isSoon);
       // キャラクター設置を確定
       CharacterPalletManager.onExit();
-      return this.flags.isCellObjectAnimation = false;
+      this.flags.isCellObjectAnimation = false;
+      // コントロール可能に
+      return this.changeControllable(true);
     }
 
     // アイテム画面

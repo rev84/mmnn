@@ -37,6 +37,8 @@ class Panel
         @drawCharacter(level)
       else if @object.isEnemyObject()
         @drawEnemy()
+    else
+      @clear()
 
   drawCharacter:(level = null)->
     if @isShowOverlay
@@ -632,7 +634,8 @@ class Panel
         'title' : @object.getAbilityDesc()
       })
     )
-
+  clear:->
+    $(@divObject).find('*').remove()
   removeMe:->
     $(@divObject).find('*').remove()
     $(@divObject).remove()

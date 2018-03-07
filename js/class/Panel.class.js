@@ -52,6 +52,8 @@ Panel = (function() {
         } else if (this.object.isEnemyObject()) {
           return this.drawEnemy();
         }
+      } else {
+        return this.clear();
       }
     }
 
@@ -527,6 +529,10 @@ Panel = (function() {
         'placement': 'top',
         'title': this.object.getAbilityDesc()
       }));
+    }
+
+    clear() {
+      return $(this.divObject).find('*').remove();
     }
 
     removeMe() {

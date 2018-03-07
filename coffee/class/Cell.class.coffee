@@ -438,7 +438,7 @@ class Cell
 
   changePanels:(evt)->
     # 戦闘中モードのみ
-    return unless GameManager.flags.isBattle
+    return unless GameManager.isMode.battle
 
     # 左パネル切り替え可能
     if GameManager.isEnable.leftPanel
