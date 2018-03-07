@@ -26,9 +26,9 @@ class Character1Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -69,9 +69,9 @@ class Character2Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -112,9 +112,9 @@ class Character3Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -155,9 +155,9 @@ class Character4Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -198,9 +198,9 @@ class Character5Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -241,9 +241,9 @@ class Character6Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -284,9 +284,9 @@ class Character7Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -327,9 +327,9 @@ class Character8Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -370,9 +370,9 @@ class Character9Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -413,9 +413,9 @@ class Character10Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -456,9 +456,9 @@ class Character11Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -499,9 +499,9 @@ class Character12Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -542,9 +542,9 @@ class Character13Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -585,9 +585,9 @@ class Character14Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 10
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -628,9 +628,9 @@ class Character15Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -671,9 +671,9 @@ class Character16Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -714,9 +714,9 @@ class Character17Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -757,9 +757,9 @@ class Character18Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 35
+  @itemCapacityStart = 35
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 60
+  @itemCapacityLimit = 60
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -800,9 +800,9 @@ class Character19Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -843,9 +843,9 @@ class Character20Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 30
+  @itemCapacityStart = 30
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 55
+  @itemCapacityLimit = 55
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -886,9 +886,9 @@ class Character21Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -929,9 +929,9 @@ class Character22Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 4
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -972,9 +972,9 @@ class Character23Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1015,9 +1015,9 @@ class Character24Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1058,9 +1058,9 @@ class Character25Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1101,9 +1101,9 @@ class Character26Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 30
+  @itemCapacityStart = 30
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 55
+  @itemCapacityLimit = 55
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1144,9 +1144,9 @@ class Character27Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1187,9 +1187,9 @@ class Character28Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1230,9 +1230,9 @@ class Character29Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1273,9 +1273,9 @@ class Character30Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1316,9 +1316,9 @@ class Character31Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1359,9 +1359,9 @@ class Character32Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 27
+  @itemCapacityStart = 27
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 45
+  @itemCapacityLimit = 45
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1402,9 +1402,9 @@ class Character33Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1445,9 +1445,9 @@ class Character34Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1488,9 +1488,9 @@ class Character35Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1531,9 +1531,9 @@ class Character36Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1574,9 +1574,9 @@ class Character37Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1617,9 +1617,9 @@ class Character38Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1660,9 +1660,9 @@ class Character39Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1703,9 +1703,9 @@ class Character40Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1746,9 +1746,9 @@ class Character41Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1789,9 +1789,9 @@ class Character42Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1832,9 +1832,9 @@ class Character43Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 30
+  @itemCapacityStart = 30
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1875,9 +1875,9 @@ class Character44Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1918,9 +1918,9 @@ class Character45Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -1961,9 +1961,9 @@ class Character46Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 30
+  @itemCapacityStart = 30
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2004,9 +2004,9 @@ class Character47Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2047,9 +2047,9 @@ class Character48Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2090,9 +2090,9 @@ class Character49Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2133,9 +2133,9 @@ class Character50Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2176,9 +2176,9 @@ class Character51Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2219,9 +2219,9 @@ class Character52Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 15
+  @itemCapacityStart = 15
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 30
+  @itemCapacityLimit = 30
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2262,9 +2262,9 @@ class Character53Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2305,9 +2305,9 @@ class Character54Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2348,9 +2348,9 @@ class Character55Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2391,9 +2391,9 @@ class Character56Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2434,9 +2434,9 @@ class Character57Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2477,9 +2477,9 @@ class Character58Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2520,9 +2520,9 @@ class Character59Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2563,9 +2563,9 @@ class Character60Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2606,9 +2606,9 @@ class Character61Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2649,9 +2649,9 @@ class Character62Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2692,9 +2692,9 @@ class Character63Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2735,9 +2735,9 @@ class Character64Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2778,9 +2778,9 @@ class Character65Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2821,9 +2821,9 @@ class Character66Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2864,9 +2864,9 @@ class Character67Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 30
+  @itemCapacityStart = 30
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 50
+  @itemCapacityLimit = 50
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2907,9 +2907,9 @@ class Character68Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2950,9 +2950,9 @@ class Character69Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -2993,9 +2993,9 @@ class Character70Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3036,9 +3036,9 @@ class Character71Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3079,9 +3079,9 @@ class Character72Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3122,9 +3122,9 @@ class Character73Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 23
+  @itemCapacityStart = 23
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3165,9 +3165,9 @@ class Character74Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3208,9 +3208,9 @@ class Character75Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3251,9 +3251,9 @@ class Character76Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 35
+  @itemCapacityStart = 35
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3294,9 +3294,9 @@ class Character77Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 21
+  @itemCapacityStart = 21
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3337,9 +3337,9 @@ class Character78Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3380,9 +3380,9 @@ class Character79Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3423,9 +3423,9 @@ class Character80Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3466,9 +3466,9 @@ class Character81Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 35
+  @itemCapacityStart = 35
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3509,9 +3509,9 @@ class Character82Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3552,9 +3552,9 @@ class Character83Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3595,9 +3595,9 @@ class Character84Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3638,9 +3638,9 @@ class Character85Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3681,9 +3681,9 @@ class Character86Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3724,9 +3724,9 @@ class Character87Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3767,9 +3767,9 @@ class Character88Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3810,9 +3810,9 @@ class Character89Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 27
+  @itemCapacityStart = 27
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3853,9 +3853,9 @@ class Character90Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3896,9 +3896,9 @@ class Character91Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3939,9 +3939,9 @@ class Character92Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -3982,9 +3982,9 @@ class Character93Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 27
+  @itemCapacityStart = 27
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4025,9 +4025,9 @@ class Character94Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4068,9 +4068,9 @@ class Character95Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 0
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4111,9 +4111,9 @@ class Character96Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4154,9 +4154,9 @@ class Character97Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4197,9 +4197,9 @@ class Character98Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4240,9 +4240,9 @@ class Character99Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4283,9 +4283,9 @@ class Character100Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4326,9 +4326,9 @@ class Character101Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4369,9 +4369,9 @@ class Character102Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4412,9 +4412,9 @@ class Character103Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 27
+  @itemCapacityStart = 27
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4455,9 +4455,9 @@ class Character104Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4498,9 +4498,9 @@ class Character105Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4541,9 +4541,9 @@ class Character106Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 15
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 27
+  @itemCapacityStart = 27
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4584,9 +4584,9 @@ class Character107Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 4
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4627,9 +4627,9 @@ class Character108Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4670,9 +4670,9 @@ class Character109Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4713,9 +4713,9 @@ class Character110Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4756,9 +4756,9 @@ class Character111Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4799,9 +4799,9 @@ class Character112Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4842,9 +4842,9 @@ class Character113Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4885,9 +4885,9 @@ class Character114Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4928,9 +4928,9 @@ class Character115Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -4971,9 +4971,9 @@ class Character116Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5014,9 +5014,9 @@ class Character117Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 23
+  @itemCapacityStart = 23
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5057,9 +5057,9 @@ class Character118Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5100,9 +5100,9 @@ class Character119Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5143,9 +5143,9 @@ class Character120Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5186,9 +5186,9 @@ class Character121Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5229,9 +5229,9 @@ class Character122Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5272,9 +5272,9 @@ class Character123Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5315,9 +5315,9 @@ class Character124Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5358,9 +5358,9 @@ class Character125Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 4
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5401,9 +5401,9 @@ class Character126Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 4
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5444,9 +5444,9 @@ class Character127Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5487,9 +5487,9 @@ class Character128Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5530,9 +5530,9 @@ class Character129Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5573,9 +5573,9 @@ class Character130Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5616,9 +5616,9 @@ class Character131Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5659,9 +5659,9 @@ class Character132Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 35
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5702,9 +5702,9 @@ class Character133Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5745,9 +5745,9 @@ class Character134Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5788,9 +5788,9 @@ class Character135Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5831,9 +5831,9 @@ class Character136Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5874,9 +5874,9 @@ class Character137Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5917,9 +5917,9 @@ class Character138Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -5960,9 +5960,9 @@ class Character139Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 23
+  @itemCapacityStart = 23
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6003,9 +6003,9 @@ class Character140Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6046,9 +6046,9 @@ class Character141Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6089,9 +6089,9 @@ class Character142Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6132,9 +6132,9 @@ class Character143Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 27
+  @itemCapacityStart = 27
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6175,9 +6175,9 @@ class Character144Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6218,9 +6218,9 @@ class Character145Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 0
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6261,9 +6261,9 @@ class Character146Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 7
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 23
+  @itemCapacityStart = 23
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6304,9 +6304,9 @@ class Character147Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 6
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 23
+  @itemCapacityStart = 23
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6347,9 +6347,9 @@ class Character148Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6390,9 +6390,9 @@ class Character149Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 0
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 35
+  @itemCapacityStart = 35
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6433,9 +6433,9 @@ class Character150Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6476,9 +6476,9 @@ class Character151Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6519,9 +6519,9 @@ class Character152Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6562,9 +6562,9 @@ class Character153Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6605,9 +6605,9 @@ class Character154Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 8
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6648,9 +6648,9 @@ class Character155Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6691,9 +6691,9 @@ class Character156Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6734,9 +6734,9 @@ class Character157Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6777,9 +6777,9 @@ class Character158Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6820,9 +6820,9 @@ class Character159Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6863,9 +6863,9 @@ class Character160Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6906,9 +6906,9 @@ class Character161Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6949,9 +6949,9 @@ class Character162Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -6992,9 +6992,9 @@ class Character163Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 23
+  @itemCapacityStart = 23
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7035,9 +7035,9 @@ class Character164Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7078,9 +7078,9 @@ class Character165Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7121,9 +7121,9 @@ class Character166Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7164,9 +7164,9 @@ class Character167Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 23
+  @itemCapacityStart = 23
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7207,9 +7207,9 @@ class Character168Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7250,9 +7250,9 @@ class Character169Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7293,9 +7293,9 @@ class Character170Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7336,9 +7336,9 @@ class Character171Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7379,9 +7379,9 @@ class Character172Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7422,9 +7422,9 @@ class Character173Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7465,9 +7465,9 @@ class Character174Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7508,9 +7508,9 @@ class Character175Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7551,9 +7551,9 @@ class Character176Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7594,9 +7594,9 @@ class Character177Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7637,9 +7637,9 @@ class Character178Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7680,9 +7680,9 @@ class Character179Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 30
+  @itemCapacityStart = 30
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7723,9 +7723,9 @@ class Character180Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7766,9 +7766,9 @@ class Character181Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7809,9 +7809,9 @@ class Character182Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7852,9 +7852,9 @@ class Character183Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 2
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7895,9 +7895,9 @@ class Character184Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 10
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7938,9 +7938,9 @@ class Character185Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 27
+  @itemCapacityStart = 27
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -7981,9 +7981,9 @@ class Character186Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8024,9 +8024,9 @@ class Character187Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 27
+  @itemCapacityStart = 27
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8067,9 +8067,9 @@ class Character188Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8110,9 +8110,9 @@ class Character189Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 30
+  @itemCapacityStart = 30
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8153,9 +8153,9 @@ class Character190Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 5
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 23
+  @itemCapacityStart = 23
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8196,9 +8196,9 @@ class Character191Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 23
+  @itemCapacityStart = 23
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8239,9 +8239,9 @@ class Character192Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 23
+  @itemCapacityStart = 23
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8282,9 +8282,9 @@ class Character193Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8325,9 +8325,9 @@ class Character194Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8368,9 +8368,9 @@ class Character195Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 21
+  @itemCapacityStart = 21
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8411,9 +8411,9 @@ class Character196Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 7
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 19
+  @itemCapacityStart = 19
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8454,9 +8454,9 @@ class Character197Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8497,9 +8497,9 @@ class Character198Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 8
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8540,9 +8540,9 @@ class Character199Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 3
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 25
+  @itemCapacityStart = 25
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値
@@ -8583,9 +8583,9 @@ class Character200Base extends CharacterBase
   # 基本回避率
   @dodgeRateBase = 1
   # アイテム装備可能数（開始時）
-  @itemMaxStart = 30
+  @itemCapacityStart = 30
   # アイテム装備可能数（限界）
-  @itemMaxEnd = 40
+  @itemCapacityLimit = 40
   # コスト
   @costBase = 1.5
   # 必要経験値

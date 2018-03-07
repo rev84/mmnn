@@ -181,6 +181,7 @@ class MenuManager
     return unless GameManager.isEnable.item
 
     # 描画
+    ItemManager.repick()
     ItemCharacterPicker.draw()
 
     # レベルアップモードにする

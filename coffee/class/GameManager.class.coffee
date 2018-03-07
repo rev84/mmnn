@@ -4,6 +4,8 @@ class GameManager
     DISABLE_RIGHT_CLICK_MENU : false
     # 初期経験値
     START_EXP : 10000
+    # アイテムが0個でも表示する
+    IS_SHOW_ALL_ITEMS : true
 
   @ID:'game'
 
@@ -239,7 +241,9 @@ class GameManager
     @initCharacters(null)
     @initLevelup(null)
     @initEnemys(null)
-    @initItems(null)
+    @initItems({
+      "1" : [1,2,3,4,5]
+    })
     @initBattleResult(null)
 
     @gameElement.appendTo('body')
@@ -320,6 +324,7 @@ class GameManager
           items : []
           inField : false
           moved: false
+          itemCapacityPlus: 0
 
       @characters[characterId] = new window.CharacterList[characterId](params)
     for characterId, characterObject of @characters
@@ -342,8 +347,7 @@ class GameManager
     @items = window.ItemList
     window.ItemList = undefined
 
-    ItemManager.init(@gameElement)
-    ItemManager.setItems(savedata)
+    ItemManager.init(@gameElement, savedata)
 
   @isControllable:->
     @flags.controllable

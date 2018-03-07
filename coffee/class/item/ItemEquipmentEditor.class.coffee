@@ -20,13 +20,27 @@ class ItemEquipmentEditor
   @select:(characterObject)->
     @characterObject = characterObject
     @draw()
+    @drawCost()
+    @drawEquipmentItems()
 
   @draw:(newItem = null, dropItem = null)->
     @panel.removeMe() if @panel isnt null
     # パネル
     @panel = new Panel(@divObject, @characterObject)
-    
+
   @drawCost:(newItem = null, dropItem = null)->
-    @costNow.html(@characterObject.getItemCapacity())
-    # パネル
-    @panel = new Panel(@divObject, @characterObject)
+    @costMax.html(@characterObject.getItemCapacity())
+    @costNow.html(@characterObject.getItemCostTotal())
+
+  @drawEquipmentItems:->
+    @equipItems.find('*').remove()
+    if @characterObject.getItems().length is 0
+      panel = $('<div>').addClass('equipment_item_panel')
+      itemName = $('<div>').addClass('equipment_item_panel_name').html('なし').appendTo(panel)
+      panel.appendTo @equipItems
+    else
+      for itemObject in @characterObject.getItems()
+        panel = $('<div>').addClass('equipment_item_panel')
+        itemName = $('<div>').addClass('equipment_item_panel_name').html(itemObject.getName()).appendTo(panel)
+        itemCost = $('<div>').addClass('equipment_item_panel_cost').html(itemObject.getCost()).appendTo(panel)
+        panel.appendTo @equipItems

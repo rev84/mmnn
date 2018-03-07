@@ -80,8 +80,16 @@ class CharacterBase extends ObjectBase
     @itemCapacityPlus + amount <= @getItemCapacityLimit() - @getItemCapacityStart()
   # 装備中のアイテムを取得
   getItems:->
+    @items.sort (a,b)->
+      return -1 if a.getDisplayOrder() < b.getDisplayOrder()
+      return  1 if a.getDisplayOrder() > b.getDisplayOrder()
+      return -1 if a.getLevel() < b.getLevel()
+      return  1 if a.getLevel() > b.getLevel()
+      0
     @items
   # 装備中のアイテムのコストの合計を取得
-  getItemsCost:->
+  getItemCostTotal:->
     total = 0
-    total += GameManager.items[itemId].getCost() for itemId in @items
+    for itemId in @items
+      total += GameManager.items[itemId].getCost(level)
+    total

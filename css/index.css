@@ -46,7 +46,8 @@ input[type="range"]::-webkit-slider-thumb:active {
 #menu > * {
   float: left;
 }
-#menu, #character_pallet, #field_visible, #field, #left_info, #right_info, #env, #levelup, #battle_result, #item, #item_character_picker, #item_equipment_editor, #item_editor {
+#menu, #character_pallet, #field_visible, #field, #left_info, #right_info,
+#env, #levelup, #battle_result, #item, #item_character_picker, #item_equipment_editor, #item_editor {
   position: absolute;
 }
 #character_pallet {
@@ -134,7 +135,8 @@ input[type="range"]::-webkit-slider-thumb:active {
 #battle_result > *,
 #item_character_picker, #item_character_picker > *,
 #item_equipment_editor, #item_equipment_editor > *,
-#item_editor, #item_editor > * {
+#item_editor, #item_editor > *, 
+.item_editor_panel, .item_editor_panel > *, .item_editor_item > *, .item_editor_item_cost > * {
   position: absolute;
   box-sizing: border-box;
 }
@@ -236,7 +238,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 #item_equipment_editor {
   top:0px;
-  left:420px;
+  left:430px;
   width: 400px;
   height: 600px;
 }
@@ -264,23 +266,103 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 .equipment_editor_cost_max {
   top:500px;
-  left:100px;
+  left:300px;
   width: 100px;
   height: 100px;
   font-size: 70px;
 }
 .equipment_editor_cost_now {
   top:500px;
-  left:0px;
+  left:100px;
   width: 100px;
   height: 100px;
   font-size: 70px;
 }
+.equipment_item_panel {
+  width: 350px;
+  height: 50px;
+  border: 1px solid #000000;
+}
+.equipment_item_panel_name {
+  width: 0px;
+  height: 50px;
+  border: 1px solid #000000;
+  top: 0px;
+  left: 0px;
+}
+.equipment_item_panel_cost {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000000;
+  top: 0px;
+  right: 0px;
+}
 #item_editor {
   top:0px;
-  left:720px;
+  left:840px;
   width: 500px;
   height: 600px;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+.item_editor_panel {
+  width: 500px;
+  height: 200px;
+}
+.item_editor_header {
+  top: 0px;
+  left: 0px;
+  width: 500px;
+  height: 50px;
+  font-size: 30px;
+}
+.item_editor_item {
+  top: 50px;
+  width: 60px;
+  height: 100px;
+}
+.item_editor_item_levelup {
+  top: 100px;
+  width: 40px;
+  height: 50px;
+  font-size: 25px;
+}
+.item_editor_item_header {
+  top: 0px;
+  left: 0px;
+  width: 60px;
+  height: 50px;
+  border: 1px solid #000000;
+  text-align: center;
+  font-size: 30px;
+}
+.item_editor_item_count {
+  top: 50px;
+  left: 0px;
+  width: 60px;
+  height: 50px;
+  font-size: 30px;
+  border: 1px solid #000000;
+  text-align: center;
+}
+.item_editor_item_cost {
+  top: 100px;
+  left: 0px;
+  width: 60px;
+  height: 40px;
+  border: 1px solid #000000;
+  text-align: center;
+  vertical-align: middle
+}
+.item_editor_item_cost_header {
+  font-size: 10px;
+  width: 100%;
+  height: 15px;
+  top: 0px;
+}
+.item_editor_item_cost_number {
+  font-size: 18px;
+  width: 100%;
+  height: 25px;
+  bottom: 0px;
 }

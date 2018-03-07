@@ -16,10 +16,6 @@ function updateItem()
   $service = new Google_Service_Sheets($c);
 
   $script = '';
-  $characterList = <<<EOM
-window.ItemList = {
-
-EOM;
 
   # キャラクター
   $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'アイテム設定!A3:W');
@@ -31,29 +27,29 @@ EOM;
     $imgFile = './img/item/'.$itemId.'.png';
 
     $items[$itemId] = [
-      'displayOrder' => $displayOrder,
+      'displayOrder' => (int)$displayOrder,
       'name' => $name,
       'description' => $description,
       'cost' => [
-        $cost1,$cost2,$cost3,$cost4,$cost5,
+        (int)$cost1,(int)$cost2,(int)$cost3,(int)$cost4,(int)$cost5,
       ],
       'expense' => [
-        $expense2, $expense3, $expense4, $expense5,
+        (int)$expense2, (int)$expense3, (int)$expense4, (int)$expense5,
       ],
-      'hpRate' => ($hpRate == '' ? null : $hpRate),
-      'atkRate' => ($atkRate == '' ? null : $atkRate),
-      'pDefRate' => ($pDefRate == '' ? null : $pDefRate),
-      'mDefRate' => ($mDefRate == '' ? null : $mDefRate),
-      'costRate' => ($costRate == '' ? null : $costRate),
-      'movePlus' => ($movePlus == '' ? null : $movePlus),
-      'rangePlus' => ($rangePlus == '' ? null : $rangePlus),
-      'hitPlus' => ($hitPlus == '' ? null : $hitPlus),
-      'dodgePlus' => ($dodgePlus == '' ? null : $dodgePlus),
-      'returnPlus' => ($returnPlus == '' ? null : $returnPlus),
+      'hpRate' => ($hpRate == '' ? null : (float)$hpRate),
+      'atkRate' => ($atkRate == '' ? null : (float)$atkRate),
+      'pDefRate' => ($pDefRate == '' ? null : (float)$pDefRate),
+      'mDefRate' => ($mDefRate == '' ? null : (float)$mDefRate),
+      'costRate' => ($costRate == '' ? null : (float)$costRate),
+      'movePlus' => ($movePlus == '' ? null : (int)$movePlus),
+      'rangePlus' => ($rangePlus == '' ? null : (int)$rangePlus),
+      'hitPlus' => ($hitPlus == '' ? null : (int)$hitPlus),
+      'dodgePlus' => ($dodgePlus == '' ? null : (int)$dodgePlus),
+      'returnPlus' => ($returnPlus == '' ? null : (int)$returnPlus),
     ];
   }
 
-  file_put_contents(dirname(__FILE__).'/../../coffee/class/item/ItemList.coffee', 'window.itemList = '.json_encode($items).';');
+  file_put_contents(dirname(__FILE__).'/../../coffee/class/item/ItemList.coffee', 'window.ItemList = '.json_encode($items).';');
 }
 
 function updateEnemy()
