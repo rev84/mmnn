@@ -182,7 +182,9 @@ class MenuManager
 
     # 描画
     ItemManager.repick()
+    ItemManager.calcUsedItemCount()
     ItemCharacterPicker.draw()
+    ItemEditor.draw()
 
     # レベルアップモードにする
     GameManager.resetFlags()

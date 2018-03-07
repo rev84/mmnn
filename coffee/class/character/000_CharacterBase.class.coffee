@@ -59,34 +59,60 @@ class CharacterBase extends ObjectBase
       Math.ceil(@constructor.costBase * @level)
     else
       Math.ceil(@constructor.costBase * level)
+  
   # アイテム装備可能数（開始時）
   getItemCapacityStart:->
     @constructor.itemCapacityStart
+  
   # アイテム装備可能数（開始時）
   getItemCapacityLimit:->
     @constructor.itemCapacityLimit
+  
   # アイテム装備可能数
   getItemCapacity:->
     @getItemCapacityStart() + @getItemCapacityPlus()
+  
   # アイテム装備可能数の加算値
   getItemCapacityPlus:->
     @itemCapacityPlus
+  
   # アイテム装備可能数を増やす
   increaseItemCapacity:(amount = 1)->
     @itemCapacityPlus += amount
     @itemCapacityPlus = @getItemCapacityLimit() - @getItemCapacityStart() if @getItemCapacityLimit() - @getItemCapacityStart() < @itemCapacityPlus
+  
   # アイテム装備可能数を増やせるか
   canIncreaseItemCapacity:(amount = 1)->
     @itemCapacityPlus + amount <= @getItemCapacityLimit() - @getItemCapacityStart()
+
+  # アイテムを装備
+  setItem:(itemObject, level)->
+    @items.push [itemObject, level]
+
+  # アイテムを外す
+  dropItem:(itemObject, level)->
+    items = []
+    deleted = false
+    for [iObj, lv] in @items
+      if !deleted and iObj.getId() is itemObject.getId() and level is lv
+        deleted = true
+      else
+        items.push [iObj, level]
+    @items = items
+    deleted
+
   # 装備中のアイテムを取得
   getItems:->
-    @items.sort (a,b)->
-      return -1 if a.getDisplayOrder() < b.getDisplayOrder()
-      return  1 if a.getDisplayOrder() > b.getDisplayOrder()
-      return -1 if a.getLevel() < b.getLevel()
-      return  1 if a.getLevel() > b.getLevel()
+    @items.sort (a, b)->
+      [aItemObject, aLevel] = a
+      [bItemObject, bLevel] = b
+      return -1 if aItemObject.getDisplayOrder() < bItemObject.getDisplayOrder()
+      return  1 if aItemObject.getDisplayOrder() > bItemObject.getDisplayOrder()
+      return -1 if aLevel < bLevel
+      return  1 if aLevel > bLevel
       0
     @items
+
   # 装備中のアイテムのコストの合計を取得
   getItemCostTotal:->
     total = 0

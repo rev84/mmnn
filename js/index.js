@@ -989,26 +989,31 @@ CharacterBase = class CharacterBase extends ObjectBase {
     }
   }
 
+  
   // アイテム装備可能数（開始時）
   getItemCapacityStart() {
     return this.constructor.itemCapacityStart;
   }
 
+  
   // アイテム装備可能数（開始時）
   getItemCapacityLimit() {
     return this.constructor.itemCapacityLimit;
   }
 
+  
   // アイテム装備可能数
   getItemCapacity() {
     return this.getItemCapacityStart() + this.getItemCapacityPlus();
   }
 
+  
   // アイテム装備可能数の加算値
   getItemCapacityPlus() {
     return this.itemCapacityPlus;
   }
 
+  
   // アイテム装備可能数を増やす
   increaseItemCapacity(amount = 1) {
     this.itemCapacityPlus += amount;
@@ -1017,24 +1022,51 @@ CharacterBase = class CharacterBase extends ObjectBase {
     }
   }
 
+  
   // アイテム装備可能数を増やせるか
   canIncreaseItemCapacity(amount = 1) {
     return this.itemCapacityPlus + amount <= this.getItemCapacityLimit() - this.getItemCapacityStart();
   }
 
+  // アイテムを装備
+  setItem(itemObject, level) {
+    return this.items.push([itemObject, level]);
+  }
+
+  // アイテムを外す
+  dropItem(itemObject, level) {
+    var deleted, iObj, items, j, len, lv, ref;
+    items = [];
+    deleted = false;
+    ref = this.items;
+    for (j = 0, len = ref.length; j < len; j++) {
+      [iObj, lv] = ref[j];
+      if (!deleted && iObj.getId() === itemObject.getId() && level === lv) {
+        deleted = true;
+      } else {
+        items.push([iObj, level]);
+      }
+    }
+    this.items = items;
+    return deleted;
+  }
+
   // 装備中のアイテムを取得
   getItems() {
     this.items.sort(function(a, b) {
-      if (a.getDisplayOrder() < b.getDisplayOrder()) {
+      var aItemObject, aLevel, bItemObject, bLevel;
+      [aItemObject, aLevel] = a;
+      [bItemObject, bLevel] = b;
+      if (aItemObject.getDisplayOrder() < bItemObject.getDisplayOrder()) {
         return -1;
       }
-      if (a.getDisplayOrder() > b.getDisplayOrder()) {
+      if (aItemObject.getDisplayOrder() > bItemObject.getDisplayOrder()) {
         return 1;
       }
-      if (a.getLevel() < b.getLevel()) {
+      if (aLevel < bLevel) {
         return -1;
       }
-      if (a.getLevel() > b.getLevel()) {
+      if (aLevel > bLevel) {
         return 1;
       }
       return 0;
@@ -3064,6 +3096,10 @@ Item = class Item {
     return this.amount[level];
   }
 
+  getId() {
+    return this.itemId;
+  }
+
   // 名前を取得
   getName() {
     return this.params.name;
@@ -3388,6 +3424,9 @@ ItemManager = (function() {
       // アイテムのインスタンス
       this.items = {};
       this.setItems(savedata);
+      // アイテムの数をカウント
+      this.usedItemCount = {};
+      this.calcUsedItemCount();
       ItemCharacterPicker.init(this);
       ItemEquipmentEditor.init(this);
       ItemEditor.init(this);
@@ -3419,6 +3458,30 @@ ItemManager = (function() {
     }
 
     // なければ0個
+    static calcUsedItemCount() {
+      var cObj, itemObj, j, len, level, ref, results;
+      this.usedItemCount = {};
+      ref = GameManager.characters;
+      results = [];
+      for (j = 0, len = ref.length; j < len; j++) {
+        cObj = ref[j];
+        results.push((function() {
+          var l, len1, ref1, results1;
+          ref1 = cObj.getItems();
+          results1 = [];
+          for (l = 0, len1 = ref1.length; l < len1; l++) {
+            [itemObj, level] = ref1[l];
+            if (!(itemObj.getId() in this.usedItemCount)) {
+              this.usedItemCount[itemObj.getId()] = Array(itemObj.getMaxLevel() + 1).fill(0);
+            }
+            results1.push(this.usedItemCount[id][level]++);
+          }
+          return results1;
+        }).call(this));
+      }
+      return results;
+    }
+
     static repick() {
       return ItemEquipmentEditor.select(this.characters[0]);
     }
@@ -3805,7 +3868,9 @@ MenuManager = (function() {
       }
       // 描画
       ItemManager.repick();
+      ItemManager.calcUsedItemCount();
       ItemCharacterPicker.draw();
+      ItemEditor.draw();
       // レベルアップモードにする
       GameManager.resetFlags();
       GameManager.isMode.item = true;
@@ -5053,32 +5118,48 @@ Utl = class Utl {
 ItemEditorPanel = (function() {
   class ItemEditorPanel {
     constructor(parentElement, itemObject1) {
+      var div, itemCostNumber, itemCountMax, itemCountNow, j, level, ref, ref1;
       this.parentElement = parentElement;
       this.itemObject = itemObject1;
       this.divObject = $('<div>').addClass('item_editor_panel').appendTo(this.parentElement);
-      this.draw();
-    }
-
-    draw() {
-      var div, j, level, ref, ref1, results;
-      this.divObject.find('*').remove();
+      this.itemCountNow = [];
+      this.itemCountMax = [];
+      this.itemCostNumber = [];
       // アイテム名
       $('<div>').html(this.itemObject.getName()).addClass('item_editor_header').appendTo(this.divObject);
-      results = [];
       for (level = j = ref = this.itemObject.getMinLevel(), ref1 = this.itemObject.getMaxLevel(); (ref <= ref1 ? j <= ref1 : j >= ref1); level = ref <= ref1 ? ++j : --j) {
         div = $('<div>').addClass('item_editor_item').css({
           left: level * (60 + 40)
         }).appendTo(this.divObject);
+        itemCountNow = $('<div>').addClass('item_editor_item_count_now');
+        itemCountMax = $('<div>').addClass('item_editor_item_count_max');
+        itemCostNumber = $('<div>').addClass('item_editor_item_cost_number');
+        this.itemCountNow[level] = itemCountNow;
+        this.itemCountMax[level] = itemCountMax;
+        this.itemCostNumber[level] = itemCostNumber;
         $('<div>').addClass('item_editor_item_header').html('★' + (level + 1)).appendTo(div);
-        $('<div>').addClass('item_editor_item_count').html(this.itemObject.getAmount(level)).appendTo(div);
-        $('<div>').addClass('item_editor_item_cost').append($('<div>').addClass('item_editor_item_cost_number').html(this.itemObject.getCost(level))).append($('<div>').addClass('item_editor_item_cost_header').html('コスト')).appendTo(div);
+        $('<div>').addClass('item_editor_item_count').append(itemCountNow).append(itemCountMax).on('click', this.onClickItem.bind(this, level)).appendTo(div);
+        $('<div>').addClass('item_editor_item_cost').append(itemCostNumber).append($('<div>').addClass('item_editor_item_cost_header').html('コスト')).appendTo(div);
         if (level + 1 <= this.itemObject.getMaxLevel()) {
-          results.push($('<button>').addClass('item_editor_item_levelup').html('▶').css({
+          $('<button>').addClass('item_editor_item_levelup').html('▶').css({
             left: (60 + 40) * level + 60
-          }).appendTo(this.divObject));
-        } else {
-          results.push(void 0);
+          }).on('click', this.onClickLevelup.bind(this, level)).appendTo(this.divObject);
         }
+      }
+      this.draw();
+    }
+
+    draw() {
+      var j, level, ref, ref1, results, usedItemCount;
+      results = [];
+      for (level = j = ref = this.itemObject.getMinLevel(), ref1 = this.itemObject.getMaxLevel(); (ref <= ref1 ? j <= ref1 : j >= ref1); level = ref <= ref1 ? ++j : --j) {
+        usedItemCount = 0;
+        if (this.itemObject.getId() in ItemManager.usedItemCount && level in ItemManager.usedItemCount[this.itemObject.getId()]) {
+          usedItemCount = ItemManager.usedItemCount[this.itemObject.getId()][level];
+        }
+        this.itemCountNow[level].html(this.itemObject.getAmount(level) - usedItemCount);
+        this.itemCountMax[level].html(this.itemObject.getAmount(level));
+        results.push(this.itemCostNumber[level].html(this.itemObject.getCost(level)));
       }
       return results;
     }
@@ -5091,7 +5172,11 @@ ItemEditorPanel = (function() {
       return this.divObject.addClass('no_display');
     }
 
-    onClickItem(level) {}
+    onClickItem(level) {
+      if (this.itemObject) {
+
+      }
+    }
 
     onClickLevelup(fromLevel) {}
 

@@ -6,8 +6,12 @@ class Item
   # 持ってる数を設定
   setAmount:(level, amount)->
     @amount[level] = amount
+
   getAmount:(level)->
     @amount[level]
+
+  getId:->
+    @itemId
 
   # 名前を取得
   getName:->

@@ -11,6 +11,9 @@ class ItemManager
     # アイテムのインスタンス
     @items = {}
     @setItems savedata
+    # アイテムの数をカウント
+    @usedItemCount = {}
+    @calcUsedItemCount()
 
     ItemCharacterPicker.init(@)
     ItemEquipmentEditor.init(@)
@@ -29,6 +32,13 @@ class ItemManager
         else
           ;
 
+  @calcUsedItemCount:->
+    @usedItemCount = {}
+    for cObj in GameManager.characters
+      for [itemObj, level] in cObj.getItems()
+        @usedItemCount[itemObj.getId()] = Array(itemObj.getMaxLevel()+1).fill(0) unless itemObj.getId() of @usedItemCount
+        @usedItemCount[id][level]++
+        
   @repick:->
     ItemEquipmentEditor.select @characters[0]
 
