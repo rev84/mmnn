@@ -4,7 +4,7 @@ class Panel
 
   @CLASSNAME = 'panel'
 
-  constructor:(@parentElement, @object, @posY = 0, @posX = 0, @isCharacterPallet = false)->
+  constructor:(@parentElement, @object, @posY = 0, @posX = 0, @isShowOverlay = true, @isCharacterPallet = false)->
     @divObject = $('<div>').addClass(@constructor.CLASSNAME).css({
       width: @constructor.SIZE_X
       height: @constructor.SIZE_Y
@@ -39,22 +39,39 @@ class Panel
         @drawEnemy()
 
   drawCharacter:(level = null)->
-    # キャラ出撃用のパネルなら、出撃中判定
-    if @isCharacterPallet and @object.isInField()
-      $('<div>').addClass('in_field').css({
-        left:0
-        top:0
-        "z-index": 9999
-        opacity: 0.5
-        "background-color": '#230381'
-        width: @constructor.SIZE_X
-        height: @constructor.SIZE_Y
-        'font-size': '80px'
-        color: '#000000'
-        'text-align': 'center'
+    if @isShowOverlay
+      # 出撃中判定
+      if @object.isInField()
+        $('<div>').addClass('in_field').css({
+          left:0
+          top:0
+          "z-index": 9999
+          opacity: 0.5
+          "background-color": '#230381'
+          width: @constructor.SIZE_X
+          height: @constructor.SIZE_Y
+          'font-size': '80px'
+          color: '#000000'
+          'text-align': 'center'
 
-      }).html('出撃中')
-      .appendTo(@divObject)
+        }).html('出撃中')
+        .appendTo(@divObject)
+      # 療養中判定
+      else if @object.getComebackTurn() > 0
+        $('<div>').addClass('comeback').css({
+          left:0
+          top:0
+          "z-index": 9999
+          opacity: 0.5
+          "background-color": '#f3f93e'
+          width: @constructor.SIZE_X
+          height: @constructor.SIZE_Y
+          'font-size': '80px'
+          color: '#000000'
+          'text-align': 'center'
+
+        }).html('療養中'+@object.getComebackTurn()+'')
+        .appendTo(@divObject)
 
     # アイコン
     $(@divObject).append(

@@ -26,7 +26,7 @@ class ItemEquipmentEditor
   @draw:(newItem = null, dropItem = null)->
     @panel.removeMe() if @panel isnt null
     # パネル
-    @panel = new Panel(@divObject, @characterObject)
+    @panel = new Panel(@divObject, @characterObject, null, null, false)
 
   @drawCost:(newItem = null, dropItem = null)->
     @costMax.html(@characterObject.getItemCapacity())

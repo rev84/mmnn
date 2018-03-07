@@ -170,6 +170,8 @@ class GameManager
       ;
     # 階層進行制限解除
     @flags.isWalkInThisTurn = false
+    # 全キャラの復帰を進行
+    c.decreaseComeback() for k, c of @characters
     # コントロール可能に
     @changeControllable true
 

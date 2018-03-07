@@ -9,7 +9,7 @@ InfoManager = class InfoManager {
       height: Panel.SIZE_Y,
       "background-color": '#000000'
     }).appendTo(this.parentElement);
-    return this.panel = new Panel(this.divObject, null);
+    return this.panel = new Panel(this.divObject, null, null, null, false);
   }
 
   static setObject(object = null) {

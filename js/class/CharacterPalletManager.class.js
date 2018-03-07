@@ -39,7 +39,7 @@ CharacterPalletManager = (function() {
       for (index = i = 0, len = ref.length; i < len; index = ++i) {
         c = ref[index];
         top = index * Panel.SIZE_Y;
-        results.push(this.panels.push(new Panel(this.divObject, c, top, 0, true)));
+        results.push(this.panels.push(new Panel(this.divObject, c, top, 0, true, true)));
       }
       return results;
     }

@@ -89,6 +89,86 @@ Item = class Item {
     return this.params.expense[fromLevel];
   }
 
+  getHpFixRate() {
+    if (this.params.hpRate === null) {
+      return 0;
+    } else {
+      return this.params.hpRate;
+    }
+  }
+
+  getAttackFixRate() {
+    if (this.params.atkRate === null) {
+      return 0;
+    } else {
+      return this.params.atkRate;
+    }
+  }
+
+  getPDefRateFixRate() {
+    if (this.params.pDefRate === null) {
+      return 0;
+    } else {
+      return this.params.pDefRate;
+    }
+  }
+
+  getMDefRateFixRate() {
+    if (this.params.mDefRate === null) {
+      return 0;
+    } else {
+      return this.params.mDefRate;
+    }
+  }
+
+  getCostRateFixRate() {
+    if (this.params.costRate === null) {
+      return 0;
+    } else {
+      return this.params.costRate;
+    }
+  }
+
+  getMoveFixPlus() {
+    if (this.params.movePlus === null) {
+      return 0;
+    } else {
+      return this.params.movePlus;
+    }
+  }
+
+  getRangeFixPlus() {
+    if (this.params.rangePlus === null) {
+      return 0;
+    } else {
+      return this.params.rangePlus;
+    }
+  }
+
+  getHitFixPlus() {
+    if (this.params.hitPlus === null) {
+      return 0;
+    } else {
+      return this.params.hitPlus;
+    }
+  }
+
+  getDodgeFixPlus() {
+    if (this.params.dodgePlus === null) {
+      return 0;
+    } else {
+      return this.params.dodgePlus;
+    }
+  }
+
+  getReturnFixPlus() {
+    if (this.params.returnPlus === null) {
+      return 0;
+    } else {
+      return this.params.returnPlus;
+    }
+  }
+
   // コスト
   getCost(level) {
     return this.params.cost[level];

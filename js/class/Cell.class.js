@@ -278,7 +278,7 @@ Cell = (function() {
       if (text === null) {
         return $(this.elements.mother).popover('destroy');
       } else {
-        position = this.xIndex < FieldManager.SIZE_X / 4 ? 'right' : FieldManager.SIZE_X / 4 * 3 < this.xIndex ? 'left' : this.yIndex < FieldManager.SIZE_Y / 4 ? 'bottom' : 'top';
+        position = this.xIndex < FieldManager.CELL_X / 4 ? 'right' : FieldManager.CELL_X / 4 * 3 < this.xIndex ? 'left' : this.yIndex < FieldManager.CELL_Y / 4 ? 'bottom' : 'top';
         $(this.elements.mother).popover({
           content: text,
           placement: position

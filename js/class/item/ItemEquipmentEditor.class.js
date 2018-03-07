@@ -32,7 +32,7 @@ ItemEquipmentEditor = (function() {
         this.panel.removeMe();
       }
       // パネル
-      return this.panel = new Panel(this.divObject, this.characterObject);
+      return this.panel = new Panel(this.divObject, this.characterObject, null, null, false);
     }
 
     static drawCost(newItem = null, dropItem = null) {

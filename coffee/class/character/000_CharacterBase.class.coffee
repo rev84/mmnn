@@ -1,4 +1,7 @@
 class CharacterBase extends ObjectBase
+  # 復帰までに必要なターン
+  @COMEBACK_TURN = 5
+
   constructor:(params)->
     super(ObjectBase.OBJECT_TYPE.CHARACTER)
 
@@ -29,11 +32,65 @@ class CharacterBase extends ObjectBase
     # 装備中のアイテム
     @items = params.items
 
+    # 復帰までに必要なターン
+    @comebackTurn = params.comebackTurn
+
   getId:->
     @constructor.characterId
 
   getName:->
     @constructor.characterName
+
+  getHpMaxItemFixRate:->
+    res = 1
+    for [itemObject, level] in @items
+      res += itemObject.getHpFixRate()
+    res
+  getAttackItemFixRate:->
+    res = 1
+    for [itemObject, level] in @items
+      res += itemObject.getAttackFixRate()
+    res
+  getPDefItemFixRate:->
+    res = 1
+    for [itemObject, level] in @items
+      res += itemObject.getPDefRateFixRate()
+    res
+  getMDefItemFixRate:->
+    res = 1
+    for [itemObject, level] in @items
+      res += itemObject.getMDefRateFixRate()
+    res
+  getCostItemFixRate:->
+    res = 1
+    for [itemObject, level] in @items
+      res += itemObject.getCostRateFixRate()
+    res
+  getMoveItemFix:->
+    res = 0
+    for [itemObject, level] in @items
+      res += itemObject.getMoveFixPlus()
+    res
+  getRangeItemFix:->
+    res = 0
+    for [itemObject, level] in @items
+      res += itemObject.getRangeFixPlus()
+    res
+  getHitRateItemFix:->
+    res = 0
+    for [itemObject, level] in @items
+      res += itemObject.getHitFixPlus()
+    res
+  getDodgeRateItemFix:->
+    res = 0
+    for [itemObject, level] in @items
+      res += itemObject.getDodgeFixPlus()
+    res
+  getComebackItemFix:->
+    res = 0
+    for [itemObject, level] in @items
+      res += itemObject.getReturnFixPlus()
+    res
 
   isInField:->
     @inField
@@ -48,6 +105,10 @@ class CharacterBase extends ObjectBase
   setMoved:(bool)->
     @moved = !!bool
 
+  # 出撃可能か
+  canPick:->
+    @getComebackTurn <= 0 and !@isInField()
+
   getTextOnDeath:->
     @constructor.textDeath
 
@@ -56,10 +117,29 @@ class CharacterBase extends ObjectBase
 
   getCost:(level = null)->
     if level is null
-      Math.ceil(@constructor.costBase * @level)
+      Math.ceil(@constructor.costBase * @level * @getMDefItemFixRate())
     else
-      Math.ceil(@constructor.costBase * level)
+      Math.ceil(@constructor.costBase * level * @getMDefItemFixRate())
   
+  getComebackTurnStart:->
+    @constructor.COMEBACK_TURN - @getComebackItemFix()
+
+  getComebackTurn:->
+    @comebackTurn
+
+  setComebackTurn:(comebackTurn)->
+    @comebackTurn = comebackTurn
+    CharacterPalletManager.redraw @
+
+  decreaseComeback:->
+    @comebackTurn-- if @comebackTurn > 0
+    CharacterPalletManager.redraw @
+
+  death:->
+    @setMoved false
+    @setInField false
+    @setComebackTurn @getComebackTurnStart()
+
   # アイテム装備可能数（開始時）
   getItemCapacityStart:->
     @constructor.itemCapacityStart
@@ -119,3 +199,4 @@ class CharacterBase extends ObjectBase
     for [itemObject, level] in @items
       total += itemObject.getCost(level)
     total
+

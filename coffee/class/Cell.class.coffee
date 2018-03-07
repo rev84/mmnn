@@ -233,11 +233,11 @@ class Cell
       $(@elements.mother).popover('destroy')
     else
       position = 
-        if @xIndex < FieldManager.SIZE_X / 4
+        if @xIndex < FieldManager.CELL_X / 4
           'right'
-        else if FieldManager.SIZE_X / 4 * 3 < @xIndex
+        else if FieldManager.CELL_X / 4 * 3 < @xIndex
           'left'
-        else if @yIndex < FieldManager.SIZE_Y / 4
+        else if @yIndex < FieldManager.CELL_Y / 4
           'bottom'
         else
           'top'

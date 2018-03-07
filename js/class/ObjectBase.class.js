@@ -25,10 +25,14 @@ ObjectBase = (function() {
 
     getHpMax(level = null) {
       if (level === null) {
-        return this.constructor.hpBase * this.level;
+        return Math.ceil(this.constructor.hpBase * this.level * this.getHpMaxItemFixRate());
       } else {
-        return this.constructor.hpBase * level;
+        return Math.ceil(this.constructor.hpBase * level);
       }
+    }
+
+    getHpMaxItemFixRate() {
+      return 1;
     }
 
     getHp() {
@@ -61,7 +65,7 @@ ObjectBase = (function() {
       return this.level = level;
     }
 
-    levelup(level) {
+    levelup(level = 1) {
       return this.level += level;
     }
 
@@ -75,10 +79,14 @@ ObjectBase = (function() {
 
     getAttack(level = null) {
       if (level === null) {
-        return Math.ceil(this.constructor.attackBase * this.level);
+        return Math.ceil(this.constructor.attackBase * this.level * this.getAttackItemFixRate());
       } else {
-        return Math.ceil(this.constructor.attackBase * level);
+        return Math.ceil(this.constructor.attackBase * level * this.getAttackItemFixRate());
       }
+    }
+
+    getAttackItemFixRate() {
+      return 1;
     }
 
     getAttackBase() {
@@ -87,10 +95,14 @@ ObjectBase = (function() {
 
     getPDef(level = null) {
       if (level === null) {
-        return Math.ceil(this.constructor.pDefBase * this.level);
+        return Math.ceil(this.constructor.pDefBase * this.level * this.getPDefItemFixRate());
       } else {
-        return Math.ceil(this.constructor.pDefBase * level);
+        return Math.ceil(this.constructor.pDefBase * level * this.getPDefItemFixRate());
       }
+    }
+
+    getPDefItemFixRate() {
+      return 1;
     }
 
     getPDefBase() {
@@ -99,10 +111,14 @@ ObjectBase = (function() {
 
     getMDef(level = null) {
       if (level === null) {
-        return Math.ceil(this.constructor.mDefBase * this.level);
+        return Math.ceil(this.constructor.mDefBase * this.level * this.getMDefItemFixRate());
       } else {
-        return Math.ceil(this.constructor.mDefBase * level);
+        return Math.ceil(this.constructor.mDefBase * level * this.getMDefItemFixRate());
       }
+    }
+
+    getMDefItemFixRate() {
+      return 1;
     }
 
     getMDefBase() {
@@ -110,7 +126,11 @@ ObjectBase = (function() {
     }
 
     getMove() {
-      return this.constructor.moveBase;
+      return this.constructor.moveBase + this.getMoveItemFix();
+    }
+
+    getMoveItemFix() {
+      return 0;
     }
 
     getMoveBase() {
@@ -118,7 +138,11 @@ ObjectBase = (function() {
     }
 
     getRange() {
-      return this.constructor.rangeBase;
+      return this.constructor.rangeBase + this.getRangeItemFix();
+    }
+
+    getRangeItemFix() {
+      return 0;
     }
 
     getRangeBase() {
@@ -126,7 +150,11 @@ ObjectBase = (function() {
     }
 
     getHitRate() {
-      return this.constructor.hitRateBase;
+      return this.constructor.hitRateBase + this.getHitRateItemFix();
+    }
+
+    getHitRateItemFix() {
+      return 0;
     }
 
     getHitRateBase() {
@@ -134,7 +162,11 @@ ObjectBase = (function() {
     }
 
     getDodgeRate() {
-      return this.constructor.dodgeRateBase;
+      return this.constructor.dodgeRateBase + this.getDodgeRateItemFix();
+    }
+
+    getDodgeRateItemFix() {
+      return 0;
     }
 
     getDodgeRateBase() {

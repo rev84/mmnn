@@ -3,11 +3,12 @@ var Panel;
 
 Panel = (function() {
   class Panel {
-    constructor(parentElement, object, posY = 0, posX = 0, isCharacterPallet = false) {
+    constructor(parentElement, object, posY = 0, posX = 0, isShowOverlay = true, isCharacterPallet = false) {
       this.parentElement = parentElement;
       this.object = object;
       this.posY = posY;
       this.posX = posX;
+      this.isShowOverlay = isShowOverlay;
       this.isCharacterPallet = isCharacterPallet;
       this.divObject = $('<div>').addClass(this.constructor.CLASSNAME).css({
         width: this.constructor.SIZE_X,
@@ -56,20 +57,36 @@ Panel = (function() {
 
     drawCharacter(level = null) {
       var attackImg;
-      // キャラ出撃用のパネルなら、出撃中判定
-      if (this.isCharacterPallet && this.object.isInField()) {
-        $('<div>').addClass('in_field').css({
-          left: 0,
-          top: 0,
-          "z-index": 9999,
-          opacity: 0.5,
-          "background-color": '#230381',
-          width: this.constructor.SIZE_X,
-          height: this.constructor.SIZE_Y,
-          'font-size': '80px',
-          color: '#000000',
-          'text-align': 'center'
-        }).html('出撃中').appendTo(this.divObject);
+      if (this.isShowOverlay) {
+        // 出撃中判定
+        if (this.object.isInField()) {
+          $('<div>').addClass('in_field').css({
+            left: 0,
+            top: 0,
+            "z-index": 9999,
+            opacity: 0.5,
+            "background-color": '#230381',
+            width: this.constructor.SIZE_X,
+            height: this.constructor.SIZE_Y,
+            'font-size': '80px',
+            color: '#000000',
+            'text-align': 'center'
+          }).html('出撃中').appendTo(this.divObject);
+        // 療養中判定
+        } else if (this.object.getComebackTurn() > 0) {
+          $('<div>').addClass('comeback').css({
+            left: 0,
+            top: 0,
+            "z-index": 9999,
+            opacity: 0.5,
+            "background-color": '#f3f93e',
+            width: this.constructor.SIZE_X,
+            height: this.constructor.SIZE_Y,
+            'font-size': '80px',
+            color: '#000000',
+            'text-align': 'center'
+          }).html('療養中' + this.object.getComebackTurn() + '').appendTo(this.divObject);
+        }
       }
       // アイコン
       $(this.divObject).append($('<div>').addClass('field_icon').css({

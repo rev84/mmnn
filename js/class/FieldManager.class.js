@@ -337,6 +337,8 @@ FieldManager = (function() {
               // 死んでるのがキャラクターなら
               if (c.object.isCharacterObject()) {
                 await c.showPopover(c.object.getTextOnDeath(), 2000);
+                // 復帰待ちにする
+                c.object.death();
               // 死んでるのが敵キャラなら
               } else if (c.object.isEnemyObject()) {
                 // 敵が死んだなら経験値加算

@@ -42,13 +42,62 @@ class Item
     else
       @getName() + @constructor.level2char(level)
       
-
   getExpense:(fromLevel, toLevel)->
     return false if toLevel - fromLevel isnt 1
     return false unless @getMinLevel() <= fromLevel <= @getMaxLevel()
     return false unless @getMinLevel() <= toLevel <= @getMaxLevel()
     @params.expense[fromLevel]
 
+  getHpFixRate:->
+    if @params.hpRate is null
+      0
+    else
+      @params.hpRate
+  getAttackFixRate:->
+    if @params.atkRate is null
+      0
+    else
+      @params.atkRate
+  getPDefRateFixRate:->
+    if @params.pDefRate is null
+      0
+    else
+      @params.pDefRate
+  getMDefRateFixRate:->
+    if @params.mDefRate is null
+      0
+    else
+      @params.mDefRate
+  getCostRateFixRate:->
+    if @params.costRate is null
+      0
+    else
+      @params.costRate
+  getMoveFixPlus:->
+    if @params.movePlus is null
+      0
+    else
+      @params.movePlus
+  getRangeFixPlus:->
+    if @params.rangePlus is null
+      0
+    else
+      @params.rangePlus
+  getHitFixPlus:->
+    if @params.hitPlus is null
+      0
+    else
+      @params.hitPlus
+  getDodgeFixPlus:->
+    if @params.dodgePlus is null
+      0
+    else
+      @params.dodgePlus
+  getReturnFixPlus:->
+    if @params.returnPlus is null
+      0
+    else
+      @params.returnPlus
   # コスト
   getCost:(level)->
     @params.cost[level]

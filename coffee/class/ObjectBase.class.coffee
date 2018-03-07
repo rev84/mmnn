@@ -31,9 +31,11 @@ class ObjectBase
 
   getHpMax:(level = null)->
     if level is null
-      @constructor.hpBase * @level
+      Math.ceil(@constructor.hpBase * @level * @getHpMaxItemFixRate())
     else
-      @constructor.hpBase * level
+      Math.ceil(@constructor.hpBase * level)
+  getHpMaxItemFixRate:->
+    1
   getHp:->
     if @hp is null or @getHpMax() < @hp
       @getHpMax()
@@ -52,7 +54,7 @@ class ObjectBase
       level
   setLevel:(level)->
     @level = level
-  levelup:(level)->
+  levelup:(level = 1)->
     @level += level
   getCharacterName:->
     @constructor.characterName
@@ -60,40 +62,53 @@ class ObjectBase
     @constructor.attackTypeBase
   getAttack:(level = null)->
     if level is null
-      Math.ceil(@constructor.attackBase * @level)
+      Math.ceil(@constructor.attackBase * @level * @getAttackItemFixRate())
     else
-      Math.ceil(@constructor.attackBase * level)
+      Math.ceil(@constructor.attackBase * level * @getAttackItemFixRate())
+  getAttackItemFixRate:->
+    1
   getAttackBase:->
     @constructor.attackBase
   getPDef:(level = null)->
     if level is null
-      Math.ceil(@constructor.pDefBase * @level)
+      Math.ceil(@constructor.pDefBase * @level * @getPDefItemFixRate())
     else
-      Math.ceil(@constructor.pDefBase * level)
+      Math.ceil(@constructor.pDefBase * level * @getPDefItemFixRate())
+  getPDefItemFixRate:->
+    1
   getPDefBase:->
     @constructor.pDefBase
   getMDef:(level = null)->
     if level is null
-      Math.ceil(@constructor.mDefBase * @level)
+      Math.ceil(@constructor.mDefBase * @level * @getMDefItemFixRate())
     else
-      Math.ceil(@constructor.mDefBase * level)
-
+      Math.ceil(@constructor.mDefBase * level * @getMDefItemFixRate())
+  getMDefItemFixRate:->
+    1
   getMDefBase:->
     @constructor.mDefBase
   getMove:->
-    @constructor.moveBase
+    @constructor.moveBase + @getMoveItemFix()
+  getMoveItemFix:->
+    0
   getMoveBase:->
     @constructor.moveBase
   getRange:->
-    @constructor.rangeBase
+    @constructor.rangeBase + @getRangeItemFix()
+  getRangeItemFix:->
+    0
   getRangeBase:->
     @constructor.rangeBase
   getHitRate:->
-    @constructor.hitRateBase
+    @constructor.hitRateBase + @getHitRateItemFix()
+  getHitRateItemFix:->
+    0
   getHitRateBase:->
     @constructor.hitRateBase
   getDodgeRate:->
-    @constructor.dodgeRateBase
+    @constructor.dodgeRateBase + @getDodgeRateItemFix()
+  getDodgeRateItemFix:->
+    0
   getDodgeRateBase:->
     @constructor.dodgeRateBase
   getExp:->

@@ -101,9 +101,16 @@ GameManager = (function() {
     
     // ターン終了
     static async doTurnEnd(isSoon = false) {
+      var c, k, ref;
       // 動ける敵がいる限り動かす
       while ((await this.enemyMove())) {}
       this.flags.isWalkInThisTurn = false;
+      ref = this.characters;
+      for (k in ref) {
+        c = ref[k];
+        // 全キャラの復帰を進行
+        c.decreaseComeback();
+      }
       // コントロール可能に
       return this.changeControllable(true);
     }
@@ -338,7 +345,7 @@ GameManager = (function() {
     }
 
     static movePick(cell) {
-      var attackableCell, attackables, body, i, j, k, len, len1, len2, movableMap, ref, wayStack, x, y;
+      var attackableCell, attackables, body, i, j, l, len, len1, len2, movableMap, ref, wayStack, x, y;
       FieldManager.removeAllWayStack();
       FieldManager.removeAllKnockout();
       // 移動可能モード
@@ -360,8 +367,8 @@ GameManager = (function() {
       }
       // 攻撃可能判定
       attackables = FieldManager.getAttackableCellsByCell(cell);
-      for (k = 0, len2 = attackables.length; k < len2; k++) {
-        attackableCell = attackables[k];
+      for (l = 0, len2 = attackables.length; l < len2; l++) {
+        attackableCell = attackables[l];
         attackableCell.knockout = cell;
       }
       FieldManager.drawMovable();
@@ -370,7 +377,7 @@ GameManager = (function() {
 
     // 敵が行動する
     static async enemyMove() {
-      var _, acts, atkCell, atkObj, attackables, beatLevel, beatPossibility, c, damage, debugCount, def, ending, enemyCell, getAct, hp, i, j, k, l, len, len1, len2, level, m, mBody, movableMap, moveToCell, myAttack, myAttackType, ref, ref1, ref2, wayStack, x, xMove, y, yMove;
+      var _, acts, atkCell, atkObj, attackables, beatLevel, beatPossibility, c, damage, debugCount, def, ending, enemyCell, getAct, hp, i, j, l, len, len1, len2, level, m, mBody, movableMap, moveToCell, myAttack, myAttackType, n, ref, ref1, ref2, wayStack, x, xMove, y, yMove;
       debugCount = 0;
       this.changeControllable(false);
       // 戻すは不可能になる
@@ -480,9 +487,9 @@ GameManager = (function() {
       
       // すべての位置で攻撃可能な分岐をおこない、点数化する
       actsearch://;
-      for (xMove = k = 0, len = movableMap.length; k < len; xMove = ++k) {
+      for (xMove = l = 0, len = movableMap.length; l < len; xMove = ++l) {
         mBody = movableMap[xMove];
-        for (yMove = l = 0, len1 = mBody.length; l < len1; yMove = ++l) {
+        for (yMove = m = 0, len1 = mBody.length; m < len1; yMove = ++m) {
           wayStack = mBody[yMove];
           if (!(wayStack !== null && (0 <= (ref2 = wayStack.length) && ref2 <= enemyCell.object.getMove()))) {
             // 行けないので飛ばす
@@ -517,8 +524,8 @@ GameManager = (function() {
           ]);
           // 攻撃可能な相手
           attackables = FieldManager.getAttackableCells(enemyCell.object, xMove, yMove);
-          for (m = 0, len2 = attackables.length; m < len2; m++) {
-            atkCell = attackables[m];
+          for (n = 0, len2 = attackables.length; n < len2; n++) {
+            atkCell = attackables[n];
             atkObj = atkCell.object;
             // 防御側の防御力
             def = myAttackType === ObjectBase.ATTACK_TYPE.PHYSIC ? atkObj.getPDef() : atkObj.getMDef();
@@ -709,7 +716,7 @@ GameManager = (function() {
 
     // 階層をひとつ進める
     static async doWalk() {
-      var cell, i, j, k, l, len, m, nextField, ref, ref1, ref2, ref3, ref4, x, y;
+      var cell, i, j, l, len, m, n, nextField, ref, ref1, ref2, ref3, ref4, x, y;
       this.changeControllable(false);
       // 既にこのターン進んでいた場合
       if (this.flags.isWalkInThisTurn) {
@@ -748,13 +755,13 @@ GameManager = (function() {
         FieldManager.cells[0][y].removeMe();
       }
 // 既存のセルをいっこ左にずらす
-      for (x = k = 1, ref2 = FieldManager.cells.length; (1 <= ref2 ? k < ref2 : k > ref2); x = 1 <= ref2 ? ++k : --k) {
-        for (y = l = 0, ref3 = FieldManager.cells[x].length; (0 <= ref3 ? l < ref3 : l > ref3); y = 0 <= ref3 ? ++l : --l) {
+      for (x = l = 1, ref2 = FieldManager.cells.length; (1 <= ref2 ? l < ref2 : l > ref2); x = 1 <= ref2 ? ++l : --l) {
+        for (y = m = 0, ref3 = FieldManager.cells[x].length; (0 <= ref3 ? m < ref3 : m > ref3); y = 0 <= ref3 ? ++m : --m) {
           FieldManager.cells[x - 1][y] = FieldManager.cells[x][y];
         }
       }
 // 右端に新規の列を追加する
-      for (y = m = 0, ref4 = nextField.length; (0 <= ref4 ? m < ref4 : m > ref4); y = 0 <= ref4 ? ++m : --m) {
+      for (y = n = 0, ref4 = nextField.length; (0 <= ref4 ? n < ref4 : n > ref4); y = 0 <= ref4 ? ++n : --n) {
         FieldManager.cells[FieldManager.CELL_X - 1][y] = nextField[y];
       }
       // 階層インクリメント

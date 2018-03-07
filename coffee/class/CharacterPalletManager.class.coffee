@@ -33,7 +33,7 @@ class CharacterPalletManager
     $('#'+@ID+' > .'+Panel.CLASSNAME).remove()
     for c, index in @characters
       top = index * Panel.SIZE_Y
-      @panels.push(new Panel(@divObject, c, top, 0, true))
+      @panels.push(new Panel(@divObject, c, top, 0, true, true))
 
   @redraw:(object = null)->
     $.each @panels, ->
