@@ -39,8 +39,10 @@ class ItemEquipmentEditor
       itemName = $('<div>').addClass('equipment_item_panel_name').html('なし').appendTo(panel)
       panel.appendTo @equipItems
     else
-      for itemObject in @characterObject.getItems()
-        panel = $('<div>').addClass('equipment_item_panel')
-        itemName = $('<div>').addClass('equipment_item_panel_name').html(itemObject.getName()).appendTo(panel)
-        itemCost = $('<div>').addClass('equipment_item_panel_cost').html(itemObject.getCost()).appendTo(panel)
+      y = 0
+      for [itemObject, level] in @characterObject.getItems()
+        panel = $('<div>').addClass('equipment_item_panel').css('top', ''+y+'px')
+        itemName = $('<div>').addClass('equipment_item_panel_name').html(itemObject.getNameWithLevel(level)).appendTo(panel)
+        itemCost = $('<div>').addClass('equipment_item_panel_cost').html(itemObject.getCost(level)).appendTo(panel)
         panel.appendTo @equipItems
+        y += 50

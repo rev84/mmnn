@@ -34,10 +34,10 @@ class ItemManager
 
   @calcUsedItemCount:->
     @usedItemCount = {}
-    for cObj in GameManager.characters
+    for k, cObj of GameManager.characters
       for [itemObj, level] in cObj.getItems()
         @usedItemCount[itemObj.getId()] = Array(itemObj.getMaxLevel()+1).fill(0) unless itemObj.getId() of @usedItemCount
-        @usedItemCount[id][level]++
+        @usedItemCount[itemObj.getId()][level]++
         
   @repick:->
     ItemEquipmentEditor.select @characters[0]

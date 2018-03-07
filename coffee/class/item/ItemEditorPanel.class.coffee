@@ -11,7 +11,10 @@ class ItemEditorPanel
     $('<div>').html(@itemObject.getName()).addClass('item_editor_header').appendTo(@divObject)
 
     for level in [@itemObject.getMinLevel()..@itemObject.getMaxLevel()]
-      div = $('<div>').addClass('item_editor_item').css({left: level*(60+40)}).appendTo(@divObject)
+      div = $('<div>').addClass('item_editor_item').css({left: level*(60+40)})
+      .appendTo(@divObject)
+      .on('click', @onClickItem.bind(@, level))
+
       itemCountNow = $('<div>').addClass('item_editor_item_count_now')
       itemCountMax = $('<div>').addClass('item_editor_item_count_max')
       itemCostNumber = $('<div>').addClass('item_editor_item_cost_number')
@@ -25,8 +28,8 @@ class ItemEditorPanel
       ).append(
         itemCountMax
       )
-      .on('click', @onClickItem.bind(@, level))
       .appendTo(div)
+      
       $('<div>').addClass('item_editor_item_cost').append(
         itemCostNumber
       ).append(
@@ -43,11 +46,9 @@ class ItemEditorPanel
     
   draw:->
     for level in [@itemObject.getMinLevel()..@itemObject.getMaxLevel()]
-      usedItemCount = 0
-      if @itemObject.getId() of ItemManager.usedItemCount and level of ItemManager.usedItemCount[@itemObject.getId()]
-        usedItemCount = ItemManager.usedItemCount[@itemObject.getId()][level]
-      @itemCountNow[level].html(@itemObject.getAmount(level) - usedItemCount)
-      @itemCountMax[level].html(@itemObject.getAmount(level))
+      usedItemCount = @getUsedCount(level)
+      @itemCountNow[level].html(@getRestCount(level))
+      @itemCountMax[level].html(@getAllCount(level))
       @itemCostNumber[level].html(@itemObject.getCost(level))
 
   show:(y)->
@@ -58,7 +59,23 @@ class ItemEditorPanel
 
 
   onClickItem:(level)->
-    if @itemObject
-      ;
+    return if @getRestCount(level) <= 0
+    cObj = ItemEquipmentEditor.characterObject
+    cObj.setItem @itemObject, level
+    ItemManager.calcUsedItemCount()
+    ItemEquipmentEditor.select cObj
+    @draw()
 
   onClickLevelup:(fromLevel)->
+
+  getUsedCount:(level)->
+    usedItemCount = 0
+    if @itemObject.getId() of ItemManager.usedItemCount and level of ItemManager.usedItemCount[@itemObject.getId()]
+      usedItemCount = ItemManager.usedItemCount[@itemObject.getId()][level]
+    usedItemCount
+
+  getAllCount:(level)->
+    @itemObject.getAmount(level)
+
+  getRestCount:(level)->
+    @getAllCount(level) - @getUsedCount(level)

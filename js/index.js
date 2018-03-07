@@ -1076,12 +1076,12 @@ CharacterBase = class CharacterBase extends ObjectBase {
 
   // 装備中のアイテムのコストの合計を取得
   getItemCostTotal() {
-    var itemId, j, len, ref, total;
+    var itemObject, j, len, level, ref, total;
     total = 0;
     ref = this.items;
     for (j = 0, len = ref.length; j < len; j++) {
-      itemId = ref[j];
-      total += GameManager.items[itemId].getCost(level);
+      [itemObject, level] = ref[j];
+      total += itemObject.getCost(level);
     }
     return total;
   }
@@ -3292,21 +3292,23 @@ ItemEquipmentEditor = (function() {
     }
 
     static drawEquipmentItems() {
-      var itemCost, itemName, itemObject, j, len, panel, ref, results;
+      var itemCost, itemName, itemObject, j, len, level, panel, ref, results, y;
       this.equipItems.find('*').remove();
       if (this.characterObject.getItems().length === 0) {
         panel = $('<div>').addClass('equipment_item_panel');
         itemName = $('<div>').addClass('equipment_item_panel_name').html('なし').appendTo(panel);
         return panel.appendTo(this.equipItems);
       } else {
+        y = 0;
         ref = this.characterObject.getItems();
         results = [];
         for (j = 0, len = ref.length; j < len; j++) {
-          itemObject = ref[j];
-          panel = $('<div>').addClass('equipment_item_panel');
-          itemName = $('<div>').addClass('equipment_item_panel_name').html(itemObject.getName()).appendTo(panel);
-          itemCost = $('<div>').addClass('equipment_item_panel_cost').html(itemObject.getCost()).appendTo(panel);
-          results.push(panel.appendTo(this.equipItems));
+          [itemObject, level] = ref[j];
+          panel = $('<div>').addClass('equipment_item_panel').css('top', '' + y + 'px');
+          itemName = $('<div>').addClass('equipment_item_panel_name').html(itemObject.getNameWithLevel(level)).appendTo(panel);
+          itemCost = $('<div>').addClass('equipment_item_panel_cost').html(itemObject.getCost(level)).appendTo(panel);
+          panel.appendTo(this.equipItems);
+          results.push(y += 50);
         }
         return results;
       }
@@ -3459,22 +3461,22 @@ ItemManager = (function() {
 
     // なければ0個
     static calcUsedItemCount() {
-      var cObj, itemObj, j, len, level, ref, results;
+      var cObj, itemObj, k, level, ref, results;
       this.usedItemCount = {};
       ref = GameManager.characters;
       results = [];
-      for (j = 0, len = ref.length; j < len; j++) {
-        cObj = ref[j];
+      for (k in ref) {
+        cObj = ref[k];
         results.push((function() {
-          var l, len1, ref1, results1;
+          var j, len, ref1, results1;
           ref1 = cObj.getItems();
           results1 = [];
-          for (l = 0, len1 = ref1.length; l < len1; l++) {
-            [itemObj, level] = ref1[l];
+          for (j = 0, len = ref1.length; j < len; j++) {
+            [itemObj, level] = ref1[j];
             if (!(itemObj.getId() in this.usedItemCount)) {
               this.usedItemCount[itemObj.getId()] = Array(itemObj.getMaxLevel() + 1).fill(0);
             }
-            results1.push(this.usedItemCount[id][level]++);
+            results1.push(this.usedItemCount[itemObj.getId()][level]++);
           }
           return results1;
         }).call(this));
@@ -5130,7 +5132,7 @@ ItemEditorPanel = (function() {
       for (level = j = ref = this.itemObject.getMinLevel(), ref1 = this.itemObject.getMaxLevel(); (ref <= ref1 ? j <= ref1 : j >= ref1); level = ref <= ref1 ? ++j : --j) {
         div = $('<div>').addClass('item_editor_item').css({
           left: level * (60 + 40)
-        }).appendTo(this.divObject);
+        }).appendTo(this.divObject).on('click', this.onClickItem.bind(this, level));
         itemCountNow = $('<div>').addClass('item_editor_item_count_now');
         itemCountMax = $('<div>').addClass('item_editor_item_count_max');
         itemCostNumber = $('<div>').addClass('item_editor_item_cost_number');
@@ -5138,7 +5140,7 @@ ItemEditorPanel = (function() {
         this.itemCountMax[level] = itemCountMax;
         this.itemCostNumber[level] = itemCostNumber;
         $('<div>').addClass('item_editor_item_header').html('★' + (level + 1)).appendTo(div);
-        $('<div>').addClass('item_editor_item_count').append(itemCountNow).append(itemCountMax).on('click', this.onClickItem.bind(this, level)).appendTo(div);
+        $('<div>').addClass('item_editor_item_count').append(itemCountNow).append(itemCountMax).appendTo(div);
         $('<div>').addClass('item_editor_item_cost').append(itemCostNumber).append($('<div>').addClass('item_editor_item_cost_header').html('コスト')).appendTo(div);
         if (level + 1 <= this.itemObject.getMaxLevel()) {
           $('<button>').addClass('item_editor_item_levelup').html('▶').css({
@@ -5153,12 +5155,9 @@ ItemEditorPanel = (function() {
       var j, level, ref, ref1, results, usedItemCount;
       results = [];
       for (level = j = ref = this.itemObject.getMinLevel(), ref1 = this.itemObject.getMaxLevel(); (ref <= ref1 ? j <= ref1 : j >= ref1); level = ref <= ref1 ? ++j : --j) {
-        usedItemCount = 0;
-        if (this.itemObject.getId() in ItemManager.usedItemCount && level in ItemManager.usedItemCount[this.itemObject.getId()]) {
-          usedItemCount = ItemManager.usedItemCount[this.itemObject.getId()][level];
-        }
-        this.itemCountNow[level].html(this.itemObject.getAmount(level) - usedItemCount);
-        this.itemCountMax[level].html(this.itemObject.getAmount(level));
+        usedItemCount = this.getUsedCount(level);
+        this.itemCountNow[level].html(this.getRestCount(level));
+        this.itemCountMax[level].html(this.getAllCount(level));
         results.push(this.itemCostNumber[level].html(this.itemObject.getCost(level)));
       }
       return results;
@@ -5173,12 +5172,35 @@ ItemEditorPanel = (function() {
     }
 
     onClickItem(level) {
-      if (this.itemObject) {
-
+      var cObj;
+      if (this.getRestCount(level) <= 0) {
+        return;
       }
+      cObj = ItemEquipmentEditor.characterObject;
+      cObj.setItem(this.itemObject, level);
+      ItemManager.calcUsedItemCount();
+      ItemEquipmentEditor.select(cObj);
+      return this.draw();
     }
 
     onClickLevelup(fromLevel) {}
+
+    getUsedCount(level) {
+      var usedItemCount;
+      usedItemCount = 0;
+      if (this.itemObject.getId() in ItemManager.usedItemCount && level in ItemManager.usedItemCount[this.itemObject.getId()]) {
+        usedItemCount = ItemManager.usedItemCount[this.itemObject.getId()][level];
+      }
+      return usedItemCount;
+    }
+
+    getAllCount(level) {
+      return this.itemObject.getAmount(level);
+    }
+
+    getRestCount(level) {
+      return this.getAllCount(level) - this.getUsedCount(level);
+    }
 
   };
 

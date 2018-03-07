@@ -116,6 +116,6 @@ class CharacterBase extends ObjectBase
   # 装備中のアイテムのコストの合計を取得
   getItemCostTotal:->
     total = 0
-    for itemId in @items
-      total += GameManager.items[itemId].getCost(level)
+    for [itemObject, level] in @items
+      total += itemObject.getCost(level)
     total
