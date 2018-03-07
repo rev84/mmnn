@@ -9,6 +9,9 @@
   -moz-background-size:contain;
   background-size:contain;
 }
+body {
+  overflow: hidden;
+}
 .center {
   text-align:center;
 }

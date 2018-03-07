@@ -10,6 +10,24 @@ class Item
   getAmount:(level)->
     @amount[level]
 
+  upgrade:(level)->
+    return false unless @getMinLevel() <= level <= @getMaxLevel()
+    return false unless @getMinLevel() <= (level+1) <= @getMaxLevel()
+    return false if @decreaseAmount(level) is false
+    @increaseAmount(level+1)
+
+  increaseAmount:(level, amount = 1)->
+    return false unless @getMinLevel() <= level <= @getMaxLevel()
+    return false if amount <= 0
+    @amount[level] += amount
+
+  decreaseAmount:(level, amount = 1)->
+    return false unless @getMinLevel() <= level <= @getMaxLevel()
+    return false if amount <= 0
+    return false if @getAmount(level) - amount < 0
+
+    @amount[level] -= amount
+
   getId:->
     @itemId
 
@@ -22,13 +40,14 @@ class Item
     if @getMaxLevel() - @getMinLevel() is 0
       @getName()
     else
-      @getName()+('★'.repeat(level+1))
+      @getName() + @constructor.level2char(level)
+      
 
   getExpense:(fromLevel, toLevel)->
     return false if toLevel - fromLevel isnt 1
     return false unless @getMinLevel() <= fromLevel <= @getMaxLevel()
     return false unless @getMinLevel() <= toLevel <= @getMaxLevel()
-    @params[fromLevel]
+    @params.expense[fromLevel]
 
   # コスト
   getCost:(level)->
@@ -49,3 +68,11 @@ class Item
     for am in @amount
       return false if am isnt 0
     true
+
+  @level2char:(level)->
+    switch level+1
+      when 1 then 'Ⅰ'
+      when 2 then 'Ⅱ'
+      when 3 then 'Ⅲ'
+      when 4 then 'Ⅳ'
+      when 5 then 'Ⅴ'

@@ -22,7 +22,7 @@ class ItemEditorPanel
       @itemCountMax[level] = itemCountMax
       @itemCostNumber[level] = itemCostNumber
 
-      $('<div>').addClass('item_editor_item_header').html('★'+(level+1)).appendTo(div)
+      $('<div>').addClass('item_editor_item_header').html(Item.level2char(level)).appendTo(div)
       $('<div>').addClass('item_editor_item_count').append(
         itemCountNow
       ).append(
@@ -40,6 +40,11 @@ class ItemEditorPanel
           left: (60+40)*level+60
         })
         .on('click', @onClickLevelup.bind(@, level))
+        .tooltip({
+          'placement' : 'top'
+          'title' : '<img src="./img/juwel.png" style="width: 30px;">'+@itemObject.getExpense(level, level+1)
+          'html' : true
+        })
         .appendTo(@divObject)
 
     @draw()
@@ -73,6 +78,16 @@ class ItemEditorPanel
     @draw()
 
   onClickLevelup:(fromLevel)->
+    # アイテムがない
+    return if @getRestCount(fromLevel) <= 0
+    # ジュエルが足りない
+    return if EnvManager.decreaseJuwel(@itemObject.getExpense(fromLevel, fromLevel+1)) is false
+
+    # アイテムアップグレード
+    return if @itemObject.upgrade(fromLevel) is false
+
+    # 再描画
+    ItemEditor.draw()
 
   getUsedCount:(level)->
     usedItemCount = 0

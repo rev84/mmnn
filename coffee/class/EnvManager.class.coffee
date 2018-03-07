@@ -17,7 +17,7 @@ class EnvManager
   @draw:->
     @lifeObject.html '&#9829;'+@life
     @expObject.html @exp
-    $('<div>').html('EXP').css({
+    $('<span>').html('EXP').css({
       left:0
       height: 60
       position: 'absolute'

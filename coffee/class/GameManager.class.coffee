@@ -2,8 +2,10 @@ class GameManager
   @DEBUG_CONFIG = 
     # 右クリックでメニューをでなくする
     DISABLE_RIGHT_CLICK_MENU : false
-    # 初期経験値
+    # 初期経験値（falseでデバッグ無効）
     START_EXP : 10000
+    # 初期ジュエル（falseでデバッグ無効）
+    START_JUWEL : 10000
     # アイテムが0個でも表示する
     IS_SHOW_ALL_ITEMS : true
 
@@ -284,8 +286,9 @@ class GameManager
     EnvManager.init(@gameElement)
     # デバッグ
     EnvManager.setLife 5
-    EnvManager.setExp (if @DEBUG_CONFIG.startExp is false then 0 else @DEBUG_CONFIG.START_EXP)
+    EnvManager.setExp (if @DEBUG_CONFIG.START_EXP is false then 0 else @DEBUG_CONFIG.START_EXP)
     EnvManager.setFloor 1
+    EnvManager.setJuwel (if @DEBUG_CONFIG.START_JUWEL is false then 0 else @DEBUG_CONFIG.START_JUWEL)
 
   @initPanels:(savedata)->
     return if @initialized.panels

@@ -16,6 +16,7 @@ class ItemEditor
     @divObject.appendTo @parentObject.divObject
 
   @draw:->
+    ItemManager.calcUsedItemCount()
     y = 0
     for panel in @panels
       if !GameManager.DEBUG_CONFIG.IS_SHOW_ALL_ITEMS and panel.itemObject.isNothing()
