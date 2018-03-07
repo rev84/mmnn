@@ -97,7 +97,7 @@ class CharacterBase extends ObjectBase
       if !deleted and iObj.getId() is itemObject.getId() and level is lv
         deleted = true
       else
-        items.push [iObj, level]
+        items.push [iObj, lv]
     @items = items
     deleted
 

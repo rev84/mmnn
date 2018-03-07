@@ -10,8 +10,8 @@ class LevelupManager
     }).appendTo(@parentElement)
 
     @characters = []
-    for c in GameManager.characters
-      @characters.push c
+    for k, cObj of GameManager.characters
+      @characters.push cObj
 
   @draw:->
     @characters.sort (a, b)->

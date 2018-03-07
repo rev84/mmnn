@@ -75,12 +75,51 @@ input[type="range"]::-webkit-slider-thumb:active {
   z-index: 100;
   pointer-events: none;
 }
-#env {
-  border: double 5px #000000;
+#life {
+  width: 200px;
+  height: 60px;
+  color: #ff0000;
+  background: #ffc6ff;
+  border-bottom: solid 6px #d19cd1;
+  border-radius: 9px;
+  font-size: 40px;
+  text-align: center;
+  line-height: 1.4;
 }
-#env > div {
-  font-size: 25px;
-  vertical-align: middle;
+#floor {
+  width: 200px;
+  height: 60px;
+  color: #000000;
+  background: #f4f0ba;
+  border-bottom: solid 6px #ceca94;
+  border-radius: 9px;
+  font-size: 40px;
+  text-align: center;
+  line-height: 1.4;
+}
+#juwel {
+  padding-right: 5px;
+  width: 300px;
+  height: 60px;
+  color: #5989cf;
+  background: #d6f4ba;
+  border-bottom: solid 6px #b6d19c;
+  border-radius: 9px;
+  font-size: 40px;
+  text-align: right;
+  line-height: 1.4;
+}
+#exp {
+  padding-right: 5px;
+  width: 300px;
+  height: 60px;
+  color: #5989cf;
+  background: #c6e4ff;
+  border-bottom: solid 6px #aac5de;
+  border-radius: 9px;
+  font-size: 40px;
+  text-align: right;
+  line-height: 1.4;
 }
 #battle_result {
   background-image: url('../img/battle_result.png');
@@ -129,7 +168,8 @@ input[type="range"]::-webkit-slider-thumb:active {
 .panel {
   border: double 5px #000000;
 }
-.panel, .panel > *, #env > div,
+.panel, .panel > *,
+#exp, #life, #floor, #juwel,
 .levelup_panel, .levelup_panel > *,
 .levelup_controller, .levelup_controller > *,
 #battle_result > *,
@@ -384,4 +424,22 @@ input[type="range"]::-webkit-slider-thumb:active {
   width: 100%;
   height: 25px;
   bottom: 0px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/*スクロールバーの軌道*/
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+}
+
+/*スクロールバーの動く部分*/
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 50, .5);
+  border-radius: 10px;
+  box-shadow:0 0 0 1px rgba(255, 255, 255, .3);
 }

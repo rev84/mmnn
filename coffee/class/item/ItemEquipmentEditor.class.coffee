@@ -42,7 +42,14 @@ class ItemEquipmentEditor
       y = 0
       for [itemObject, level] in @characterObject.getItems()
         panel = $('<div>').addClass('equipment_item_panel').css('top', ''+y+'px')
+                .on('click contextmenu', @onClickItemPanel.bind(@, itemObject, level))
         itemName = $('<div>').addClass('equipment_item_panel_name').html(itemObject.getNameWithLevel(level)).appendTo(panel)
         itemCost = $('<div>').addClass('equipment_item_panel_cost').html(itemObject.getCost(level)).appendTo(panel)
         panel.appendTo @equipItems
         y += 50
+
+  @onClickItemPanel:(itemObject, level)->
+    @characterObject.dropItem itemObject, level
+    ItemManager.calcUsedItemCount()
+    @select @characterObject
+    ItemEditor.draw()

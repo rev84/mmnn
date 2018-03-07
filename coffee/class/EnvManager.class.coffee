@@ -1,46 +1,34 @@
 class EnvManager
   @ID = 'env'
-  @SIZE_X : 200
-  @SIZE_Y : 120
 
   @exp = 0
   @floor = 1
   @life = 5
+  @juwel = 0
 
   @init:(@parentElement)->
-    @divObject = $('<div>').attr('id', @ID).css({
-      width: @SIZE_X
-      height: @SIZE_Y
-    })
-    
-    @lifeObject = $('<div>').css({
-      left:0
-      top:2
-      height:35
-      width:@SIZE_X-10
-    }).appendTo(@divObject)
-
-    @expObject = $('<div>').css({
-      left:0
-      top:40
-      height:35
-      width:@SIZE_X-10
-    }).appendTo(@divObject)
-
-    @floorObject = $('<div>').css({
-      left:0
-      top:77
-      height:35
-      width:@SIZE_X-10
-    }).appendTo(@divObject)
+    @lifeObject = $('<div>').attr('id', 'life').appendTo(@parentElement)
+    @floorObject = $('<div>').attr('id', 'floor').appendTo(@parentElement)
+    @expObject = $('<div>').attr('id', 'exp').appendTo(@parentElement)
+    @juwelObject = $('<div>').attr('id', 'juwel').appendTo(@parentElement)
 
     @draw()
-    @divObject.appendTo @parentElement
 
   @draw:->
     @lifeObject.html '&#9829;'+@life
-    @expObject.html 'EXP:'+@exp
-    @floorObject.html ''+@floor+'階'
+    @expObject.html @exp
+    $('<div>').html('EXP').css({
+      left:0
+      height: 60
+      position: 'absolute'
+    }).appendTo(@expObject)
+    @floorObject.html '公演'+@floor+'日目'
+    @juwelObject.html @juwel
+    $('<img>').attr('src', './img/juwel.png').css({
+      left:0
+      height: 60
+      position: 'absolute'
+    }).appendTo(@juwelObject)
 
   @increaseExp:(amount)->
     return false if amount < 1
@@ -110,3 +98,26 @@ class EnvManager
     @life = life
     @draw()
     @life
+
+  @increaseJuwel:(amount)->
+    return false if amount < 1
+    @juwel += amount
+    @draw()
+    @juwel
+
+  @decreaseJuwel:(amount)->
+    return false if amount < 1
+    return false if @juwel < amount
+    @juwel -= amount
+    @juwel = 0 if @juwel < 0
+    @draw()
+    @juwel
+
+  @getJuwel:->
+    @juwel
+
+  @setJuwel:(juwel)->
+    return false if juwel < 0
+    @juwel = juwel
+    @draw()
+    @juwel

@@ -58,40 +58,38 @@ class GameManager
 
   # アニメーション関係
   @POSITION =
-    BATTLE:
+    COMMON:
       menu:[0,0]
+      exp:[1000, 650]
+      floor:[0, 710]
+      juwel:[1000, 710]
+      life:[0, 650]
+    BATTLE:
       character_pallet:null
       field_visible:[0,0]
-      left_info:[200,630]
-      right_info:[600,630]
-      env:[0, 630]
+      left_info:[200,650]
+      right_info:[600,650]
       levelup:null
       item:null
     CHARACTER_PICK:
-      menu:[0,0]
       character_pallet:[140,50]
       field_visible:[0,0]
       left_info:null
       right_info:null
-      env:[0, 630]
       levelup:null
       item:null
     LEVELUP:
-      menu:[0,0]
       character_pallet:null
       field_visible:[0,0]
       left_info:null
       right_info:null
-      env:[0, 630]
       levelup:[0, 50]
       item:null
     ITEM:
-      menu:[0,0]
       character_pallet:null
       field_visible:null
       left_info:null
       right_info:null
-      env:[0, 630]
       levelup:null
       item:[0, 50]
   @ANIMATION_MSEC = 300
@@ -198,6 +196,10 @@ class GameManager
     @changeControllable false
 
     animationMsec = if isSoon then 0 else @ANIMATION_MSEC
+
+    # COMMONをマージ
+    for id, pos of @POSITION.COMMON
+      ary[id] = pos unless id of ary
 
     # アニメーション登録
     for id, pos of ary

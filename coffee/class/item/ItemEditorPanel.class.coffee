@@ -29,7 +29,7 @@ class ItemEditorPanel
         itemCountMax
       )
       .appendTo(div)
-      
+
       $('<div>').addClass('item_editor_item_cost').append(
         itemCostNumber
       ).append(
@@ -59,8 +59,14 @@ class ItemEditorPanel
 
 
   onClickItem:(level)->
+    # アイテムがもうない
     return if @getRestCount(level) <= 0
+
     cObj = ItemEquipmentEditor.characterObject
+
+    # コストがいっぱい
+    return if cObj.getItemCapacity() < cObj.getItemCostTotal() + @itemObject.getCost(level)
+
     cObj.setItem @itemObject, level
     ItemManager.calcUsedItemCount()
     ItemEquipmentEditor.select cObj

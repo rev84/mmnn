@@ -900,9 +900,9 @@ Cell = (function() {
 
   };
 
-  Cell.SIZE_X = 70;
+  Cell.SIZE_X = 72;
 
-  Cell.SIZE_Y = 70;
+  Cell.SIZE_Y = 72;
 
   // セルのオブジェクトのアニメーションの間隔msec
   Cell.OBJECT_ANIMATION_MSEC = 500;
@@ -1044,7 +1044,7 @@ CharacterBase = class CharacterBase extends ObjectBase {
       if (!deleted && iObj.getId() === itemObject.getId() && level === lv) {
         deleted = true;
       } else {
-        items.push([iObj, level]);
+        items.push([iObj, lv]);
       }
     }
     this.items = items;
@@ -1564,36 +1564,28 @@ EnvManager = (function() {
   class EnvManager {
     static init(parentElement) {
       this.parentElement = parentElement;
-      this.divObject = $('<div>').attr('id', this.ID).css({
-        width: this.SIZE_X,
-        height: this.SIZE_Y
-      });
-      this.lifeObject = $('<div>').css({
-        left: 0,
-        top: 2,
-        height: 35,
-        width: this.SIZE_X - 10
-      }).appendTo(this.divObject);
-      this.expObject = $('<div>').css({
-        left: 0,
-        top: 40,
-        height: 35,
-        width: this.SIZE_X - 10
-      }).appendTo(this.divObject);
-      this.floorObject = $('<div>').css({
-        left: 0,
-        top: 77,
-        height: 35,
-        width: this.SIZE_X - 10
-      }).appendTo(this.divObject);
-      this.draw();
-      return this.divObject.appendTo(this.parentElement);
+      this.lifeObject = $('<div>').attr('id', 'life').appendTo(this.parentElement);
+      this.floorObject = $('<div>').attr('id', 'floor').appendTo(this.parentElement);
+      this.expObject = $('<div>').attr('id', 'exp').appendTo(this.parentElement);
+      this.juwelObject = $('<div>').attr('id', 'juwel').appendTo(this.parentElement);
+      return this.draw();
     }
 
     static draw() {
       this.lifeObject.html('&#9829;' + this.life);
-      this.expObject.html('EXP:' + this.exp);
-      return this.floorObject.html('' + this.floor + '階');
+      this.expObject.html(this.exp);
+      $('<div>').html('EXP').css({
+        left: 0,
+        height: 60,
+        position: 'absolute'
+      }).appendTo(this.expObject);
+      this.floorObject.html('公演' + this.floor + '日目');
+      this.juwelObject.html(this.juwel);
+      return $('<img>').attr('src', './img/juwel.png').css({
+        left: 0,
+        height: 60,
+        position: 'absolute'
+      }).appendTo(this.juwelObject);
     }
 
     static increaseExp(amount) {
@@ -1704,19 +1696,54 @@ EnvManager = (function() {
       return this.life;
     }
 
+    static increaseJuwel(amount) {
+      if (amount < 1) {
+        return false;
+      }
+      this.juwel += amount;
+      this.draw();
+      return this.juwel;
+    }
+
+    static decreaseJuwel(amount) {
+      if (amount < 1) {
+        return false;
+      }
+      if (this.juwel < amount) {
+        return false;
+      }
+      this.juwel -= amount;
+      if (this.juwel < 0) {
+        this.juwel = 0;
+      }
+      this.draw();
+      return this.juwel;
+    }
+
+    static getJuwel() {
+      return this.juwel;
+    }
+
+    static setJuwel(juwel) {
+      if (juwel < 0) {
+        return false;
+      }
+      this.juwel = juwel;
+      this.draw();
+      return this.juwel;
+    }
+
   };
 
   EnvManager.ID = 'env';
-
-  EnvManager.SIZE_X = 200;
-
-  EnvManager.SIZE_Y = 120;
 
   EnvManager.exp = 0;
 
   EnvManager.floor = 1;
 
   EnvManager.life = 5;
+
+  EnvManager.juwel = 0;
 
   return EnvManager;
 
@@ -2258,10 +2285,18 @@ GameManager = (function() {
     }
 
     static partsAnimation(ary, isSoon = false) {
-      var animationMsec, id, pos;
+      var animationMsec, id, pos, ref;
       // 操作不能にする
       this.changeControllable(false);
       animationMsec = isSoon ? 0 : this.ANIMATION_MSEC;
+      ref = this.POSITION.COMMON;
+      // COMMONをマージ
+      for (id in ref) {
+        pos = ref[id];
+        if (!(id in ary)) {
+          ary[id] = pos;
+        }
+      }
 // アニメーション登録
       for (id in ary) {
         pos = ary[id];
@@ -3002,43 +3037,42 @@ GameManager = (function() {
 
   // アニメーション関係
   GameManager.POSITION = {
-    BATTLE: {
+    COMMON: {
       menu: [0, 0],
+      exp: [1000, 650],
+      floor: [0, 710],
+      juwel: [1000, 710],
+      life: [0, 650]
+    },
+    BATTLE: {
       character_pallet: null,
       field_visible: [0, 0],
-      left_info: [200, 630],
-      right_info: [600, 630],
-      env: [0, 630],
+      left_info: [200, 650],
+      right_info: [600, 650],
       levelup: null,
       item: null
     },
     CHARACTER_PICK: {
-      menu: [0, 0],
       character_pallet: [140, 50],
       field_visible: [0, 0],
       left_info: null,
       right_info: null,
-      env: [0, 630],
       levelup: null,
       item: null
     },
     LEVELUP: {
-      menu: [0, 0],
       character_pallet: null,
       field_visible: [0, 0],
       left_info: null,
       right_info: null,
-      env: [0, 630],
       levelup: [0, 50],
       item: null
     },
     ITEM: {
-      menu: [0, 0],
       character_pallet: null,
       field_visible: null,
       left_info: null,
       right_info: null,
-      env: [0, 630],
       levelup: null,
       item: [0, 50]
     }
@@ -3304,7 +3338,7 @@ ItemEquipmentEditor = (function() {
         results = [];
         for (j = 0, len = ref.length; j < len; j++) {
           [itemObject, level] = ref[j];
-          panel = $('<div>').addClass('equipment_item_panel').css('top', '' + y + 'px');
+          panel = $('<div>').addClass('equipment_item_panel').css('top', '' + y + 'px').on('click contextmenu', this.onClickItemPanel.bind(this, itemObject, level));
           itemName = $('<div>').addClass('equipment_item_panel_name').html(itemObject.getNameWithLevel(level)).appendTo(panel);
           itemCost = $('<div>').addClass('equipment_item_panel_cost').html(itemObject.getCost(level)).appendTo(panel);
           panel.appendTo(this.equipItems);
@@ -3312,6 +3346,13 @@ ItemEquipmentEditor = (function() {
         }
         return results;
       }
+    }
+
+    static onClickItemPanel(itemObject, level) {
+      this.characterObject.dropItem(itemObject, level);
+      ItemManager.calcUsedItemCount();
+      this.select(this.characterObject);
+      return ItemEditor.draw();
     }
 
   };
@@ -3593,7 +3634,7 @@ LevelupController = (function() {
 LevelupManager = (function() {
   class LevelupManager {
     static init(parentElement) {
-      var c, j, len, ref, results;
+      var cObj, k, ref, results;
       this.parentElement = parentElement;
       this.divObject = $('<div>').attr('id', this.ID).css({
         width: this.SIZE_X,
@@ -3602,9 +3643,9 @@ LevelupManager = (function() {
       this.characters = [];
       ref = GameManager.characters;
       results = [];
-      for (j = 0, len = ref.length; j < len; j++) {
-        c = ref[j];
-        results.push(this.characters.push(c));
+      for (k in ref) {
+        cObj = ref[k];
+        results.push(this.characters.push(cObj));
       }
       return results;
     }
@@ -5173,10 +5214,15 @@ ItemEditorPanel = (function() {
 
     onClickItem(level) {
       var cObj;
+      // アイテムがもうない
       if (this.getRestCount(level) <= 0) {
         return;
       }
       cObj = ItemEquipmentEditor.characterObject;
+      // コストがいっぱい
+      if (cObj.getItemCapacity() < cObj.getItemCostTotal() + this.itemObject.getCost(level)) {
+        return;
+      }
       cObj.setItem(this.itemObject, level);
       ItemManager.calcUsedItemCount();
       ItemEquipmentEditor.select(cObj);
