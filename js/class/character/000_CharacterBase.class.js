@@ -208,6 +208,7 @@ CharacterBase = (function() {
     death() {
       this.setMoved(false);
       this.setInField(false);
+      this.hp = null;
       return this.setComebackTurn(this.getComebackTurnStart());
     }
 

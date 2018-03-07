@@ -138,6 +138,7 @@ class CharacterBase extends ObjectBase
   death:->
     @setMoved false
     @setInField false
+    @hp = null
     @setComebackTurn @getComebackTurnStart()
 
   # アイテム装備可能数（開始時）
