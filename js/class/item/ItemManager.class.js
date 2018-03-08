@@ -87,6 +87,22 @@ ItemManager = (function() {
       return this.divObject.addClass('no_display');
     }
 
+    // アイテムテーブルを指定すれば、そのテーブルで落ちるアイテムを返す。falseはジュエルにする
+    static getItemObjectFromItemTableId(itemTableId) {
+      var itemId, itemObject, ref, seed, total;
+      seed = Math.random();
+      total = 0;
+      ref = this.items;
+      for (itemId in ref) {
+        itemObject = ref[itemId];
+        total += itemObject.getItemRate(itemTableId);
+        if (seed < total) {
+          return itemObject;
+        }
+      }
+      return false;
+    }
+
   };
 
   ItemManager.ID = 'item';

@@ -18,11 +18,11 @@ function updateItem()
   $script = '';
 
   # キャラクター
-  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'アイテム設定!A3:W');
+  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'アイテム設定!A3:X');
   $values = $response->getValues();
   $items = [];
   foreach ($values as $vAry) {
-    list($itemId, $displayOrder, $name, $description, $cost1, $cost2, $cost3, $cost4, $cost5, $expense2, $expense3, $expense4, $expense5, $hpRate, $atkRate, $pDefRate, $mDefRate, $costRate, $movePlus, $rangePlus, $hitPlus, $dodgePlus, $returnPlus) = array_merge($vAry, array_fill(0, 100, null));
+    list($itemId, $displayOrder, $name, $description, $cost1, $cost2, $cost3, $cost4, $cost5, $expense2, $expense3, $expense4, $expense5, $hpRate, $atkRate, $pDefRate, $mDefRate, $costRate, $movePlus, $rangePlus, $hitPlus, $dodgePlus, $returnPlus, $itemTable1) = array_merge($vAry, array_fill(0, 100, null));
 
     $imgFile = './img/item/'.$itemId.'.png';
 
@@ -46,6 +46,9 @@ function updateItem()
       'hitPlus' => ($hitPlus == '' ? null : (int)$hitPlus),
       'dodgePlus' => ($dodgePlus == '' ? null : (int)$dodgePlus),
       'returnPlus' => ($returnPlus == '' ? null : (int)$returnPlus),
+      'itemTable' => [
+        ($itemTable1 == '' ? null : (float)$itemTable1)
+      ],
     ];
   }
 
@@ -77,10 +80,10 @@ window.EnemyList = {
 EOM;
 
   # キャラクター
-  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, '敵キャラ設定!A2:P');
+  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, '敵キャラ設定!A2:S');
   $values = $response->getValues();
   foreach ($values as $vAry) {
-    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $abilityName, $abilityDesc, $appearance, $expRate) = $vAry;
+    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $abilityName, $abilityDesc, $appearance, $expRate, $itemRate, $itemTableId, $itemJuwelAmount) = $vAry;
 
     $attackTypeBase = ($attackTypeBase == '物理' ? 'ObjectBase.ATTACK_TYPE.PHYSIC' : 'ObjectBase.ATTACK_TYPE.MAGIC');
 
@@ -124,6 +127,12 @@ class {$className}Base extends EnemyBase
   @appearance = {$appearance}
   # 経験値係数
   @expRate = {$expRate}
+  # アイテムを落とす確率
+  @itemRate = {$itemRate}
+  # アイテムのドロップテーブルID
+  @itemTableId = {$itemTableId}
+  # アイテムがジュエルになる時の額
+  @itemJuwelAmount = {$itemJuwelAmount}
 
   @abilityName = "{$abilityName}"
   @abilityDesc = "{$abilityDesc}"

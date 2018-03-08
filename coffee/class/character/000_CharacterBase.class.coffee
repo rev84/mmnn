@@ -182,6 +182,9 @@ class CharacterBase extends ObjectBase
     @items = items
     deleted
 
+  dropAllItem:->
+    @items = []
+
   # 装備中のアイテムを取得
   getItems:->
     @items.sort (a, b)->

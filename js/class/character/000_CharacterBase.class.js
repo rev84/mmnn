@@ -273,6 +273,10 @@ CharacterBase = (function() {
       return deleted;
     }
 
+    dropAllItem() {
+      return this.items = [];
+    }
+
     // 装備中のアイテムを取得
     getItems() {
       this.items.sort(function(a, b) {

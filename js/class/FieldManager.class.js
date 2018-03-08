@@ -348,6 +348,8 @@ FieldManager = (function() {
               } else if (c.object.isEnemyObject()) {
                 // 敵が死んだなら経験値加算
                 EnvManager.increaseExp(c.object.getExp());
+                // アイテム入手判定
+                await c.object.dropItem();
               }
               // オブジェクト消す
               c.object = null;

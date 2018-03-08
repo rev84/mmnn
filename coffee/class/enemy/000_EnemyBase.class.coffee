@@ -32,3 +32,25 @@ class EnemyBase extends ObjectBase
 
   setMoved:(bool)->
     @moved = !!bool
+
+  getJuwel:->
+    @constructor.itemJuwelAmount
+
+  getItemTableId:->
+    @constructor.itemTableId
+
+  dropItem:->
+    seed = Math.random()
+
+    # アイテムを落とす
+    if seed < @constructor.itemRate
+      res = ItemManager.getItemObjectFromItemTableId @getItemTableId()
+      # ジュエルにする
+      if res is false
+        EnvManager.increaseJuwel @getJuwel()
+        await ItemWindow.showJuwel @getJuwel()
+      # 最低レベルのアイテムを与える
+      else
+        res.increaseAmount 0
+        await ItemWindow.showItem res
+

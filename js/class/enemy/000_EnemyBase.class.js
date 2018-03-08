@@ -39,4 +39,30 @@ EnemyBase = class EnemyBase extends ObjectBase {
     return this.moved = !!bool;
   }
 
+  getJuwel() {
+    return this.constructor.itemJuwelAmount;
+  }
+
+  getItemTableId() {
+    return this.constructor.itemTableId;
+  }
+
+  async dropItem() {
+    var res, seed;
+    seed = Math.random();
+    // アイテムを落とす
+    if (seed < this.constructor.itemRate) {
+      res = ItemManager.getItemObjectFromItemTableId(this.getItemTableId());
+      // ジュエルにする
+      if (res === false) {
+        EnvManager.increaseJuwel(this.getJuwel());
+        return (await ItemWindow.showJuwel(this.getJuwel()));
+      } else {
+        // 最低レベルのアイテムを与える
+        res.increaseAmount(0);
+        return (await ItemWindow.showItem(res));
+      }
+    }
+  }
+
 };

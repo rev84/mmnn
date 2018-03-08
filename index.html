@@ -245,6 +245,7 @@
 <script src="./js/class/item/ItemEquipmentEditor.class.js"></script>
 <script src="./js/class/item/ItemList.js"></script>
 <script src="./js/class/item/ItemManager.class.js"></script>
+<script src="./js/class/ItemWindow.class.js"></script>
 <script src="./js/class/LeftInfoManager.class.js"></script>
 <script src="./js/class/LevelupController.class.js"></script>
 <script src="./js/class/LevelupManager.class.js"></script>
@@ -297,7 +298,23 @@
 </nav>
 -->
 
-
+<div class="modal fade" id="item_window" tabindex="-1" role="dialog" aria-labelledby="item_window_label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        アイテムを入手しました！
+      </div>
+      <div class="modal-body">
+        <img id="item_window_img">
+        <span id="item_window_name"></span>
+        <div id="item_window_description"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

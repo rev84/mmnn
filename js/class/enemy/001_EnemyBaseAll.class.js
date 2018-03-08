@@ -51,6 +51,15 @@ Enemy1Base = (function() {
   // 経験値係数
   Enemy1Base.expRate = 2;
 
+  // アイテムを落とす確率
+  Enemy1Base.itemRate = 1;
+
+  // アイテムのドロップテーブルID
+  Enemy1Base.itemTableId = 1;
+
+  // アイテムがジュエルになる時の額
+  Enemy1Base.itemJuwelAmount = 50;
+
   Enemy1Base.abilityName = "なし";
 
   Enemy1Base.abilityDesc = "なし";
@@ -108,6 +117,15 @@ Enemy2Base = (function() {
 
   // 経験値係数
   Enemy2Base.expRate = 2;
+
+  // アイテムを落とす確率
+  Enemy2Base.itemRate = 1;
+
+  // アイテムのドロップテーブルID
+  Enemy2Base.itemTableId = 1;
+
+  // アイテムがジュエルになる時の額
+  Enemy2Base.itemJuwelAmount = 50;
 
   Enemy2Base.abilityName = "なし";
 
@@ -167,6 +185,15 @@ Enemy3Base = (function() {
   // 経験値係数
   Enemy3Base.expRate = 2;
 
+  // アイテムを落とす確率
+  Enemy3Base.itemRate = 1;
+
+  // アイテムのドロップテーブルID
+  Enemy3Base.itemTableId = 1;
+
+  // アイテムがジュエルになる時の額
+  Enemy3Base.itemJuwelAmount = 50;
+
   Enemy3Base.abilityName = "なし";
 
   Enemy3Base.abilityDesc = "なし";
@@ -225,6 +252,15 @@ Enemy4Base = (function() {
   // 経験値係数
   Enemy4Base.expRate = 2;
 
+  // アイテムを落とす確率
+  Enemy4Base.itemRate = 1;
+
+  // アイテムのドロップテーブルID
+  Enemy4Base.itemTableId = 1;
+
+  // アイテムがジュエルになる時の額
+  Enemy4Base.itemJuwelAmount = 50;
+
   Enemy4Base.abilityName = "なし";
 
   Enemy4Base.abilityDesc = "なし";
@@ -282,6 +318,15 @@ Enemy5Base = (function() {
 
   // 経験値係数
   Enemy5Base.expRate = 2;
+
+  // アイテムを落とす確率
+  Enemy5Base.itemRate = 1;
+
+  // アイテムのドロップテーブルID
+  Enemy5Base.itemTableId = 1;
+
+  // アイテムがジュエルになる時の額
+  Enemy5Base.itemJuwelAmount = 50;
 
   Enemy5Base.abilityName = "なし";
 

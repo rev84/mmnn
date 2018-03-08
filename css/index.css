@@ -290,10 +290,18 @@ input[type="range"]::-webkit-slider-thumb:active {
 .equipment_editor_section {
   top: 120px;
   left: 0px;
-  width: 400px;
+  width: 80px;
   height: 50px;
   background-image: url('../img/equipment.png');
 }
+.equipment_editor_remove_all {
+  top: 120px;
+  right: 0px;
+  width: 100px;
+  height: 50px;
+  background-image: url('../img/equipment_remove_all.png');
+}
+
 .equipment_editor_items {
   top: 170px;
   left: 0px;

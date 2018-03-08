@@ -254,6 +254,7 @@ class GameManager
     @initItems({
       "1" : [1,2,3,4,5]
     })
+    @initItemWindow(null)
     @initBattleResult(null)
 
     @gameElement.appendTo('body')
@@ -359,6 +360,13 @@ class GameManager
     window.ItemList = undefined
 
     ItemManager.init(@gameElement, savedata)
+
+  # アイテムウインドウ初期化
+  @initItemWindow:(savedata)->
+    return if @initialized.itemWindow
+    @initialized.itemWindow = true
+
+    ItemWindow.init(savedata)
 
   @isControllable:->
     @flags.controllable

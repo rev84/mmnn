@@ -31,6 +31,10 @@ class Item
   getId:->
     @itemId
 
+  getImage:->
+    #'./img/item/'+@getId()+'.png'
+    './img/item/default.png'
+
   # 名前を取得
   getName:->
     @params.name
@@ -42,6 +46,10 @@ class Item
     else
       @getName() + @constructor.level2char(level)
       
+  # 説明を取得
+  getDescription:->
+    @params.description
+
   getExpense:(fromLevel, toLevel)->
     return false if toLevel - fromLevel isnt 1
     return false unless @getMinLevel() <= fromLevel <= @getMaxLevel()
@@ -117,6 +125,10 @@ class Item
     for am in @amount
       return false if am isnt 0
     true
+
+  # テーブルIDにおける出現確率
+  getItemRate:(itemTableId)->
+    @params.itemTable[itemTableId-1]
 
   @level2char:(level)->
     switch level+1

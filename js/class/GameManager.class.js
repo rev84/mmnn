@@ -203,6 +203,7 @@ GameManager = (function() {
       this.initItems({
         "1": [1, 2, 3, 4, 5]
       });
+      this.initItemWindow(null);
       this.initBattleResult(null);
       this.gameElement.appendTo('body');
       // 戦闘モードにする
@@ -330,6 +331,15 @@ GameManager = (function() {
       this.items = window.ItemList;
       window.ItemList = void 0;
       return ItemManager.init(this.gameElement, savedata);
+    }
+
+    // アイテムウインドウ初期化
+    static initItemWindow(savedata) {
+      if (this.initialized.itemWindow) {
+        return;
+      }
+      this.initialized.itemWindow = true;
+      return ItemWindow.init(savedata);
     }
 
     static isControllable() {

@@ -47,3 +47,12 @@ class ItemManager
 
   @hide:->
     @divObject.addClass('no_display')
+
+  # アイテムテーブルを指定すれば、そのテーブルで落ちるアイテムを返す。falseはジュエルにする
+  @getItemObjectFromItemTableId:(itemTableId)->
+    seed = Math.random()
+    total = 0
+    for itemId, itemObject of @items
+      total += itemObject.getItemRate(itemTableId)
+      return itemObject if seed < total
+    false

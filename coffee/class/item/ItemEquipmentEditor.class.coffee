@@ -5,6 +5,8 @@ class ItemEquipmentEditor
     @divObject = $('<div>').attr('id', @ID)
     # ラベル
     $('<div>').addClass('equipment_editor_section').appendTo(@divObject)
+    # 全解除
+    $('<div>').addClass('equipment_editor_remove_all').on('click', @onClickRemoveAll.bind(@)).appendTo(@divObject)
     # パネル
     @panel = null
     # 装備品一覧
@@ -29,12 +31,16 @@ class ItemEquipmentEditor
     @panel = new Panel(@divObject, @characterObject, null, null, false)
 
   @drawCost:(newItem = null, dropItem = null)->
-    @costMax.html(@characterObject.getItemCapacity())
-    @costNow.html(@characterObject.getItemCostTotal())
+    max = if @characterObject is null then '-' else @characterObject.getItemCapacity()
+    now = if @characterObject is null then '-' else @characterObject.getItemCostTotal()
+    @costMax.html(max)
+    @costNow.html(now)
 
   @drawEquipmentItems:->
     @equipItems.find('*').remove()
-    if @characterObject.getItems().length is 0
+    if @characterObject is null
+      ;
+    else if @characterObject.getItems().length is 0
       panel = $('<div>').addClass('equipment_item_panel')
       itemName = $('<div>').addClass('equipment_item_panel_name').html('なし').appendTo(panel)
       panel.appendTo @equipItems
@@ -53,3 +59,12 @@ class ItemEquipmentEditor
     ItemManager.calcUsedItemCount()
     @select @characterObject
     ItemEditor.draw()
+
+  @onClickRemoveAll:->
+    return if @characterObject is null
+
+    @characterObject.dropAllItem()
+    ItemManager.calcUsedItemCount()
+    @select @characterObject
+    ItemEditor.draw()
+    

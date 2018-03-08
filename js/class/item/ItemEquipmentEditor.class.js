@@ -8,6 +8,8 @@ ItemEquipmentEditor = (function() {
       this.divObject = $('<div>').attr('id', this.ID);
       // ラベル
       $('<div>').addClass('equipment_editor_section').appendTo(this.divObject);
+      // 全解除
+      $('<div>').addClass('equipment_editor_remove_all').on('click', this.onClickRemoveAll.bind(this)).appendTo(this.divObject);
       // パネル
       this.panel = null;
       // 装備品一覧
@@ -36,14 +38,19 @@ ItemEquipmentEditor = (function() {
     }
 
     static drawCost(newItem = null, dropItem = null) {
-      this.costMax.html(this.characterObject.getItemCapacity());
-      return this.costNow.html(this.characterObject.getItemCostTotal());
+      var max, now;
+      max = this.characterObject === null ? '-' : this.characterObject.getItemCapacity();
+      now = this.characterObject === null ? '-' : this.characterObject.getItemCostTotal();
+      this.costMax.html(max);
+      return this.costNow.html(now);
     }
 
     static drawEquipmentItems() {
       var i, itemCost, itemName, itemObject, len, level, panel, ref, results, y;
       this.equipItems.find('*').remove();
-      if (this.characterObject.getItems().length === 0) {
+      if (this.characterObject === null) {
+
+      } else if (this.characterObject.getItems().length === 0) {
         panel = $('<div>').addClass('equipment_item_panel');
         itemName = $('<div>').addClass('equipment_item_panel_name').html('なし').appendTo(panel);
         return panel.appendTo(this.equipItems);
@@ -65,6 +72,16 @@ ItemEquipmentEditor = (function() {
 
     static onClickItemPanel(itemObject, level) {
       this.characterObject.dropItem(itemObject, level);
+      ItemManager.calcUsedItemCount();
+      this.select(this.characterObject);
+      return ItemEditor.draw();
+    }
+
+    static onClickRemoveAll() {
+      if (this.characterObject === null) {
+        return;
+      }
+      this.characterObject.dropAllItem();
       ItemManager.calcUsedItemCount();
       this.select(this.characterObject);
       return ItemEditor.draw();

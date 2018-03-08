@@ -62,6 +62,11 @@ Item = class Item {
     return this.itemId;
   }
 
+  getImage() {
+    //'./img/item/'+@getId()+'.png'
+    return './img/item/default.png';
+  }
+
   // 名前を取得
   getName() {
     return this.params.name;
@@ -74,6 +79,12 @@ Item = class Item {
     } else {
       return this.getName() + this.constructor.level2char(level);
     }
+  }
+
+  
+  // 説明を取得
+  getDescription() {
+    return this.params.description;
   }
 
   getExpense(fromLevel, toLevel) {
@@ -200,6 +211,11 @@ Item = class Item {
       }
     }
     return true;
+  }
+
+  // テーブルIDにおける出現確率
+  getItemRate(itemTableId) {
+    return this.params.itemTable[itemTableId - 1];
   }
 
   static level2char(level) {
