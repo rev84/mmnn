@@ -376,6 +376,10 @@ FieldManager = (function() {
           100 // ランダムな敵
         ],
         [
+          'PRESENT',
+          10 // プレゼント
+        ],
+        [
           'EMPTY',
           100 // 空っぽ
         ]
