@@ -165,7 +165,7 @@ class Character4Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "相川千夏"
 
-  @abilityName = "なし"
+  @abilityName = "代官山系お洒落または語学"
   @abilityDesc = "なし"
 
   constructor:(params)->
@@ -208,7 +208,7 @@ class Character5Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "愛野渚"
 
-  @abilityName = "なし"
+  @abilityName = "バスケ部キャプテン"
   @abilityDesc = "なし"
 
   constructor:(params)->
@@ -294,7 +294,7 @@ class Character7Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "相原雪乃"
 
-  @abilityName = "なし"
+  @abilityName = "紅茶大好きなお嬢様"
   @abilityDesc = "なし"
 
   constructor:(params)->
@@ -380,7 +380,7 @@ class Character9Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "赤西瑛梨華"
 
-  @abilityName = "なし"
+  @abilityName = "O・WA・RA・I"
   @abilityDesc = "なし"
 
   constructor:(params)->
@@ -423,7 +423,7 @@ class Character10Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "浅野風香"
 
-  @abilityName = "なし"
+  @abilityName = "セクシー小動物"
   @abilityDesc = "なし"
 
   constructor:(params)->
@@ -466,7 +466,7 @@ class Character11Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "浅利七海"
 
-  @abilityName = "なし"
+  @abilityName = "さかなくん"
   @abilityDesc = "なし"
 
   constructor:(params)->
@@ -509,7 +509,7 @@ class Character12Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "アナスタシア"
 
-  @abilityName = "なし"
+  @abilityName = "星をみるひとパパがロシア人なの"
   @abilityDesc = "なし"
 
   constructor:(params)->

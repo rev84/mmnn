@@ -204,13 +204,14 @@ EnvManager = (function() {
         await Utl.sleep(1000);
       }
       for (t = i = 0, ref = decreaseFloor; (0 <= ref ? i < ref : i > ref); t = 0 <= ref ? ++i : --i) {
-        this.decreaseFloor();
+        this.decreaseFloor(1);
         await Utl.sleep(10);
       }
       // 全消去
       FieldManager.removeAllObject();
       FieldManager.removeAllKnockout();
       FieldManager.removeAllWayStack();
+      FieldManager.draw();
       ref1 = GameManager.characters;
       // 全キャラ復活
       for (j = 0, len = ref1.length; j < len; j++) {

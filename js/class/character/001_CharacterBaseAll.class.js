@@ -273,7 +273,7 @@ Character4Base = (function() {
   // 死んだ時の台詞
   Character4Base.textDeath = "相川千夏";
 
-  Character4Base.abilityName = "なし";
+  Character4Base.abilityName = "代官山系お洒落または語学";
 
   Character4Base.abilityDesc = "なし";
 
@@ -343,7 +343,7 @@ Character5Base = (function() {
   // 死んだ時の台詞
   Character5Base.textDeath = "愛野渚";
 
-  Character5Base.abilityName = "なし";
+  Character5Base.abilityName = "バスケ部キャプテン";
 
   Character5Base.abilityDesc = "なし";
 
@@ -483,7 +483,7 @@ Character7Base = (function() {
   // 死んだ時の台詞
   Character7Base.textDeath = "相原雪乃";
 
-  Character7Base.abilityName = "なし";
+  Character7Base.abilityName = "紅茶大好きなお嬢様";
 
   Character7Base.abilityDesc = "なし";
 
@@ -623,7 +623,7 @@ Character9Base = (function() {
   // 死んだ時の台詞
   Character9Base.textDeath = "赤西瑛梨華";
 
-  Character9Base.abilityName = "なし";
+  Character9Base.abilityName = "O・WA・RA・I";
 
   Character9Base.abilityDesc = "なし";
 
@@ -693,7 +693,7 @@ Character10Base = (function() {
   // 死んだ時の台詞
   Character10Base.textDeath = "浅野風香";
 
-  Character10Base.abilityName = "なし";
+  Character10Base.abilityName = "セクシー小動物";
 
   Character10Base.abilityDesc = "なし";
 
@@ -763,7 +763,7 @@ Character11Base = (function() {
   // 死んだ時の台詞
   Character11Base.textDeath = "浅利七海";
 
-  Character11Base.abilityName = "なし";
+  Character11Base.abilityName = "さかなくん";
 
   Character11Base.abilityDesc = "なし";
 
@@ -833,7 +833,7 @@ Character12Base = (function() {
   // 死んだ時の台詞
   Character12Base.textDeath = "アナスタシア";
 
-  Character12Base.abilityName = "なし";
+  Character12Base.abilityName = "星をみるひとパパがロシア人なの";
 
   Character12Base.abilityDesc = "なし";
 

@@ -154,13 +154,14 @@ class EnvManager
     await Utl.sleep(1000) while !@DEATH_PENALTY_CLOSED
 
     for t in [0...decreaseFloor]
-      @decreaseFloor()
+      @decreaseFloor(1)
       await Utl.sleep(10)
 
     # 全消去
     FieldManager.removeAllObject()
     FieldManager.removeAllKnockout()
     FieldManager.removeAllWayStack()
+    FieldManager.draw()
     # 全キャラ復活
     for c in GameManager.characters
       c.setComeback 0
