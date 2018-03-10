@@ -2,9 +2,9 @@ class Enemy1Base extends EnemyBase
   # ID
   @characterId = 1
   # キャラ名
-  @characterName = "きゃんきゃん"
+  @characterName = "キモヲタくん"
   # 画像のリスト
-  @images = ["./img/enemy/1/1005010301_001.png","./img/enemy/1/1005010301_003.png"]
+  @images = ["./img/enemy/1/enemy_kimowota_1.png","./img/enemy/1/enemy_kimowota_2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力

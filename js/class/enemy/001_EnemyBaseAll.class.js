@@ -13,10 +13,10 @@ Enemy1Base = (function() {
   Enemy1Base.characterId = 1;
 
   // キャラ名
-  Enemy1Base.characterName = "きゃんきゃん";
+  Enemy1Base.characterName = "キモヲタくん";
 
   // 画像のリスト
-  Enemy1Base.images = ["./img/enemy/1/1005010301_001.png", "./img/enemy/1/1005010301_003.png"];
+  Enemy1Base.images = ["./img/enemy/1/enemy_kimowota_1.png", "./img/enemy/1/enemy_kimowota_2.png"];
 
   // 基本攻撃タイプ
   Enemy1Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
