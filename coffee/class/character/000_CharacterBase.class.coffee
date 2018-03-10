@@ -29,11 +29,20 @@ class CharacterBase extends ObjectBase
     # アイテム装備可能数
     @itemCapacityPlus = params.itemCapacityPlus
 
-    # 装備中のアイテム
-    @items = params.items
-
     # 復帰までに必要なターン
     @comebackTurn = params.comebackTurn
+
+  serialize:->
+    {
+      joined: @joined
+      level: @level
+      hp: @hp
+      items: @items
+      inField: @inField
+      moved: @moved
+      itemCapacityPlus: @itemCapacityPlus
+      comebackTurn: @comebackTurn
+    }
 
   getId:->
     @constructor.characterId

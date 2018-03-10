@@ -14,6 +14,8 @@ class EnemyBase extends ObjectBase
     # 行動済みであるか
     @moved = params.moved
 
+  serialize:->
+
   getId:->
     @constructor.characterId
 

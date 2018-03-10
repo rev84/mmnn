@@ -3,6 +3,12 @@ class Item
     @amount = []
     @amount[level] = 0 for level in [0...@params.cost.length]
 
+  serialize:->
+    {
+      id: @itemId
+      amount: @amount
+    }
+
   # 持ってる数を設定
   setAmount:(level, amount)->
     @amount[level] = amount

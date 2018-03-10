@@ -12,6 +12,13 @@ Item = class Item {
     }
   }
 
+  serialize() {
+    return {
+      id: this.itemId,
+      amount: this.amount
+    };
+  }
+
   // 持ってる数を設定
   setAmount(level, amount) {
     return this.amount[level] = amount;

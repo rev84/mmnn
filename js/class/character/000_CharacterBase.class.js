@@ -23,10 +23,21 @@ CharacterBase = (function() {
       this.moved = params.moved;
       // アイテム装備可能数
       this.itemCapacityPlus = params.itemCapacityPlus;
-      // 装備中のアイテム
-      this.items = params.items;
       // 復帰までに必要なターン
       this.comebackTurn = params.comebackTurn;
+    }
+
+    serialize() {
+      return {
+        joined: this.joined,
+        level: this.level,
+        hp: this.hp,
+        items: this.items,
+        inField: this.inField,
+        moved: this.moved,
+        itemCapacityPlus: this.itemCapacityPlus,
+        comebackTurn: this.comebackTurn
+      };
     }
 
     getId() {

@@ -14,6 +14,8 @@ EnemyBase = class EnemyBase extends ObjectBase {
     this.moved = params.moved;
   }
 
+  serialize() {}
+
   getId() {
     return this.constructor.characterId;
   }
