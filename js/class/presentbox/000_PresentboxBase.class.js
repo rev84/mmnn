@@ -67,6 +67,15 @@ PresentboxBase = (function() {
   // 受取期限
   PresentboxBase.receiveTurn = +2e308;
 
+  // アイテムを落とす確率
+  PresentboxBase.itemRate = 1;
+
+  // アイテムのドロップテーブルID
+  PresentboxBase.itemTableId = 1;
+
+  // アイテムがジュエルになる時の額
+  PresentboxBase.itemJuwelAmount = 50;
+
   return PresentboxBase;
 
 }).call(this);

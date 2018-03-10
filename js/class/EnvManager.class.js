@@ -9,6 +9,9 @@ EnvManager = (function() {
       this.floorObject = $('<div>').attr('id', 'floor').appendTo(this.parentElement);
       this.expObject = $('<div>').attr('id', 'exp').appendTo(this.parentElement);
       this.juwelObject = $('<div>').attr('id', 'juwel').appendTo(this.parentElement);
+      // デスペナルティのウインドウ
+      this.deathPenaltyWindow = $('#death_penalty_window').on('hidden.bs.modal', this.onCloseDeathPenaltyWindow.bind(this));
+      this.deathPenaltyFloor = $('#death_penalty_decrease_floor');
       return this.draw();
     }
 
@@ -124,6 +127,10 @@ EnvManager = (function() {
       return this.life;
     }
 
+    static resetLife() {
+      return this.life = this.lifeMax;
+    }
+
     static getLife() {
       return this.life;
     }
@@ -174,6 +181,53 @@ EnvManager = (function() {
       return this.juwel;
     }
 
+    // ライフが0になった時の処理
+    static async deathPenalty() {
+      var c, decreaseFloor, i, j, len, ref, ref1, t;
+      if (this.getLife() > 0) {
+        return false;
+      }
+      await Utl.sleep(2000);
+      this.DEATH_PENALTY_CLOSED = false;
+      // 戻す日数
+      decreaseFloor = Math.ceil(this.getFloor() * 0.1);
+      if (100 < decreaseFloor) {
+        decreaseFloor = 100;
+      }
+      if (this.getFloor() - decreaseFloor < 1) {
+        decreaseFloor = 0;
+      }
+      this.deathPenaltyFloor.html(this.getFloor() - decreaseFloor);
+      this.deathPenaltyWindow.modal('show');
+      this.DEATH_PENALTY_CLOSED = false;
+      while (!this.DEATH_PENALTY_CLOSED) {
+        await Utl.sleep(1000);
+      }
+      for (t = i = 0, ref = decreaseFloor; (0 <= ref ? i < ref : i > ref); t = 0 <= ref ? ++i : --i) {
+        this.decreaseFloor();
+        await Utl.sleep(10);
+      }
+      // 全消去
+      FieldManager.removeAllObject();
+      FieldManager.removeAllKnockout();
+      FieldManager.removeAllWayStack();
+      ref1 = GameManager.characters;
+      // 全キャラ復活
+      for (j = 0, len = ref1.length; j < len; j++) {
+        c = ref1[j];
+        c.setComeback(0);
+      }
+      // 移動・攻撃・戻るモードを解除
+      GameManager.flags.movePickCell = null;
+      GameManager.flags.moveToCell = null;
+      GameManager.flags.waitAttackCell = null;
+      return true;
+    }
+
+    static onCloseDeathPenaltyWindow() {
+      return this.DEATH_PENALTY_CLOSED = true;
+    }
+
   };
 
   EnvManager.ID = 'env';
@@ -182,9 +236,13 @@ EnvManager = (function() {
 
   EnvManager.floor = 1;
 
+  EnvManager.lifeMax = 5;
+
   EnvManager.life = 5;
 
   EnvManager.juwel = 0;
+
+  EnvManager.DEATH_PENALTY_CLOSED = true;
 
   return EnvManager;
 

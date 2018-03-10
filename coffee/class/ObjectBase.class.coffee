@@ -139,6 +139,7 @@ class ObjectBase
     targetExp = baseExp + exp
 
     Math.floor(Math.sqrt(targetExp / @constructor.expRate) - @level)
+
   # ダメージ計算式
   @getDamageMin:(attack, def)->
     damage = attack - def

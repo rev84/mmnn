@@ -81,6 +81,22 @@ FieldManager = (function() {
       });
     }
 
+    static removeAllObject() {
+      return $.each(this.cells, function() {
+        return $.each(this, function() {
+          return this.object = null;
+        });
+      });
+    }
+
+    static draw() {
+      return $.each(this.cells, function() {
+        return $.each(this, function() {
+          return this.draw();
+        });
+      });
+    }
+
     static drawMovable() {
       return $.each(this.cells, function() {
         return $.each(this, function() {
@@ -131,6 +147,34 @@ FieldManager = (function() {
       if (FieldManager.cellAnimationTimer !== false) {
         return clearInterval(FieldManager.cellAnimationTimer);
       }
+    }
+
+    
+    // 動ける範囲を描画
+    static drawMovableCells(cell, movableMap, isContainMe = false) {
+      var body, cond, i, j, len, len1, wayStack, x, y;
+      // 自身を含むか
+      cond = function(wayStack) {
+        var ref, ref1;
+        if (isContainMe) {
+          return (0 <= (ref = wayStack.length) && ref <= cell.object.getMove());
+        } else {
+          return (0 < (ref1 = wayStack.length) && ref1 <= cell.object.getMove());
+        }
+      };
+// 移動可能判定
+      for (x = i = 0, len = movableMap.length; i < len; x = ++i) {
+        body = movableMap[x];
+        for (y = j = 0, len1 = body.length; j < len1; y = ++j) {
+          wayStack = body[y];
+          if (wayStack !== null && cond(wayStack)) {
+            FieldManager.cells[x][y].setWayStack(wayStack);
+          } else {
+            FieldManager.cells[x][y].setWayStack(null);
+          }
+        }
+      }
+      return FieldManager.drawMovable();
     }
 
     static async moveObject(startCell, endCell) {
@@ -388,7 +432,7 @@ FieldManager = (function() {
           100 // 空っぽ
         ]
       ];
-      PRESENT_ORDER = [[PresentboxBasic, 10]];
+      PRESENT_ORDER = [[PresentboxN, 10], [PresentboxR, 10], [PresentboxSR, 10], [PresentboxSRp, 10], [PresentboxSSR, 10], [PresentboxSSRp, 10]];
       nextField = [];
       for (yIndex = i = 0, ref = this.CELL_Y; (0 <= ref ? i < ref : i > ref); yIndex = 0 <= ref ? ++i : --i) {
         cell = new Cell(this.divObject, this.CELL_X, yIndex, this.BORDER_SIZE);
@@ -411,7 +455,7 @@ FieldManager = (function() {
 
     // プレゼントの受け取りターンを1減少させ、0になったら消す
     static async turnPresents() {
-      var cnt, i, targetCells;
+      var c, cnt, i, j, k, l, len, len1, len2, len3, len4, m, n, results, targetCells;
       targetCells = [];
       $.each(this.cells, function() {
         return $.each(this, function() {
@@ -424,22 +468,34 @@ FieldManager = (function() {
         });
       });
       if (targetCells.length > 0) {
-        for (cnt = i = 0; i < 10; cnt = ++i) {
-          $.each(targetCells, function() {
-            return this.showObject();
-          });
-          await Utl.sleep(50);
-          $.each(targetCells, function() {
-            return this.hideObject();
-          });
-          await Utl.sleep(50);
+        for (i = 0, len = targetCells.length; i < len; i++) {
+          c = targetCells[i];
+          c.hideObject();
         }
+        for (cnt = j = 0; j < 5; cnt = ++j) {
+          await Utl.sleep(100);
+          for (k = 0, len1 = targetCells.length; k < len1; k++) {
+            c = targetCells[k];
+            c.showObject();
+          }
+          await Utl.sleep(50);
+          for (l = 0, len2 = targetCells.length; l < len2; l++) {
+            c = targetCells[l];
+            c.hideObject();
+          }
+        }
+        for (m = 0, len3 = targetCells.length; m < len3; m++) {
+          c = targetCells[m];
+          c.setObject(null);
+        }
+        await Utl.sleep(1);
+        results = [];
+        for (n = 0, len4 = targetCells.length; n < len4; n++) {
+          c = targetCells[n];
+          results.push(c.showPopover('受取期限を過ぎました', 2000));
+        }
+        return results;
       }
-      return $.each(targetCells, function() {
-        this.object = null;
-        this.draw();
-        return this.showPopover('受取期限を過ぎました', 3000);
-      });
     }
 
   };

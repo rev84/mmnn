@@ -73,6 +73,15 @@ class FieldManager
           @object.setMoved false
         true
 
+  @removeAllObject:->
+    $.each @cells, ->
+      $.each @, ->
+        @object = null
+
+  @draw:->
+    $.each @cells, ->
+      $.each @, ->
+        @draw()
 
   @drawMovable:->
     $.each @cells, ->
@@ -106,6 +115,23 @@ class FieldManager
   @stopObjectAnimation:=>
     clearInterval @cellAnimationTimer if @cellAnimationTimer isnt false
     
+  # 動ける範囲を描画
+  @drawMovableCells:(cell, movableMap, isContainMe = false)->
+    # 自身を含むか
+    cond = (wayStack)->
+      if isContainMe
+        0 <= wayStack.length <= cell.object.getMove()
+      else
+        0 < wayStack.length <= cell.object.getMove()
+    # 移動可能判定
+    for body, x in movableMap
+      for wayStack, y in body
+
+        if wayStack isnt null and cond(wayStack)
+          FieldManager.cells[x][y].setWayStack(wayStack)
+        else
+          FieldManager.cells[x][y].setWayStack(null)
+    FieldManager.drawMovable()
 
   @moveObject:(startCell, endCell)=>
     GameManager.changeControllable false
@@ -308,7 +334,12 @@ class FieldManager
     ]
 
     PRESENT_ORDER = [
-      [PresentboxBasic, 10]
+      [PresentboxN, 10]
+      [PresentboxR, 10]
+      [PresentboxSR, 10]
+      [PresentboxSRp, 10]
+      [PresentboxSSR, 10]
+      [PresentboxSSRp, 10]
     ]
 
     nextField = []
@@ -335,14 +366,13 @@ class FieldManager
             targetCells.push @
           @draw()
     if targetCells.length > 0
-      for cnt in [0...10]
-        $.each targetCells, ->
-          @showObject()
+      c.hideObject() for c in targetCells
+      for cnt in [0...5]
+        await Utl.sleep(100)
+        c.showObject() for c in targetCells
         await Utl.sleep(50)
-        $.each targetCells, ->
-          @hideObject()
-        await Utl.sleep(50)
-    $.each targetCells, ->
-      @object = null
-      @draw()
-      @showPopover '受取期限を過ぎました', 3000
+        c.hideObject() for c in targetCells
+      c.setObject null for c in targetCells
+      await Utl.sleep(1)
+        
+      c.showPopover '受取期限を過ぎました', 2000 for c in targetCells

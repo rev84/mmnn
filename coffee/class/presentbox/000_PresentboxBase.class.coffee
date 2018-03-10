@@ -21,6 +21,12 @@ class PresentboxBase extends ObjectBase
   @textDeath = null
   # 受取期限
   @receiveTurn = +Infinity
+  # アイテムを落とす確率
+  @itemRate = 1
+  # アイテムのドロップテーブルID
+  @itemTableId = 1
+  # アイテムがジュエルになる時の額
+  @itemJuwelAmount = 50
 
   constructor:(params)->
     super(ObjectBase.OBJECT_TYPE.PRESENTBOX)

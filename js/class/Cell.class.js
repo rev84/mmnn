@@ -45,6 +45,8 @@ Cell = (function() {
 
       } else if ((await this.tryAttackCancel(evt))) {
 
+      } else if ((await this.tryEnemyLockCancel(evt))) {
+
       } else {
         return GameManager.changeControllable(true);
       }
@@ -63,6 +65,10 @@ Cell = (function() {
       } else if ((await this.tryMoveTo(evt))) {
 
       } else if ((await this.tryAttack(evt))) {
+
+      } else if ((await this.tryEnemyLock(evt))) {
+
+      } else if ((await this.tryEnemyLockCancel(evt))) {
 
       } else {
         return GameManager.changeControllable(true);
@@ -365,6 +371,10 @@ Cell = (function() {
       if (GameManager.flags.waitAttackCell !== null) {
         return;
       }
+      // 敵ロックだとダメ
+      if (GameManager.flags.lockedEnemyCell !== null) {
+        return;
+      }
       // キャラクターが置かれている場合のみ
       if (!(this.object !== null && this.object.isCharacterObject())) {
         return;
@@ -389,6 +399,10 @@ Cell = (function() {
       }
       // 既に移動させたいキャラを選んでいない場合はダメ
       if (GameManager.flags.movePickCell === null) {
+        return;
+      }
+      // 敵ロックだとダメ
+      if (GameManager.flags.lockedEnemyCell !== null) {
         return;
       }
       // 移動可能モード
@@ -432,6 +446,10 @@ Cell = (function() {
       if (this.wayStack === null) {
         return;
       }
+      // 敵ロックだとダメ
+      if (GameManager.flags.lockedEnemyCell !== null) {
+        return;
+      }
       await FieldManager.moveObject(GameManager.flags.movePickCell, this);
       GameManager.changeControllable(true);
       return true;
@@ -450,9 +468,15 @@ Cell = (function() {
       if (this.knockout === null) {
         return;
       }
+      // 敵ロックだとダメ
+      if (GameManager.flags.lockedEnemyCell !== null) {
+        return;
+      }
+      // 敵ロックを解除
+      GameManager.flags.lockedEnemyCell = null;
       // 攻撃する
       await GameManager.attack(this.knockout, this);
-      // 移動・攻撃・戻るモードを解除
+      // 移動・攻撃・戻る・敵ロックモードを解除
       GameManager.flags.movePickCell = null;
       GameManager.flags.moveToCell = null;
       GameManager.flags.waitAttackCell = null;
@@ -472,6 +496,57 @@ Cell = (function() {
       // 移動・攻撃モードを解除
       GameManager.flags.movePickCell = null;
       GameManager.flags.waitAttackCell = null;
+      // コールバックで操作可能にする
+      return GameManager.changeControllable(true);
+    }
+
+    tryEnemyLock(evt) {
+      // 戦闘モード時のみ
+      if (!GameManager.isMode.battle) {
+        return;
+      }
+      // 移動待ちではダメではダメ
+      if (GameManager.flags.movePickCell !== null) {
+        return;
+      }
+      // 攻撃待ちではダメ
+      if (GameManager.flags.waitAttackCell !== null) {
+        return;
+      }
+      // 敵性オブジェクト以外はダメ
+      if (!(this.object !== null && (this.object.isEnemyObject() || this.object.isPresentboxObject()))) {
+        return;
+      }
+      // 敵ロックモードを設定
+      GameManager.flags.lockedEnemyCell = this;
+      // 右パネルを変更不可
+      GameManager.isEnable.rightPanel = false;
+      // 右パネルに敵をロック
+      RightInfoManager.setObject(this.object);
+      // 移動可能セルを描画
+      FieldManager.removeAllWayStack();
+      FieldManager.drawMovableCells(this, FieldManager.getMovableMap(this), true);
+      // コールバックで操作可能にする
+      return GameManager.changeControllable(true);
+    }
+
+    tryEnemyLockCancel(evt) {
+      // 戦闘モード時のみ
+      if (!GameManager.isMode.battle) {
+        return;
+      }
+      // 敵ロックでないとダメ
+      if (GameManager.flags.lockedEnemyCell === null) {
+        return;
+      }
+      // 敵ロックモードを解除
+      GameManager.flags.lockedEnemyCell = null;
+      // waystack削除
+      FieldManager.removeAllWayStack();
+      // フィールドを再描画
+      FieldManager.draw();
+      // 右パネルを解放
+      GameManager.isEnable.rightPanel = true;
       // コールバックで操作可能にする
       return GameManager.changeControllable(true);
     }
@@ -530,7 +605,7 @@ Cell = (function() {
 
     stepObjectAnimation() {
       if (this.object === null) {
-        return this.hideObject;
+        return this.hideObject();
       }
       this.objectAnimationIndex++;
       if (this.object.getImage(this.objectAnimationIndex) === null) {

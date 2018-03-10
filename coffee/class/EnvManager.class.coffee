@@ -3,14 +3,21 @@ class EnvManager
 
   @exp = 0
   @floor = 1
+  @lifeMax = 5
   @life = 5
   @juwel = 0
+
+  @DEATH_PENALTY_CLOSED = true
 
   @init:(@parentElement)->
     @lifeObject = $('<div>').attr('id', 'life').appendTo(@parentElement)
     @floorObject = $('<div>').attr('id', 'floor').appendTo(@parentElement)
     @expObject = $('<div>').attr('id', 'exp').appendTo(@parentElement)
     @juwelObject = $('<div>').attr('id', 'juwel').appendTo(@parentElement)
+
+    # デスペナルティのウインドウ
+    @deathPenaltyWindow = $('#death_penalty_window').on('hidden.bs.modal', @onCloseDeathPenaltyWindow.bind(@))
+    @deathPenaltyFloor = $('#death_penalty_decrease_floor')
 
     @draw()
 
@@ -90,6 +97,9 @@ class EnvManager
     @draw()
     @life
 
+  @resetLife:->
+    @life = @lifeMax
+
   @getLife:->
     @life
 
@@ -121,3 +131,45 @@ class EnvManager
     @juwel = juwel
     @draw()
     @juwel
+
+  # ライフが0になった時の処理
+  @deathPenalty:->
+    return false if @getLife() > 0
+
+    await Utl.sleep(2000)
+
+    @DEATH_PENALTY_CLOSED = false
+
+    # 戻す日数
+    decreaseFloor = Math.ceil(@getFloor() * 0.1)
+    decreaseFloor = 100 if 100 < decreaseFloor
+    decreaseFloor = 0 if @getFloor() - decreaseFloor < 1
+
+    @deathPenaltyFloor.html(@getFloor() - decreaseFloor)
+
+    @deathPenaltyWindow.modal('show')
+
+    @DEATH_PENALTY_CLOSED = false
+    
+    await Utl.sleep(1000) while !@DEATH_PENALTY_CLOSED
+
+    for t in [0...decreaseFloor]
+      @decreaseFloor()
+      await Utl.sleep(10)
+
+    # 全消去
+    FieldManager.removeAllObject()
+    FieldManager.removeAllKnockout()
+    FieldManager.removeAllWayStack()
+    # 全キャラ復活
+    for c in GameManager.characters
+      c.setComeback 0
+    # 移動・攻撃・戻るモードを解除
+    GameManager.flags.movePickCell = null
+    GameManager.flags.moveToCell = null
+    GameManager.flags.waitAttackCell = null
+
+    true
+
+  @onCloseDeathPenaltyWindow:->
+    @DEATH_PENALTY_CLOSED = true

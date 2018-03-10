@@ -46,6 +46,9 @@ class Cell
     # 移動後の攻撃先選択をキャンセルするトライ
     else if await @tryAttackCancel(evt)
       ;
+    # 敵をパネルにロックしたのを解除するトライ
+    else if await @tryEnemyLockCancel(evt)
+      ;
     else
       GameManager.changeControllable true
 
@@ -64,6 +67,12 @@ class Cell
       ;
     # 攻撃先を決めるトライ
     else if await @tryAttack(evt)
+      ;
+    # 敵をパネルにロックするトライ
+    else if await @tryEnemyLock(evt)
+      ;
+    # 敵をパネルにロックしたのを解除するトライ
+    else if await @tryEnemyLockCancel(evt)
       ;
     # どれにもならなかったら操作解放
     else
@@ -310,6 +319,8 @@ class Cell
     return if GameManager.flags.movePickCell isnt null
     # 攻撃待ち専用モードの時はダメ
     return if GameManager.flags.waitAttackCell isnt null
+    # 敵ロックだとダメ
+    return if GameManager.flags.lockedEnemyCell isnt null
     # キャラクターが置かれている場合のみ
     return unless @object isnt null and @object.isCharacterObject()
     # 行動済みでない場合のみ
@@ -328,6 +339,8 @@ class Cell
     return unless GameManager.isMode.battle
     # 既に移動させたいキャラを選んでいない場合はダメ
     return if GameManager.flags.movePickCell is null
+    # 敵ロックだとダメ
+    return if GameManager.flags.lockedEnemyCell isnt null
 
     # 移動可能モード
     GameManager.flags.movePickCell = null
@@ -359,6 +372,8 @@ class Cell
     return if @object isnt null
     # ここにいけない場合はダメ
     return if @wayStack is null
+    # 敵ロックだとダメ
+    return if GameManager.flags.lockedEnemyCell isnt null
 
     await FieldManager.moveObject(GameManager.flags.movePickCell, @)
 
@@ -372,10 +387,14 @@ class Cell
     return if GameManager.flags.waitAttackCell is null
     # 攻撃可能が設定されてないとダメ
     return if @knockout is null
+    # 敵ロックだとダメ
+    return if GameManager.flags.lockedEnemyCell isnt null
 
+    # 敵ロックを解除
+    GameManager.flags.lockedEnemyCell = null
     # 攻撃する
     await GameManager.attack @knockout, @
-    # 移動・攻撃・戻るモードを解除
+    # 移動・攻撃・戻る・敵ロックモードを解除
     GameManager.flags.movePickCell = null
     GameManager.flags.moveToCell = null
     GameManager.flags.waitAttackCell = null
@@ -391,6 +410,46 @@ class Cell
     # 移動・攻撃モードを解除
     GameManager.flags.movePickCell = null
     GameManager.flags.waitAttackCell = null
+    # コールバックで操作可能にする
+    GameManager.changeControllable true
+    
+  tryEnemyLock:(evt)->
+    # 戦闘モード時のみ
+    return unless GameManager.isMode.battle
+    # 移動待ちではダメではダメ
+    return if GameManager.flags.movePickCell isnt null
+    # 攻撃待ちではダメ
+    return if GameManager.flags.waitAttackCell isnt null
+    # 敵性オブジェクト以外はダメ
+    return unless @object isnt null and (@object.isEnemyObject() or @object.isPresentboxObject())
+
+    # 敵ロックモードを設定
+    GameManager.flags.lockedEnemyCell = @
+    # 右パネルを変更不可
+    GameManager.isEnable.rightPanel = false
+    # 右パネルに敵をロック
+    RightInfoManager.setObject @object
+    # 移動可能セルを描画
+    FieldManager.removeAllWayStack()
+    FieldManager.drawMovableCells @, FieldManager.getMovableMap(@), true
+
+    # コールバックで操作可能にする
+    GameManager.changeControllable true
+    
+  tryEnemyLockCancel:(evt)->
+    # 戦闘モード時のみ
+    return unless GameManager.isMode.battle
+    # 敵ロックでないとダメ
+    return unless GameManager.flags.lockedEnemyCell isnt null
+
+    # 敵ロックモードを解除
+    GameManager.flags.lockedEnemyCell = null
+    # waystack削除
+    FieldManager.removeAllWayStack()
+    # フィールドを再描画
+    FieldManager.draw()
+    # 右パネルを解放
+    GameManager.isEnable.rightPanel = true
     # コールバックで操作可能にする
     GameManager.changeControllable true
     
@@ -438,7 +497,7 @@ class Cell
       @elements.receiveTurn.addClass('no_display')
 
   stepObjectAnimation:=>
-    return @hideObject if @object is null
+    return @hideObject() if @object is null
     @objectAnimationIndex++
     @objectAnimationIndex = 0 if @object.getImage(@objectAnimationIndex) is null
     @changeObject @object.getImage(@objectAnimationIndex)

@@ -57,6 +57,8 @@ class GameManager
     waitAttackCell : null
     # このターン、階層を進めたか
     isWalkInThisTurn : false
+    # 戦闘モードで敵をロックしてる場合
+    lockedEnemyCell : null
 
   # アニメーション関係
   @POSITION =
@@ -390,21 +392,14 @@ class GameManager
     # 攻撃可能モード
     @flags.waitAttackCell = cell
 
-    movableMap = FieldManager.getMovableMap(cell)
+    # 動けるマスを描画
+    FieldManager.drawMovableCells cell, FieldManager.getMovableMap(cell)
 
-    # 移動可能判定
-    for body, x in movableMap
-      for wayStack, y in body
-        if wayStack isnt null and 0 < wayStack.length <= cell.object.getMove()
-          FieldManager.cells[x][y].setWayStack(wayStack)
-        else
-          FieldManager.cells[x][y].setWayStack(null)
     # 攻撃可能判定
     attackables = FieldManager.getAttackableCellsByCell cell
     for attackableCell in attackables
       attackableCell.knockout = cell
 
-    FieldManager.drawMovable()
     FieldManager.drawKnockout()
 
   # 敵が行動する
@@ -560,6 +555,8 @@ class GameManager
       b = bAry[0]
       return -1 if a.life > b.life
       return  1 if a.life < b.life
+      # ライフ減少できているもの同士は、移動距離が短い方がいいとする
+      return a.moveAmount - b.moveAmount if a.life > 0 and b.life > 0 and a.moveAmount isnt b.moveAmount
       return -1 if a.beatLevel > b.beatLevel
       return  1 if a.beatLevel < b.beatLevel
       return -1 if a.beatPossibility > b.beatPossibility
@@ -583,12 +580,15 @@ class GameManager
       moveToCell.drawFin()
     # 自爆する
     else if atkCell is -1
-      await @terror(moveToCell)
+      isDeath = await @terror(moveToCell)
+      # 死んでたら終わり
+      return false if isDeath
+
     # 攻撃する
     else
       await @attack(moveToCell, atkCell)
 
-    @enemyMove()
+    true
 
   @attack:(attackerCell, defenderCell)->
     # それぞれのオブジェクト
@@ -670,6 +670,9 @@ class GameManager
     # 敵を消し去る
     cell.object = null
     cell.draw()
+
+    # チェック
+    EnvManager.deathPenalty()
 
   # 指定した階層で出得る敵を一体返す
   @getEnemyObject:(level = EnvManager.getFloor())->
@@ -762,3 +765,4 @@ class GameManager
   @resetFlags:->
     @isEnable[key] = false for key, val of @isEnable
     @isMode[key] = false for key, val of @isMode
+

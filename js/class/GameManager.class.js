@@ -361,39 +361,27 @@ GameManager = (function() {
     }
 
     static movePick(cell) {
-      var attackableCell, attackables, body, i, j, l, len, len1, len2, movableMap, ref, wayStack, x, y;
+      var attackableCell, attackables, i, len;
       FieldManager.removeAllWayStack();
       FieldManager.removeAllKnockout();
       // 移動可能モード
       this.flags.movePickCell = cell;
       // 攻撃可能モード
       this.flags.waitAttackCell = cell;
-      movableMap = FieldManager.getMovableMap(cell);
-// 移動可能判定
-      for (x = i = 0, len = movableMap.length; i < len; x = ++i) {
-        body = movableMap[x];
-        for (y = j = 0, len1 = body.length; j < len1; y = ++j) {
-          wayStack = body[y];
-          if (wayStack !== null && (0 < (ref = wayStack.length) && ref <= cell.object.getMove())) {
-            FieldManager.cells[x][y].setWayStack(wayStack);
-          } else {
-            FieldManager.cells[x][y].setWayStack(null);
-          }
-        }
-      }
+      // 動けるマスを描画
+      FieldManager.drawMovableCells(cell, FieldManager.getMovableMap(cell));
       // 攻撃可能判定
       attackables = FieldManager.getAttackableCellsByCell(cell);
-      for (l = 0, len2 = attackables.length; l < len2; l++) {
-        attackableCell = attackables[l];
+      for (i = 0, len = attackables.length; i < len; i++) {
+        attackableCell = attackables[i];
         attackableCell.knockout = cell;
       }
-      FieldManager.drawMovable();
       return FieldManager.drawKnockout();
     }
 
     // 敵が行動する
     static async enemyMove() {
-      var _, acts, atkCell, atkObj, attackables, beatLevel, beatPossibility, c, damage, debugCount, def, ending, enemyCell, getAct, hp, i, j, l, len, len1, len2, level, m, mBody, movableMap, moveToCell, myAttack, myAttackType, n, ref, ref1, ref2, wayStack, x, xMove, y, yMove;
+      var _, acts, atkCell, atkObj, attackables, beatLevel, beatPossibility, c, damage, debugCount, def, ending, enemyCell, getAct, hp, i, isDeath, j, l, len, len1, len2, level, m, mBody, movableMap, moveToCell, myAttack, myAttackType, n, ref, ref1, ref2, wayStack, x, xMove, y, yMove;
       debugCount = 0;
       this.changeControllable(false);
       // 戻すは不可能になる
@@ -580,6 +568,10 @@ GameManager = (function() {
         if (a.life < b.life) {
           return 1;
         }
+        if (a.life > 0 && b.life > 0 && a.moveAmount !== b.moveAmount) {
+          // ライフ減少できているもの同士は、移動距離が短い方がいいとする
+          return a.moveAmount - b.moveAmount;
+        }
         if (a.beatLevel > b.beatLevel) {
           return -1;
         }
@@ -622,12 +614,16 @@ GameManager = (function() {
         moveToCell.drawFin();
       // 自爆する
       } else if (atkCell === -1) {
-        await this.terror(moveToCell);
+        isDeath = (await this.terror(moveToCell));
+        if (isDeath) {
+          // 死んでたら終わり
+          return false;
+        }
       } else {
         // 攻撃する
         await this.attack(moveToCell, atkCell);
       }
-      return this.enemyMove();
+      return true;
     }
 
     static async attack(attackerCell, defenderCell) {
@@ -704,7 +700,9 @@ GameManager = (function() {
       EnvManager.decreaseLife();
       // 敵を消し去る
       cell.object = null;
-      return cell.draw();
+      cell.draw();
+      // チェック
+      return EnvManager.deathPenalty();
     }
 
     // 指定した階層で出得る敵を一体返す
@@ -899,7 +897,9 @@ GameManager = (function() {
     // 戦闘モードで攻撃待ちの場合、現在対象になっているセル
     waitAttackCell: null,
     // このターン、階層を進めたか
-    isWalkInThisTurn: false
+    isWalkInThisTurn: false,
+    // 戦闘モードで敵をロックしてる場合
+    lockedEnemyCell: null
   };
 
   // アニメーション関係
