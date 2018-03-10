@@ -19,7 +19,7 @@ ObjectBase = (function() {
       return this.objectType === this.constructor.OBJECT_TYPE.ENEMY;
     }
 
-    isPresentObject() {
+    isPresentboxObject() {
       return this.objectType === this.constructor.OBJECT_TYPE.PRESENTBOX;
     }
 
@@ -259,6 +259,15 @@ ObjectBase = (function() {
         return Math.round((max - hp + 1) / (max - min + 1) * 100);
       } else {
         return -2e308;
+      }
+    }
+
+    // パラメータを見た目に変換
+    static status2html(status) {
+      if (status === +2e308) {
+        return '∞';
+      } else {
+        return status;
       }
     }
 

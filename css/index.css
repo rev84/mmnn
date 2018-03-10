@@ -257,14 +257,23 @@ input[type="range"]::-webkit-slider-thumb:active {
 .cell_fin {
   z-index: 1000;
   background-size: 100% 100%;
+  z-index: 9999999;
 }
 .cell_snipe {
-  z-index: 99999;
+  z-index: 9999999999;
   background-size: 100% 100%;
 }
 .cell_animation {
   z-index: 999999;
   background-size: 100% 100%;
+}
+.cell_receive_turn {
+  width: 20px;
+  height: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 999999999;
 }
 .popover {
   font-size:30px;

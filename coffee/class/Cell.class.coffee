@@ -173,6 +173,9 @@ class Cell
     @elements.animation  = $('<div>').addClass('cell cell_animation')
                            .css(cssPos).css(cssSize).addClass('no_display')
                            .appendTo(@elements.mother)
+    @elements.receiveTurn = $('<div>').addClass('cell cell_receive_turn')
+                            .css({right:0, bottom:0}).addClass('no_display')
+                            .appendTo(@elements.mother)
 
     @changeBackground @background
     @changeMovable @constructor.IMAGE_MOVABLE
@@ -233,11 +236,11 @@ class Cell
       $(@elements.mother).popover('destroy')
     else
       position = 
-        if @xIndex < FieldManager.CELL_X / 4
+        if @xIndex < 2
           'right'
-        else if FieldManager.CELL_X / 4 * 3 < @xIndex
+        else if FieldManager.CELL_X - 2 <= @xIndex
           'left'
-        else if @yIndex < FieldManager.CELL_Y / 4
+        else if @yIndex < 2
           'bottom'
         else
           'top'
@@ -269,6 +272,8 @@ class Cell
     @drawFin()
     # 倒す
     @drawKnockout()
+    # 受取期限
+    @drawReceiveTurn()
 
   isDroppableCharacter:->
     @xIndex <= @constructor.PUT_FIELD_MAX_X and @object is null
@@ -426,6 +431,12 @@ class Cell
     else
       @showFin(false)
 
+  drawReceiveTurn:->
+    if @object isnt null and @object.isPresentboxObject()
+      @elements.receiveTurn.html(@object.getReceiveTurn()).removeClass('no_display')
+    else
+      @elements.receiveTurn.addClass('no_display')
+
   stepObjectAnimation:=>
     return @hideObject if @object is null
     @objectAnimationIndex++
@@ -448,6 +459,8 @@ class Cell
         LeftInfoManager.setObject @object
       else if @object.isEnemyObject()
         LeftInfoManager.setObject null
+      else if @object.isPresentboxObject()
+        LeftInfoManager.setObject null
 
     # 右パネル切り替え可能
     if GameManager.isEnable.rightPanel
@@ -456,4 +469,6 @@ class Cell
       else if @object.isCharacterObject()
         RightInfoManager.setObject null
       else if @object.isEnemyObject()
+        RightInfoManager.setObject @object
+      else if @object.isPresentboxObject()
         RightInfoManager.setObject @object

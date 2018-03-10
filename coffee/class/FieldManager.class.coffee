@@ -287,6 +287,10 @@ class FieldManager
             EnvManager.increaseExp c.object.getExp()
             # アイテム入手判定
             await c.object.dropItem()
+          # 死んでるのが宝箱なら
+          else if c.object.isPresentboxObject()
+            # アイテム入手判定
+            await c.object.dropItem()
           # オブジェクト消す
           c.object = null
           # 再描画
@@ -299,8 +303,12 @@ class FieldManager
   @generateNextField:->
     GACHA_ORDER = [
       ['ENEMY', 100]  # ランダムな敵
-      ['PRESENT', 10]  # プレゼント
+      ['PRESENT', 1000]  # プレゼント
       ['EMPTY', 100]  # 空っぽ
+    ]
+
+    PRESENT_ORDER = [
+      [PresentboxBasic, 10]
     ]
 
     nextField = []
@@ -309,8 +317,32 @@ class FieldManager
       switch Utl.gacha GACHA_ORDER
         when 'ENEMY'
           cell.object = GameManager.getEnemyObject(EnvManager.getFloor()+1)
+        when 'PRESENT'
+          cell.object = new (Utl.gacha PRESENT_ORDER)({level: EnvManager.getFloor()+1})
         when 'EMPTY'
           ;
       nextField.push cell
       cell.draw()
     nextField
+
+  # プレゼントの受け取りターンを1減少させ、0になったら消す
+  @turnPresents:->
+    targetCells = []
+    $.each @cells, ->
+      $.each @, ->
+        if @object isnt null and @object.isPresentboxObject()
+          if @object.decreaseTurn()
+            targetCells.push @
+          @draw()
+    if targetCells.length > 0
+      for cnt in [0...10]
+        $.each targetCells, ->
+          @showObject()
+        await Utl.sleep(50)
+        $.each targetCells, ->
+          @hideObject()
+        await Utl.sleep(50)
+    $.each targetCells, ->
+      @object = null
+      @draw()
+      @showPopover '受取期限を過ぎました', 3000

@@ -170,6 +170,8 @@ class GameManager
     # 動ける敵がいる限り動かす
     while await @enemyMove()
       ;
+    # プレゼントの処理
+    await FieldManager.turnPresents()
     # 階層進行制限解除
     @flags.isWalkInThisTurn = false
     # 全キャラの復帰を進行

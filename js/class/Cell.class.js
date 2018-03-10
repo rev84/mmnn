@@ -189,6 +189,10 @@ Cell = (function() {
         height: this.constructor.SIZE_Y * 0.3
       }).addClass('no_display').appendTo(this.elements.mother);
       this.elements.animation = $('<div>').addClass('cell cell_animation').css(cssPos).css(cssSize).addClass('no_display').appendTo(this.elements.mother);
+      this.elements.receiveTurn = $('<div>').addClass('cell cell_receive_turn').css({
+        right: 0,
+        bottom: 0
+      }).addClass('no_display').appendTo(this.elements.mother);
       this.changeBackground(this.background);
       this.changeMovable(this.constructor.IMAGE_MOVABLE);
       this.changeFin(this.constructor.IMAGE_FIN);
@@ -278,7 +282,7 @@ Cell = (function() {
       if (text === null) {
         return $(this.elements.mother).popover('destroy');
       } else {
-        position = this.xIndex < FieldManager.CELL_X / 4 ? 'right' : FieldManager.CELL_X / 4 * 3 < this.xIndex ? 'left' : this.yIndex < FieldManager.CELL_Y / 4 ? 'bottom' : 'top';
+        position = this.xIndex < 2 ? 'right' : FieldManager.CELL_X - 2 <= this.xIndex ? 'left' : this.yIndex < 2 ? 'bottom' : 'top';
         $(this.elements.mother).popover({
           content: text,
           placement: position
@@ -307,7 +311,9 @@ Cell = (function() {
       // 行動終了
       this.drawFin();
       // 倒す
-      return this.drawKnockout();
+      this.drawKnockout();
+      // 受取期限
+      return this.drawReceiveTurn();
     }
 
     isDroppableCharacter() {
@@ -514,6 +520,14 @@ Cell = (function() {
       }
     }
 
+    drawReceiveTurn() {
+      if (this.object !== null && this.object.isPresentboxObject()) {
+        return this.elements.receiveTurn.html(this.object.getReceiveTurn()).removeClass('no_display');
+      } else {
+        return this.elements.receiveTurn.addClass('no_display');
+      }
+    }
+
     stepObjectAnimation() {
       if (this.object === null) {
         return this.hideObject;
@@ -549,6 +563,8 @@ Cell = (function() {
           LeftInfoManager.setObject(this.object);
         } else if (this.object.isEnemyObject()) {
           LeftInfoManager.setObject(null);
+        } else if (this.object.isPresentboxObject()) {
+          LeftInfoManager.setObject(null);
         }
       }
       // 右パネル切り替え可能
@@ -558,6 +574,8 @@ Cell = (function() {
         } else if (this.object.isCharacterObject()) {
           return RightInfoManager.setObject(null);
         } else if (this.object.isEnemyObject()) {
+          return RightInfoManager.setObject(this.object);
+        } else if (this.object.isPresentboxObject()) {
           return RightInfoManager.setObject(this.object);
         }
       }

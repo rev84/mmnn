@@ -350,6 +350,10 @@ FieldManager = (function() {
                 EnvManager.increaseExp(c.object.getExp());
                 // アイテム入手判定
                 await c.object.dropItem();
+              // 死んでるのが宝箱なら
+              } else if (c.object.isPresentboxObject()) {
+                // アイテム入手判定
+                await c.object.dropItem();
               }
               // オブジェクト消す
               c.object = null;
@@ -369,7 +373,7 @@ FieldManager = (function() {
 
     // 次の列を生成する
     static generateNextField() {
-      var GACHA_ORDER, cell, i, nextField, ref, yIndex;
+      var GACHA_ORDER, PRESENT_ORDER, cell, i, nextField, ref, yIndex;
       GACHA_ORDER = [
         [
           'ENEMY',
@@ -377,13 +381,14 @@ FieldManager = (function() {
         ],
         [
           'PRESENT',
-          10 // プレゼント
+          1000 // プレゼント
         ],
         [
           'EMPTY',
           100 // 空っぽ
         ]
       ];
+      PRESENT_ORDER = [[PresentboxBasic, 10]];
       nextField = [];
       for (yIndex = i = 0, ref = this.CELL_Y; (0 <= ref ? i < ref : i > ref); yIndex = 0 <= ref ? ++i : --i) {
         cell = new Cell(this.divObject, this.CELL_X, yIndex, this.BORDER_SIZE);
@@ -391,12 +396,50 @@ FieldManager = (function() {
           case 'ENEMY':
             cell.object = GameManager.getEnemyObject(EnvManager.getFloor() + 1);
             break;
+          case 'PRESENT':
+            cell.object = new (Utl.gacha(PRESENT_ORDER))({
+              level: EnvManager.getFloor() + 1
+            });
+            break;
           case 'EMPTY':
         }
         nextField.push(cell);
         cell.draw();
       }
       return nextField;
+    }
+
+    // プレゼントの受け取りターンを1減少させ、0になったら消す
+    static async turnPresents() {
+      var cnt, i, targetCells;
+      targetCells = [];
+      $.each(this.cells, function() {
+        return $.each(this, function() {
+          if (this.object !== null && this.object.isPresentboxObject()) {
+            if (this.object.decreaseTurn()) {
+              targetCells.push(this);
+            }
+            return this.draw();
+          }
+        });
+      });
+      if (targetCells.length > 0) {
+        for (cnt = i = 0; i < 10; cnt = ++i) {
+          $.each(targetCells, function() {
+            return this.showObject();
+          });
+          await Utl.sleep(50);
+          $.each(targetCells, function() {
+            return this.hideObject();
+          });
+          await Utl.sleep(50);
+        }
+      }
+      return $.each(targetCells, function() {
+        this.object = null;
+        this.draw();
+        return this.showPopover('受取期限を過ぎました', 3000);
+      });
     }
 
   };

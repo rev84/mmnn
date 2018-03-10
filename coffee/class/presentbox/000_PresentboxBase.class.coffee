@@ -19,6 +19,8 @@ class PresentboxBase extends ObjectBase
   @expRate = 0
   # 死んだ時の台詞
   @textDeath = null
+  # 受取期限
+  @receiveTurn = +Infinity
 
   constructor:(params)->
     super(ObjectBase.OBJECT_TYPE.PRESENTBOX)
@@ -26,7 +28,10 @@ class PresentboxBase extends ObjectBase
     @level = params.level
 
     # 現在のHP
-    @hp = params.hp
+    @hp = null
+
+    # 残りターン
+    @receiveTurn = @constructor.receiveTurn
 
   getPDef:(level = null)->
     +Infinity
@@ -35,3 +40,10 @@ class PresentboxBase extends ObjectBase
 
   gacha:->
     ;
+
+  getReceiveTurn:->
+    @receiveTurn
+
+  decreaseTurn:->
+    @receiveTurn--
+    @receiveTurn <= 0

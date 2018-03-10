@@ -8,7 +8,9 @@ PresentboxBase = (function() {
       // 現在のレベル
       this.level = params.level;
       // 現在のHP
-      this.hp = params.hp;
+      this.hp = null;
+      // 残りターン
+      this.receiveTurn = this.constructor.receiveTurn;
     }
 
     getPDef(level = null) {
@@ -20,6 +22,15 @@ PresentboxBase = (function() {
     }
 
     gacha() {}
+
+    getReceiveTurn() {
+      return this.receiveTurn;
+    }
+
+    decreaseTurn() {
+      this.receiveTurn--;
+      return this.receiveTurn <= 0;
+    }
 
   };
 
@@ -52,6 +63,9 @@ PresentboxBase = (function() {
 
   // 死んだ時の台詞
   PresentboxBase.textDeath = null;
+
+  // 受取期限
+  PresentboxBase.receiveTurn = +2e308;
 
   return PresentboxBase;
 

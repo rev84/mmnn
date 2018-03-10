@@ -106,6 +106,8 @@ GameManager = (function() {
       var c, k, ref;
       // 動ける敵がいる限り動かす
       while ((await this.enemyMove())) {}
+      await FieldManager.turnPresents();
+      // 階層進行制限解除
       this.flags.isWalkInThisTurn = false;
       ref = this.characters;
       for (k in ref) {

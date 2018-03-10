@@ -26,7 +26,7 @@ class ObjectBase
   isEnemyObject:->
     @objectType is @constructor.OBJECT_TYPE.ENEMY
 
-  isPresentObject:->
+  isPresentboxObject:->
     @objectType is @constructor.OBJECT_TYPE.PRESENTBOX
 
   getHpMax:(level = null)->
@@ -163,3 +163,9 @@ class ObjectBase
       Math.round((max - hp + 1) / (max - min + 1) * 100)
     else
       -Infinity
+  # パラメータを見た目に変換
+  @status2html:(status)->
+    if status is +Infinity
+      '∞'
+    else
+      status
