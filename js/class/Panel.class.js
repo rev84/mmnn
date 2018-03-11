@@ -285,40 +285,23 @@ Panel = (function() {
     }
 
     drawCharacter(level = null) {
+      // 背景用
+      this.divObject.addClass('panel_character');
       if (this.isShowOverlay) {
         // 出撃中判定
         if (this.object.isInField()) {
-          return $('<div>').addClass('in_field').css({
-            left: 0,
-            top: 0,
-            "z-index": 9999,
-            opacity: 0.5,
-            "background-color": '#230381',
-            width: this.constructor.SIZE_X,
-            height: this.constructor.SIZE_Y,
-            'font-size': '80px',
-            color: '#000000',
-            'text-align': 'center'
-          }).html('出撃中').appendTo(this.divObject);
+          return $('<div>').addClass('infield').appendTo(this.divObject);
         // 療養中判定
         } else if (this.object.getComebackTurn() > 0) {
-          return $('<div>').addClass('comeback').css({
-            left: 0,
-            top: 0,
-            "z-index": 9999,
-            opacity: 0.5,
-            "background-color": '#f3f93e',
-            width: this.constructor.SIZE_X,
-            height: this.constructor.SIZE_Y,
-            'font-size': '80px',
-            color: '#000000',
-            'text-align': 'center'
-          }).html('療養中' + this.object.getComebackTurn() + '').appendTo(this.divObject);
+          return $('<div>').addClass('comeback').html(this.object.getComebackTurn()).appendTo(this.divObject);
         }
       }
     }
 
-    drawEnemy() {}
+    drawEnemy() {
+      // 背景用
+      return this.divObject.addClass('panel_enemy');
+    }
 
     drawPresentbox() {}
 

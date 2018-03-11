@@ -168,8 +168,33 @@ input[type="range"]::-webkit-slider-thumb:active {
   height: 150px;
   background-image: url('../img/enemy/1/1005010301_001.png');
 }
-.panel {
-  border: double 5px #000000;
+.panel.panel_character {
+  background-image: url('../img/panel/character_strip.png');
+}
+.panel.panel_enemy {
+  background-image: url('../img/panel/enemy_strip.png');
+}
+.infield {
+  left:0px;
+  top:0px;
+  z-index: 9999;
+  opacity: 0.5;
+  width: 400px;
+  height: 120px;
+  text-align: center;
+  background-image: url('../img/panel/infield.png');
+  background-size:cover;
+}
+.comeback{
+  left:0px;
+  top:0px;
+  z-index: 9999;
+  opacity: 0.5;
+  width: 400px;
+  height: 120px;
+  text-align: center;
+  background-image: url('../img/panel/comeback.png');
+  background-size:cover;
 }
 .panel, .panel > *,
 #exp, #life, #floor, #jewel,

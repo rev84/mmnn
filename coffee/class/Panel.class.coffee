@@ -326,43 +326,23 @@ class Panel
     )
 
   drawCharacter:(level = null)->
+    # 背景用
+    @divObject.addClass('panel_character')
+
     if @isShowOverlay
       # 出撃中判定
       if @object.isInField()
-        $('<div>').addClass('in_field').css({
-          left:0
-          top:0
-          "z-index": 9999
-          opacity: 0.5
-          "background-color": '#230381'
-          width: @constructor.SIZE_X
-          height: @constructor.SIZE_Y
-          'font-size': '80px'
-          color: '#000000'
-          'text-align': 'center'
-
-        }).html('出撃中')
+        $('<div>').addClass('infield')
         .appendTo(@divObject)
       # 療養中判定
       else if @object.getComebackTurn() > 0
-        $('<div>').addClass('comeback').css({
-          left:0
-          top:0
-          "z-index": 9999
-          opacity: 0.5
-          "background-color": '#f3f93e'
-          width: @constructor.SIZE_X
-          height: @constructor.SIZE_Y
-          'font-size': '80px'
-          color: '#000000'
-          'text-align': 'center'
-
-        }).html('療養中'+@object.getComebackTurn()+'')
+        $('<div>').addClass('comeback').html(@object.getComebackTurn())
         .appendTo(@divObject)
 
     
   drawEnemy:->
-    ;
+    # 背景用
+    @divObject.addClass('panel_enemy')
   drawPresentbox:->
     ;
   clear:->
