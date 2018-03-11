@@ -32,7 +32,7 @@ class Enemy1Base extends EnemyBase
   # アイテムのドロップテーブルID
   @itemTableId = 1
   # アイテムがジュエルになる時の額
-  @itemJuwelAmount = 50
+  @itemJewelAmount = 50
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -73,7 +73,7 @@ class Enemy2Base extends EnemyBase
   # アイテムのドロップテーブルID
   @itemTableId = 1
   # アイテムがジュエルになる時の額
-  @itemJuwelAmount = 50
+  @itemJewelAmount = 50
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -114,7 +114,7 @@ class Enemy3Base extends EnemyBase
   # アイテムのドロップテーブルID
   @itemTableId = 1
   # アイテムがジュエルになる時の額
-  @itemJuwelAmount = 50
+  @itemJewelAmount = 50
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -155,7 +155,7 @@ class Enemy4Base extends EnemyBase
   # アイテムのドロップテーブルID
   @itemTableId = 1
   # アイテムがジュエルになる時の額
-  @itemJuwelAmount = 50
+  @itemJewelAmount = 50
 
   @abilityName = "なし"
   @abilityDesc = "なし"
@@ -196,7 +196,7 @@ class Enemy5Base extends EnemyBase
   # アイテムのドロップテーブルID
   @itemTableId = 1
   # アイテムがジュエルになる時の額
-  @itemJuwelAmount = 50
+  @itemJewelAmount = 50
 
   @abilityName = "なし"
   @abilityDesc = "なし"

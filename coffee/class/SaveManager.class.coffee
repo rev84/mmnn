@@ -1,22 +1,70 @@
 class SaveManager
-  @generateSavedata:->
+  @LOCAL_STORAGE_KEY = 'SAVE'
+
+  @save:->
+    return unless GameManager.DEBUG_CONFIG.AUTO_SAVE
     # キャラクター
-    characters = []
-    for c in GameManager.characters
-      characters.push c.serialize()
+    characters = {}
+    for id, c of GameManager.characters
+      characters[id] = c.serialize()
 
     # アイテム
-    items = []
-    for item in ItemManager.items
-      items.push item
+    items = {}
+    for id, item of ItemManager.items
+      items[id] = item.serialize()
 
     # 環境
     env = {
       exp: EnvManager.getExp()
       floor: EnvManager.getFloor()
       life: EnvManager.getLife()
-      juwel: EnvManager.getJuwel()
+      jewel: EnvManager.getJewel()
     }
 
     # フィールド
-    
+    fields = []
+    for cBody, x in FieldManager.cells
+      line = []
+      for c, y in cBody
+        obj = c.object
+        cell = 
+          # なにもない場合
+          if obj is null
+            null
+          # キャラクターの場合
+          else if obj.isCharacterObject()
+            {
+              type: ObjectBase.OBJECT_TYPE.CHARACTER
+              id: obj.getId()
+            }
+          # 敵の場合
+          else if obj.isEnemyObject()
+            obj.serialize()
+          # プレゼントの場合
+          else if obj.isPresentboxObject()
+            obj.serialize()
+        line[y] = cell
+      field[x] = line
+
+    # ゲーム状況
+    flags = {
+      isWalkInThisTurn: GameManager.flags.isWalkInThisTurn
+    }
+
+    json = {
+      characters: characters
+      items: items
+      env: env
+      field: field
+      flags: flags
+    }
+
+    Utl.setLs @LOCAL_STORAGE_KEY, json
+
+  @load:->
+    Utl.getLs @LOCAL_STORAGE_KEY
+
+
+
+
+

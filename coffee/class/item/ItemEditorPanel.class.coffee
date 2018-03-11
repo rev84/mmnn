@@ -42,7 +42,7 @@ class ItemEditorPanel
         .on('click', @onClickLevelup.bind(@, level))
         .tooltip({
           'placement' : 'top'
-          'title' : '<img src="./img/juwel.png" style="width: 30px;">'+@itemObject.getExpense(level, level+1)
+          'title' : '<img src="./img/jewel.png" style="width: 30px;">'+@itemObject.getExpense(level, level+1)
           'html' : true
         })
         .appendTo(@divObject)
@@ -81,7 +81,7 @@ class ItemEditorPanel
     # アイテムがない
     return if @getRestCount(fromLevel) <= 0
     # ジュエルが足りない
-    return if EnvManager.decreaseJuwel(@itemObject.getExpense(fromLevel, fromLevel+1)) is false
+    return if EnvManager.decreaseJewel(@itemObject.getExpense(fromLevel, fromLevel+1)) is false
 
     # アイテムアップグレード
     return if @itemObject.upgrade(fromLevel) is false

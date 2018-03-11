@@ -26,7 +26,7 @@ class PresentboxBase extends ObjectBase
   # アイテムのドロップテーブルID
   @itemTableId = 1
   # アイテムがジュエルになる時の額
-  @itemJuwelAmount = 50
+  @itemJewelAmount = 50
 
   constructor:(params)->
     super(ObjectBase.OBJECT_TYPE.PRESENTBOX)
@@ -34,10 +34,22 @@ class PresentboxBase extends ObjectBase
     @level = params.level
 
     # 現在のHP
-    @hp = null
+    @hp = if 'hp' of params then params.hp else null
 
     # 残りターン
-    @receiveTurn = @constructor.receiveTurn
+    @receiveTurn = if 'receiveTurn' of params then params.receiveTurn else @constructor.receiveTurn
+
+  serialize:->
+    {
+      type: @getObjectType()
+      id: @getId()
+      level: @level
+      hp: @hp
+      receiveTurn: @receiveTurn
+    }
+
+  getId:->
+    @constructor.id
 
   getPDef:(level = null)->
     +Infinity
@@ -53,3 +65,14 @@ class PresentboxBase extends ObjectBase
   decreaseTurn:->
     @receiveTurn--
     @receiveTurn <= 0
+
+  @getInstance:(params)->
+    switch params.id
+      when 1 then new PresentboxN(params)
+      when 2 then new PresentboxR(params)
+      when 3 then new PresentboxSR(params)
+      when 4 then new PresentboxSRp(params)
+      when 5 then new PresentboxSSR(params)
+      when 6 then new PresentboxSSRp(params)
+
+

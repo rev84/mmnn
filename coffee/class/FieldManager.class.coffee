@@ -13,7 +13,7 @@ class FieldManager
   @cells = []
   @cellAnimationTimer = false
 
-  @init:(@parentElement)->
+  @init:(@parentElement, savedata)->
     @SIZE_X = @CELL_X * Cell.SIZE_X + @BORDER_SIZE * (@CELL_X + 1)
     @SIZE_Y = @CELL_Y * Cell.SIZE_Y + @BORDER_SIZE * (@CELL_Y + 1) + 50
 
@@ -34,7 +34,23 @@ class FieldManager
       @cells[x] = []
       for y in [0...@CELL_Y]
         @cells[x][y] = new Cell(@divObject, x, y, @BORDER_SIZE)
-
+        # セーブ復元
+        if savedata isnt null and x of savedata and y of savedata[x]
+          # なし
+          if savedata[x][y] is null
+            ;
+          # キャラクター
+          else if savedata[x][y].type is ObjectBase.OBJECT_TYPE.CHARACTER
+            @cells[x][y].object = GameManager.characters[savedata[x][y].id]
+            @cells[x][y].draw()
+          # 敵
+          else if savedata[x][y].type is ObjectBase.OBJECT_TYPE.ENEMY
+            @cells[x][y].object = EnemyBase.getInstance(savedata[x][y].id, savedata[x][y])
+            @cells[x][y].draw()
+          # プレゼント
+          else if savedata[x][y].type is ObjectBase.OBJECT_TYPE.PRESENTBOX
+            @cells[x][y].object = PresentboxBase.getInstance(savedata[x][y])
+            @cells[x][y].draw()
     # 次の列
     @nextField = []
     for y in [0...@CELL_Y]

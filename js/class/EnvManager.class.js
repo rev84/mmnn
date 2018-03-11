@@ -8,7 +8,7 @@ EnvManager = (function() {
       this.lifeObject = $('<div>').attr('id', 'life').appendTo(this.parentElement);
       this.floorObject = $('<div>').attr('id', 'floor').appendTo(this.parentElement);
       this.expObject = $('<div>').attr('id', 'exp').appendTo(this.parentElement);
-      this.juwelObject = $('<div>').attr('id', 'juwel').appendTo(this.parentElement);
+      this.jewelObject = $('<div>').attr('id', 'jewel').appendTo(this.parentElement);
       // デスペナルティのウインドウ
       this.deathPenaltyWindow = $('#death_penalty_window').on('hidden.bs.modal', this.onCloseDeathPenaltyWindow.bind(this));
       this.deathPenaltyFloor = $('#death_penalty_decrease_floor');
@@ -24,12 +24,12 @@ EnvManager = (function() {
         position: 'absolute'
       }).appendTo(this.expObject);
       this.floorObject.html('公演' + this.floor + '日目');
-      this.juwelObject.html(this.juwel);
-      return $('<img>').attr('src', './img/juwel.png').css({
+      this.jewelObject.html(this.jewel);
+      return $('<img>').attr('src', './img/jewel.png').css({
         left: 0,
         height: 60,
         position: 'absolute'
-      }).appendTo(this.juwelObject);
+      }).appendTo(this.jewelObject);
     }
 
     static increaseExp(amount) {
@@ -144,41 +144,41 @@ EnvManager = (function() {
       return this.life;
     }
 
-    static increaseJuwel(amount) {
+    static increaseJewel(amount) {
       if (amount < 1) {
         return false;
       }
-      this.juwel += amount;
+      this.jewel += amount;
       this.draw();
-      return this.juwel;
+      return this.jewel;
     }
 
-    static decreaseJuwel(amount) {
+    static decreaseJewel(amount) {
       if (amount < 1) {
         return false;
       }
-      if (this.juwel < amount) {
+      if (this.jewel < amount) {
         return false;
       }
-      this.juwel -= amount;
-      if (this.juwel < 0) {
-        this.juwel = 0;
+      this.jewel -= amount;
+      if (this.jewel < 0) {
+        this.jewel = 0;
       }
       this.draw();
-      return this.juwel;
+      return this.jewel;
     }
 
-    static getJuwel() {
-      return this.juwel;
+    static getJewel() {
+      return this.jewel;
     }
 
-    static setJuwel(juwel) {
-      if (juwel < 0) {
+    static setJewel(jewel) {
+      if (jewel < 0) {
         return false;
       }
-      this.juwel = juwel;
+      this.jewel = jewel;
       this.draw();
-      return this.juwel;
+      return this.jewel;
     }
 
     // ライフが0になった時の処理
@@ -222,6 +222,8 @@ EnvManager = (function() {
       GameManager.flags.movePickCell = null;
       GameManager.flags.moveToCell = null;
       GameManager.flags.waitAttackCell = null;
+      // ライフを復活
+      this.resetLife();
       return true;
     }
 
@@ -241,7 +243,7 @@ EnvManager = (function() {
 
   EnvManager.life = 5;
 
-  EnvManager.juwel = 0;
+  EnvManager.jewel = 0;
 
   EnvManager.DEATH_PENALTY_CLOSED = true;
 

@@ -8,6 +8,8 @@ class GameManager
     START_JUWEL : 10000
     # アイテムが0個でも表示する
     IS_SHOW_ALL_ITEMS : true
+    # セーブ
+    AUTO_SAVE : true
 
   @ID:'game'
 
@@ -66,7 +68,7 @@ class GameManager
       menu:[0,0]
       exp:[1000, 650]
       floor:[0, 710]
-      juwel:[1000, 710]
+      jewel:[1000, 710]
       life:[0, 650]
     BATTLE:
       character_pallet:null
@@ -160,11 +162,18 @@ class GameManager
 
     # キャラクター設置を確定
     CharacterPalletManager.onExit()
+
+    # セーブ
+    SaveManager.save()
+
     # コントロール可能に
     @changeControllable true
 
   # キャラクター出撃に移行
   @doCharacterPick:(isSoon = false)->
+    # セーブ
+    SaveManager.save()
+
     @partsAnimation @POSITION.CHARACTER_PICK, isSoon
     
   # ターン終了
@@ -178,6 +187,9 @@ class GameManager
     @flags.isWalkInThisTurn = false
     # 全キャラの復帰を進行
     c.decreaseComeback() for k, c of @characters
+
+    # セーブ
+    SaveManager.save()
     # コントロール可能に
     @changeControllable true
 
@@ -189,6 +201,10 @@ class GameManager
     CharacterPalletManager.onExit()
 
     @flags.isCellObjectAnimation = false
+
+    # セーブ
+    SaveManager.save()
+
     # コントロール可能に
     @changeControllable true
 
@@ -198,6 +214,9 @@ class GameManager
 
     # キャラクター設置を確定
     CharacterPalletManager.onExit()
+
+    # セーブ
+    SaveManager.save()
 
     # コントロールを戻す
     @changeControllable true
@@ -248,16 +267,41 @@ class GameManager
                     )
                    .on('mouseleave', @onMouseLeave.bind(@))
 
-    @initField(null)
-    @initEnv(null)
+    # セーブデータを読み込む
+    savedata = SaveManager.load()
+    savedataItems = 
+      if savedata isnt null and 'items' of savedata
+        savedata.items
+      else
+        null
+    savedataCharacters = 
+      if savedata isnt null and 'characters' of savedata
+        savedata.characters
+      else
+        null
+    savedataField = 
+      if savedata isnt null and 'field' of savedata
+        savedata.field
+      else
+        null
+    savedataEnv = 
+      if savedata isnt null and 'env' of savedata
+        savedata.env
+      else
+        null
+    # 階を進んだか
+    if savedata isnt null and 'flags' of savedata
+      if 'isWalkInThisTurn' of savedata.flags
+        @flags.isWalkInThisTurn = savedata.flags.isWalkInThisTurn
+
+    @initCharacters(savedataCharacters)
+    @initEnemys(null)
+    @initItems(savedataItems)
+    @initField(savedataField)
+    @initEnv(savedataEnv)
     @initMenu(null)
     @initPanels(null)
-    @initCharacters(null)
     @initLevelup(null)
-    @initEnemys(null)
-    @initItems({
-      "1" : [1,2,3,4,5]
-    })
     @initItemWindow(null)
     @initBattleResult(null)
 
@@ -288,7 +332,7 @@ class GameManager
     return if @initialized.field
     @initialized.field = true
 
-    FieldManager.init(@gameElement)
+    FieldManager.init(@gameElement, savedata)
 
   @initEnv:(savedata)->
     return if @initialized.env
@@ -296,10 +340,17 @@ class GameManager
 
     EnvManager.init(@gameElement)
     # デバッグ
+    ###
     EnvManager.setLife 5
     EnvManager.setExp (if @DEBUG_CONFIG.START_EXP is false then 0 else @DEBUG_CONFIG.START_EXP)
     EnvManager.setFloor 1
-    EnvManager.setJuwel (if @DEBUG_CONFIG.START_JUWEL is false then 0 else @DEBUG_CONFIG.START_JUWEL)
+    EnvManager.setJewel (if @DEBUG_CONFIG.START_JUWEL is false then 0 else @DEBUG_CONFIG.START_JUWEL)
+    ###
+    if savedata isnt null
+      EnvManager.setLife savedata.life if 'life' of savedata
+      EnvManager.setFloor savedata.floor if 'floor' of savedata
+      EnvManager.setExp savedata.exp if 'exp' of savedata
+      EnvManager.setJewel savedata.jewel if 'jewel' of savedata
 
   @initPanels:(savedata)->
     return if @initialized.panels
@@ -330,8 +381,8 @@ class GameManager
 
     @characters = {}
     for characterId, className of window.CharacterList
-      if savedata? and 'characters' of savedata and characterId of savedata.characters
-        params = savedata.characters[characterId]
+      if savedata isnt null and characterId of savedata
+        params = savedata[characterId]
       else
         params = 
           joined : null
@@ -738,6 +789,10 @@ class GameManager
     @flags.isWalkInThisTurn = true
     # 移動やりなおし不可
     @flags.moveToCell = null
+    
+    # セーブ
+    SaveManager.save()
+
     @changeControllable true
 
 
@@ -758,6 +813,9 @@ class GameManager
     # 再描画
     preCell.draw()
     nowCell.draw()
+
+    # セーブ
+    SaveManager.save()
 
     # コントロールを戻す
     @changeControllable true

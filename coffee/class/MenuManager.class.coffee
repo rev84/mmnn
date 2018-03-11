@@ -101,6 +101,9 @@ class MenuManager
     GameManager.isEnable.levelup = true
     GameManager.isEnable.item = true
     GameManager.flags.isCellObjectAnimation = false
+    # パネル再描画
+    CharacterPalletManager.draw()
+
 
     GameManager.doCharacterPick()
     true

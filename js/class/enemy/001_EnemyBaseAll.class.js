@@ -58,7 +58,7 @@ Enemy1Base = (function() {
   Enemy1Base.itemTableId = 1;
 
   // アイテムがジュエルになる時の額
-  Enemy1Base.itemJuwelAmount = 50;
+  Enemy1Base.itemJewelAmount = 50;
 
   Enemy1Base.abilityName = "なし";
 
@@ -125,7 +125,7 @@ Enemy2Base = (function() {
   Enemy2Base.itemTableId = 1;
 
   // アイテムがジュエルになる時の額
-  Enemy2Base.itemJuwelAmount = 50;
+  Enemy2Base.itemJewelAmount = 50;
 
   Enemy2Base.abilityName = "なし";
 
@@ -192,7 +192,7 @@ Enemy3Base = (function() {
   Enemy3Base.itemTableId = 1;
 
   // アイテムがジュエルになる時の額
-  Enemy3Base.itemJuwelAmount = 50;
+  Enemy3Base.itemJewelAmount = 50;
 
   Enemy3Base.abilityName = "なし";
 
@@ -259,7 +259,7 @@ Enemy4Base = (function() {
   Enemy4Base.itemTableId = 1;
 
   // アイテムがジュエルになる時の額
-  Enemy4Base.itemJuwelAmount = 50;
+  Enemy4Base.itemJewelAmount = 50;
 
   Enemy4Base.abilityName = "なし";
 
@@ -326,7 +326,7 @@ Enemy5Base = (function() {
   Enemy5Base.itemTableId = 1;
 
   // アイテムがジュエルになる時の額
-  Enemy5Base.itemJuwelAmount = 50;
+  Enemy5Base.itemJewelAmount = 50;
 
   Enemy5Base.abilityName = "なし";
 

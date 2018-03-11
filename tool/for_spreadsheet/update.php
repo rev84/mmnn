@@ -79,11 +79,13 @@ window.EnemyList = {
 
 EOM;
 
+  $id2Class = [];
+
   # キャラクター
   $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, '敵キャラ設定!A2:S');
   $values = $response->getValues();
   foreach ($values as $vAry) {
-    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $abilityName, $abilityDesc, $appearance, $expRate, $itemRate, $itemTableId, $itemJuwelAmount) = $vAry;
+    list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $abilityName, $abilityDesc, $appearance, $expRate, $itemRate, $itemTableId, $itemJewelAmount) = $vAry;
 
     $attackTypeBase = ($attackTypeBase == '物理' ? 'ObjectBase.ATTACK_TYPE.PHYSIC' : 'ObjectBase.ATTACK_TYPE.MAGIC');
 
@@ -94,6 +96,8 @@ EOM;
       $files[$index] = '"./img/enemy/'.$characterId.'/'.$files[$index].'"';
     }
     $filelist = join(',', $files);
+
+    $id2Class[$characterId] = $className;
 
     $characterList .= '  "'.$characterId.'" : '.$className."\n";
 
@@ -132,7 +136,7 @@ class {$className}Base extends EnemyBase
   # アイテムのドロップテーブルID
   @itemTableId = {$itemTableId}
   # アイテムがジュエルになる時の額
-  @itemJuwelAmount = {$itemJuwelAmount}
+  @itemJewelAmount = {$itemJewelAmount}
 
   @abilityName = "{$abilityName}"
   @abilityDesc = "{$abilityDesc}"
@@ -159,6 +163,19 @@ EOM;
   file_put_contents(dirname(__FILE__).'/../../coffee/class/enemy/ZZZ_EnemyList.coffee', $characterList);
 
   file_put_contents(dirname(__FILE__).'/../../coffee/class/enemy/001_EnemyBaseAll.class.coffee', $script);
+
+  $json = '';
+  foreach ($id2Class as $key => $val) {
+    $json .= '      "'.$key.'" : '.$val."\n";
+  }
+  $script = <<<EOM
+class EnemyDefine
+  @getClasses:->
+    {
+{$json}
+    }
+EOM;
+  file_put_contents(dirname(__FILE__).'/../../coffee/class/enemy/002_EnemyDefine.class.coffee', $script);
 
 }
 

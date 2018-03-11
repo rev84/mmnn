@@ -8,9 +8,23 @@ PresentboxBase = (function() {
       // 現在のレベル
       this.level = params.level;
       // 現在のHP
-      this.hp = null;
+      this.hp = 'hp' in params ? params.hp : null;
       // 残りターン
-      this.receiveTurn = this.constructor.receiveTurn;
+      this.receiveTurn = 'receiveTurn' in params ? params.receiveTurn : this.constructor.receiveTurn;
+    }
+
+    serialize() {
+      return {
+        type: this.getObjectType(),
+        id: this.getId(),
+        level: this.level,
+        hp: this.hp,
+        receiveTurn: this.receiveTurn
+      };
+    }
+
+    getId() {
+      return this.constructor.id;
     }
 
     getPDef(level = null) {
@@ -30,6 +44,23 @@ PresentboxBase = (function() {
     decreaseTurn() {
       this.receiveTurn--;
       return this.receiveTurn <= 0;
+    }
+
+    static getInstance(params) {
+      switch (params.id) {
+        case 1:
+          return new PresentboxN(params);
+        case 2:
+          return new PresentboxR(params);
+        case 3:
+          return new PresentboxSR(params);
+        case 4:
+          return new PresentboxSRp(params);
+        case 5:
+          return new PresentboxSSR(params);
+        case 6:
+          return new PresentboxSSRp(params);
+      }
     }
 
   };
@@ -74,7 +105,7 @@ PresentboxBase = (function() {
   PresentboxBase.itemTableId = 1;
 
   // アイテムがジュエルになる時の額
-  PresentboxBase.itemJuwelAmount = 50;
+  PresentboxBase.itemJewelAmount = 50;
 
   return PresentboxBase;
 

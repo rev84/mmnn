@@ -21,13 +21,14 @@ class ItemManager
 
     @divObject.appendTo @gameElement
 
-  @setItems:(savedata)->
+  @setItems:(savedata = null)->
     for itemId, itemBody of GameManager.items
       @items[itemId] = new Item(itemId, itemBody)
       for level in [0...itemBody.cost.length]
         # セーブデータに持ってる数があればセット
-        if savedata isnt null and itemId of savedata and level of savedata[itemId]
-          @items[itemId].setAmount level, savedata[itemId][level]
+        if savedata isnt null and itemId of savedata
+          for amount, level in savedata[itemId]
+            @items[itemId].setAmount level, amount
         # なければ0個
         else
           ;

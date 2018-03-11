@@ -15,6 +15,14 @@ class EnemyBase extends ObjectBase
     @moved = params.moved
 
   serialize:->
+    {
+      type: @getObjectType()
+      id: @getId()
+      level: @level
+      moved: @moved
+      inField: @inField
+      hp: @hp
+    }
 
   getId:->
     @constructor.characterId
@@ -35,8 +43,8 @@ class EnemyBase extends ObjectBase
   setMoved:(bool)->
     @moved = !!bool
 
-  getJuwel:->
-    @constructor.itemJuwelAmount
+  getJewel:->
+    @constructor.itemJewelAmount
 
   getItemTableId:->
     @constructor.itemTableId
@@ -49,10 +57,13 @@ class EnemyBase extends ObjectBase
       res = ItemManager.getItemObjectFromItemTableId @getItemTableId()
       # ジュエルにする
       if res is false
-        EnvManager.increaseJuwel @getJuwel()
-        await ItemWindow.showJuwel @getJuwel()
+        EnvManager.increaseJewel @getJewel()
+        await ItemWindow.showJewel @getJewel()
       # 最低レベルのアイテムを与える
       else
         res.increaseAmount 0
         await ItemWindow.showItem res
 
+  @getInstance:(id, params)->
+    classes = EnemyDefine.getClasses()
+    new (classes[id])(params)

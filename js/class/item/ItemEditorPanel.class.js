@@ -31,7 +31,7 @@ ItemEditorPanel = (function() {
             left: (60 + 40) * level + 60
           }).on('click', this.onClickLevelup.bind(this, level)).tooltip({
             'placement': 'top',
-            'title': '<img src="./img/juwel.png" style="width: 30px;">' + this.itemObject.getExpense(level, level + 1),
+            'title': '<img src="./img/jewel.png" style="width: 30px;">' + this.itemObject.getExpense(level, level + 1),
             'html': true
           }).appendTo(this.divObject);
         }
@@ -82,7 +82,7 @@ ItemEditorPanel = (function() {
         return;
       }
       // ジュエルが足りない
-      if (EnvManager.decreaseJuwel(this.itemObject.getExpense(fromLevel, fromLevel + 1)) === false) {
+      if (EnvManager.decreaseJewel(this.itemObject.getExpense(fromLevel, fromLevel + 1)) === false) {
         return;
       }
       // アイテムアップグレード

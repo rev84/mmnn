@@ -20,12 +20,12 @@ class ItemWindow
     if isWaitClose
       await Utl.sleep(1000) while !@CLOSED
 
-  @showJuwel:(juwelAmount, isWaitClose = true)->
+  @showJewel:(jewelAmount, isWaitClose = true)->
     if isWaitClose
       @CLOSED = false
 
-    @imgElement.attr('src', './img/juwel.png')
-    @nameElement.html ''+juwelAmount+'ジュエル'
+    @imgElement.attr('src', './img/jewel.png')
+    @nameElement.html ''+jewelAmount+'ジュエル'
     @descriptionElement.html 'ジュエルです'
 
     @divObject.modal('show')

@@ -5,7 +5,7 @@ class EnvManager
   @floor = 1
   @lifeMax = 5
   @life = 5
-  @juwel = 0
+  @jewel = 0
 
   @DEATH_PENALTY_CLOSED = true
 
@@ -13,7 +13,7 @@ class EnvManager
     @lifeObject = $('<div>').attr('id', 'life').appendTo(@parentElement)
     @floorObject = $('<div>').attr('id', 'floor').appendTo(@parentElement)
     @expObject = $('<div>').attr('id', 'exp').appendTo(@parentElement)
-    @juwelObject = $('<div>').attr('id', 'juwel').appendTo(@parentElement)
+    @jewelObject = $('<div>').attr('id', 'jewel').appendTo(@parentElement)
 
     # デスペナルティのウインドウ
     @deathPenaltyWindow = $('#death_penalty_window').on('hidden.bs.modal', @onCloseDeathPenaltyWindow.bind(@))
@@ -30,12 +30,12 @@ class EnvManager
       position: 'absolute'
     }).appendTo(@expObject)
     @floorObject.html '公演'+@floor+'日目'
-    @juwelObject.html @juwel
-    $('<img>').attr('src', './img/juwel.png').css({
+    @jewelObject.html @jewel
+    $('<img>').attr('src', './img/jewel.png').css({
       left:0
       height: 60
       position: 'absolute'
-    }).appendTo(@juwelObject)
+    }).appendTo(@jewelObject)
 
   @increaseExp:(amount)->
     return false if amount < 1
@@ -109,28 +109,28 @@ class EnvManager
     @draw()
     @life
 
-  @increaseJuwel:(amount)->
+  @increaseJewel:(amount)->
     return false if amount < 1
-    @juwel += amount
+    @jewel += amount
     @draw()
-    @juwel
+    @jewel
 
-  @decreaseJuwel:(amount)->
+  @decreaseJewel:(amount)->
     return false if amount < 1
-    return false if @juwel < amount
-    @juwel -= amount
-    @juwel = 0 if @juwel < 0
+    return false if @jewel < amount
+    @jewel -= amount
+    @jewel = 0 if @jewel < 0
     @draw()
-    @juwel
+    @jewel
 
-  @getJuwel:->
-    @juwel
+  @getJewel:->
+    @jewel
 
-  @setJuwel:(juwel)->
-    return false if juwel < 0
-    @juwel = juwel
+  @setJewel:(jewel)->
+    return false if jewel < 0
+    @jewel = jewel
     @draw()
-    @juwel
+    @jewel
 
   # ライフが0になった時の処理
   @deathPenalty:->
@@ -169,7 +169,9 @@ class EnvManager
     GameManager.flags.movePickCell = null
     GameManager.flags.moveToCell = null
     GameManager.flags.waitAttackCell = null
-
+    # ライフを復活
+    @resetLife()
+    
     true
 
   @onCloseDeathPenaltyWindow:->

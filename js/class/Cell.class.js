@@ -451,6 +451,8 @@ Cell = (function() {
         return;
       }
       await FieldManager.moveObject(GameManager.flags.movePickCell, this);
+      // セーブ
+      SaveManager.save();
       GameManager.changeControllable(true);
       return true;
     }
@@ -480,7 +482,9 @@ Cell = (function() {
       GameManager.flags.movePickCell = null;
       GameManager.flags.moveToCell = null;
       GameManager.flags.waitAttackCell = null;
-      // コールバックで操作可能にする
+      // セーブ
+      SaveManager.save();
+      // 操作可能にする
       return GameManager.changeControllable(true);
     }
 
@@ -496,6 +500,9 @@ Cell = (function() {
       // 移動・攻撃モードを解除
       GameManager.flags.movePickCell = null;
       GameManager.flags.waitAttackCell = null;
+      
+      // セーブ
+      SaveManager.save();
       // コールバックで操作可能にする
       return GameManager.changeControllable(true);
     }

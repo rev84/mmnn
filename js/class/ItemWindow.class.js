@@ -28,13 +28,13 @@ ItemWindow = (function() {
       }
     }
 
-    static async showJuwel(juwelAmount, isWaitClose = true) {
+    static async showJewel(jewelAmount, isWaitClose = true) {
       var results;
       if (isWaitClose) {
         this.CLOSED = false;
       }
-      this.imgElement.attr('src', './img/juwel.png');
-      this.nameElement.html('' + juwelAmount + 'ジュエル');
+      this.imgElement.attr('src', './img/jewel.png');
+      this.nameElement.html('' + jewelAmount + 'ジュエル');
       this.descriptionElement.html('ジュエルです');
       this.divObject.modal('show');
       if (isWaitClose) {

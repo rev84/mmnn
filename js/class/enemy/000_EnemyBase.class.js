@@ -14,7 +14,16 @@ EnemyBase = class EnemyBase extends ObjectBase {
     this.moved = params.moved;
   }
 
-  serialize() {}
+  serialize() {
+    return {
+      type: this.getObjectType(),
+      id: this.getId(),
+      level: this.level,
+      moved: this.moved,
+      inField: this.inField,
+      hp: this.hp
+    };
+  }
 
   getId() {
     return this.constructor.characterId;
@@ -41,8 +50,8 @@ EnemyBase = class EnemyBase extends ObjectBase {
     return this.moved = !!bool;
   }
 
-  getJuwel() {
-    return this.constructor.itemJuwelAmount;
+  getJewel() {
+    return this.constructor.itemJewelAmount;
   }
 
   getItemTableId() {
@@ -57,14 +66,20 @@ EnemyBase = class EnemyBase extends ObjectBase {
       res = ItemManager.getItemObjectFromItemTableId(this.getItemTableId());
       // ジュエルにする
       if (res === false) {
-        EnvManager.increaseJuwel(this.getJuwel());
-        return (await ItemWindow.showJuwel(this.getJuwel()));
+        EnvManager.increaseJewel(this.getJewel());
+        return (await ItemWindow.showJewel(this.getJewel()));
       } else {
         // 最低レベルのアイテムを与える
         res.increaseAmount(0);
         return (await ItemWindow.showItem(res));
       }
     }
+  }
+
+  static getInstance(id, params) {
+    var classes;
+    classes = EnemyDefine.getClasses();
+    return new classes[id](params);
   }
 
 };

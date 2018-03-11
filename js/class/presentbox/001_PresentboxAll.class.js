@@ -9,6 +9,9 @@ PresentboxN = (function() {
 
   };
 
+  // ID
+  PresentboxN.id = 1;
+
   // キャラ名
   PresentboxN.characterName = "プレゼント（N）";
 
@@ -25,7 +28,7 @@ PresentboxN = (function() {
   PresentboxN.itemTableId = 1;
 
   // アイテムがジュエルになる時の額
-  PresentboxN.itemJuwelAmount = 50;
+  PresentboxN.itemJewelAmount = 50;
 
   return PresentboxN;
 
@@ -38,6 +41,9 @@ PresentboxR = (function() {
     }
 
   };
+
+  // ID
+  PresentboxR.id = 2;
 
   // キャラ名
   PresentboxR.characterName = "プレゼント（R）";
@@ -55,7 +61,7 @@ PresentboxR = (function() {
   PresentboxR.itemTableId = 2;
 
   // アイテムがジュエルになる時の額
-  PresentboxR.itemJuwelAmount = 100;
+  PresentboxR.itemJewelAmount = 100;
 
   return PresentboxR;
 
@@ -68,6 +74,9 @@ PresentboxSR = (function() {
     }
 
   };
+
+  // ID
+  PresentboxSR.id = 3;
 
   // キャラ名
   PresentboxSR.characterName = "プレゼント（SR）";
@@ -85,7 +94,7 @@ PresentboxSR = (function() {
   PresentboxSR.itemTableId = 3;
 
   // アイテムがジュエルになる時の額
-  PresentboxSR.itemJuwelAmount = 150;
+  PresentboxSR.itemJewelAmount = 150;
 
   return PresentboxSR;
 
@@ -98,6 +107,9 @@ PresentboxSRp = (function() {
     }
 
   };
+
+  // ID
+  PresentboxSRp.id = 4;
 
   // キャラ名
   PresentboxSRp.characterName = "プレゼント（SR+）";
@@ -115,7 +127,7 @@ PresentboxSRp = (function() {
   PresentboxSRp.itemTableId = 4;
 
   // アイテムがジュエルになる時の額
-  PresentboxSRp.itemJuwelAmount = 200;
+  PresentboxSRp.itemJewelAmount = 200;
 
   return PresentboxSRp;
 
@@ -128,6 +140,9 @@ PresentboxSSR = (function() {
     }
 
   };
+
+  // ID
+  PresentboxSSR.id = 5;
 
   // キャラ名
   PresentboxSSR.characterName = "プレゼント（SSR）";
@@ -145,7 +160,7 @@ PresentboxSSR = (function() {
   PresentboxSSR.itemTableId = 5;
 
   // アイテムがジュエルになる時の額
-  PresentboxSSR.itemJuwelAmount = 250;
+  PresentboxSSR.itemJewelAmount = 250;
 
   return PresentboxSSR;
 
@@ -158,6 +173,9 @@ PresentboxSSRp = (function() {
     }
 
   };
+
+  // ID
+  PresentboxSSRp.id = 6;
 
   // キャラ名
   PresentboxSSRp.characterName = "プレゼント（SSR+）";
@@ -175,7 +193,7 @@ PresentboxSSRp = (function() {
   PresentboxSSRp.itemTableId = 6;
 
   // アイテムがジュエルになる時の額
-  PresentboxSSRp.itemJuwelAmount = 300;
+  PresentboxSSRp.itemJewelAmount = 300;
 
   return PresentboxSSRp;
 

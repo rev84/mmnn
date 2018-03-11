@@ -100,7 +100,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   text-align: center;
   line-height: 1.4;
 }
-#juwel {
+#jewel {
   padding-right: 5px;
   width: 300px;
   height: 60px;
@@ -172,7 +172,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   border: double 5px #000000;
 }
 .panel, .panel > *,
-#exp, #life, #floor, #juwel,
+#exp, #life, #floor, #jewel,
 .levelup_panel, .levelup_panel > *,
 .levelup_controller, .levelup_controller > *,
 #battle_result > *,

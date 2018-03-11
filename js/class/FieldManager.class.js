@@ -3,7 +3,7 @@ var FieldManager;
 
 FieldManager = (function() {
   class FieldManager {
-    static init(parentElement) {
+    static init(parentElement, savedata) {
       var i, j, k, ref, ref1, ref2, x, y;
       this.parentElement = parentElement;
       this.SIZE_X = this.CELL_X * Cell.SIZE_X + this.BORDER_SIZE * (this.CELL_X + 1);
@@ -24,6 +24,24 @@ FieldManager = (function() {
         this.cells[x] = [];
         for (y = j = 0, ref1 = this.CELL_Y; (0 <= ref1 ? j < ref1 : j > ref1); y = 0 <= ref1 ? ++j : --j) {
           this.cells[x][y] = new Cell(this.divObject, x, y, this.BORDER_SIZE);
+          // セーブ復元
+          if (savedata !== null && x in savedata && y in savedata[x]) {
+            // なし
+            if (savedata[x][y] === null) {
+
+            } else if (savedata[x][y].type === ObjectBase.OBJECT_TYPE.CHARACTER) {
+              this.cells[x][y].object = GameManager.characters[savedata[x][y].id];
+              this.cells[x][y].draw();
+            // 敵
+            } else if (savedata[x][y].type === ObjectBase.OBJECT_TYPE.ENEMY) {
+              this.cells[x][y].object = EnemyBase.getInstance(savedata[x][y].id, savedata[x][y]);
+              this.cells[x][y].draw();
+            // プレゼント
+            } else if (savedata[x][y].type === ObjectBase.OBJECT_TYPE.PRESENTBOX) {
+              this.cells[x][y].object = PresentboxBase.getInstance(savedata[x][y]);
+              this.cells[x][y].draw();
+            }
+          }
         }
       }
       // 次の列

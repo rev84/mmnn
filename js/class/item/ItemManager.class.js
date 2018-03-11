@@ -26,8 +26,8 @@ ItemManager = (function() {
       return this.divObject.appendTo(this.gameElement);
     }
 
-    static setItems(savedata) {
-      var itemBody, itemId, level, ref, results;
+    static setItems(savedata = null) {
+      var amount, itemBody, itemId, level, ref, results;
       ref = GameManager.items;
       results = [];
       for (itemId in ref) {
@@ -38,8 +38,17 @@ ItemManager = (function() {
           results1 = [];
           for (level = i = 0, ref1 = itemBody.cost.length; (0 <= ref1 ? i < ref1 : i > ref1); level = 0 <= ref1 ? ++i : --i) {
             // セーブデータに持ってる数があればセット
-            if (savedata !== null && itemId in savedata && level in savedata[itemId]) {
-              results1.push(this.items[itemId].setAmount(level, savedata[itemId][level]));
+            if (savedata !== null && itemId in savedata) {
+              results1.push((function() {
+                var j, len, ref2, results2;
+                ref2 = savedata[itemId];
+                results2 = [];
+                for (level = j = 0, len = ref2.length; j < len; level = ++j) {
+                  amount = ref2[level];
+                  results2.push(this.items[itemId].setAmount(level, amount));
+                }
+                return results2;
+              }).call(this));
             } else {
 
             }

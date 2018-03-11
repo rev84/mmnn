@@ -91,12 +91,16 @@ GameManager = (function() {
       this.partsAnimation(this.POSITION.BATTLE, isSoon);
       // キャラクター設置を確定
       CharacterPalletManager.onExit();
+      // セーブ
+      SaveManager.save();
       // コントロール可能に
       return this.changeControllable(true);
     }
 
     // キャラクター出撃に移行
     static doCharacterPick(isSoon = false) {
+      // セーブ
+      SaveManager.save();
       return this.partsAnimation(this.POSITION.CHARACTER_PICK, isSoon);
     }
 
@@ -115,6 +119,8 @@ GameManager = (function() {
         // 全キャラの復帰を進行
         c.decreaseComeback();
       }
+      // セーブ
+      SaveManager.save();
       // コントロール可能に
       return this.changeControllable(true);
     }
@@ -125,6 +131,8 @@ GameManager = (function() {
       // キャラクター設置を確定
       CharacterPalletManager.onExit();
       this.flags.isCellObjectAnimation = false;
+      // セーブ
+      SaveManager.save();
       // コントロール可能に
       return this.changeControllable(true);
     }
@@ -134,6 +142,8 @@ GameManager = (function() {
       this.partsAnimation(this.POSITION.ITEM, isSoon);
       // キャラクター設置を確定
       CharacterPalletManager.onExit();
+      // セーブ
+      SaveManager.save();
       // コントロールを戻す
       return this.changeControllable(true);
     }
@@ -172,6 +182,7 @@ GameManager = (function() {
 
     // 初期化
     static init() {
+      var savedata, savedataCharacters, savedataEnv, savedataField, savedataItems;
       // 右クリック禁止
       $(document).on('contextmenu', function() {
         return !GameManager.DEBUG_CONFIG.DISABLE_RIGHT_CLICK_MENU;
@@ -195,16 +206,26 @@ GameManager = (function() {
             return this.onMouseRightDown.bind(this)(evt);
         }
       }).on('mouseleave', this.onMouseLeave.bind(this));
-      this.initField(null);
-      this.initEnv(null);
+      // セーブデータを読み込む
+      savedata = SaveManager.load();
+      savedataItems = savedata !== null && 'items' in savedata ? savedata.items : null;
+      savedataCharacters = savedata !== null && 'characters' in savedata ? savedata.characters : null;
+      savedataField = savedata !== null && 'field' in savedata ? savedata.field : null;
+      savedataEnv = savedata !== null && 'env' in savedata ? savedata.env : null;
+      // 階を進んだか
+      if (savedata !== null && 'flags' in savedata) {
+        if ('isWalkInThisTurn' in savedata.flags) {
+          this.flags.isWalkInThisTurn = savedata.flags.isWalkInThisTurn;
+        }
+      }
+      this.initCharacters(savedataCharacters);
+      this.initEnemys(null);
+      this.initItems(savedataItems);
+      this.initField(savedataField);
+      this.initEnv(savedataEnv);
       this.initMenu(null);
       this.initPanels(null);
-      this.initCharacters(null);
       this.initLevelup(null);
-      this.initEnemys(null);
-      this.initItems({
-        "1": [1, 2, 3, 4, 5]
-      });
       this.initItemWindow(null);
       this.initBattleResult(null);
       this.gameElement.appendTo('body');
@@ -237,7 +258,7 @@ GameManager = (function() {
         return;
       }
       this.initialized.field = true;
-      return FieldManager.init(this.gameElement);
+      return FieldManager.init(this.gameElement, savedata);
     }
 
     static initEnv(savedata) {
@@ -247,10 +268,26 @@ GameManager = (function() {
       this.initialized.env = true;
       EnvManager.init(this.gameElement);
       // デバッグ
-      EnvManager.setLife(5);
-      EnvManager.setExp((this.DEBUG_CONFIG.START_EXP === false ? 0 : this.DEBUG_CONFIG.START_EXP));
-      EnvManager.setFloor(1);
-      return EnvManager.setJuwel((this.DEBUG_CONFIG.START_JUWEL === false ? 0 : this.DEBUG_CONFIG.START_JUWEL));
+      /*
+      EnvManager.setLife 5
+      EnvManager.setExp (if @DEBUG_CONFIG.START_EXP is false then 0 else @DEBUG_CONFIG.START_EXP)
+      EnvManager.setFloor 1
+      EnvManager.setJewel (if @DEBUG_CONFIG.START_JUWEL is false then 0 else @DEBUG_CONFIG.START_JUWEL)
+      */
+      if (savedata !== null) {
+        if ('life' in savedata) {
+          EnvManager.setLife(savedata.life);
+        }
+        if ('floor' in savedata) {
+          EnvManager.setFloor(savedata.floor);
+        }
+        if ('exp' in savedata) {
+          EnvManager.setExp(savedata.exp);
+        }
+        if ('jewel' in savedata) {
+          return EnvManager.setJewel(savedata.jewel);
+        }
+      }
     }
 
     static initPanels(savedata) {
@@ -291,8 +328,8 @@ GameManager = (function() {
       ref = window.CharacterList;
       for (characterId in ref) {
         className = ref[characterId];
-        if ((savedata != null) && 'characters' in savedata && characterId in savedata.characters) {
-          params = savedata.characters[characterId];
+        if (savedata !== null && characterId in savedata) {
+          params = savedata[characterId];
         } else {
           params = {
             joined: null,
@@ -784,6 +821,9 @@ GameManager = (function() {
       this.flags.isWalkInThisTurn = true;
       // 移動やりなおし不可
       this.flags.moveToCell = null;
+      
+      // セーブ
+      SaveManager.save();
       return this.changeControllable(true);
     }
 
@@ -801,6 +841,8 @@ GameManager = (function() {
       // 再描画
       preCell.draw();
       nowCell.draw();
+      // セーブ
+      SaveManager.save();
       // コントロールを戻す
       return this.changeControllable(true);
     }
@@ -832,7 +874,9 @@ GameManager = (function() {
     // 初期ジュエル（falseでデバッグ無効）
     START_JUWEL: 10000,
     // アイテムが0個でも表示する
-    IS_SHOW_ALL_ITEMS: true
+    IS_SHOW_ALL_ITEMS: true,
+    // セーブ
+    AUTO_SAVE: true
   };
 
   GameManager.ID = 'game';
@@ -908,7 +952,7 @@ GameManager = (function() {
       menu: [0, 0],
       exp: [1000, 650],
       floor: [0, 710],
-      juwel: [1000, 710],
+      jewel: [1000, 710],
       life: [0, 650]
     },
     BATTLE: {
