@@ -125,9 +125,9 @@ class Enemy4Base extends EnemyBase
   # ID
   @characterId = 4
   # キャラ名
-  @characterName = "マジスコ"
+  @characterName = "ハッピオタ"
   # 画像のリスト
-  @images = ["./img/enemy/4/1084010301_001.png","./img/enemy/4/1084010301_003.png"]
+  @images = ["./img/enemy/4/enemy_tarako_1.png","./img/enemy/4/enemy_tarako_2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC
   # 成長率：攻撃力

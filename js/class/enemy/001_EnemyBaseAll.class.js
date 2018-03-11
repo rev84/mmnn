@@ -214,10 +214,10 @@ Enemy4Base = (function() {
   Enemy4Base.characterId = 4;
 
   // キャラ名
-  Enemy4Base.characterName = "マジスコ";
+  Enemy4Base.characterName = "ハッピオタ";
 
   // 画像のリスト
-  Enemy4Base.images = ["./img/enemy/4/1084010301_001.png", "./img/enemy/4/1084010301_003.png"];
+  Enemy4Base.images = ["./img/enemy/4/enemy_tarako_1.png", "./img/enemy/4/enemy_tarako_2.png"];
 
   // 基本攻撃タイプ
   Enemy4Base.attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC;
