@@ -16,7 +16,7 @@ window.ItemList = {
     "hitPlus": null,
     "dodgePlus": null,
     "returnPlus": null,
-    "itemTable": [0.2]
+    "itemTable": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
   },
   "2": {
     "displayOrder": 2,
@@ -34,7 +34,7 @@ window.ItemList = {
     "hitPlus": null,
     "dodgePlus": null,
     "returnPlus": null,
-    "itemTable": [0.2]
+    "itemTable": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
   },
   "3": {
     "displayOrder": 3,
@@ -52,7 +52,7 @@ window.ItemList = {
     "hitPlus": null,
     "dodgePlus": null,
     "returnPlus": null,
-    "itemTable": [0.2]
+    "itemTable": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
   },
   "4": {
     "displayOrder": 4,
@@ -70,7 +70,7 @@ window.ItemList = {
     "hitPlus": null,
     "dodgePlus": null,
     "returnPlus": null,
-    "itemTable": [0.2]
+    "itemTable": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
   },
   "5": {
     "displayOrder": 5,
@@ -88,6 +88,6 @@ window.ItemList = {
     "hitPlus": null,
     "dodgePlus": null,
     "returnPlus": null,
-    "itemTable": [0.2]
+    "itemTable": [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
   }
 };

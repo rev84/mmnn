@@ -22,7 +22,6 @@ Cell = (function() {
       this.background = this.constructor.IMAGE_BACKGROUND[Utl.rand(0, this.constructor.IMAGE_BACKGROUND.length - 1)];
       this.wayStack = null;
       this.knockout = null;
-      this.objectAnimationIndex = 0;
       this.initElements(borderSize);
     }
 
@@ -610,15 +609,14 @@ Cell = (function() {
       }
     }
 
-    stepObjectAnimation() {
+    stepObjectAnimation(index) {
       if (this.object === null) {
         return this.hideObject();
       }
-      this.objectAnimationIndex++;
-      if (this.object.getImage(this.objectAnimationIndex) === null) {
-        this.objectAnimationIndex = 0;
+      if (this.object.getImage(index) === null) {
+        index = 0;
       }
-      return this.changeObject(this.object.getImage(this.objectAnimationIndex));
+      return this.changeObject(this.object.getImage(index));
     }
 
     removeMe() {

@@ -55,7 +55,7 @@ Enemy1Base = (function() {
   Enemy1Base.itemRate = 1;
 
   // アイテムのドロップテーブルID
-  Enemy1Base.itemTableId = 1;
+  Enemy1Base.itemTableId = 8;
 
   // アイテムがジュエルになる時の額
   Enemy1Base.itemJewelAmount = 50;
@@ -80,10 +80,10 @@ Enemy2Base = (function() {
   Enemy2Base.characterId = 2;
 
   // キャラ名
-  Enemy2Base.characterName = "ミートボール";
+  Enemy2Base.characterName = "バックバンドギタリスト";
 
   // 画像のリスト
-  Enemy2Base.images = ["./img/enemy/2/1036010301_001.png", "./img/enemy/2/1036010301_003.png"];
+  Enemy2Base.images = ["./img/enemy/2/enemy_guitarist_1.png", "./img/enemy/2/enemy_guitarist_2.png"];
 
   // 基本攻撃タイプ
   Enemy2Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -122,7 +122,7 @@ Enemy2Base = (function() {
   Enemy2Base.itemRate = 1;
 
   // アイテムのドロップテーブルID
-  Enemy2Base.itemTableId = 1;
+  Enemy2Base.itemTableId = 8;
 
   // アイテムがジュエルになる時の額
   Enemy2Base.itemJewelAmount = 50;
@@ -189,7 +189,7 @@ Enemy3Base = (function() {
   Enemy3Base.itemRate = 1;
 
   // アイテムのドロップテーブルID
-  Enemy3Base.itemTableId = 1;
+  Enemy3Base.itemTableId = 8;
 
   // アイテムがジュエルになる時の額
   Enemy3Base.itemJewelAmount = 50;
@@ -256,7 +256,7 @@ Enemy4Base = (function() {
   Enemy4Base.itemRate = 1;
 
   // アイテムのドロップテーブルID
-  Enemy4Base.itemTableId = 1;
+  Enemy4Base.itemTableId = 8;
 
   // アイテムがジュエルになる時の額
   Enemy4Base.itemJewelAmount = 50;
@@ -323,7 +323,7 @@ Enemy5Base = (function() {
   Enemy5Base.itemRate = 1;
 
   // アイテムのドロップテーブルID
-  Enemy5Base.itemTableId = 1;
+  Enemy5Base.itemTableId = 8;
 
   // アイテムがジュエルになる時の額
   Enemy5Base.itemJewelAmount = 50;

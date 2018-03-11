@@ -18,11 +18,15 @@ function updateItem()
   $script = '';
 
   # キャラクター
-  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'アイテム設定!A3:X');
+  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'アイテム設定!A3:AE');
   $values = $response->getValues();
   $items = [];
   foreach ($values as $vAry) {
-    list($itemId, $displayOrder, $name, $description, $cost1, $cost2, $cost3, $cost4, $cost5, $expense2, $expense3, $expense4, $expense5, $hpRate, $atkRate, $pDefRate, $mDefRate, $costRate, $movePlus, $rangePlus, $hitPlus, $dodgePlus, $returnPlus, $itemTable1) = array_merge($vAry, array_fill(0, 100, null));
+    list($itemId, $displayOrder, $name, $description, $cost1, $cost2, $cost3, $cost4, $cost5, $expense2, $expense3, $expense4, $expense5, $hpRate, $atkRate, $pDefRate, $mDefRate, $costRate, $movePlus, $rangePlus, $hitPlus, $dodgePlus, $returnPlus,
+      $itemTableN, $itemTableR, $itemTableSR, $itemTableSRp, $itemTableSSR, $itemTableSSRp,
+      $itemTableGacha,
+      $itemTable1 
+    ) = array_merge($vAry, array_fill(0, 100, null));
 
     $imgFile = './img/item/'.$itemId.'.png';
 
@@ -47,7 +51,14 @@ function updateItem()
       'dodgePlus' => ($dodgePlus == '' ? null : (int)$dodgePlus),
       'returnPlus' => ($returnPlus == '' ? null : (int)$returnPlus),
       'itemTable' => [
-        ($itemTable1 == '' ? null : (float)$itemTable1)
+        ($itemTableN == '' ? null : (float)$itemTableN),
+        ($itemTableR == '' ? null : (float)$itemTableR),
+        ($itemTableSR == '' ? null : (float)$itemTableSR),
+        ($itemTableSRp == '' ? null : (float)$itemTableSRp),
+        ($itemTableSSR == '' ? null : (float)$itemTableSSR),
+        ($itemTableSSRp == '' ? null : (float)$itemTableSSRp),
+        ($itemTableGacha == '' ? null : (float)$itemTableGacha),
+        ($itemTable1 == '' ? null : (float)$itemTable1),
       ],
     ];
   }
@@ -86,6 +97,8 @@ EOM;
   $values = $response->getValues();
   foreach ($values as $vAry) {
     list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $abilityName, $abilityDesc, $appearance, $expRate, $itemRate, $itemTableId, $itemJewelAmount) = $vAry;
+
+    $itemTableId = getItemTableId($itemTableId);
 
     $attackTypeBase = ($attackTypeBase == '物理' ? 'ObjectBase.ATTACK_TYPE.PHYSIC' : 'ObjectBase.ATTACK_TYPE.MAGIC');
 
@@ -305,4 +318,26 @@ function getFilelist($dir){
   }
   
   return [];
+}
+
+function getItemTableId($itemId)
+{
+  switch ($itemId) {
+    case 'プN':
+      return 1;
+    case 'プR':
+      return 2;
+    case 'プSR':
+      return 3;
+    case 'プSR+':
+      return 4;
+    case 'プSSR':
+      return 5;
+    case 'プSSR+':
+      return 6;
+    case 'ガチャ':
+      return 7;
+    default:
+      return 7+(int)$itemId;
+  }
 }

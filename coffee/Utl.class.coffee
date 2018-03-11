@@ -494,3 +494,9 @@ class Utl
       setTimeout =>
         resolve()
       , msec
+
+  @base64encode:(string)->
+    btoa(unescape(encodeURIComponent(string)))
+  @base64decode:(string)->
+    decodeURIComponent(escape(atob(string)))
+    

@@ -27,7 +27,6 @@ class Cell
     @background = @constructor.IMAGE_BACKGROUND[Utl.rand 0, @constructor.IMAGE_BACKGROUND.length-1]
     @wayStack = null
     @knockout = null
-    @objectAnimationIndex = 0
 
     @initElements(borderSize)
 
@@ -507,11 +506,10 @@ class Cell
     else
       @elements.receiveTurn.addClass('no_display')
 
-  stepObjectAnimation:=>
+  stepObjectAnimation:(index)=>
     return @hideObject() if @object is null
-    @objectAnimationIndex++
-    @objectAnimationIndex = 0 if @object.getImage(@objectAnimationIndex) is null
-    @changeObject @object.getImage(@objectAnimationIndex)
+    index = 0 if @object.getImage(index) is null
+    @changeObject @object.getImage(index)
 
   removeMe:=>
     for e in @elements

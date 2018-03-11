@@ -12,6 +12,7 @@ class FieldManager
   @divObject = null
   @cells = []
   @cellAnimationTimer = false
+  @stepIndex = 0
 
   @init:(@parentElement, savedata)->
     @SIZE_X = @CELL_X * Cell.SIZE_X + @BORDER_SIZE * (@CELL_X + 1)
@@ -126,8 +127,10 @@ class FieldManager
       return unless GameManager.flags.isCellObjectAnimation
       $.each @cells, ->
         $.each @, ->
-          @stepObjectAnimation()
+          @stepObjectAnimation(FieldManager.stepIndex)
+      FieldManager.stepIndex = (if FieldManager.stepIndex is 0 then 1 else 0)
     , Cell.OBJECT_ANIMATION_MSEC
+
   @stopObjectAnimation:=>
     clearInterval @cellAnimationTimer if @cellAnimationTimer isnt false
     

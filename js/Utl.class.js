@@ -602,4 +602,12 @@ Utl = class Utl {
     });
   }
 
+  static base64encode(string) {
+    return btoa(unescape(encodeURIComponent(string)));
+  }
+
+  static base64decode(string) {
+    return decodeURIComponent(escape(atob(string)));
+  }
+
 };

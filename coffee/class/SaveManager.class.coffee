@@ -59,10 +59,13 @@ class SaveManager
       flags: flags
     }
 
-    Utl.setLs @LOCAL_STORAGE_KEY, json
+    Utl.setLs @LOCAL_STORAGE_KEY, Utl.base64encode(JSON.stringify(json))
 
   @load:->
-    Utl.getLs @LOCAL_STORAGE_KEY
+    res = Utl.getLs @LOCAL_STORAGE_KEY
+    if res isnt null
+      res = JSON.parse(Utl.base64decode(res))
+    res
 
 
 

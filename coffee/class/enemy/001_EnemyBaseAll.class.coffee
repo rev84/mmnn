@@ -30,7 +30,7 @@ class Enemy1Base extends EnemyBase
   # アイテムを落とす確率
   @itemRate = 1
   # アイテムのドロップテーブルID
-  @itemTableId = 1
+  @itemTableId = 8
   # アイテムがジュエルになる時の額
   @itemJewelAmount = 50
 
@@ -43,9 +43,9 @@ class Enemy2Base extends EnemyBase
   # ID
   @characterId = 2
   # キャラ名
-  @characterName = "ミートボール"
+  @characterName = "バックバンドギタリスト"
   # 画像のリスト
-  @images = ["./img/enemy/2/1036010301_001.png","./img/enemy/2/1036010301_003.png"]
+  @images = ["./img/enemy/2/enemy_guitarist_1.png","./img/enemy/2/enemy_guitarist_2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -71,7 +71,7 @@ class Enemy2Base extends EnemyBase
   # アイテムを落とす確率
   @itemRate = 1
   # アイテムのドロップテーブルID
-  @itemTableId = 1
+  @itemTableId = 8
   # アイテムがジュエルになる時の額
   @itemJewelAmount = 50
 
@@ -112,7 +112,7 @@ class Enemy3Base extends EnemyBase
   # アイテムを落とす確率
   @itemRate = 1
   # アイテムのドロップテーブルID
-  @itemTableId = 1
+  @itemTableId = 8
   # アイテムがジュエルになる時の額
   @itemJewelAmount = 50
 
@@ -153,7 +153,7 @@ class Enemy4Base extends EnemyBase
   # アイテムを落とす確率
   @itemRate = 1
   # アイテムのドロップテーブルID
-  @itemTableId = 1
+  @itemTableId = 8
   # アイテムがジュエルになる時の額
   @itemJewelAmount = 50
 
@@ -194,7 +194,7 @@ class Enemy5Base extends EnemyBase
   # アイテムを落とす確率
   @itemRate = 1
   # アイテムのドロップテーブルID
-  @itemTableId = 1
+  @itemTableId = 8
   # アイテムがジュエルになる時の額
   @itemJewelAmount = 50
 

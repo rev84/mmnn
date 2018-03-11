@@ -62,11 +62,16 @@ SaveManager = (function() {
         field: field,
         flags: flags
       };
-      return Utl.setLs(this.LOCAL_STORAGE_KEY, json);
+      return Utl.setLs(this.LOCAL_STORAGE_KEY, Utl.base64encode(JSON.stringify(json)));
     }
 
     static load() {
-      return Utl.getLs(this.LOCAL_STORAGE_KEY);
+      var res;
+      res = Utl.getLs(this.LOCAL_STORAGE_KEY);
+      if (res !== null) {
+        res = JSON.parse(Utl.base64decode(res));
+      }
+      return res;
     }
 
   };

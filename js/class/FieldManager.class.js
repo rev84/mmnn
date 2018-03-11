@@ -153,11 +153,12 @@ FieldManager = (function() {
         if (!GameManager.flags.isCellObjectAnimation) {
           return;
         }
-        return $.each(FieldManager.cells, function() {
+        $.each(FieldManager.cells, function() {
           return $.each(this, function() {
-            return this.stepObjectAnimation();
+            return this.stepObjectAnimation(FieldManager.stepIndex);
           });
         });
+        return FieldManager.stepIndex = (FieldManager.stepIndex === 0 ? 1 : 0);
       }, Cell.OBJECT_ANIMATION_MSEC);
     }
 
@@ -537,6 +538,8 @@ FieldManager = (function() {
   FieldManager.cells = [];
 
   FieldManager.cellAnimationTimer = false;
+
+  FieldManager.stepIndex = 0;
 
   return FieldManager;
 
