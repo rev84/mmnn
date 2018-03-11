@@ -116,6 +116,7 @@ MenuManager = (function() {
       GameManager.isEnable.leftPanel = true;
       GameManager.isEnable.rightPanel = true;
       GameManager.isEnable.item = true;
+      GameManager.isEnable.gacha = true;
       GameManager.flags.isCellObjectAnimation = true;
       GameManager.doBattle();
       return true;
@@ -222,7 +223,7 @@ MenuManager = (function() {
       }
       // ガチャモードにする
       GameManager.resetFlags();
-      GameManager.isMode.item = true;
+      GameManager.isMode.gacha = true;
       GameManager.isEnable.characterPick = true;
       GameManager.isEnable.battle = true;
       GameManager.isEnable.levelup = true;

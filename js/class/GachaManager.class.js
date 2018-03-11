@@ -22,14 +22,16 @@ GachaManager = (function() {
       // アイドルが出る
       if (seed < this.CHARACTER_PROBABILITY && characterObj !== false) {
         await ItemWindow.showCharacter(characterObj);
-        return characterObj.setJoined(true);
+        characterObj.setJoined(true);
       } else {
         // アイテムが出る
         res = ItemManager.getItemObjectFromItemTableId(this.ITEM_TABLE);
         // 最低レベルのアイテムを与える
         res.increaseAmount(0);
-        return (await ItemWindow.showItem(res));
+        await ItemWindow.showItem(res);
       }
+      // セーブ
+      return SaveManager.save();
     }
 
   };

@@ -31,4 +31,5 @@ class GachaManager
       res.increaseAmount 0
       await ItemWindow.showItem res
 
-
+    # セーブ
+    SaveManager.save()
