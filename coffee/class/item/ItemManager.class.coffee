@@ -33,6 +33,7 @@ class ItemManager
   @calcUsedItemCount:->
     @usedItemCount = {}
     for k, cObj of GameManager.characters
+      continue unless cObj.isJoined()
       for [itemId, level] in cObj.getItems()
         itemObj = @itemId2object itemId
         @usedItemCount[itemObj.getId()] = Array(itemObj.getMaxLevel()+1).fill(0) unless itemObj.getId() of @usedItemCount
@@ -58,3 +59,4 @@ class ItemManager
 
   @itemId2object:(id)->
     @items[id]
+    

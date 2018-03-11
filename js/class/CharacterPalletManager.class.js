@@ -28,18 +28,23 @@ CharacterPalletManager = (function() {
     }
 
     static draw() {
-      var c, i, index, len, ref, results, top;
+      var c, i, index, len, ref, results, top, y;
       this.characters.sort(function(a, b) {
         return Number(a.constructor.characterId) - Number(b.constructor.characterId);
       });
       this.panels = [];
       $('#' + this.ID + ' > .' + Panel.CLASSNAME).remove();
+      y = 0;
       ref = this.characters;
       results = [];
       for (index = i = 0, len = ref.length; i < len; index = ++i) {
         c = ref[index];
-        top = index * Panel.SIZE_Y;
-        results.push(this.panels.push(new Panel(this.divObject, c, top, 0, true, true)));
+        if (!c.isJoined()) {
+          continue;
+        }
+        top = y * Panel.SIZE_Y;
+        this.panels.push(new Panel(this.divObject, c, top, 0, true, true));
+        results.push(y++);
       }
       return results;
     }

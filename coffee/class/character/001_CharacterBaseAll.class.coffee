@@ -133,7 +133,7 @@ class Character4Base extends CharacterBase
   # キャラ名
   @characterName = "相川千夏"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/4/1.png","./img/character/4/2.png"]
   # 基本攻撃タイプ
@@ -176,7 +176,7 @@ class Character5Base extends CharacterBase
   # キャラ名
   @characterName = "愛野渚"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/5/1.png","./img/character/5/2.png"]
   # 基本攻撃タイプ
@@ -219,7 +219,7 @@ class Character6Base extends CharacterBase
   # キャラ名
   @characterName = "相葉夕美"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/6/1.png","./img/character/6/2.png"]
   # 基本攻撃タイプ
@@ -262,7 +262,7 @@ class Character7Base extends CharacterBase
   # キャラ名
   @characterName = "相原雪乃"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/7/1.png","./img/character/7/2.png"]
   # 基本攻撃タイプ
@@ -305,7 +305,7 @@ class Character8Base extends CharacterBase
   # キャラ名
   @characterName = "赤城みりあ"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/8/1.png","./img/character/8/2.png"]
   # 基本攻撃タイプ
@@ -348,7 +348,7 @@ class Character9Base extends CharacterBase
   # キャラ名
   @characterName = "赤西瑛梨華"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/9/1.png","./img/character/9/2.png"]
   # 基本攻撃タイプ
@@ -391,7 +391,7 @@ class Character10Base extends CharacterBase
   # キャラ名
   @characterName = "浅野風香"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/10/1.png","./img/character/10/2.png"]
   # 基本攻撃タイプ
@@ -434,7 +434,7 @@ class Character11Base extends CharacterBase
   # キャラ名
   @characterName = "浅利七海"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/11/1.png","./img/character/11/2.png"]
   # 基本攻撃タイプ
@@ -477,7 +477,7 @@ class Character12Base extends CharacterBase
   # キャラ名
   @characterName = "アナスタシア"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/12/1.png","./img/character/12/2.png"]
   # 基本攻撃タイプ
@@ -520,7 +520,7 @@ class Character13Base extends CharacterBase
   # キャラ名
   @characterName = "安部菜々"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/13/1.png","./img/character/13/2.png"]
   # 基本攻撃タイプ
@@ -563,7 +563,7 @@ class Character14Base extends CharacterBase
   # キャラ名
   @characterName = "綾瀬穂乃香"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/14/1.png","./img/character/14/2.png"]
   # 基本攻撃タイプ
@@ -606,7 +606,7 @@ class Character15Base extends CharacterBase
   # キャラ名
   @characterName = "荒木比奈"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/15/1.png","./img/character/15/2.png"]
   # 基本攻撃タイプ
@@ -649,7 +649,7 @@ class Character16Base extends CharacterBase
   # キャラ名
   @characterName = "有浦柑奈"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/16/1.png","./img/character/16/2.png"]
   # 基本攻撃タイプ
@@ -692,7 +692,7 @@ class Character17Base extends CharacterBase
   # キャラ名
   @characterName = "安斎都"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/17/1.png","./img/character/17/2.png"]
   # 基本攻撃タイプ
@@ -735,7 +735,7 @@ class Character18Base extends CharacterBase
   # キャラ名
   @characterName = "イヴ・サンタクロース"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/18/1.png","./img/character/18/2.png"]
   # 基本攻撃タイプ
@@ -778,7 +778,7 @@ class Character19Base extends CharacterBase
   # キャラ名
   @characterName = "五十嵐響子"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/19/1.png","./img/character/19/2.png"]
   # 基本攻撃タイプ
@@ -821,7 +821,7 @@ class Character20Base extends CharacterBase
   # キャラ名
   @characterName = "池袋晶葉"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/20/1.png","./img/character/20/2.png"]
   # 基本攻撃タイプ
@@ -864,7 +864,7 @@ class Character21Base extends CharacterBase
   # キャラ名
   @characterName = "伊集院惠"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/21/1.png","./img/character/21/2.png"]
   # 基本攻撃タイプ
@@ -907,7 +907,7 @@ class Character22Base extends CharacterBase
   # キャラ名
   @characterName = "一ノ瀬志希"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/22/1.png","./img/character/22/2.png"]
   # 基本攻撃タイプ
@@ -950,7 +950,7 @@ class Character23Base extends CharacterBase
   # キャラ名
   @characterName = "市原仁奈"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/23/1.png","./img/character/23/2.png"]
   # 基本攻撃タイプ
@@ -993,7 +993,7 @@ class Character24Base extends CharacterBase
   # キャラ名
   @characterName = "今井加奈"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/24/1.png","./img/character/24/2.png"]
   # 基本攻撃タイプ
@@ -1036,7 +1036,7 @@ class Character25Base extends CharacterBase
   # キャラ名
   @characterName = "井村雪菜"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/25/1.png","./img/character/25/2.png"]
   # 基本攻撃タイプ
@@ -1079,7 +1079,7 @@ class Character26Base extends CharacterBase
   # キャラ名
   @characterName = "上田鈴帆"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/26/1.png","./img/character/26/2.png"]
   # 基本攻撃タイプ
@@ -1122,7 +1122,7 @@ class Character27Base extends CharacterBase
   # キャラ名
   @characterName = "氏家むつみ"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/27/1.png","./img/character/27/2.png"]
   # 基本攻撃タイプ
@@ -1165,7 +1165,7 @@ class Character28Base extends CharacterBase
   # キャラ名
   @characterName = "梅木音葉"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/28/1.png","./img/character/28/2.png"]
   # 基本攻撃タイプ
@@ -1208,7 +1208,7 @@ class Character29Base extends CharacterBase
   # キャラ名
   @characterName = "江上椿"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/29/1.png","./img/character/29/2.png"]
   # 基本攻撃タイプ
@@ -1251,7 +1251,7 @@ class Character30Base extends CharacterBase
   # キャラ名
   @characterName = "衛藤美紗希"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/30/1.png","./img/character/30/2.png"]
   # 基本攻撃タイプ
@@ -1294,7 +1294,7 @@ class Character31Base extends CharacterBase
   # キャラ名
   @characterName = "海老原菜帆"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/31/1.png","./img/character/31/2.png"]
   # 基本攻撃タイプ
@@ -1337,7 +1337,7 @@ class Character32Base extends CharacterBase
   # キャラ名
   @characterName = "及川雫"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/32/1.png","./img/character/32/2.png"]
   # 基本攻撃タイプ
@@ -1380,7 +1380,7 @@ class Character33Base extends CharacterBase
   # キャラ名
   @characterName = "大石泉"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/33/1.png","./img/character/33/2.png"]
   # 基本攻撃タイプ
@@ -1423,7 +1423,7 @@ class Character34Base extends CharacterBase
   # キャラ名
   @characterName = "太田優"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/34/1.png","./img/character/34/2.png"]
   # 基本攻撃タイプ
@@ -1466,7 +1466,7 @@ class Character35Base extends CharacterBase
   # キャラ名
   @characterName = "大槻唯"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/35/1.png","./img/character/35/2.png"]
   # 基本攻撃タイプ
@@ -1509,7 +1509,7 @@ class Character36Base extends CharacterBase
   # キャラ名
   @characterName = "大西由里子"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/36/1.png","./img/character/36/2.png"]
   # 基本攻撃タイプ
@@ -1552,7 +1552,7 @@ class Character37Base extends CharacterBase
   # キャラ名
   @characterName = "大沼くるみ"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/37/1.png","./img/character/37/2.png"]
   # 基本攻撃タイプ
@@ -1595,7 +1595,7 @@ class Character38Base extends CharacterBase
   # キャラ名
   @characterName = "大原みちる"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/38/1.png","./img/character/38/2.png"]
   # 基本攻撃タイプ
@@ -1638,7 +1638,7 @@ class Character39Base extends CharacterBase
   # キャラ名
   @characterName = "岡崎泰葉"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/39/1.png","./img/character/39/2.png"]
   # 基本攻撃タイプ
@@ -1681,7 +1681,7 @@ class Character40Base extends CharacterBase
   # キャラ名
   @characterName = "緒方智絵里"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/40/1.png","./img/character/40/2.png"]
   # 基本攻撃タイプ
@@ -1724,7 +1724,7 @@ class Character41Base extends CharacterBase
   # キャラ名
   @characterName = "奥山沙織"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/41/1.png","./img/character/41/2.png"]
   # 基本攻撃タイプ
@@ -1767,7 +1767,7 @@ class Character42Base extends CharacterBase
   # キャラ名
   @characterName = "乙倉悠貴"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/42/1.png","./img/character/42/2.png"]
   # 基本攻撃タイプ
@@ -1810,7 +1810,7 @@ class Character43Base extends CharacterBase
   # キャラ名
   @characterName = "片桐早苗"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/43/1.png","./img/character/43/2.png"]
   # 基本攻撃タイプ
@@ -1853,7 +1853,7 @@ class Character44Base extends CharacterBase
   # キャラ名
   @characterName = "上条春菜"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/44/1.png","./img/character/44/2.png"]
   # 基本攻撃タイプ
@@ -1896,7 +1896,7 @@ class Character45Base extends CharacterBase
   # キャラ名
   @characterName = "神谷奈緒"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/45/1.png","./img/character/45/2.png"]
   # 基本攻撃タイプ
@@ -1939,7 +1939,7 @@ class Character46Base extends CharacterBase
   # キャラ名
   @characterName = "川島瑞樹"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/46/1.png","./img/character/46/2.png"]
   # 基本攻撃タイプ
@@ -1982,7 +1982,7 @@ class Character47Base extends CharacterBase
   # キャラ名
   @characterName = "神崎蘭子"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/47/1.png","./img/character/47/2.png"]
   # 基本攻撃タイプ
@@ -2025,7 +2025,7 @@ class Character48Base extends CharacterBase
   # キャラ名
   @characterName = "岸部彩華"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/48/1.png","./img/character/48/2.png"]
   # 基本攻撃タイプ
@@ -2068,7 +2068,7 @@ class Character49Base extends CharacterBase
   # キャラ名
   @characterName = "北川真尋"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/49/1.png","./img/character/49/2.png"]
   # 基本攻撃タイプ
@@ -2111,7 +2111,7 @@ class Character50Base extends CharacterBase
   # キャラ名
   @characterName = "喜多日菜子"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/50/1.png","./img/character/50/2.png"]
   # 基本攻撃タイプ
@@ -2154,7 +2154,7 @@ class Character51Base extends CharacterBase
   # キャラ名
   @characterName = "喜多見柚"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/51/1.png","./img/character/51/2.png"]
   # 基本攻撃タイプ
@@ -2197,7 +2197,7 @@ class Character52Base extends CharacterBase
   # キャラ名
   @characterName = "木場真奈美"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/52/1.png","./img/character/52/2.png"]
   # 基本攻撃タイプ
@@ -2240,7 +2240,7 @@ class Character53Base extends CharacterBase
   # キャラ名
   @characterName = "木村夏樹"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/53/1.png","./img/character/53/2.png"]
   # 基本攻撃タイプ
@@ -2283,7 +2283,7 @@ class Character54Base extends CharacterBase
   # キャラ名
   @characterName = "キャシー・グラハム"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/54/1.png","./img/character/54/2.png"]
   # 基本攻撃タイプ
@@ -2326,7 +2326,7 @@ class Character55Base extends CharacterBase
   # キャラ名
   @characterName = "桐野アヤ"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/55/1.png","./img/character/55/2.png"]
   # 基本攻撃タイプ
@@ -2369,7 +2369,7 @@ class Character56Base extends CharacterBase
   # キャラ名
   @characterName = "桐生つかさ"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/56/1.png","./img/character/56/2.png"]
   # 基本攻撃タイプ
@@ -2412,7 +2412,7 @@ class Character57Base extends CharacterBase
   # キャラ名
   @characterName = "日下部若葉"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/57/1.png","./img/character/57/2.png"]
   # 基本攻撃タイプ
@@ -2455,7 +2455,7 @@ class Character58Base extends CharacterBase
   # キャラ名
   @characterName = "工藤忍"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/58/1.png","./img/character/58/2.png"]
   # 基本攻撃タイプ
@@ -2498,7 +2498,7 @@ class Character59Base extends CharacterBase
   # キャラ名
   @characterName = "クラリス"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/59/1.png","./img/character/59/2.png"]
   # 基本攻撃タイプ
@@ -2541,7 +2541,7 @@ class Character60Base extends CharacterBase
   # キャラ名
   @characterName = "栗原ネネ"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/60/1.png","./img/character/60/2.png"]
   # 基本攻撃タイプ
@@ -2584,7 +2584,7 @@ class Character61Base extends CharacterBase
   # キャラ名
   @characterName = "黒川千秋"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/61/1.png","./img/character/61/2.png"]
   # 基本攻撃タイプ
@@ -2627,7 +2627,7 @@ class Character62Base extends CharacterBase
   # キャラ名
   @characterName = "ケイト"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/62/1.png","./img/character/62/2.png"]
   # 基本攻撃タイプ
@@ -2670,7 +2670,7 @@ class Character63Base extends CharacterBase
   # キャラ名
   @characterName = "古賀小春"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/63/1.png","./img/character/63/2.png"]
   # 基本攻撃タイプ
@@ -2713,7 +2713,7 @@ class Character64Base extends CharacterBase
   # キャラ名
   @characterName = "輿水幸子"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/64/1.png","./img/character/64/2.png"]
   # 基本攻撃タイプ
@@ -2756,7 +2756,7 @@ class Character65Base extends CharacterBase
   # キャラ名
   @characterName = "小関麗奈"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/65/1.png","./img/character/65/2.png"]
   # 基本攻撃タイプ
@@ -2799,7 +2799,7 @@ class Character66Base extends CharacterBase
   # キャラ名
   @characterName = "小早川紗枝"
   # 最初からいるか
-  @defaultJoin = true
+  @defaultJoin = false
   # 画像のリスト
   @images = ["./img/character/66/1.png","./img/character/66/2.png"]
   # 基本攻撃タイプ

@@ -50,6 +50,12 @@ class CharacterBase extends ObjectBase
   getName:->
     @constructor.characterName
 
+  isJoined:->
+    @joined
+
+  setJoined:(joined)->
+    @joined = !!joined
+
   getHpMaxItemFixRate:->
     res = 1
     for [itemId, level] in @items
@@ -126,7 +132,7 @@ class CharacterBase extends ObjectBase
 
   # 出撃可能か
   canPick:->
-    @getComebackTurn <= 0 and !@isInField()
+    @getComebackTurn <= 0 and !@isInField() and @isJoined()
 
   getTextOnDeath:->
     @constructor.textDeath
@@ -225,3 +231,12 @@ class CharacterBase extends ObjectBase
       total += ItemManager.itemId2object(itemId).getCost(level)
     total
 
+  # 未参加のアイドルをひとりランダムピック
+  @getUnjoinedCharacter:->
+    characters = []
+    for id, c of GameManager.characters
+      characters.push c unless c.isJoined()
+
+    return false if characters.length is 0
+
+    characters[Utl.rand(0, characters.length-1)]

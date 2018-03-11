@@ -20,6 +20,19 @@ class ItemWindow
     if isWaitClose
       await Utl.sleep(1000) while !@CLOSED
 
+  @showCharacter:(characterObject, isWaitClose = true)->
+    if isWaitClose
+      @CLOSED = false
+
+    @imgElement.attr('src', characterObject.getBaseImage())
+    @nameElement.html characterObject.getName()
+    @descriptionElement.html 'アイドルがライブに参加してくれるようになりました'
+
+    @divObject.modal('show')
+
+    if isWaitClose
+      await Utl.sleep(1000) while !@CLOSED
+
   @showJewel:(jewelAmount, isWaitClose = true)->
     if isWaitClose
       @CLOSED = false

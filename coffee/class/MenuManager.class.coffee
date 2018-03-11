@@ -85,6 +85,16 @@ class MenuManager
     .on('click', @onClickItem.bind(@))
     .appendTo(@divObject)
 
+    # ガチャ
+    @item = $('<div>').html('ガチャ').css({
+      border: '1px solid #000000'
+      width: 100
+      height: 40
+      "font-size": '30px'
+    })
+    .on('click', @onClickGacha.bind(@))
+    .appendTo(@divObject)
+
     @divObject.appendTo(@parentElement)
 
   # 出撃
@@ -152,6 +162,7 @@ class MenuManager
     GameManager.isEnable.characterPick = true
     GameManager.isEnable.battle = true
     GameManager.isEnable.item = true
+    GameManager.isEnable.gacha = true
     GameManager.flags.isCellObjectAnimation = false
 
     GameManager.doLevelup()
@@ -195,8 +206,27 @@ class MenuManager
     GameManager.isEnable.characterPick = true
     GameManager.isEnable.battle = true
     GameManager.isEnable.levelup = true
+    GameManager.isEnable.gacha = true
     GameManager.flags.isCellObjectAnimation = false
 
     GameManager.doItem()
     true
-        
+
+  # ガチャ画面へ
+  @onClickGacha:(evt)->
+    return unless GameManager.isControllable()
+    # ガチャモードにできないなら返る
+    return unless GameManager.isEnable.gacha
+
+    # ガチャモードにする
+    GameManager.resetFlags()
+    GameManager.isMode.item = true
+    GameManager.isEnable.characterPick = true
+    GameManager.isEnable.battle = true
+    GameManager.isEnable.levelup = true
+    GameManager.isEnable.item = true
+    GameManager.flags.isCellObjectAnimation = false
+
+    GameManager.doGacha()
+    true
+                

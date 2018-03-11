@@ -140,6 +140,28 @@ class ObjectBase
 
     Math.floor(Math.sqrt(targetExp / @constructor.expRate) - @level)
 
+  getJewel:->
+    @constructor.itemJewelAmount
+
+  getItemTableId:->
+    @constructor.itemTableId
+
+  dropItem:->
+    seed = Math.random()
+
+    # アイテムを落とす
+    if seed < @constructor.itemRate
+      res = ItemManager.getItemObjectFromItemTableId @getItemTableId()
+      # ジュエルにする
+      if res is false
+        EnvManager.increaseJewel @getJewel()
+        await ItemWindow.showJewel @getJewel()
+      # 最低レベルのアイテムを与える
+      else
+        res.increaseAmount 0
+        await ItemWindow.showItem res
+
+
   # ダメージ計算式
   @getDamageMin:(attack, def)->
     damage = attack - def

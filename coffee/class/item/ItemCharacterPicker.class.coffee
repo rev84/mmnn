@@ -10,7 +10,10 @@ class ItemCharacterPicker
 
   @draw:->
     @characters = []
-    @characters.push c for k, c of GameManager.characters
+    for k, c of GameManager.characters
+      continue unless c.isJoined()
+      @characters.push c
+
     @characters.sort (a, b)->
       Number(a.getId()) - Number(b.getId())
     

@@ -48,6 +48,14 @@ CharacterBase = (function() {
       return this.constructor.characterName;
     }
 
+    isJoined() {
+      return this.joined;
+    }
+
+    setJoined(joined) {
+      return this.joined = !!joined;
+    }
+
     getHpMaxItemFixRate() {
       var i, itemId, itemObject, len, level, ref, res;
       res = 1;
@@ -187,7 +195,7 @@ CharacterBase = (function() {
 
     // 出撃可能か
     canPick() {
-      return this.getComebackTurn <= 0 && !this.isInField();
+      return this.getComebackTurn <= 0 && !this.isInField() && this.isJoined();
     }
 
     getTextOnDeath() {
@@ -333,6 +341,23 @@ CharacterBase = (function() {
         total += ItemManager.itemId2object(itemId).getCost(level);
       }
       return total;
+    }
+
+    // 未参加のアイドルをひとりランダムピック
+    static getUnjoinedCharacter() {
+      var c, characters, id, ref;
+      characters = [];
+      ref = GameManager.characters;
+      for (id in ref) {
+        c = ref[id];
+        if (!c.isJoined()) {
+          characters.push(c);
+        }
+      }
+      if (characters.length === 0) {
+        return false;
+      }
+      return characters[Utl.rand(0, characters.length - 1)];
     }
 
   };

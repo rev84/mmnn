@@ -26,11 +26,13 @@ class GameManager
     levelup:false
     env:false
     items:false
+    gacha:false
   @isMode = 
     battle: false
     characterPick: false
     levelup: false
     item: false
+    gacha: false
   @isEnable = 
     battle: false
     characterPick: false
@@ -41,6 +43,7 @@ class GameManager
     leftPanel: false
     rightPanel: false
     item: false
+    gacha: false
   @flags = 
     # 操作可能か
     controllable : true
@@ -70,6 +73,7 @@ class GameManager
       floor:[0, 710]
       jewel:[1000, 710]
       life:[0, 650]
+      gacha:null
     BATTLE:
       character_pallet:null
       field_visible:[0,0]
@@ -77,6 +81,7 @@ class GameManager
       right_info:[600,650]
       levelup:null
       item:null
+      gacha:null
     CHARACTER_PICK:
       character_pallet:[140,50]
       field_visible:[0,0]
@@ -84,6 +89,7 @@ class GameManager
       right_info:null
       levelup:null
       item:null
+      gacha:null
     LEVELUP:
       character_pallet:null
       field_visible:[0,0]
@@ -91,6 +97,7 @@ class GameManager
       right_info:null
       levelup:[0, 50]
       item:null
+      gacha:null
     ITEM:
       character_pallet:null
       field_visible:null
@@ -98,6 +105,15 @@ class GameManager
       right_info:null
       levelup:null
       item:[0, 50]
+      gacha:null
+    GACHA:
+      character_pallet:null
+      field_visible:null
+      left_info:null
+      right_info:null
+      levelup:null
+      item:null
+      gacha:[0, 50]
   @ANIMATION_MSEC = 300
 
   @onMouseMiddleDown:(evt)->
@@ -221,6 +237,19 @@ class GameManager
     # コントロールを戻す
     @changeControllable true
 
+  # ガチャ画面
+  @doGacha:(isSoon = false)->
+    @partsAnimation @POSITION.GACHA, isSoon
+
+    # キャラクター設置を確定
+    CharacterPalletManager.onExit()
+
+    # セーブ
+    SaveManager.save()
+
+    # コントロールを戻す
+    @changeControllable true
+
 
   @partsAnimation:(ary, isSoon = false)->
     # 操作不能にする
@@ -304,6 +333,7 @@ class GameManager
     @initLevelup(null)
     @initItemWindow(null)
     @initBattleResult(null)
+    @initGacha()
 
     @gameElement.appendTo('body')
 
@@ -317,6 +347,7 @@ class GameManager
     GameManager.isEnable.walk = true
     GameManager.isEnable.undo = true
     GameManager.isEnable.item = true
+    GameManager.isEnable.gacha = true
     GameManager.isEnable.leftPanel = true
     GameManager.isEnable.rightPanel = true
     GameManager.flags.isCellObjectAnimation = true
@@ -371,6 +402,12 @@ class GameManager
     @initialized.battleResult = true
 
     BattleResultManager.init(@gameElement)
+
+  @initGacha:->
+    return if @initialized.gacha
+    @initialized.gacha = true
+
+    GachaManager.init(@gameElement)
 
   # キャラ初期化
   @initCharacters:(savedata)->

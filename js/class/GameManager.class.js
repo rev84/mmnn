@@ -148,6 +148,17 @@ GameManager = (function() {
       return this.changeControllable(true);
     }
 
+    // ガチャ画面
+    static doGacha(isSoon = false) {
+      this.partsAnimation(this.POSITION.GACHA, isSoon);
+      // キャラクター設置を確定
+      CharacterPalletManager.onExit();
+      // セーブ
+      SaveManager.save();
+      // コントロールを戻す
+      return this.changeControllable(true);
+    }
+
     static partsAnimation(ary, isSoon = false) {
       var animationMsec, id, pos, ref;
       // 操作不能にする
@@ -228,6 +239,7 @@ GameManager = (function() {
       this.initLevelup(null);
       this.initItemWindow(null);
       this.initBattleResult(null);
+      this.initGacha();
       this.gameElement.appendTo('body');
       // 戦闘モードにする
       GameManager.resetFlags();
@@ -239,6 +251,7 @@ GameManager = (function() {
       GameManager.isEnable.walk = true;
       GameManager.isEnable.undo = true;
       GameManager.isEnable.item = true;
+      GameManager.isEnable.gacha = true;
       GameManager.isEnable.leftPanel = true;
       GameManager.isEnable.rightPanel = true;
       GameManager.flags.isCellObjectAnimation = true;
@@ -314,6 +327,14 @@ GameManager = (function() {
       }
       this.initialized.battleResult = true;
       return BattleResultManager.init(this.gameElement);
+    }
+
+    static initGacha() {
+      if (this.initialized.gacha) {
+        return;
+      }
+      this.initialized.gacha = true;
+      return GachaManager.init(this.gameElement);
     }
 
     // キャラ初期化
@@ -901,14 +922,16 @@ GameManager = (function() {
     enemys: false,
     levelup: false,
     env: false,
-    items: false
+    items: false,
+    gacha: false
   };
 
   GameManager.isMode = {
     battle: false,
     characterPick: false,
     levelup: false,
-    item: false
+    item: false,
+    gacha: false
   };
 
   GameManager.isEnable = {
@@ -920,7 +943,8 @@ GameManager = (function() {
     undo: false,
     leftPanel: false,
     rightPanel: false,
-    item: false
+    item: false,
+    gacha: false
   };
 
   GameManager.flags = {
@@ -953,7 +977,8 @@ GameManager = (function() {
       exp: [1000, 650],
       floor: [0, 710],
       jewel: [1000, 710],
-      life: [0, 650]
+      life: [0, 650],
+      gacha: null
     },
     BATTLE: {
       character_pallet: null,
@@ -961,7 +986,8 @@ GameManager = (function() {
       left_info: [200, 650],
       right_info: [600, 650],
       levelup: null,
-      item: null
+      item: null,
+      gacha: null
     },
     CHARACTER_PICK: {
       character_pallet: [140, 50],
@@ -969,7 +995,8 @@ GameManager = (function() {
       left_info: null,
       right_info: null,
       levelup: null,
-      item: null
+      item: null,
+      gacha: null
     },
     LEVELUP: {
       character_pallet: null,
@@ -977,7 +1004,8 @@ GameManager = (function() {
       left_info: null,
       right_info: null,
       levelup: [0, 50],
-      item: null
+      item: null,
+      gacha: null
     },
     ITEM: {
       character_pallet: null,
@@ -985,7 +1013,17 @@ GameManager = (function() {
       left_info: null,
       right_info: null,
       levelup: null,
-      item: [0, 50]
+      item: [0, 50],
+      gacha: null
+    },
+    GACHA: {
+      character_pallet: null,
+      field_visible: null,
+      left_info: null,
+      right_info: null,
+      levelup: null,
+      item: null,
+      gacha: [0, 50]
     }
   };
 

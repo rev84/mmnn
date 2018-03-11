@@ -62,6 +62,13 @@ MenuManager = (function() {
         height: 40,
         "font-size": '30px'
       }).on('click', this.onClickItem.bind(this)).appendTo(this.divObject);
+      // ガチャ
+      this.item = $('<div>').html('ガチャ').css({
+        border: '1px solid #000000',
+        width: 100,
+        height: 40,
+        "font-size": '30px'
+      }).on('click', this.onClickGacha.bind(this)).appendTo(this.divObject);
       return this.divObject.appendTo(this.parentElement);
     }
 
@@ -142,6 +149,7 @@ MenuManager = (function() {
       GameManager.isEnable.characterPick = true;
       GameManager.isEnable.battle = true;
       GameManager.isEnable.item = true;
+      GameManager.isEnable.gacha = true;
       GameManager.flags.isCellObjectAnimation = false;
       GameManager.doLevelup();
       return true;
@@ -197,8 +205,30 @@ MenuManager = (function() {
       GameManager.isEnable.characterPick = true;
       GameManager.isEnable.battle = true;
       GameManager.isEnable.levelup = true;
+      GameManager.isEnable.gacha = true;
       GameManager.flags.isCellObjectAnimation = false;
       GameManager.doItem();
+      return true;
+    }
+
+    // ガチャ画面へ
+    static onClickGacha(evt) {
+      if (!GameManager.isControllable()) {
+        return;
+      }
+      // ガチャモードにできないなら返る
+      if (!GameManager.isEnable.gacha) {
+        return;
+      }
+      // ガチャモードにする
+      GameManager.resetFlags();
+      GameManager.isMode.item = true;
+      GameManager.isEnable.characterPick = true;
+      GameManager.isEnable.battle = true;
+      GameManager.isEnable.levelup = true;
+      GameManager.isEnable.item = true;
+      GameManager.flags.isCellObjectAnimation = false;
+      GameManager.doGacha();
       return true;
     }
 

@@ -218,6 +218,32 @@ ObjectBase = (function() {
       return Math.floor(Math.sqrt(targetExp / this.constructor.expRate) - this.level);
     }
 
+    getJewel() {
+      return this.constructor.itemJewelAmount;
+    }
+
+    getItemTableId() {
+      return this.constructor.itemTableId;
+    }
+
+    async dropItem() {
+      var res, seed;
+      seed = Math.random();
+      // アイテムを落とす
+      if (seed < this.constructor.itemRate) {
+        res = ItemManager.getItemObjectFromItemTableId(this.getItemTableId());
+        // ジュエルにする
+        if (res === false) {
+          EnvManager.increaseJewel(this.getJewel());
+          return (await ItemWindow.showJewel(this.getJewel()));
+        } else {
+          // 最低レベルのアイテムを与える
+          res.increaseAmount(0);
+          return (await ItemWindow.showItem(res));
+        }
+      }
+    }
+
     // ダメージ計算式
     static getDamageMin(attack, def) {
       var damage;

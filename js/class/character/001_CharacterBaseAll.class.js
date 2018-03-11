@@ -226,7 +226,7 @@ Character4Base = (function() {
   Character4Base.characterName = "相川千夏";
 
   // 最初からいるか
-  Character4Base.defaultJoin = true;
+  Character4Base.defaultJoin = false;
 
   // 画像のリスト
   Character4Base.images = ["./img/character/4/1.png", "./img/character/4/2.png"];
@@ -296,7 +296,7 @@ Character5Base = (function() {
   Character5Base.characterName = "愛野渚";
 
   // 最初からいるか
-  Character5Base.defaultJoin = true;
+  Character5Base.defaultJoin = false;
 
   // 画像のリスト
   Character5Base.images = ["./img/character/5/1.png", "./img/character/5/2.png"];
@@ -366,7 +366,7 @@ Character6Base = (function() {
   Character6Base.characterName = "相葉夕美";
 
   // 最初からいるか
-  Character6Base.defaultJoin = true;
+  Character6Base.defaultJoin = false;
 
   // 画像のリスト
   Character6Base.images = ["./img/character/6/1.png", "./img/character/6/2.png"];
@@ -436,7 +436,7 @@ Character7Base = (function() {
   Character7Base.characterName = "相原雪乃";
 
   // 最初からいるか
-  Character7Base.defaultJoin = true;
+  Character7Base.defaultJoin = false;
 
   // 画像のリスト
   Character7Base.images = ["./img/character/7/1.png", "./img/character/7/2.png"];
@@ -506,7 +506,7 @@ Character8Base = (function() {
   Character8Base.characterName = "赤城みりあ";
 
   // 最初からいるか
-  Character8Base.defaultJoin = true;
+  Character8Base.defaultJoin = false;
 
   // 画像のリスト
   Character8Base.images = ["./img/character/8/1.png", "./img/character/8/2.png"];
@@ -576,7 +576,7 @@ Character9Base = (function() {
   Character9Base.characterName = "赤西瑛梨華";
 
   // 最初からいるか
-  Character9Base.defaultJoin = true;
+  Character9Base.defaultJoin = false;
 
   // 画像のリスト
   Character9Base.images = ["./img/character/9/1.png", "./img/character/9/2.png"];
@@ -646,7 +646,7 @@ Character10Base = (function() {
   Character10Base.characterName = "浅野風香";
 
   // 最初からいるか
-  Character10Base.defaultJoin = true;
+  Character10Base.defaultJoin = false;
 
   // 画像のリスト
   Character10Base.images = ["./img/character/10/1.png", "./img/character/10/2.png"];
@@ -716,7 +716,7 @@ Character11Base = (function() {
   Character11Base.characterName = "浅利七海";
 
   // 最初からいるか
-  Character11Base.defaultJoin = true;
+  Character11Base.defaultJoin = false;
 
   // 画像のリスト
   Character11Base.images = ["./img/character/11/1.png", "./img/character/11/2.png"];
@@ -786,7 +786,7 @@ Character12Base = (function() {
   Character12Base.characterName = "アナスタシア";
 
   // 最初からいるか
-  Character12Base.defaultJoin = true;
+  Character12Base.defaultJoin = false;
 
   // 画像のリスト
   Character12Base.images = ["./img/character/12/1.png", "./img/character/12/2.png"];
@@ -856,7 +856,7 @@ Character13Base = (function() {
   Character13Base.characterName = "安部菜々";
 
   // 最初からいるか
-  Character13Base.defaultJoin = true;
+  Character13Base.defaultJoin = false;
 
   // 画像のリスト
   Character13Base.images = ["./img/character/13/1.png", "./img/character/13/2.png"];
@@ -926,7 +926,7 @@ Character14Base = (function() {
   Character14Base.characterName = "綾瀬穂乃香";
 
   // 最初からいるか
-  Character14Base.defaultJoin = true;
+  Character14Base.defaultJoin = false;
 
   // 画像のリスト
   Character14Base.images = ["./img/character/14/1.png", "./img/character/14/2.png"];
@@ -996,7 +996,7 @@ Character15Base = (function() {
   Character15Base.characterName = "荒木比奈";
 
   // 最初からいるか
-  Character15Base.defaultJoin = true;
+  Character15Base.defaultJoin = false;
 
   // 画像のリスト
   Character15Base.images = ["./img/character/15/1.png", "./img/character/15/2.png"];
@@ -1066,7 +1066,7 @@ Character16Base = (function() {
   Character16Base.characterName = "有浦柑奈";
 
   // 最初からいるか
-  Character16Base.defaultJoin = true;
+  Character16Base.defaultJoin = false;
 
   // 画像のリスト
   Character16Base.images = ["./img/character/16/1.png", "./img/character/16/2.png"];
@@ -1136,7 +1136,7 @@ Character17Base = (function() {
   Character17Base.characterName = "安斎都";
 
   // 最初からいるか
-  Character17Base.defaultJoin = true;
+  Character17Base.defaultJoin = false;
 
   // 画像のリスト
   Character17Base.images = ["./img/character/17/1.png", "./img/character/17/2.png"];
@@ -1206,7 +1206,7 @@ Character18Base = (function() {
   Character18Base.characterName = "イヴ・サンタクロース";
 
   // 最初からいるか
-  Character18Base.defaultJoin = true;
+  Character18Base.defaultJoin = false;
 
   // 画像のリスト
   Character18Base.images = ["./img/character/18/1.png", "./img/character/18/2.png"];
@@ -1276,7 +1276,7 @@ Character19Base = (function() {
   Character19Base.characterName = "五十嵐響子";
 
   // 最初からいるか
-  Character19Base.defaultJoin = true;
+  Character19Base.defaultJoin = false;
 
   // 画像のリスト
   Character19Base.images = ["./img/character/19/1.png", "./img/character/19/2.png"];
@@ -1346,7 +1346,7 @@ Character20Base = (function() {
   Character20Base.characterName = "池袋晶葉";
 
   // 最初からいるか
-  Character20Base.defaultJoin = true;
+  Character20Base.defaultJoin = false;
 
   // 画像のリスト
   Character20Base.images = ["./img/character/20/1.png", "./img/character/20/2.png"];
@@ -1416,7 +1416,7 @@ Character21Base = (function() {
   Character21Base.characterName = "伊集院惠";
 
   // 最初からいるか
-  Character21Base.defaultJoin = true;
+  Character21Base.defaultJoin = false;
 
   // 画像のリスト
   Character21Base.images = ["./img/character/21/1.png", "./img/character/21/2.png"];
@@ -1486,7 +1486,7 @@ Character22Base = (function() {
   Character22Base.characterName = "一ノ瀬志希";
 
   // 最初からいるか
-  Character22Base.defaultJoin = true;
+  Character22Base.defaultJoin = false;
 
   // 画像のリスト
   Character22Base.images = ["./img/character/22/1.png", "./img/character/22/2.png"];
@@ -1556,7 +1556,7 @@ Character23Base = (function() {
   Character23Base.characterName = "市原仁奈";
 
   // 最初からいるか
-  Character23Base.defaultJoin = true;
+  Character23Base.defaultJoin = false;
 
   // 画像のリスト
   Character23Base.images = ["./img/character/23/1.png", "./img/character/23/2.png"];
@@ -1626,7 +1626,7 @@ Character24Base = (function() {
   Character24Base.characterName = "今井加奈";
 
   // 最初からいるか
-  Character24Base.defaultJoin = true;
+  Character24Base.defaultJoin = false;
 
   // 画像のリスト
   Character24Base.images = ["./img/character/24/1.png", "./img/character/24/2.png"];
@@ -1696,7 +1696,7 @@ Character25Base = (function() {
   Character25Base.characterName = "井村雪菜";
 
   // 最初からいるか
-  Character25Base.defaultJoin = true;
+  Character25Base.defaultJoin = false;
 
   // 画像のリスト
   Character25Base.images = ["./img/character/25/1.png", "./img/character/25/2.png"];
@@ -1766,7 +1766,7 @@ Character26Base = (function() {
   Character26Base.characterName = "上田鈴帆";
 
   // 最初からいるか
-  Character26Base.defaultJoin = true;
+  Character26Base.defaultJoin = false;
 
   // 画像のリスト
   Character26Base.images = ["./img/character/26/1.png", "./img/character/26/2.png"];
@@ -1836,7 +1836,7 @@ Character27Base = (function() {
   Character27Base.characterName = "氏家むつみ";
 
   // 最初からいるか
-  Character27Base.defaultJoin = true;
+  Character27Base.defaultJoin = false;
 
   // 画像のリスト
   Character27Base.images = ["./img/character/27/1.png", "./img/character/27/2.png"];
@@ -1906,7 +1906,7 @@ Character28Base = (function() {
   Character28Base.characterName = "梅木音葉";
 
   // 最初からいるか
-  Character28Base.defaultJoin = true;
+  Character28Base.defaultJoin = false;
 
   // 画像のリスト
   Character28Base.images = ["./img/character/28/1.png", "./img/character/28/2.png"];
@@ -1976,7 +1976,7 @@ Character29Base = (function() {
   Character29Base.characterName = "江上椿";
 
   // 最初からいるか
-  Character29Base.defaultJoin = true;
+  Character29Base.defaultJoin = false;
 
   // 画像のリスト
   Character29Base.images = ["./img/character/29/1.png", "./img/character/29/2.png"];
@@ -2046,7 +2046,7 @@ Character30Base = (function() {
   Character30Base.characterName = "衛藤美紗希";
 
   // 最初からいるか
-  Character30Base.defaultJoin = true;
+  Character30Base.defaultJoin = false;
 
   // 画像のリスト
   Character30Base.images = ["./img/character/30/1.png", "./img/character/30/2.png"];
@@ -2116,7 +2116,7 @@ Character31Base = (function() {
   Character31Base.characterName = "海老原菜帆";
 
   // 最初からいるか
-  Character31Base.defaultJoin = true;
+  Character31Base.defaultJoin = false;
 
   // 画像のリスト
   Character31Base.images = ["./img/character/31/1.png", "./img/character/31/2.png"];
@@ -2186,7 +2186,7 @@ Character32Base = (function() {
   Character32Base.characterName = "及川雫";
 
   // 最初からいるか
-  Character32Base.defaultJoin = true;
+  Character32Base.defaultJoin = false;
 
   // 画像のリスト
   Character32Base.images = ["./img/character/32/1.png", "./img/character/32/2.png"];
@@ -2256,7 +2256,7 @@ Character33Base = (function() {
   Character33Base.characterName = "大石泉";
 
   // 最初からいるか
-  Character33Base.defaultJoin = true;
+  Character33Base.defaultJoin = false;
 
   // 画像のリスト
   Character33Base.images = ["./img/character/33/1.png", "./img/character/33/2.png"];
@@ -2326,7 +2326,7 @@ Character34Base = (function() {
   Character34Base.characterName = "太田優";
 
   // 最初からいるか
-  Character34Base.defaultJoin = true;
+  Character34Base.defaultJoin = false;
 
   // 画像のリスト
   Character34Base.images = ["./img/character/34/1.png", "./img/character/34/2.png"];
@@ -2396,7 +2396,7 @@ Character35Base = (function() {
   Character35Base.characterName = "大槻唯";
 
   // 最初からいるか
-  Character35Base.defaultJoin = true;
+  Character35Base.defaultJoin = false;
 
   // 画像のリスト
   Character35Base.images = ["./img/character/35/1.png", "./img/character/35/2.png"];
@@ -2466,7 +2466,7 @@ Character36Base = (function() {
   Character36Base.characterName = "大西由里子";
 
   // 最初からいるか
-  Character36Base.defaultJoin = true;
+  Character36Base.defaultJoin = false;
 
   // 画像のリスト
   Character36Base.images = ["./img/character/36/1.png", "./img/character/36/2.png"];
@@ -2536,7 +2536,7 @@ Character37Base = (function() {
   Character37Base.characterName = "大沼くるみ";
 
   // 最初からいるか
-  Character37Base.defaultJoin = true;
+  Character37Base.defaultJoin = false;
 
   // 画像のリスト
   Character37Base.images = ["./img/character/37/1.png", "./img/character/37/2.png"];
@@ -2606,7 +2606,7 @@ Character38Base = (function() {
   Character38Base.characterName = "大原みちる";
 
   // 最初からいるか
-  Character38Base.defaultJoin = true;
+  Character38Base.defaultJoin = false;
 
   // 画像のリスト
   Character38Base.images = ["./img/character/38/1.png", "./img/character/38/2.png"];
@@ -2676,7 +2676,7 @@ Character39Base = (function() {
   Character39Base.characterName = "岡崎泰葉";
 
   // 最初からいるか
-  Character39Base.defaultJoin = true;
+  Character39Base.defaultJoin = false;
 
   // 画像のリスト
   Character39Base.images = ["./img/character/39/1.png", "./img/character/39/2.png"];
@@ -2746,7 +2746,7 @@ Character40Base = (function() {
   Character40Base.characterName = "緒方智絵里";
 
   // 最初からいるか
-  Character40Base.defaultJoin = true;
+  Character40Base.defaultJoin = false;
 
   // 画像のリスト
   Character40Base.images = ["./img/character/40/1.png", "./img/character/40/2.png"];
@@ -2816,7 +2816,7 @@ Character41Base = (function() {
   Character41Base.characterName = "奥山沙織";
 
   // 最初からいるか
-  Character41Base.defaultJoin = true;
+  Character41Base.defaultJoin = false;
 
   // 画像のリスト
   Character41Base.images = ["./img/character/41/1.png", "./img/character/41/2.png"];
@@ -2886,7 +2886,7 @@ Character42Base = (function() {
   Character42Base.characterName = "乙倉悠貴";
 
   // 最初からいるか
-  Character42Base.defaultJoin = true;
+  Character42Base.defaultJoin = false;
 
   // 画像のリスト
   Character42Base.images = ["./img/character/42/1.png", "./img/character/42/2.png"];
@@ -2956,7 +2956,7 @@ Character43Base = (function() {
   Character43Base.characterName = "片桐早苗";
 
   // 最初からいるか
-  Character43Base.defaultJoin = true;
+  Character43Base.defaultJoin = false;
 
   // 画像のリスト
   Character43Base.images = ["./img/character/43/1.png", "./img/character/43/2.png"];
@@ -3026,7 +3026,7 @@ Character44Base = (function() {
   Character44Base.characterName = "上条春菜";
 
   // 最初からいるか
-  Character44Base.defaultJoin = true;
+  Character44Base.defaultJoin = false;
 
   // 画像のリスト
   Character44Base.images = ["./img/character/44/1.png", "./img/character/44/2.png"];
@@ -3096,7 +3096,7 @@ Character45Base = (function() {
   Character45Base.characterName = "神谷奈緒";
 
   // 最初からいるか
-  Character45Base.defaultJoin = true;
+  Character45Base.defaultJoin = false;
 
   // 画像のリスト
   Character45Base.images = ["./img/character/45/1.png", "./img/character/45/2.png"];
@@ -3166,7 +3166,7 @@ Character46Base = (function() {
   Character46Base.characterName = "川島瑞樹";
 
   // 最初からいるか
-  Character46Base.defaultJoin = true;
+  Character46Base.defaultJoin = false;
 
   // 画像のリスト
   Character46Base.images = ["./img/character/46/1.png", "./img/character/46/2.png"];
@@ -3236,7 +3236,7 @@ Character47Base = (function() {
   Character47Base.characterName = "神崎蘭子";
 
   // 最初からいるか
-  Character47Base.defaultJoin = true;
+  Character47Base.defaultJoin = false;
 
   // 画像のリスト
   Character47Base.images = ["./img/character/47/1.png", "./img/character/47/2.png"];
@@ -3306,7 +3306,7 @@ Character48Base = (function() {
   Character48Base.characterName = "岸部彩華";
 
   // 最初からいるか
-  Character48Base.defaultJoin = true;
+  Character48Base.defaultJoin = false;
 
   // 画像のリスト
   Character48Base.images = ["./img/character/48/1.png", "./img/character/48/2.png"];
@@ -3376,7 +3376,7 @@ Character49Base = (function() {
   Character49Base.characterName = "北川真尋";
 
   // 最初からいるか
-  Character49Base.defaultJoin = true;
+  Character49Base.defaultJoin = false;
 
   // 画像のリスト
   Character49Base.images = ["./img/character/49/1.png", "./img/character/49/2.png"];
@@ -3446,7 +3446,7 @@ Character50Base = (function() {
   Character50Base.characterName = "喜多日菜子";
 
   // 最初からいるか
-  Character50Base.defaultJoin = true;
+  Character50Base.defaultJoin = false;
 
   // 画像のリスト
   Character50Base.images = ["./img/character/50/1.png", "./img/character/50/2.png"];
@@ -3516,7 +3516,7 @@ Character51Base = (function() {
   Character51Base.characterName = "喜多見柚";
 
   // 最初からいるか
-  Character51Base.defaultJoin = true;
+  Character51Base.defaultJoin = false;
 
   // 画像のリスト
   Character51Base.images = ["./img/character/51/1.png", "./img/character/51/2.png"];
@@ -3586,7 +3586,7 @@ Character52Base = (function() {
   Character52Base.characterName = "木場真奈美";
 
   // 最初からいるか
-  Character52Base.defaultJoin = true;
+  Character52Base.defaultJoin = false;
 
   // 画像のリスト
   Character52Base.images = ["./img/character/52/1.png", "./img/character/52/2.png"];
@@ -3656,7 +3656,7 @@ Character53Base = (function() {
   Character53Base.characterName = "木村夏樹";
 
   // 最初からいるか
-  Character53Base.defaultJoin = true;
+  Character53Base.defaultJoin = false;
 
   // 画像のリスト
   Character53Base.images = ["./img/character/53/1.png", "./img/character/53/2.png"];
@@ -3726,7 +3726,7 @@ Character54Base = (function() {
   Character54Base.characterName = "キャシー・グラハム";
 
   // 最初からいるか
-  Character54Base.defaultJoin = true;
+  Character54Base.defaultJoin = false;
 
   // 画像のリスト
   Character54Base.images = ["./img/character/54/1.png", "./img/character/54/2.png"];
@@ -3796,7 +3796,7 @@ Character55Base = (function() {
   Character55Base.characterName = "桐野アヤ";
 
   // 最初からいるか
-  Character55Base.defaultJoin = true;
+  Character55Base.defaultJoin = false;
 
   // 画像のリスト
   Character55Base.images = ["./img/character/55/1.png", "./img/character/55/2.png"];
@@ -3866,7 +3866,7 @@ Character56Base = (function() {
   Character56Base.characterName = "桐生つかさ";
 
   // 最初からいるか
-  Character56Base.defaultJoin = true;
+  Character56Base.defaultJoin = false;
 
   // 画像のリスト
   Character56Base.images = ["./img/character/56/1.png", "./img/character/56/2.png"];
@@ -3936,7 +3936,7 @@ Character57Base = (function() {
   Character57Base.characterName = "日下部若葉";
 
   // 最初からいるか
-  Character57Base.defaultJoin = true;
+  Character57Base.defaultJoin = false;
 
   // 画像のリスト
   Character57Base.images = ["./img/character/57/1.png", "./img/character/57/2.png"];
@@ -4006,7 +4006,7 @@ Character58Base = (function() {
   Character58Base.characterName = "工藤忍";
 
   // 最初からいるか
-  Character58Base.defaultJoin = true;
+  Character58Base.defaultJoin = false;
 
   // 画像のリスト
   Character58Base.images = ["./img/character/58/1.png", "./img/character/58/2.png"];
@@ -4076,7 +4076,7 @@ Character59Base = (function() {
   Character59Base.characterName = "クラリス";
 
   // 最初からいるか
-  Character59Base.defaultJoin = true;
+  Character59Base.defaultJoin = false;
 
   // 画像のリスト
   Character59Base.images = ["./img/character/59/1.png", "./img/character/59/2.png"];
@@ -4146,7 +4146,7 @@ Character60Base = (function() {
   Character60Base.characterName = "栗原ネネ";
 
   // 最初からいるか
-  Character60Base.defaultJoin = true;
+  Character60Base.defaultJoin = false;
 
   // 画像のリスト
   Character60Base.images = ["./img/character/60/1.png", "./img/character/60/2.png"];
@@ -4216,7 +4216,7 @@ Character61Base = (function() {
   Character61Base.characterName = "黒川千秋";
 
   // 最初からいるか
-  Character61Base.defaultJoin = true;
+  Character61Base.defaultJoin = false;
 
   // 画像のリスト
   Character61Base.images = ["./img/character/61/1.png", "./img/character/61/2.png"];
@@ -4286,7 +4286,7 @@ Character62Base = (function() {
   Character62Base.characterName = "ケイト";
 
   // 最初からいるか
-  Character62Base.defaultJoin = true;
+  Character62Base.defaultJoin = false;
 
   // 画像のリスト
   Character62Base.images = ["./img/character/62/1.png", "./img/character/62/2.png"];
@@ -4356,7 +4356,7 @@ Character63Base = (function() {
   Character63Base.characterName = "古賀小春";
 
   // 最初からいるか
-  Character63Base.defaultJoin = true;
+  Character63Base.defaultJoin = false;
 
   // 画像のリスト
   Character63Base.images = ["./img/character/63/1.png", "./img/character/63/2.png"];
@@ -4426,7 +4426,7 @@ Character64Base = (function() {
   Character64Base.characterName = "輿水幸子";
 
   // 最初からいるか
-  Character64Base.defaultJoin = true;
+  Character64Base.defaultJoin = false;
 
   // 画像のリスト
   Character64Base.images = ["./img/character/64/1.png", "./img/character/64/2.png"];
@@ -4496,7 +4496,7 @@ Character65Base = (function() {
   Character65Base.characterName = "小関麗奈";
 
   // 最初からいるか
-  Character65Base.defaultJoin = true;
+  Character65Base.defaultJoin = false;
 
   // 画像のリスト
   Character65Base.images = ["./img/character/65/1.png", "./img/character/65/2.png"];
@@ -4566,7 +4566,7 @@ Character66Base = (function() {
   Character66Base.characterName = "小早川紗枝";
 
   // 最初からいるか
-  Character66Base.defaultJoin = true;
+  Character66Base.defaultJoin = false;
 
   // 画像のリスト
   Character66Base.images = ["./img/character/66/1.png", "./img/character/66/2.png"];

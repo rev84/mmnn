@@ -59,6 +59,9 @@ ItemManager = (function() {
       results = [];
       for (k in ref) {
         cObj = ref[k];
+        if (!cObj.isJoined()) {
+          continue;
+        }
         results.push((function() {
           var i, len, ref1, results1;
           ref1 = cObj.getItems();

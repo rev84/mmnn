@@ -16,6 +16,9 @@ ItemCharacterPicker = (function() {
       ref = GameManager.characters;
       for (k in ref) {
         c = ref[k];
+        if (!c.isJoined()) {
+          continue;
+        }
         this.characters.push(c);
       }
       this.characters.sort(function(a, b) {

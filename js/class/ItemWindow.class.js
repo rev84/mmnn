@@ -28,6 +28,24 @@ ItemWindow = (function() {
       }
     }
 
+    static async showCharacter(characterObject, isWaitClose = true) {
+      var results;
+      if (isWaitClose) {
+        this.CLOSED = false;
+      }
+      this.imgElement.attr('src', characterObject.getBaseImage());
+      this.nameElement.html(characterObject.getName());
+      this.descriptionElement.html('アイドルがライブに参加してくれるようになりました');
+      this.divObject.modal('show');
+      if (isWaitClose) {
+        results = [];
+        while (!this.CLOSED) {
+          results.push((await Utl.sleep(1000)));
+        }
+        return results;
+      }
+    }
+
     static async showJewel(jewelAmount, isWaitClose = true) {
       var results;
       if (isWaitClose) {
