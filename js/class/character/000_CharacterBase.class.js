@@ -49,110 +49,120 @@ CharacterBase = (function() {
     }
 
     getHpMaxItemFixRate() {
-      var i, itemObject, len, level, ref, res;
+      var i, itemId, itemObject, len, level, ref, res;
       res = 1;
       ref = this.items;
       for (i = 0, len = ref.length; i < len; i++) {
-        [itemObject, level] = ref[i];
+        [itemId, level] = ref[i];
+        itemObject = ItemManager.itemId2object(itemId);
         res += itemObject.getHpFixRate();
       }
       return res;
     }
 
     getAttackItemFixRate() {
-      var i, itemObject, len, level, ref, res;
+      var i, itemId, itemObject, len, level, ref, res;
       res = 1;
       ref = this.items;
       for (i = 0, len = ref.length; i < len; i++) {
-        [itemObject, level] = ref[i];
+        [itemId, level] = ref[i];
+        itemObject = ItemManager.itemId2object(itemId);
         res += itemObject.getAttackFixRate();
       }
       return res;
     }
 
     getPDefItemFixRate() {
-      var i, itemObject, len, level, ref, res;
+      var i, itemId, itemObject, len, level, ref, res;
       res = 1;
       ref = this.items;
       for (i = 0, len = ref.length; i < len; i++) {
-        [itemObject, level] = ref[i];
+        [itemId, level] = ref[i];
+        itemObject = ItemManager.itemId2object(itemId);
         res += itemObject.getPDefRateFixRate();
       }
       return res;
     }
 
     getMDefItemFixRate() {
-      var i, itemObject, len, level, ref, res;
+      var i, itemId, itemObject, len, level, ref, res;
       res = 1;
       ref = this.items;
       for (i = 0, len = ref.length; i < len; i++) {
-        [itemObject, level] = ref[i];
+        [itemId, level] = ref[i];
+        itemObject = ItemManager.itemId2object(itemId);
         res += itemObject.getMDefRateFixRate();
       }
       return res;
     }
 
     getCostItemFixRate() {
-      var i, itemObject, len, level, ref, res;
+      var i, itemId, itemObject, len, level, ref, res;
       res = 1;
       ref = this.items;
       for (i = 0, len = ref.length; i < len; i++) {
-        [itemObject, level] = ref[i];
+        [itemId, level] = ref[i];
+        itemObject = ItemManager.itemId2object(itemId);
         res += itemObject.getCostRateFixRate();
       }
       return res;
     }
 
     getMoveItemFix() {
-      var i, itemObject, len, level, ref, res;
+      var i, itemId, itemObject, len, level, ref, res;
       res = 0;
       ref = this.items;
       for (i = 0, len = ref.length; i < len; i++) {
-        [itemObject, level] = ref[i];
+        [itemId, level] = ref[i];
+        itemObject = ItemManager.itemId2object(itemId);
         res += itemObject.getMoveFixPlus();
       }
       return res;
     }
 
     getRangeItemFix() {
-      var i, itemObject, len, level, ref, res;
+      var i, itemId, itemObject, len, level, ref, res;
       res = 0;
       ref = this.items;
       for (i = 0, len = ref.length; i < len; i++) {
-        [itemObject, level] = ref[i];
+        [itemId, level] = ref[i];
+        itemObject = ItemManager.itemId2object(itemId);
         res += itemObject.getRangeFixPlus();
       }
       return res;
     }
 
     getHitRateItemFix() {
-      var i, itemObject, len, level, ref, res;
+      var i, itemId, itemObject, len, level, ref, res;
       res = 0;
       ref = this.items;
       for (i = 0, len = ref.length; i < len; i++) {
-        [itemObject, level] = ref[i];
+        [itemId, level] = ref[i];
+        itemObject = ItemManager.itemId2object(itemId);
         res += itemObject.getHitFixPlus();
       }
       return res;
     }
 
     getDodgeRateItemFix() {
-      var i, itemObject, len, level, ref, res;
+      var i, itemId, itemObject, len, level, ref, res;
       res = 0;
       ref = this.items;
       for (i = 0, len = ref.length; i < len; i++) {
-        [itemObject, level] = ref[i];
+        [itemId, level] = ref[i];
+        itemObject = ItemManager.itemId2object(itemId);
         res += itemObject.getDodgeFixPlus();
       }
       return res;
     }
 
     getComebackItemFix() {
-      var i, itemObject, len, level, ref, res;
+      var i, itemId, itemObject, len, level, ref, res;
       res = 0;
       ref = this.items;
       for (i = 0, len = ref.length; i < len; i++) {
-        [itemObject, level] = ref[i];
+        [itemId, level] = ref[i];
+        itemObject = ItemManager.itemId2object(itemId);
         res += itemObject.getReturnFixPlus();
       }
       return res;
@@ -263,7 +273,7 @@ CharacterBase = (function() {
 
     // アイテムを装備
     setItem(itemObject, level) {
-      return this.items.push([itemObject, level]);
+      return this.items.push([itemObject.getId(), level]);
     }
 
     // アイテムを外す
@@ -291,9 +301,11 @@ CharacterBase = (function() {
     // 装備中のアイテムを取得
     getItems() {
       this.items.sort(function(a, b) {
-        var aItemObject, aLevel, bItemObject, bLevel;
-        [aItemObject, aLevel] = a;
-        [bItemObject, bLevel] = b;
+        var aId, aItemObject, aLevel, bId, bItemObject, bLevel;
+        [aId, aLevel] = a;
+        [bId, bLevel] = b;
+        aItemObject = ItemManager.itemId2object(aId);
+        bItemObject = ItemManager.itemId2object(bId);
         if (aItemObject.getDisplayOrder() < bItemObject.getDisplayOrder()) {
           return -1;
         }
@@ -313,12 +325,12 @@ CharacterBase = (function() {
 
     // 装備中のアイテムのコストの合計を取得
     getItemCostTotal() {
-      var i, itemObject, len, level, ref, total;
+      var i, itemId, len, level, ref, total;
       total = 0;
       ref = this.items;
       for (i = 0, len = ref.length; i < len; i++) {
-        [itemObject, level] = ref[i];
-        total += itemObject.getCost(level);
+        [itemId, level] = ref[i];
+        total += ItemManager.itemId2object(itemId).getCost(level);
       }
       return total;
     }

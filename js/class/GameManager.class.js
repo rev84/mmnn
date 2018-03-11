@@ -218,9 +218,9 @@ GameManager = (function() {
           this.flags.isWalkInThisTurn = savedata.flags.isWalkInThisTurn;
         }
       }
+      this.initItems(savedataItems);
       this.initCharacters(savedataCharacters);
       this.initEnemys(null);
-      this.initItems(savedataItems);
       this.initField(savedataField);
       this.initEnv(savedataEnv);
       this.initMenu(null);

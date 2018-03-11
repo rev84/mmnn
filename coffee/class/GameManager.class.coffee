@@ -294,9 +294,9 @@ class GameManager
       if 'isWalkInThisTurn' of savedata.flags
         @flags.isWalkInThisTurn = savedata.flags.isWalkInThisTurn
 
+    @initItems(savedataItems)
     @initCharacters(savedataCharacters)
     @initEnemys(null)
-    @initItems(savedataItems)
     @initField(savedataField)
     @initEnv(savedataEnv)
     @initMenu(null)

@@ -4,16 +4,8 @@ var ItemManager;
 ItemManager = (function() {
   class ItemManager {
     static init(gameElement, savedata) {
-      var c, k, ref;
       this.gameElement = gameElement;
       this.divObject = $('<div>').attr('id', this.ID);
-      // キャラを持つ
-      this.characters = [];
-      ref = GameManager.characters;
-      for (k in ref) {
-        c = ref[k];
-        this.characters.push(c);
-      }
       // アイテムのインスタンス
       this.items = {};
       this.setItems(savedata);
@@ -38,10 +30,10 @@ ItemManager = (function() {
           results1 = [];
           for (level = i = 0, ref1 = itemBody.cost.length; (0 <= ref1 ? i < ref1 : i > ref1); level = 0 <= ref1 ? ++i : --i) {
             // セーブデータに持ってる数があればセット
-            if (savedata !== null && itemId in savedata) {
+            if (savedata !== null && itemId in savedata && 'amount' in savedata[itemId]) {
               results1.push((function() {
                 var j, len, ref2, results2;
-                ref2 = savedata[itemId];
+                ref2 = savedata[itemId].amount;
                 results2 = [];
                 for (level = j = 0, len = ref2.length; j < len; level = ++j) {
                   amount = ref2[level];
@@ -61,7 +53,7 @@ ItemManager = (function() {
 
     // なければ0個
     static calcUsedItemCount() {
-      var cObj, itemObj, k, level, ref, results;
+      var cObj, itemId, itemObj, k, level, ref, results;
       this.usedItemCount = {};
       ref = GameManager.characters;
       results = [];
@@ -72,7 +64,8 @@ ItemManager = (function() {
           ref1 = cObj.getItems();
           results1 = [];
           for (i = 0, len = ref1.length; i < len; i++) {
-            [itemObj, level] = ref1[i];
+            [itemId, level] = ref1[i];
+            itemObj = this.itemId2object(itemId);
             if (!(itemObj.getId() in this.usedItemCount)) {
               this.usedItemCount[itemObj.getId()] = Array(itemObj.getMaxLevel() + 1).fill(0);
             }
@@ -85,7 +78,7 @@ ItemManager = (function() {
     }
 
     static repick() {
-      return ItemEquipmentEditor.select(this.characters[0]);
+      return ItemEquipmentEditor.select();
     }
 
     static show() {
@@ -110,6 +103,10 @@ ItemManager = (function() {
         }
       }
       return false;
+    }
+
+    static itemId2object(id) {
+      return this.items[id];
     }
 
   };

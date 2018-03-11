@@ -6,20 +6,27 @@ ItemCharacterPicker = (function() {
     static init(parentObject) {
       this.parentObject = parentObject;
       this.divObject = $('<div>').attr('id', this.ID);
+      this.characters = [];
       return this.divObject.appendTo(this.parentObject.divObject);
     }
 
     static draw() {
-      var c, i, index, len, panel, ref, results, top;
-      this.parentObject.characters.sort(function(a, b) {
+      var c, i, index, k, len, panel, ref, ref1, results, top;
+      this.characters = [];
+      ref = GameManager.characters;
+      for (k in ref) {
+        c = ref[k];
+        this.characters.push(c);
+      }
+      this.characters.sort(function(a, b) {
         return Number(a.getId()) - Number(b.getId());
       });
       this.panels = [];
       $('#' + this.ID + ' > .panel').remove();
-      ref = this.parentObject.characters;
+      ref1 = this.characters;
       results = [];
-      for (index = i = 0, len = ref.length; i < len; index = ++i) {
-        c = ref[index];
+      for (index = i = 0, len = ref1.length; i < len; index = ++i) {
+        c = ref1[index];
         top = index * Panel.SIZE_Y;
         panel = new Panel(this.divObject, c, top);
         // キャラ選択パネルに、キャラ選択イベントを登録

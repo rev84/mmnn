@@ -19,6 +19,10 @@ Item = class Item {
     };
   }
 
+  getId() {
+    return this.itemId;
+  }
+
   // 持ってる数を設定
   setAmount(level, amount) {
     return this.amount[level] = amount;

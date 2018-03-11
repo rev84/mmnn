@@ -9,6 +9,9 @@ class Item
       amount: @amount
     }
 
+  getId:->
+    @itemId
+
   # 持ってる数を設定
   setAmount:(level, amount)->
     @amount[level] = amount

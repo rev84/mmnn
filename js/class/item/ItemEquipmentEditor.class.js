@@ -22,8 +22,11 @@ ItemEquipmentEditor = (function() {
       return this.divObject.appendTo(this.parentObject.divObject);
     }
 
-    static select(characterObject) {
+    static select(characterObject = null) {
       this.characterObject = characterObject;
+      if (this.characterObject === null && ItemCharacterPicker.characters.length > 0) {
+        this.characterObject = ItemCharacterPicker.characters[0];
+      }
       this.draw();
       this.drawCost();
       return this.drawEquipmentItems();
@@ -46,7 +49,7 @@ ItemEquipmentEditor = (function() {
     }
 
     static drawEquipmentItems() {
-      var i, itemCost, itemName, itemObject, len, level, panel, ref, results, y;
+      var i, itemCost, itemId, itemName, itemObject, len, level, panel, ref, results, y;
       this.equipItems.find('*').remove();
       if (this.characterObject === null) {
 
@@ -59,7 +62,8 @@ ItemEquipmentEditor = (function() {
         ref = this.characterObject.getItems();
         results = [];
         for (i = 0, len = ref.length; i < len; i++) {
-          [itemObject, level] = ref[i];
+          [itemId, level] = ref[i];
+          itemObject = ItemManager.itemId2object(itemId);
           panel = $('<div>').addClass('equipment_item_panel').css('top', '' + y + 'px').on('click contextmenu', this.onClickItemPanel.bind(this, itemObject, level));
           itemName = $('<div>').addClass('equipment_item_panel_name').html(itemObject.getNameWithLevel(level)).appendTo(panel);
           itemCost = $('<div>').addClass('equipment_item_panel_cost').html(itemObject.getCost(level)).appendTo(panel);

@@ -19,8 +19,11 @@ class ItemEquipmentEditor
     @characterObject = null
     @divObject.appendTo @parentObject.divObject
 
-  @select:(characterObject)->
+  @select:(characterObject = null)->
     @characterObject = characterObject
+    if @characterObject is null and ItemCharacterPicker.characters.length > 0
+      @characterObject = ItemCharacterPicker.characters[0]
+
     @draw()
     @drawCost()
     @drawEquipmentItems()
@@ -46,7 +49,8 @@ class ItemEquipmentEditor
       panel.appendTo @equipItems
     else
       y = 0
-      for [itemObject, level] in @characterObject.getItems()
+      for [itemId, level] in @characterObject.getItems()
+        itemObject = ItemManager.itemId2object(itemId)
         panel = $('<div>').addClass('equipment_item_panel').css('top', ''+y+'px')
                 .on('click contextmenu', @onClickItemPanel.bind(@, itemObject, level))
         itemName = $('<div>').addClass('equipment_item_panel_name').html(itemObject.getNameWithLevel(level)).appendTo(panel)

@@ -52,52 +52,62 @@ class CharacterBase extends ObjectBase
 
   getHpMaxItemFixRate:->
     res = 1
-    for [itemObject, level] in @items
+    for [itemId, level] in @items
+      itemObject = ItemManager.itemId2object itemId
       res += itemObject.getHpFixRate()
     res
   getAttackItemFixRate:->
     res = 1
-    for [itemObject, level] in @items
+    for [itemId, level] in @items
+      itemObject = ItemManager.itemId2object itemId
       res += itemObject.getAttackFixRate()
     res
   getPDefItemFixRate:->
     res = 1
-    for [itemObject, level] in @items
+    for [itemId, level] in @items
+      itemObject = ItemManager.itemId2object itemId
       res += itemObject.getPDefRateFixRate()
     res
   getMDefItemFixRate:->
     res = 1
-    for [itemObject, level] in @items
+    for [itemId, level] in @items
+      itemObject = ItemManager.itemId2object itemId
       res += itemObject.getMDefRateFixRate()
     res
   getCostItemFixRate:->
     res = 1
-    for [itemObject, level] in @items
+    for [itemId, level] in @items
+      itemObject = ItemManager.itemId2object itemId
       res += itemObject.getCostRateFixRate()
     res
   getMoveItemFix:->
     res = 0
-    for [itemObject, level] in @items
+    for [itemId, level] in @items
+      itemObject = ItemManager.itemId2object itemId
       res += itemObject.getMoveFixPlus()
     res
   getRangeItemFix:->
     res = 0
-    for [itemObject, level] in @items
+    for [itemId, level] in @items
+      itemObject = ItemManager.itemId2object itemId
       res += itemObject.getRangeFixPlus()
     res
   getHitRateItemFix:->
     res = 0
-    for [itemObject, level] in @items
+    for [itemId, level] in @items
+      itemObject = ItemManager.itemId2object itemId
       res += itemObject.getHitFixPlus()
     res
   getDodgeRateItemFix:->
     res = 0
-    for [itemObject, level] in @items
+    for [itemId, level] in @items
+      itemObject = ItemManager.itemId2object itemId
       res += itemObject.getDodgeFixPlus()
     res
   getComebackItemFix:->
     res = 0
-    for [itemObject, level] in @items
+    for [itemId, level] in @items
+      itemObject = ItemManager.itemId2object itemId
       res += itemObject.getReturnFixPlus()
     res
 
@@ -177,7 +187,7 @@ class CharacterBase extends ObjectBase
 
   # アイテムを装備
   setItem:(itemObject, level)->
-    @items.push [itemObject, level]
+    @items.push [itemObject.getId(), level]
 
   # アイテムを外す
   dropItem:(itemObject, level)->
@@ -197,8 +207,10 @@ class CharacterBase extends ObjectBase
   # 装備中のアイテムを取得
   getItems:->
     @items.sort (a, b)->
-      [aItemObject, aLevel] = a
-      [bItemObject, bLevel] = b
+      [aId, aLevel] = a
+      [bId, bLevel] = b
+      aItemObject = ItemManager.itemId2object(aId)
+      bItemObject = ItemManager.itemId2object(bId)
       return -1 if aItemObject.getDisplayOrder() < bItemObject.getDisplayOrder()
       return  1 if aItemObject.getDisplayOrder() > bItemObject.getDisplayOrder()
       return -1 if aLevel < bLevel
@@ -209,7 +221,7 @@ class CharacterBase extends ObjectBase
   # 装備中のアイテムのコストの合計を取得
   getItemCostTotal:->
     total = 0
-    for [itemObject, level] in @items
-      total += itemObject.getCost(level)
+    for [itemId, level] in @items
+      total += ItemManager.itemId2object(itemId).getCost(level)
     total
 
