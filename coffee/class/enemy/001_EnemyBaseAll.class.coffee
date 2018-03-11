@@ -84,9 +84,9 @@ class Enemy3Base extends EnemyBase
   # ID
   @characterId = 3
   # キャラ名
-  @characterName = "ピクシーFOX"
+  @characterName = "女オタ"
   # 画像のリスト
-  @images = ["./img/enemy/3/1082010301_001.png","./img/enemy/3/1082010301_003.png"]
+  @images = ["./img/enemy/3/enemy_kona_1.png","./img/enemy/3/enemy_kona_2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
