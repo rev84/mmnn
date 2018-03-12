@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
+
 * {
   -webkit-user-select: none;  /* Chrome or Safari */
   -moz-user-select: none;     /* FireFox */
@@ -168,32 +170,64 @@ input[type="range"]::-webkit-slider-thumb:active {
   height: 150px;
   background-image: url('../img/enemy/1/1005010301_001.png');
 }
+.panel > .field {
+  line-height: 20px;
+  font-size: 16px;
+  text-align: right;
+  font-family:'Archivo Narrow', "Rounded Mplus 1c";
+}
 .panel.panel_character {
-  background-image: url('../img/panel/character_strip.png');
+  background-image: url('../img/panel/character_with_label.png');
 }
 .panel.panel_enemy {
-  background-image: url('../img/panel/enemy_strip.png');
+  background-image: url('../img/panel/enemy_with_label.png');
+}
+.field_attack_physic {
+  color: #000000;
+}
+.field_attack_magic {
+  color: #00d8d8;
+}
+.field.field_hp, .field.field_hp_max {
+  font-size: 18px;
+  background-color: #ffffff;
+}
+.field.field_level {
+  font-style: oblique;
+  display        : inline-block;
+  color          : #ffffff;            /* 文字の色 */
+  font-size      : 18px;               /* 文字のサイズ */
+  letter-spacing : 1px;                /* 文字間 */
+  text-shadow    : 
+       2px  2px 1px #003366,
+      -2px  2px 1px #003366,
+       2px -2px 1px #003366,
+      -2px -2px 1px #003366,
+       2px  0px 1px #003366,
+       0px  2px 1px #003366,
+      -2px  0px 1px #003366,
+       0px -2px 1px #003366;        /* 文字の影 */  
 }
 .infield {
   left:0px;
   top:0px;
   z-index: 9999;
-  opacity: 0.5;
+  opacity: 0.7;
   width: 400px;
   height: 120px;
   text-align: center;
-  background-image: url('../img/panel/infield.png');
+  background-image: url('../img/panel/infield2.png');
   background-size:cover;
 }
 .comeback{
   left:0px;
   top:0px;
   z-index: 9999;
-  opacity: 0.5;
+  opacity: 0.7;
   width: 400px;
   height: 120px;
   text-align: center;
-  background-image: url('../img/panel/comeback.png');
+  background-image: url('../img/panel/comeback2.png');
   background-size:cover;
 }
 .panel, .panel > *,

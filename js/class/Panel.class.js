@@ -61,13 +61,12 @@ Panel = (function() {
     }
 
     drawCommon(level = null) {
-      var attackImg;
       // アイコン
-      $(this.divObject).append($('<div>').addClass('field_icon').css({
-        top: 20,
-        left: 0,
-        width: 90,
-        height: 90,
+      $(this.divObject).append($('<div>').addClass('field field_icon').css({
+        top: 32,
+        left: 5,
+        width: 80,
+        height: 80,
         "background-image": 'url(' + this.object.getBaseImage() + ')'
       }).on('mousedown', (evt) => {
         if (evt.which === 1) {
@@ -75,209 +74,94 @@ Panel = (function() {
         }
         return true;
       }));
-      // レベルラベル
-      $(this.divObject).append($('<div>').addClass('label_level').css({
-        top: 0,
-        left: 0,
-        width: 20,
-        height: 20,
-        "font-size": "16px",
-        "background-color": '#ffffff'
-      }).html('Lv'));
       // レベル
-      $(this.divObject).append($('<div>').addClass('field_level').css({
-        top: 0,
-        left: 20,
-        width: 90,
-        height: 20,
-        "font-size": "16px",
-        "background-color": '#ffffff'
-      }).html(ObjectBase.status2html(this.object.getLevel(level))));
+      $(this.divObject).append($('<div>').addClass('field field_level').css({
+        top: 95,
+        left: 5,
+        width: 75,
+        height: 20
+      }).html('Lv.' + ObjectBase.status2html(this.object.getLevel(level))));
       // 名前
-      $(this.divObject).append($('<div>').addClass('field_name').css({
-        top: 0,
-        left: 90,
-        width: 120,
+      $(this.divObject).append($('<div>').addClass('field field_name').css({
+        top: 5,
+        left: 10,
+        width: 190,
         height: 20,
-        "font-size": "16px",
-        "background-color": '#ffffff'
+        color: '#ffffff',
+        'font-weight': 'bold',
+        'text-align': 'left',
+        'line-height': '20px'
       }).html(this.object.getCharacterName()));
-      // 攻撃力ラベル
-      $(this.divObject).append($('<div>').addClass('label_attack').css({
-        top: 25,
-        left: 90,
-        width: 90,
-        height: 20,
-        "font-size": "16px",
-        "background-color": '#ffffff'
-      }).html('攻撃'));
-      // 攻撃タイプ
-      attackImg = this.object.getAttackType() === '物理' ? './img/sword.png' : './img/magic.png';
-      $(this.divObject).append($('<img>').addClass('field_attack_type').css({
-        top: 25,
+      // 攻撃力
+      $(this.divObject).append($('<div>').addClass('field field_attack ' + (this.object.getAttackType() === '物理' ? 'field_attack_physic' : 'field_attack_magic')).css({
+        top: 30,
         left: 130,
+        width: 90,
+        height: 20
+      }).html(ObjectBase.status2html(this.object.getAttack(level))));
+      // 物理防御力
+      $(this.divObject).append($('<div>').addClass('field field_pdef').css({
+        top: 51,
+        left: 130,
+        width: 90,
+        height: 20
+      }).html(ObjectBase.status2html(this.object.getPDef(level))));
+      // 魔法防御力
+      $(this.divObject).append($('<div>').addClass('field field_mdef').css({
+        top: 71,
+        left: 130,
+        width: 90,
+        height: 20
+      }).html(ObjectBase.status2html(this.object.getMDef(level))));
+      // HP
+      $(this.divObject).append($('<div>').addClass('field field_hp').css({
+        top: 7,
+        left: 220,
+        width: 80,
+        height: 20
+      }).html(ObjectBase.status2html(this.object.getHp())));
+      // HP最大
+      $(this.divObject).append($('<div>').addClass('field field_hp_max').css({
+        top: 7,
+        left: 305,
+        width: 80,
+        height: 20
+      }).html(ObjectBase.status2html(this.object.getHpMax(level))));
+      // 命中率
+      $(this.divObject).append($('<div>').addClass('field field_hit_rate').css({
+        top: 30,
+        left: 280,
+        width: 25,
+        height: 20
+      }).html(ObjectBase.status2html(this.object.getHitRate())));
+      // 回避率
+      $(this.divObject).append($('<div>').addClass('field field_dodge_rate').css({
+        top: 51,
+        left: 280,
+        width: 25,
+        height: 20
+      }).html(ObjectBase.status2html(this.object.getDodgeRate())));
+      // 移動力
+      $(this.divObject).append($('<div>').addClass('field field_move').css({
+        top: 30,
+        left: 360,
         width: 20,
         height: 20
-      }).attr('src', attackImg));
-      // 攻撃力
-      $(this.divObject).append($('<div>').addClass('field_attack').css({
-        top: 25,
-        left: 160,
-        width: 20,
-        height: 20,
-        "font-size": "16px"
-      }).html(ObjectBase.status2html(this.object.getAttack(level))));
-      // 物理防御力ラベル
-      $(this.divObject).append($('<div>').addClass('label_pdef').css({
-        top: 45,
-        left: 90,
-        width: 90,
-        height: 20,
-        "font-size": "16px",
-        "background-color": '#ffffff'
-      }).html('物防'));
-      // 物理防御力
-      $(this.divObject).append($('<div>').addClass('field_pdef').css({
-        top: 45,
-        left: 160,
-        width: 20,
-        height: 20,
-        "font-size": "16px"
-      }).html(ObjectBase.status2html(this.object.getPDef(level))));
-      // 魔法防御力ラベル
-      $(this.divObject).append($('<div>').addClass('label_mdef').css({
-        top: 65,
-        left: 90,
-        width: 90,
-        height: 20,
-        "font-size": "16px",
-        "background-color": '#ffffff'
-      }).html('魔防'));
-      // 魔法防御力
-      $(this.divObject).append($('<div>').addClass('field_mdef').css({
-        top: 65,
-        left: 160,
-        width: 20,
-        height: 20,
-        "font-size": "16px"
-      }).html(ObjectBase.status2html(this.object.getMDef(level))));
-      // HPラベル
-      $(this.divObject).append($('<div>').addClass('label_hp').css({
-        top: 0,
-        left: 180,
-        width: 90,
-        height: 20,
-        "font-size": "16px",
-        "background-color": '#ffffff'
-      }).html('HP'));
-      // HP
-      $(this.divObject).append($('<div>').addClass('field_hp').css({
-        top: 0,
-        left: 220,
-        width: 20,
-        height: 20,
-        "font-size": "16px"
-      }).html(ObjectBase.status2html(this.object.getHp())));
-      // HPしきり
-      $(this.divObject).append($('<div>').addClass('label_hp_split').css({
-        top: 0,
-        left: 280,
-        width: 20,
-        height: 20,
-        "font-size": "16px"
-      }).html('/'));
-      // HP最大
-      $(this.divObject).append($('<div>').addClass('field_hp_max').css({
-        top: 0,
-        left: 300,
-        width: 20,
-        height: 20,
-        "font-size": "16px"
-      }).html(ObjectBase.status2html(this.object.getHpMax(level))));
-      // 命中率ラベル
-      $(this.divObject).append($('<div>').addClass('label_hit_rate').css({
-        top: 25,
-        left: 210,
-        width: 90,
-        height: 20,
-        "font-size": "16px",
-        "background-color": '#ffffff'
-      }).html('命中'));
-      // 命中率
-      $(this.divObject).append($('<div>').addClass('field_hit_rate').css({
-        top: 25,
-        left: 260,
-        width: 20,
-        height: 20,
-        "font-size": "16px"
-      }).html(ObjectBase.status2html(this.object.getHitRate())));
-      // 回避率ラベル
-      $(this.divObject).append($('<div>').addClass('label_dodge_rate').css({
-        top: 45,
-        left: 210,
-        width: 90,
-        height: 20,
-        "font-size": "16px",
-        "background-color": '#ffffff'
-      }).html('回避'));
-      // 回避率
-      $(this.divObject).append($('<div>').addClass('field_dodge_rate').css({
-        top: 45,
-        left: 260,
-        width: 20,
-        height: 20,
-        "font-size": "16px"
-      }).html(ObjectBase.status2html(this.object.getDodgeRate())));
-      // 移動力ラベル
-      $(this.divObject).append($('<div>').addClass('label_move').css({
-        top: 25,
-        left: 310,
-        width: 50,
-        height: 20,
-        "font-size": "16px",
-        "background-color": '#ffffff'
-      }).html('移動'));
-      // 移動力
-      $(this.divObject).append($('<div>').addClass('field_move').css({
-        top: 25,
-        left: 360,
-        width: 50,
-        height: 20,
-        "font-size": "16px"
       }).html(ObjectBase.status2html(this.object.getMove())));
-      // 射程ラベル
-      $(this.divObject).append($('<div>').addClass('label_range').css({
-        top: 45,
-        left: 310,
-        width: 50,
-        height: 20,
-        "font-size": "16px",
-        "background-color": '#ffffff'
-      }).html('射程'));
       // 射程
-      $(this.divObject).append($('<div>').addClass('field_range').css({
-        top: 45,
+      $(this.divObject).append($('<div>').addClass('field field_range').css({
+        top: 50,
         left: 360,
-        width: 50,
-        height: 20,
-        "font-size": "16px"
+        width: 20,
+        height: 20
       }).html(this.object.getRange()));
-      // 能力ラベル
-      $(this.divObject).append($('<div>').addClass('label_ability').css({
-        top: 85,
-        left: 90,
-        width: 50,
-        height: 20,
-        "font-size": "16px",
-        "background-color": '#ffffff'
-      }).html('能力'));
       // 能力
-      return $(this.divObject).append($('<div>').addClass('field_ability').css({
-        top: 85,
+      return $(this.divObject).append($('<div>').addClass('field field_ability').css({
+        top: 93,
         left: 130,
-        width: 250,
+        width: 100,
         height: 20,
-        "font-size": "16px"
+        'text-align': 'left'
       }).html(this.object.getAbilityName()).tooltip({
         'placement': 'top',
         'title': this.object.getAbilityDesc()
