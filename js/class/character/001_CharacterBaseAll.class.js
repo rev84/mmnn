@@ -61,7 +61,7 @@ Character1Base = (function() {
   Character1Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character1Base.textDeath = "島村卯月";
+  Character1Base.textDeath = "次はもっと頑張ります！";
 
   Character1Base.abilityName = "笑顔の魔法";
 
@@ -131,7 +131,7 @@ Character2Base = (function() {
   Character2Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character2Base.textDeath = "渋谷凛";
+  Character2Base.textDeath = "課題、たくさん見えたよ";
 
   Character2Base.abilityName = "蒼の波動";
 
@@ -201,7 +201,7 @@ Character3Base = (function() {
   Character3Base.expRate = 1.8;
 
   // 死んだ時の台詞
-  Character3Base.textDeath = "本田未央";
+  Character3Base.textDeath = "こんなんじゃ、笑えないよ…";
 
   Character3Base.abilityName = "フレンドリー";
 

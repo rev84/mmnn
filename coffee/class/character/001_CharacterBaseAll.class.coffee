@@ -34,7 +34,7 @@ class Character1Base extends CharacterBase
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
-  @textDeath = "島村卯月"
+  @textDeath = "次はもっと頑張ります！"
 
   @abilityName = "笑顔の魔法"
   @abilityDesc = "周囲8マスの味方の攻撃を10%上げる"
@@ -77,7 +77,7 @@ class Character2Base extends CharacterBase
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
-  @textDeath = "渋谷凛"
+  @textDeath = "課題、たくさん見えたよ"
 
   @abilityName = "蒼の波動"
   @abilityDesc = "周囲8マスの味方の回避を10%上げる"
@@ -120,7 +120,7 @@ class Character3Base extends CharacterBase
   # 必要経験値
   @expRate = 1.8
   # 死んだ時の台詞
-  @textDeath = "本田未央"
+  @textDeath = "こんなんじゃ、笑えないよ…"
 
   @abilityName = "フレンドリー"
   @abilityDesc = "周囲8マスの味方の物防・魔防を10%上げる"

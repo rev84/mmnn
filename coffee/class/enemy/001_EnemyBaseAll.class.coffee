@@ -203,3 +203,126 @@ class Enemy5Base extends EnemyBase
 
   constructor:(params)->
     super(params)
+class Enemy6Base extends EnemyBase
+  # ID
+  @characterId = 6
+  # キャラ名
+  @characterName = "ヲタ芸（太）"
+  # 画像のリスト
+  @images = ["./img/enemy/6/enemy_wotageir_1.png","./img/enemy/6/enemy_wotageir_2.png"]
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC
+  # 成長率：攻撃力
+  @attackBase = 15
+  # 成長率：HP
+  @hpBase = 3
+  # 成長率：物理防御
+  @pDefBase = 8
+  # 成長率：魔法防御
+  @mDefBase = 8
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 4
+  # 基本命中率
+  @hitRateBase = 95
+  # 基本回避率
+  @dodgeRateBase = 10
+  # 出現階層
+  @appearance = 1
+  # 経験値係数
+  @expRate = 2
+  # アイテムを落とす確率
+  @itemRate = 1
+  # アイテムのドロップテーブルID
+  @itemTableId = 8
+  # アイテムがジュエルになる時の額
+  @itemJewelAmount = 50
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Enemy7Base extends EnemyBase
+  # ID
+  @characterId = 7
+  # キャラ名
+  @characterName = "ヲタ芸（細）"
+  # 画像のリスト
+  @images = ["./img/enemy/7/enemy_wotageiy_1.png","./img/enemy/7/enemy_wotageiy_2.png"]
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC
+  # 成長率：攻撃力
+  @attackBase = 15
+  # 成長率：HP
+  @hpBase = 3
+  # 成長率：物理防御
+  @pDefBase = 8
+  # 成長率：魔法防御
+  @mDefBase = 8
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 4
+  # 基本命中率
+  @hitRateBase = 95
+  # 基本回避率
+  @dodgeRateBase = 10
+  # 出現階層
+  @appearance = 1
+  # 経験値係数
+  @expRate = 2
+  # アイテムを落とす確率
+  @itemRate = 1
+  # アイテムのドロップテーブルID
+  @itemTableId = 8
+  # アイテムがジュエルになる時の額
+  @itemJewelAmount = 50
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
+class Enemy8Base extends EnemyBase
+  # ID
+  @characterId = 8
+  # キャラ名
+  @characterName = "課金王"
+  # 画像のリスト
+  @images = ["./img/enemy/8/enemy_kakin_1.png","./img/enemy/8/enemy_kakin_2.png"]
+  # 基本攻撃タイプ
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC
+  # 成長率：攻撃力
+  @attackBase = 15
+  # 成長率：HP
+  @hpBase = 3
+  # 成長率：物理防御
+  @pDefBase = 8
+  # 成長率：魔法防御
+  @mDefBase = 8
+  # 基本移動力
+  @moveBase = 4
+  # 基本射程
+  @rangeBase = 4
+  # 基本命中率
+  @hitRateBase = 95
+  # 基本回避率
+  @dodgeRateBase = 10
+  # 出現階層
+  @appearance = 1
+  # 経験値係数
+  @expRate = 2
+  # アイテムを落とす確率
+  @itemRate = 1
+  # アイテムのドロップテーブルID
+  @itemTableId = 7
+  # アイテムがジュエルになる時の額
+  @itemJewelAmount = 
+
+  @abilityName = "なし"
+  @abilityDesc = "なし"
+
+  constructor:(params)->
+    super(params)
