@@ -19,7 +19,6 @@ Cell = (function() {
       };
       this.object = null;
       this.tempObject = null;
-      this.background = this.constructor.IMAGE_BACKGROUND[Utl.rand(0, this.constructor.IMAGE_BACKGROUND.length - 1)];
       this.wayStack = null;
       this.knockout = null;
       this.initElements(borderSize);
@@ -198,19 +197,12 @@ Cell = (function() {
         right: 0,
         bottom: 0
       }).addClass('no_display').appendTo(this.elements.mother);
-      this.changeBackground(this.background);
+      this.elements.hpBar = $('<div>').addClass('cell cell_hp_bar').css({
+        height: this.constructor.SIZE_Y
+      }).addClass('no_display').append($('<div>').addClass('cell_hp_bar_hp')).appendTo(this.elements.mother);
       this.changeMovable(this.constructor.IMAGE_MOVABLE);
       this.changeFin(this.constructor.IMAGE_FIN);
       return $(this.elements.mother).appendTo(this.parentElement);
-    }
-
-    // 画像の変更
-    changeBackground(imagePath = null) {
-      if (imagePath === null) {
-        return this.elements.background.addClass('no_display');
-      } else {
-        return this.elements.background.css('background-image', 'url(' + imagePath + ')').removeClass('no_display');
-      }
     }
 
     changeObject(imagePath = null) {
@@ -301,8 +293,6 @@ Cell = (function() {
 
     // 描画
     draw() {
-      // 背景
-      this.changeBackground(this.background);
       // オブジェクト
       if (this.object !== null) {
         this.changeObject(this.object.getBaseImage());
@@ -318,7 +308,9 @@ Cell = (function() {
       // 倒す
       this.drawKnockout();
       // 受取期限
-      return this.drawReceiveTurn();
+      this.drawReceiveTurn();
+      // HP
+      return this.drawHpBar();
     }
 
     isDroppableCharacter() {
@@ -601,6 +593,19 @@ Cell = (function() {
       }
     }
 
+    drawHpBar() {
+      var hpRate;
+      if (this.object === null) {
+        return this.elements.hpBar.addClass('no_display');
+      } else {
+        this.elements.hpBar.removeClass('no_display');
+        hpRate = this.object.getHp() / this.object.getHpMax();
+        return this.elements.hpBar.children('div').css({
+          height: this.constructor.SIZE_Y * hpRate
+        });
+      }
+    }
+
     drawReceiveTurn() {
       if (this.object !== null && this.object.isPresentboxObject()) {
         return this.elements.receiveTurn.html(this.object.getReceiveTurn()).removeClass('no_display');
@@ -674,8 +679,6 @@ Cell = (function() {
   Cell.PUT_FIELD_MAX_X = 1;
 
   // 画像
-  Cell.IMAGE_BACKGROUND = ['./img/background/light_blue.png'];
-
   Cell.IMAGE_MOVABLE = './img/movable.png';
 
   Cell.IMAGE_FIN = './img/fin.png';

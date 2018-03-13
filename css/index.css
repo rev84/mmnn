@@ -319,6 +319,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 .cell_background {
   z-index: 9;
   background-size: 100% 100%;
+  background-image: url('../img/background/floor.png');
 }
 .cell_object {
   z-index: 99;
@@ -354,6 +355,21 @@ input[type="range"]::-webkit-slider-thumb:active {
   font-weight: bold;
   text-align: center;
   z-index: 999999999;
+}
+.cell_hp_bar {
+  width: 5px;
+  height: 100%;
+  right:0px;
+  bottom:0px;
+  z-index: 99999999;
+  background-color: #ff0000;
+}
+.cell_hp_bar_hp {
+  position: absolute;
+  background-color: #42f450;
+  bottom: 0px;
+  right: 0px;
+  width: 100%;
 }
 .popover {
   font-size:24px;

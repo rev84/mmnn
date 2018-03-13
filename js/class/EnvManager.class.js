@@ -183,7 +183,7 @@ EnvManager = (function() {
 
     // ライフが0になった時の処理
     static async deathPenalty() {
-      var c, decreaseFloor, i, j, len, ref, ref1, t;
+      var cId, cObj, decreaseFloor, i, ref, ref1, t;
       if (this.getLife() > 0) {
         return false;
       }
@@ -214,9 +214,10 @@ EnvManager = (function() {
       FieldManager.draw();
       ref1 = GameManager.characters;
       // 全キャラ復活
-      for (j = 0, len = ref1.length; j < len; j++) {
-        c = ref1[j];
-        c.setComeback(0);
+      for (cId in ref1) {
+        cObj = ref1[cId];
+        cObj.setComebackTurn(0);
+        cObj.setInField(false);
       }
       // 移動・攻撃・戻るモードを解除
       GameManager.flags.movePickCell = null;

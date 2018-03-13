@@ -6,9 +6,6 @@ class Cell
   # キャラ出撃で置けるxIndex
   @PUT_FIELD_MAX_X : 1
   # 画像
-  @IMAGE_BACKGROUND:[
-    './img/background/light_blue.png'
-  ]
   @IMAGE_MOVABLE: './img/movable.png'
   @IMAGE_FIN: './img/fin.png'
   @IMAGE_SNIPE: './img/target.png'
@@ -24,7 +21,6 @@ class Cell
       knockout:null
     @object = null
     @tempObject = null
-    @background = @constructor.IMAGE_BACKGROUND[Utl.rand 0, @constructor.IMAGE_BACKGROUND.length-1]
     @wayStack = null
     @knockout = null
 
@@ -184,18 +180,17 @@ class Cell
     @elements.receiveTurn = $('<div>').addClass('cell cell_receive_turn')
                             .css({right:0, bottom:0}).addClass('no_display')
                             .appendTo(@elements.mother)
+    @elements.hpBar      = $('<div>').addClass('cell cell_hp_bar')
+                           .css({height: @constructor.SIZE_Y}).addClass('no_display')
+                           .append(
+                              $('<div>').addClass('cell_hp_bar_hp')
+                            )
+                           .appendTo(@elements.mother)
 
-    @changeBackground @background
     @changeMovable @constructor.IMAGE_MOVABLE
     @changeFin @constructor.IMAGE_FIN
     $(@elements.mother).appendTo(@parentElement)
 
-  # 画像の変更
-  changeBackground:(imagePath = null)->
-    if imagePath is null
-      @elements.background.addClass('no_display')
-    else
-      @elements.background.css('background-image', 'url('+imagePath+')').removeClass('no_display')
   changeObject:(imagePath = null)->
     if imagePath is null
       @elements.object.addClass('no_display')
@@ -263,9 +258,6 @@ class Cell
 
   # 描画
   draw:->
-    # 背景
-    @changeBackground @background
-
     # オブジェクト
     if @object isnt null
       @changeObject @object.getBaseImage()
@@ -282,6 +274,8 @@ class Cell
     @drawKnockout()
     # 受取期限
     @drawReceiveTurn()
+    # HP
+    @drawHpBar()
 
   isDroppableCharacter:->
     @xIndex <= @constructor.PUT_FIELD_MAX_X and @object is null
@@ -499,6 +493,16 @@ class Cell
       @showFin(true)
     else
       @showFin(false)
+
+  drawHpBar:->
+    if @object is null
+      @elements.hpBar.addClass('no_display')
+    else
+      @elements.hpBar.removeClass('no_display')
+      hpRate = @object.getHp() / @object.getHpMax()
+      @elements.hpBar.children('div').css({
+        height: @constructor.SIZE_Y * hpRate
+      })
 
   drawReceiveTurn:->
     if @object isnt null and @object.isPresentboxObject()

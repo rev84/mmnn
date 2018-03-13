@@ -163,8 +163,9 @@ class EnvManager
     FieldManager.removeAllWayStack()
     FieldManager.draw()
     # 全キャラ復活
-    for c in GameManager.characters
-      c.setComeback 0
+    for cId, cObj of GameManager.characters
+      cObj.setComebackTurn 0
+      cObj.setInField false
     # 移動・攻撃・戻るモードを解除
     GameManager.flags.movePickCell = null
     GameManager.flags.moveToCell = null
