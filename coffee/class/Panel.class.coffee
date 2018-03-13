@@ -24,7 +24,9 @@ class Panel
     # キャラクターではないので帰る
     return unless @object.isCharacterObject()
     # 既に出撃中なので帰る
-    return true if @object.isInField()
+    return if @object.isInField()
+    # 既に出撃中なので帰る
+    return if @isCostOver()
 
     CharacterPalletManager.pickCharacter @object
     true
@@ -204,17 +206,17 @@ class Panel
     # 背景用
     @divObject.addClass('panel_character')
 
-    if @isShowOverlay
-      # 出撃中判定
-      if @object.isInField()
-        $('<div>').addClass('infield')
-        .appendTo(@divObject)
-      # 療養中判定
-      else if @object.getComebackTurn() > 0
-        $('<div>').addClass('comeback').html(@object.getComebackTurn())
-        .appendTo(@divObject)
+    @redrawOverlay() if @isShowOverlay
 
-    
+    # コスト
+    $(@divObject).append(
+      $('<div>').addClass('field field_cost').css({
+        top: 71
+        left: 260
+        width: 35
+        height: 20
+      }).html(ObjectBase.status2html @object.getCost())
+    )
   drawEnemy:->
     # 背景用
     @divObject.addClass('panel_enemy')
@@ -226,3 +228,22 @@ class Panel
   removeMe:->
     $(@divObject).find('*').remove()
     $(@divObject).remove()
+
+  isCostOver:->
+    @isCharacterPallet and (CostManager.getCostMax() < (@object.getCost() + CostManager.getCostNow()))
+
+  redrawOverlay:->
+    @divObject.find('.infield, .comeback, .costover').remove()
+
+    if @isShowOverlay
+      # 出撃中判定
+      if @object.isInField()
+        $('<div>').addClass('infield')
+        .appendTo(@divObject)
+      # 療養中判定
+      else if @object.getComebackTurn() > 0
+        $('<div>').addClass('comeback').html(@object.getComebackTurn())
+        .appendTo(@divObject)
+      # コスト不足
+      else if @isCostOver()
+        $('<div>').addClass('costover').appendTo(@divObject)    

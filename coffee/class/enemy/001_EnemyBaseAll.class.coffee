@@ -129,7 +129,7 @@ class Enemy4Base extends EnemyBase
   # 画像のリスト
   @images = ["./img/enemy/4/enemy_tarako_1.png","./img/enemy/4/enemy_tarako_2.png"]
   # 基本攻撃タイプ
-  @attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
   @attackBase = 19
   # 成長率：HP
@@ -166,13 +166,13 @@ class Enemy5Base extends EnemyBase
   # ID
   @characterId = 5
   # キャラ名
-  @characterName = "ばくだんいわ"
+  @characterName = "カメラくん"
   # 画像のリスト
-  @images = ["./img/enemy/5/1.png"]
+  @images = ["./img/enemy/5/enemy_cam_1.png","./img/enemy/5/enemy_cam_2.png"]
   # 基本攻撃タイプ
-  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC
   # 成長率：攻撃力
-  @attackBase = 0
+  @attackBase = 15
   # 成長率：HP
   @hpBase = 3
   # 成長率：物理防御
@@ -180,9 +180,9 @@ class Enemy5Base extends EnemyBase
   # 成長率：魔法防御
   @mDefBase = 8
   # 基本移動力
-  @moveBase = 0
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 0
+  @rangeBase = 4
   # 基本命中率
   @hitRateBase = 95
   # 基本回避率

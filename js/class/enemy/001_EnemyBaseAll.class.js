@@ -220,7 +220,7 @@ Enemy4Base = (function() {
   Enemy4Base.images = ["./img/enemy/4/enemy_tarako_1.png", "./img/enemy/4/enemy_tarako_2.png"];
 
   // 基本攻撃タイプ
-  Enemy4Base.attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC;
+  Enemy4Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
 
   // 成長率：攻撃力
   Enemy4Base.attackBase = 19;
@@ -281,16 +281,16 @@ Enemy5Base = (function() {
   Enemy5Base.characterId = 5;
 
   // キャラ名
-  Enemy5Base.characterName = "ばくだんいわ";
+  Enemy5Base.characterName = "カメラくん";
 
   // 画像のリスト
-  Enemy5Base.images = ["./img/enemy/5/1.png"];
+  Enemy5Base.images = ["./img/enemy/5/enemy_cam_1.png", "./img/enemy/5/enemy_cam_2.png"];
 
   // 基本攻撃タイプ
-  Enemy5Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
+  Enemy5Base.attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC;
 
   // 成長率：攻撃力
-  Enemy5Base.attackBase = 0;
+  Enemy5Base.attackBase = 15;
 
   // 成長率：HP
   Enemy5Base.hpBase = 3;
@@ -302,10 +302,10 @@ Enemy5Base = (function() {
   Enemy5Base.mDefBase = 8;
 
   // 基本移動力
-  Enemy5Base.moveBase = 0;
+  Enemy5Base.moveBase = 4;
 
   // 基本射程
-  Enemy5Base.rangeBase = 0;
+  Enemy5Base.rangeBase = 4;
 
   // 基本命中率
   Enemy5Base.hitRateBase = 95;

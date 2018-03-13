@@ -395,3 +395,25 @@ class FieldManager
       await Utl.sleep(1)
         
       c.showPopover '受取期限を過ぎました', 2000 for c in targetCells
+
+  # フィールドにいるキャラの合計コストを取得
+  @getFieldCost:->
+    totalCost = 0
+    for x in [0...@cells.length]
+      for y in [0...@cells[x].length]
+        obj = @cells[x][y].object
+        totalCost += obj.getCost() if obj isnt null and obj.isCharacterObject()
+    totalCost
+
+  # 仮キャラも含めての値を取得
+  @getFieldCostContainTemp:->
+    totalCost = 0
+    for x in [0...@cells.length]
+      for y in [0...@cells[x].length]
+        obj = @cells[x][y].object
+        tempObj = @cells[x][y].tempObject
+        if obj isnt null and obj.isCharacterObject()
+          totalCost += obj.getCost()
+        else if tempObj isnt null and tempObj.isCharacterObject()
+          totalCost += tempObj.getCost()
+    totalCost

@@ -101,6 +101,9 @@ GameManager = (function() {
     static doCharacterPick(isSoon = false) {
       // セーブ
       SaveManager.save();
+      // コストをセット
+      CostManager.draw();
+      CharacterPalletManager.drawOverlay();
       return this.partsAnimation(this.POSITION.CHARACTER_PICK, isSoon);
     }
 
@@ -240,6 +243,7 @@ GameManager = (function() {
       this.initItemWindow(null);
       this.initBattleResult(null);
       this.initGacha();
+      this.initCostManager();
       this.gameElement.appendTo('body');
       // 戦闘モードにする
       GameManager.resetFlags();
@@ -400,6 +404,15 @@ GameManager = (function() {
       }
       this.initialized.itemWindow = true;
       return ItemWindow.init(savedata);
+    }
+
+    // アイテムウインドウ初期化
+    static initCostManager() {
+      if (this.initialized.cost_manager) {
+        return;
+      }
+      this.initialized.cost_manager = true;
+      return CostManager.init(this.gameElement);
     }
 
     static isControllable() {
@@ -923,7 +936,8 @@ GameManager = (function() {
     levelup: false,
     env: false,
     items: false,
-    gacha: false
+    gacha: false,
+    cost_manager: false
   };
 
   GameManager.isMode = {
@@ -977,8 +991,7 @@ GameManager = (function() {
       exp: [1000, 650],
       floor: [0, 710],
       jewel: [1000, 710],
-      life: [0, 650],
-      gacha: null
+      life: [0, 650]
     },
     BATTLE: {
       character_pallet: null,
@@ -987,7 +1000,8 @@ GameManager = (function() {
       right_info: [600, 650],
       levelup: null,
       item: null,
-      gacha: null
+      gacha: null,
+      cost_manager: null
     },
     CHARACTER_PICK: {
       character_pallet: [140, 50],
@@ -996,7 +1010,8 @@ GameManager = (function() {
       right_info: null,
       levelup: null,
       item: null,
-      gacha: null
+      gacha: null,
+      cost_manager: [200, 650]
     },
     LEVELUP: {
       character_pallet: null,
@@ -1005,7 +1020,8 @@ GameManager = (function() {
       right_info: null,
       levelup: [0, 50],
       item: null,
-      gacha: null
+      gacha: null,
+      cost_manager: null
     },
     ITEM: {
       character_pallet: null,
@@ -1014,7 +1030,8 @@ GameManager = (function() {
       right_info: null,
       levelup: null,
       item: [0, 50],
-      gacha: null
+      gacha: null,
+      cost_manager: null
     },
     GACHA: {
       character_pallet: null,
@@ -1023,7 +1040,8 @@ GameManager = (function() {
       right_info: null,
       levelup: null,
       item: null,
-      gacha: [0, 50]
+      gacha: [0, 50],
+      cost_manager: null
     }
   };
 

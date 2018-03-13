@@ -81,6 +81,8 @@ class Cell
     if @tempObject isnt null
       CharacterPalletManager.pickCharacter @tempObject
       @tempObject = null
+      CostManager.updateCostNow()
+      CharacterPalletManager.drawOverlay()
     GameManager.changeControllable true
 
   onMouseMiddleDown:(evt)->
@@ -301,6 +303,10 @@ class Cell
       GameManager.flags.pickedCharacterElement = null
       CharacterPalletManager.redraw redrawCharacter if redrawCharacter isnt null
       GameManager.flags.pickedCharacterObject = null
+
+    # コスト更新
+    CostManager.updateCostNow()
+    CharacterPalletManager.drawOverlay()
 
     GameManager.changeControllable true
     true

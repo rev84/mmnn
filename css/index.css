@@ -22,6 +22,9 @@ body {
   border:double 1px #000000;
   max-width:600px;
 }
+.red {
+  color: #ff0000;
+}
 input[type="range"] {
   -webkit-appearance:none;
   background: #eee;
@@ -53,7 +56,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   float: left;
 }
 #menu, #character_pallet, #field_visible, #field, #left_info, #right_info,
-#env, #levelup, #battle_result, #item, #item_character_picker, #item_equipment_editor, #item_editor {
+#cost_manager, #env, #levelup, #battle_result, #item, #item_character_picker, #item_equipment_editor, #item_editor {
   position: absolute;
 }
 #character_pallet {
@@ -239,7 +242,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   background-image: url('../img/panel/infield2.png');
   background-size:cover;
 }
-.comeback{
+.comeback {
   left:0px;
   top:0px;
   z-index: 9999;
@@ -248,6 +251,17 @@ input[type="range"]::-webkit-slider-thumb:active {
   height: 120px;
   text-align: center;
   background-image: url('../img/panel/comeback2.png');
+  background-size:cover;
+}
+.costover {
+  left:0px;
+  top:0px;
+  z-index: 9999;
+  opacity: 0.7;
+  width: 400px;
+  height: 120px;
+  text-align: center;
+  background-image: url('../img/panel/costover.png');
   background-size:cover;
 }
 .panel, .panel > *,
@@ -261,7 +275,8 @@ input[type="range"]::-webkit-slider-thumb:active {
 .item_editor_panel, .item_editor_panel > *, .item_editor_item > *,
 .equipment_item_panel, .equipment_item_panel > *,
 .item_editor_item_cost > *, .item_editor_item_count > *,
-#gacha, #gacha > * {
+#gacha, #gacha > *,
+#cost_manager, #cost_manager > * {
   position: absolute;
   box-sizing: border-box;
 }
@@ -379,6 +394,31 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 #death_penalty_window img {
   width: 950px;
+}
+#cost_manager {
+  background-image: url('../img/cost.png');
+  background-size: 100% 100%;
+  width: 400px;
+  height: 120px;
+  z-index: 999999999999;
+}
+.cost_now {
+  line-height: 50px;
+  font-size: 45px;
+  left: 90px;
+  width: 260px;
+  height: 50px;
+  top: 5px;
+  text-align: right;
+}
+.cost_max {
+  line-height: 50px;
+  font-size: 45px;
+  left: 90px;
+  width: 260px;
+  height: 50px;
+  top: 60px;
+  text-align: right;
 }
 #item {
   width: 1000px;

@@ -49,6 +49,12 @@ CharacterPalletManager = (function() {
       return results;
     }
 
+    static drawOverlay() {
+      return $.each(this.panels, function() {
+        return this.redrawOverlay();
+      });
+    }
+
     static redraw(object = null) {
       return $.each(this.panels, function() {
         if (object === null || this.object !== null && object.getId() === this.object.getId()) {

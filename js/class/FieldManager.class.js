@@ -517,6 +517,39 @@ FieldManager = (function() {
       }
     }
 
+    // フィールドにいるキャラの合計コストを取得
+    static getFieldCost() {
+      var i, j, obj, ref, ref1, totalCost, x, y;
+      totalCost = 0;
+      for (x = i = 0, ref = this.cells.length; (0 <= ref ? i < ref : i > ref); x = 0 <= ref ? ++i : --i) {
+        for (y = j = 0, ref1 = this.cells[x].length; (0 <= ref1 ? j < ref1 : j > ref1); y = 0 <= ref1 ? ++j : --j) {
+          obj = this.cells[x][y].object;
+          if (obj !== null && obj.isCharacterObject()) {
+            totalCost += obj.getCost();
+          }
+        }
+      }
+      return totalCost;
+    }
+
+    // 仮キャラも含めての値を取得
+    static getFieldCostContainTemp() {
+      var i, j, obj, ref, ref1, tempObj, totalCost, x, y;
+      totalCost = 0;
+      for (x = i = 0, ref = this.cells.length; (0 <= ref ? i < ref : i > ref); x = 0 <= ref ? ++i : --i) {
+        for (y = j = 0, ref1 = this.cells[x].length; (0 <= ref1 ? j < ref1 : j > ref1); y = 0 <= ref1 ? ++j : --j) {
+          obj = this.cells[x][y].object;
+          tempObj = this.cells[x][y].tempObject;
+          if (obj !== null && obj.isCharacterObject()) {
+            totalCost += obj.getCost();
+          } else if (tempObj !== null && tempObj.isCharacterObject()) {
+            totalCost += tempObj.getCost();
+          }
+        }
+      }
+      return totalCost;
+    }
+
   };
 
   FieldManager.ID = 'field';

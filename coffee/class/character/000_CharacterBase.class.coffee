@@ -142,9 +142,9 @@ class CharacterBase extends ObjectBase
 
   getCost:(level = null)->
     if level is null
-      Math.ceil(@constructor.costBase * @level * @getMDefItemFixRate())
+      Math.ceil(@constructor.costBase * @level * @getCostItemFixRate())
     else
-      Math.ceil(@constructor.costBase * level * @getMDefItemFixRate())
+      Math.ceil(@constructor.costBase * level * @getCostItemFixRate())
   
   getComebackTurnStart:->
     @constructor.COMEBACK_TURN - @getComebackItemFix()
@@ -240,3 +240,4 @@ class CharacterBase extends ObjectBase
     return false if characters.length is 0
 
     characters[Utl.rand(0, characters.length-1)]
+

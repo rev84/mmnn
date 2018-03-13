@@ -82,6 +82,8 @@ Cell = (function() {
       if (this.tempObject !== null) {
         CharacterPalletManager.pickCharacter(this.tempObject);
         this.tempObject = null;
+        CostManager.updateCostNow();
+        CharacterPalletManager.drawOverlay();
       }
       return GameManager.changeControllable(true);
     }
@@ -345,6 +347,9 @@ Cell = (function() {
         }
         GameManager.flags.pickedCharacterObject = null;
       }
+      // コスト更新
+      CostManager.updateCostNow();
+      CharacterPalletManager.drawOverlay();
       GameManager.changeControllable(true);
       return true;
     }

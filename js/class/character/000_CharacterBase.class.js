@@ -208,9 +208,9 @@ CharacterBase = (function() {
 
     getCost(level = null) {
       if (level === null) {
-        return Math.ceil(this.constructor.costBase * this.level * this.getMDefItemFixRate());
+        return Math.ceil(this.constructor.costBase * this.level * this.getCostItemFixRate());
       } else {
-        return Math.ceil(this.constructor.costBase * level * this.getMDefItemFixRate());
+        return Math.ceil(this.constructor.costBase * level * this.getCostItemFixRate());
       }
     }
 

@@ -15,7 +15,7 @@ class CharacterPalletManager
       left: @posX
       top: @posY
     }).appendTo(@parentElement)
-    
+
   @show:->
     $(@divObject).removeClass('no_display')
 
@@ -37,6 +37,10 @@ class CharacterPalletManager
       top = y * Panel.SIZE_Y
       @panels.push(new Panel(@divObject, c, top, 0, true, true))
       y++
+
+  @drawOverlay:->
+    $.each @panels, ->
+      @redrawOverlay()
 
   @redraw:(object = null)->
     $.each @panels, ->

@@ -36,9 +36,13 @@ Panel = (function() {
       if (!this.object.isCharacterObject()) {
         return;
       }
+      // 既に出撃中なので帰る
       if (this.object.isInField()) {
-        // 既に出撃中なので帰る
-        return true;
+        return;
+      }
+      // 既に出撃中なので帰る
+      if (this.isCostOver()) {
+        return;
       }
       CharacterPalletManager.pickCharacter(this.object);
       return true;
@@ -180,14 +184,15 @@ Panel = (function() {
       // 背景用
       this.divObject.addClass('panel_character');
       if (this.isShowOverlay) {
-        // 出撃中判定
-        if (this.object.isInField()) {
-          return $('<div>').addClass('infield').appendTo(this.divObject);
-        // 療養中判定
-        } else if (this.object.getComebackTurn() > 0) {
-          return $('<div>').addClass('comeback').html(this.object.getComebackTurn()).appendTo(this.divObject);
-        }
+        this.redrawOverlay();
       }
+      // コスト
+      return $(this.divObject).append($('<div>').addClass('field field_cost').css({
+        top: 71,
+        left: 260,
+        width: 35,
+        height: 20
+      }).html(ObjectBase.status2html(this.object.getCost())));
     }
 
     drawEnemy() {
@@ -207,6 +212,26 @@ Panel = (function() {
     removeMe() {
       $(this.divObject).find('*').remove();
       return $(this.divObject).remove();
+    }
+
+    isCostOver() {
+      return this.isCharacterPallet && (CostManager.getCostMax() < (this.object.getCost() + CostManager.getCostNow()));
+    }
+
+    redrawOverlay() {
+      this.divObject.find('.infield, .comeback, .costover').remove();
+      if (this.isShowOverlay) {
+        // 出撃中判定
+        if (this.object.isInField()) {
+          return $('<div>').addClass('infield').appendTo(this.divObject);
+        // 療養中判定
+        } else if (this.object.getComebackTurn() > 0) {
+          return $('<div>').addClass('comeback').html(this.object.getComebackTurn()).appendTo(this.divObject);
+        // コスト不足
+        } else if (this.isCostOver()) {
+          return $('<div>').addClass('costover').appendTo(this.divObject);
+        }
+      }
     }
 
   };

@@ -27,6 +27,7 @@ class GameManager
     env:false
     items:false
     gacha:false
+    cost_manager:false
   @isMode = 
     battle: false
     characterPick: false
@@ -73,7 +74,6 @@ class GameManager
       floor:[0, 710]
       jewel:[1000, 710]
       life:[0, 650]
-      gacha:null
     BATTLE:
       character_pallet:null
       field_visible:[0,0]
@@ -82,6 +82,7 @@ class GameManager
       levelup:null
       item:null
       gacha:null
+      cost_manager:null
     CHARACTER_PICK:
       character_pallet:[140,50]
       field_visible:[0,0]
@@ -90,6 +91,7 @@ class GameManager
       levelup:null
       item:null
       gacha:null
+      cost_manager:[200,650]
     LEVELUP:
       character_pallet:null
       field_visible:[0,0]
@@ -98,6 +100,7 @@ class GameManager
       levelup:[0, 50]
       item:null
       gacha:null
+      cost_manager:null
     ITEM:
       character_pallet:null
       field_visible:null
@@ -106,6 +109,7 @@ class GameManager
       levelup:null
       item:[0, 50]
       gacha:null
+      cost_manager:null
     GACHA:
       character_pallet:null
       field_visible:null
@@ -114,6 +118,7 @@ class GameManager
       levelup:null
       item:null
       gacha:[0, 50]
+      cost_manager:null
   @ANIMATION_MSEC = 300
 
   @onMouseMiddleDown:(evt)->
@@ -189,6 +194,10 @@ class GameManager
   @doCharacterPick:(isSoon = false)->
     # セーブ
     SaveManager.save()
+
+    # コストをセット
+    CostManager.draw()
+    CharacterPalletManager.drawOverlay()
 
     @partsAnimation @POSITION.CHARACTER_PICK, isSoon
     
@@ -334,6 +343,7 @@ class GameManager
     @initItemWindow(null)
     @initBattleResult(null)
     @initGacha()
+    @initCostManager()
 
     @gameElement.appendTo('body')
 
@@ -459,6 +469,13 @@ class GameManager
     @initialized.itemWindow = true
 
     ItemWindow.init(savedata)
+
+  # アイテムウインドウ初期化
+  @initCostManager:->
+    return if @initialized.cost_manager
+    @initialized.cost_manager = true
+
+    CostManager.init(@gameElement)
 
   @isControllable:->
     @flags.controllable
