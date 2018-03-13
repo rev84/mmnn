@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:700');
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
 * {
   -webkit-user-select: none;  /* Chrome or Safari */
@@ -174,13 +175,24 @@ input[type="range"]::-webkit-slider-thumb:active {
   line-height: 20px;
   font-size: 16px;
   text-align: right;
-  font-family:'Archivo Narrow', "Rounded Mplus 1c";
+  font-family: 'Roboto Mono', 'Noto Sans JP', monospace;
+  font-weight:700;
+  color: #000000;
+}
+.label_hp_split {
+  line-height: 12px;
+  text-align: center;
+  font-size: 16px;
+  color: #000000;
 }
 .panel.panel_character {
   background-image: url('../img/panel/character_with_label.png');
 }
 .panel.panel_enemy {
   background-image: url('../img/panel/enemy_with_label.png');
+}
+.panel.panel_presentbox {
+  background-image: url('../img/panel/presentbox_with_label.png');
 }
 .field_attack_physic {
   color: #000000;
@@ -189,8 +201,16 @@ input[type="range"]::-webkit-slider-thumb:active {
   color: #00d8d8;
 }
 .field.field_hp, .field.field_hp_max {
-  font-size: 18px;
-  background-color: #ffffff;
+  font-size: 20px;
+}
+.panel_character .field.field_hp, .panel_character .field.field_hp_max {
+  color: #0000ff;
+}
+.panel_enemy .field.field_hp, .panel_enemy .field.field_hp_max {
+  color: #ff0000;
+}
+.panel_presentbox .field.field_hp, .panel_presentbox .field.field_hp_max {
+  color: #333333;
 }
 .field.field_level {
   font-style: oblique;

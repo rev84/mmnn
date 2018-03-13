@@ -32,6 +32,8 @@ class Panel
   draw:(level = null)->
     $(@divObject).find('*').remove()
 
+    @divObject.removeClass('panel_character panel_enemy panel_presentbox')
+
     if @object isnt null
       @drawCommon(level)
       if @object.isCharacterObject()
@@ -39,7 +41,7 @@ class Panel
       else if @object.isEnemyObject()
         @drawEnemy()
       else if @object.isPresentboxObject()
-        @drawEnemy()
+        @drawPresentbox()
     else
       @clear()
 
@@ -87,7 +89,7 @@ class Panel
       $('<div>').addClass('field field_attack '+(if @object.getAttackType() is '物理' then 'field_attack_physic' else 'field_attack_magic')).css({
         top: 30
         left: 130
-        width: 90
+        width: 80
         height: 20
       }).html(ObjectBase.status2html @object.getAttack(level))
     )
@@ -98,7 +100,7 @@ class Panel
       $('<div>').addClass('field field_pdef').css({
         top: 51
         left: 130
-        width: 90
+        width: 80
         height: 20
       }).html(ObjectBase.status2html @object.getPDef(level))
     )
@@ -108,28 +110,37 @@ class Panel
       $('<div>').addClass('field field_mdef').css({
         top: 71
         left: 130
-        width: 90
+        width: 80
         height: 20
       }).html(ObjectBase.status2html @object.getMDef(level))
     )
 
-
     # HP
     $(@divObject).append(
       $('<div>').addClass('field field_hp').css({
-        top: 7
-        left: 220
-        width: 80
+        top: 6
+        left: 200
+        width: 85
         height: 20
       }).html(ObjectBase.status2html @object.getHp())
+    )
+
+    # HP/
+    $(@divObject).append(
+      $('<div>').addClass('label label_hp_split').css({
+        top: 7
+        left: 280
+        width: 20
+        height: 20
+      }).html('/')
     )
 
     # HP最大
     $(@divObject).append(
       $('<div>').addClass('field field_hp_max').css({
-        top: 7
-        left: 305
-        width: 80
+        top: 6
+        left: 300
+        width: 85
         height: 20
       }).html(ObjectBase.status2html @object.getHpMax(level))
     )
@@ -138,8 +149,8 @@ class Panel
     $(@divObject).append(
       $('<div>').addClass('field field_hit_rate').css({
         top: 30
-        left: 280
-        width: 25
+        left: 260
+        width: 35
         height: 20
       }).html(ObjectBase.status2html @object.getHitRate())
     )
@@ -148,8 +159,8 @@ class Panel
     $(@divObject).append(
       $('<div>').addClass('field field_dodge_rate').css({
         top: 51
-        left: 280
-        width: 25
+        left: 260
+        width: 35
         height: 20
       }).html(ObjectBase.status2html @object.getDodgeRate())
     )
@@ -158,8 +169,8 @@ class Panel
     $(@divObject).append(
       $('<div>').addClass('field field_move').css({
         top: 30
-        left: 360
-        width: 20
+        left: 350
+        width: 30
         height: 20
       }).html(ObjectBase.status2html @object.getMove())
     )
@@ -168,8 +179,8 @@ class Panel
     $(@divObject).append(
       $('<div>').addClass('field field_range').css({
         top: 50
-        left: 360
-        width: 20
+        left: 350
+        width: 30
         height: 20
       }).html(@object.getRange())
     )
@@ -178,7 +189,7 @@ class Panel
       $('<div>').addClass('field field_ability').css({
         top: 93
         left: 130
-        width: 100
+        width: 250
         height: 20
         'text-align': 'left'
       })
@@ -208,7 +219,8 @@ class Panel
     # 背景用
     @divObject.addClass('panel_enemy')
   drawPresentbox:->
-    ;
+    # 背景用
+    @divObject.addClass('panel_presentbox')
   clear:->
     $(@divObject).find('*').remove()
   removeMe:->

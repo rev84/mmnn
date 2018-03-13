@@ -46,6 +46,7 @@ Panel = (function() {
 
     draw(level = null) {
       $(this.divObject).find('*').remove();
+      this.divObject.removeClass('panel_character panel_enemy panel_presentbox');
       if (this.object !== null) {
         this.drawCommon(level);
         if (this.object.isCharacterObject()) {
@@ -53,7 +54,7 @@ Panel = (function() {
         } else if (this.object.isEnemyObject()) {
           return this.drawEnemy();
         } else if (this.object.isPresentboxObject()) {
-          return this.drawEnemy();
+          return this.drawPresentbox();
         }
       } else {
         return this.clear();
@@ -96,70 +97,77 @@ Panel = (function() {
       $(this.divObject).append($('<div>').addClass('field field_attack ' + (this.object.getAttackType() === '物理' ? 'field_attack_physic' : 'field_attack_magic')).css({
         top: 30,
         left: 130,
-        width: 90,
+        width: 80,
         height: 20
       }).html(ObjectBase.status2html(this.object.getAttack(level))));
       // 物理防御力
       $(this.divObject).append($('<div>').addClass('field field_pdef').css({
         top: 51,
         left: 130,
-        width: 90,
+        width: 80,
         height: 20
       }).html(ObjectBase.status2html(this.object.getPDef(level))));
       // 魔法防御力
       $(this.divObject).append($('<div>').addClass('field field_mdef').css({
         top: 71,
         left: 130,
-        width: 90,
+        width: 80,
         height: 20
       }).html(ObjectBase.status2html(this.object.getMDef(level))));
       // HP
       $(this.divObject).append($('<div>').addClass('field field_hp').css({
-        top: 7,
-        left: 220,
-        width: 80,
+        top: 6,
+        left: 200,
+        width: 85,
         height: 20
       }).html(ObjectBase.status2html(this.object.getHp())));
+      // HP/
+      $(this.divObject).append($('<div>').addClass('label label_hp_split').css({
+        top: 7,
+        left: 280,
+        width: 20,
+        height: 20
+      }).html('/'));
       // HP最大
       $(this.divObject).append($('<div>').addClass('field field_hp_max').css({
-        top: 7,
-        left: 305,
-        width: 80,
+        top: 6,
+        left: 300,
+        width: 85,
         height: 20
       }).html(ObjectBase.status2html(this.object.getHpMax(level))));
       // 命中率
       $(this.divObject).append($('<div>').addClass('field field_hit_rate').css({
         top: 30,
-        left: 280,
-        width: 25,
+        left: 260,
+        width: 35,
         height: 20
       }).html(ObjectBase.status2html(this.object.getHitRate())));
       // 回避率
       $(this.divObject).append($('<div>').addClass('field field_dodge_rate').css({
         top: 51,
-        left: 280,
-        width: 25,
+        left: 260,
+        width: 35,
         height: 20
       }).html(ObjectBase.status2html(this.object.getDodgeRate())));
       // 移動力
       $(this.divObject).append($('<div>').addClass('field field_move').css({
         top: 30,
-        left: 360,
-        width: 20,
+        left: 350,
+        width: 30,
         height: 20
       }).html(ObjectBase.status2html(this.object.getMove())));
       // 射程
       $(this.divObject).append($('<div>').addClass('field field_range').css({
         top: 50,
-        left: 360,
-        width: 20,
+        left: 350,
+        width: 30,
         height: 20
       }).html(this.object.getRange()));
       // 能力
       return $(this.divObject).append($('<div>').addClass('field field_ability').css({
         top: 93,
         left: 130,
-        width: 100,
+        width: 250,
         height: 20,
         'text-align': 'left'
       }).html(this.object.getAbilityName()).tooltip({
@@ -187,7 +195,10 @@ Panel = (function() {
       return this.divObject.addClass('panel_enemy');
     }
 
-    drawPresentbox() {}
+    drawPresentbox() {
+      // 背景用
+      return this.divObject.addClass('panel_presentbox');
+    }
 
     clear() {
       return $(this.divObject).find('*').remove();
