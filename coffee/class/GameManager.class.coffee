@@ -195,10 +195,6 @@ class GameManager
     # セーブ
     SaveManager.save()
 
-    # コストをセット
-    CostManager.draw()
-    CharacterPalletManager.drawOverlay()
-
     @partsAnimation @POSITION.CHARACTER_PICK, isSoon
     
   # ターン終了

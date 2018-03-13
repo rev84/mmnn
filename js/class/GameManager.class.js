@@ -101,9 +101,6 @@ GameManager = (function() {
     static doCharacterPick(isSoon = false) {
       // セーブ
       SaveManager.save();
-      // コストをセット
-      CostManager.draw();
-      CharacterPalletManager.drawOverlay();
       return this.partsAnimation(this.POSITION.CHARACTER_PICK, isSoon);
     }
 
