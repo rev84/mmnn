@@ -199,6 +199,9 @@ class GameManager
     
   # ターン終了
   @doTurnEnd:(isSoon = false)->
+    # 疲労ダメージ
+    FieldManager.turnEndDamage()
+
     # 動ける敵がいる限り動かす
     while await @enemyMove()
       ;
@@ -208,6 +211,9 @@ class GameManager
     @flags.isWalkInThisTurn = false
     # 全キャラの復帰を進行
     c.decreaseComeback() for k, c of @characters
+
+    # 味方ターン開始時イベント走査
+    FieldManager.onCharacterTurnStart()
 
     # セーブ
     SaveManager.save()

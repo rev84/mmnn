@@ -93,7 +93,7 @@ EOM;
   $id2Class = [];
 
   # キャラクター
-  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, '敵キャラ設定!A2:S');
+  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, '敵キャラ設定!A3:S');
   $values = $response->getValues();
   foreach ($values as $vAry) {
     list($characterId, $className, $characterName, $hpBase, $attackTypeBase, $attackBase, $pDefBase, $mDefBase, $moveBase, $rangeBase, $hitRateBase, $dodgeRateBase, $abilityName, $abilityDesc, $appearance, $expRate, $itemRate, $itemTableId, $itemJewelAmount) = $vAry;

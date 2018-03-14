@@ -161,6 +161,16 @@ class ObjectBase
         res.increaseAmount 0
         await ItemWindow.showItem res
 
+  ###########################
+  # イベント割り込み系
+  ###########################
+  # 味方ターン開始時
+  onCharacterTurnStart:(myCell)->
+    ;
+  # 敵ターン開始時
+  onEnemyTurnStart:(myCell)->
+    ;
+
 
   # ダメージ計算式
   @getDamageMin:(attack, def)->

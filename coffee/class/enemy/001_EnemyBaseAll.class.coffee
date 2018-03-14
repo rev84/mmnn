@@ -8,11 +8,11 @@ class Enemy1Base extends EnemyBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 18
+  @attackBase = 7
   # 成長率：HP
-  @hpBase = 3
+  @hpBase = 20
   # 成長率：物理防御
-  @pDefBase = 1
+  @pDefBase = 4
   # 成長率：魔法防御
   @mDefBase = 3
   # 基本移動力
@@ -22,7 +22,7 @@ class Enemy1Base extends EnemyBase
   # 基本命中率
   @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 10
+  @dodgeRateBase = 3
   # 出現階層
   @appearance = 1
   # 経験値係数
@@ -43,17 +43,17 @@ class Enemy2Base extends EnemyBase
   # ID
   @characterId = 2
   # キャラ名
-  @characterName = "バックバンドギタリスト"
+  @characterName = "ギタリスト"
   # 画像のリスト
   @images = ["./img/enemy/2/enemy_guitarist_1.png","./img/enemy/2/enemy_guitarist_2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 17
+  @attackBase = 8
   # 成長率：HP
-  @hpBase = 2
+  @hpBase = 22
   # 成長率：物理防御
-  @pDefBase = 1
+  @pDefBase = 4
   # 成長率：魔法防御
   @mDefBase = 3
   # 基本移動力
@@ -63,7 +63,7 @@ class Enemy2Base extends EnemyBase
   # 基本命中率
   @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 10
+  @dodgeRateBase = 3
   # 出現階層
   @appearance = 1
   # 経験値係数
@@ -90,13 +90,13 @@ class Enemy3Base extends EnemyBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 18
+  @attackBase = 7
   # 成長率：HP
-  @hpBase = 3
+  @hpBase = 18
   # 成長率：物理防御
-  @pDefBase = 6
+  @pDefBase = 4
   # 成長率：魔法防御
-  @mDefBase = 4
+  @mDefBase = 5
   # 基本移動力
   @moveBase = 4
   # 基本射程
@@ -104,7 +104,7 @@ class Enemy3Base extends EnemyBase
   # 基本命中率
   @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 10
+  @dodgeRateBase = 5
   # 出現階層
   @appearance = 1
   # 経験値係数
@@ -131,21 +131,21 @@ class Enemy4Base extends EnemyBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 19
+  @attackBase = 8
   # 成長率：HP
-  @hpBase = 3
+  @hpBase = 22
   # 成長率：物理防御
-  @pDefBase = 7
+  @pDefBase = 4
   # 成長率：魔法防御
-  @mDefBase = 4
+  @mDefBase = 3
   # 基本移動力
-  @moveBase = 3
+  @moveBase = 4
   # 基本射程
-  @rangeBase = 4
+  @rangeBase = 1
   # 基本命中率
   @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 10
+  @dodgeRateBase = 3
   # 出現階層
   @appearance = 1
   # 経験値係数
@@ -172,13 +172,13 @@ class Enemy5Base extends EnemyBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC
   # 成長率：攻撃力
-  @attackBase = 15
+  @attackBase = 7
   # 成長率：HP
-  @hpBase = 3
+  @hpBase = 19
   # 成長率：物理防御
-  @pDefBase = 8
+  @pDefBase = 4
   # 成長率：魔法防御
-  @mDefBase = 8
+  @mDefBase = 3
   # 基本移動力
   @moveBase = 4
   # 基本射程
@@ -186,7 +186,7 @@ class Enemy5Base extends EnemyBase
   # 基本命中率
   @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 10
+  @dodgeRateBase = 3
   # 出現階層
   @appearance = 1
   # 経験値係数
@@ -211,23 +211,23 @@ class Enemy6Base extends EnemyBase
   # 画像のリスト
   @images = ["./img/enemy/6/enemy_wotageir_1.png","./img/enemy/6/enemy_wotageir_2.png"]
   # 基本攻撃タイプ
-  @attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 15
+  @attackBase = 10
   # 成長率：HP
-  @hpBase = 3
+  @hpBase = 30
   # 成長率：物理防御
-  @pDefBase = 8
+  @pDefBase = 5
   # 成長率：魔法防御
-  @mDefBase = 8
+  @mDefBase = 3
   # 基本移動力
-  @moveBase = 4
+  @moveBase = 3
   # 基本射程
-  @rangeBase = 4
+  @rangeBase = 1
   # 基本命中率
-  @hitRateBase = 95
+  @hitRateBase = 90
   # 基本回避率
-  @dodgeRateBase = 10
+  @dodgeRateBase = 1
   # 出現階層
   @appearance = 1
   # 経験値係数
@@ -252,23 +252,23 @@ class Enemy7Base extends EnemyBase
   # 画像のリスト
   @images = ["./img/enemy/7/enemy_wotageiy_1.png","./img/enemy/7/enemy_wotageiy_2.png"]
   # 基本攻撃タイプ
-  @attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC
+  @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 15
+  @attackBase = 8
   # 成長率：HP
-  @hpBase = 3
+  @hpBase = 16
   # 成長率：物理防御
-  @pDefBase = 8
+  @pDefBase = 4
   # 成長率：魔法防御
-  @mDefBase = 8
+  @mDefBase = 4
   # 基本移動力
-  @moveBase = 4
+  @moveBase = 5
   # 基本射程
-  @rangeBase = 4
+  @rangeBase = 1
   # 基本命中率
   @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 10
+  @dodgeRateBase = 5
   # 出現階層
   @appearance = 1
   # 経験値係数
@@ -295,21 +295,21 @@ class Enemy8Base extends EnemyBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC
   # 成長率：攻撃力
-  @attackBase = 15
+  @attackBase = 8
   # 成長率：HP
-  @hpBase = 3
+  @hpBase = 22
   # 成長率：物理防御
-  @pDefBase = 8
+  @pDefBase = 3
   # 成長率：魔法防御
-  @mDefBase = 8
+  @mDefBase = 3
   # 基本移動力
   @moveBase = 4
   # 基本射程
-  @rangeBase = 4
+  @rangeBase = 2
   # 基本命中率
   @hitRateBase = 95
   # 基本回避率
-  @dodgeRateBase = 10
+  @dodgeRateBase = 3
   # 出現階層
   @appearance = 1
   # 経験値係数
@@ -321,8 +321,8 @@ class Enemy8Base extends EnemyBase
   # アイテムがジュエルになる時の額
   @itemJewelAmount = 
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "魔法のカード"
+  @abilityDesc = "よくジュエルを落とす"
 
   constructor:(params)->
     super(params)

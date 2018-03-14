@@ -417,3 +417,26 @@ class FieldManager
         else if tempObj isnt null and tempObj.isCharacterObject()
           totalCost += tempObj.getCost()
     totalCost
+
+  # 味方ターン開始時の走査
+  @onCharacterTurnStart:->
+    for cBody, x in @cells
+      for c, y in cBody
+        if c.object isnt null
+          c.object.onCharacterTurnStart(c)
+
+  # 敵ターン開始時の走査
+  @onEnemyTurnStart:->
+    for cBody, x in @cells
+      for c, y in cBody
+        if c.object isnt null
+          c.object.onEnemyTurnStart(c)
+
+  # 味方キャラ全員に自然ダメージ
+  @turnEndDamage:->
+    for cBody, x in @cells
+      for c, y in cBody
+        if c.object isnt null and c.object.isCharacterObject()
+          # 階層✕2のダメージ
+          c.object.damage(EnvManager.getFloor() * 2)
+    @draw()

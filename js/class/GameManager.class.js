@@ -108,6 +108,8 @@ GameManager = (function() {
     // ターン終了
     static async doTurnEnd(isSoon = false) {
       var c, k, ref;
+      // 疲労ダメージ
+      FieldManager.turnEndDamage();
       // 動ける敵がいる限り動かす
       while ((await this.enemyMove())) {}
       await FieldManager.turnPresents();
@@ -119,6 +121,8 @@ GameManager = (function() {
         // 全キャラの復帰を進行
         c.decreaseComeback();
       }
+      // 味方ターン開始時イベント走査
+      FieldManager.onCharacterTurnStart();
       // セーブ
       SaveManager.save();
       // コントロール可能に

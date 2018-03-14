@@ -22,13 +22,13 @@ Enemy1Base = (function() {
   Enemy1Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
 
   // 成長率：攻撃力
-  Enemy1Base.attackBase = 18;
+  Enemy1Base.attackBase = 7;
 
   // 成長率：HP
-  Enemy1Base.hpBase = 3;
+  Enemy1Base.hpBase = 20;
 
   // 成長率：物理防御
-  Enemy1Base.pDefBase = 1;
+  Enemy1Base.pDefBase = 4;
 
   // 成長率：魔法防御
   Enemy1Base.mDefBase = 3;
@@ -43,7 +43,7 @@ Enemy1Base = (function() {
   Enemy1Base.hitRateBase = 95;
 
   // 基本回避率
-  Enemy1Base.dodgeRateBase = 10;
+  Enemy1Base.dodgeRateBase = 3;
 
   // 出現階層
   Enemy1Base.appearance = 1;
@@ -80,7 +80,7 @@ Enemy2Base = (function() {
   Enemy2Base.characterId = 2;
 
   // キャラ名
-  Enemy2Base.characterName = "バックバンドギタリスト";
+  Enemy2Base.characterName = "ギタリスト";
 
   // 画像のリスト
   Enemy2Base.images = ["./img/enemy/2/enemy_guitarist_1.png", "./img/enemy/2/enemy_guitarist_2.png"];
@@ -89,13 +89,13 @@ Enemy2Base = (function() {
   Enemy2Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
 
   // 成長率：攻撃力
-  Enemy2Base.attackBase = 17;
+  Enemy2Base.attackBase = 8;
 
   // 成長率：HP
-  Enemy2Base.hpBase = 2;
+  Enemy2Base.hpBase = 22;
 
   // 成長率：物理防御
-  Enemy2Base.pDefBase = 1;
+  Enemy2Base.pDefBase = 4;
 
   // 成長率：魔法防御
   Enemy2Base.mDefBase = 3;
@@ -110,7 +110,7 @@ Enemy2Base = (function() {
   Enemy2Base.hitRateBase = 95;
 
   // 基本回避率
-  Enemy2Base.dodgeRateBase = 10;
+  Enemy2Base.dodgeRateBase = 3;
 
   // 出現階層
   Enemy2Base.appearance = 1;
@@ -156,16 +156,16 @@ Enemy3Base = (function() {
   Enemy3Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
 
   // 成長率：攻撃力
-  Enemy3Base.attackBase = 18;
+  Enemy3Base.attackBase = 7;
 
   // 成長率：HP
-  Enemy3Base.hpBase = 3;
+  Enemy3Base.hpBase = 18;
 
   // 成長率：物理防御
-  Enemy3Base.pDefBase = 6;
+  Enemy3Base.pDefBase = 4;
 
   // 成長率：魔法防御
-  Enemy3Base.mDefBase = 4;
+  Enemy3Base.mDefBase = 5;
 
   // 基本移動力
   Enemy3Base.moveBase = 4;
@@ -177,7 +177,7 @@ Enemy3Base = (function() {
   Enemy3Base.hitRateBase = 95;
 
   // 基本回避率
-  Enemy3Base.dodgeRateBase = 10;
+  Enemy3Base.dodgeRateBase = 5;
 
   // 出現階層
   Enemy3Base.appearance = 1;
@@ -223,28 +223,28 @@ Enemy4Base = (function() {
   Enemy4Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
 
   // 成長率：攻撃力
-  Enemy4Base.attackBase = 19;
+  Enemy4Base.attackBase = 8;
 
   // 成長率：HP
-  Enemy4Base.hpBase = 3;
+  Enemy4Base.hpBase = 22;
 
   // 成長率：物理防御
-  Enemy4Base.pDefBase = 7;
+  Enemy4Base.pDefBase = 4;
 
   // 成長率：魔法防御
-  Enemy4Base.mDefBase = 4;
+  Enemy4Base.mDefBase = 3;
 
   // 基本移動力
-  Enemy4Base.moveBase = 3;
+  Enemy4Base.moveBase = 4;
 
   // 基本射程
-  Enemy4Base.rangeBase = 4;
+  Enemy4Base.rangeBase = 1;
 
   // 基本命中率
   Enemy4Base.hitRateBase = 95;
 
   // 基本回避率
-  Enemy4Base.dodgeRateBase = 10;
+  Enemy4Base.dodgeRateBase = 3;
 
   // 出現階層
   Enemy4Base.appearance = 1;
@@ -290,16 +290,16 @@ Enemy5Base = (function() {
   Enemy5Base.attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC;
 
   // 成長率：攻撃力
-  Enemy5Base.attackBase = 15;
+  Enemy5Base.attackBase = 7;
 
   // 成長率：HP
-  Enemy5Base.hpBase = 3;
+  Enemy5Base.hpBase = 19;
 
   // 成長率：物理防御
-  Enemy5Base.pDefBase = 8;
+  Enemy5Base.pDefBase = 4;
 
   // 成長率：魔法防御
-  Enemy5Base.mDefBase = 8;
+  Enemy5Base.mDefBase = 3;
 
   // 基本移動力
   Enemy5Base.moveBase = 4;
@@ -311,7 +311,7 @@ Enemy5Base = (function() {
   Enemy5Base.hitRateBase = 95;
 
   // 基本回避率
-  Enemy5Base.dodgeRateBase = 10;
+  Enemy5Base.dodgeRateBase = 3;
 
   // 出現階層
   Enemy5Base.appearance = 1;
@@ -354,31 +354,31 @@ Enemy6Base = (function() {
   Enemy6Base.images = ["./img/enemy/6/enemy_wotageir_1.png", "./img/enemy/6/enemy_wotageir_2.png"];
 
   // 基本攻撃タイプ
-  Enemy6Base.attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC;
+  Enemy6Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
 
   // 成長率：攻撃力
-  Enemy6Base.attackBase = 15;
+  Enemy6Base.attackBase = 10;
 
   // 成長率：HP
-  Enemy6Base.hpBase = 3;
+  Enemy6Base.hpBase = 30;
 
   // 成長率：物理防御
-  Enemy6Base.pDefBase = 8;
+  Enemy6Base.pDefBase = 5;
 
   // 成長率：魔法防御
-  Enemy6Base.mDefBase = 8;
+  Enemy6Base.mDefBase = 3;
 
   // 基本移動力
-  Enemy6Base.moveBase = 4;
+  Enemy6Base.moveBase = 3;
 
   // 基本射程
-  Enemy6Base.rangeBase = 4;
+  Enemy6Base.rangeBase = 1;
 
   // 基本命中率
-  Enemy6Base.hitRateBase = 95;
+  Enemy6Base.hitRateBase = 90;
 
   // 基本回避率
-  Enemy6Base.dodgeRateBase = 10;
+  Enemy6Base.dodgeRateBase = 1;
 
   // 出現階層
   Enemy6Base.appearance = 1;
@@ -421,31 +421,31 @@ Enemy7Base = (function() {
   Enemy7Base.images = ["./img/enemy/7/enemy_wotageiy_1.png", "./img/enemy/7/enemy_wotageiy_2.png"];
 
   // 基本攻撃タイプ
-  Enemy7Base.attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC;
+  Enemy7Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
 
   // 成長率：攻撃力
-  Enemy7Base.attackBase = 15;
+  Enemy7Base.attackBase = 8;
 
   // 成長率：HP
-  Enemy7Base.hpBase = 3;
+  Enemy7Base.hpBase = 16;
 
   // 成長率：物理防御
-  Enemy7Base.pDefBase = 8;
+  Enemy7Base.pDefBase = 4;
 
   // 成長率：魔法防御
-  Enemy7Base.mDefBase = 8;
+  Enemy7Base.mDefBase = 4;
 
   // 基本移動力
-  Enemy7Base.moveBase = 4;
+  Enemy7Base.moveBase = 5;
 
   // 基本射程
-  Enemy7Base.rangeBase = 4;
+  Enemy7Base.rangeBase = 1;
 
   // 基本命中率
   Enemy7Base.hitRateBase = 95;
 
   // 基本回避率
-  Enemy7Base.dodgeRateBase = 10;
+  Enemy7Base.dodgeRateBase = 5;
 
   // 出現階層
   Enemy7Base.appearance = 1;
@@ -491,28 +491,28 @@ Enemy8Base = (function() {
   Enemy8Base.attackTypeBase = ObjectBase.ATTACK_TYPE.MAGIC;
 
   // 成長率：攻撃力
-  Enemy8Base.attackBase = 15;
+  Enemy8Base.attackBase = 8;
 
   // 成長率：HP
-  Enemy8Base.hpBase = 3;
+  Enemy8Base.hpBase = 22;
 
   // 成長率：物理防御
-  Enemy8Base.pDefBase = 8;
+  Enemy8Base.pDefBase = 3;
 
   // 成長率：魔法防御
-  Enemy8Base.mDefBase = 8;
+  Enemy8Base.mDefBase = 3;
 
   // 基本移動力
   Enemy8Base.moveBase = 4;
 
   // 基本射程
-  Enemy8Base.rangeBase = 4;
+  Enemy8Base.rangeBase = 2;
 
   // 基本命中率
   Enemy8Base.hitRateBase = 95;
 
   // 基本回避率
-  Enemy8Base.dodgeRateBase = 10;
+  Enemy8Base.dodgeRateBase = 3;
 
   // 出現階層
   Enemy8Base.appearance = 1;
@@ -527,9 +527,9 @@ Enemy8Base = (function() {
   Enemy8Base.itemTableId = 7;
 
   // アイテムがジュエルになる時の額
-  Enemy8Base.itemJewelAmount = Enemy8Base.abilityName = "なし";
+  Enemy8Base.itemJewelAmount = Enemy8Base.abilityName = "魔法のカード";
 
-  Enemy8Base.abilityDesc = "なし";
+  Enemy8Base.abilityDesc = "よくジュエルを落とす";
 
   return Enemy8Base;
 

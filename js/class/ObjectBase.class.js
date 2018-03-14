@@ -244,7 +244,14 @@ ObjectBase = (function() {
       }
     }
 
-    // ダメージ計算式
+    //##########################
+    // イベント割り込み系
+    //##########################
+    // 味方ターン開始時
+    onCharacterTurnStart(myCell) {}
+
+    onEnemyTurnStart(myCell) {}
+
     static getDamageMin(attack, def) {
       var damage;
       damage = attack - def;

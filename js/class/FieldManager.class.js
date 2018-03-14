@@ -550,6 +550,71 @@ FieldManager = (function() {
       return totalCost;
     }
 
+    // 味方ターン開始時の走査
+    static onCharacterTurnStart() {
+      var c, cBody, i, len, ref, results, x, y;
+      ref = this.cells;
+      results = [];
+      for (x = i = 0, len = ref.length; i < len; x = ++i) {
+        cBody = ref[x];
+        results.push((function() {
+          var j, len1, results1;
+          results1 = [];
+          for (y = j = 0, len1 = cBody.length; j < len1; y = ++j) {
+            c = cBody[y];
+            if (c.object !== null) {
+              results1.push(c.object.onCharacterTurnStart(c));
+            } else {
+              results1.push(void 0);
+            }
+          }
+          return results1;
+        })());
+      }
+      return results;
+    }
+
+    // 敵ターン開始時の走査
+    static onEnemyTurnStart() {
+      var c, cBody, i, len, ref, results, x, y;
+      ref = this.cells;
+      results = [];
+      for (x = i = 0, len = ref.length; i < len; x = ++i) {
+        cBody = ref[x];
+        results.push((function() {
+          var j, len1, results1;
+          results1 = [];
+          for (y = j = 0, len1 = cBody.length; j < len1; y = ++j) {
+            c = cBody[y];
+            if (c.object !== null) {
+              results1.push(c.object.onEnemyTurnStart(c));
+            } else {
+              results1.push(void 0);
+            }
+          }
+          return results1;
+        })());
+      }
+      return results;
+    }
+
+    // 味方キャラ全員に自然ダメージ
+    static turnEndDamage() {
+      var c, cBody, i, j, len, len1, ref, x, y;
+      ref = this.cells;
+      for (x = i = 0, len = ref.length; i < len; x = ++i) {
+        cBody = ref[x];
+        for (y = j = 0, len1 = cBody.length; j < len1; y = ++j) {
+          c = cBody[y];
+          if (c.object !== null && c.object.isCharacterObject()) {
+            // 階層✕2のダメージ
+            c.object.damage(EnvManager.getFloor() * 2);
+          }
+        }
+      }
+      return this.draw();
+    }
+
   };
 
   FieldManager.ID = 'field';
