@@ -49,12 +49,10 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 #game {
   position: relative;
-  width: 1280px;
+  width: 1320px;
   height: 1000px;
 }
-#menu > * {
-  float: left;
-}
+
 #menu, #character_pallet, #field_visible, #field, #left_info, #right_info,
 #cost_manager, #env, #levelup, #battle_result, #item, #item_character_picker, #item_equipment_editor, #item_editor {
   position: absolute;
@@ -595,6 +593,113 @@ input[type="range"]::-webkit-slider-thumb:active {
 .gacha_image {
   top: 0px;
   left: 0px;
+}
+#menu > .left {
+  float: left;
+}
+#menu > .right {
+  float: right;
+}
+button.menu {
+  width: 100px;
+  height: 40px;
+  padding:0;
+  margin:0;
+  background:none;
+  border:0;
+  font-size:0;
+  line-height:0;
+  overflow:visible;
+  cursor:pointer;
+}
+button.menu.item {
+  background-image: url('../img/menu/item.png');
+}
+button.menu.item:active {
+  background-image: url('../img/menu/item_push.png');
+}
+button.menu.item:disabled {
+  background-image: url('../img/menu/item_disabled.png');
+}
+
+button.menu.advance {
+  background-image: url('../img/menu/advance.png');
+}
+button.menu.advance:active {
+  background-image: url('../img/menu/advance_push.png');
+}
+button.menu.advance:disabled {
+  background-image: url('../img/menu/advance_disabled.png');
+}
+
+button.menu.live {
+  background-image: url('../img/menu/live.png');
+}
+button.menu.live:active {
+  background-image: url('../img/menu/live_push.png');
+}
+button.menu.live:disabled {
+  background-image: url('../img/menu/live_disabled.png');
+}
+
+button.menu.next_day {
+  background-image: url('../img/menu/next_day.png');
+}
+button.menu.next_day:active {
+  background-image: url('../img/menu/next_day_push.png');
+}
+button.menu.next_day:disabled {
+  background-image: url('../img/menu/next_day_disabled.png');
+}
+
+button.menu.redo {
+  background-image: url('../img/menu/redo.png');
+}
+button.menu.redo:active {
+  background-image: url('../img/menu/redo_push.png');
+}
+button.menu.redo:disabled {
+  background-image: url('../img/menu/redo_disabled.png');
+}
+
+button.menu.performance {
+  background-image: url('../img/menu/performance.png');
+}
+button.menu.performance:active {
+  background-image: url('../img/menu/performance_push.png');
+}
+button.menu.performance:disabled {
+  background-image: url('../img/menu/performance_disabled.png');
+}
+
+button.menu.training {
+  background-image: url('../img/menu/training.png');
+}
+button.menu.training:active {
+  background-image: url('../img/menu/training_push.png');
+}
+button.menu.training:disabled {
+  background-image: url('../img/menu/training_disabled.png');
+}
+
+button.menu.turn_end {
+  background-image: url('../img/menu/turn_end.png');
+}
+button.menu.turn_end:active {
+  background-image: url('../img/menu/turn_end_push.png');
+}
+button.menu.turn_end:disabled {
+  background-image: url('../img/menu/turn_end_disabled.png');
+}
+
+button.menu.gacha {
+  background-image: url('../img/menu/gacha.png');
+}
+button.menu.gacha:active {
+  background-image: url('../img/menu/gacha_push.png');
+}
+button.menu.gacha:disabled {
+  background-image: url('../img/menu/gacha_disabled.png');
 }
 
 ::-webkit-scrollbar {

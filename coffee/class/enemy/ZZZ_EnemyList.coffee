@@ -7,4 +7,5 @@ window.EnemyList = {
   "6" : Enemy6
   "7" : Enemy7
   "8" : Enemy8
+  "9" : Enemy9
 }

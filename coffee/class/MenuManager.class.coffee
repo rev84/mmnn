@@ -1,7 +1,7 @@
 class MenuManager
   @ID = 'menu'
 
-  @SIZE_X : 1200
+  @SIZE_X : 1320
   @SIZE_Y : 50
 
   @elements =
@@ -16,83 +16,43 @@ class MenuManager
     })
 
     # 出撃
-    @pickCharacter = $('<div>').html('出撃').css({
-      border: '1px solid #000000'
-      width: 100
-      height: 40
-      "font-size": '30px'
-    })
+    @pickCharacter = $('<button>').addClass('menu performance left')
     .on('click', @onClickCharacterPick.bind(@))
     .appendTo(@divObject)
 
     # 戦闘
-    @battle = $('<div>').html('戦闘').css({
-      border: '1px solid #000000'
-      width: 100
-      height: 40
-      "font-size": '30px'
-    })
+    @battle = $('<button>').addClass('menu live left')
     .on('click', @onClickBattle.bind(@))
     .appendTo(@divObject)
 
-    # ターン終了
-    @turnEnd = $('<div>').html('ターン終了').css({
-      border: '1px solid #000000'
-      width: 100
-      height: 40
-      "font-size": '30px'
-    })
-    .on('click', @onClickTurnEnd.bind(@))
-    .appendTo(@divObject)
-
     # レベルアップ
-    @turnEnd = $('<div>').html('レベルアップ').css({
-      border: '1px solid #000000'
-      width: 100
-      height: 40
-      "font-size": '30px'
-    })
+    @turnEnd = $('<button>').addClass('menu training left')
     .on('click', @onClickLevelup.bind(@))
     .appendTo(@divObject)
 
-    # 前進
-    @turnEnd = $('<div>').html('前進').css({
-      border: '1px solid #000000'
-      width: 100
-      height: 40
-      "font-size": '30px'
-    })
-    .on('click', @onClickWalk.bind(@))
-    .appendTo(@divObject)
-
-    # やりなおし
-    @undo = $('<div>').html('移動やりなおし').css({
-      border: '1px solid #000000'
-      width: 100
-      height: 40
-      "font-size": '30px'
-    })
-    .on('click', @onClickUndo.bind(@))
-    .appendTo(@divObject)
-
     # アイテム
-    @item = $('<div>').html('アイテム').css({
-      border: '1px solid #000000'
-      width: 100
-      height: 40
-      "font-size": '30px'
-    })
+    @item = $('<button>').addClass('menu item left')
     .on('click', @onClickItem.bind(@))
     .appendTo(@divObject)
 
     # ガチャ
-    @item = $('<div>').html('ガチャ').css({
-      border: '1px solid #000000'
-      width: 100
-      height: 40
-      "font-size": '30px'
-    })
+    @gacha = $('<button>').addClass('menu gacha left')
     .on('click', @onClickGacha.bind(@))
+    .appendTo(@divObject)
+
+    # 前進
+    @walk = $('<button>').addClass('menu next_day right')
+    .on('click', @onClickWalk.bind(@))
+    .appendTo(@divObject)
+
+    # ターン終了
+    @turnEnd = $('<button>').addClass('menu turn_end right')
+    .on('click', @onClickTurnEnd.bind(@))
+    .appendTo(@divObject)
+
+    # やりなおし
+    @undo = $('<button>').addClass('menu redo right')
+    .on('click', @onClickUndo.bind(@))
     .appendTo(@divObject)
 
     @divObject.appendTo(@parentElement)
@@ -106,10 +66,18 @@ class MenuManager
     # キャラクター出撃モードにする
     GameManager.resetFlags()
     GameManager.isMode.characterPick = true
-    # 戦闘・レベルアップに遷移可能
-    GameManager.isEnable.battle = true
+    # 遷移可能
+    GameManager.isEnable.characterPick = false
     GameManager.isEnable.levelup = true
+    GameManager.isEnable.battle = true
+    GameManager.isEnable.turnEnd = false
+    GameManager.isEnable.walk = false
+    GameManager.isEnable.undo = false
     GameManager.isEnable.item = true
+    GameManager.isEnable.gacha = true
+    GameManager.isEnable.leftPanel = false
+    GameManager.isEnable.rightPanel = false
+    @reflectEnable()
     GameManager.flags.isCellObjectAnimation = false
 
     # コストをセット
@@ -141,6 +109,7 @@ class MenuManager
     GameManager.isEnable.rightPanel = true
     GameManager.isEnable.item = true
     GameManager.isEnable.gacha = true
+    @reflectEnable()
     GameManager.flags.isCellObjectAnimation = true
 
     GameManager.doBattle()
@@ -165,9 +134,16 @@ class MenuManager
     GameManager.resetFlags()
     GameManager.isMode.levelup = true
     GameManager.isEnable.characterPick = true
+    GameManager.isEnable.levelup = false
     GameManager.isEnable.battle = true
+    GameManager.isEnable.turnEnd = false
+    GameManager.isEnable.walk = false
+    GameManager.isEnable.undo = false
     GameManager.isEnable.item = true
     GameManager.isEnable.gacha = true
+    GameManager.isEnable.leftPanel = false
+    GameManager.isEnable.rightPanel = false
+    @reflectEnable()
     GameManager.flags.isCellObjectAnimation = false
 
     GameManager.doLevelup()
@@ -205,13 +181,20 @@ class MenuManager
     ItemCharacterPicker.draw()
     ItemEditor.draw()
 
-    # レベルアップモードにする
+    # アイテムモードにする
     GameManager.resetFlags()
     GameManager.isMode.item = true
     GameManager.isEnable.characterPick = true
-    GameManager.isEnable.battle = true
     GameManager.isEnable.levelup = true
+    GameManager.isEnable.battle = true
+    GameManager.isEnable.turnEnd = false
+    GameManager.isEnable.walk = false
+    GameManager.isEnable.undo = false
+    GameManager.isEnable.item = false
     GameManager.isEnable.gacha = true
+    GameManager.isEnable.leftPanel = false
+    GameManager.isEnable.rightPanel = false
+    @reflectEnable()
     GameManager.flags.isCellObjectAnimation = false
 
     GameManager.doItem()
@@ -227,11 +210,34 @@ class MenuManager
     GameManager.resetFlags()
     GameManager.isMode.gacha = true
     GameManager.isEnable.characterPick = true
-    GameManager.isEnable.battle = true
     GameManager.isEnable.levelup = true
+    GameManager.isEnable.battle = true
+    GameManager.isEnable.turnEnd = false
+    GameManager.isEnable.walk = false
+    GameManager.isEnable.undo = false
     GameManager.isEnable.item = true
+    GameManager.isEnable.gacha = false
+    GameManager.isEnable.leftPanel = false
+    GameManager.isEnable.rightPanel = false
+    @reflectEnable()
     GameManager.flags.isCellObjectAnimation = false
 
     GameManager.doGacha()
     true
-                
+  
+  @reflectEnable:->
+    $('button.menu').prop('disabled', false)
+    for key, isEnable of GameManager.isEnable
+      $('button.'+@enableKey2class(key)).prop('disabled', !isEnable)
+
+  @enableKey2class:(enableKey)->
+    switch enableKey
+      when 'battle' then 'performance'
+      when 'characterPick' then 'performance'
+      when 'levelup' then 'training'
+      when 'turnEnd' then 'turn_end'
+      when 'walk' then 'next_day'
+      when 'undo' then 'redo'
+      when 'item' then 'item'
+      when 'gacha' then 'gacha'
+      else enableKey

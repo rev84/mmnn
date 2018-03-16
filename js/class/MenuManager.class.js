@@ -14,61 +14,21 @@ MenuManager = (function() {
         top: this.posY
       });
       // 出撃
-      this.pickCharacter = $('<div>').html('出撃').css({
-        border: '1px solid #000000',
-        width: 100,
-        height: 40,
-        "font-size": '30px'
-      }).on('click', this.onClickCharacterPick.bind(this)).appendTo(this.divObject);
+      this.pickCharacter = $('<button>').addClass('menu performance left').on('click', this.onClickCharacterPick.bind(this)).appendTo(this.divObject);
       // 戦闘
-      this.battle = $('<div>').html('戦闘').css({
-        border: '1px solid #000000',
-        width: 100,
-        height: 40,
-        "font-size": '30px'
-      }).on('click', this.onClickBattle.bind(this)).appendTo(this.divObject);
-      // ターン終了
-      this.turnEnd = $('<div>').html('ターン終了').css({
-        border: '1px solid #000000',
-        width: 100,
-        height: 40,
-        "font-size": '30px'
-      }).on('click', this.onClickTurnEnd.bind(this)).appendTo(this.divObject);
+      this.battle = $('<button>').addClass('menu live left').on('click', this.onClickBattle.bind(this)).appendTo(this.divObject);
       // レベルアップ
-      this.turnEnd = $('<div>').html('レベルアップ').css({
-        border: '1px solid #000000',
-        width: 100,
-        height: 40,
-        "font-size": '30px'
-      }).on('click', this.onClickLevelup.bind(this)).appendTo(this.divObject);
-      // 前進
-      this.turnEnd = $('<div>').html('前進').css({
-        border: '1px solid #000000',
-        width: 100,
-        height: 40,
-        "font-size": '30px'
-      }).on('click', this.onClickWalk.bind(this)).appendTo(this.divObject);
-      // やりなおし
-      this.undo = $('<div>').html('移動やりなおし').css({
-        border: '1px solid #000000',
-        width: 100,
-        height: 40,
-        "font-size": '30px'
-      }).on('click', this.onClickUndo.bind(this)).appendTo(this.divObject);
+      this.turnEnd = $('<button>').addClass('menu training left').on('click', this.onClickLevelup.bind(this)).appendTo(this.divObject);
       // アイテム
-      this.item = $('<div>').html('アイテム').css({
-        border: '1px solid #000000',
-        width: 100,
-        height: 40,
-        "font-size": '30px'
-      }).on('click', this.onClickItem.bind(this)).appendTo(this.divObject);
+      this.item = $('<button>').addClass('menu item left').on('click', this.onClickItem.bind(this)).appendTo(this.divObject);
       // ガチャ
-      this.item = $('<div>').html('ガチャ').css({
-        border: '1px solid #000000',
-        width: 100,
-        height: 40,
-        "font-size": '30px'
-      }).on('click', this.onClickGacha.bind(this)).appendTo(this.divObject);
+      this.gacha = $('<button>').addClass('menu gacha left').on('click', this.onClickGacha.bind(this)).appendTo(this.divObject);
+      // 前進
+      this.walk = $('<button>').addClass('menu next_day right').on('click', this.onClickWalk.bind(this)).appendTo(this.divObject);
+      // ターン終了
+      this.turnEnd = $('<button>').addClass('menu turn_end right').on('click', this.onClickTurnEnd.bind(this)).appendTo(this.divObject);
+      // やりなおし
+      this.undo = $('<button>').addClass('menu redo right').on('click', this.onClickUndo.bind(this)).appendTo(this.divObject);
       return this.divObject.appendTo(this.parentElement);
     }
 
@@ -84,10 +44,18 @@ MenuManager = (function() {
       // キャラクター出撃モードにする
       GameManager.resetFlags();
       GameManager.isMode.characterPick = true;
-      // 戦闘・レベルアップに遷移可能
-      GameManager.isEnable.battle = true;
+      // 遷移可能
+      GameManager.isEnable.characterPick = false;
       GameManager.isEnable.levelup = true;
+      GameManager.isEnable.battle = true;
+      GameManager.isEnable.turnEnd = false;
+      GameManager.isEnable.walk = false;
+      GameManager.isEnable.undo = false;
       GameManager.isEnable.item = true;
+      GameManager.isEnable.gacha = true;
+      GameManager.isEnable.leftPanel = false;
+      GameManager.isEnable.rightPanel = false;
+      this.reflectEnable();
       GameManager.flags.isCellObjectAnimation = false;
       // コストをセット
       CostManager.updateCostNow();
@@ -119,6 +87,7 @@ MenuManager = (function() {
       GameManager.isEnable.rightPanel = true;
       GameManager.isEnable.item = true;
       GameManager.isEnable.gacha = true;
+      this.reflectEnable();
       GameManager.flags.isCellObjectAnimation = true;
       GameManager.doBattle();
       return true;
@@ -150,9 +119,16 @@ MenuManager = (function() {
       GameManager.resetFlags();
       GameManager.isMode.levelup = true;
       GameManager.isEnable.characterPick = true;
+      GameManager.isEnable.levelup = false;
       GameManager.isEnable.battle = true;
+      GameManager.isEnable.turnEnd = false;
+      GameManager.isEnable.walk = false;
+      GameManager.isEnable.undo = false;
       GameManager.isEnable.item = true;
       GameManager.isEnable.gacha = true;
+      GameManager.isEnable.leftPanel = false;
+      GameManager.isEnable.rightPanel = false;
+      this.reflectEnable();
       GameManager.flags.isCellObjectAnimation = false;
       GameManager.doLevelup();
       return true;
@@ -202,13 +178,20 @@ MenuManager = (function() {
       ItemManager.calcUsedItemCount();
       ItemCharacterPicker.draw();
       ItemEditor.draw();
-      // レベルアップモードにする
+      // アイテムモードにする
       GameManager.resetFlags();
       GameManager.isMode.item = true;
       GameManager.isEnable.characterPick = true;
-      GameManager.isEnable.battle = true;
       GameManager.isEnable.levelup = true;
+      GameManager.isEnable.battle = true;
+      GameManager.isEnable.turnEnd = false;
+      GameManager.isEnable.walk = false;
+      GameManager.isEnable.undo = false;
+      GameManager.isEnable.item = false;
       GameManager.isEnable.gacha = true;
+      GameManager.isEnable.leftPanel = false;
+      GameManager.isEnable.rightPanel = false;
+      this.reflectEnable();
       GameManager.flags.isCellObjectAnimation = false;
       GameManager.doItem();
       return true;
@@ -227,19 +210,61 @@ MenuManager = (function() {
       GameManager.resetFlags();
       GameManager.isMode.gacha = true;
       GameManager.isEnable.characterPick = true;
-      GameManager.isEnable.battle = true;
       GameManager.isEnable.levelup = true;
+      GameManager.isEnable.battle = true;
+      GameManager.isEnable.turnEnd = false;
+      GameManager.isEnable.walk = false;
+      GameManager.isEnable.undo = false;
       GameManager.isEnable.item = true;
+      GameManager.isEnable.gacha = false;
+      GameManager.isEnable.leftPanel = false;
+      GameManager.isEnable.rightPanel = false;
+      this.reflectEnable();
       GameManager.flags.isCellObjectAnimation = false;
       GameManager.doGacha();
       return true;
+    }
+
+    static reflectEnable() {
+      var isEnable, key, ref, results;
+      $('button.menu').prop('disabled', false);
+      ref = GameManager.isEnable;
+      results = [];
+      for (key in ref) {
+        isEnable = ref[key];
+        results.push($('button.' + this.enableKey2class(key)).prop('disabled', !isEnable));
+      }
+      return results;
+    }
+
+    static enableKey2class(enableKey) {
+      switch (enableKey) {
+        case 'battle':
+          return 'performance';
+        case 'characterPick':
+          return 'performance';
+        case 'levelup':
+          return 'training';
+        case 'turnEnd':
+          return 'turn_end';
+        case 'walk':
+          return 'next_day';
+        case 'undo':
+          return 'redo';
+        case 'item':
+          return 'item';
+        case 'gacha':
+          return 'gacha';
+        default:
+          return enableKey;
+      }
     }
 
   };
 
   MenuManager.ID = 'menu';
 
-  MenuManager.SIZE_X = 1200;
+  MenuManager.SIZE_X = 1320;
 
   MenuManager.SIZE_Y = 50;
 

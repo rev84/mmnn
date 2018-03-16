@@ -11,7 +11,8 @@ EnemyDefine = class EnemyDefine {
       "5": Enemy5,
       "6": Enemy6,
       "7": Enemy7,
-      "8": Enemy8
+      "8": Enemy8,
+      "9": Enemy9
     };
   }
 
