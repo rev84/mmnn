@@ -1006,7 +1006,7 @@ GameManager = (function() {
       cost_manager: null
     },
     CHARACTER_PICK: {
-      character_pallet: [140, 75],
+      character_pallet: [144, 75],
       field_visible: [0, 25],
       left_info: null,
       right_info: null,

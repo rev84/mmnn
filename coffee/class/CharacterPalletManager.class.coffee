@@ -1,8 +1,8 @@
 class CharacterPalletManager
   @ID = 'character_pallet'
 
-  @SIZE_X = 400
-  @SIZE_Y = 600
+  @SIZE_X = 1170
+  @SIZE_Y = 585
 
   @characters = []
   @panels = []
@@ -15,6 +15,15 @@ class CharacterPalletManager
       left: @posX
       top: @posY
     }).appendTo(@parentElement)
+
+    $('<div>').css({
+      left: 0
+      top: 0
+      width: @SIZE_X
+      height: @SIZE_Y
+      'background-color': '#000000'
+      opacity: 0.5
+    }).appendTo(@divObject)
 
   @show:->
     $(@divObject).removeClass('no_display')

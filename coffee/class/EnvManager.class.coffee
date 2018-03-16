@@ -166,6 +166,7 @@ class EnvManager
     for cId, cObj of GameManager.characters
       cObj.setComebackTurn 0
       cObj.setInField false
+      cObj.hp = null
     # 移動・攻撃・戻るモードを解除
     GameManager.flags.movePickCell = null
     GameManager.flags.moveToCell = null

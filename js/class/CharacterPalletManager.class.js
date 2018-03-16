@@ -7,12 +7,20 @@ CharacterPalletManager = (function() {
       this.parentElement = parentElement;
       this.posX = posX;
       this.posY = posY;
-      return this.divObject = $('<div>').attr('id', this.ID).addClass('no_display').css({
+      this.divObject = $('<div>').attr('id', this.ID).addClass('no_display').css({
         width: this.SIZE_X,
         height: this.SIZE_Y,
         left: this.posX,
         top: this.posY
       }).appendTo(this.parentElement);
+      return $('<div>').css({
+        left: 0,
+        top: 0,
+        width: this.SIZE_X,
+        height: this.SIZE_Y,
+        'background-color': '#000000',
+        opacity: 0.5
+      }).appendTo(this.divObject);
     }
 
     static show() {
@@ -94,9 +102,9 @@ CharacterPalletManager = (function() {
 
   CharacterPalletManager.ID = 'character_pallet';
 
-  CharacterPalletManager.SIZE_X = 400;
+  CharacterPalletManager.SIZE_X = 1170;
 
-  CharacterPalletManager.SIZE_Y = 600;
+  CharacterPalletManager.SIZE_Y = 585;
 
   CharacterPalletManager.characters = [];
 

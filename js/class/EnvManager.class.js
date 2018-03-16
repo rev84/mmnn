@@ -218,6 +218,7 @@ EnvManager = (function() {
         cObj = ref1[cId];
         cObj.setComebackTurn(0);
         cObj.setInField(false);
+        cObj.hp = null;
       }
       // 移動・攻撃・戻るモードを解除
       GameManager.flags.movePickCell = null;
