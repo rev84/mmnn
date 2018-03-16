@@ -1,29 +1,16 @@
 class CharacterPalletManager
   @ID = 'character_pallet'
 
-  @SIZE_X = 1170
-  @SIZE_Y = 585
-
   @characters = []
   @panels = []
 
-  @init:(@parentElement, @posX, @posY)->
-    @divObject = $('<div>').attr('id', @ID)
-    .addClass('no_display').css({
-      width: @SIZE_X
-      height: @SIZE_Y
-      left: @posX
-      top: @posY
-    }).appendTo(@parentElement)
+  @init:(@parentElement)->
+    @spaceObject = $('<div>').attr('id', @ID).appendTo(@parentElement)
 
-    $('<div>').css({
-      left: 0
-      top: 0
-      width: @SIZE_X
-      height: @SIZE_Y
-      'background-color': '#000000'
-      opacity: 0.5
-    }).appendTo(@divObject)
+    @divObject = $('<div>').addClass('character_pallet_main')
+                 .appendTo(@spaceObject)
+
+    $('<div>').addClass('character_pallet_back').appendTo(@spaceObject)
 
   @show:->
     $(@divObject).removeClass('no_display')
@@ -39,7 +26,7 @@ class CharacterPalletManager
       Number(a.constructor.characterId) - Number(b.constructor.characterId)
     
     @panels = []
-    $('#'+@ID+' > .'+Panel.CLASSNAME).remove()
+    $('#'+@ID+' .'+Panel.CLASSNAME).remove()
     y = 0
     for c, index in @characters
       continue unless c.isJoined()

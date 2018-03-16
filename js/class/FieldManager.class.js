@@ -599,7 +599,7 @@ FieldManager = (function() {
     }
 
     // 味方キャラ全員に自然ダメージ
-    static turnEndDamage() {
+    static async turnEndDamage() {
       var c, cBody, i, j, len, len1, ref, x, y;
       ref = this.cells;
       for (x = i = 0, len = ref.length; i < len; x = ++i) {
@@ -612,7 +612,9 @@ FieldManager = (function() {
           }
         }
       }
-      return this.draw();
+      this.draw();
+      // 死亡チェック
+      return (await this.checkDeath());
     }
 
   };

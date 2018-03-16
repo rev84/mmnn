@@ -3,24 +3,11 @@ var CharacterPalletManager;
 
 CharacterPalletManager = (function() {
   class CharacterPalletManager {
-    static init(parentElement, posX, posY) {
+    static init(parentElement) {
       this.parentElement = parentElement;
-      this.posX = posX;
-      this.posY = posY;
-      this.divObject = $('<div>').attr('id', this.ID).addClass('no_display').css({
-        width: this.SIZE_X,
-        height: this.SIZE_Y,
-        left: this.posX,
-        top: this.posY
-      }).appendTo(this.parentElement);
-      return $('<div>').css({
-        left: 0,
-        top: 0,
-        width: this.SIZE_X,
-        height: this.SIZE_Y,
-        'background-color': '#000000',
-        opacity: 0.5
-      }).appendTo(this.divObject);
+      this.spaceObject = $('<div>').attr('id', this.ID).appendTo(this.parentElement);
+      this.divObject = $('<div>').addClass('character_pallet_main').appendTo(this.spaceObject);
+      return $('<div>').addClass('character_pallet_back').appendTo(this.spaceObject);
     }
 
     static show() {
@@ -41,7 +28,7 @@ CharacterPalletManager = (function() {
         return Number(a.constructor.characterId) - Number(b.constructor.characterId);
       });
       this.panels = [];
-      $('#' + this.ID + ' > .' + Panel.CLASSNAME).remove();
+      $('#' + this.ID + ' .' + Panel.CLASSNAME).remove();
       y = 0;
       ref = this.characters;
       results = [];
@@ -101,10 +88,6 @@ CharacterPalletManager = (function() {
   };
 
   CharacterPalletManager.ID = 'character_pallet';
-
-  CharacterPalletManager.SIZE_X = 1170;
-
-  CharacterPalletManager.SIZE_Y = 585;
 
   CharacterPalletManager.characters = [];
 

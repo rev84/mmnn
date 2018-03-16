@@ -22,7 +22,7 @@ class LevelupManager
       Number(a.getId()) - Number(b.getId())
     
     @panels = []
-    $('#'+@ID+' > .'+LevelupPanel.CLASSNAME).remove()
+    $('#'+@ID+' .'+LevelupPanel.CLASSNAME).remove()
     y = 0
     for c, index in @characters
       continue unless c.isJoined()

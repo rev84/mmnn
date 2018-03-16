@@ -780,7 +780,7 @@ class Character19Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = ["./img/character/19/1.png","./img/character/19/2.png"]
+  @images = []
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -1982,7 +1982,7 @@ class Character47Base extends CharacterBase
   # キャラ名
   @characterName = "神崎蘭子"
   # 最初からいるか
-  @defaultJoin = false
+  @defaultJoin = true
   # 画像のリスト
   @images = ["./img/character/47/1.png","./img/character/47/2.png"]
   # 基本攻撃タイプ
@@ -2887,7 +2887,7 @@ class Character68Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/68/1.png","./img/character/68/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3100,9 +3100,9 @@ class Character73Base extends CharacterBase
   # キャラ名
   @characterName = "小日向美穂"
   # 最初からいるか
-  @defaultJoin = false
+  @defaultJoin = true
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/73/1.png","./img/character/73/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3145,7 +3145,7 @@ class Character74Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/74/1.png","./img/character/74/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3188,7 +3188,7 @@ class Character75Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/75/1.png","./img/character/75/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3231,7 +3231,7 @@ class Character76Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/76/1.png","./img/character/76/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3274,7 +3274,7 @@ class Character77Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/77/1.png","./img/character/77/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3317,7 +3317,7 @@ class Character78Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/78/1.png","./img/character/78/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3360,7 +3360,7 @@ class Character79Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/79/1.png","./img/character/79/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3403,7 +3403,7 @@ class Character80Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/80/1.png","./img/character/80/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3446,7 +3446,7 @@ class Character81Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/81/1.png","./img/character/81/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3489,7 +3489,7 @@ class Character82Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/82/1.png","./img/character/82/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3532,7 +3532,7 @@ class Character83Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/83/1.png","./img/character/83/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3575,7 +3575,7 @@ class Character84Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/84/1.png","./img/character/84/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3618,7 +3618,7 @@ class Character85Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/85/1.png","./img/character/85/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3661,7 +3661,7 @@ class Character86Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/86/1.png","./img/character/86/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3704,7 +3704,7 @@ class Character87Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/87/1.png","./img/character/87/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3747,7 +3747,7 @@ class Character88Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/88/1.png","./img/character/88/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3790,7 +3790,7 @@ class Character89Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/89/1.png","./img/character/89/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3876,7 +3876,7 @@ class Character91Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/91/1.png","./img/character/91/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3919,7 +3919,7 @@ class Character92Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/92/1.png","./img/character/92/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -3960,9 +3960,9 @@ class Character93Base extends CharacterBase
   # キャラ名
   @characterName = "城ヶ崎美嘉"
   # 最初からいるか
-  @defaultJoin = false
+  @defaultJoin = true
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/93/1.png","./img/character/93/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4003,9 +4003,9 @@ class Character94Base extends CharacterBase
   # キャラ名
   @characterName = "城ヶ崎莉嘉"
   # 最初からいるか
-  @defaultJoin = false
+  @defaultJoin = true
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/94/1.png","./img/character/94/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4048,7 +4048,7 @@ class Character95Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/95/1.png","./img/character/95/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4091,7 +4091,7 @@ class Character96Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/96/1.png","./img/character/96/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4134,7 +4134,7 @@ class Character97Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/97/1.png","./img/character/97/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4177,7 +4177,7 @@ class Character98Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/98/1.png","./img/character/98/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4220,7 +4220,7 @@ class Character99Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/99/1.png","./img/character/99/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4263,7 +4263,7 @@ class Character100Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/100/1.png","./img/character/100/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4306,7 +4306,7 @@ class Character101Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/101/1.png","./img/character/101/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4349,7 +4349,7 @@ class Character102Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/102/1.png","./img/character/102/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4392,7 +4392,7 @@ class Character103Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/103/1.png","./img/character/103/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4478,7 +4478,7 @@ class Character105Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/105/1.png","./img/character/105/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4521,7 +4521,7 @@ class Character106Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/106/1.png","./img/character/106/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4564,7 +4564,7 @@ class Character107Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/107/1.png","./img/character/107/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4607,7 +4607,7 @@ class Character108Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/108/1.png","./img/character/108/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4648,9 +4648,9 @@ class Character109Base extends CharacterBase
   # キャラ名
   @characterName = "多田李衣菜"
   # 最初からいるか
-  @defaultJoin = false
+  @defaultJoin = true
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/109/1.png","./img/character/109/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4693,7 +4693,7 @@ class Character110Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/110/1.png","./img/character/110/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4736,7 +4736,7 @@ class Character111Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/111/1.png","./img/character/111/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4779,7 +4779,7 @@ class Character112Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/112/1.png","./img/character/112/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4822,7 +4822,7 @@ class Character113Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/113/1.png","./img/character/113/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4865,7 +4865,7 @@ class Character114Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/114/1.png","./img/character/114/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4951,7 +4951,7 @@ class Character116Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/116/1.png","./img/character/116/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4994,7 +4994,7 @@ class Character117Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/117/1.png","./img/character/117/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5037,7 +5037,7 @@ class Character118Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/118/1.png","./img/character/118/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5080,7 +5080,7 @@ class Character119Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/119/1.png","./img/character/119/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5123,7 +5123,7 @@ class Character120Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/120/1.png","./img/character/120/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5166,7 +5166,7 @@ class Character121Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/121/1.png","./img/character/121/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5209,7 +5209,7 @@ class Character122Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/122/1.png","./img/character/122/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5252,7 +5252,7 @@ class Character123Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/123/1.png","./img/character/123/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5295,7 +5295,7 @@ class Character124Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/124/1.png","./img/character/124/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5338,7 +5338,7 @@ class Character125Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/125/1.png","./img/character/125/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5381,7 +5381,7 @@ class Character126Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/126/1.png","./img/character/126/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5424,7 +5424,7 @@ class Character127Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/127/1.png","./img/character/127/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5467,7 +5467,7 @@ class Character128Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/128/1.png","./img/character/128/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5553,7 +5553,7 @@ class Character130Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/130/1.png","./img/character/130/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5596,7 +5596,7 @@ class Character131Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/131/1.png","./img/character/131/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5639,7 +5639,7 @@ class Character132Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/132/1.png","./img/character/132/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5682,7 +5682,7 @@ class Character133Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/133/1.png","./img/character/133/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5725,7 +5725,7 @@ class Character134Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/134/1.png","./img/character/134/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5768,7 +5768,7 @@ class Character135Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/135/1.png","./img/character/135/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5811,7 +5811,7 @@ class Character136Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/136/1.png","./img/character/136/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5854,7 +5854,7 @@ class Character137Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/137/1.png","./img/character/137/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5897,7 +5897,7 @@ class Character138Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/138/1.png","./img/character/138/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5940,7 +5940,7 @@ class Character139Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/139/1.png","./img/character/139/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -5983,7 +5983,7 @@ class Character140Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/140/1.png","./img/character/140/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6026,7 +6026,7 @@ class Character141Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/141/1.png","./img/character/141/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6069,7 +6069,7 @@ class Character142Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/142/1.png","./img/character/142/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6112,7 +6112,7 @@ class Character143Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/143/1.png","./img/character/143/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6155,7 +6155,7 @@ class Character144Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/144/1.png","./img/character/144/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6198,7 +6198,7 @@ class Character145Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/145/1.png","./img/character/145/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6327,7 +6327,7 @@ class Character148Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/148/1.png","./img/character/148/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6370,7 +6370,7 @@ class Character149Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/149/1.png","./img/character/149/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6413,7 +6413,7 @@ class Character150Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/150/1.png","./img/character/150/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6499,7 +6499,7 @@ class Character152Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/152/1.png","./img/character/152/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6542,7 +6542,7 @@ class Character153Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/153/1.png","./img/character/153/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6585,7 +6585,7 @@ class Character154Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/154/1.png","./img/character/154/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6628,7 +6628,7 @@ class Character155Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/155/1.png","./img/character/155/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6671,7 +6671,7 @@ class Character156Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/156/1.png","./img/character/156/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6714,7 +6714,7 @@ class Character157Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/157/1.png","./img/character/157/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6757,7 +6757,7 @@ class Character158Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/158/1.png","./img/character/158/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6800,7 +6800,7 @@ class Character159Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/159/1.png","./img/character/159/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6843,7 +6843,7 @@ class Character160Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/160/1.png","./img/character/160/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6886,7 +6886,7 @@ class Character161Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/161/1.png","./img/character/161/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6929,7 +6929,7 @@ class Character162Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/162/1.png","./img/character/162/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -6972,7 +6972,7 @@ class Character163Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/163/1.png","./img/character/163/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7058,7 +7058,7 @@ class Character165Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/165/1.png","./img/character/165/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7101,7 +7101,7 @@ class Character166Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/166/1.png","./img/character/166/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7144,7 +7144,7 @@ class Character167Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/167/1.png","./img/character/167/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7187,7 +7187,7 @@ class Character168Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/168/1.png","./img/character/168/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7273,7 +7273,7 @@ class Character170Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/170/1.png","./img/character/170/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7314,9 +7314,9 @@ class Character171Base extends CharacterBase
   # キャラ名
   @characterName = "三村かな子"
   # 最初からいるか
-  @defaultJoin = false
+  @defaultJoin = true
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/171/1.png","./img/character/171/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7359,7 +7359,7 @@ class Character172Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/172/1.png","./img/character/172/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7402,7 +7402,7 @@ class Character173Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/173/1.png","./img/character/173/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7445,7 +7445,7 @@ class Character174Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/174/1.png","./img/character/174/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7488,7 +7488,7 @@ class Character175Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/175/1.png","./img/character/175/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7531,7 +7531,7 @@ class Character176Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/176/1.png","./img/character/176/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7574,7 +7574,7 @@ class Character177Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/177/1.png","./img/character/177/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7617,7 +7617,7 @@ class Character178Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/178/1.png","./img/character/178/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7660,7 +7660,7 @@ class Character179Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/179/1.png","./img/character/179/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7703,7 +7703,7 @@ class Character180Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/180/1.png","./img/character/180/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7746,7 +7746,7 @@ class Character181Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/181/1.png","./img/character/181/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7789,7 +7789,7 @@ class Character182Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/182/1.png","./img/character/182/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7832,7 +7832,7 @@ class Character183Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/183/1.png","./img/character/183/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7875,7 +7875,7 @@ class Character184Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/184/1.png","./img/character/184/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7918,7 +7918,7 @@ class Character185Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/185/1.png","./img/character/185/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -7961,7 +7961,7 @@ class Character186Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/186/1.png","./img/character/186/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -8004,7 +8004,7 @@ class Character187Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/187/1.png","./img/character/187/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -8047,7 +8047,7 @@ class Character188Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/188/1.png","./img/character/188/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -8090,7 +8090,7 @@ class Character189Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/189/1.png","./img/character/189/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -8133,7 +8133,7 @@ class Character190Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/190/1.png","./img/character/190/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -8176,7 +8176,7 @@ class Character191Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/191/1.png","./img/character/191/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -8219,7 +8219,7 @@ class Character192Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/192/1.png","./img/character/192/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -8262,7 +8262,7 @@ class Character193Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/193/1.png","./img/character/193/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -8305,7 +8305,7 @@ class Character194Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/194/1.png","./img/character/194/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -8348,7 +8348,7 @@ class Character195Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/195/1.png","./img/character/195/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -8391,7 +8391,7 @@ class Character196Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/196/1.png","./img/character/196/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -8434,7 +8434,7 @@ class Character197Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/197/1.png","./img/character/197/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -8477,7 +8477,7 @@ class Character198Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/198/1.png","./img/character/198/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -8520,7 +8520,7 @@ class Character199Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/199/1.png","./img/character/199/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力

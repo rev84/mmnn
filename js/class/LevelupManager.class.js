@@ -28,7 +28,7 @@ LevelupManager = (function() {
         return Number(a.getId()) - Number(b.getId());
       });
       this.panels = [];
-      $('#' + this.ID + ' > .' + LevelupPanel.CLASSNAME).remove();
+      $('#' + this.ID + ' .' + LevelupPanel.CLASSNAME).remove();
       y = 0;
       ref = this.characters;
       results = [];

@@ -200,7 +200,7 @@ class GameManager
   # ターン終了
   @doTurnEnd:(isSoon = false)->
     # 疲労ダメージ
-    FieldManager.turnEndDamage()
+    await FieldManager.turnEndDamage()
 
     # 動ける敵がいる限り動かす
     while await @enemyMove()
@@ -430,7 +430,7 @@ class GameManager
     return if @initialized.characters
     @initialized.characters = true
 
-    CharacterPalletManager.init(@gameElement, 0, 50)
+    CharacterPalletManager.init(@gameElement)
 
     @characters = {}
     for characterId, className of window.CharacterList

@@ -28,7 +28,7 @@ class Enemy1Base extends EnemyBase
   # 経験値係数
   @expRate = 2
   # アイテムを落とす確率
-  @itemRate = 1
+  @itemRate = 0.1
   # アイテムのドロップテーブルID
   @itemTableId = 8
   # アイテムがジュエルになる時の額
@@ -69,7 +69,7 @@ class Enemy2Base extends EnemyBase
   # 経験値係数
   @expRate = 2
   # アイテムを落とす確率
-  @itemRate = 1
+  @itemRate = 0.1
   # アイテムのドロップテーブルID
   @itemTableId = 8
   # アイテムがジュエルになる時の額
@@ -110,7 +110,7 @@ class Enemy3Base extends EnemyBase
   # 経験値係数
   @expRate = 2
   # アイテムを落とす確率
-  @itemRate = 1
+  @itemRate = 0.1
   # アイテムのドロップテーブルID
   @itemTableId = 8
   # アイテムがジュエルになる時の額
@@ -151,7 +151,7 @@ class Enemy4Base extends EnemyBase
   # 経験値係数
   @expRate = 2
   # アイテムを落とす確率
-  @itemRate = 1
+  @itemRate = 0.1
   # アイテムのドロップテーブルID
   @itemTableId = 8
   # アイテムがジュエルになる時の額
@@ -192,7 +192,7 @@ class Enemy5Base extends EnemyBase
   # 経験値係数
   @expRate = 2
   # アイテムを落とす確率
-  @itemRate = 1
+  @itemRate = 0.1
   # アイテムのドロップテーブルID
   @itemTableId = 8
   # アイテムがジュエルになる時の額
@@ -233,7 +233,7 @@ class Enemy6Base extends EnemyBase
   # 経験値係数
   @expRate = 2
   # アイテムを落とす確率
-  @itemRate = 1
+  @itemRate = 0.1
   # アイテムのドロップテーブルID
   @itemTableId = 8
   # アイテムがジュエルになる時の額
@@ -274,7 +274,7 @@ class Enemy7Base extends EnemyBase
   # 経験値係数
   @expRate = 2
   # アイテムを落とす確率
-  @itemRate = 1
+  @itemRate = 0.1
   # アイテムのドロップテーブルID
   @itemTableId = 8
   # アイテムがジュエルになる時の額
@@ -315,7 +315,7 @@ class Enemy8Base extends EnemyBase
   # 経験値係数
   @expRate = 2
   # アイテムを落とす確率
-  @itemRate = 1
+  @itemRate = 0.1
   # アイテムのドロップテーブルID
   @itemTableId = 8
   # アイテムがジュエルになる時の額
@@ -356,7 +356,7 @@ class Enemy9Base extends EnemyBase
   # 経験値係数
   @expRate = 2
   # アイテムを落とす確率
-  @itemRate = 1
+  @itemRate = 0.1
   # アイテムのドロップテーブルID
   @itemTableId = 8
   # アイテムがジュエルになる時の額

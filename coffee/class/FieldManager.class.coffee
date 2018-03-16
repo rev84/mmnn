@@ -440,3 +440,5 @@ class FieldManager
           # 階層✕2のダメージ
           c.object.damage(EnvManager.getFloor() * 2)
     @draw()
+    # 死亡チェック
+    await @checkDeath()

@@ -130,6 +130,7 @@ MenuManager = (function() {
       GameManager.isEnable.rightPanel = false;
       this.reflectEnable();
       GameManager.flags.isCellObjectAnimation = false;
+      LevelupManager.draw();
       GameManager.doLevelup();
       return true;
     }

@@ -109,7 +109,7 @@ GameManager = (function() {
     static async doTurnEnd(isSoon = false) {
       var c, k, ref;
       // 疲労ダメージ
-      FieldManager.turnEndDamage();
+      await FieldManager.turnEndDamage();
       // 動ける敵がいる限り動かす
       while ((await this.enemyMove())) {}
       await FieldManager.turnPresents();
@@ -352,7 +352,7 @@ GameManager = (function() {
         return;
       }
       this.initialized.characters = true;
-      CharacterPalletManager.init(this.gameElement, 0, 50);
+      CharacterPalletManager.init(this.gameElement);
       this.characters = {};
       ref = window.CharacterList;
       for (characterId in ref) {

@@ -1279,7 +1279,7 @@ Character19Base = (function() {
   Character19Base.defaultJoin = false;
 
   // 画像のリスト
-  Character19Base.images = ["./img/character/19/1.png", "./img/character/19/2.png"];
+  Character19Base.images = [];
 
   // 基本攻撃タイプ
   Character19Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -3236,7 +3236,7 @@ Character47Base = (function() {
   Character47Base.characterName = "神崎蘭子";
 
   // 最初からいるか
-  Character47Base.defaultJoin = false;
+  Character47Base.defaultJoin = true;
 
   // 画像のリスト
   Character47Base.images = ["./img/character/47/1.png", "./img/character/47/2.png"];
@@ -4709,7 +4709,7 @@ Character68Base = (function() {
   Character68Base.defaultJoin = false;
 
   // 画像のリスト
-  Character68Base.images = [];
+  Character68Base.images = ["./img/character/68/1.png", "./img/character/68/2.png"];
 
   // 基本攻撃タイプ
   Character68Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5056,10 +5056,10 @@ Character73Base = (function() {
   Character73Base.characterName = "小日向美穂";
 
   // 最初からいるか
-  Character73Base.defaultJoin = false;
+  Character73Base.defaultJoin = true;
 
   // 画像のリスト
-  Character73Base.images = [];
+  Character73Base.images = ["./img/character/73/1.png", "./img/character/73/2.png"];
 
   // 基本攻撃タイプ
   Character73Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5129,7 +5129,7 @@ Character74Base = (function() {
   Character74Base.defaultJoin = false;
 
   // 画像のリスト
-  Character74Base.images = [];
+  Character74Base.images = ["./img/character/74/1.png", "./img/character/74/2.png"];
 
   // 基本攻撃タイプ
   Character74Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5199,7 +5199,7 @@ Character75Base = (function() {
   Character75Base.defaultJoin = false;
 
   // 画像のリスト
-  Character75Base.images = [];
+  Character75Base.images = ["./img/character/75/1.png", "./img/character/75/2.png"];
 
   // 基本攻撃タイプ
   Character75Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5269,7 +5269,7 @@ Character76Base = (function() {
   Character76Base.defaultJoin = false;
 
   // 画像のリスト
-  Character76Base.images = [];
+  Character76Base.images = ["./img/character/76/1.png", "./img/character/76/2.png"];
 
   // 基本攻撃タイプ
   Character76Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5339,7 +5339,7 @@ Character77Base = (function() {
   Character77Base.defaultJoin = false;
 
   // 画像のリスト
-  Character77Base.images = [];
+  Character77Base.images = ["./img/character/77/1.png", "./img/character/77/2.png"];
 
   // 基本攻撃タイプ
   Character77Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5409,7 +5409,7 @@ Character78Base = (function() {
   Character78Base.defaultJoin = false;
 
   // 画像のリスト
-  Character78Base.images = [];
+  Character78Base.images = ["./img/character/78/1.png", "./img/character/78/2.png"];
 
   // 基本攻撃タイプ
   Character78Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5479,7 +5479,7 @@ Character79Base = (function() {
   Character79Base.defaultJoin = false;
 
   // 画像のリスト
-  Character79Base.images = [];
+  Character79Base.images = ["./img/character/79/1.png", "./img/character/79/2.png"];
 
   // 基本攻撃タイプ
   Character79Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5549,7 +5549,7 @@ Character80Base = (function() {
   Character80Base.defaultJoin = false;
 
   // 画像のリスト
-  Character80Base.images = [];
+  Character80Base.images = ["./img/character/80/1.png", "./img/character/80/2.png"];
 
   // 基本攻撃タイプ
   Character80Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5619,7 +5619,7 @@ Character81Base = (function() {
   Character81Base.defaultJoin = false;
 
   // 画像のリスト
-  Character81Base.images = [];
+  Character81Base.images = ["./img/character/81/1.png", "./img/character/81/2.png"];
 
   // 基本攻撃タイプ
   Character81Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5689,7 +5689,7 @@ Character82Base = (function() {
   Character82Base.defaultJoin = false;
 
   // 画像のリスト
-  Character82Base.images = [];
+  Character82Base.images = ["./img/character/82/1.png", "./img/character/82/2.png"];
 
   // 基本攻撃タイプ
   Character82Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5759,7 +5759,7 @@ Character83Base = (function() {
   Character83Base.defaultJoin = false;
 
   // 画像のリスト
-  Character83Base.images = [];
+  Character83Base.images = ["./img/character/83/1.png", "./img/character/83/2.png"];
 
   // 基本攻撃タイプ
   Character83Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5829,7 +5829,7 @@ Character84Base = (function() {
   Character84Base.defaultJoin = false;
 
   // 画像のリスト
-  Character84Base.images = [];
+  Character84Base.images = ["./img/character/84/1.png", "./img/character/84/2.png"];
 
   // 基本攻撃タイプ
   Character84Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5899,7 +5899,7 @@ Character85Base = (function() {
   Character85Base.defaultJoin = false;
 
   // 画像のリスト
-  Character85Base.images = [];
+  Character85Base.images = ["./img/character/85/1.png", "./img/character/85/2.png"];
 
   // 基本攻撃タイプ
   Character85Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -5969,7 +5969,7 @@ Character86Base = (function() {
   Character86Base.defaultJoin = false;
 
   // 画像のリスト
-  Character86Base.images = [];
+  Character86Base.images = ["./img/character/86/1.png", "./img/character/86/2.png"];
 
   // 基本攻撃タイプ
   Character86Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -6039,7 +6039,7 @@ Character87Base = (function() {
   Character87Base.defaultJoin = false;
 
   // 画像のリスト
-  Character87Base.images = [];
+  Character87Base.images = ["./img/character/87/1.png", "./img/character/87/2.png"];
 
   // 基本攻撃タイプ
   Character87Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -6109,7 +6109,7 @@ Character88Base = (function() {
   Character88Base.defaultJoin = false;
 
   // 画像のリスト
-  Character88Base.images = [];
+  Character88Base.images = ["./img/character/88/1.png", "./img/character/88/2.png"];
 
   // 基本攻撃タイプ
   Character88Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -6179,7 +6179,7 @@ Character89Base = (function() {
   Character89Base.defaultJoin = false;
 
   // 画像のリスト
-  Character89Base.images = [];
+  Character89Base.images = ["./img/character/89/1.png", "./img/character/89/2.png"];
 
   // 基本攻撃タイプ
   Character89Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -6319,7 +6319,7 @@ Character91Base = (function() {
   Character91Base.defaultJoin = false;
 
   // 画像のリスト
-  Character91Base.images = [];
+  Character91Base.images = ["./img/character/91/1.png", "./img/character/91/2.png"];
 
   // 基本攻撃タイプ
   Character91Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -6389,7 +6389,7 @@ Character92Base = (function() {
   Character92Base.defaultJoin = false;
 
   // 画像のリスト
-  Character92Base.images = [];
+  Character92Base.images = ["./img/character/92/1.png", "./img/character/92/2.png"];
 
   // 基本攻撃タイプ
   Character92Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -6456,10 +6456,10 @@ Character93Base = (function() {
   Character93Base.characterName = "城ヶ崎美嘉";
 
   // 最初からいるか
-  Character93Base.defaultJoin = false;
+  Character93Base.defaultJoin = true;
 
   // 画像のリスト
-  Character93Base.images = [];
+  Character93Base.images = ["./img/character/93/1.png", "./img/character/93/2.png"];
 
   // 基本攻撃タイプ
   Character93Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -6526,10 +6526,10 @@ Character94Base = (function() {
   Character94Base.characterName = "城ヶ崎莉嘉";
 
   // 最初からいるか
-  Character94Base.defaultJoin = false;
+  Character94Base.defaultJoin = true;
 
   // 画像のリスト
-  Character94Base.images = [];
+  Character94Base.images = ["./img/character/94/1.png", "./img/character/94/2.png"];
 
   // 基本攻撃タイプ
   Character94Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -6599,7 +6599,7 @@ Character95Base = (function() {
   Character95Base.defaultJoin = false;
 
   // 画像のリスト
-  Character95Base.images = [];
+  Character95Base.images = ["./img/character/95/1.png", "./img/character/95/2.png"];
 
   // 基本攻撃タイプ
   Character95Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -6669,7 +6669,7 @@ Character96Base = (function() {
   Character96Base.defaultJoin = false;
 
   // 画像のリスト
-  Character96Base.images = [];
+  Character96Base.images = ["./img/character/96/1.png", "./img/character/96/2.png"];
 
   // 基本攻撃タイプ
   Character96Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -6739,7 +6739,7 @@ Character97Base = (function() {
   Character97Base.defaultJoin = false;
 
   // 画像のリスト
-  Character97Base.images = [];
+  Character97Base.images = ["./img/character/97/1.png", "./img/character/97/2.png"];
 
   // 基本攻撃タイプ
   Character97Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -6809,7 +6809,7 @@ Character98Base = (function() {
   Character98Base.defaultJoin = false;
 
   // 画像のリスト
-  Character98Base.images = [];
+  Character98Base.images = ["./img/character/98/1.png", "./img/character/98/2.png"];
 
   // 基本攻撃タイプ
   Character98Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -6879,7 +6879,7 @@ Character99Base = (function() {
   Character99Base.defaultJoin = false;
 
   // 画像のリスト
-  Character99Base.images = [];
+  Character99Base.images = ["./img/character/99/1.png", "./img/character/99/2.png"];
 
   // 基本攻撃タイプ
   Character99Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -6949,7 +6949,7 @@ Character100Base = (function() {
   Character100Base.defaultJoin = false;
 
   // 画像のリスト
-  Character100Base.images = [];
+  Character100Base.images = ["./img/character/100/1.png", "./img/character/100/2.png"];
 
   // 基本攻撃タイプ
   Character100Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7019,7 +7019,7 @@ Character101Base = (function() {
   Character101Base.defaultJoin = false;
 
   // 画像のリスト
-  Character101Base.images = [];
+  Character101Base.images = ["./img/character/101/1.png", "./img/character/101/2.png"];
 
   // 基本攻撃タイプ
   Character101Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7089,7 +7089,7 @@ Character102Base = (function() {
   Character102Base.defaultJoin = false;
 
   // 画像のリスト
-  Character102Base.images = [];
+  Character102Base.images = ["./img/character/102/1.png", "./img/character/102/2.png"];
 
   // 基本攻撃タイプ
   Character102Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7159,7 +7159,7 @@ Character103Base = (function() {
   Character103Base.defaultJoin = false;
 
   // 画像のリスト
-  Character103Base.images = [];
+  Character103Base.images = ["./img/character/103/1.png", "./img/character/103/2.png"];
 
   // 基本攻撃タイプ
   Character103Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7299,7 +7299,7 @@ Character105Base = (function() {
   Character105Base.defaultJoin = false;
 
   // 画像のリスト
-  Character105Base.images = [];
+  Character105Base.images = ["./img/character/105/1.png", "./img/character/105/2.png"];
 
   // 基本攻撃タイプ
   Character105Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7369,7 +7369,7 @@ Character106Base = (function() {
   Character106Base.defaultJoin = false;
 
   // 画像のリスト
-  Character106Base.images = [];
+  Character106Base.images = ["./img/character/106/1.png", "./img/character/106/2.png"];
 
   // 基本攻撃タイプ
   Character106Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7439,7 +7439,7 @@ Character107Base = (function() {
   Character107Base.defaultJoin = false;
 
   // 画像のリスト
-  Character107Base.images = [];
+  Character107Base.images = ["./img/character/107/1.png", "./img/character/107/2.png"];
 
   // 基本攻撃タイプ
   Character107Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7509,7 +7509,7 @@ Character108Base = (function() {
   Character108Base.defaultJoin = false;
 
   // 画像のリスト
-  Character108Base.images = [];
+  Character108Base.images = ["./img/character/108/1.png", "./img/character/108/2.png"];
 
   // 基本攻撃タイプ
   Character108Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7576,10 +7576,10 @@ Character109Base = (function() {
   Character109Base.characterName = "多田李衣菜";
 
   // 最初からいるか
-  Character109Base.defaultJoin = false;
+  Character109Base.defaultJoin = true;
 
   // 画像のリスト
-  Character109Base.images = [];
+  Character109Base.images = ["./img/character/109/1.png", "./img/character/109/2.png"];
 
   // 基本攻撃タイプ
   Character109Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7649,7 +7649,7 @@ Character110Base = (function() {
   Character110Base.defaultJoin = false;
 
   // 画像のリスト
-  Character110Base.images = [];
+  Character110Base.images = ["./img/character/110/1.png", "./img/character/110/2.png"];
 
   // 基本攻撃タイプ
   Character110Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7719,7 +7719,7 @@ Character111Base = (function() {
   Character111Base.defaultJoin = false;
 
   // 画像のリスト
-  Character111Base.images = [];
+  Character111Base.images = ["./img/character/111/1.png", "./img/character/111/2.png"];
 
   // 基本攻撃タイプ
   Character111Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7789,7 +7789,7 @@ Character112Base = (function() {
   Character112Base.defaultJoin = false;
 
   // 画像のリスト
-  Character112Base.images = [];
+  Character112Base.images = ["./img/character/112/1.png", "./img/character/112/2.png"];
 
   // 基本攻撃タイプ
   Character112Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7859,7 +7859,7 @@ Character113Base = (function() {
   Character113Base.defaultJoin = false;
 
   // 画像のリスト
-  Character113Base.images = [];
+  Character113Base.images = ["./img/character/113/1.png", "./img/character/113/2.png"];
 
   // 基本攻撃タイプ
   Character113Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7929,7 +7929,7 @@ Character114Base = (function() {
   Character114Base.defaultJoin = false;
 
   // 画像のリスト
-  Character114Base.images = [];
+  Character114Base.images = ["./img/character/114/1.png", "./img/character/114/2.png"];
 
   // 基本攻撃タイプ
   Character114Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -8069,7 +8069,7 @@ Character116Base = (function() {
   Character116Base.defaultJoin = false;
 
   // 画像のリスト
-  Character116Base.images = [];
+  Character116Base.images = ["./img/character/116/1.png", "./img/character/116/2.png"];
 
   // 基本攻撃タイプ
   Character116Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -8139,7 +8139,7 @@ Character117Base = (function() {
   Character117Base.defaultJoin = false;
 
   // 画像のリスト
-  Character117Base.images = [];
+  Character117Base.images = ["./img/character/117/1.png", "./img/character/117/2.png"];
 
   // 基本攻撃タイプ
   Character117Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -8209,7 +8209,7 @@ Character118Base = (function() {
   Character118Base.defaultJoin = false;
 
   // 画像のリスト
-  Character118Base.images = [];
+  Character118Base.images = ["./img/character/118/1.png", "./img/character/118/2.png"];
 
   // 基本攻撃タイプ
   Character118Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -8279,7 +8279,7 @@ Character119Base = (function() {
   Character119Base.defaultJoin = false;
 
   // 画像のリスト
-  Character119Base.images = [];
+  Character119Base.images = ["./img/character/119/1.png", "./img/character/119/2.png"];
 
   // 基本攻撃タイプ
   Character119Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -8349,7 +8349,7 @@ Character120Base = (function() {
   Character120Base.defaultJoin = false;
 
   // 画像のリスト
-  Character120Base.images = [];
+  Character120Base.images = ["./img/character/120/1.png", "./img/character/120/2.png"];
 
   // 基本攻撃タイプ
   Character120Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -8419,7 +8419,7 @@ Character121Base = (function() {
   Character121Base.defaultJoin = false;
 
   // 画像のリスト
-  Character121Base.images = [];
+  Character121Base.images = ["./img/character/121/1.png", "./img/character/121/2.png"];
 
   // 基本攻撃タイプ
   Character121Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -8489,7 +8489,7 @@ Character122Base = (function() {
   Character122Base.defaultJoin = false;
 
   // 画像のリスト
-  Character122Base.images = [];
+  Character122Base.images = ["./img/character/122/1.png", "./img/character/122/2.png"];
 
   // 基本攻撃タイプ
   Character122Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -8559,7 +8559,7 @@ Character123Base = (function() {
   Character123Base.defaultJoin = false;
 
   // 画像のリスト
-  Character123Base.images = [];
+  Character123Base.images = ["./img/character/123/1.png", "./img/character/123/2.png"];
 
   // 基本攻撃タイプ
   Character123Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -8629,7 +8629,7 @@ Character124Base = (function() {
   Character124Base.defaultJoin = false;
 
   // 画像のリスト
-  Character124Base.images = [];
+  Character124Base.images = ["./img/character/124/1.png", "./img/character/124/2.png"];
 
   // 基本攻撃タイプ
   Character124Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -8699,7 +8699,7 @@ Character125Base = (function() {
   Character125Base.defaultJoin = false;
 
   // 画像のリスト
-  Character125Base.images = [];
+  Character125Base.images = ["./img/character/125/1.png", "./img/character/125/2.png"];
 
   // 基本攻撃タイプ
   Character125Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -8769,7 +8769,7 @@ Character126Base = (function() {
   Character126Base.defaultJoin = false;
 
   // 画像のリスト
-  Character126Base.images = [];
+  Character126Base.images = ["./img/character/126/1.png", "./img/character/126/2.png"];
 
   // 基本攻撃タイプ
   Character126Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -8839,7 +8839,7 @@ Character127Base = (function() {
   Character127Base.defaultJoin = false;
 
   // 画像のリスト
-  Character127Base.images = [];
+  Character127Base.images = ["./img/character/127/1.png", "./img/character/127/2.png"];
 
   // 基本攻撃タイプ
   Character127Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -8909,7 +8909,7 @@ Character128Base = (function() {
   Character128Base.defaultJoin = false;
 
   // 画像のリスト
-  Character128Base.images = [];
+  Character128Base.images = ["./img/character/128/1.png", "./img/character/128/2.png"];
 
   // 基本攻撃タイプ
   Character128Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9049,7 +9049,7 @@ Character130Base = (function() {
   Character130Base.defaultJoin = false;
 
   // 画像のリスト
-  Character130Base.images = [];
+  Character130Base.images = ["./img/character/130/1.png", "./img/character/130/2.png"];
 
   // 基本攻撃タイプ
   Character130Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9119,7 +9119,7 @@ Character131Base = (function() {
   Character131Base.defaultJoin = false;
 
   // 画像のリスト
-  Character131Base.images = [];
+  Character131Base.images = ["./img/character/131/1.png", "./img/character/131/2.png"];
 
   // 基本攻撃タイプ
   Character131Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9189,7 +9189,7 @@ Character132Base = (function() {
   Character132Base.defaultJoin = false;
 
   // 画像のリスト
-  Character132Base.images = [];
+  Character132Base.images = ["./img/character/132/1.png", "./img/character/132/2.png"];
 
   // 基本攻撃タイプ
   Character132Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9259,7 +9259,7 @@ Character133Base = (function() {
   Character133Base.defaultJoin = false;
 
   // 画像のリスト
-  Character133Base.images = [];
+  Character133Base.images = ["./img/character/133/1.png", "./img/character/133/2.png"];
 
   // 基本攻撃タイプ
   Character133Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9329,7 +9329,7 @@ Character134Base = (function() {
   Character134Base.defaultJoin = false;
 
   // 画像のリスト
-  Character134Base.images = [];
+  Character134Base.images = ["./img/character/134/1.png", "./img/character/134/2.png"];
 
   // 基本攻撃タイプ
   Character134Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9399,7 +9399,7 @@ Character135Base = (function() {
   Character135Base.defaultJoin = false;
 
   // 画像のリスト
-  Character135Base.images = [];
+  Character135Base.images = ["./img/character/135/1.png", "./img/character/135/2.png"];
 
   // 基本攻撃タイプ
   Character135Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9469,7 +9469,7 @@ Character136Base = (function() {
   Character136Base.defaultJoin = false;
 
   // 画像のリスト
-  Character136Base.images = [];
+  Character136Base.images = ["./img/character/136/1.png", "./img/character/136/2.png"];
 
   // 基本攻撃タイプ
   Character136Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9539,7 +9539,7 @@ Character137Base = (function() {
   Character137Base.defaultJoin = false;
 
   // 画像のリスト
-  Character137Base.images = [];
+  Character137Base.images = ["./img/character/137/1.png", "./img/character/137/2.png"];
 
   // 基本攻撃タイプ
   Character137Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9609,7 +9609,7 @@ Character138Base = (function() {
   Character138Base.defaultJoin = false;
 
   // 画像のリスト
-  Character138Base.images = [];
+  Character138Base.images = ["./img/character/138/1.png", "./img/character/138/2.png"];
 
   // 基本攻撃タイプ
   Character138Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9679,7 +9679,7 @@ Character139Base = (function() {
   Character139Base.defaultJoin = false;
 
   // 画像のリスト
-  Character139Base.images = [];
+  Character139Base.images = ["./img/character/139/1.png", "./img/character/139/2.png"];
 
   // 基本攻撃タイプ
   Character139Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9749,7 +9749,7 @@ Character140Base = (function() {
   Character140Base.defaultJoin = false;
 
   // 画像のリスト
-  Character140Base.images = [];
+  Character140Base.images = ["./img/character/140/1.png", "./img/character/140/2.png"];
 
   // 基本攻撃タイプ
   Character140Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9819,7 +9819,7 @@ Character141Base = (function() {
   Character141Base.defaultJoin = false;
 
   // 画像のリスト
-  Character141Base.images = [];
+  Character141Base.images = ["./img/character/141/1.png", "./img/character/141/2.png"];
 
   // 基本攻撃タイプ
   Character141Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9889,7 +9889,7 @@ Character142Base = (function() {
   Character142Base.defaultJoin = false;
 
   // 画像のリスト
-  Character142Base.images = [];
+  Character142Base.images = ["./img/character/142/1.png", "./img/character/142/2.png"];
 
   // 基本攻撃タイプ
   Character142Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -9959,7 +9959,7 @@ Character143Base = (function() {
   Character143Base.defaultJoin = false;
 
   // 画像のリスト
-  Character143Base.images = [];
+  Character143Base.images = ["./img/character/143/1.png", "./img/character/143/2.png"];
 
   // 基本攻撃タイプ
   Character143Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -10029,7 +10029,7 @@ Character144Base = (function() {
   Character144Base.defaultJoin = false;
 
   // 画像のリスト
-  Character144Base.images = [];
+  Character144Base.images = ["./img/character/144/1.png", "./img/character/144/2.png"];
 
   // 基本攻撃タイプ
   Character144Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -10099,7 +10099,7 @@ Character145Base = (function() {
   Character145Base.defaultJoin = false;
 
   // 画像のリスト
-  Character145Base.images = [];
+  Character145Base.images = ["./img/character/145/1.png", "./img/character/145/2.png"];
 
   // 基本攻撃タイプ
   Character145Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -10309,7 +10309,7 @@ Character148Base = (function() {
   Character148Base.defaultJoin = false;
 
   // 画像のリスト
-  Character148Base.images = [];
+  Character148Base.images = ["./img/character/148/1.png", "./img/character/148/2.png"];
 
   // 基本攻撃タイプ
   Character148Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -10379,7 +10379,7 @@ Character149Base = (function() {
   Character149Base.defaultJoin = false;
 
   // 画像のリスト
-  Character149Base.images = [];
+  Character149Base.images = ["./img/character/149/1.png", "./img/character/149/2.png"];
 
   // 基本攻撃タイプ
   Character149Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -10449,7 +10449,7 @@ Character150Base = (function() {
   Character150Base.defaultJoin = false;
 
   // 画像のリスト
-  Character150Base.images = [];
+  Character150Base.images = ["./img/character/150/1.png", "./img/character/150/2.png"];
 
   // 基本攻撃タイプ
   Character150Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -10589,7 +10589,7 @@ Character152Base = (function() {
   Character152Base.defaultJoin = false;
 
   // 画像のリスト
-  Character152Base.images = [];
+  Character152Base.images = ["./img/character/152/1.png", "./img/character/152/2.png"];
 
   // 基本攻撃タイプ
   Character152Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -10659,7 +10659,7 @@ Character153Base = (function() {
   Character153Base.defaultJoin = false;
 
   // 画像のリスト
-  Character153Base.images = [];
+  Character153Base.images = ["./img/character/153/1.png", "./img/character/153/2.png"];
 
   // 基本攻撃タイプ
   Character153Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -10729,7 +10729,7 @@ Character154Base = (function() {
   Character154Base.defaultJoin = false;
 
   // 画像のリスト
-  Character154Base.images = [];
+  Character154Base.images = ["./img/character/154/1.png", "./img/character/154/2.png"];
 
   // 基本攻撃タイプ
   Character154Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -10799,7 +10799,7 @@ Character155Base = (function() {
   Character155Base.defaultJoin = false;
 
   // 画像のリスト
-  Character155Base.images = [];
+  Character155Base.images = ["./img/character/155/1.png", "./img/character/155/2.png"];
 
   // 基本攻撃タイプ
   Character155Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -10869,7 +10869,7 @@ Character156Base = (function() {
   Character156Base.defaultJoin = false;
 
   // 画像のリスト
-  Character156Base.images = [];
+  Character156Base.images = ["./img/character/156/1.png", "./img/character/156/2.png"];
 
   // 基本攻撃タイプ
   Character156Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -10939,7 +10939,7 @@ Character157Base = (function() {
   Character157Base.defaultJoin = false;
 
   // 画像のリスト
-  Character157Base.images = [];
+  Character157Base.images = ["./img/character/157/1.png", "./img/character/157/2.png"];
 
   // 基本攻撃タイプ
   Character157Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -11009,7 +11009,7 @@ Character158Base = (function() {
   Character158Base.defaultJoin = false;
 
   // 画像のリスト
-  Character158Base.images = [];
+  Character158Base.images = ["./img/character/158/1.png", "./img/character/158/2.png"];
 
   // 基本攻撃タイプ
   Character158Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -11079,7 +11079,7 @@ Character159Base = (function() {
   Character159Base.defaultJoin = false;
 
   // 画像のリスト
-  Character159Base.images = [];
+  Character159Base.images = ["./img/character/159/1.png", "./img/character/159/2.png"];
 
   // 基本攻撃タイプ
   Character159Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -11149,7 +11149,7 @@ Character160Base = (function() {
   Character160Base.defaultJoin = false;
 
   // 画像のリスト
-  Character160Base.images = [];
+  Character160Base.images = ["./img/character/160/1.png", "./img/character/160/2.png"];
 
   // 基本攻撃タイプ
   Character160Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -11219,7 +11219,7 @@ Character161Base = (function() {
   Character161Base.defaultJoin = false;
 
   // 画像のリスト
-  Character161Base.images = [];
+  Character161Base.images = ["./img/character/161/1.png", "./img/character/161/2.png"];
 
   // 基本攻撃タイプ
   Character161Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -11289,7 +11289,7 @@ Character162Base = (function() {
   Character162Base.defaultJoin = false;
 
   // 画像のリスト
-  Character162Base.images = [];
+  Character162Base.images = ["./img/character/162/1.png", "./img/character/162/2.png"];
 
   // 基本攻撃タイプ
   Character162Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -11359,7 +11359,7 @@ Character163Base = (function() {
   Character163Base.defaultJoin = false;
 
   // 画像のリスト
-  Character163Base.images = [];
+  Character163Base.images = ["./img/character/163/1.png", "./img/character/163/2.png"];
 
   // 基本攻撃タイプ
   Character163Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -11499,7 +11499,7 @@ Character165Base = (function() {
   Character165Base.defaultJoin = false;
 
   // 画像のリスト
-  Character165Base.images = [];
+  Character165Base.images = ["./img/character/165/1.png", "./img/character/165/2.png"];
 
   // 基本攻撃タイプ
   Character165Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -11569,7 +11569,7 @@ Character166Base = (function() {
   Character166Base.defaultJoin = false;
 
   // 画像のリスト
-  Character166Base.images = [];
+  Character166Base.images = ["./img/character/166/1.png", "./img/character/166/2.png"];
 
   // 基本攻撃タイプ
   Character166Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -11639,7 +11639,7 @@ Character167Base = (function() {
   Character167Base.defaultJoin = false;
 
   // 画像のリスト
-  Character167Base.images = [];
+  Character167Base.images = ["./img/character/167/1.png", "./img/character/167/2.png"];
 
   // 基本攻撃タイプ
   Character167Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -11709,7 +11709,7 @@ Character168Base = (function() {
   Character168Base.defaultJoin = false;
 
   // 画像のリスト
-  Character168Base.images = [];
+  Character168Base.images = ["./img/character/168/1.png", "./img/character/168/2.png"];
 
   // 基本攻撃タイプ
   Character168Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -11849,7 +11849,7 @@ Character170Base = (function() {
   Character170Base.defaultJoin = false;
 
   // 画像のリスト
-  Character170Base.images = [];
+  Character170Base.images = ["./img/character/170/1.png", "./img/character/170/2.png"];
 
   // 基本攻撃タイプ
   Character170Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -11916,10 +11916,10 @@ Character171Base = (function() {
   Character171Base.characterName = "三村かな子";
 
   // 最初からいるか
-  Character171Base.defaultJoin = false;
+  Character171Base.defaultJoin = true;
 
   // 画像のリスト
-  Character171Base.images = [];
+  Character171Base.images = ["./img/character/171/1.png", "./img/character/171/2.png"];
 
   // 基本攻撃タイプ
   Character171Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -11989,7 +11989,7 @@ Character172Base = (function() {
   Character172Base.defaultJoin = false;
 
   // 画像のリスト
-  Character172Base.images = [];
+  Character172Base.images = ["./img/character/172/1.png", "./img/character/172/2.png"];
 
   // 基本攻撃タイプ
   Character172Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12059,7 +12059,7 @@ Character173Base = (function() {
   Character173Base.defaultJoin = false;
 
   // 画像のリスト
-  Character173Base.images = [];
+  Character173Base.images = ["./img/character/173/1.png", "./img/character/173/2.png"];
 
   // 基本攻撃タイプ
   Character173Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12129,7 +12129,7 @@ Character174Base = (function() {
   Character174Base.defaultJoin = false;
 
   // 画像のリスト
-  Character174Base.images = [];
+  Character174Base.images = ["./img/character/174/1.png", "./img/character/174/2.png"];
 
   // 基本攻撃タイプ
   Character174Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12199,7 +12199,7 @@ Character175Base = (function() {
   Character175Base.defaultJoin = false;
 
   // 画像のリスト
-  Character175Base.images = [];
+  Character175Base.images = ["./img/character/175/1.png", "./img/character/175/2.png"];
 
   // 基本攻撃タイプ
   Character175Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12269,7 +12269,7 @@ Character176Base = (function() {
   Character176Base.defaultJoin = false;
 
   // 画像のリスト
-  Character176Base.images = [];
+  Character176Base.images = ["./img/character/176/1.png", "./img/character/176/2.png"];
 
   // 基本攻撃タイプ
   Character176Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12339,7 +12339,7 @@ Character177Base = (function() {
   Character177Base.defaultJoin = false;
 
   // 画像のリスト
-  Character177Base.images = [];
+  Character177Base.images = ["./img/character/177/1.png", "./img/character/177/2.png"];
 
   // 基本攻撃タイプ
   Character177Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12409,7 +12409,7 @@ Character178Base = (function() {
   Character178Base.defaultJoin = false;
 
   // 画像のリスト
-  Character178Base.images = [];
+  Character178Base.images = ["./img/character/178/1.png", "./img/character/178/2.png"];
 
   // 基本攻撃タイプ
   Character178Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12479,7 +12479,7 @@ Character179Base = (function() {
   Character179Base.defaultJoin = false;
 
   // 画像のリスト
-  Character179Base.images = [];
+  Character179Base.images = ["./img/character/179/1.png", "./img/character/179/2.png"];
 
   // 基本攻撃タイプ
   Character179Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12549,7 +12549,7 @@ Character180Base = (function() {
   Character180Base.defaultJoin = false;
 
   // 画像のリスト
-  Character180Base.images = [];
+  Character180Base.images = ["./img/character/180/1.png", "./img/character/180/2.png"];
 
   // 基本攻撃タイプ
   Character180Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12619,7 +12619,7 @@ Character181Base = (function() {
   Character181Base.defaultJoin = false;
 
   // 画像のリスト
-  Character181Base.images = [];
+  Character181Base.images = ["./img/character/181/1.png", "./img/character/181/2.png"];
 
   // 基本攻撃タイプ
   Character181Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12689,7 +12689,7 @@ Character182Base = (function() {
   Character182Base.defaultJoin = false;
 
   // 画像のリスト
-  Character182Base.images = [];
+  Character182Base.images = ["./img/character/182/1.png", "./img/character/182/2.png"];
 
   // 基本攻撃タイプ
   Character182Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12759,7 +12759,7 @@ Character183Base = (function() {
   Character183Base.defaultJoin = false;
 
   // 画像のリスト
-  Character183Base.images = [];
+  Character183Base.images = ["./img/character/183/1.png", "./img/character/183/2.png"];
 
   // 基本攻撃タイプ
   Character183Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12829,7 +12829,7 @@ Character184Base = (function() {
   Character184Base.defaultJoin = false;
 
   // 画像のリスト
-  Character184Base.images = [];
+  Character184Base.images = ["./img/character/184/1.png", "./img/character/184/2.png"];
 
   // 基本攻撃タイプ
   Character184Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12899,7 +12899,7 @@ Character185Base = (function() {
   Character185Base.defaultJoin = false;
 
   // 画像のリスト
-  Character185Base.images = [];
+  Character185Base.images = ["./img/character/185/1.png", "./img/character/185/2.png"];
 
   // 基本攻撃タイプ
   Character185Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -12969,7 +12969,7 @@ Character186Base = (function() {
   Character186Base.defaultJoin = false;
 
   // 画像のリスト
-  Character186Base.images = [];
+  Character186Base.images = ["./img/character/186/1.png", "./img/character/186/2.png"];
 
   // 基本攻撃タイプ
   Character186Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -13039,7 +13039,7 @@ Character187Base = (function() {
   Character187Base.defaultJoin = false;
 
   // 画像のリスト
-  Character187Base.images = [];
+  Character187Base.images = ["./img/character/187/1.png", "./img/character/187/2.png"];
 
   // 基本攻撃タイプ
   Character187Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -13109,7 +13109,7 @@ Character188Base = (function() {
   Character188Base.defaultJoin = false;
 
   // 画像のリスト
-  Character188Base.images = [];
+  Character188Base.images = ["./img/character/188/1.png", "./img/character/188/2.png"];
 
   // 基本攻撃タイプ
   Character188Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -13179,7 +13179,7 @@ Character189Base = (function() {
   Character189Base.defaultJoin = false;
 
   // 画像のリスト
-  Character189Base.images = [];
+  Character189Base.images = ["./img/character/189/1.png", "./img/character/189/2.png"];
 
   // 基本攻撃タイプ
   Character189Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -13249,7 +13249,7 @@ Character190Base = (function() {
   Character190Base.defaultJoin = false;
 
   // 画像のリスト
-  Character190Base.images = [];
+  Character190Base.images = ["./img/character/190/1.png", "./img/character/190/2.png"];
 
   // 基本攻撃タイプ
   Character190Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -13319,7 +13319,7 @@ Character191Base = (function() {
   Character191Base.defaultJoin = false;
 
   // 画像のリスト
-  Character191Base.images = [];
+  Character191Base.images = ["./img/character/191/1.png", "./img/character/191/2.png"];
 
   // 基本攻撃タイプ
   Character191Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -13389,7 +13389,7 @@ Character192Base = (function() {
   Character192Base.defaultJoin = false;
 
   // 画像のリスト
-  Character192Base.images = [];
+  Character192Base.images = ["./img/character/192/1.png", "./img/character/192/2.png"];
 
   // 基本攻撃タイプ
   Character192Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -13459,7 +13459,7 @@ Character193Base = (function() {
   Character193Base.defaultJoin = false;
 
   // 画像のリスト
-  Character193Base.images = [];
+  Character193Base.images = ["./img/character/193/1.png", "./img/character/193/2.png"];
 
   // 基本攻撃タイプ
   Character193Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -13529,7 +13529,7 @@ Character194Base = (function() {
   Character194Base.defaultJoin = false;
 
   // 画像のリスト
-  Character194Base.images = [];
+  Character194Base.images = ["./img/character/194/1.png", "./img/character/194/2.png"];
 
   // 基本攻撃タイプ
   Character194Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -13599,7 +13599,7 @@ Character195Base = (function() {
   Character195Base.defaultJoin = false;
 
   // 画像のリスト
-  Character195Base.images = [];
+  Character195Base.images = ["./img/character/195/1.png", "./img/character/195/2.png"];
 
   // 基本攻撃タイプ
   Character195Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -13669,7 +13669,7 @@ Character196Base = (function() {
   Character196Base.defaultJoin = false;
 
   // 画像のリスト
-  Character196Base.images = [];
+  Character196Base.images = ["./img/character/196/1.png", "./img/character/196/2.png"];
 
   // 基本攻撃タイプ
   Character196Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -13739,7 +13739,7 @@ Character197Base = (function() {
   Character197Base.defaultJoin = false;
 
   // 画像のリスト
-  Character197Base.images = [];
+  Character197Base.images = ["./img/character/197/1.png", "./img/character/197/2.png"];
 
   // 基本攻撃タイプ
   Character197Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -13809,7 +13809,7 @@ Character198Base = (function() {
   Character198Base.defaultJoin = false;
 
   // 画像のリスト
-  Character198Base.images = [];
+  Character198Base.images = ["./img/character/198/1.png", "./img/character/198/2.png"];
 
   // 基本攻撃タイプ
   Character198Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -13879,7 +13879,7 @@ Character199Base = (function() {
   Character199Base.defaultJoin = false;
 
   // 画像のリスト
-  Character199Base.images = [];
+  Character199Base.images = ["./img/character/199/1.png", "./img/character/199/2.png"];
 
   // 基本攻撃タイプ
   Character199Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;

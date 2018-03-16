@@ -25,7 +25,7 @@ CostManager = (function() {
     }
 
     static getCostMax() {
-      return EnvManager.getFloor() * 2;
+      return this.DEFAULT + EnvManager.getFloor() * 2;
     }
 
     static getCostNow() {
@@ -40,6 +40,9 @@ CostManager = (function() {
   };
 
   CostManager.ID = 'cost_manager';
+
+  // 最初からあるコスト
+  CostManager.DEFAULT = 8;
 
   return CostManager;
 

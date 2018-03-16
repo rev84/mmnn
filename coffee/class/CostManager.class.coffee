@@ -1,5 +1,7 @@
 class CostManager
   @ID: 'cost_manager'
+  # 最初からあるコスト
+  @DEFAULT: 8
 
   @init:(@parentElement)->
     @divObject = $('<div>').attr('id', @ID).appendTo(@parentElement)
@@ -20,7 +22,7 @@ class CostManager
     @max.html(v)
 
   @getCostMax:->
-    EnvManager.getFloor() * 2
+    @DEFAULT + EnvManager.getFloor() * 2
 
   @getCostNow:->
     @costNow

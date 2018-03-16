@@ -4,6 +4,7 @@ var Panel;
 Panel = (function() {
   class Panel {
     constructor(parentElement, object, posY = 0, posX = 0, isShowOverlay = true, isCharacterPallet = false) {
+      this.redrawOverlay = this.redrawOverlay.bind(this);
       this.parentElement = parentElement;
       this.object = object;
       this.posY = posY;

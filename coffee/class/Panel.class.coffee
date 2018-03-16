@@ -232,7 +232,7 @@ class Panel
   isCostOver:->
     @isCharacterPallet and (CostManager.getCostMax() < (@object.getCost() + CostManager.getCostNow()))
 
-  redrawOverlay:->
+  redrawOverlay:=>
     @divObject.find('.infield, .comeback, .costover').remove()
 
     if @isShowOverlay

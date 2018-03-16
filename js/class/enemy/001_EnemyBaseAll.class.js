@@ -52,7 +52,7 @@ Enemy1Base = (function() {
   Enemy1Base.expRate = 2;
 
   // アイテムを落とす確率
-  Enemy1Base.itemRate = 1;
+  Enemy1Base.itemRate = 0.1;
 
   // アイテムのドロップテーブルID
   Enemy1Base.itemTableId = 8;
@@ -119,7 +119,7 @@ Enemy2Base = (function() {
   Enemy2Base.expRate = 2;
 
   // アイテムを落とす確率
-  Enemy2Base.itemRate = 1;
+  Enemy2Base.itemRate = 0.1;
 
   // アイテムのドロップテーブルID
   Enemy2Base.itemTableId = 8;
@@ -186,7 +186,7 @@ Enemy3Base = (function() {
   Enemy3Base.expRate = 2;
 
   // アイテムを落とす確率
-  Enemy3Base.itemRate = 1;
+  Enemy3Base.itemRate = 0.1;
 
   // アイテムのドロップテーブルID
   Enemy3Base.itemTableId = 8;
@@ -253,7 +253,7 @@ Enemy4Base = (function() {
   Enemy4Base.expRate = 2;
 
   // アイテムを落とす確率
-  Enemy4Base.itemRate = 1;
+  Enemy4Base.itemRate = 0.1;
 
   // アイテムのドロップテーブルID
   Enemy4Base.itemTableId = 8;
@@ -320,7 +320,7 @@ Enemy5Base = (function() {
   Enemy5Base.expRate = 2;
 
   // アイテムを落とす確率
-  Enemy5Base.itemRate = 1;
+  Enemy5Base.itemRate = 0.1;
 
   // アイテムのドロップテーブルID
   Enemy5Base.itemTableId = 8;
@@ -387,7 +387,7 @@ Enemy6Base = (function() {
   Enemy6Base.expRate = 2;
 
   // アイテムを落とす確率
-  Enemy6Base.itemRate = 1;
+  Enemy6Base.itemRate = 0.1;
 
   // アイテムのドロップテーブルID
   Enemy6Base.itemTableId = 8;
@@ -454,7 +454,7 @@ Enemy7Base = (function() {
   Enemy7Base.expRate = 2;
 
   // アイテムを落とす確率
-  Enemy7Base.itemRate = 1;
+  Enemy7Base.itemRate = 0.1;
 
   // アイテムのドロップテーブルID
   Enemy7Base.itemTableId = 8;
@@ -521,7 +521,7 @@ Enemy8Base = (function() {
   Enemy8Base.expRate = 2;
 
   // アイテムを落とす確率
-  Enemy8Base.itemRate = 1;
+  Enemy8Base.itemRate = 0.1;
 
   // アイテムのドロップテーブルID
   Enemy8Base.itemTableId = 8;
@@ -588,7 +588,7 @@ Enemy9Base = (function() {
   Enemy9Base.expRate = 2;
 
   // アイテムを落とす確率
-  Enemy9Base.itemRate = 1;
+  Enemy9Base.itemRate = 0.1;
 
   // アイテムのドロップテーブルID
   Enemy9Base.itemTableId = 8;

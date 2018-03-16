@@ -146,6 +146,8 @@ class MenuManager
     @reflectEnable()
     GameManager.flags.isCellObjectAnimation = false
 
+    LevelupManager.draw()
+
     GameManager.doLevelup()
     true
 
