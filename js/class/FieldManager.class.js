@@ -337,7 +337,7 @@ FieldManager = (function() {
       var c, cnt, enemyAmount, i, j, putEnemy, ref, targetCells;
       // 一時的にアニメーションしないようにする
       GameManager.flags.isCellObjectAnimation = false;
-      enemyAmount = Utl.gacha([[0, 10], [1, 20], [2, 50], [3, 20], [4, 20], [5, 10], [6, 10]]);
+      enemyAmount = Utl.gacha([[0, 50], [1, 500], [2, 400], [3, 30], [4, 10], [5, 10], [6, 10]]);
       putEnemy = (enemyObject) => {
         var cell, emptyCells, i, j, len, ref, ref1, ref2, targetCell, x;
         if (enemyObject === null) {
@@ -440,18 +440,18 @@ FieldManager = (function() {
       GACHA_ORDER = [
         [
           'ENEMY',
-          100 // ランダムな敵
+          20 // ランダムな敵
         ],
         [
           'PRESENT',
-          1000 // プレゼント
+          5 // プレゼント
         ],
         [
           'EMPTY',
-          100 // 空っぽ
+          60 // 空っぽ
         ]
       ];
-      PRESENT_ORDER = [[PresentboxN, 10], [PresentboxR, 10], [PresentboxSR, 10], [PresentboxSRp, 10], [PresentboxSSR, 10], [PresentboxSSRp, 10]];
+      PRESENT_ORDER = [[PresentboxN, 100000], [PresentboxR, 10000], [PresentboxSR, 1000], [PresentboxSRp, 100], [PresentboxSSR, 10], [PresentboxSSRp, 1]];
       nextField = [];
       for (yIndex = i = 0, ref = this.CELL_Y; (0 <= ref ? i < ref : i > ref); yIndex = 0 <= ref ? ++i : --i) {
         cell = new Cell(this.divObject, this.CELL_X, yIndex, this.BORDER_SIZE);

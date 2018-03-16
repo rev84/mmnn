@@ -62,8 +62,24 @@ input[type="range"]::-webkit-slider-thumb:active {
   z-index: 20;
 }
 #levelup {
-  overflow-y: scroll;
   z-index: 20;
+}
+.levelup_main {
+  width: 1050px;
+  height: 600px;
+  left: 135px;
+  top: 7px;
+  overflow-y: scroll;
+  z-index: 999;
+}
+.levelup_back {
+  width: 1320px;
+  height: 600px;
+  left: 0px;
+  top: 0px;
+  background-color: #000000;
+  opacity: 0.5;
+  z-index: 99;
 }
 #field_visible {
   z-index: 10;
@@ -264,6 +280,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 .panel, .panel > *,
 #exp, #life, #floor, #jewel,
+#levelup, #levelup > *,
 .levelup_panel, .levelup_panel > *,
 .levelup_controller, .levelup_controller > *,
 #battle_result > *,
@@ -587,12 +604,16 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 #gacha {
-  width: 600px;
+  width: 1320px;
   height: 600px;
 }
 .gacha_image {
   top: 0px;
-  left: 0px;
+  left: 516.5px;
+}
+.gacha_button {
+  top: 450px;
+  left: 535px;
 }
 #menu > .left {
   float: left;

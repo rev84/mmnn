@@ -317,9 +317,9 @@ class Enemy8Base extends EnemyBase
   # アイテムを落とす確率
   @itemRate = 1
   # アイテムのドロップテーブルID
-  @itemTableId = 7
+  @itemTableId = 8
   # アイテムがジュエルになる時の額
-  @itemJewelAmount = 
+  @itemJewelAmount = 50
 
   @abilityName = "魔法のカード"
   @abilityDesc = "よくジュエルを落とす"

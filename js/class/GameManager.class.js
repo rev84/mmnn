@@ -154,6 +154,8 @@ GameManager = (function() {
 
     // ガチャ画面
     static doGacha(isSoon = false) {
+      // ボタン更新
+      GachaManager.refreshButton();
       this.partsAnimation(this.POSITION.GACHA, isSoon);
       // キャラクター設置を確定
       CharacterPalletManager.onExit();

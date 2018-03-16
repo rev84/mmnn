@@ -524,10 +524,12 @@ Enemy8Base = (function() {
   Enemy8Base.itemRate = 1;
 
   // アイテムのドロップテーブルID
-  Enemy8Base.itemTableId = 7;
+  Enemy8Base.itemTableId = 8;
 
   // アイテムがジュエルになる時の額
-  Enemy8Base.itemJewelAmount = Enemy8Base.abilityName = "魔法のカード";
+  Enemy8Base.itemJewelAmount = 50;
+
+  Enemy8Base.abilityName = "魔法のカード";
 
   Enemy8Base.abilityDesc = "よくジュエルを落とす";
 

@@ -7,8 +7,12 @@ GachaManager = (function() {
       this.gameElement = gameElement;
       this.divObject = $('<div>').attr('id', this.ID);
       $('<img>').addClass('gacha_image').attr('src', './img/gacha.png').appendTo(this.divObject);
-      $('<button>').addClass('gacha_button').html('引く').appendTo(this.divObject).on('click', this.onGain.bind(this));
+      this.button = $('<button>').addClass('btn btn-lg btn-primary gacha_button').html('スタージュエル250個で引く').on('click', this.onGain.bind(this)).appendTo(this.divObject);
       return this.divObject.appendTo(this.gameElement);
+    }
+
+    static refreshButton() {
+      return this.button.prop('disabled', !(250 <= EnvManager.getJewel()));
     }
 
     static async onGain() {
@@ -31,7 +35,9 @@ GachaManager = (function() {
         await ItemWindow.showItem(res);
       }
       // セーブ
-      return SaveManager.save();
+      SaveManager.save();
+      // ボタンの更新
+      return this.refreshButton();
     }
 
   };

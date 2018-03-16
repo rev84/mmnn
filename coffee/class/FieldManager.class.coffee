@@ -270,11 +270,11 @@ class FieldManager
     GameManager.flags.isCellObjectAnimation = false
 
     enemyAmount = Utl.gacha [
-      [0, 10]
-      [1, 20]
-      [2, 50]
-      [3, 20]
-      [4, 20]
+      [0, 50]
+      [1, 500]
+      [2, 400]
+      [3, 30]
+      [4, 10]
       [5, 10]
       [6, 10]
     ]
@@ -347,18 +347,18 @@ class FieldManager
   # 次の列を生成する
   @generateNextField:->
     GACHA_ORDER = [
-      ['ENEMY', 100]  # ランダムな敵
-      ['PRESENT', 1000]  # プレゼント
-      ['EMPTY', 100]  # 空っぽ
+      ['ENEMY', 20]  # ランダムな敵
+      ['PRESENT', 5]  # プレゼント
+      ['EMPTY', 60]  # 空っぽ
     ]
 
     PRESENT_ORDER = [
-      [PresentboxN, 10]
-      [PresentboxR, 10]
-      [PresentboxSR, 10]
-      [PresentboxSRp, 10]
+      [PresentboxN, 100000]
+      [PresentboxR, 10000]
+      [PresentboxSR, 1000]
+      [PresentboxSRp, 100]
       [PresentboxSSR, 10]
-      [PresentboxSSRp, 10]
+      [PresentboxSSRp, 1]
     ]
 
     nextField = []

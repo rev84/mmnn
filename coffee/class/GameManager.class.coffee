@@ -250,6 +250,9 @@ class GameManager
 
   # ガチャ画面
   @doGacha:(isSoon = false)->
+    # ボタン更新
+    GachaManager.refreshButton()
+
     @partsAnimation @POSITION.GACHA, isSoon
 
     # キャラクター設置を確定

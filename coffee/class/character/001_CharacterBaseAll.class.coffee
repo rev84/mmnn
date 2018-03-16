@@ -724,7 +724,7 @@ class Character17Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "安斎都"
 
-  @abilityName = "なし"
+  @abilityName = "探偵"
   @abilityDesc = "なし"
 
   constructor:(params)->
@@ -1842,8 +1842,8 @@ class Character43Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "片桐早苗"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "逮捕"
+  @abilityDesc = "攻撃した相手を行動不能にする"
 
   constructor:(params)->
     super(params)
@@ -1885,8 +1885,8 @@ class Character44Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "上条春菜"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "メガネをどうぞ"
+  @abilityDesc = "出撃している間、味方の攻撃が必中になる"
 
   constructor:(params)->
     super(params)
@@ -2074,15 +2074,15 @@ class Character49Base extends CharacterBase
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
-  @attackBase = 13
+  @attackBase = 12
   # 成長率：HP
   @hpBase = 17
   # 成長率：物理防御
-  @pDefBase = 1.5
+  @pDefBase = 1
   # 成長率：魔法防御
-  @mDefBase = 1.5
+  @mDefBase = 1
   # 基本移動力
-  @moveBase = 4
+  @moveBase = 30
   # 基本射程
   @rangeBase = 1
   # 基本命中率
@@ -2101,7 +2101,7 @@ class Character49Base extends CharacterBase
   @textDeath = "北川真尋"
 
   @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityDesc = "移動したターン、その距離に応じて攻撃力が上がる"
 
   constructor:(params)->
     super(params)
@@ -4552,7 +4552,7 @@ class Character106Base extends CharacterBase
   @textDeath = "鷹富士茄子"
 
   @abilityName = "幸運"
-  @abilityDesc = "攻撃したプレゼントのランクが1上がる"
+  @abilityDesc = "攻撃したプレゼントのランクが1上がることがある"
 
   constructor:(params)->
     super(params)
@@ -6099,7 +6099,7 @@ class Character142Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "藤居朋"
 
-  @abilityName = "なし"
+  @abilityName = "占い"
   @abilityDesc = "なし"
 
   constructor:(params)->
@@ -6916,7 +6916,7 @@ class Character161Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "的場梨沙"
 
-  @abilityName = "なし"
+  @abilityName = "パパ"
   @abilityDesc = "なし"
 
   constructor:(params)->

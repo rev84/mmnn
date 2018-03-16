@@ -7,11 +7,18 @@ class GachaManager
   @init:(@gameElement)->
     @divObject = $('<div>').attr('id', @ID)
 
-    $('<img>').addClass('gacha_image').attr('src', './img/gacha.png').appendTo(@divObject)
-    $('<button>').addClass('gacha_button').html('引く').appendTo(@divObject)
+    $('<img>').addClass('gacha_image').attr('src', './img/gacha.png')
+    .appendTo(@divObject)
+
+    @button = $('<button>').addClass('btn btn-lg btn-primary gacha_button')
+    .html('スタージュエル250個で引く')
     .on('click', @onGain.bind(@))
+    .appendTo(@divObject)
 
     @divObject.appendTo @gameElement
+
+  @refreshButton:->
+    @button.prop('disabled', !(250 <= EnvManager.getJewel()))
 
   @onGain:->
     # ジュエルが足りない
@@ -33,3 +40,6 @@ class GachaManager
 
     # セーブ
     SaveManager.save()
+
+    # ボタンの更新
+    @refreshButton()

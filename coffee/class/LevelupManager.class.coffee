@@ -1,13 +1,17 @@
 class LevelupManager
   @ID:'levelup'
-  @SIZE_X = 1050
-  @SIZE_Y = 600
+  @SIZE_X = 1320
+  @SIZE_Y = 585
 
   @init:(@parentElement)->
-    @divObject = $('<div>').attr('id', @ID).css({
+    @spaceObject = $('<div>').attr('id', @ID).css({
       width: @SIZE_X
       height: @SIZE_Y
     }).appendTo(@parentElement)
+
+    @divObject = $('<div>').addClass('levelup_main').appendTo(@spaceObject)
+
+    $('<div>').addClass('levelup_back').appendTo(@spaceObject)
 
     @characters = []
     for k, cObj of GameManager.characters
@@ -19,9 +23,12 @@ class LevelupManager
     
     @panels = []
     $('#'+@ID+' > .'+LevelupPanel.CLASSNAME).remove()
+    y = 0
     for c, index in @characters
-      top = index * LevelupPanel.SIZE_Y
+      continue unless c.isJoined()
+      top = y * LevelupPanel.SIZE_Y
       @panels.push(new LevelupPanel(@divObject, c, top))
+      y++
 
   @show:->
     @divObject.addClass('no_display')

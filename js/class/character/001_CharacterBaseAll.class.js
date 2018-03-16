@@ -1183,7 +1183,7 @@ Character17Base = (function() {
   // 死んだ時の台詞
   Character17Base.textDeath = "安斎都";
 
-  Character17Base.abilityName = "なし";
+  Character17Base.abilityName = "探偵";
 
   Character17Base.abilityDesc = "なし";
 
@@ -3003,9 +3003,9 @@ Character43Base = (function() {
   // 死んだ時の台詞
   Character43Base.textDeath = "片桐早苗";
 
-  Character43Base.abilityName = "なし";
+  Character43Base.abilityName = "逮捕";
 
-  Character43Base.abilityDesc = "なし";
+  Character43Base.abilityDesc = "攻撃した相手を行動不能にする";
 
   return Character43Base;
 
@@ -3073,9 +3073,9 @@ Character44Base = (function() {
   // 死んだ時の台詞
   Character44Base.textDeath = "上条春菜";
 
-  Character44Base.abilityName = "なし";
+  Character44Base.abilityName = "メガネをどうぞ";
 
-  Character44Base.abilityDesc = "なし";
+  Character44Base.abilityDesc = "出撃している間、味方の攻撃が必中になる";
 
   return Character44Base;
 
@@ -3385,19 +3385,19 @@ Character49Base = (function() {
   Character49Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
 
   // 成長率：攻撃力
-  Character49Base.attackBase = 13;
+  Character49Base.attackBase = 12;
 
   // 成長率：HP
   Character49Base.hpBase = 17;
 
   // 成長率：物理防御
-  Character49Base.pDefBase = 1.5;
+  Character49Base.pDefBase = 1;
 
   // 成長率：魔法防御
-  Character49Base.mDefBase = 1.5;
+  Character49Base.mDefBase = 1;
 
   // 基本移動力
-  Character49Base.moveBase = 4;
+  Character49Base.moveBase = 30;
 
   // 基本射程
   Character49Base.rangeBase = 1;
@@ -3425,7 +3425,7 @@ Character49Base = (function() {
 
   Character49Base.abilityName = "なし";
 
-  Character49Base.abilityDesc = "なし";
+  Character49Base.abilityDesc = "移動したターン、その距離に応じて攻撃力が上がる";
 
   return Character49Base;
 
@@ -7415,7 +7415,7 @@ Character106Base = (function() {
 
   Character106Base.abilityName = "幸運";
 
-  Character106Base.abilityDesc = "攻撃したプレゼントのランクが1上がる";
+  Character106Base.abilityDesc = "攻撃したプレゼントのランクが1上がることがある";
 
   return Character106Base;
 
@@ -9933,7 +9933,7 @@ Character142Base = (function() {
   // 死んだ時の台詞
   Character142Base.textDeath = "藤居朋";
 
-  Character142Base.abilityName = "なし";
+  Character142Base.abilityName = "占い";
 
   Character142Base.abilityDesc = "なし";
 
@@ -11263,7 +11263,7 @@ Character161Base = (function() {
   // 死んだ時の台詞
   Character161Base.textDeath = "的場梨沙";
 
-  Character161Base.abilityName = "なし";
+  Character161Base.abilityName = "パパ";
 
   Character161Base.abilityDesc = "なし";
 
