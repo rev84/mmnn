@@ -255,6 +255,9 @@ input[type="range"]::-webkit-slider-thumb:active {
       -2px  0px 1px #003366,
        0px -2px 1px #003366;        /* 文字の影 */  
 }
+.panel > .field.effected {
+  color: #0000ff;
+}
 .infield {
   left:0px;
   top:0px;

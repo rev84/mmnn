@@ -62,6 +62,11 @@ class CharacterBase extends ObjectBase
   #-------------------------------
   # effected系
   #-------------------------------
+  @effects2str:(effects)->
+    efs = []
+    efs.push '['+name+']<br>'+effect for [name, effect] in effects
+    efs.join('<br>')
+
   getAppliedUnits:->
     units = []
     fieldIds = FieldManager.getCharacterIds()
@@ -81,7 +86,7 @@ class CharacterBase extends ObjectBase
     for unit in units
       if unit.fix.atk isnt null
         amount += unit.fix.atk
-        effected.push '['+unit.name+'] 攻撃+'+(unit.fix.atk * 100)+'%'
+        effected.push [unit.name, '攻撃+'+(unit.fix.atk * 100)+'%']
 
     [@getAttack() + Math.ceil(@getAttackBase() * amount), effected]
 
@@ -92,7 +97,7 @@ class CharacterBase extends ObjectBase
     for unit in units
       if unit.fix.pdef isnt null
         amount += unit.fix.pdef
-        effected.push '['+unit.name+'] 物防+'+(unit.fix.pdef * 100)+'%'
+        effected.push [unit.name, '物防+'+(unit.fix.pdef * 100)+'%']
 
     [@getPDef() + Math.ceil(@getPDefBase() * amount), effected]
   getMDefEffected:(myCell = null)->
@@ -102,7 +107,7 @@ class CharacterBase extends ObjectBase
     for unit in units
       if unit.fix.mdef isnt null
         amount += unit.fix.mdef
-        effected.push '['+unit.name+'] 魔防+'+(unit.fix.mdef * 100)+'%'
+        effected.push [unit.name, '魔防+'+(unit.fix.mdef * 100)+'%']
 
     [@getMDef() + Math.ceil(@getMDefBase() * amount), effected]
 
@@ -113,7 +118,7 @@ class CharacterBase extends ObjectBase
     for unit in units
       if unit.fix.move isnt null
         amount += unit.fix.move
-        effected.push '['+unit.name+'] 移動+'+unit.fix.move
+        effected.push [unit.name, '移動+'+unit.fix.move]
 
     [@getMove() + amount, effected]
 
@@ -124,7 +129,7 @@ class CharacterBase extends ObjectBase
     for unit in units
       if unit.fix.range isnt null
         amount += unit.fix.range
-        effected.push '['+unit.name+'] 射程+'+unit.fix.range
+        effected.push [unit.name, '射程+'+unit.fix.range]
 
     [@getRange() + amount, effected]
 
@@ -135,7 +140,7 @@ class CharacterBase extends ObjectBase
     for unit in units
       if unit.fix.hit isnt null
         amount += unit.fix.hit
-        effected.push '['+unit.name+'] 命中+'+unit.fix.hit
+        effected.push [unit.name, '命中+'+unit.fix.hit]
 
     [@getHitRate() + amount, effected]
 
@@ -146,7 +151,7 @@ class CharacterBase extends ObjectBase
     for unit in units
       if unit.fix.dodge isnt null
         amount += unit.fix.dodge
-        effected.push '['+unit.name+'] 回避+'+unit.fix.dodge
+        effected.push [unit.name, '回避+'+unit.fix.dodge]
 
     [@getDodgeRate() + amount, effected]
     
@@ -157,7 +162,7 @@ class CharacterBase extends ObjectBase
     for unit in units
       if unit.fix.hp isnt null
         amount += unit.fix.hp
-        effected.push '['+unit.name+'] 最大HP+'+(unit.fix.hp * 100)+'%'
+        effected.push [unit.name, '最大HP+'+(unit.fix.mdef * 100)+'%']
 
     [@getHpMax() + Math.ceil(@getHpMaxBase() * amount), effected]
 

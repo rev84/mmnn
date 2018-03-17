@@ -115,9 +115,11 @@ Panel = (function() {
       }).html(ObjectBase.status2html(v));
       if (list.length > 0) {
         atk.tooltip({
-          'placement': 'top',
-          'title': list.join("\n")
+          placement: 'top',
+          title: CharacterBase.effects2str(list),
+          html: true
         });
+        atk.addClass('effected');
       }
       $(this.divObject).append(atk);
       // 物理防御力
@@ -135,9 +137,11 @@ Panel = (function() {
       }).html(ObjectBase.status2html(v));
       if (list.length > 0) {
         pdef.tooltip({
-          'placement': 'top',
-          'title': list.join("\n")
+          placement: 'top',
+          title: CharacterBase.effects2str(list),
+          html: true
         });
+        pdef.addClass('effected');
       }
       $(this.divObject).append(pdef);
       // 魔法防御力
@@ -155,9 +159,11 @@ Panel = (function() {
       }).html(ObjectBase.status2html(v));
       if (list.length > 0) {
         mdef.tooltip({
-          'placement': 'top',
-          'title': list.join("\n")
+          placement: 'top',
+          title: CharacterBase.effects2str(list),
+          html: true
         });
+        mdef.addClass('effected');
       }
       $(this.divObject).append(mdef);
       // HP
@@ -189,9 +195,11 @@ Panel = (function() {
       }).html(ObjectBase.status2html(v));
       if (list.length > 0) {
         hpmax.tooltip({
-          'placement': 'top',
-          'title': list.join("\n")
+          placement: 'top',
+          title: CharacterBase.effects2str(list),
+          html: true
         });
+        hpmax.addClass('effected');
       }
       $(this.divObject).append(hpmax);
       // 命中率
@@ -209,9 +217,11 @@ Panel = (function() {
       }).html(ObjectBase.status2html(v));
       if (list.length > 0) {
         hit.tooltip({
-          'placement': 'top',
-          'title': list.join("\n")
+          placement: 'top',
+          title: CharacterBase.effects2str(list),
+          html: true
         });
+        hit.addClass('effected');
       }
       $(this.divObject).append(hit);
       // 回避率
@@ -229,9 +239,11 @@ Panel = (function() {
       }).html(ObjectBase.status2html(v));
       if (list.length > 0) {
         dodge.tooltip({
-          'placement': 'top',
-          'title': list.join("\n")
+          placement: 'top',
+          title: CharacterBase.effects2str(list),
+          html: true
         });
+        dodge.addClass('effected');
       }
       $(this.divObject).append(dodge);
       // 移動力
@@ -249,9 +261,11 @@ Panel = (function() {
       }).html(ObjectBase.status2html(v));
       if (list.length > 0) {
         move.tooltip({
-          'placement': 'top',
-          'title': list.join("\n")
+          placement: 'top',
+          title: CharacterBase.effects2str(list),
+          html: true
         });
+        move.addClass('effected');
       }
       $(this.divObject).append(move);
       // 射程
@@ -269,9 +283,11 @@ Panel = (function() {
       }).html(v);
       if (list.length > 0) {
         range.tooltip({
-          'placement': 'top',
-          'title': list.join("\n")
+          placement: 'top',
+          title: CharacterBase.effects2str(list),
+          html: true
         });
+        range.addClass('effected');
       }
       $(this.divObject).append(range);
       // 能力
