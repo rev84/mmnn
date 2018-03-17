@@ -13,7 +13,9 @@ class ObjectBase
     OK:'./img/circle.png'
     MAY:'./img/triangle.png'
     NG:'./img/cross.png'
-
+  # 吹き出し演出の時の時間（ミリ秒）
+  @POPOVER_MSEC : 2000
+  
   constructor:(objectType)->
     @objectType = objectType
 
@@ -170,7 +172,12 @@ class ObjectBase
   # 敵ターン開始時
   onEnemyTurnStart:(myCell)->
     ;
-
+  # 攻撃時、ダメージを変換
+  onAttackDamage:(myCell, opCell, damage)->
+    damage
+  # 防御時、ダメージを変換
+  onDefenseDamage:(myCell, opCell, damage)->
+    damage
 
   # ダメージ計算式
   @getDamageMin:(attack, def)->

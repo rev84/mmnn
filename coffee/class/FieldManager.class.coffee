@@ -217,8 +217,8 @@ class FieldManager
         []
       # キャラクター
       else if object.isCharacterObject()
-        [ObjectBase.OBJECT_TYPE.ENEMY]
-      # 敵キャラクター 
+        [ObjectBase.OBJECT_TYPE.ENEMY, ObjectBase.OBJECT_TYPE.PRESENTBOX]
+      # 敵キャラクター
       else if object.isEnemyObject()
         [ObjectBase.OBJECT_TYPE.CHARACTER]
       else

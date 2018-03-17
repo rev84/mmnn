@@ -252,6 +252,16 @@ ObjectBase = (function() {
 
     onEnemyTurnStart(myCell) {}
 
+    onAttackDamage(myCell, opCell, damage) {
+      return damage;
+    }
+
+    // 防御時、ダメージを変換
+    onDefenseDamage(myCell, opCell, damage) {
+      return damage;
+    }
+
+    // ダメージ計算式
     static getDamageMin(attack, def) {
       var damage;
       damage = attack - def;
@@ -326,6 +336,9 @@ ObjectBase = (function() {
     MAY: './img/triangle.png',
     NG: './img/cross.png'
   };
+
+  // 吹き出し演出の時の時間（ミリ秒）
+  ObjectBase.POPOVER_MSEC = 2000;
 
   return ObjectBase;
 

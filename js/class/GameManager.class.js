@@ -228,7 +228,12 @@ GameManager = (function() {
       savedataItems = savedata !== null && 'items' in savedata ? savedata.items : null;
       savedataCharacters = savedata !== null && 'characters' in savedata ? savedata.characters : null;
       savedataField = savedata !== null && 'field' in savedata ? savedata.field : null;
-      savedataEnv = savedata !== null && 'env' in savedata ? savedata.env : null;
+      savedataEnv = savedata !== null && 'env' in savedata ? savedata.env : {
+        life: (this.DEBUG_CONFIG.START_LIFE !== false ? this.DEBUG_CONFIG.START_LIFE : EnvManager.getLife()),
+        floor: (this.DEBUG_CONFIG.START_FLOOR !== false ? this.DEBUG_CONFIG.START_FLOOR : EnvManager.getFloor()),
+        exp: (this.DEBUG_CONFIG.START_EXP !== false ? this.DEBUG_CONFIG.START_EXP : EnvManager.getExp()),
+        jewel: (this.DEBUG_CONFIG.START_JEWEL !== false ? this.DEBUG_CONFIG.START_JEWEL : EnvManager.getJewel())
+      };
       // 階を進んだか
       if (savedata !== null && 'flags' in savedata) {
         if ('isWalkInThisTurn' in savedata.flags) {
@@ -288,13 +293,6 @@ GameManager = (function() {
       }
       this.initialized.env = true;
       EnvManager.init(this.gameElement);
-      // デバッグ
-      /*
-      EnvManager.setLife 5
-      EnvManager.setExp (if @DEBUG_CONFIG.START_EXP is false then 0 else @DEBUG_CONFIG.START_EXP)
-      EnvManager.setFloor 1
-      EnvManager.setJewel (if @DEBUG_CONFIG.START_JUWEL is false then 0 else @DEBUG_CONFIG.START_JUWEL)
-      */
       if (savedata !== null) {
         if ('life' in savedata) {
           EnvManager.setLife(savedata.life);
@@ -361,7 +359,7 @@ GameManager = (function() {
           params = savedata[characterId];
         } else {
           params = {
-            joined: null,
+            joined: (this.DEBUG_CONFIG.IS_JOIN_ALL ? true : null),
             level: 1,
             hp: null,
             items: [],
@@ -734,6 +732,10 @@ GameManager = (function() {
       hp = defender.getHp();
       // ダメージ
       damage = ObjectBase.getDamage(attack, def);
+      // 攻撃側のダメージ割り込み処理
+      damage = (await attacker.onAttackDamage(attackerCell, defenderCell, damage));
+      // 防御側のダメージ割り込み処理
+      damage = (await defender.onAttackDamage(defenderCell, attackerCell, damage));
       // 攻撃アニメーション
       if (attacker.isCharacterObject()) {
         character = attacker;
@@ -907,10 +909,16 @@ GameManager = (function() {
     
     // 右クリックでメニューをでなくする
     DISABLE_RIGHT_CLICK_MENU: false,
+    // 初期ライフ（falseでデバッグ無効）
+    START_LIFE: 10000,
+    // 初期階層（falseでデバッグ無効）
+    START_FLOOR: 10000,
     // 初期経験値（falseでデバッグ無効）
     START_EXP: 10000,
     // 初期ジュエル（falseでデバッグ無効）
     START_JUWEL: 10000,
+    // 全員参加
+    IS_JOIN_ALL: true,
     // アイテムが0個でも表示する
     IS_SHOW_ALL_ITEMS: true,
     // セーブ

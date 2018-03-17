@@ -2,10 +2,16 @@ class GameManager
   @DEBUG_CONFIG = 
     # 右クリックでメニューをでなくする
     DISABLE_RIGHT_CLICK_MENU : false
+    # 初期ライフ（falseでデバッグ無効）
+    START_LIFE : 10000
+    # 初期階層（falseでデバッグ無効）
+    START_FLOOR : 10000
     # 初期経験値（falseでデバッグ無効）
     START_EXP : 10000
     # 初期ジュエル（falseでデバッグ無効）
     START_JUWEL : 10000
+    # 全員参加
+    IS_JOIN_ALL : true
     # アイテムが0個でも表示する
     IS_SHOW_ALL_ITEMS : true
     # セーブ
@@ -331,7 +337,12 @@ class GameManager
       if savedata isnt null and 'env' of savedata
         savedata.env
       else
-        null
+        {
+          life: (if @DEBUG_CONFIG.START_LIFE isnt false then @DEBUG_CONFIG.START_LIFE else EnvManager.getLife())
+          floor: (if @DEBUG_CONFIG.START_FLOOR isnt false then @DEBUG_CONFIG.START_FLOOR else EnvManager.getFloor())
+          exp: (if @DEBUG_CONFIG.START_EXP isnt false then @DEBUG_CONFIG.START_EXP else EnvManager.getExp())
+          jewel: (if @DEBUG_CONFIG.START_JEWEL isnt false then @DEBUG_CONFIG.START_JEWEL else EnvManager.getJewel())
+        }
     # 階を進んだか
     if savedata isnt null and 'flags' of savedata
       if 'isWalkInThisTurn' of savedata.flags
@@ -386,13 +397,6 @@ class GameManager
     @initialized.env = true
 
     EnvManager.init(@gameElement)
-    # デバッグ
-    ###
-    EnvManager.setLife 5
-    EnvManager.setExp (if @DEBUG_CONFIG.START_EXP is false then 0 else @DEBUG_CONFIG.START_EXP)
-    EnvManager.setFloor 1
-    EnvManager.setJewel (if @DEBUG_CONFIG.START_JUWEL is false then 0 else @DEBUG_CONFIG.START_JUWEL)
-    ###
     if savedata isnt null
       EnvManager.setLife savedata.life if 'life' of savedata
       EnvManager.setFloor savedata.floor if 'floor' of savedata
@@ -438,7 +442,7 @@ class GameManager
         params = savedata[characterId]
       else
         params = 
-          joined : null
+          joined : (if @DEBUG_CONFIG.IS_JOIN_ALL then true else null)
           level : 1
           hp : null
           items : []
@@ -737,6 +741,10 @@ class GameManager
 
     # ダメージ
     damage = ObjectBase.getDamage(attack, def)
+    # 攻撃側のダメージ割り込み処理
+    damage = await attacker.onAttackDamage(attackerCell, defenderCell, damage)
+    # 防御側のダメージ割り込み処理
+    damage = await defender.onAttackDamage(defenderCell, attackerCell, damage)
 
     # 攻撃アニメーション
     if attacker.isCharacterObject()

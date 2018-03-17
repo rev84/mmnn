@@ -265,8 +265,8 @@ FieldManager = (function() {
       
       // 何もない
       // キャラクター
-      // 敵キャラクター 
-      targetType = object === null ? [] : object.isCharacterObject() ? [ObjectBase.OBJECT_TYPE.ENEMY] : object.isEnemyObject() ? [ObjectBase.OBJECT_TYPE.CHARACTER] : [];
+      // 敵キャラクター
+      targetType = object === null ? [] : object.isCharacterObject() ? [ObjectBase.OBJECT_TYPE.ENEMY, ObjectBase.OBJECT_TYPE.PRESENTBOX] : object.isEnemyObject() ? [ObjectBase.OBJECT_TYPE.CHARACTER] : [];
       // 対象のタイプがないんじゃ攻撃対象もない
       if (targetType.length <= 0) {
         return [];
