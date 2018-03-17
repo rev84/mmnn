@@ -179,8 +179,8 @@ class Cell
     @elements.animation  = $('<div>').addClass('cell cell_animation')
                            .css(cssPos).css(cssSize).addClass('no_display')
                            .appendTo(@elements.mother)
-    @elements.receiveTurn = $('<div>').addClass('cell cell_receive_turn')
-                            .css({right:0, bottom:0}).addClass('no_display')
+    @elements.receiveTurn = $('<span>').addClass('cell cell_receive_turn')
+                            .addClass('no_display badge')
                             .appendTo(@elements.mother)
     @elements.hpBar      = $('<div>').addClass('cell cell_hp_bar')
                            .css({height: @constructor.SIZE_Y}).addClass('no_display')
@@ -252,6 +252,7 @@ class Cell
       $(@elements.mother).popover({
         content: text
         placement: position
+        container: 'body'
       }).popover('show')
       
       if msec isnt null

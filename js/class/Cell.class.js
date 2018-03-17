@@ -195,10 +195,7 @@ Cell = (function() {
         height: this.constructor.SIZE_Y * 0.3
       }).addClass('no_display').appendTo(this.elements.mother);
       this.elements.animation = $('<div>').addClass('cell cell_animation').css(cssPos).css(cssSize).addClass('no_display').appendTo(this.elements.mother);
-      this.elements.receiveTurn = $('<div>').addClass('cell cell_receive_turn').css({
-        right: 0,
-        bottom: 0
-      }).addClass('no_display').appendTo(this.elements.mother);
+      this.elements.receiveTurn = $('<span>').addClass('cell cell_receive_turn').addClass('no_display badge').appendTo(this.elements.mother);
       this.elements.hpBar = $('<div>').addClass('cell cell_hp_bar').css({
         height: this.constructor.SIZE_Y
       }).addClass('no_display').append($('<div>').addClass('cell_hp_bar_hp')).appendTo(this.elements.mother);
@@ -284,7 +281,8 @@ Cell = (function() {
         position = this.xIndex < 2 ? 'right' : FieldManager.CELL_X - 2 <= this.xIndex ? 'left' : this.yIndex < 2 ? 'bottom' : 'top';
         $(this.elements.mother).popover({
           content: text,
-          placement: position
+          placement: position,
+          container: 'body'
         }).popover('show');
         if (msec !== null) {
           await Utl.sleep(msec);

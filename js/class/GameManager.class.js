@@ -1015,7 +1015,7 @@ GameManager = (function() {
       levelup: null,
       item: null,
       gacha: null,
-      cost_manager: [200, 715]
+      cost_manager: [220, 715]
     },
     LEVELUP: {
       character_pallet: null,
