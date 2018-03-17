@@ -45,6 +45,8 @@ MenuManager = (function() {
       if (!GameManager.isEnable.characterPick) {
         return;
       }
+      // コントロール禁止
+      GameManager.changeControllable(false);
       // キャラクター出撃モードにする
       GameManager.resetFlags();
       GameManager.isMode.characterPick = true;
@@ -78,6 +80,8 @@ MenuManager = (function() {
       if (!GameManager.isEnable.battle) {
         return;
       }
+      // コントロール禁止
+      GameManager.changeControllable(false);
       // 戦闘モードにする
       GameManager.resetFlags();
       GameManager.isMode.battle = true;
@@ -106,6 +110,8 @@ MenuManager = (function() {
       if (!GameManager.isEnable.turnEnd) {
         return;
       }
+      // コントロール禁止
+      GameManager.changeControllable(false);
       GameManager.doTurnEnd();
       return true;
     }
@@ -119,6 +125,8 @@ MenuManager = (function() {
       if (!GameManager.isEnable.levelup) {
         return;
       }
+      // コントロール禁止
+      GameManager.changeControllable(false);
       // レベルアップモードにする
       GameManager.resetFlags();
       GameManager.isMode.levelup = true;
@@ -148,6 +156,8 @@ MenuManager = (function() {
       if (!GameManager.isEnable.walk) {
         return;
       }
+      // コントロール禁止
+      GameManager.changeControllable(false);
       GameManager.doWalk();
       return true;
     }
@@ -165,6 +175,8 @@ MenuManager = (function() {
       if (!GameManager.isEnable.undo) {
         return;
       }
+      // コントロール禁止
+      GameManager.changeControllable(false);
       GameManager.doUndo();
       return true;
     }
@@ -178,6 +190,8 @@ MenuManager = (function() {
       if (!GameManager.isEnable.item) {
         return;
       }
+      // コントロール禁止
+      GameManager.changeControllable(false);
       // 描画
       ItemManager.repick();
       ItemManager.calcUsedItemCount();
@@ -211,6 +225,8 @@ MenuManager = (function() {
       if (!GameManager.isEnable.gacha) {
         return;
       }
+      // コントロール禁止
+      GameManager.changeControllable(false);
       // ガチャモードにする
       GameManager.resetFlags();
       GameManager.isMode.gacha = true;

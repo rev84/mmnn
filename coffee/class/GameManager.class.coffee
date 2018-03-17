@@ -22,7 +22,7 @@ class GameManager
     else
       {
         # 右クリックでメニューをでなくする
-        DISABLE_RIGHT_CLICK_MENU : false
+        DISABLE_RIGHT_CLICK_MENU : true
         # 初期ライフ（falseでデバッグ無効）
         START_LIFE : 10000
         # 初期階層（falseでデバッグ無効）
@@ -225,6 +225,9 @@ class GameManager
 
     @partsAnimation @POSITION.CHARACTER_PICK, isSoon
     
+    # コントロール可能に
+    @changeControllable true
+
   # ターン終了
   @doTurnEnd:(isSoon = false)->
     # 疲労ダメージ

@@ -101,10 +101,12 @@ GameManager = (function() {
     static doCharacterPick(isSoon = false) {
       // セーブ
       SaveManager.save();
-      return this.partsAnimation(this.POSITION.CHARACTER_PICK, isSoon);
+      this.partsAnimation(this.POSITION.CHARACTER_PICK, isSoon);
+      
+      // コントロール可能に
+      return this.changeControllable(true);
     }
 
-    
     // ターン終了
     static async doTurnEnd(isSoon = false) {
       var c, k, ref;
@@ -937,7 +939,7 @@ GameManager = (function() {
     AUTO_SAVE: true
   } : {
     // 右クリックでメニューをでなくする
-    DISABLE_RIGHT_CLICK_MENU: false,
+    DISABLE_RIGHT_CLICK_MENU: true,
     // 初期ライフ（falseでデバッグ無効）
     START_LIFE: 10000,
     // 初期階層（falseでデバッグ無効）

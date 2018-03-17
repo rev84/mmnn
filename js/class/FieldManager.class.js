@@ -423,7 +423,7 @@ FieldManager = (function() {
               // 再描画
               c.draw();
               // 別のキャラを走査
-              results1.push(this.checkDeath());
+              results1.push((await this.checkDeath()));
             } else {
               results1.push(void 0);
             }
@@ -601,7 +601,7 @@ FieldManager = (function() {
     // 味方キャラ全員に自然ダメージ
     static async turnEndDamage() {
       var c, cBody, i, j, len, len1, ref, x, y;
-      ref = this.cells;
+      ref = FieldManager.cells;
       for (x = i = 0, len = ref.length; i < len; x = ++i) {
         cBody = ref[x];
         for (y = j = 0, len1 = cBody.length; j < len1; y = ++j) {
@@ -612,9 +612,9 @@ FieldManager = (function() {
           }
         }
       }
-      this.draw();
+      FieldManager.draw();
       // 死亡チェック
-      return (await this.checkDeath());
+      return (await FieldManager.checkDeath());
     }
 
     // フィールドにいる全キャラのIDを取得

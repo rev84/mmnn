@@ -68,6 +68,9 @@ class MenuManager
     # 出撃できないモードなら返る
     return unless GameManager.isEnable.characterPick
 
+    # コントロール禁止
+    GameManager.changeControllable false
+
     # キャラクター出撃モードにする
     GameManager.resetFlags()
     GameManager.isMode.characterPick = true
@@ -91,8 +94,8 @@ class MenuManager
     # パネル再描画
     CharacterPalletManager.draw()
 
-
     GameManager.doCharacterPick()
+
     true
 
   # 戦闘
@@ -100,6 +103,9 @@ class MenuManager
     return unless GameManager.isControllable()
     # 戦闘にできないモードなら返る
     return unless GameManager.isEnable.battle
+
+    # コントロール禁止
+    GameManager.changeControllable false
 
     # 戦闘モードにする
     GameManager.resetFlags()
@@ -126,6 +132,9 @@ class MenuManager
     # 前進できないモードなら返る
     return unless GameManager.isEnable.turnEnd
 
+    # コントロール禁止
+    GameManager.changeControllable false
+
     GameManager.doTurnEnd()
     true
 
@@ -134,6 +143,9 @@ class MenuManager
     return unless GameManager.isControllable()
     # 前進できないモードなら返る
     return unless GameManager.isEnable.levelup
+
+    # コントロール禁止
+    GameManager.changeControllable false
 
     # レベルアップモードにする
     GameManager.resetFlags()
@@ -162,6 +174,9 @@ class MenuManager
     # 前進できないモードなら返る
     return unless GameManager.isEnable.walk
 
+    # コントロール禁止
+    GameManager.changeControllable false
+
     GameManager.doWalk()
     true
 
@@ -173,6 +188,9 @@ class MenuManager
     # やりなおしできないモードなら返る
     return unless GameManager.isEnable.undo
 
+    # コントロール禁止
+    GameManager.changeControllable false
+
     GameManager.doUndo()
     true
 
@@ -181,6 +199,9 @@ class MenuManager
     return unless GameManager.isControllable()
     # アイテムモードにできないなら返る
     return unless GameManager.isEnable.item
+
+    # コントロール禁止
+    GameManager.changeControllable false
 
     # 描画
     ItemManager.repick()
@@ -212,6 +233,9 @@ class MenuManager
     return unless GameManager.isControllable()
     # ガチャモードにできないなら返る
     return unless GameManager.isEnable.gacha
+
+    # コントロール禁止
+    GameManager.changeControllable false
 
     # ガチャモードにする
     GameManager.resetFlags()

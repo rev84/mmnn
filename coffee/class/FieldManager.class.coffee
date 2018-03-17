@@ -341,7 +341,7 @@ class FieldManager
           # 再描画
           c.draw()
           # 別のキャラを走査
-          @checkDeath()
+          await @checkDeath()
 
 
   # 次の列を生成する
@@ -433,7 +433,7 @@ class FieldManager
           c.object.onEnemyTurnStart(c)
 
   # 味方キャラ全員に自然ダメージ
-  @turnEndDamage:->
+  @turnEndDamage:=>
     for cBody, x in @cells
       for c, y in cBody
         if c.object isnt null and c.object.isCharacterObject()

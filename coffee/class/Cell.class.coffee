@@ -326,6 +326,17 @@ class Cell
     # 行動済みでない場合のみ
     return if @object.isMoved()
 
+    # 戦闘中の特殊行動禁止
+    GameManager.isEnable.characterPick = false
+    GameManager.isEnable.levelup = false
+    GameManager.isEnable.battle = false
+    GameManager.isEnable.turnEnd = false
+    GameManager.isEnable.walk = false
+    GameManager.isEnable.undo = false
+    GameManager.isEnable.item = false
+    GameManager.isEnable.gacha = false
+    MenuManager.reflectEnable()
+
     # 移動選択
     GameManager.movePick @
     # 左キャラ固定
@@ -359,6 +370,17 @@ class Cell
     GameManager.isEnable.leftPanel = true
     GameManager.isEnable.rightPanel = true
 
+    # 戦闘中の特殊行動禁止解除
+    GameManager.isEnable.characterPick = true
+    GameManager.isEnable.levelup = true
+    GameManager.isEnable.battle = false
+    GameManager.isEnable.turnEnd = true
+    GameManager.isEnable.walk = true
+    GameManager.isEnable.undo = true
+    GameManager.isEnable.item = true
+    GameManager.isEnable.gacha = true
+    MenuManager.reflectEnable()
+
     # 操作可能に
     GameManager.changeControllable true
     true
@@ -376,6 +398,18 @@ class Cell
     return if GameManager.flags.lockedEnemyCell isnt null
 
     await FieldManager.moveObject(GameManager.flags.movePickCell, @)
+
+    # 移動後に行動がないなら禁止解除
+    if GameManager.flags.waitAttackCell is null
+      GameManager.isEnable.characterPick = true
+      GameManager.isEnable.levelup = true
+      GameManager.isEnable.battle = false
+      GameManager.isEnable.turnEnd = true
+      GameManager.isEnable.walk = true
+      GameManager.isEnable.undo = true
+      GameManager.isEnable.item = true
+      GameManager.isEnable.gacha = true
+      MenuManager.reflectEnable()
 
     # セーブ
     SaveManager.save()
@@ -402,6 +436,17 @@ class Cell
     GameManager.flags.moveToCell = null
     GameManager.flags.waitAttackCell = null
 
+    # 戦闘中の特殊行動禁止解除
+    GameManager.isEnable.characterPick = true
+    GameManager.isEnable.levelup = true
+    GameManager.isEnable.battle = false
+    GameManager.isEnable.turnEnd = true
+    GameManager.isEnable.walk = true
+    GameManager.isEnable.undo = true
+    GameManager.isEnable.item = true
+    GameManager.isEnable.gacha = true
+    MenuManager.reflectEnable()
+
     # セーブ
     SaveManager.save()
 
@@ -418,6 +463,17 @@ class Cell
     GameManager.flags.movePickCell = null
     GameManager.flags.waitAttackCell = null
     
+    # 戦闘中の特殊行動禁止解除
+    GameManager.isEnable.characterPick = true
+    GameManager.isEnable.levelup = true
+    GameManager.isEnable.battle = false
+    GameManager.isEnable.turnEnd = true
+    GameManager.isEnable.walk = true
+    GameManager.isEnable.undo = true
+    GameManager.isEnable.item = true
+    GameManager.isEnable.gacha = true
+    MenuManager.reflectEnable()
+
     # セーブ
     SaveManager.save()
 
@@ -433,6 +489,17 @@ class Cell
     return if GameManager.flags.waitAttackCell isnt null
     # 敵性オブジェクト以外はダメ
     return unless @object isnt null and (@object.isEnemyObject() or @object.isPresentboxObject())
+
+    # 戦闘中の特殊行動禁止
+    GameManager.isEnable.characterPick = false
+    GameManager.isEnable.levelup = false
+    GameManager.isEnable.battle = false
+    GameManager.isEnable.turnEnd = false
+    GameManager.isEnable.walk = false
+    GameManager.isEnable.undo = false
+    GameManager.isEnable.item = false
+    GameManager.isEnable.gacha = false
+    MenuManager.reflectEnable()
 
     # 敵ロックモードを設定
     GameManager.flags.lockedEnemyCell = @
@@ -461,6 +528,18 @@ class Cell
     FieldManager.draw()
     # 右パネルを解放
     GameManager.isEnable.rightPanel = true
+
+    # 戦闘中の特殊行動禁止解除
+    GameManager.isEnable.characterPick = true
+    GameManager.isEnable.levelup = true
+    GameManager.isEnable.battle = false
+    GameManager.isEnable.turnEnd = true
+    GameManager.isEnable.walk = true
+    GameManager.isEnable.undo = true
+    GameManager.isEnable.item = true
+    GameManager.isEnable.gacha = true
+    MenuManager.reflectEnable()
+
     # コールバックで操作可能にする
     GameManager.changeControllable true
     
