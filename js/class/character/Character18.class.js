@@ -7,4 +7,16 @@ Character18 = class Character18 extends Character18Base {
     super(params);
   }
 
+  // プレゼントに対して攻撃力2倍
+  async onAttackDamage(myCell, opCell, damage) {
+    var opObj;
+    opObj = opCell.object;
+    if (opObj !== null && opObj.isPresentboxObject()) {
+      await myCell.showPopover('プレゼントだ！', this.constructor.POPOVER_MSEC);
+      return damage * 2;
+    } else {
+      return damage;
+    }
+  }
+
 };

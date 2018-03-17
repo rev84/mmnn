@@ -259,6 +259,7 @@ function updateCharacter()
     if (in_array($file, [
       '000_CharacterBase.class.coffee'
     ])) continue;
+    if (preg_match('`Character\d+\.class\.coffee$`', $file)) continue;
     $path = $targetDir.'/'.$file;
     unlink($path);
   }
