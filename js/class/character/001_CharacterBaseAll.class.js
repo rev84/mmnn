@@ -63,9 +63,9 @@ Character1Base = (function() {
   // 死んだ時の台詞
   Character1Base.textDeath = "次はもっと頑張ります！";
 
-  Character1Base.abilityName = "笑顔の魔法";
+  Character1Base.abilityName = "未実装";
 
-  Character1Base.abilityDesc = "周囲8マスの味方の攻撃を10%上げる";
+  Character1Base.abilityDesc = "未実装";
 
   return Character1Base;
 
@@ -133,9 +133,9 @@ Character2Base = (function() {
   // 死んだ時の台詞
   Character2Base.textDeath = "課題、たくさん見えたよ";
 
-  Character2Base.abilityName = "蒼の波動";
+  Character2Base.abilityName = "未実装";
 
-  Character2Base.abilityDesc = "周囲8マスの味方の回避を10%上げる";
+  Character2Base.abilityDesc = "未実装";
 
   return Character2Base;
 
@@ -203,9 +203,9 @@ Character3Base = (function() {
   // 死んだ時の台詞
   Character3Base.textDeath = "こんなんじゃ、笑えないよ…";
 
-  Character3Base.abilityName = "フレンドリー";
+  Character3Base.abilityName = "未実装";
 
-  Character3Base.abilityDesc = "周囲8マスの味方の物防・魔防を10%上げる";
+  Character3Base.abilityDesc = "未実装";
 
   return Character3Base;
 
@@ -273,9 +273,9 @@ Character4Base = (function() {
   // 死んだ時の台詞
   Character4Base.textDeath = "相川千夏";
 
-  Character4Base.abilityName = "代官山系お洒落または語学";
+  Character4Base.abilityName = "未実装";
 
-  Character4Base.abilityDesc = "なし";
+  Character4Base.abilityDesc = "未実装";
 
   return Character4Base;
 
@@ -343,9 +343,9 @@ Character5Base = (function() {
   // 死んだ時の台詞
   Character5Base.textDeath = "愛野渚";
 
-  Character5Base.abilityName = "バスケ部キャプテン";
+  Character5Base.abilityName = "未実装";
 
-  Character5Base.abilityDesc = "なし";
+  Character5Base.abilityDesc = "未実装";
 
   return Character5Base;
 
@@ -413,9 +413,9 @@ Character6Base = (function() {
   // 死んだ時の台詞
   Character6Base.textDeath = "相葉夕美";
 
-  Character6Base.abilityName = "なし";
+  Character6Base.abilityName = "未実装";
 
-  Character6Base.abilityDesc = "ターン終了時、周囲の空いているマスに花を出現させることがある";
+  Character6Base.abilityDesc = "未実装";
 
   return Character6Base;
 
@@ -483,9 +483,9 @@ Character7Base = (function() {
   // 死んだ時の台詞
   Character7Base.textDeath = "相原雪乃";
 
-  Character7Base.abilityName = "紅茶大好きなお嬢様";
+  Character7Base.abilityName = "未実装";
 
-  Character7Base.abilityDesc = "なし";
+  Character7Base.abilityDesc = "未実装";
 
   return Character7Base;
 
@@ -553,9 +553,9 @@ Character8Base = (function() {
   // 死んだ時の台詞
   Character8Base.textDeath = "赤城みりあ";
 
-  Character8Base.abilityName = "みりあもやるー！";
+  Character8Base.abilityName = "未実装";
 
-  Character8Base.abilityDesc = "行動終了後に味方が攻撃した時、1%の確率で再行動できる";
+  Character8Base.abilityDesc = "未実装";
 
   return Character8Base;
 
@@ -623,9 +623,9 @@ Character9Base = (function() {
   // 死んだ時の台詞
   Character9Base.textDeath = "赤西瑛梨華";
 
-  Character9Base.abilityName = "O・WA・RA・I";
+  Character9Base.abilityName = "未実装";
 
-  Character9Base.abilityDesc = "なし";
+  Character9Base.abilityDesc = "未実装";
 
   return Character9Base;
 
@@ -693,9 +693,9 @@ Character10Base = (function() {
   // 死んだ時の台詞
   Character10Base.textDeath = "浅野風香";
 
-  Character10Base.abilityName = "セクシー小動物";
+  Character10Base.abilityName = "未実装";
 
-  Character10Base.abilityDesc = "なし";
+  Character10Base.abilityDesc = "未実装";
 
   return Character10Base;
 
@@ -763,9 +763,9 @@ Character11Base = (function() {
   // 死んだ時の台詞
   Character11Base.textDeath = "浅利七海";
 
-  Character11Base.abilityName = "さかなくん";
+  Character11Base.abilityName = "未実装";
 
-  Character11Base.abilityDesc = "なし";
+  Character11Base.abilityDesc = "未実装";
 
   return Character11Base;
 
@@ -833,9 +833,9 @@ Character12Base = (function() {
   // 死んだ時の台詞
   Character12Base.textDeath = "アナスタシア";
 
-  Character12Base.abilityName = "星をみるひとパパがロシア人なの";
+  Character12Base.abilityName = "未実装";
 
-  Character12Base.abilityDesc = "なし";
+  Character12Base.abilityDesc = "未実装";
 
   return Character12Base;
 
@@ -903,9 +903,9 @@ Character13Base = (function() {
   // 死んだ時の台詞
   Character13Base.textDeath = "安部菜々";
 
-  Character13Base.abilityName = "なし";
+  Character13Base.abilityName = "未実装";
 
-  Character13Base.abilityDesc = "なし";
+  Character13Base.abilityDesc = "未実装";
 
   return Character13Base;
 
@@ -973,9 +973,9 @@ Character14Base = (function() {
   // 死んだ時の台詞
   Character14Base.textDeath = "綾瀬穂乃香";
 
-  Character14Base.abilityName = "なし";
+  Character14Base.abilityName = "未実装";
 
-  Character14Base.abilityDesc = "なし";
+  Character14Base.abilityDesc = "未実装";
 
   return Character14Base;
 
@@ -1043,9 +1043,9 @@ Character15Base = (function() {
   // 死んだ時の台詞
   Character15Base.textDeath = "荒木比奈";
 
-  Character15Base.abilityName = "なし";
+  Character15Base.abilityName = "未実装";
 
-  Character15Base.abilityDesc = "なし";
+  Character15Base.abilityDesc = "未実装";
 
   return Character15Base;
 
@@ -1113,9 +1113,9 @@ Character16Base = (function() {
   // 死んだ時の台詞
   Character16Base.textDeath = "有浦柑奈";
 
-  Character16Base.abilityName = "なし";
+  Character16Base.abilityName = "未実装";
 
-  Character16Base.abilityDesc = "なし";
+  Character16Base.abilityDesc = "未実装";
 
   return Character16Base;
 
@@ -1183,9 +1183,9 @@ Character17Base = (function() {
   // 死んだ時の台詞
   Character17Base.textDeath = "安斎都";
 
-  Character17Base.abilityName = "探偵";
+  Character17Base.abilityName = "未実装";
 
-  Character17Base.abilityDesc = "なし";
+  Character17Base.abilityDesc = "未実装";
 
   return Character17Base;
 
@@ -1253,9 +1253,9 @@ Character18Base = (function() {
   // 死んだ時の台詞
   Character18Base.textDeath = "イヴ・サンタクロース";
 
-  Character18Base.abilityName = "プレゼント";
+  Character18Base.abilityName = "未実装";
 
-  Character18Base.abilityDesc = "プレゼントに与えるダメージが2倍になる";
+  Character18Base.abilityDesc = "未実装";
 
   return Character18Base;
 
@@ -1323,9 +1323,9 @@ Character19Base = (function() {
   // 死んだ時の台詞
   Character19Base.textDeath = "五十嵐響子";
 
-  Character19Base.abilityName = "なし";
+  Character19Base.abilityName = "未実装";
 
-  Character19Base.abilityDesc = "ターン終了時、周囲の味方のHPを回復することがある";
+  Character19Base.abilityDesc = "未実装";
 
   return Character19Base;
 
@@ -1393,9 +1393,9 @@ Character20Base = (function() {
   // 死んだ時の台詞
   Character20Base.textDeath = "池袋晶葉";
 
-  Character20Base.abilityName = "大丈夫博士";
+  Character20Base.abilityName = "未実装";
 
-  Character20Base.abilityDesc = "ターン開始時、周囲にいる味方一人の攻撃、物防、魔防を30%上げるか下げるかすることがある";
+  Character20Base.abilityDesc = "未実装";
 
   return Character20Base;
 
@@ -1463,9 +1463,9 @@ Character21Base = (function() {
   // 死んだ時の台詞
   Character21Base.textDeath = "伊集院惠";
 
-  Character21Base.abilityName = "なし";
+  Character21Base.abilityName = "未実装";
 
-  Character21Base.abilityDesc = "なし";
+  Character21Base.abilityDesc = "未実装";
 
   return Character21Base;
 
@@ -1533,9 +1533,9 @@ Character22Base = (function() {
   // 死んだ時の台詞
   Character22Base.textDeath = "一ノ瀬志希";
 
-  Character22Base.abilityName = "失踪";
+  Character22Base.abilityName = "未実装";
 
-  Character22Base.abilityDesc = "味方ターン終了時に、ランダムなマスに移動することがある";
+  Character22Base.abilityDesc = "未実装";
 
   return Character22Base;
 
@@ -1603,9 +1603,9 @@ Character23Base = (function() {
   // 死んだ時の台詞
   Character23Base.textDeath = "市原仁奈";
 
-  Character23Base.abilityName = "誰かのきもちになるですよ";
+  Character23Base.abilityName = "未実装";
 
-  Character23Base.abilityDesc = "敵ターン終了時に、ランダムなステータスがフィールド内の誰かの値に変わる";
+  Character23Base.abilityDesc = "未実装";
 
   return Character23Base;
 
@@ -1673,9 +1673,9 @@ Character24Base = (function() {
   // 死んだ時の台詞
   Character24Base.textDeath = "今井加奈";
 
-  Character24Base.abilityName = "なし";
+  Character24Base.abilityName = "未実装";
 
-  Character24Base.abilityDesc = "なし";
+  Character24Base.abilityDesc = "未実装";
 
   return Character24Base;
 
@@ -1743,9 +1743,9 @@ Character25Base = (function() {
   // 死んだ時の台詞
   Character25Base.textDeath = "井村雪菜";
 
-  Character25Base.abilityName = "なし";
+  Character25Base.abilityName = "未実装";
 
-  Character25Base.abilityDesc = "なし";
+  Character25Base.abilityDesc = "未実装";
 
   return Character25Base;
 
@@ -1813,9 +1813,9 @@ Character26Base = (function() {
   // 死んだ時の台詞
   Character26Base.textDeath = "上田鈴帆";
 
-  Character26Base.abilityName = "きぐるみ";
+  Character26Base.abilityName = "未実装";
 
-  Character26Base.abilityDesc = "攻撃した相手の";
+  Character26Base.abilityDesc = "未実装";
 
   return Character26Base;
 
@@ -1883,9 +1883,9 @@ Character27Base = (function() {
   // 死んだ時の台詞
   Character27Base.textDeath = "氏家むつみ";
 
-  Character27Base.abilityName = "なし";
+  Character27Base.abilityName = "未実装";
 
-  Character27Base.abilityDesc = "なし";
+  Character27Base.abilityDesc = "未実装";
 
   return Character27Base;
 
@@ -1953,9 +1953,9 @@ Character28Base = (function() {
   // 死んだ時の台詞
   Character28Base.textDeath = "梅木音葉";
 
-  Character28Base.abilityName = "なし";
+  Character28Base.abilityName = "未実装";
 
-  Character28Base.abilityDesc = "なし";
+  Character28Base.abilityDesc = "未実装";
 
   return Character28Base;
 
@@ -2023,9 +2023,9 @@ Character29Base = (function() {
   // 死んだ時の台詞
   Character29Base.textDeath = "江上椿";
 
-  Character29Base.abilityName = "なし";
+  Character29Base.abilityName = "未実装";
 
-  Character29Base.abilityDesc = "なし";
+  Character29Base.abilityDesc = "未実装";
 
   return Character29Base;
 
@@ -2093,9 +2093,9 @@ Character30Base = (function() {
   // 死んだ時の台詞
   Character30Base.textDeath = "衛藤美紗希";
 
-  Character30Base.abilityName = "なし";
+  Character30Base.abilityName = "未実装";
 
-  Character30Base.abilityDesc = "なし";
+  Character30Base.abilityDesc = "未実装";
 
   return Character30Base;
 
@@ -2163,9 +2163,9 @@ Character31Base = (function() {
   // 死んだ時の台詞
   Character31Base.textDeath = "海老原菜帆";
 
-  Character31Base.abilityName = "なし";
+  Character31Base.abilityName = "未実装";
 
-  Character31Base.abilityDesc = "なし";
+  Character31Base.abilityDesc = "未実装";
 
   return Character31Base;
 
@@ -2233,9 +2233,9 @@ Character32Base = (function() {
   // 死んだ時の台詞
   Character32Base.textDeath = "及川雫";
 
-  Character32Base.abilityName = "なし";
+  Character32Base.abilityName = "未実装";
 
-  Character32Base.abilityDesc = "なし";
+  Character32Base.abilityDesc = "未実装";
 
   return Character32Base;
 
@@ -2303,9 +2303,9 @@ Character33Base = (function() {
   // 死んだ時の台詞
   Character33Base.textDeath = "大石泉";
 
-  Character33Base.abilityName = "なし";
+  Character33Base.abilityName = "未実装";
 
-  Character33Base.abilityDesc = "なし";
+  Character33Base.abilityDesc = "未実装";
 
   return Character33Base;
 
@@ -2373,9 +2373,9 @@ Character34Base = (function() {
   // 死んだ時の台詞
   Character34Base.textDeath = "太田優";
 
-  Character34Base.abilityName = "なし";
+  Character34Base.abilityName = "未実装";
 
-  Character34Base.abilityDesc = "なし";
+  Character34Base.abilityDesc = "未実装";
 
   return Character34Base;
 
@@ -2443,9 +2443,9 @@ Character35Base = (function() {
   // 死んだ時の台詞
   Character35Base.textDeath = "大槻唯";
 
-  Character35Base.abilityName = "なし";
+  Character35Base.abilityName = "未実装";
 
-  Character35Base.abilityDesc = "なし";
+  Character35Base.abilityDesc = "未実装";
 
   return Character35Base;
 
@@ -2513,9 +2513,9 @@ Character36Base = (function() {
   // 死んだ時の台詞
   Character36Base.textDeath = "大西由里子";
 
-  Character36Base.abilityName = "なし";
+  Character36Base.abilityName = "未実装";
 
-  Character36Base.abilityDesc = "ターン開始時、別の敵に隣接している敵の3マス以内にいると、物防・魔防が10%上がることがある";
+  Character36Base.abilityDesc = "未実装";
 
   return Character36Base;
 
@@ -2583,9 +2583,9 @@ Character37Base = (function() {
   // 死んだ時の台詞
   Character37Base.textDeath = "大沼くるみ";
 
-  Character37Base.abilityName = "なし";
+  Character37Base.abilityName = "未実装";
 
-  Character37Base.abilityDesc = "なし";
+  Character37Base.abilityDesc = "未実装";
 
   return Character37Base;
 
@@ -2653,9 +2653,9 @@ Character38Base = (function() {
   // 死んだ時の台詞
   Character38Base.textDeath = "大原みちる";
 
-  Character38Base.abilityName = "なし";
+  Character38Base.abilityName = "未実装";
 
-  Character38Base.abilityDesc = "なし";
+  Character38Base.abilityDesc = "未実装";
 
   return Character38Base;
 
@@ -2723,9 +2723,9 @@ Character39Base = (function() {
   // 死んだ時の台詞
   Character39Base.textDeath = "岡崎泰葉";
 
-  Character39Base.abilityName = "なし";
+  Character39Base.abilityName = "未実装";
 
-  Character39Base.abilityDesc = "なし";
+  Character39Base.abilityDesc = "未実装";
 
   return Character39Base;
 
@@ -2793,9 +2793,9 @@ Character40Base = (function() {
   // 死んだ時の台詞
   Character40Base.textDeath = "緒方智絵里";
 
-  Character40Base.abilityName = "なし";
+  Character40Base.abilityName = "未実装";
 
-  Character40Base.abilityDesc = "なし";
+  Character40Base.abilityDesc = "未実装";
 
   return Character40Base;
 
@@ -2863,9 +2863,9 @@ Character41Base = (function() {
   // 死んだ時の台詞
   Character41Base.textDeath = "奥山沙織";
 
-  Character41Base.abilityName = "なし";
+  Character41Base.abilityName = "未実装";
 
-  Character41Base.abilityDesc = "なし";
+  Character41Base.abilityDesc = "未実装";
 
   return Character41Base;
 
@@ -2933,9 +2933,9 @@ Character42Base = (function() {
   // 死んだ時の台詞
   Character42Base.textDeath = "乙倉悠貴";
 
-  Character42Base.abilityName = "なし";
+  Character42Base.abilityName = "未実装";
 
-  Character42Base.abilityDesc = "なし";
+  Character42Base.abilityDesc = "未実装";
 
   return Character42Base;
 
@@ -3003,9 +3003,9 @@ Character43Base = (function() {
   // 死んだ時の台詞
   Character43Base.textDeath = "片桐早苗";
 
-  Character43Base.abilityName = "逮捕";
+  Character43Base.abilityName = "未実装";
 
-  Character43Base.abilityDesc = "攻撃した相手を行動不能にする";
+  Character43Base.abilityDesc = "未実装";
 
   return Character43Base;
 
@@ -3073,9 +3073,9 @@ Character44Base = (function() {
   // 死んだ時の台詞
   Character44Base.textDeath = "上条春菜";
 
-  Character44Base.abilityName = "メガネをどうぞ";
+  Character44Base.abilityName = "未実装";
 
-  Character44Base.abilityDesc = "出撃している間、味方の攻撃が必中になる";
+  Character44Base.abilityDesc = "未実装";
 
   return Character44Base;
 
@@ -3143,9 +3143,9 @@ Character45Base = (function() {
   // 死んだ時の台詞
   Character45Base.textDeath = "神谷奈緒";
 
-  Character45Base.abilityName = "なし";
+  Character45Base.abilityName = "未実装";
 
-  Character45Base.abilityDesc = "なし";
+  Character45Base.abilityDesc = "未実装";
 
   return Character45Base;
 
@@ -3213,9 +3213,9 @@ Character46Base = (function() {
   // 死んだ時の台詞
   Character46Base.textDeath = "川島瑞樹";
 
-  Character46Base.abilityName = "なし";
+  Character46Base.abilityName = "未実装";
 
-  Character46Base.abilityDesc = "なし";
+  Character46Base.abilityDesc = "未実装";
 
   return Character46Base;
 
@@ -3283,9 +3283,9 @@ Character47Base = (function() {
   // 死んだ時の台詞
   Character47Base.textDeath = "神崎蘭子";
 
-  Character47Base.abilityName = "黒魔術";
+  Character47Base.abilityName = "未実装";
 
-  Character47Base.abilityDesc = "攻撃した敵を一撃で倒すことがある";
+  Character47Base.abilityDesc = "未実装";
 
   return Character47Base;
 
@@ -3353,9 +3353,9 @@ Character48Base = (function() {
   // 死んだ時の台詞
   Character48Base.textDeath = "岸部彩華";
 
-  Character48Base.abilityName = "なし";
+  Character48Base.abilityName = "未実装";
 
-  Character48Base.abilityDesc = "なし";
+  Character48Base.abilityDesc = "未実装";
 
   return Character48Base;
 
@@ -3423,9 +3423,9 @@ Character49Base = (function() {
   // 死んだ時の台詞
   Character49Base.textDeath = "北川真尋";
 
-  Character49Base.abilityName = "なし";
+  Character49Base.abilityName = "未実装";
 
-  Character49Base.abilityDesc = "移動したターン、その距離に応じて攻撃力が上がる";
+  Character49Base.abilityDesc = "未実装";
 
   return Character49Base;
 
@@ -3493,9 +3493,9 @@ Character50Base = (function() {
   // 死んだ時の台詞
   Character50Base.textDeath = "喜多日菜子";
 
-  Character50Base.abilityName = "なし";
+  Character50Base.abilityName = "未実装";
 
-  Character50Base.abilityDesc = "なし";
+  Character50Base.abilityDesc = "未実装";
 
   return Character50Base;
 
@@ -3563,9 +3563,9 @@ Character51Base = (function() {
   // 死んだ時の台詞
   Character51Base.textDeath = "喜多見柚";
 
-  Character51Base.abilityName = "なし";
+  Character51Base.abilityName = "未実装";
 
-  Character51Base.abilityDesc = "なし";
+  Character51Base.abilityDesc = "未実装";
 
   return Character51Base;
 
@@ -3633,9 +3633,9 @@ Character52Base = (function() {
   // 死んだ時の台詞
   Character52Base.textDeath = "木場真奈美";
 
-  Character52Base.abilityName = "なし";
+  Character52Base.abilityName = "未実装";
 
-  Character52Base.abilityDesc = "なし";
+  Character52Base.abilityDesc = "未実装";
 
   return Character52Base;
 
@@ -3703,9 +3703,9 @@ Character53Base = (function() {
   // 死んだ時の台詞
   Character53Base.textDeath = "木村夏樹";
 
-  Character53Base.abilityName = "なし";
+  Character53Base.abilityName = "未実装";
 
-  Character53Base.abilityDesc = "なし";
+  Character53Base.abilityDesc = "未実装";
 
   return Character53Base;
 
@@ -3773,9 +3773,9 @@ Character54Base = (function() {
   // 死んだ時の台詞
   Character54Base.textDeath = "キャシー・グラハム";
 
-  Character54Base.abilityName = "なし";
+  Character54Base.abilityName = "未実装";
 
-  Character54Base.abilityDesc = "なし";
+  Character54Base.abilityDesc = "未実装";
 
   return Character54Base;
 
@@ -3843,9 +3843,9 @@ Character55Base = (function() {
   // 死んだ時の台詞
   Character55Base.textDeath = "桐野アヤ";
 
-  Character55Base.abilityName = "なし";
+  Character55Base.abilityName = "未実装";
 
-  Character55Base.abilityDesc = "なし";
+  Character55Base.abilityDesc = "未実装";
 
   return Character55Base;
 
@@ -3913,9 +3913,9 @@ Character56Base = (function() {
   // 死んだ時の台詞
   Character56Base.textDeath = "桐生つかさ";
 
-  Character56Base.abilityName = "なし";
+  Character56Base.abilityName = "未実装";
 
-  Character56Base.abilityDesc = "なし";
+  Character56Base.abilityDesc = "未実装";
 
   return Character56Base;
 
@@ -3983,9 +3983,9 @@ Character57Base = (function() {
   // 死んだ時の台詞
   Character57Base.textDeath = "日下部若葉";
 
-  Character57Base.abilityName = "なし";
+  Character57Base.abilityName = "未実装";
 
-  Character57Base.abilityDesc = "なし";
+  Character57Base.abilityDesc = "未実装";
 
   return Character57Base;
 
@@ -4053,9 +4053,9 @@ Character58Base = (function() {
   // 死んだ時の台詞
   Character58Base.textDeath = "工藤忍";
 
-  Character58Base.abilityName = "なし";
+  Character58Base.abilityName = "未実装";
 
-  Character58Base.abilityDesc = "なし";
+  Character58Base.abilityDesc = "未実装";
 
   return Character58Base;
 
@@ -4123,9 +4123,9 @@ Character59Base = (function() {
   // 死んだ時の台詞
   Character59Base.textDeath = "クラリス";
 
-  Character59Base.abilityName = "なし";
+  Character59Base.abilityName = "未実装";
 
-  Character59Base.abilityDesc = "なし";
+  Character59Base.abilityDesc = "未実装";
 
   return Character59Base;
 
@@ -4193,9 +4193,9 @@ Character60Base = (function() {
   // 死んだ時の台詞
   Character60Base.textDeath = "栗原ネネ";
 
-  Character60Base.abilityName = "なし";
+  Character60Base.abilityName = "未実装";
 
-  Character60Base.abilityDesc = "なし";
+  Character60Base.abilityDesc = "未実装";
 
   return Character60Base;
 
@@ -4263,9 +4263,9 @@ Character61Base = (function() {
   // 死んだ時の台詞
   Character61Base.textDeath = "黒川千秋";
 
-  Character61Base.abilityName = "なし";
+  Character61Base.abilityName = "未実装";
 
-  Character61Base.abilityDesc = "なし";
+  Character61Base.abilityDesc = "未実装";
 
   return Character61Base;
 
@@ -4333,9 +4333,9 @@ Character62Base = (function() {
   // 死んだ時の台詞
   Character62Base.textDeath = "ケイト";
 
-  Character62Base.abilityName = "なし";
+  Character62Base.abilityName = "未実装";
 
-  Character62Base.abilityDesc = "なし";
+  Character62Base.abilityDesc = "未実装";
 
   return Character62Base;
 
@@ -4403,9 +4403,9 @@ Character63Base = (function() {
   // 死んだ時の台詞
   Character63Base.textDeath = "古賀小春";
 
-  Character63Base.abilityName = "なし";
+  Character63Base.abilityName = "未実装";
 
-  Character63Base.abilityDesc = "なし";
+  Character63Base.abilityDesc = "未実装";
 
   return Character63Base;
 
@@ -4473,9 +4473,9 @@ Character64Base = (function() {
   // 死んだ時の台詞
   Character64Base.textDeath = "輿水幸子";
 
-  Character64Base.abilityName = "なし";
+  Character64Base.abilityName = "未実装";
 
-  Character64Base.abilityDesc = "なし";
+  Character64Base.abilityDesc = "未実装";
 
   return Character64Base;
 
@@ -4543,9 +4543,9 @@ Character65Base = (function() {
   // 死んだ時の台詞
   Character65Base.textDeath = "小関麗奈";
 
-  Character65Base.abilityName = "いたずら";
+  Character65Base.abilityName = "未実装";
 
-  Character65Base.abilityDesc = "味方ターン開始時に、10%の確率で周囲4マスのどこかに岩を置く";
+  Character65Base.abilityDesc = "未実装";
 
   return Character65Base;
 
@@ -4613,9 +4613,9 @@ Character66Base = (function() {
   // 死んだ時の台詞
   Character66Base.textDeath = "小早川紗枝";
 
-  Character66Base.abilityName = "なし";
+  Character66Base.abilityName = "未実装";
 
-  Character66Base.abilityDesc = "なし";
+  Character66Base.abilityDesc = "未実装";
 
   return Character66Base;
 
@@ -4683,9 +4683,9 @@ Character67Base = (function() {
   // 死んだ時の台詞
   Character67Base.textDeath = "秋月律子";
 
-  Character67Base.abilityName = "なし";
+  Character67Base.abilityName = "未実装";
 
-  Character67Base.abilityDesc = "なし";
+  Character67Base.abilityDesc = "未実装";
 
   return Character67Base;
 
@@ -4753,9 +4753,9 @@ Character68Base = (function() {
   // 死んだ時の台詞
   Character68Base.textDeath = "秋月涼";
 
-  Character68Base.abilityName = "なし";
+  Character68Base.abilityName = "未実装";
 
-  Character68Base.abilityDesc = "なし";
+  Character68Base.abilityDesc = "未実装";
 
   return Character68Base;
 
@@ -4823,9 +4823,9 @@ Character69Base = (function() {
   // 死んだ時の台詞
   Character69Base.textDeath = "天海春香";
 
-  Character69Base.abilityName = "なし";
+  Character69Base.abilityName = "未実装";
 
-  Character69Base.abilityDesc = "なし";
+  Character69Base.abilityDesc = "未実装";
 
   return Character69Base;
 
@@ -4893,9 +4893,9 @@ Character70Base = (function() {
   // 死んだ時の台詞
   Character70Base.textDeath = "我那覇響";
 
-  Character70Base.abilityName = "なし";
+  Character70Base.abilityName = "未実装";
 
-  Character70Base.abilityDesc = "なし";
+  Character70Base.abilityDesc = "未実装";
 
   return Character70Base;
 
@@ -4963,9 +4963,9 @@ Character71Base = (function() {
   // 死んだ時の台詞
   Character71Base.textDeath = "菊地真";
 
-  Character71Base.abilityName = "なし";
+  Character71Base.abilityName = "未実装";
 
-  Character71Base.abilityDesc = "なし";
+  Character71Base.abilityDesc = "未実装";
 
   return Character71Base;
 
@@ -5033,9 +5033,9 @@ Character72Base = (function() {
   // 死んだ時の台詞
   Character72Base.textDeath = "如月千早";
 
-  Character72Base.abilityName = "なし";
+  Character72Base.abilityName = "未実装";
 
-  Character72Base.abilityDesc = "なし";
+  Character72Base.abilityDesc = "未実装";
 
   return Character72Base;
 
@@ -5103,9 +5103,9 @@ Character73Base = (function() {
   // 死んだ時の台詞
   Character73Base.textDeath = "小日向美穂";
 
-  Character73Base.abilityName = "なし";
+  Character73Base.abilityName = "未実装";
 
-  Character73Base.abilityDesc = "なし";
+  Character73Base.abilityDesc = "未実装";
 
   return Character73Base;
 
@@ -5173,9 +5173,9 @@ Character74Base = (function() {
   // 死んだ時の台詞
   Character74Base.textDeath = "小松伊吹";
 
-  Character74Base.abilityName = "なし";
+  Character74Base.abilityName = "未実装";
 
-  Character74Base.abilityDesc = "なし";
+  Character74Base.abilityDesc = "未実装";
 
   return Character74Base;
 
@@ -5243,9 +5243,9 @@ Character75Base = (function() {
   // 死んだ時の台詞
   Character75Base.textDeath = "小室千奈美";
 
-  Character75Base.abilityName = "なし";
+  Character75Base.abilityName = "未実装";
 
-  Character75Base.abilityDesc = "なし";
+  Character75Base.abilityDesc = "未実装";
 
   return Character75Base;
 
@@ -5313,9 +5313,9 @@ Character76Base = (function() {
   // 死んだ時の台詞
   Character76Base.textDeath = "西園寺琴歌";
 
-  Character76Base.abilityName = "なし";
+  Character76Base.abilityName = "未実装";
 
-  Character76Base.abilityDesc = "なし";
+  Character76Base.abilityDesc = "未実装";
 
   return Character76Base;
 
@@ -5383,9 +5383,9 @@ Character77Base = (function() {
   // 死んだ時の台詞
   Character77Base.textDeath = "財前時子";
 
-  Character77Base.abilityName = "愛のムチ";
+  Character77Base.abilityName = "未実装";
 
-  Character77Base.abilityDesc = "時子が攻撃した敵は、このターン以降、なるべく時子に近づこうとする";
+  Character77Base.abilityDesc = "未実装";
 
   return Character77Base;
 
@@ -5453,9 +5453,9 @@ Character78Base = (function() {
   // 死んだ時の台詞
   Character78Base.textDeath = "斉藤洋子";
 
-  Character78Base.abilityName = "なし";
+  Character78Base.abilityName = "未実装";
 
-  Character78Base.abilityDesc = "なし";
+  Character78Base.abilityDesc = "未実装";
 
   return Character78Base;
 
@@ -5523,9 +5523,9 @@ Character79Base = (function() {
   // 死んだ時の台詞
   Character79Base.textDeath = "冴島清美";
 
-  Character79Base.abilityName = "風紀";
+  Character79Base.abilityName = "未実装";
 
-  Character79Base.abilityDesc = "すべてのユニットの特殊能力を無効化する";
+  Character79Base.abilityDesc = "未実装";
 
   return Character79Base;
 
@@ -5593,9 +5593,9 @@ Character80Base = (function() {
   // 死んだ時の台詞
   Character80Base.textDeath = "榊原里美";
 
-  Character80Base.abilityName = "なし";
+  Character80Base.abilityName = "未実装";
 
-  Character80Base.abilityDesc = "なし";
+  Character80Base.abilityDesc = "未実装";
 
   return Character80Base;
 
@@ -5663,9 +5663,9 @@ Character81Base = (function() {
   // 死んだ時の台詞
   Character81Base.textDeath = "鷺沢文香";
 
-  Character81Base.abilityName = "なし";
+  Character81Base.abilityName = "未実装";
 
-  Character81Base.abilityDesc = "装備したアイテムの効果が倍になる";
+  Character81Base.abilityDesc = "未実装";
 
   return Character81Base;
 
@@ -5733,9 +5733,9 @@ Character82Base = (function() {
   // 死んだ時の台詞
   Character82Base.textDeath = "佐久間まゆ";
 
-  Character82Base.abilityName = "恐怖";
+  Character82Base.abilityName = "未実装";
 
-  Character82Base.abilityDesc = "まゆが攻撃した敵は、次のターン、移動力が+1され、なるべくまゆから遠ざかろうとする";
+  Character82Base.abilityDesc = "未実装";
 
   return Character82Base;
 
@@ -5803,9 +5803,9 @@ Character83Base = (function() {
   // 死んだ時の台詞
   Character83Base.textDeath = "櫻井桃華";
 
-  Character83Base.abilityName = "なし";
+  Character83Base.abilityName = "未実装";
 
-  Character83Base.abilityDesc = "なし";
+  Character83Base.abilityDesc = "未実装";
 
   return Character83Base;
 
@@ -5873,9 +5873,9 @@ Character84Base = (function() {
   // 死んだ時の台詞
   Character84Base.textDeath = "佐々木千枝";
 
-  Character84Base.abilityName = "なし";
+  Character84Base.abilityName = "未実装";
 
-  Character84Base.abilityDesc = "なし";
+  Character84Base.abilityDesc = "未実装";
 
   return Character84Base;
 
@@ -5943,9 +5943,9 @@ Character85Base = (function() {
   // 死んだ時の台詞
   Character85Base.textDeath = "佐城雪美";
 
-  Character85Base.abilityName = "なし";
+  Character85Base.abilityName = "未実装";
 
-  Character85Base.abilityDesc = "なし";
+  Character85Base.abilityDesc = "未実装";
 
   return Character85Base;
 
@@ -6013,9 +6013,9 @@ Character86Base = (function() {
   // 死んだ時の台詞
   Character86Base.textDeath = "佐藤心";
 
-  Character86Base.abilityName = "キャラ付け";
+  Character86Base.abilityName = "未実装";
 
-  Character86Base.abilityDesc = "HPが50%以上ある時、攻撃が30%上がる";
+  Character86Base.abilityDesc = "未実装";
 
   return Character86Base;
 
@@ -6083,9 +6083,9 @@ Character87Base = (function() {
   // 死んだ時の台詞
   Character87Base.textDeath = "沢田麻理菜";
 
-  Character87Base.abilityName = "なし";
+  Character87Base.abilityName = "未実装";
 
-  Character87Base.abilityDesc = "なし";
+  Character87Base.abilityDesc = "未実装";
 
   return Character87Base;
 
@@ -6153,9 +6153,9 @@ Character88Base = (function() {
   // 死んだ時の台詞
   Character88Base.textDeath = "椎名法子";
 
-  Character88Base.abilityName = "ドーナツ配布";
+  Character88Base.abilityName = "未実装";
 
-  Character88Base.abilityDesc = "周囲8マスの味方のHPを10%回復することがある";
+  Character88Base.abilityDesc = "未実装";
 
   return Character88Base;
 
@@ -6223,9 +6223,9 @@ Character89Base = (function() {
   // 死んだ時の台詞
   Character89Base.textDeath = "塩見周子";
 
-  Character89Base.abilityName = "気まぐれ";
+  Character89Base.abilityName = "未実装";
 
-  Character89Base.abilityDesc = "ターン開始時、HPが10%回復するか、5%のダメージを受ける";
+  Character89Base.abilityDesc = "未実装";
 
   return Character89Base;
 
@@ -6293,9 +6293,9 @@ Character90Base = (function() {
   // 死んだ時の台詞
   Character90Base.textDeath = "四条貴音";
 
-  Character90Base.abilityName = "なし";
+  Character90Base.abilityName = "未実装";
 
-  Character90Base.abilityDesc = "なし";
+  Character90Base.abilityDesc = "未実装";
 
   return Character90Base;
 
@@ -6363,9 +6363,9 @@ Character91Base = (function() {
   // 死んだ時の台詞
   Character91Base.textDeath = "篠原礼";
 
-  Character91Base.abilityName = "なし";
+  Character91Base.abilityName = "未実装";
 
-  Character91Base.abilityDesc = "なし";
+  Character91Base.abilityDesc = "未実装";
 
   return Character91Base;
 
@@ -6433,9 +6433,9 @@ Character92Base = (function() {
   // 死んだ時の台詞
   Character92Base.textDeath = "首藤葵";
 
-  Character92Base.abilityName = "なし";
+  Character92Base.abilityName = "未実装";
 
-  Character92Base.abilityDesc = "なし";
+  Character92Base.abilityDesc = "未実装";
 
   return Character92Base;
 
@@ -6503,9 +6503,9 @@ Character93Base = (function() {
   // 死んだ時の台詞
   Character93Base.textDeath = "城ヶ崎美嘉";
 
-  Character93Base.abilityName = "姉妹";
+  Character93Base.abilityName = "未実装";
 
-  Character93Base.abilityDesc = "城ヶ崎莉嘉が出撃している間、物防が2倍になり、移動、射程が1上がる";
+  Character93Base.abilityDesc = "未実装";
 
   return Character93Base;
 
@@ -6573,9 +6573,9 @@ Character94Base = (function() {
   // 死んだ時の台詞
   Character94Base.textDeath = "城ヶ崎莉嘉";
 
-  Character94Base.abilityName = "姉妹";
+  Character94Base.abilityName = "未実装";
 
-  Character94Base.abilityDesc = "城ヶ崎美嘉が出撃している間、魔防が2倍になり、移動、射程が1上がる";
+  Character94Base.abilityDesc = "未実装";
 
   return Character94Base;
 
@@ -6643,9 +6643,9 @@ Character95Base = (function() {
   // 死んだ時の台詞
   Character95Base.textDeath = "白菊ほたる";
 
-  Character95Base.abilityName = "不幸";
+  Character95Base.abilityName = "未実装";
 
-  Character95Base.abilityDesc = "味方が攻撃を受ける時、代わりに攻撃されることがある";
+  Character95Base.abilityDesc = "未実装";
 
   return Character95Base;
 
@@ -6713,9 +6713,9 @@ Character96Base = (function() {
   // 死んだ時の台詞
   Character96Base.textDeath = "白坂小梅";
 
-  Character96Base.abilityName = "あの子が遊びにきた";
+  Character96Base.abilityName = "未実装";
 
-  Character96Base.abilityDesc = "敵ターンの間だけ、自身の周囲のマスにランダムで攻撃不可のユニットが出現する";
+  Character96Base.abilityDesc = "未実装";
 
   return Character96Base;
 
@@ -6783,9 +6783,9 @@ Character97Base = (function() {
   // 死んだ時の台詞
   Character97Base.textDeath = "杉坂海";
 
-  Character97Base.abilityName = "なし";
+  Character97Base.abilityName = "未実装";
 
-  Character97Base.abilityDesc = "なし";
+  Character97Base.abilityDesc = "未実装";
 
   return Character97Base;
 
@@ -6853,9 +6853,9 @@ Character98Base = (function() {
   // 死んだ時の台詞
   Character98Base.textDeath = "涼宮星花";
 
-  Character98Base.abilityName = "なし";
+  Character98Base.abilityName = "未実装";
 
-  Character98Base.abilityDesc = "なし";
+  Character98Base.abilityDesc = "未実装";
 
   return Character98Base;
 
@@ -6923,9 +6923,9 @@ Character99Base = (function() {
   // 死んだ時の台詞
   Character99Base.textDeath = "関裕美";
 
-  Character99Base.abilityName = "なし";
+  Character99Base.abilityName = "未実装";
 
-  Character99Base.abilityDesc = "なし";
+  Character99Base.abilityDesc = "未実装";
 
   return Character99Base;
 
@@ -6993,9 +6993,9 @@ Character100Base = (function() {
   // 死んだ時の台詞
   Character100Base.textDeath = "瀬名詩織";
 
-  Character100Base.abilityName = "なし";
+  Character100Base.abilityName = "未実装";
 
-  Character100Base.abilityDesc = "なし";
+  Character100Base.abilityDesc = "未実装";
 
   return Character100Base;
 
@@ -7063,9 +7063,9 @@ Character101Base = (function() {
   // 死んだ時の台詞
   Character101Base.textDeath = "仙崎恵磨";
 
-  Character101Base.abilityName = "なし";
+  Character101Base.abilityName = "未実装";
 
-  Character101Base.abilityDesc = "なし";
+  Character101Base.abilityDesc = "未実装";
 
   return Character101Base;
 
@@ -7133,9 +7133,9 @@ Character102Base = (function() {
   // 死んだ時の台詞
   Character102Base.textDeath = "相馬夏美";
 
-  Character102Base.abilityName = "なし";
+  Character102Base.abilityName = "未実装";
 
-  Character102Base.abilityDesc = "なし";
+  Character102Base.abilityDesc = "未実装";
 
   return Character102Base;
 
@@ -7203,9 +7203,9 @@ Character103Base = (function() {
   // 死んだ時の台詞
   Character103Base.textDeath = "高垣楓";
 
-  Character103Base.abilityName = "歌姫";
+  Character103Base.abilityName = "未実装";
 
-  Character103Base.abilityDesc = "攻撃した敵の周囲の敵にもダメージ、味方を回復する";
+  Character103Base.abilityDesc = "未実装";
 
   return Character103Base;
 
@@ -7273,9 +7273,9 @@ Character104Base = (function() {
   // 死んだ時の台詞
   Character104Base.textDeath = "高槻やよい";
 
-  Character104Base.abilityName = "なし";
+  Character104Base.abilityName = "未実装";
 
-  Character104Base.abilityDesc = "なし";
+  Character104Base.abilityDesc = "未実装";
 
   return Character104Base;
 
@@ -7343,9 +7343,9 @@ Character105Base = (function() {
   // 死んだ時の台詞
   Character105Base.textDeath = "高橋礼子";
 
-  Character105Base.abilityName = "なし";
+  Character105Base.abilityName = "未実装";
 
-  Character105Base.abilityDesc = "なし";
+  Character105Base.abilityDesc = "未実装";
 
   return Character105Base;
 
@@ -7413,9 +7413,9 @@ Character106Base = (function() {
   // 死んだ時の台詞
   Character106Base.textDeath = "鷹富士茄子";
 
-  Character106Base.abilityName = "幸運";
+  Character106Base.abilityName = "未実装";
 
-  Character106Base.abilityDesc = "攻撃したプレゼントのランクが1上がることがある";
+  Character106Base.abilityDesc = "未実装";
 
   return Character106Base;
 
@@ -7483,9 +7483,9 @@ Character107Base = (function() {
   // 死んだ時の台詞
   Character107Base.textDeath = "高峯のあ";
 
-  Character107Base.abilityName = "なし";
+  Character107Base.abilityName = "未実装";
 
-  Character107Base.abilityDesc = "なし";
+  Character107Base.abilityDesc = "未実装";
 
   return Character107Base;
 
@@ -7553,9 +7553,9 @@ Character108Base = (function() {
   // 死んだ時の台詞
   Character108Base.textDeath = "高森藍子";
 
-  Character108Base.abilityName = "ゆるふわ時間";
+  Character108Base.abilityName = "未実装";
 
-  Character108Base.abilityDesc = "攻撃した相手を行動終了にすることがある";
+  Character108Base.abilityDesc = "未実装";
 
   return Character108Base;
 
@@ -7623,9 +7623,9 @@ Character109Base = (function() {
   // 死んだ時の台詞
   Character109Base.textDeath = "多田李衣菜";
 
-  Character109Base.abilityName = "なし";
+  Character109Base.abilityName = "未実装";
 
-  Character109Base.abilityDesc = "なし";
+  Character109Base.abilityDesc = "未実装";
 
   return Character109Base;
 
@@ -7693,9 +7693,9 @@ Character110Base = (function() {
   // 死んだ時の台詞
   Character110Base.textDeath = "橘ありす";
 
-  Character110Base.abilityName = "なし";
+  Character110Base.abilityName = "未実装";
 
-  Character110Base.abilityDesc = "なし";
+  Character110Base.abilityDesc = "未実装";
 
   return Character110Base;
 
@@ -7763,9 +7763,9 @@ Character111Base = (function() {
   // 死んだ時の台詞
   Character111Base.textDeath = "月宮雅";
 
-  Character111Base.abilityName = "なし";
+  Character111Base.abilityName = "未実装";
 
-  Character111Base.abilityDesc = "なし";
+  Character111Base.abilityDesc = "未実装";
 
   return Character111Base;
 
@@ -7833,9 +7833,9 @@ Character112Base = (function() {
   // 死んだ時の台詞
   Character112Base.textDeath = "土屋亜子";
 
-  Character112Base.abilityName = "なし";
+  Character112Base.abilityName = "未実装";
 
-  Character112Base.abilityDesc = "なし";
+  Character112Base.abilityDesc = "未実装";
 
   return Character112Base;
 
@@ -7903,9 +7903,9 @@ Character113Base = (function() {
   // 死んだ時の台詞
   Character113Base.textDeath = "東郷あい";
 
-  Character113Base.abilityName = "なし";
+  Character113Base.abilityName = "未実装";
 
-  Character113Base.abilityDesc = "なし";
+  Character113Base.abilityDesc = "未実装";
 
   return Character113Base;
 
@@ -7973,9 +7973,9 @@ Character114Base = (function() {
   // 死んだ時の台詞
   Character114Base.textDeath = "道明寺歌鈴";
 
-  Character114Base.abilityName = "ドジ";
+  Character114Base.abilityName = "未実装";
 
-  Character114Base.abilityDesc = "移動後、周囲の味方・敵にダメージを与えることがある";
+  Character114Base.abilityDesc = "未実装";
 
   return Character114Base;
 
@@ -8043,9 +8043,9 @@ Character115Base = (function() {
   // 死んだ時の台詞
   Character115Base.textDeath = "十時愛梨";
 
-  Character115Base.abilityName = "すぐ脱ぐ";
+  Character115Base.abilityName = "未実装";
 
-  Character115Base.abilityDesc = "ターン開始時、物防と魔防が10%下がることがある";
+  Character115Base.abilityDesc = "未実装";
 
   return Character115Base;
 
@@ -8113,9 +8113,9 @@ Character116Base = (function() {
   // 死んだ時の台詞
   Character116Base.textDeath = "長富蓮実";
 
-  Character116Base.abilityName = "なし";
+  Character116Base.abilityName = "未実装";
 
-  Character116Base.abilityDesc = "なし";
+  Character116Base.abilityDesc = "未実装";
 
   return Character116Base;
 
@@ -8183,9 +8183,9 @@ Character117Base = (function() {
   // 死んだ時の台詞
   Character117Base.textDeath = "中野有香";
 
-  Character117Base.abilityName = "会心の一撃";
+  Character117Base.abilityName = "未実装";
 
-  Character117Base.abilityDesc = "攻撃時、敵の防御力を無視することがある";
+  Character117Base.abilityDesc = "未実装";
 
   return Character117Base;
 
@@ -8253,9 +8253,9 @@ Character118Base = (function() {
   // 死んだ時の台詞
   Character118Base.textDeath = "ナターリア";
 
-  Character118Base.abilityName = "なし";
+  Character118Base.abilityName = "未実装";
 
-  Character118Base.abilityDesc = "なし";
+  Character118Base.abilityDesc = "未実装";
 
   return Character118Base;
 
@@ -8323,9 +8323,9 @@ Character119Base = (function() {
   // 死んだ時の台詞
   Character119Base.textDeath = "並木芽衣子";
 
-  Character119Base.abilityName = "なし";
+  Character119Base.abilityName = "未実装";
 
-  Character119Base.abilityDesc = "なし";
+  Character119Base.abilityDesc = "未実装";
 
   return Character119Base;
 
@@ -8393,9 +8393,9 @@ Character120Base = (function() {
   // 死んだ時の台詞
   Character120Base.textDeath = "成宮由愛";
 
-  Character120Base.abilityName = "なし";
+  Character120Base.abilityName = "未実装";
 
-  Character120Base.abilityDesc = "なし";
+  Character120Base.abilityDesc = "未実装";
 
   return Character120Base;
 
@@ -8463,9 +8463,9 @@ Character121Base = (function() {
   // 死んだ時の台詞
   Character121Base.textDeath = "南条光";
 
-  Character121Base.abilityName = "なし";
+  Character121Base.abilityName = "未実装";
 
-  Character121Base.abilityDesc = "なし";
+  Character121Base.abilityDesc = "未実装";
 
   return Character121Base;
 
@@ -8533,9 +8533,9 @@ Character122Base = (function() {
   // 死んだ時の台詞
   Character122Base.textDeath = "難波笑美";
 
-  Character122Base.abilityName = "なし";
+  Character122Base.abilityName = "未実装";
 
-  Character122Base.abilityDesc = "なし";
+  Character122Base.abilityDesc = "未実装";
 
   return Character122Base;
 
@@ -8603,9 +8603,9 @@ Character123Base = (function() {
   // 死んだ時の台詞
   Character123Base.textDeath = "西川保奈美";
 
-  Character123Base.abilityName = "なし";
+  Character123Base.abilityName = "未実装";
 
-  Character123Base.abilityDesc = "なし";
+  Character123Base.abilityDesc = "未実装";
 
   return Character123Base;
 
@@ -8673,9 +8673,9 @@ Character124Base = (function() {
   // 死んだ時の台詞
   Character124Base.textDeath = "西島櫂";
 
-  Character124Base.abilityName = "なし";
+  Character124Base.abilityName = "未実装";
 
-  Character124Base.abilityDesc = "なし";
+  Character124Base.abilityDesc = "未実装";
 
   return Character124Base;
 
@@ -8743,9 +8743,9 @@ Character125Base = (function() {
   // 死んだ時の台詞
   Character125Base.textDeath = "新田美波";
 
-  Character125Base.abilityName = "万能";
+  Character125Base.abilityName = "未実装";
 
-  Character125Base.abilityDesc = "ターン終了時、ランダムなステータスが10%上昇する（フィールドから出ると戻る）";
+  Character125Base.abilityDesc = "未実装";
 
   return Character125Base;
 
@@ -8813,9 +8813,9 @@ Character126Base = (function() {
   // 死んだ時の台詞
   Character126Base.textDeath = "二宮飛鳥";
 
-  Character126Base.abilityName = "孤高";
+  Character126Base.abilityName = "未実装";
 
-  Character126Base.abilityDesc = "ターン開始時、周りにユニットがいなければ、そのターン、全ステータスが10%上がる";
+  Character126Base.abilityDesc = "未実装";
 
   return Character126Base;
 
@@ -8883,9 +8883,9 @@ Character127Base = (function() {
   // 死んだ時の台詞
   Character127Base.textDeath = "丹羽仁美";
 
-  Character127Base.abilityName = "なし";
+  Character127Base.abilityName = "未実装";
 
-  Character127Base.abilityDesc = "なし";
+  Character127Base.abilityDesc = "未実装";
 
   return Character127Base;
 
@@ -8953,9 +8953,9 @@ Character128Base = (function() {
   // 死んだ時の台詞
   Character128Base.textDeath = "野々村そら";
 
-  Character128Base.abilityName = "なし";
+  Character128Base.abilityName = "未実装";
 
-  Character128Base.abilityDesc = "なし";
+  Character128Base.abilityDesc = "未実装";
 
   return Character128Base;
 
@@ -9023,9 +9023,9 @@ Character129Base = (function() {
   // 死んだ時の台詞
   Character129Base.textDeath = "萩原雪歩";
 
-  Character129Base.abilityName = "なし";
+  Character129Base.abilityName = "未実装";
 
-  Character129Base.abilityDesc = "なし";
+  Character129Base.abilityDesc = "未実装";
 
   return Character129Base;
 
@@ -9093,9 +9093,9 @@ Character130Base = (function() {
   // 死んだ時の台詞
   Character130Base.textDeath = "服部瞳子";
 
-  Character130Base.abilityName = "なし";
+  Character130Base.abilityName = "未実装";
 
-  Character130Base.abilityDesc = "なし";
+  Character130Base.abilityDesc = "未実装";
 
   return Character130Base;
 
@@ -9163,9 +9163,9 @@ Character131Base = (function() {
   // 死んだ時の台詞
   Character131Base.textDeath = "浜川愛結奈";
 
-  Character131Base.abilityName = "なし";
+  Character131Base.abilityName = "未実装";
 
-  Character131Base.abilityDesc = "なし";
+  Character131Base.abilityDesc = "未実装";
 
   return Character131Base;
 
@@ -9233,9 +9233,9 @@ Character132Base = (function() {
   // 死んだ時の台詞
   Character132Base.textDeath = "浜口あやめ";
 
-  Character132Base.abilityName = "忍法変わり身の術";
+  Character132Base.abilityName = "未実装";
 
-  Character132Base.abilityDesc = "回避時に、味方と入れ替わることがある";
+  Character132Base.abilityDesc = "未実装";
 
   return Character132Base;
 
@@ -9303,9 +9303,9 @@ Character133Base = (function() {
   // 死んだ時の台詞
   Character133Base.textDeath = "早坂美玲";
 
-  Character133Base.abilityName = "なし";
+  Character133Base.abilityName = "未実装";
 
-  Character133Base.abilityDesc = "なし";
+  Character133Base.abilityDesc = "未実装";
 
   return Character133Base;
 
@@ -9373,9 +9373,9 @@ Character134Base = (function() {
   // 死んだ時の台詞
   Character134Base.textDeath = "速水奏";
 
-  Character134Base.abilityName = "ムーンサイド";
+  Character134Base.abilityName = "未実装";
 
-  Character134Base.abilityDesc = "味方ターン終了時、最大HPとHPの差がHPになることがある";
+  Character134Base.abilityDesc = "未実装";
 
   return Character134Base;
 
@@ -9443,9 +9443,9 @@ Character135Base = (function() {
   // 死んだ時の台詞
   Character135Base.textDeath = "原田美世";
 
-  Character135Base.abilityName = "なし";
+  Character135Base.abilityName = "未実装";
 
-  Character135Base.abilityDesc = "再行動することがある";
+  Character135Base.abilityDesc = "未実装";
 
   return Character135Base;
 
@@ -9513,9 +9513,9 @@ Character136Base = (function() {
   // 死んだ時の台詞
   Character136Base.textDeath = "柊志乃";
 
-  Character136Base.abilityName = "なし";
+  Character136Base.abilityName = "未実装";
 
-  Character136Base.abilityDesc = "なし";
+  Character136Base.abilityDesc = "未実装";
 
   return Character136Base;
 
@@ -9583,9 +9583,9 @@ Character137Base = (function() {
   // 死んだ時の台詞
   Character137Base.textDeath = "日高愛";
 
-  Character137Base.abilityName = "なし";
+  Character137Base.abilityName = "未実装";
 
-  Character137Base.abilityDesc = "なし";
+  Character137Base.abilityDesc = "未実装";
 
   return Character137Base;
 
@@ -9653,9 +9653,9 @@ Character138Base = (function() {
   // 死んだ時の台詞
   Character138Base.textDeath = "日野茜";
 
-  Character138Base.abilityName = "全力疾走";
+  Character138Base.abilityName = "未実装";
 
-  Character138Base.abilityDesc = "移動後に攻撃をせずに行動終了した時、20%の確率でもう一度行動できる";
+  Character138Base.abilityDesc = "未実装";
 
   return Character138Base;
 
@@ -9723,9 +9723,9 @@ Character139Base = (function() {
   // 死んだ時の台詞
   Character139Base.textDeath = "姫川友紀";
 
-  Character139Base.abilityName = "かっとばせー";
+  Character139Base.abilityName = "未実装";
 
-  Character139Base.abilityDesc = "ターン開始時、隣接している味方をランダムなマスに飛ばすことがある";
+  Character139Base.abilityDesc = "未実装";
 
   return Character139Base;
 
@@ -9793,9 +9793,9 @@ Character140Base = (function() {
   // 死んだ時の台詞
   Character140Base.textDeath = "兵藤レナ";
 
-  Character140Base.abilityName = "なし";
+  Character140Base.abilityName = "未実装";
 
-  Character140Base.abilityDesc = "なし";
+  Character140Base.abilityDesc = "未実装";
 
   return Character140Base;
 
@@ -9863,9 +9863,9 @@ Character141Base = (function() {
   // 死んだ時の台詞
   Character141Base.textDeath = "福山舞";
 
-  Character141Base.abilityName = "なし";
+  Character141Base.abilityName = "未実装";
 
-  Character141Base.abilityDesc = "なし";
+  Character141Base.abilityDesc = "未実装";
 
   return Character141Base;
 
@@ -9933,9 +9933,9 @@ Character142Base = (function() {
   // 死んだ時の台詞
   Character142Base.textDeath = "藤居朋";
 
-  Character142Base.abilityName = "占い";
+  Character142Base.abilityName = "未実装";
 
-  Character142Base.abilityDesc = "なし";
+  Character142Base.abilityDesc = "未実装";
 
   return Character142Base;
 
@@ -10003,9 +10003,9 @@ Character143Base = (function() {
   // 死んだ時の台詞
   Character143Base.textDeath = "藤本里奈";
 
-  Character143Base.abilityName = "なし";
+  Character143Base.abilityName = "未実装";
 
-  Character143Base.abilityDesc = "なし";
+  Character143Base.abilityDesc = "未実装";
 
   return Character143Base;
 
@@ -10073,9 +10073,9 @@ Character144Base = (function() {
   // 死んだ時の台詞
   Character144Base.textDeath = "藤原肇";
 
-  Character144Base.abilityName = "なし";
+  Character144Base.abilityName = "未実装";
 
-  Character144Base.abilityDesc = "なし";
+  Character144Base.abilityDesc = "未実装";
 
   return Character144Base;
 
@@ -10143,9 +10143,9 @@ Character145Base = (function() {
   // 死んだ時の台詞
   Character145Base.textDeath = "双葉杏";
 
-  Character145Base.abilityName = "印税";
+  Character145Base.abilityName = "未実装";
 
-  Character145Base.abilityDesc = "ターン終了時に出撃していると、階層✕3の経験値を得る";
+  Character145Base.abilityDesc = "未実装";
 
   return Character145Base;
 
@@ -10213,9 +10213,9 @@ Character146Base = (function() {
   // 死んだ時の台詞
   Character146Base.textDeath = "双海亜美";
 
-  Character146Base.abilityName = "双子";
+  Character146Base.abilityName = "未実装";
 
-  Character146Base.abilityDesc = "双海真美が出撃している場合、味方ターン開始時に、HPが二人のうちどちらか高い方になる";
+  Character146Base.abilityDesc = "未実装";
 
   return Character146Base;
 
@@ -10283,9 +10283,9 @@ Character147Base = (function() {
   // 死んだ時の台詞
   Character147Base.textDeath = "双海真美";
 
-  Character147Base.abilityName = "双子";
+  Character147Base.abilityName = "未実装";
 
-  Character147Base.abilityDesc = "双海亜美が出撃している場合、味方ターン開始時に、HPが二人のうちどちらか高い方になる";
+  Character147Base.abilityDesc = "未実装";
 
   return Character147Base;
 
@@ -10353,9 +10353,9 @@ Character148Base = (function() {
   // 死んだ時の台詞
   Character148Base.textDeath = "古澤頼子";
 
-  Character148Base.abilityName = "なし";
+  Character148Base.abilityName = "未実装";
 
-  Character148Base.abilityDesc = "なし";
+  Character148Base.abilityDesc = "未実装";
 
   return Character148Base;
 
@@ -10423,9 +10423,9 @@ Character149Base = (function() {
   // 死んだ時の台詞
   Character149Base.textDeath = "ヘレン";
 
-  Character149Base.abilityName = "世界のヘレン";
+  Character149Base.abilityName = "未実装";
 
-  Character149Base.abilityDesc = "ターン開始時、HPが全回復することがある";
+  Character149Base.abilityDesc = "未実装";
 
   return Character149Base;
 
@@ -10493,9 +10493,9 @@ Character150Base = (function() {
   // 死んだ時の台詞
   Character150Base.textDeath = "北条加蓮";
 
-  Character150Base.abilityName = "なし";
+  Character150Base.abilityName = "未実装";
 
-  Character150Base.abilityDesc = "なし";
+  Character150Base.abilityDesc = "未実装";
 
   return Character150Base;
 
@@ -10563,9 +10563,9 @@ Character151Base = (function() {
   // 死んだ時の台詞
   Character151Base.textDeath = "星井美希";
 
-  Character151Base.abilityName = "なし";
+  Character151Base.abilityName = "未実装";
 
-  Character151Base.abilityDesc = "なし";
+  Character151Base.abilityDesc = "未実装";
 
   return Character151Base;
 
@@ -10633,9 +10633,9 @@ Character152Base = (function() {
   // 死んだ時の台詞
   Character152Base.textDeath = "星輝子";
 
-  Character152Base.abilityName = "インキャ";
+  Character152Base.abilityName = "未実装";
 
-  Character152Base.abilityDesc = "上か下の壁際で行動終了した時、再行動することがある";
+  Character152Base.abilityDesc = "未実装";
 
   return Character152Base;
 
@@ -10703,9 +10703,9 @@ Character153Base = (function() {
   // 死んだ時の台詞
   Character153Base.textDeath = "堀裕子";
 
-  Character153Base.abilityName = "サイキック";
+  Character153Base.abilityName = "未実装";
 
-  Character153Base.abilityDesc = "攻撃が命中した敵を好きな場所に移動することができる";
+  Character153Base.abilityDesc = "未実装";
 
   return Character153Base;
 
@@ -10773,9 +10773,9 @@ Character154Base = (function() {
   // 死んだ時の台詞
   Character154Base.textDeath = "前川みく";
 
-  Character154Base.abilityName = "なし";
+  Character154Base.abilityName = "未実装";
 
-  Character154Base.abilityDesc = "味方が敵からの攻撃を回避した時に、その敵に反撃する";
+  Character154Base.abilityDesc = "未実装";
 
   return Character154Base;
 
@@ -10843,9 +10843,9 @@ Character155Base = (function() {
   // 死んだ時の台詞
   Character155Base.textDeath = "槙原志保";
 
-  Character155Base.abilityName = "なし";
+  Character155Base.abilityName = "未実装";
 
-  Character155Base.abilityDesc = "なし";
+  Character155Base.abilityDesc = "未実装";
 
   return Character155Base;
 
@@ -10913,9 +10913,9 @@ Character156Base = (function() {
   // 死んだ時の台詞
   Character156Base.textDeath = "松尾千鶴";
 
-  Character156Base.abilityName = "なし";
+  Character156Base.abilityName = "未実装";
 
-  Character156Base.abilityDesc = "なし";
+  Character156Base.abilityDesc = "未実装";
 
   return Character156Base;
 
@@ -10983,9 +10983,9 @@ Character157Base = (function() {
   // 死んだ時の台詞
   Character157Base.textDeath = "松永涼";
 
-  Character157Base.abilityName = "なし";
+  Character157Base.abilityName = "未実装";
 
-  Character157Base.abilityDesc = "なし";
+  Character157Base.abilityDesc = "未実装";
 
   return Character157Base;
 
@@ -11053,9 +11053,9 @@ Character158Base = (function() {
   // 死んだ時の台詞
   Character158Base.textDeath = "松原早耶";
 
-  Character158Base.abilityName = "なし";
+  Character158Base.abilityName = "未実装";
 
-  Character158Base.abilityDesc = "なし";
+  Character158Base.abilityDesc = "未実装";
 
   return Character158Base;
 
@@ -11123,9 +11123,9 @@ Character159Base = (function() {
   // 死んだ時の台詞
   Character159Base.textDeath = "松本沙理奈";
 
-  Character159Base.abilityName = "なし";
+  Character159Base.abilityName = "未実装";
 
-  Character159Base.abilityDesc = "なし";
+  Character159Base.abilityDesc = "未実装";
 
   return Character159Base;
 
@@ -11193,9 +11193,9 @@ Character160Base = (function() {
   // 死んだ時の台詞
   Character160Base.textDeath = "松山久美子";
 
-  Character160Base.abilityName = "なし";
+  Character160Base.abilityName = "未実装";
 
-  Character160Base.abilityDesc = "なし";
+  Character160Base.abilityDesc = "未実装";
 
   return Character160Base;
 
@@ -11263,9 +11263,9 @@ Character161Base = (function() {
   // 死んだ時の台詞
   Character161Base.textDeath = "的場梨沙";
 
-  Character161Base.abilityName = "パパ";
+  Character161Base.abilityName = "未実装";
 
-  Character161Base.abilityDesc = "なし";
+  Character161Base.abilityDesc = "未実装";
 
   return Character161Base;
 
@@ -11333,9 +11333,9 @@ Character162Base = (function() {
   // 死んだ時の台詞
   Character162Base.textDeath = "間中美里";
 
-  Character162Base.abilityName = "なし";
+  Character162Base.abilityName = "未実装";
 
-  Character162Base.abilityDesc = "なし";
+  Character162Base.abilityDesc = "未実装";
 
   return Character162Base;
 
@@ -11403,9 +11403,9 @@ Character163Base = (function() {
   // 死んだ時の台詞
   Character163Base.textDeath = "真鍋いつき";
 
-  Character163Base.abilityName = "なし";
+  Character163Base.abilityName = "未実装";
 
-  Character163Base.abilityDesc = "行動後、再行動できることがある";
+  Character163Base.abilityDesc = "未実装";
 
   return Character163Base;
 
@@ -11473,9 +11473,9 @@ Character164Base = (function() {
   // 死んだ時の台詞
   Character164Base.textDeath = "三浦あずさ";
 
-  Character164Base.abilityName = "なし";
+  Character164Base.abilityName = "未実装";
 
-  Character164Base.abilityDesc = "なし";
+  Character164Base.abilityDesc = "未実装";
 
   return Character164Base;
 
@@ -11543,9 +11543,9 @@ Character165Base = (function() {
   // 死んだ時の台詞
   Character165Base.textDeath = "水木聖來";
 
-  Character165Base.abilityName = "なし";
+  Character165Base.abilityName = "未実装";
 
-  Character165Base.abilityDesc = "なし";
+  Character165Base.abilityDesc = "未実装";
 
   return Character165Base;
 
@@ -11613,9 +11613,9 @@ Character166Base = (function() {
   // 死んだ時の台詞
   Character166Base.textDeath = "水谷絵理";
 
-  Character166Base.abilityName = "なし";
+  Character166Base.abilityName = "未実装";
 
-  Character166Base.abilityDesc = "なし";
+  Character166Base.abilityDesc = "未実装";
 
   return Character166Base;
 
@@ -11683,9 +11683,9 @@ Character167Base = (function() {
   // 死んだ時の台詞
   Character167Base.textDeath = "水野翠";
 
-  Character167Base.abilityName = "貫通の矢";
+  Character167Base.abilityName = "未実装";
 
-  Character167Base.abilityDesc = "攻撃を外した時、その敵より後ろにいる敵全員にダメージを与える";
+  Character167Base.abilityDesc = "未実装";
 
   return Character167Base;
 
@@ -11753,9 +11753,9 @@ Character168Base = (function() {
   // 死んだ時の台詞
   Character168Base.textDeath = "水本ゆかり";
 
-  Character168Base.abilityName = "なし";
+  Character168Base.abilityName = "未実装";
 
-  Character168Base.abilityDesc = "なし";
+  Character168Base.abilityDesc = "未実装";
 
   return Character168Base;
 
@@ -11823,9 +11823,9 @@ Character169Base = (function() {
   // 死んだ時の台詞
   Character169Base.textDeath = "水瀬伊織";
 
-  Character169Base.abilityName = "なし";
+  Character169Base.abilityName = "未実装";
 
-  Character169Base.abilityDesc = "なし";
+  Character169Base.abilityDesc = "未実装";
 
   return Character169Base;
 
@@ -11893,9 +11893,9 @@ Character170Base = (function() {
   // 死んだ時の台詞
   Character170Base.textDeath = "三船美優";
 
-  Character170Base.abilityName = "なし";
+  Character170Base.abilityName = "未実装";
 
-  Character170Base.abilityDesc = "なし";
+  Character170Base.abilityDesc = "未実装";
 
   return Character170Base;
 
@@ -11963,9 +11963,9 @@ Character171Base = (function() {
   // 死んだ時の台詞
   Character171Base.textDeath = "三村かな子";
 
-  Character171Base.abilityName = "なし";
+  Character171Base.abilityName = "未実装";
 
-  Character171Base.abilityDesc = "最大HPの50%以上のダメージを受けてHPが0になった時、一度だけHP1で耐える";
+  Character171Base.abilityDesc = "未実装";
 
   return Character171Base;
 
@@ -12033,9 +12033,9 @@ Character172Base = (function() {
   // 死んだ時の台詞
   Character172Base.textDeath = "宮本フレデリカ";
 
-  Character172Base.abilityName = "なし";
+  Character172Base.abilityName = "未実装";
 
-  Character172Base.abilityDesc = "ターン開始時、攻撃タイプがランダムに変化する";
+  Character172Base.abilityDesc = "未実装";
 
   return Character172Base;
 
@@ -12103,9 +12103,9 @@ Character173Base = (function() {
   // 死んだ時の台詞
   Character173Base.textDeath = "三好紗南";
 
-  Character173Base.abilityName = "なし";
+  Character173Base.abilityName = "未実装";
 
-  Character173Base.abilityDesc = "なし";
+  Character173Base.abilityDesc = "未実装";
 
   return Character173Base;
 
@@ -12173,9 +12173,9 @@ Character174Base = (function() {
   // 死んだ時の台詞
   Character174Base.textDeath = "向井拓海";
 
-  Character174Base.abilityName = "喧嘩上等";
+  Character174Base.abilityName = "未実装";
 
-  Character174Base.abilityDesc = "敵の攻撃を寄せつける";
+  Character174Base.abilityDesc = "未実装";
 
   return Character174Base;
 
@@ -12243,9 +12243,9 @@ Character175Base = (function() {
   // 死んだ時の台詞
   Character175Base.textDeath = "棟方愛海";
 
-  Character175Base.abilityName = "登山";
+  Character175Base.abilityName = "未実装";
 
-  Character175Base.abilityDesc = "ターン開始時、周りに味方の数に応じてHPが回復する";
+  Character175Base.abilityDesc = "未実装";
 
   return Character175Base;
 
@@ -12313,9 +12313,9 @@ Character176Base = (function() {
   // 死んだ時の台詞
   Character176Base.textDeath = "村上巴";
 
-  Character176Base.abilityName = "喝！";
+  Character176Base.abilityName = "未実装";
 
-  Character176Base.abilityDesc = "行動終了時、周りの行動終了済みの味方を再行動させることがある";
+  Character176Base.abilityDesc = "未実装";
 
   return Character176Base;
 
@@ -12383,9 +12383,9 @@ Character177Base = (function() {
   // 死んだ時の台詞
   Character177Base.textDeath = "村松さくら";
 
-  Character177Base.abilityName = "なし";
+  Character177Base.abilityName = "未実装";
 
-  Character177Base.abilityDesc = "なし";
+  Character177Base.abilityDesc = "未実装";
 
   return Character177Base;
 
@@ -12453,9 +12453,9 @@ Character178Base = (function() {
   // 死んだ時の台詞
   Character178Base.textDeath = "メアリー・コクラン";
 
-  Character178Base.abilityName = "なし";
+  Character178Base.abilityName = "未実装";
 
-  Character178Base.abilityDesc = "なし";
+  Character178Base.abilityDesc = "未実装";
 
   return Character178Base;
 
@@ -12523,9 +12523,9 @@ Character179Base = (function() {
   // 死んだ時の台詞
   Character179Base.textDeath = "持田亜里沙";
 
-  Character179Base.abilityName = "なし";
+  Character179Base.abilityName = "未実装";
 
-  Character179Base.abilityDesc = "なし";
+  Character179Base.abilityDesc = "未実装";
 
   return Character179Base;
 
@@ -12593,9 +12593,9 @@ Character180Base = (function() {
   // 死んだ時の台詞
   Character180Base.textDeath = "望月聖";
 
-  Character180Base.abilityName = "なし";
+  Character180Base.abilityName = "未実装";
 
-  Character180Base.abilityDesc = "なし";
+  Character180Base.abilityDesc = "未実装";
 
   return Character180Base;
 
@@ -12663,9 +12663,9 @@ Character181Base = (function() {
   // 死んだ時の台詞
   Character181Base.textDeath = "桃井あずき";
 
-  Character181Base.abilityName = "呉服";
+  Character181Base.abilityName = "未実装";
 
-  Character181Base.abilityDesc = "ターン開始時、物防・魔防が10%上がる";
+  Character181Base.abilityDesc = "未実装";
 
   return Character181Base;
 
@@ -12733,9 +12733,9 @@ Character182Base = (function() {
   // 死んだ時の台詞
   Character182Base.textDeath = "森久保乃々";
 
-  Character182Base.abilityName = "む～り～";
+  Character182Base.abilityName = "未実装";
 
-  Character182Base.abilityDesc = "敵ターン終了時、周りに3体以上のユニットがいる時、マップ左端のランダムなマスにワープする";
+  Character182Base.abilityDesc = "未実装";
 
   return Character182Base;
 
@@ -12803,9 +12803,9 @@ Character183Base = (function() {
   // 死んだ時の台詞
   Character183Base.textDeath = "諸星きらり";
 
-  Character183Base.abilityName = "きらりん☆ストロング";
+  Character183Base.abilityName = "未実装";
 
-  Character183Base.abilityDesc = "最大HPの50%以上のダメージを受けてHPが0になった時、一度だけHP1で耐える。";
+  Character183Base.abilityDesc = "未実装";
 
   return Character183Base;
 
@@ -12873,9 +12873,9 @@ Character184Base = (function() {
   // 死んだ時の台詞
   Character184Base.textDeath = "楊菲菲";
 
-  Character184Base.abilityName = "カンフー";
+  Character184Base.abilityName = "未実装";
 
-  Character184Base.abilityDesc = "最大HP以上のダメージを受ける時、10%の確率で回避する";
+  Character184Base.abilityDesc = "未実装";
 
   return Character184Base;
 
@@ -12943,9 +12943,9 @@ Character185Base = (function() {
   // 死んだ時の台詞
   Character185Base.textDeath = "八神マキノ";
 
-  Character185Base.abilityName = "諜報";
+  Character185Base.abilityName = "未実装";
 
-  Character185Base.abilityDesc = "自分が攻撃する時を除き、周囲にいる敵が受けるダメージが2倍になる";
+  Character185Base.abilityDesc = "未実装";
 
   return Character185Base;
 
@@ -13013,9 +13013,9 @@ Character186Base = (function() {
   // 死んだ時の台詞
   Character186Base.textDeath = "矢口美羽";
 
-  Character186Base.abilityName = "なし";
+  Character186Base.abilityName = "未実装";
 
-  Character186Base.abilityDesc = "なし";
+  Character186Base.abilityDesc = "未実装";
 
   return Character186Base;
 
@@ -13083,9 +13083,9 @@ Character187Base = (function() {
   // 死んだ時の台詞
   Character187Base.textDeath = "柳清良";
 
-  Character187Base.abilityName = "看護";
+  Character187Base.abilityName = "未実装";
 
-  Character187Base.abilityDesc = "ターンごとのHP減少を半分にする";
+  Character187Base.abilityDesc = "未実装";
 
   return Character187Base;
 
@@ -13153,9 +13153,9 @@ Character188Base = (function() {
   // 死んだ時の台詞
   Character188Base.textDeath = "柳瀬美由紀";
 
-  Character188Base.abilityName = "なし";
+  Character188Base.abilityName = "未実装";
 
-  Character188Base.abilityDesc = "なし";
+  Character188Base.abilityDesc = "未実装";
 
   return Character188Base;
 
@@ -13223,9 +13223,9 @@ Character189Base = (function() {
   // 死んだ時の台詞
   Character189Base.textDeath = "大和亜季";
 
-  Character189Base.abilityName = "掃射";
+  Character189Base.abilityName = "未実装";
 
-  Character189Base.abilityDesc = "攻撃時、周囲8マスの味方、敵にも同じダメージを与えることがある";
+  Character189Base.abilityDesc = "未実装";
 
   return Character189Base;
 
@@ -13293,9 +13293,9 @@ Character190Base = (function() {
   // 死んだ時の台詞
   Character190Base.textDeath = "結城晴";
 
-  Character190Base.abilityName = "なし";
+  Character190Base.abilityName = "未実装";
 
-  Character190Base.abilityDesc = "なし";
+  Character190Base.abilityDesc = "未実装";
 
   return Character190Base;
 
@@ -13363,9 +13363,9 @@ Character191Base = (function() {
   // 死んだ時の台詞
   Character191Base.textDeath = "遊佐こずえ";
 
-  Character191Base.abilityName = "なし";
+  Character191Base.abilityName = "未実装";
 
-  Character191Base.abilityDesc = "なし";
+  Character191Base.abilityDesc = "未実装";
 
   return Character191Base;
 
@@ -13433,9 +13433,9 @@ Character192Base = (function() {
   // 死んだ時の台詞
   Character192Base.textDeath = "横山千佳";
 
-  Character192Base.abilityName = "魔法知識";
+  Character192Base.abilityName = "未実装";
 
-  Character192Base.abilityDesc = "魔法攻撃を受ける時、回避率が5倍になる";
+  Character192Base.abilityDesc = "未実装";
 
   return Character192Base;
 
@@ -13503,9 +13503,9 @@ Character193Base = (function() {
   // 死んだ時の台詞
   Character193Base.textDeath = "吉岡沙紀";
 
-  Character193Base.abilityName = "ペイント";
+  Character193Base.abilityName = "未実装";
 
-  Character193Base.abilityDesc = "味方ターン開始時、周囲の敵をランダムな別の敵に変化させることがある";
+  Character193Base.abilityDesc = "未実装";
 
   return Character193Base;
 
@@ -13573,9 +13573,9 @@ Character194Base = (function() {
   // 死んだ時の台詞
   Character194Base.textDeath = "依田芳乃";
 
-  Character194Base.abilityName = "なし";
+  Character194Base.abilityName = "未実装";
 
-  Character194Base.abilityDesc = "なし";
+  Character194Base.abilityDesc = "未実装";
 
   return Character194Base;
 
@@ -13643,9 +13643,9 @@ Character195Base = (function() {
   // 死んだ時の台詞
   Character195Base.textDeath = "ライラ";
 
-  Character195Base.abilityName = "節約";
+  Character195Base.abilityName = "未実装";
 
-  Character195Base.abilityDesc = "レベルが上がりやすい";
+  Character195Base.abilityDesc = "未実装";
 
   return Character195Base;
 
@@ -13713,9 +13713,9 @@ Character196Base = (function() {
   // 死んだ時の台詞
   Character196Base.textDeath = "龍崎薫";
 
-  Character196Base.abilityName = "なし";
+  Character196Base.abilityName = "未実装";
 
-  Character196Base.abilityDesc = "なし";
+  Character196Base.abilityDesc = "未実装";
 
   return Character196Base;
 
@@ -13783,9 +13783,9 @@ Character197Base = (function() {
   // 死んだ時の台詞
   Character197Base.textDeath = "若林智香";
 
-  Character197Base.abilityName = "なし";
+  Character197Base.abilityName = "未実装";
 
-  Character197Base.abilityDesc = "なし";
+  Character197Base.abilityDesc = "未実装";
 
   return Character197Base;
 
@@ -13853,9 +13853,9 @@ Character198Base = (function() {
   // 死んだ時の台詞
   Character198Base.textDeath = "脇山珠美";
 
-  Character198Base.abilityName = "剣道";
+  Character198Base.abilityName = "未実装";
 
-  Character198Base.abilityDesc = "敵の攻撃を回避した時、反撃する";
+  Character198Base.abilityDesc = "未実装";
 
   return Character198Base;
 
@@ -13923,9 +13923,9 @@ Character199Base = (function() {
   // 死んだ時の台詞
   Character199Base.textDeath = "和久井留美";
 
-  Character199Base.abilityName = "なし";
+  Character199Base.abilityName = "未実装";
 
-  Character199Base.abilityDesc = "なし";
+  Character199Base.abilityDesc = "未実装";
 
   return Character199Base;
 
@@ -13993,9 +13993,9 @@ Character200Base = (function() {
   // 死んだ時の台詞
   Character200Base.textDeath = "千川ちひろ";
 
-  Character200Base.abilityName = "事務";
+  Character200Base.abilityName = "未実装";
 
-  Character200Base.abilityDesc = "出撃中に得るジュエルが2倍になる";
+  Character200Base.abilityDesc = "未実装";
 
   return Character200Base;
 

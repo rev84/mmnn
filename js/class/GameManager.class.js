@@ -995,7 +995,7 @@ GameManager = (function() {
       exp: [1000, 715],
       floor: [0, 775],
       jewel: [1000, 775],
-      life: [0, 725]
+      life: [0, 715]
     },
     BATTLE: {
       character_pallet: null,

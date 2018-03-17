@@ -40,6 +40,11 @@ class MenuManager
     .on('click', @onClickGacha.bind(@))
     .appendTo(@divObject)
 
+    # 遊び方
+    @help = $('<button>').addClass('menu help left')
+    .on('click', -> window.open('./help.html'))
+    .appendTo(@divObject)
+
     # 前進
     @walk = $('<button>').addClass('menu next_day right')
     .on('click', @onClickWalk.bind(@))

@@ -23,6 +23,10 @@ MenuManager = (function() {
       this.item = $('<button>').addClass('menu item left').on('click', this.onClickItem.bind(this)).appendTo(this.divObject);
       // ガチャ
       this.gacha = $('<button>').addClass('menu gacha left').on('click', this.onClickGacha.bind(this)).appendTo(this.divObject);
+      // 遊び方
+      this.help = $('<button>').addClass('menu help left').on('click', function() {
+        return window.open('./help.html');
+      }).appendTo(this.divObject);
       // 前進
       this.walk = $('<button>').addClass('menu next_day right').on('click', this.onClickWalk.bind(this)).appendTo(this.divObject);
       // ターン終了

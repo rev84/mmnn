@@ -738,6 +738,16 @@ button.menu.gacha:disabled:not(.hover) {
   background-image: url('../img/menu/gacha_disabled.png');
 }
 
+button.menu.help {
+  background-image: url('../img/menu/help.png');
+}
+button.menu.help:hover, button.menu.help.hover {
+  background-image: url('../img/menu/help_push.png');
+}
+button.menu.help:disabled:not(.hover) {
+  background-image: url('../img/menu/help_disabled.png');
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
