@@ -21,6 +21,7 @@ function updateUnit()
   $name2id = [];
   foreach ($values as $vAry) {
     list($id, $_, $name) = $vAry;
+    $name = mb_convert_encoding($name, 'UTF-8');
     $name2id[$name] = (int)$id;
   }
 
@@ -31,12 +32,14 @@ function updateUnit()
   $units = [];
   foreach ($values as $vAry) {
     list($name, $hp, $atk, $pdef, $mdef, $hit, $dodge, $move, $range, $member) = $vAry;
-    $members = preg_split("`[、\,]`", $member, -1, PREG_SPLIT_NO_EMPTY);
+    $name = mb_convert_encoding($name, 'UTF-8');
+    $member = mb_convert_encoding($member, 'UTF-8');
+    $members = explode('、', $member);
     var_dump($members);
     $ids = [];
     foreach ($members as $m) {
       if (!array_key_exists($m, $name2id)) {
-        $errors[] = $name.'の'.$m.'がいません';
+        $errors[] = '「'.$name.'」の「'.$m.'」がいません';
       }
       $ids[] = $name2id[$m];
     }
@@ -58,7 +61,7 @@ function updateUnit()
   }
 
   file_put_contents(dirname(__FILE__).'/../../coffee/class/character/UnitList.coffee', 'window.UnitList = '.json_encode($units).';');
-  file_put_contents(dirname(__FILE__).'/errors.txt', json_encode($errors));
+  file_put_contents(dirname(__FILE__).'/errors.txt', join("\n", $errors));
 }
 
 
