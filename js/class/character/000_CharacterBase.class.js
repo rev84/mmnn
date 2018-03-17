@@ -25,6 +25,8 @@ CharacterBase = (function() {
       this.itemCapacityPlus = params.itemCapacityPlus;
       // 復帰までに必要なターン
       this.comebackTurn = params.comebackTurn;
+      // 自身が所属するユニット
+      this.units = params.units;
     }
 
     serialize() {
@@ -54,6 +56,152 @@ CharacterBase = (function() {
 
     setJoined(joined) {
       return this.joined = !!joined;
+    }
+
+    //-------------------------------
+    // effected系
+    //-------------------------------
+    getAppliedUnits() {
+      var all, fieldIds, i, id, j, len, len1, ref, ref1, unit, units;
+      units = [];
+      fieldIds = FieldManager.getCharacterIds();
+      ref = this.units;
+      for (i = 0, len = ref.length; i < len; i++) {
+        unit = ref[i];
+        all = true;
+        ref1 = unit.id;
+        for (j = 0, len1 = ref1.length; j < len1; j++) {
+          id = ref1[j];
+          if (!Utl.inArray(id, fieldIds)) {
+            all = false;
+            break;
+          }
+        }
+        if (all) {
+          units.push(unit);
+        }
+      }
+      return units;
+    }
+
+    getAttackEffected(myCell = null) {
+      var amount, effected, i, len, unit, units;
+      units = this.getAppliedUnits();
+      amount = 1;
+      effected = [];
+      for (i = 0, len = units.length; i < len; i++) {
+        unit = units[i];
+        if (unit.fix.atk !== null) {
+          amount += unit.fix.atk;
+          effected.push('[' + unit.name + '] 攻撃+' + (unit.fix.atk * 100) + '%');
+        }
+      }
+      return [this.getAttack() + Math.ceil(this.getAttackBase() * amount), effected];
+    }
+
+    getPDefEffected(myCell = null) {
+      var amount, effected, i, len, unit, units;
+      units = this.getAppliedUnits();
+      amount = 1;
+      effected = [];
+      for (i = 0, len = units.length; i < len; i++) {
+        unit = units[i];
+        if (unit.fix.pdef !== null) {
+          amount += unit.fix.pdef;
+          effected.push('[' + unit.name + '] 物防+' + (unit.fix.pdef * 100) + '%');
+        }
+      }
+      return [this.getPDef() + Math.ceil(this.getPDefBase() * amount), effected];
+    }
+
+    getMDefEffected(myCell = null) {
+      var amount, effected, i, len, unit, units;
+      units = this.getAppliedUnits();
+      amount = 1;
+      effected = [];
+      for (i = 0, len = units.length; i < len; i++) {
+        unit = units[i];
+        if (unit.fix.mdef !== null) {
+          amount += unit.fix.mdef;
+          effected.push('[' + unit.name + '] 魔防+' + (unit.fix.mdef * 100) + '%');
+        }
+      }
+      return [this.getMDef() + Math.ceil(this.getMDefBase() * amount), effected];
+    }
+
+    getMoveEffected(myCell = null) {
+      var amount, effected, i, len, unit, units;
+      units = this.getAppliedUnits();
+      amount = 0;
+      effected = [];
+      for (i = 0, len = units.length; i < len; i++) {
+        unit = units[i];
+        if (unit.fix.move !== null) {
+          amount += unit.fix.move;
+          effected.push('[' + unit.name + '] 移動+' + unit.fix.move);
+        }
+      }
+      return [this.getMove() + amount, effected];
+    }
+
+    getRangeEffected(myCell = null) {
+      var amount, effected, i, len, unit, units;
+      units = this.getAppliedUnits();
+      amount = 0;
+      effected = [];
+      for (i = 0, len = units.length; i < len; i++) {
+        unit = units[i];
+        if (unit.fix.range !== null) {
+          amount += unit.fix.range;
+          effected.push('[' + unit.name + '] 射程+' + unit.fix.range);
+        }
+      }
+      return [this.getRange() + amount, effected];
+    }
+
+    getHitRateEffected(myCell = null) {
+      var amount, effected, i, len, unit, units;
+      units = this.getAppliedUnits();
+      amount = 0;
+      effected = [];
+      for (i = 0, len = units.length; i < len; i++) {
+        unit = units[i];
+        if (unit.fix.hit !== null) {
+          amount += unit.fix.hit;
+          effected.push('[' + unit.name + '] 命中+' + unit.fix.hit);
+        }
+      }
+      return [this.getHitRate() + amount, effected];
+    }
+
+    getDodgeRateEffected(myCell = null) {
+      var amount, effected, i, len, unit, units;
+      units = this.getAppliedUnits();
+      amount = 0;
+      effected = [];
+      for (i = 0, len = units.length; i < len; i++) {
+        unit = units[i];
+        if (unit.fix.dodge !== null) {
+          amount += unit.fix.dodge;
+          effected.push('[' + unit.name + '] 回避+' + unit.fix.dodge);
+        }
+      }
+      return [this.getDodgeRate() + amount, effected];
+    }
+
+    getHpMaxEffected(myCell = null) {
+      var amount, effected, i, len, unit, units;
+      units = this.getAppliedUnits();
+      amount = 1;
+      effected = [];
+      for (i = 0, len = units.length; i < len; i++) {
+        unit = units[i];
+        if (unit.fix.hp !== null) {
+          amount += unit.fix.hp;
+          effected.push('[' + unit.name + '] 最大HP+' + (unit.fix.hp * 100) + '%');
+        }
+      }
+      return [this.getHpMax() + Math.ceil(this.getHpMaxBase() * amount), effected];
     }
 
     getHpMaxItemFixRate() {

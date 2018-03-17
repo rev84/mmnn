@@ -767,8 +767,8 @@ class Character18Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "イヴ・サンタクロース"
 
-  @abilityName = "未実装"
-  @abilityDesc = "未実装"
+  @abilityName = "プレゼント"
+  @abilityDesc = "プレゼントに与えるダメージが2倍になる"
 
   constructor:(params)->
     super(params)
@@ -780,7 +780,7 @@ class Character19Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/19/1.png","./img/character/19/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力
@@ -4908,7 +4908,7 @@ class Character115Base extends CharacterBase
   # 最初からいるか
   @defaultJoin = false
   # 画像のリスト
-  @images = []
+  @images = ["./img/character/115/1.png","./img/character/115/2.png"]
   # 基本攻撃タイプ
   @attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC
   # 成長率：攻撃力

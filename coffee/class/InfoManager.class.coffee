@@ -6,7 +6,7 @@ class InfoManager
       "background-color" : '#000000'
     }).appendTo(@parentElement)
  
-    @panel = new Panel(@divObject, null, null, null, false)
+    @panel = new Panel(@divObject, null, null, null, false, false, true)
 
   @setObject:(object = null)->
     @panel.object = object

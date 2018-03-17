@@ -31,11 +31,19 @@ class ObjectBase
   isPresentboxObject:->
     @objectType is @constructor.OBJECT_TYPE.PRESENTBOX
 
+  #-------------------------------
+  # HP
+  #-------------------------------
+  getHpMaxEffected:(myCell = null)->
+    [@getHpMax(), []]
   getHpMax:(level = null)->
     if level is null
       Math.ceil(@constructor.hpBase * @level * @getHpMaxItemFixRate())
     else
       Math.ceil(@constructor.hpBase * level)
+  getHpMaxBase:->
+    @constructor.hpBase
+    
   getHpMaxItemFixRate:->
     1
   getHp:->
@@ -62,6 +70,12 @@ class ObjectBase
     @constructor.characterName
   getAttackType:->
     @constructor.attackTypeBase
+
+  #-------------------------------
+  # 攻撃力
+  #-------------------------------
+  getAttackEffected:(myCell = null)->
+    [@getAttack(), []]
   getAttack:(level = null)->
     if level is null
       Math.ceil(@constructor.attackBase * @level * @getAttackItemFixRate())
@@ -71,6 +85,11 @@ class ObjectBase
     1
   getAttackBase:->
     @constructor.attackBase
+  #-------------------------------
+  # 物防
+  #-------------------------------
+  getPDefEffected:(myCell = null)->
+    [@getPDef(), []]
   getPDef:(level = null)->
     if level is null
       Math.ceil(@constructor.pDefBase * @level * @getPDefItemFixRate())
@@ -80,6 +99,11 @@ class ObjectBase
     1
   getPDefBase:->
     @constructor.pDefBase
+  #-------------------------------
+  # 魔防
+  #-------------------------------
+  getMDefEffected:(myCell = null)->
+    [@getMDef(), []]
   getMDef:(level = null)->
     if level is null
       Math.ceil(@constructor.mDefBase * @level * @getMDefItemFixRate())
@@ -89,24 +113,44 @@ class ObjectBase
     1
   getMDefBase:->
     @constructor.mDefBase
+  #-------------------------------
+  # 移動
+  #-------------------------------
+  getMoveEffected:(myCell = null)->
+    [@getMove(), []]
   getMove:->
     @constructor.moveBase + @getMoveItemFix()
   getMoveItemFix:->
     0
   getMoveBase:->
     @constructor.moveBase
+  #-------------------------------
+  # 射程
+  #-------------------------------
+  getRangeEffected:(myCell = null)->
+    [@getRange(), []]
   getRange:->
     @constructor.rangeBase + @getRangeItemFix()
   getRangeItemFix:->
     0
   getRangeBase:->
     @constructor.rangeBase
+  #-------------------------------
+  # 命中
+  #-------------------------------
+  getHitRateEffected:(myCell = null)->
+    [@getHitRate(), []]
   getHitRate:->
     @constructor.hitRateBase + @getHitRateItemFix()
   getHitRateItemFix:->
     0
   getHitRateBase:->
     @constructor.hitRateBase
+  #-------------------------------
+  # 回避
+  #-------------------------------
+  getDodgeRateEffected:(myCell = null)->
+    [@getDodgeRate(), []]
   getDodgeRate:->
     @constructor.dodgeRateBase + @getDodgeRateItemFix()
   getDodgeRateItemFix:->

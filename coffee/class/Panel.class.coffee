@@ -4,7 +4,7 @@ class Panel
 
   @CLASSNAME = 'panel'
 
-  constructor:(@parentElement, @object, @posY = 0, @posX = 0, @isShowOverlay = true, @isCharacterPallet = false)->
+  constructor:(@parentElement, @object, @posY = 0, @posX = 0, @isShowOverlay = true, @isCharacterPallet = false, @isEffected = false)->
     @divObject = $('<div>').addClass(@constructor.CLASSNAME).css({
       width: @constructor.SIZE_X
       height: @constructor.SIZE_Y
@@ -87,35 +87,62 @@ class Panel
     )
 
     # 攻撃力
-    $(@divObject).append(
-      $('<div>').addClass('field field_attack '+(if @object.getAttackType() is '物理' then 'field_attack_physic' else 'field_attack_magic')).css({
-        top: 30
-        left: 130
-        width: 80
-        height: 20
-      }).html(ObjectBase.status2html @object.getAttack(level))
-    )
+    if @isEffected
+      [v, list] = @object.getAttackEffected()
+    else
+      v = @object.getAttack(level)
+      list = []
+    atk = $('<div>').addClass('field field_attack '+(if @object.getAttackType() is '物理' then 'field_attack_physic' else 'field_attack_magic')).css({
+      top: 30
+      left: 130
+      width: 80
+      height: 20
+    }).html(ObjectBase.status2html v)
+    if list.length > 0
+      atk.tooltip({
+        'placement' : 'top'
+        'title' : list.join("\n")
+      })
+    $(@divObject).append atk
 
 
     # 物理防御力
-    $(@divObject).append(
-      $('<div>').addClass('field field_pdef').css({
-        top: 51
-        left: 130
-        width: 80
-        height: 20
-      }).html(ObjectBase.status2html @object.getPDef(level))
-    )
+    if @isEffected
+      [v, list] = @object.getPDefEffected()
+    else
+      v = @object.getPDef(level)
+      list = []
+    pdef = $('<div>').addClass('field field_pdef').css({
+      top: 51
+      left: 130
+      width: 80
+      height: 20
+    }).html(ObjectBase.status2html v)
+    if list.length > 0
+      pdef.tooltip({
+        'placement' : 'top'
+        'title' : list.join("\n")
+      })
+    $(@divObject).append pdef
 
     # 魔法防御力
-    $(@divObject).append(
-      $('<div>').addClass('field field_mdef').css({
-        top: 71
-        left: 130
-        width: 80
-        height: 20
-      }).html(ObjectBase.status2html @object.getMDef(level))
-    )
+    if @isEffected
+      [v, list] = @object.getMDefEffected()
+    else
+      v = @object.getMDef(level)
+      list = []
+    mdef = $('<div>').addClass('field field_mdef').css({
+      top: 71
+      left: 130
+      width: 80
+      height: 20
+    }).html(ObjectBase.status2html v)
+    if list.length > 0
+      mdef.tooltip({
+        'placement' : 'top'
+        'title' : list.join("\n")
+      })
+    $(@divObject).append mdef
 
     # HP
     $(@divObject).append(
@@ -138,54 +165,100 @@ class Panel
     )
 
     # HP最大
-    $(@divObject).append(
-      $('<div>').addClass('field field_hp_max').css({
-        top: 6
-        left: 300
-        width: 85
-        height: 20
-      }).html(ObjectBase.status2html @object.getHpMax(level))
-    )
+    if @isEffected
+      [v, list] = @object.getHpMaxEffected()
+    else
+      v = @object.getHpMax(level)
+      list = []
+    hpmax = $('<div>').addClass('field field_hp_max').css({
+      top: 6
+      left: 300
+      width: 85
+      height: 20
+    }).html(ObjectBase.status2html v)
+    if list.length > 0
+      hpmax.tooltip({
+        'placement' : 'top'
+        'title' : list.join("\n")
+      })
+    $(@divObject).append hpmax
 
     # 命中率
-    $(@divObject).append(
-      $('<div>').addClass('field field_hit_rate').css({
-        top: 30
-        left: 260
-        width: 35
-        height: 20
-      }).html(ObjectBase.status2html @object.getHitRate())
-    )
+    if @isEffected
+      [v, list] = @object.getHitRateEffected()
+    else
+      v = @object.getHitRate()
+      list = []
+    hit = $('<div>').addClass('field field_hit_rate').css({
+      top: 30
+      left: 260
+      width: 35
+      height: 20
+    }).html(ObjectBase.status2html v)
+    if list.length > 0
+      hit.tooltip({
+        'placement' : 'top'
+        'title' : list.join("\n")
+      })
+    $(@divObject).append hit
 
     # 回避率
-    $(@divObject).append(
-      $('<div>').addClass('field field_dodge_rate').css({
-        top: 51
-        left: 260
-        width: 35
-        height: 20
-      }).html(ObjectBase.status2html @object.getDodgeRate())
-    )
+    if @isEffected
+      [v, list] = @object.getDodgeRateEffected()
+    else
+      v = @object.getDodgeRate()
+      list = []
+    dodge = $('<div>').addClass('field field_dodge_rate').css({
+      top: 51
+      left: 260
+      width: 35
+      height: 20
+    }).html(ObjectBase.status2html v)
+    if list.length > 0
+      dodge.tooltip({
+        'placement' : 'top'
+        'title' : list.join("\n")
+      })
+    $(@divObject).append dodge
 
     # 移動力
-    $(@divObject).append(
-      $('<div>').addClass('field field_move').css({
-        top: 30
-        left: 350
-        width: 30
-        height: 20
-      }).html(ObjectBase.status2html @object.getMove())
-    )
+    if @isEffected
+      [v, list] = @object.getMoveEffected()
+    else
+      v = @object.getMove()
+      list = []
+    move = $('<div>').addClass('field field_move').css({
+      top: 30
+      left: 350
+      width: 30
+      height: 20
+    }).html(ObjectBase.status2html v)
+    if list.length > 0
+      move.tooltip({
+        'placement' : 'top'
+        'title' : list.join("\n")
+      })
+    $(@divObject).append move
 
     # 射程
-    $(@divObject).append(
-      $('<div>').addClass('field field_range').css({
-        top: 50
-        left: 350
-        width: 30
-        height: 20
-      }).html(@object.getRange())
-    )
+    if @isEffected
+      [v, list] = @object.getRangeEffected()
+    else
+      v = @object.getRange()
+      list = []
+    range = $('<div>').addClass('field field_range').css({
+      top: 50
+      left: 350
+      width: 30
+      height: 20
+    }).html(v)
+    if list.length > 0
+      range.tooltip({
+        'placement' : 'top'
+        'title' : list.join("\n")
+      })
+    $(@divObject).append range
+
     # 能力
     $(@divObject).append(
       $('<div>').addClass('field field_ability').css({

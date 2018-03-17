@@ -1253,9 +1253,9 @@ Character18Base = (function() {
   // 死んだ時の台詞
   Character18Base.textDeath = "イヴ・サンタクロース";
 
-  Character18Base.abilityName = "未実装";
+  Character18Base.abilityName = "プレゼント";
 
-  Character18Base.abilityDesc = "未実装";
+  Character18Base.abilityDesc = "プレゼントに与えるダメージが2倍になる";
 
   return Character18Base;
 
@@ -1279,7 +1279,7 @@ Character19Base = (function() {
   Character19Base.defaultJoin = false;
 
   // 画像のリスト
-  Character19Base.images = [];
+  Character19Base.images = ["./img/character/19/1.png", "./img/character/19/2.png"];
 
   // 基本攻撃タイプ
   Character19Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;
@@ -7999,7 +7999,7 @@ Character115Base = (function() {
   Character115Base.defaultJoin = false;
 
   // 画像のリスト
-  Character115Base.images = [];
+  Character115Base.images = ["./img/character/115/1.png", "./img/character/115/2.png"];
 
   // 基本攻撃タイプ
   Character115Base.attackTypeBase = ObjectBase.ATTACK_TYPE.PHYSIC;

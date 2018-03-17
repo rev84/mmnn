@@ -32,6 +32,9 @@ class CharacterBase extends ObjectBase
     # 復帰までに必要なターン
     @comebackTurn = params.comebackTurn
 
+    # 自身が所属するユニット
+    @units = params.units
+
   serialize:->
     {
       joined: @joined
@@ -55,6 +58,108 @@ class CharacterBase extends ObjectBase
 
   setJoined:(joined)->
     @joined = !!joined
+
+  #-------------------------------
+  # effected系
+  #-------------------------------
+  getAppliedUnits:->
+    units = []
+    fieldIds = FieldManager.getCharacterIds()
+    for unit in @units
+      all = true
+      for id in unit.id
+        unless Utl.inArray(id, fieldIds)
+          all = false
+          break
+      units.push unit if all
+    units
+
+  getAttackEffected:(myCell = null)->
+    units = @getAppliedUnits()
+    amount = 1
+    effected = []
+    for unit in units
+      if unit.fix.atk isnt null
+        amount += unit.fix.atk
+        effected.push '['+unit.name+'] 攻撃+'+(unit.fix.atk * 100)+'%'
+
+    [@getAttack() + Math.ceil(@getAttackBase() * amount), effected]
+
+  getPDefEffected:(myCell = null)->
+    units = @getAppliedUnits()
+    amount = 1
+    effected = []
+    for unit in units
+      if unit.fix.pdef isnt null
+        amount += unit.fix.pdef
+        effected.push '['+unit.name+'] 物防+'+(unit.fix.pdef * 100)+'%'
+
+    [@getPDef() + Math.ceil(@getPDefBase() * amount), effected]
+  getMDefEffected:(myCell = null)->
+    units = @getAppliedUnits()
+    amount = 1
+    effected = []
+    for unit in units
+      if unit.fix.mdef isnt null
+        amount += unit.fix.mdef
+        effected.push '['+unit.name+'] 魔防+'+(unit.fix.mdef * 100)+'%'
+
+    [@getMDef() + Math.ceil(@getMDefBase() * amount), effected]
+
+  getMoveEffected:(myCell = null)->
+    units = @getAppliedUnits()
+    amount = 0
+    effected = []
+    for unit in units
+      if unit.fix.move isnt null
+        amount += unit.fix.move
+        effected.push '['+unit.name+'] 移動+'+unit.fix.move
+
+    [@getMove() + amount, effected]
+
+  getRangeEffected:(myCell = null)->
+    units = @getAppliedUnits()
+    amount = 0
+    effected = []
+    for unit in units
+      if unit.fix.range isnt null
+        amount += unit.fix.range
+        effected.push '['+unit.name+'] 射程+'+unit.fix.range
+
+    [@getRange() + amount, effected]
+
+  getHitRateEffected:(myCell = null)->
+    units = @getAppliedUnits()
+    amount = 0
+    effected = []
+    for unit in units
+      if unit.fix.hit isnt null
+        amount += unit.fix.hit
+        effected.push '['+unit.name+'] 命中+'+unit.fix.hit
+
+    [@getHitRate() + amount, effected]
+
+  getDodgeRateEffected:(myCell = null)->
+    units = @getAppliedUnits()
+    amount = 0
+    effected = []
+    for unit in units
+      if unit.fix.dodge isnt null
+        amount += unit.fix.dodge
+        effected.push '['+unit.name+'] 回避+'+unit.fix.dodge
+
+    [@getDodgeRate() + amount, effected]
+    
+  getHpMaxEffected:(myCell = null)->
+    units = @getAppliedUnits()
+    amount = 1
+    effected = []
+    for unit in units
+      if unit.fix.hp isnt null
+        amount += unit.fix.hp
+        effected.push '['+unit.name+'] 最大HP+'+(unit.fix.hp * 100)+'%'
+
+    [@getHpMax() + Math.ceil(@getHpMaxBase() * amount), effected]
 
   getHpMaxItemFixRate:->
     res = 1

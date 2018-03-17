@@ -345,7 +345,7 @@ GameManager = (function() {
 
     // キャラ初期化
     static initCharacters(savedata) {
-      var characterId, characterObject, className, params, ref, ref1;
+      var characterId, characterObject, className, i, id, j, len, len1, params, ref, ref1, ref2, unit, units;
       if (this.initialized.characters) {
         return;
       }
@@ -368,11 +368,24 @@ GameManager = (function() {
             itemCapacityPlus: 0
           };
         }
+        units = [];
+        for (i = 0, len = UnitList.length; i < len; i++) {
+          unit = UnitList[i];
+          ref1 = unit.id;
+          for (j = 0, len1 = ref1.length; j < len1; j++) {
+            id = ref1[j];
+            if (id === Number(characterId)) {
+              units.push(unit);
+              break;
+            }
+          }
+        }
+        params.units = units;
         this.characters[characterId] = new window.CharacterList[characterId](params);
       }
-      ref1 = this.characters;
-      for (characterId in ref1) {
-        characterObject = ref1[characterId];
+      ref2 = this.characters;
+      for (characterId in ref2) {
+        characterObject = ref2[characterId];
         CharacterPalletManager.addCharacter(characterObject);
       }
       return CharacterPalletManager.draw();

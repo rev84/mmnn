@@ -7,6 +7,59 @@ define('SPREAD_SHEET_ID', '1QtuXjepseAXTZ27y4lLrMs_DJHbjUTutheaTVeezUMs');
 updateCharacter();
 updateEnemy();
 updateItem();
+updateUnit();
+
+function updateUnit()
+{
+  $c = SpreadsheetClient::getClient();
+
+  $service = new Google_Service_Sheets($c);
+
+  # キャラクターIDを取得
+  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'キャラ設定!A3:C');
+  $values = $response->getValues();
+  $name2id = [];
+  foreach ($values as $vAry) {
+    list($id, $_, $name) = $vAry;
+    $name2id[$name] = (int)$id;
+  }
+
+  # ユニットを取得
+  $response = $service->spreadsheets_values->get(SPREAD_SHEET_ID, 'ユニット効果!A2:J');
+  $values = $response->getValues();
+  $errors = [];
+  $units = [];
+  foreach ($values as $vAry) {
+    list($name, $hp, $atk, $pdef, $mdef, $hit, $dodge, $move, $range, $member) = $vAry;
+    $members = preg_split("`[、\,]`", $member, -1, PREG_SPLIT_NO_EMPTY);
+    var_dump($members);
+    $ids = [];
+    foreach ($members as $m) {
+      if (!array_key_exists($m, $name2id)) {
+        $errors[] = $name.'の'.$m.'がいません';
+      }
+      $ids[] = $name2id[$m];
+    }
+    
+    $units[] = [
+      'name' => $name,
+      'id' => $ids,
+      'fix' => [
+        'hp' => $hp == '' ? null : (float)$hp,
+        'atk' => $atk == '' ? null : (float)$atk,
+        'pdef'   => $pdef == '' ? null : (float)$pdef,
+        'mdef' => $mdef == '' ? null : (float)$mdef,
+        'hit' => $hit == '' ? null : (int)$hit,
+        'dodge' => $dodge == '' ? null : (int)$dodge,
+        'move' => $move == '' ? null : (int)$move,
+        'range' => $range == '' ? null : (int)$range,
+      ],
+    ];
+  }
+
+  file_put_contents(dirname(__FILE__).'/../../coffee/class/character/UnitList.coffee', 'window.UnitList = '.json_encode($units).';');
+  file_put_contents(dirname(__FILE__).'/errors.txt', json_encode($errors));
+}
 
 
 function updateItem()

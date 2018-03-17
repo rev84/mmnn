@@ -23,12 +23,23 @@ ObjectBase = (function() {
       return this.objectType === this.constructor.OBJECT_TYPE.PRESENTBOX;
     }
 
+    //-------------------------------
+    // HP
+    //-------------------------------
+    getHpMaxEffected(myCell = null) {
+      return [this.getHpMax(), []];
+    }
+
     getHpMax(level = null) {
       if (level === null) {
         return Math.ceil(this.constructor.hpBase * this.level * this.getHpMaxItemFixRate());
       } else {
         return Math.ceil(this.constructor.hpBase * level);
       }
+    }
+
+    getHpMaxBase() {
+      return this.constructor.hpBase;
     }
 
     getHpMaxItemFixRate() {
@@ -77,6 +88,13 @@ ObjectBase = (function() {
       return this.constructor.attackTypeBase;
     }
 
+    //-------------------------------
+    // 攻撃力
+    //-------------------------------
+    getAttackEffected(myCell = null) {
+      return [this.getAttack(), []];
+    }
+
     getAttack(level = null) {
       if (level === null) {
         return Math.ceil(this.constructor.attackBase * this.level * this.getAttackItemFixRate());
@@ -91,6 +109,13 @@ ObjectBase = (function() {
 
     getAttackBase() {
       return this.constructor.attackBase;
+    }
+
+    //-------------------------------
+    // 物防
+    //-------------------------------
+    getPDefEffected(myCell = null) {
+      return [this.getPDef(), []];
     }
 
     getPDef(level = null) {
@@ -109,6 +134,13 @@ ObjectBase = (function() {
       return this.constructor.pDefBase;
     }
 
+    //-------------------------------
+    // 魔防
+    //-------------------------------
+    getMDefEffected(myCell = null) {
+      return [this.getMDef(), []];
+    }
+
     getMDef(level = null) {
       if (level === null) {
         return Math.ceil(this.constructor.mDefBase * this.level * this.getMDefItemFixRate());
@@ -125,6 +157,13 @@ ObjectBase = (function() {
       return this.constructor.mDefBase;
     }
 
+    //-------------------------------
+    // 移動
+    //-------------------------------
+    getMoveEffected(myCell = null) {
+      return [this.getMove(), []];
+    }
+
     getMove() {
       return this.constructor.moveBase + this.getMoveItemFix();
     }
@@ -135,6 +174,13 @@ ObjectBase = (function() {
 
     getMoveBase() {
       return this.constructor.moveBase;
+    }
+
+    //-------------------------------
+    // 射程
+    //-------------------------------
+    getRangeEffected(myCell = null) {
+      return [this.getRange(), []];
     }
 
     getRange() {
@@ -149,6 +195,13 @@ ObjectBase = (function() {
       return this.constructor.rangeBase;
     }
 
+    //-------------------------------
+    // 命中
+    //-------------------------------
+    getHitRateEffected(myCell = null) {
+      return [this.getHitRate(), []];
+    }
+
     getHitRate() {
       return this.constructor.hitRateBase + this.getHitRateItemFix();
     }
@@ -159,6 +212,13 @@ ObjectBase = (function() {
 
     getHitRateBase() {
       return this.constructor.hitRateBase;
+    }
+
+    //-------------------------------
+    // 回避
+    //-------------------------------
+    getDodgeRateEffected(myCell = null) {
+      return [this.getDodgeRate(), []];
     }
 
     getDodgeRate() {

@@ -3,7 +3,7 @@ var Panel;
 
 Panel = (function() {
   class Panel {
-    constructor(parentElement, object, posY = 0, posX = 0, isShowOverlay = true, isCharacterPallet = false) {
+    constructor(parentElement, object, posY = 0, posX = 0, isShowOverlay = true, isCharacterPallet = false, isEffected = false) {
       this.redrawOverlay = this.redrawOverlay.bind(this);
       this.parentElement = parentElement;
       this.object = object;
@@ -11,6 +11,7 @@ Panel = (function() {
       this.posX = posX;
       this.isShowOverlay = isShowOverlay;
       this.isCharacterPallet = isCharacterPallet;
+      this.isEffected = isEffected;
       this.divObject = $('<div>').addClass(this.constructor.CLASSNAME).css({
         width: this.constructor.SIZE_X,
         height: this.constructor.SIZE_Y,
@@ -67,6 +68,7 @@ Panel = (function() {
     }
 
     drawCommon(level = null) {
+      var atk, dodge, hit, hpmax, list, mdef, move, pdef, range, v;
       // アイコン
       $(this.divObject).append($('<div>').addClass('field field_icon').css({
         top: 32,
@@ -99,26 +101,65 @@ Panel = (function() {
         'line-height': '20px'
       }).html(this.object.getCharacterName()));
       // 攻撃力
-      $(this.divObject).append($('<div>').addClass('field field_attack ' + (this.object.getAttackType() === '物理' ? 'field_attack_physic' : 'field_attack_magic')).css({
+      if (this.isEffected) {
+        [v, list] = this.object.getAttackEffected();
+      } else {
+        v = this.object.getAttack(level);
+        list = [];
+      }
+      atk = $('<div>').addClass('field field_attack ' + (this.object.getAttackType() === '物理' ? 'field_attack_physic' : 'field_attack_magic')).css({
         top: 30,
         left: 130,
         width: 80,
         height: 20
-      }).html(ObjectBase.status2html(this.object.getAttack(level))));
+      }).html(ObjectBase.status2html(v));
+      if (list.length > 0) {
+        atk.tooltip({
+          'placement': 'top',
+          'title': list.join("\n")
+        });
+      }
+      $(this.divObject).append(atk);
       // 物理防御力
-      $(this.divObject).append($('<div>').addClass('field field_pdef').css({
+      if (this.isEffected) {
+        [v, list] = this.object.getPDefEffected();
+      } else {
+        v = this.object.getPDef(level);
+        list = [];
+      }
+      pdef = $('<div>').addClass('field field_pdef').css({
         top: 51,
         left: 130,
         width: 80,
         height: 20
-      }).html(ObjectBase.status2html(this.object.getPDef(level))));
+      }).html(ObjectBase.status2html(v));
+      if (list.length > 0) {
+        pdef.tooltip({
+          'placement': 'top',
+          'title': list.join("\n")
+        });
+      }
+      $(this.divObject).append(pdef);
       // 魔法防御力
-      $(this.divObject).append($('<div>').addClass('field field_mdef').css({
+      if (this.isEffected) {
+        [v, list] = this.object.getMDefEffected();
+      } else {
+        v = this.object.getMDef(level);
+        list = [];
+      }
+      mdef = $('<div>').addClass('field field_mdef').css({
         top: 71,
         left: 130,
         width: 80,
         height: 20
-      }).html(ObjectBase.status2html(this.object.getMDef(level))));
+      }).html(ObjectBase.status2html(v));
+      if (list.length > 0) {
+        mdef.tooltip({
+          'placement': 'top',
+          'title': list.join("\n")
+        });
+      }
+      $(this.divObject).append(mdef);
       // HP
       $(this.divObject).append($('<div>').addClass('field field_hp').css({
         top: 6,
@@ -134,40 +175,105 @@ Panel = (function() {
         height: 20
       }).html('/'));
       // HP最大
-      $(this.divObject).append($('<div>').addClass('field field_hp_max').css({
+      if (this.isEffected) {
+        [v, list] = this.object.getHpMaxEffected();
+      } else {
+        v = this.object.getHpMax(level);
+        list = [];
+      }
+      hpmax = $('<div>').addClass('field field_hp_max').css({
         top: 6,
         left: 300,
         width: 85,
         height: 20
-      }).html(ObjectBase.status2html(this.object.getHpMax(level))));
+      }).html(ObjectBase.status2html(v));
+      if (list.length > 0) {
+        hpmax.tooltip({
+          'placement': 'top',
+          'title': list.join("\n")
+        });
+      }
+      $(this.divObject).append(hpmax);
       // 命中率
-      $(this.divObject).append($('<div>').addClass('field field_hit_rate').css({
+      if (this.isEffected) {
+        [v, list] = this.object.getHitRateEffected();
+      } else {
+        v = this.object.getHitRate();
+        list = [];
+      }
+      hit = $('<div>').addClass('field field_hit_rate').css({
         top: 30,
         left: 260,
         width: 35,
         height: 20
-      }).html(ObjectBase.status2html(this.object.getHitRate())));
+      }).html(ObjectBase.status2html(v));
+      if (list.length > 0) {
+        hit.tooltip({
+          'placement': 'top',
+          'title': list.join("\n")
+        });
+      }
+      $(this.divObject).append(hit);
       // 回避率
-      $(this.divObject).append($('<div>').addClass('field field_dodge_rate').css({
+      if (this.isEffected) {
+        [v, list] = this.object.getDodgeRateEffected();
+      } else {
+        v = this.object.getDodgeRate();
+        list = [];
+      }
+      dodge = $('<div>').addClass('field field_dodge_rate').css({
         top: 51,
         left: 260,
         width: 35,
         height: 20
-      }).html(ObjectBase.status2html(this.object.getDodgeRate())));
+      }).html(ObjectBase.status2html(v));
+      if (list.length > 0) {
+        dodge.tooltip({
+          'placement': 'top',
+          'title': list.join("\n")
+        });
+      }
+      $(this.divObject).append(dodge);
       // 移動力
-      $(this.divObject).append($('<div>').addClass('field field_move').css({
+      if (this.isEffected) {
+        [v, list] = this.object.getMoveEffected();
+      } else {
+        v = this.object.getMove();
+        list = [];
+      }
+      move = $('<div>').addClass('field field_move').css({
         top: 30,
         left: 350,
         width: 30,
         height: 20
-      }).html(ObjectBase.status2html(this.object.getMove())));
+      }).html(ObjectBase.status2html(v));
+      if (list.length > 0) {
+        move.tooltip({
+          'placement': 'top',
+          'title': list.join("\n")
+        });
+      }
+      $(this.divObject).append(move);
       // 射程
-      $(this.divObject).append($('<div>').addClass('field field_range').css({
+      if (this.isEffected) {
+        [v, list] = this.object.getRangeEffected();
+      } else {
+        v = this.object.getRange();
+        list = [];
+      }
+      range = $('<div>').addClass('field field_range').css({
         top: 50,
         left: 350,
         width: 30,
         height: 20
-      }).html(this.object.getRange()));
+      }).html(v);
+      if (list.length > 0) {
+        range.tooltip({
+          'placement': 'top',
+          'title': list.join("\n")
+        });
+      }
+      $(this.divObject).append(range);
       // 能力
       return $(this.divObject).append($('<div>').addClass('field field_ability').css({
         top: 93,

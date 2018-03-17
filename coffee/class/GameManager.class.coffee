@@ -472,6 +472,13 @@ class GameManager
           moved: false
           itemCapacityPlus: 0
 
+      units = []
+      for unit in UnitList
+        for id in unit.id
+          if id is Number(characterId)
+            units.push unit
+            break
+      params.units = units
       @characters[characterId] = new window.CharacterList[characterId](params)
     for characterId, characterObject of @characters
       CharacterPalletManager.addCharacter(characterObject)

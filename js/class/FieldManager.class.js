@@ -617,6 +617,20 @@ FieldManager = (function() {
       return (await this.checkDeath());
     }
 
+    // フィールドにいる全キャラのIDを取得
+    static getCharacterIds() {
+      var res;
+      res = [];
+      $.each(this.cells, function() {
+        return $.each(this, function() {
+          if (this.object !== null && this.object.isCharacterObject()) {
+            return res.push(this.object.getId());
+          }
+        });
+      });
+      return res;
+    }
+
   };
 
   FieldManager.ID = 'field';

@@ -442,3 +442,11 @@ class FieldManager
     @draw()
     # 死亡チェック
     await @checkDeath()
+
+  # フィールドにいる全キャラのIDを取得
+  @getCharacterIds:->
+    res = []
+    $.each @cells, ->
+      $.each @, ->
+        res.push @object.getId() if @object isnt null and @object.isCharacterObject()
+    res
