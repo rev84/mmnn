@@ -13,10 +13,10 @@ MenuManager = (function() {
         left: this.posX,
         top: this.posY
       });
-      // 出撃
-      this.pickCharacter = $('<button>').addClass('menu performance left').on('click', this.onClickCharacterPick.bind(this)).appendTo(this.divObject);
       // 戦闘
       this.battle = $('<button>').addClass('menu live left').on('click', this.onClickBattle.bind(this)).appendTo(this.divObject);
+      // 出撃
+      this.pickCharacter = $('<button>').addClass('menu performance left').on('click', this.onClickCharacterPick.bind(this)).appendTo(this.divObject);
       // レベルアップ
       this.turnEnd = $('<button>').addClass('menu training left').on('click', this.onClickLevelup.bind(this)).appendTo(this.divObject);
       // アイテム
@@ -227,13 +227,23 @@ MenuManager = (function() {
     }
 
     static reflectEnable() {
-      var isEnable, key, ref, results;
+      var isEnable, key, mode, ref, ref1, results;
       $('button.menu').prop('disabled', false);
+      $('button.menu').removeClass('hover');
       ref = GameManager.isEnable;
-      results = [];
       for (key in ref) {
         isEnable = ref[key];
-        results.push($('button.' + this.enableKey2class(key)).prop('disabled', !isEnable));
+        $('button.' + this.enableKey2class(key)).prop('disabled', !isEnable);
+      }
+      ref1 = GameManager.isMode;
+      results = [];
+      for (key in ref1) {
+        mode = ref1[key];
+        if (mode) {
+          results.push($('button.' + this.enableKey2class(key)).addClass('hover'));
+        } else {
+          results.push(void 0);
+        }
       }
       return results;
     }
@@ -241,7 +251,7 @@ MenuManager = (function() {
     static enableKey2class(enableKey) {
       switch (enableKey) {
         case 'battle':
-          return 'performance';
+          return 'live';
         case 'characterPick':
           return 'performance';
         case 'levelup':
@@ -267,7 +277,7 @@ MenuManager = (function() {
 
   MenuManager.SIZE_X = 1320;
 
-  MenuManager.SIZE_Y = 50;
+  MenuManager.SIZE_Y = 80;
 
   MenuManager.elements = {
     pickCharacter: null

@@ -36,8 +36,8 @@ class Character1Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "次はもっと頑張ります！"
 
-  @abilityName = "笑顔の魔法"
-  @abilityDesc = "周囲8マスの味方の攻撃を10%上げる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -79,8 +79,8 @@ class Character2Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "課題、たくさん見えたよ"
 
-  @abilityName = "蒼の波動"
-  @abilityDesc = "周囲8マスの味方の回避を10%上げる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -122,8 +122,8 @@ class Character3Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "こんなんじゃ、笑えないよ…"
 
-  @abilityName = "フレンドリー"
-  @abilityDesc = "周囲8マスの味方の物防・魔防を10%上げる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -165,8 +165,8 @@ class Character4Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "相川千夏"
 
-  @abilityName = "代官山系お洒落または語学"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -208,8 +208,8 @@ class Character5Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "愛野渚"
 
-  @abilityName = "バスケ部キャプテン"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -251,8 +251,8 @@ class Character6Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "相葉夕美"
 
-  @abilityName = "なし"
-  @abilityDesc = "ターン終了時、周囲の空いているマスに花を出現させることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -294,8 +294,8 @@ class Character7Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "相原雪乃"
 
-  @abilityName = "紅茶大好きなお嬢様"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -337,8 +337,8 @@ class Character8Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "赤城みりあ"
 
-  @abilityName = "みりあもやるー！"
-  @abilityDesc = "行動終了後に味方が攻撃した時、1%の確率で再行動できる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -380,8 +380,8 @@ class Character9Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "赤西瑛梨華"
 
-  @abilityName = "O・WA・RA・I"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -423,8 +423,8 @@ class Character10Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "浅野風香"
 
-  @abilityName = "セクシー小動物"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -466,8 +466,8 @@ class Character11Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "浅利七海"
 
-  @abilityName = "さかなくん"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -509,8 +509,8 @@ class Character12Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "アナスタシア"
 
-  @abilityName = "星をみるひとパパがロシア人なの"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -552,8 +552,8 @@ class Character13Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "安部菜々"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -595,8 +595,8 @@ class Character14Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "綾瀬穂乃香"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -638,8 +638,8 @@ class Character15Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "荒木比奈"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -681,8 +681,8 @@ class Character16Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "有浦柑奈"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -724,8 +724,8 @@ class Character17Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "安斎都"
 
-  @abilityName = "探偵"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -767,8 +767,8 @@ class Character18Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "イヴ・サンタクロース"
 
-  @abilityName = "プレゼント"
-  @abilityDesc = "プレゼントに与えるダメージが2倍になる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -810,8 +810,8 @@ class Character19Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "五十嵐響子"
 
-  @abilityName = "なし"
-  @abilityDesc = "ターン終了時、周囲の味方のHPを回復することがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -853,8 +853,8 @@ class Character20Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "池袋晶葉"
 
-  @abilityName = "大丈夫博士"
-  @abilityDesc = "ターン開始時、周囲にいる味方一人の攻撃、物防、魔防を30%上げるか下げるかすることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -896,8 +896,8 @@ class Character21Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "伊集院惠"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -939,8 +939,8 @@ class Character22Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "一ノ瀬志希"
 
-  @abilityName = "失踪"
-  @abilityDesc = "味方ターン終了時に、ランダムなマスに移動することがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -982,8 +982,8 @@ class Character23Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "市原仁奈"
 
-  @abilityName = "誰かのきもちになるですよ"
-  @abilityDesc = "敵ターン終了時に、ランダムなステータスがフィールド内の誰かの値に変わる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1025,8 +1025,8 @@ class Character24Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "今井加奈"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1068,8 +1068,8 @@ class Character25Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "井村雪菜"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1111,8 +1111,8 @@ class Character26Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "上田鈴帆"
 
-  @abilityName = "きぐるみ"
-  @abilityDesc = "攻撃した相手の"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1154,8 +1154,8 @@ class Character27Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "氏家むつみ"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1197,8 +1197,8 @@ class Character28Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "梅木音葉"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1240,8 +1240,8 @@ class Character29Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "江上椿"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1283,8 +1283,8 @@ class Character30Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "衛藤美紗希"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1326,8 +1326,8 @@ class Character31Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "海老原菜帆"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1369,8 +1369,8 @@ class Character32Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "及川雫"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1412,8 +1412,8 @@ class Character33Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "大石泉"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1455,8 +1455,8 @@ class Character34Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "太田優"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1498,8 +1498,8 @@ class Character35Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "大槻唯"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1541,8 +1541,8 @@ class Character36Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "大西由里子"
 
-  @abilityName = "なし"
-  @abilityDesc = "ターン開始時、別の敵に隣接している敵の3マス以内にいると、物防・魔防が10%上がることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1584,8 +1584,8 @@ class Character37Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "大沼くるみ"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1627,8 +1627,8 @@ class Character38Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "大原みちる"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1670,8 +1670,8 @@ class Character39Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "岡崎泰葉"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1713,8 +1713,8 @@ class Character40Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "緒方智絵里"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1756,8 +1756,8 @@ class Character41Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "奥山沙織"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1799,8 +1799,8 @@ class Character42Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "乙倉悠貴"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1842,8 +1842,8 @@ class Character43Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "片桐早苗"
 
-  @abilityName = "逮捕"
-  @abilityDesc = "攻撃した相手を行動不能にする"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1885,8 +1885,8 @@ class Character44Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "上条春菜"
 
-  @abilityName = "メガネをどうぞ"
-  @abilityDesc = "出撃している間、味方の攻撃が必中になる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1928,8 +1928,8 @@ class Character45Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "神谷奈緒"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -1971,8 +1971,8 @@ class Character46Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "川島瑞樹"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2014,8 +2014,8 @@ class Character47Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "神崎蘭子"
 
-  @abilityName = "黒魔術"
-  @abilityDesc = "攻撃した敵を一撃で倒すことがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2057,8 +2057,8 @@ class Character48Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "岸部彩華"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2100,8 +2100,8 @@ class Character49Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "北川真尋"
 
-  @abilityName = "なし"
-  @abilityDesc = "移動したターン、その距離に応じて攻撃力が上がる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2143,8 +2143,8 @@ class Character50Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "喜多日菜子"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2186,8 +2186,8 @@ class Character51Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "喜多見柚"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2229,8 +2229,8 @@ class Character52Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "木場真奈美"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2272,8 +2272,8 @@ class Character53Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "木村夏樹"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2315,8 +2315,8 @@ class Character54Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "キャシー・グラハム"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2358,8 +2358,8 @@ class Character55Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "桐野アヤ"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2401,8 +2401,8 @@ class Character56Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "桐生つかさ"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2444,8 +2444,8 @@ class Character57Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "日下部若葉"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2487,8 +2487,8 @@ class Character58Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "工藤忍"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2530,8 +2530,8 @@ class Character59Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "クラリス"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2573,8 +2573,8 @@ class Character60Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "栗原ネネ"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2616,8 +2616,8 @@ class Character61Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "黒川千秋"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2659,8 +2659,8 @@ class Character62Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "ケイト"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2702,8 +2702,8 @@ class Character63Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "古賀小春"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2745,8 +2745,8 @@ class Character64Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "輿水幸子"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2788,8 +2788,8 @@ class Character65Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "小関麗奈"
 
-  @abilityName = "いたずら"
-  @abilityDesc = "味方ターン開始時に、10%の確率で周囲4マスのどこかに岩を置く"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2831,8 +2831,8 @@ class Character66Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "小早川紗枝"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2874,8 +2874,8 @@ class Character67Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "秋月律子"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2917,8 +2917,8 @@ class Character68Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "秋月涼"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -2960,8 +2960,8 @@ class Character69Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "天海春香"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3003,8 +3003,8 @@ class Character70Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "我那覇響"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3046,8 +3046,8 @@ class Character71Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "菊地真"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3089,8 +3089,8 @@ class Character72Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "如月千早"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3132,8 +3132,8 @@ class Character73Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "小日向美穂"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3175,8 +3175,8 @@ class Character74Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "小松伊吹"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3218,8 +3218,8 @@ class Character75Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "小室千奈美"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3261,8 +3261,8 @@ class Character76Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "西園寺琴歌"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3304,8 +3304,8 @@ class Character77Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "財前時子"
 
-  @abilityName = "愛のムチ"
-  @abilityDesc = "時子が攻撃した敵は、このターン以降、なるべく時子に近づこうとする"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3347,8 +3347,8 @@ class Character78Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "斉藤洋子"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3390,8 +3390,8 @@ class Character79Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "冴島清美"
 
-  @abilityName = "風紀"
-  @abilityDesc = "すべてのユニットの特殊能力を無効化する"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3433,8 +3433,8 @@ class Character80Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "榊原里美"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3476,8 +3476,8 @@ class Character81Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "鷺沢文香"
 
-  @abilityName = "なし"
-  @abilityDesc = "装備したアイテムの効果が倍になる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3519,8 +3519,8 @@ class Character82Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "佐久間まゆ"
 
-  @abilityName = "恐怖"
-  @abilityDesc = "まゆが攻撃した敵は、次のターン、移動力が+1され、なるべくまゆから遠ざかろうとする"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3562,8 +3562,8 @@ class Character83Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "櫻井桃華"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3605,8 +3605,8 @@ class Character84Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "佐々木千枝"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3648,8 +3648,8 @@ class Character85Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "佐城雪美"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3691,8 +3691,8 @@ class Character86Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "佐藤心"
 
-  @abilityName = "キャラ付け"
-  @abilityDesc = "HPが50%以上ある時、攻撃が30%上がる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3734,8 +3734,8 @@ class Character87Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "沢田麻理菜"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3777,8 +3777,8 @@ class Character88Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "椎名法子"
 
-  @abilityName = "ドーナツ配布"
-  @abilityDesc = "周囲8マスの味方のHPを10%回復することがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3820,8 +3820,8 @@ class Character89Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "塩見周子"
 
-  @abilityName = "気まぐれ"
-  @abilityDesc = "ターン開始時、HPが10%回復するか、5%のダメージを受ける"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3863,8 +3863,8 @@ class Character90Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "四条貴音"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3906,8 +3906,8 @@ class Character91Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "篠原礼"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3949,8 +3949,8 @@ class Character92Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "首藤葵"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -3992,8 +3992,8 @@ class Character93Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "城ヶ崎美嘉"
 
-  @abilityName = "姉妹"
-  @abilityDesc = "城ヶ崎莉嘉が出撃している間、物防が2倍になり、移動、射程が1上がる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4035,8 +4035,8 @@ class Character94Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "城ヶ崎莉嘉"
 
-  @abilityName = "姉妹"
-  @abilityDesc = "城ヶ崎美嘉が出撃している間、魔防が2倍になり、移動、射程が1上がる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4078,8 +4078,8 @@ class Character95Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "白菊ほたる"
 
-  @abilityName = "不幸"
-  @abilityDesc = "味方が攻撃を受ける時、代わりに攻撃されることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4121,8 +4121,8 @@ class Character96Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "白坂小梅"
 
-  @abilityName = "あの子が遊びにきた"
-  @abilityDesc = "敵ターンの間だけ、自身の周囲のマスにランダムで攻撃不可のユニットが出現する"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4164,8 +4164,8 @@ class Character97Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "杉坂海"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4207,8 +4207,8 @@ class Character98Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "涼宮星花"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4250,8 +4250,8 @@ class Character99Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "関裕美"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4293,8 +4293,8 @@ class Character100Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "瀬名詩織"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4336,8 +4336,8 @@ class Character101Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "仙崎恵磨"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4379,8 +4379,8 @@ class Character102Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "相馬夏美"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4422,8 +4422,8 @@ class Character103Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "高垣楓"
 
-  @abilityName = "歌姫"
-  @abilityDesc = "攻撃した敵の周囲の敵にもダメージ、味方を回復する"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4465,8 +4465,8 @@ class Character104Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "高槻やよい"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4508,8 +4508,8 @@ class Character105Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "高橋礼子"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4551,8 +4551,8 @@ class Character106Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "鷹富士茄子"
 
-  @abilityName = "幸運"
-  @abilityDesc = "攻撃したプレゼントのランクが1上がることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4594,8 +4594,8 @@ class Character107Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "高峯のあ"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4637,8 +4637,8 @@ class Character108Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "高森藍子"
 
-  @abilityName = "ゆるふわ時間"
-  @abilityDesc = "攻撃した相手を行動終了にすることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4680,8 +4680,8 @@ class Character109Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "多田李衣菜"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4723,8 +4723,8 @@ class Character110Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "橘ありす"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4766,8 +4766,8 @@ class Character111Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "月宮雅"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4809,8 +4809,8 @@ class Character112Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "土屋亜子"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4852,8 +4852,8 @@ class Character113Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "東郷あい"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4895,8 +4895,8 @@ class Character114Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "道明寺歌鈴"
 
-  @abilityName = "ドジ"
-  @abilityDesc = "移動後、周囲の味方・敵にダメージを与えることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4938,8 +4938,8 @@ class Character115Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "十時愛梨"
 
-  @abilityName = "すぐ脱ぐ"
-  @abilityDesc = "ターン開始時、物防と魔防が10%下がることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -4981,8 +4981,8 @@ class Character116Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "長富蓮実"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5024,8 +5024,8 @@ class Character117Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "中野有香"
 
-  @abilityName = "会心の一撃"
-  @abilityDesc = "攻撃時、敵の防御力を無視することがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5067,8 +5067,8 @@ class Character118Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "ナターリア"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5110,8 +5110,8 @@ class Character119Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "並木芽衣子"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5153,8 +5153,8 @@ class Character120Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "成宮由愛"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5196,8 +5196,8 @@ class Character121Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "南条光"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5239,8 +5239,8 @@ class Character122Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "難波笑美"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5282,8 +5282,8 @@ class Character123Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "西川保奈美"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5325,8 +5325,8 @@ class Character124Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "西島櫂"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5368,8 +5368,8 @@ class Character125Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "新田美波"
 
-  @abilityName = "万能"
-  @abilityDesc = "ターン終了時、ランダムなステータスが10%上昇する（フィールドから出ると戻る）"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5411,8 +5411,8 @@ class Character126Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "二宮飛鳥"
 
-  @abilityName = "孤高"
-  @abilityDesc = "ターン開始時、周りにユニットがいなければ、そのターン、全ステータスが10%上がる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5454,8 +5454,8 @@ class Character127Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "丹羽仁美"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5497,8 +5497,8 @@ class Character128Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "野々村そら"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5540,8 +5540,8 @@ class Character129Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "萩原雪歩"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5583,8 +5583,8 @@ class Character130Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "服部瞳子"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5626,8 +5626,8 @@ class Character131Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "浜川愛結奈"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5669,8 +5669,8 @@ class Character132Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "浜口あやめ"
 
-  @abilityName = "忍法変わり身の術"
-  @abilityDesc = "回避時に、味方と入れ替わることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5712,8 +5712,8 @@ class Character133Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "早坂美玲"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5755,8 +5755,8 @@ class Character134Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "速水奏"
 
-  @abilityName = "ムーンサイド"
-  @abilityDesc = "味方ターン終了時、最大HPとHPの差がHPになることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5798,8 +5798,8 @@ class Character135Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "原田美世"
 
-  @abilityName = "なし"
-  @abilityDesc = "再行動することがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5841,8 +5841,8 @@ class Character136Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "柊志乃"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5884,8 +5884,8 @@ class Character137Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "日高愛"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5927,8 +5927,8 @@ class Character138Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "日野茜"
 
-  @abilityName = "全力疾走"
-  @abilityDesc = "移動後に攻撃をせずに行動終了した時、20%の確率でもう一度行動できる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -5970,8 +5970,8 @@ class Character139Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "姫川友紀"
 
-  @abilityName = "かっとばせー"
-  @abilityDesc = "ターン開始時、隣接している味方をランダムなマスに飛ばすことがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6013,8 +6013,8 @@ class Character140Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "兵藤レナ"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6056,8 +6056,8 @@ class Character141Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "福山舞"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6099,8 +6099,8 @@ class Character142Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "藤居朋"
 
-  @abilityName = "占い"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6142,8 +6142,8 @@ class Character143Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "藤本里奈"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6185,8 +6185,8 @@ class Character144Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "藤原肇"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6228,8 +6228,8 @@ class Character145Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "双葉杏"
 
-  @abilityName = "印税"
-  @abilityDesc = "ターン終了時に出撃していると、階層✕3の経験値を得る"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6271,8 +6271,8 @@ class Character146Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "双海亜美"
 
-  @abilityName = "双子"
-  @abilityDesc = "双海真美が出撃している場合、味方ターン開始時に、HPが二人のうちどちらか高い方になる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6314,8 +6314,8 @@ class Character147Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "双海真美"
 
-  @abilityName = "双子"
-  @abilityDesc = "双海亜美が出撃している場合、味方ターン開始時に、HPが二人のうちどちらか高い方になる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6357,8 +6357,8 @@ class Character148Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "古澤頼子"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6400,8 +6400,8 @@ class Character149Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "ヘレン"
 
-  @abilityName = "世界のヘレン"
-  @abilityDesc = "ターン開始時、HPが全回復することがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6443,8 +6443,8 @@ class Character150Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "北条加蓮"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6486,8 +6486,8 @@ class Character151Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "星井美希"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6529,8 +6529,8 @@ class Character152Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "星輝子"
 
-  @abilityName = "インキャ"
-  @abilityDesc = "上か下の壁際で行動終了した時、再行動することがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6572,8 +6572,8 @@ class Character153Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "堀裕子"
 
-  @abilityName = "サイキック"
-  @abilityDesc = "攻撃が命中した敵を好きな場所に移動することができる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6615,8 +6615,8 @@ class Character154Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "前川みく"
 
-  @abilityName = "なし"
-  @abilityDesc = "味方が敵からの攻撃を回避した時に、その敵に反撃する"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6658,8 +6658,8 @@ class Character155Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "槙原志保"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6701,8 +6701,8 @@ class Character156Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "松尾千鶴"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6744,8 +6744,8 @@ class Character157Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "松永涼"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6787,8 +6787,8 @@ class Character158Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "松原早耶"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6830,8 +6830,8 @@ class Character159Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "松本沙理奈"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6873,8 +6873,8 @@ class Character160Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "松山久美子"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6916,8 +6916,8 @@ class Character161Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "的場梨沙"
 
-  @abilityName = "パパ"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -6959,8 +6959,8 @@ class Character162Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "間中美里"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7002,8 +7002,8 @@ class Character163Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "真鍋いつき"
 
-  @abilityName = "なし"
-  @abilityDesc = "行動後、再行動できることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7045,8 +7045,8 @@ class Character164Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "三浦あずさ"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7088,8 +7088,8 @@ class Character165Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "水木聖來"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7131,8 +7131,8 @@ class Character166Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "水谷絵理"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7174,8 +7174,8 @@ class Character167Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "水野翠"
 
-  @abilityName = "貫通の矢"
-  @abilityDesc = "攻撃を外した時、その敵より後ろにいる敵全員にダメージを与える"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7217,8 +7217,8 @@ class Character168Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "水本ゆかり"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7260,8 +7260,8 @@ class Character169Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "水瀬伊織"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7303,8 +7303,8 @@ class Character170Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "三船美優"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7346,8 +7346,8 @@ class Character171Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "三村かな子"
 
-  @abilityName = "なし"
-  @abilityDesc = "最大HPの50%以上のダメージを受けてHPが0になった時、一度だけHP1で耐える"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7389,8 +7389,8 @@ class Character172Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "宮本フレデリカ"
 
-  @abilityName = "なし"
-  @abilityDesc = "ターン開始時、攻撃タイプがランダムに変化する"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7432,8 +7432,8 @@ class Character173Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "三好紗南"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7475,8 +7475,8 @@ class Character174Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "向井拓海"
 
-  @abilityName = "喧嘩上等"
-  @abilityDesc = "敵の攻撃を寄せつける"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7518,8 +7518,8 @@ class Character175Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "棟方愛海"
 
-  @abilityName = "登山"
-  @abilityDesc = "ターン開始時、周りに味方の数に応じてHPが回復する"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7561,8 +7561,8 @@ class Character176Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "村上巴"
 
-  @abilityName = "喝！"
-  @abilityDesc = "行動終了時、周りの行動終了済みの味方を再行動させることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7604,8 +7604,8 @@ class Character177Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "村松さくら"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7647,8 +7647,8 @@ class Character178Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "メアリー・コクラン"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7690,8 +7690,8 @@ class Character179Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "持田亜里沙"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7733,8 +7733,8 @@ class Character180Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "望月聖"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7776,8 +7776,8 @@ class Character181Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "桃井あずき"
 
-  @abilityName = "呉服"
-  @abilityDesc = "ターン開始時、物防・魔防が10%上がる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7819,8 +7819,8 @@ class Character182Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "森久保乃々"
 
-  @abilityName = "む～り～"
-  @abilityDesc = "敵ターン終了時、周りに3体以上のユニットがいる時、マップ左端のランダムなマスにワープする"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7862,8 +7862,8 @@ class Character183Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "諸星きらり"
 
-  @abilityName = "きらりん☆ストロング"
-  @abilityDesc = "最大HPの50%以上のダメージを受けてHPが0になった時、一度だけHP1で耐える。"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7905,8 +7905,8 @@ class Character184Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "楊菲菲"
 
-  @abilityName = "カンフー"
-  @abilityDesc = "最大HP以上のダメージを受ける時、10%の確率で回避する"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7948,8 +7948,8 @@ class Character185Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "八神マキノ"
 
-  @abilityName = "諜報"
-  @abilityDesc = "自分が攻撃する時を除き、周囲にいる敵が受けるダメージが2倍になる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -7991,8 +7991,8 @@ class Character186Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "矢口美羽"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8034,8 +8034,8 @@ class Character187Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "柳清良"
 
-  @abilityName = "看護"
-  @abilityDesc = "ターンごとのHP減少を半分にする"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8077,8 +8077,8 @@ class Character188Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "柳瀬美由紀"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8120,8 +8120,8 @@ class Character189Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "大和亜季"
 
-  @abilityName = "掃射"
-  @abilityDesc = "攻撃時、周囲8マスの味方、敵にも同じダメージを与えることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8163,8 +8163,8 @@ class Character190Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "結城晴"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8206,8 +8206,8 @@ class Character191Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "遊佐こずえ"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8249,8 +8249,8 @@ class Character192Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "横山千佳"
 
-  @abilityName = "魔法知識"
-  @abilityDesc = "魔法攻撃を受ける時、回避率が5倍になる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8292,8 +8292,8 @@ class Character193Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "吉岡沙紀"
 
-  @abilityName = "ペイント"
-  @abilityDesc = "味方ターン開始時、周囲の敵をランダムな別の敵に変化させることがある"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8335,8 +8335,8 @@ class Character194Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "依田芳乃"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8378,8 +8378,8 @@ class Character195Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "ライラ"
 
-  @abilityName = "節約"
-  @abilityDesc = "レベルが上がりやすい"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8421,8 +8421,8 @@ class Character196Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "龍崎薫"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8464,8 +8464,8 @@ class Character197Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "若林智香"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8507,8 +8507,8 @@ class Character198Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "脇山珠美"
 
-  @abilityName = "剣道"
-  @abilityDesc = "敵の攻撃を回避した時、反撃する"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8550,8 +8550,8 @@ class Character199Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "和久井留美"
 
-  @abilityName = "なし"
-  @abilityDesc = "なし"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)
@@ -8593,8 +8593,8 @@ class Character200Base extends CharacterBase
   # 死んだ時の台詞
   @textDeath = "千川ちひろ"
 
-  @abilityName = "事務"
-  @abilityDesc = "出撃中に得るジュエルが2倍になる"
+  @abilityName = "未実装"
+  @abilityDesc = "未実装"
 
   constructor:(params)->
     super(params)

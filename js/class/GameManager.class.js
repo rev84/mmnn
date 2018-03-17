@@ -992,37 +992,37 @@ GameManager = (function() {
   GameManager.POSITION = {
     COMMON: {
       menu: [0, 0],
-      exp: [1000, 675],
-      floor: [0, 735],
-      jewel: [1000, 735],
-      life: [0, 685]
+      exp: [1000, 715],
+      floor: [0, 775],
+      jewel: [1000, 775],
+      life: [0, 725]
     },
     BATTLE: {
       character_pallet: null,
-      field_visible: [0, 25],
-      left_info: [200, 675],
-      right_info: [600, 675],
+      field_visible: [0, 65],
+      left_info: [200, 715],
+      right_info: [600, 715],
       levelup: null,
       item: null,
       gacha: null,
       cost_manager: null
     },
     CHARACTER_PICK: {
-      character_pallet: [144, 75],
-      field_visible: [0, 25],
+      character_pallet: [144, 115],
+      field_visible: [0, 65],
       left_info: null,
       right_info: null,
       levelup: null,
       item: null,
       gacha: null,
-      cost_manager: [200, 675]
+      cost_manager: [200, 715]
     },
     LEVELUP: {
       character_pallet: null,
-      field_visible: [0, 25],
+      field_visible: [0, 65],
       left_info: null,
       right_info: null,
-      levelup: [0, 75],
+      levelup: [0, 115],
       item: null,
       gacha: null,
       cost_manager: null
@@ -1033,7 +1033,7 @@ GameManager = (function() {
       left_info: null,
       right_info: null,
       levelup: null,
-      item: [0, 75],
+      item: [0, 115],
       gacha: null,
       cost_manager: null
     },
@@ -1044,7 +1044,7 @@ GameManager = (function() {
       right_info: null,
       levelup: null,
       item: null,
-      gacha: [0, 75],
+      gacha: [0, 115],
       cost_manager: null
     }
   };

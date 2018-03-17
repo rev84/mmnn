@@ -2,7 +2,7 @@ class MenuManager
   @ID = 'menu'
 
   @SIZE_X : 1320
-  @SIZE_Y : 50
+  @SIZE_Y : 80
 
   @elements =
     pickCharacter: null
@@ -15,14 +15,14 @@ class MenuManager
       top: @posY
     })
 
-    # 出撃
-    @pickCharacter = $('<button>').addClass('menu performance left')
-    .on('click', @onClickCharacterPick.bind(@))
-    .appendTo(@divObject)
-
     # 戦闘
     @battle = $('<button>').addClass('menu live left')
     .on('click', @onClickBattle.bind(@))
+    .appendTo(@divObject)
+
+    # 出撃
+    @pickCharacter = $('<button>').addClass('menu performance left')
+    .on('click', @onClickCharacterPick.bind(@))
     .appendTo(@divObject)
 
     # レベルアップ
@@ -229,12 +229,15 @@ class MenuManager
   
   @reflectEnable:->
     $('button.menu').prop('disabled', false)
+    $('button.menu').removeClass('hover')
     for key, isEnable of GameManager.isEnable
       $('button.'+@enableKey2class(key)).prop('disabled', !isEnable)
+    for key, mode of GameManager.isMode
+      $('button.'+@enableKey2class(key)).addClass('hover') if mode
 
   @enableKey2class:(enableKey)->
     switch enableKey
-      when 'battle' then 'performance'
+      when 'battle' then 'live'
       when 'characterPick' then 'performance'
       when 'levelup' then 'training'
       when 'turnEnd' then 'turn_end'
