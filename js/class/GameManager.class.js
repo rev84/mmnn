@@ -905,8 +905,24 @@ GameManager = (function() {
 
   };
 
-  GameManager.DEBUG_CONFIG = {
-    
+  GameManager.DEBUG_CONFIG = location.host === 'rev84.github.io' ? {
+    // 右クリックでメニューをでなくする
+    DISABLE_RIGHT_CLICK_MENU: true,
+    // 初期ライフ（falseでデバッグ無効）
+    START_LIFE: false,
+    // 初期階層（falseでデバッグ無効）
+    START_FLOOR: false,
+    // 初期経験値（falseでデバッグ無効）
+    START_EXP: false,
+    // 初期ジュエル（falseでデバッグ無効）
+    START_JUWEL: false,
+    // 全員参加
+    IS_JOIN_ALL: false,
+    // アイテムが0個でも表示する
+    IS_SHOW_ALL_ITEMS: false,
+    // セーブ
+    AUTO_SAVE: true
+  } : {
     // 右クリックでメニューをでなくする
     DISABLE_RIGHT_CLICK_MENU: false,
     // 初期ライフ（falseでデバッグ無効）

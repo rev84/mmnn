@@ -1,21 +1,43 @@
 class GameManager
-  @DEBUG_CONFIG = 
-    # 右クリックでメニューをでなくする
-    DISABLE_RIGHT_CLICK_MENU : false
-    # 初期ライフ（falseでデバッグ無効）
-    START_LIFE : 10000
-    # 初期階層（falseでデバッグ無効）
-    START_FLOOR : 10000
-    # 初期経験値（falseでデバッグ無効）
-    START_EXP : 10000
-    # 初期ジュエル（falseでデバッグ無効）
-    START_JUWEL : 10000
-    # 全員参加
-    IS_JOIN_ALL : true
-    # アイテムが0個でも表示する
-    IS_SHOW_ALL_ITEMS : true
-    # セーブ
-    AUTO_SAVE : true
+  @DEBUG_CONFIG =
+    if location.host is 'rev84.github.io'
+      {
+        # 右クリックでメニューをでなくする
+        DISABLE_RIGHT_CLICK_MENU : true
+        # 初期ライフ（falseでデバッグ無効）
+        START_LIFE : false
+        # 初期階層（falseでデバッグ無効）
+        START_FLOOR : false
+        # 初期経験値（falseでデバッグ無効）
+        START_EXP : false
+        # 初期ジュエル（falseでデバッグ無効）
+        START_JUWEL : false
+        # 全員参加
+        IS_JOIN_ALL : false
+        # アイテムが0個でも表示する
+        IS_SHOW_ALL_ITEMS : false
+        # セーブ
+        AUTO_SAVE : true
+      }
+    else
+      {
+        # 右クリックでメニューをでなくする
+        DISABLE_RIGHT_CLICK_MENU : false
+        # 初期ライフ（falseでデバッグ無効）
+        START_LIFE : 10000
+        # 初期階層（falseでデバッグ無効）
+        START_FLOOR : 10000
+        # 初期経験値（falseでデバッグ無効）
+        START_EXP : 10000
+        # 初期ジュエル（falseでデバッグ無効）
+        START_JUWEL : 10000
+        # 全員参加
+        IS_JOIN_ALL : true
+        # アイテムが0個でも表示する
+        IS_SHOW_ALL_ITEMS : true
+        # セーブ
+        AUTO_SAVE : true
+      }
 
   @ID:'game'
 
