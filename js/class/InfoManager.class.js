@@ -6,8 +6,7 @@ InfoManager = class InfoManager {
     this.parentElement = parentElement;
     this.divObject = $('<div>').attr('id', this.ID).css({
       width: Panel.SIZE_X,
-      height: Panel.SIZE_Y,
-      "background-color": '#000000'
+      height: Panel.SIZE_Y
     }).appendTo(this.parentElement);
     return this.panel = new Panel(this.divObject, null, null, null, false, false, true);
   }

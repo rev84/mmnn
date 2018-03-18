@@ -323,6 +323,9 @@ class GameManager
 
   # 初期化
   @init:->
+    # 床決め
+    @CELL_CLASS = Utl.shuffle(['floor_blue', 'floor_dark', 'floor_light', 'floor_pink', 'blue0003']).pop()
+
     # 右クリック禁止
     $(document).on 'contextmenu', ->
       !GameManager.DEBUG_CONFIG.DISABLE_RIGHT_CLICK_MENU

@@ -76,7 +76,6 @@ FieldManager = (function() {
         this.cells[4][5].draw();
         this.cells[4][6].draw();
       }
-      
       // アニメーションスタート
       return this.startCellAnimation();
     }
@@ -667,7 +666,7 @@ FieldManager = (function() {
 
   FieldManager.CELL_Y = 8;
 
-  FieldManager.BORDER_SIZE = 1;
+  FieldManager.BORDER_SIZE = 0;
 
   // キャラが移動する時のmsec/マス
   FieldManager.MOVE_SPEED = 50;

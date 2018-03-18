@@ -3,7 +3,7 @@ class FieldManager
 
   @CELL_X = 18
   @CELL_Y = 8
-  @BORDER_SIZE = 1
+  @BORDER_SIZE = 0
   # キャラが移動する時のmsec/マス
   @MOVE_SPEED = 50
   # 敵が湧くのは右から何マスか
@@ -71,7 +71,7 @@ class FieldManager
       @cells[4][4].draw()
       @cells[4][5].draw()
       @cells[4][6].draw()
-      
+
     # アニメーションスタート
     @startCellAnimation()
 

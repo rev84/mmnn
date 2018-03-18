@@ -178,7 +178,7 @@ Cell = (function() {
             return this.onMouseRightDown.bind(this)(evt);
         }
       }).on('mouseleave', this.onMouseLeave.bind(this)).appendTo(this.elements.mother);
-      this.elements.background = $('<div>').addClass('cell cell_background').css(cssPos).css(cssSize).appendTo(this.elements.mother);
+      this.elements.background = $('<div>').addClass('cell cell_background').addClass(GameManager.CELL_CLASS).css(cssPos).css(cssSize).appendTo(this.elements.mother);
       this.elements.object = $('<img>').addClass('cell cell_object').css({
         left: 0,
         bottom: 10

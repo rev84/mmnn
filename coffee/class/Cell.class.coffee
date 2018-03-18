@@ -159,7 +159,7 @@ class Cell
                             )
                            .on('mouseleave', @onMouseLeave.bind(@))
                            .appendTo(@elements.mother)
-    @elements.background = $('<div>').addClass('cell cell_background')
+    @elements.background = $('<div>').addClass('cell cell_background').addClass(GameManager.CELL_CLASS)
                            .css(cssPos).css(cssSize)
                            .appendTo(@elements.mother)
     @elements.object     = $('<img>').addClass('cell cell_object')

@@ -3,7 +3,6 @@ class InfoManager
     @divObject = $('<div>').attr('id', @ID).css({
       width: Panel.SIZE_X
       height: Panel.SIZE_Y
-      "background-color" : '#000000'
     }).appendTo(@parentElement)
  
     @panel = new Panel(@divObject, null, null, null, false, false, true)

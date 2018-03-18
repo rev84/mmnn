@@ -371,7 +371,21 @@ input[type="range"]::-webkit-slider-thumb:active {
 .cell_background {
   z-index: 9;
   background-size: 100% 100%;
-  background-image: url('../img/background/floor.png');
+}
+.cell_background.floor_blue {
+  background-image: url('../img/background/floor_blue.png');
+}
+.cell_background.floor_dark {
+  background-image: url('../img/background/floor_dark.png');
+}
+.cell_background.floor_light {
+  background-image: url('../img/background/floor_light.png');
+}
+.cell_background.floor_pink {
+  background-image: url('../img/background/floor_pink.png');
+}
+.cell_background.blue0003 {
+  background-image: url('../img/background/blue0003.png');
 }
 .cell_object {
   z-index: 99;
