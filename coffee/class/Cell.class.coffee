@@ -172,8 +172,6 @@ class Cell
                            .css(cssPos).css(cssSize).addClass('no_display')
                            .appendTo(@elements.mother)
     @elements.knockout   = $('<div>').addClass('cell cell_knockout')
-                           .css({right:0, top:0})
-                           .css({width:@constructor.SIZE_X*0.3, height:@constructor.SIZE_Y*0.3})
                            .addClass('no_display')
                            .appendTo(@elements.mother)
     @elements.animation  = $('<div>').addClass('cell cell_animation')
@@ -208,7 +206,8 @@ class Cell
   changeFin:(imagePath)->
       @elements.fin.css('background-image', 'url('+imagePath+')')
   changeKnockout:(imagePath, num = '')->
-      @elements.knockout.css('background-image', 'url('+imagePath+')').html(num).removeClass('no_display')
+    num = ''+num+'%' if num isnt ''
+    @elements.knockout.css('background-image', 'url('+imagePath+')').html(num).removeClass('no_display')
 
   showAnimation:(imagePath)->
     @elements.animation.css('background-image', 'url('+imagePath+')').removeClass('no_display')
@@ -413,9 +412,8 @@ class Cell
       GameManager.isEnable.item = true
       GameManager.isEnable.gacha = true
       MenuManager.reflectEnable()
-
-    # セーブ
-    SaveManager.save()
+      # セーブ
+      SaveManager.save()
 
     GameManager.changeControllable true
     true

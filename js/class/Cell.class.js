@@ -187,13 +187,7 @@ Cell = (function() {
       }).appendTo(this.elements.mother);
       this.elements.movable = $('<div>').addClass('cell cell_movable').css(cssPos).css(cssSize).addClass('no_display').appendTo(this.elements.mother);
       this.elements.fin = $('<div>').addClass('cell cell_fin').css(cssPos).css(cssSize).addClass('no_display').appendTo(this.elements.mother);
-      this.elements.knockout = $('<div>').addClass('cell cell_knockout').css({
-        right: 0,
-        top: 0
-      }).css({
-        width: this.constructor.SIZE_X * 0.3,
-        height: this.constructor.SIZE_Y * 0.3
-      }).addClass('no_display').appendTo(this.elements.mother);
+      this.elements.knockout = $('<div>').addClass('cell cell_knockout').addClass('no_display').appendTo(this.elements.mother);
       this.elements.animation = $('<div>').addClass('cell cell_animation').css(cssPos).css(cssSize).addClass('no_display').appendTo(this.elements.mother);
       this.elements.receiveTurn = $('<span>').addClass('cell cell_receive_turn').addClass('no_display badge').appendTo(this.elements.mother);
       this.elements.hpBar = $('<div>').addClass('cell cell_hp_bar').css({
@@ -229,6 +223,9 @@ Cell = (function() {
     }
 
     changeKnockout(imagePath, num = '') {
+      if (num !== '') {
+        num = '' + num + '%';
+      }
       return this.elements.knockout.css('background-image', 'url(' + imagePath + ')').html(num).removeClass('no_display');
     }
 
@@ -478,9 +475,9 @@ Cell = (function() {
         GameManager.isEnable.item = true;
         GameManager.isEnable.gacha = true;
         MenuManager.reflectEnable();
+        // セーブ
+        SaveManager.save();
       }
-      // セーブ
-      SaveManager.save();
       GameManager.changeControllable(true);
       return true;
     }

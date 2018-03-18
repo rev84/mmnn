@@ -386,6 +386,13 @@ input[type="range"]::-webkit-slider-thumb:active {
 .cell_knockout {
   z-index: 1001;
   background-size: 100% 100%;
+  right: 0px;
+  top: 0px;
+  width: 40px;
+  height: 20px;
+  color: #64f70e;
+  font-weight: bold;
+  z-index: 999999999;
 }
 .cell_fin {
   z-index: 1000;
