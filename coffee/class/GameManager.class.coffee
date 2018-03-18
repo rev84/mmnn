@@ -11,7 +11,7 @@ class GameManager
         # 初期経験値（falseでデバッグ無効）
         START_EXP : false
         # 初期ジュエル（falseでデバッグ無効）
-        START_JUWEL : false
+        START_JEWEL : false
         # 全員参加
         IS_JOIN_ALL : false
         # アイテムが0個でも表示する
@@ -24,15 +24,15 @@ class GameManager
         # 右クリックでメニューをでなくする
         DISABLE_RIGHT_CLICK_MENU : true
         # 初期ライフ（falseでデバッグ無効）
-        START_LIFE : 10000
+        START_LIFE : false
         # 初期階層（falseでデバッグ無効）
-        START_FLOOR : 10000
+        START_FLOOR : false
         # 初期経験値（falseでデバッグ無効）
-        START_EXP : 10000
+        START_EXP : false
         # 初期ジュエル（falseでデバッグ無効）
-        START_JUWEL : 10000
+        START_JEWEL : false
         # 全員参加
-        IS_JOIN_ALL : true
+        IS_JOIN_ALL : false
         # アイテムが0個でも表示する
         IS_SHOW_ALL_ITEMS : true
         # セーブ
@@ -175,9 +175,11 @@ class GameManager
     # 出撃選択を解除
     if @flags.pickedCharacterObject isnt null
       @flags.pickedCharacterObject = null
+      CharacterPalletManager.skeleton false
     if @flags.pickedCharacterElement isnt null
       @flags.pickedCharacterElement.remove()
       @flags.pickedCharacterElement = null
+      CharacterPalletManager.skeleton false
     true
 
   @onMouseLeave:(evt)->
@@ -363,10 +365,10 @@ class GameManager
         savedata.env
       else
         {
-          life: (if @DEBUG_CONFIG.START_LIFE isnt false then @DEBUG_CONFIG.START_LIFE else EnvManager.getLife())
-          floor: (if @DEBUG_CONFIG.START_FLOOR isnt false then @DEBUG_CONFIG.START_FLOOR else EnvManager.getFloor())
-          exp: (if @DEBUG_CONFIG.START_EXP isnt false then @DEBUG_CONFIG.START_EXP else EnvManager.getExp())
-          jewel: (if @DEBUG_CONFIG.START_JEWEL isnt false then @DEBUG_CONFIG.START_JEWEL else EnvManager.getJewel())
+          life: (if @DEBUG_CONFIG.START_LIFE isnt false then @DEBUG_CONFIG.START_LIFE else EnvManager.DEFAULT.life)
+          floor: (if @DEBUG_CONFIG.START_FLOOR isnt false then @DEBUG_CONFIG.START_FLOOR else EnvManager.DEFAULT.floor)
+          exp: (if @DEBUG_CONFIG.START_EXP isnt false then @DEBUG_CONFIG.START_EXP else EnvManager.DEFAULT.exp)
+          jewel: (if @DEBUG_CONFIG.START_JEWEL isnt false then @DEBUG_CONFIG.START_JEWEL else EnvManager.DEFAULT.jewel)
         }
     # 階を進んだか
     if savedata isnt null and 'flags' of savedata

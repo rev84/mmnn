@@ -294,12 +294,12 @@ ObjectBase = (function() {
         res = ItemManager.getItemObjectFromItemTableId(this.getItemTableId());
         // ジュエルにする
         if (res === false) {
-          EnvManager.increaseJewel(this.getJewel());
-          return (await ItemWindow.showJewel(this.getJewel()));
+          await ItemWindow.showJewel(this.getJewel());
+          return EnvManager.increaseJewel(this.getJewel());
         } else {
           // 最低レベルのアイテムを与える
-          res.increaseAmount(0);
-          return (await ItemWindow.showItem(res));
+          await ItemWindow.showItem(res);
+          return res.increaseAmount(0);
         }
       }
     }

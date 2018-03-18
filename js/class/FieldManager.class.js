@@ -49,6 +49,34 @@ FieldManager = (function() {
       for (y = k = 0, ref2 = this.CELL_Y; (0 <= ref2 ? k < ref2 : k > ref2); y = 0 <= ref2 ? ++k : --k) {
         this.nextField[y] = null;
       }
+      // もし初期状態なら、プレゼントを置いておく
+      if (savedata === null) {
+        this.cells[4][1].object = new PresentboxN({
+          level: 1
+        });
+        this.cells[4][2].object = new PresentboxR({
+          level: 1
+        });
+        this.cells[4][3].object = new PresentboxSR({
+          level: 1
+        });
+        this.cells[4][4].object = new PresentboxSSR({
+          level: 1
+        });
+        this.cells[4][5].object = new PresentboxExp({
+          level: 1
+        });
+        this.cells[4][6].object = new PresentboxJewel({
+          level: 1
+        });
+        this.cells[4][1].draw();
+        this.cells[4][2].draw();
+        this.cells[4][3].draw();
+        this.cells[4][4].draw();
+        this.cells[4][5].draw();
+        this.cells[4][6].draw();
+      }
+      
       // アニメーションスタート
       return this.startCellAnimation();
     }
@@ -337,7 +365,7 @@ FieldManager = (function() {
       var c, cnt, enemyAmount, i, j, putEnemy, ref, targetCells;
       // 一時的にアニメーションしないようにする
       GameManager.flags.isCellObjectAnimation = false;
-      enemyAmount = Utl.gacha([[0, 50], [1, 500], [2, 400], [3, 30], [4, 10], [5, 10], [6, 10]]);
+      enemyAmount = Utl.gacha([[0, 50], [1, 500], [2, 100], [3, 30], [4, 10], [5, 10], [6, 10]]);
       putEnemy = (enemyObject) => {
         var cell, emptyCells, i, j, len, ref, ref1, ref2, targetCell, x;
         if (enemyObject === null) {
@@ -440,7 +468,7 @@ FieldManager = (function() {
       GACHA_ORDER = [
         [
           'ENEMY',
-          20 // ランダムな敵
+          15 // ランダムな敵
         ],
         [
           'PRESENT',
@@ -451,7 +479,7 @@ FieldManager = (function() {
           60 // 空っぽ
         ]
       ];
-      PRESENT_ORDER = [[PresentboxN, 100000], [PresentboxR, 10000], [PresentboxSR, 1000], [PresentboxSRp, 100], [PresentboxSSR, 10], [PresentboxSSRp, 1]];
+      PRESENT_ORDER = [[PresentboxN, 100000], [PresentboxR, 10000], [PresentboxSR, 1000], [PresentboxSSR, 10], [PresentboxExp, 10000], [PresentboxJewel, 10000]];
       nextField = [];
       for (yIndex = i = 0, ref = this.CELL_Y; (0 <= ref ? i < ref : i > ref); yIndex = 0 <= ref ? ++i : --i) {
         cell = new Cell(this.divObject, this.CELL_X, yIndex, this.BORDER_SIZE);

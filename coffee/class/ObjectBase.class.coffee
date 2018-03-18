@@ -200,12 +200,12 @@ class ObjectBase
       res = ItemManager.getItemObjectFromItemTableId @getItemTableId()
       # ジュエルにする
       if res is false
-        EnvManager.increaseJewel @getJewel()
         await ItemWindow.showJewel @getJewel()
+        EnvManager.increaseJewel @getJewel()
       # 最低レベルのアイテムを与える
       else
-        res.increaseAmount 0
         await ItemWindow.showItem res
+        res.increaseAmount 0
 
   ###########################
   # イベント割り込み系

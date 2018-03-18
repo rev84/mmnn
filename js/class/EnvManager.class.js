@@ -128,7 +128,7 @@ EnvManager = (function() {
     }
 
     static resetLife() {
-      return this.life = this.lifeMax;
+      return this.life = this.DEFAULT.lifeMax;
     }
 
     static getLife() {
@@ -237,13 +237,19 @@ EnvManager = (function() {
 
   EnvManager.ID = 'env';
 
+  EnvManager.DEFAULT = {
+    exp: 0,
+    floor: 1,
+    lifeMax: 5,
+    life: 5,
+    jewel: 0
+  };
+
   EnvManager.exp = 0;
 
-  EnvManager.floor = 1;
+  EnvManager.floor = 0;
 
-  EnvManager.lifeMax = 5;
-
-  EnvManager.life = 5;
+  EnvManager.life = 0;
 
   EnvManager.jewel = 0;
 

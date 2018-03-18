@@ -79,7 +79,7 @@ function updateItem()
   $items = [];
   foreach ($values as $vAry) {
     list($itemId, $displayOrder, $name, $description, $cost1, $cost2, $cost3, $cost4, $cost5, $expense2, $expense3, $expense4, $expense5, $hpRate, $atkRate, $pDefRate, $mDefRate, $costRate, $movePlus, $rangePlus, $hitPlus, $dodgePlus, $returnPlus,
-      $itemTableN, $itemTableR, $itemTableSR, $itemTableSRp, $itemTableSSR, $itemTableSSRp,
+      $itemTableN, $itemTableR, $itemTableSR, $itemTableSSR, 
       $itemTableGacha,
       $itemTable1 
     ) = array_merge($vAry, array_fill(0, 100, null));
@@ -110,9 +110,7 @@ function updateItem()
         ($itemTableN == '' ? null : (float)$itemTableN),
         ($itemTableR == '' ? null : (float)$itemTableR),
         ($itemTableSR == '' ? null : (float)$itemTableSR),
-        ($itemTableSRp == '' ? null : (float)$itemTableSRp),
         ($itemTableSSR == '' ? null : (float)$itemTableSSR),
-        ($itemTableSSRp == '' ? null : (float)$itemTableSSRp),
         ($itemTableGacha == '' ? null : (float)$itemTableGacha),
         ($itemTable1 == '' ? null : (float)$itemTable1),
       ],
@@ -386,15 +384,11 @@ function getItemTableId($itemId)
       return 2;
     case 'プSR':
       return 3;
-    case 'プSR+':
-      return 4;
     case 'プSSR':
-      return 5;
-    case 'プSSR+':
-      return 6;
+      return 4;
     case 'ガチャ':
-      return 7;
+      return 5;
     default:
-      return 7+(int)$itemId;
+      return 6+(int)$itemId;
   }
 }

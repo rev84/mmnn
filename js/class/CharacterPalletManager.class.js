@@ -72,7 +72,9 @@ CharacterPalletManager = (function() {
         src: characterObject.getBaseImage()
       }).appendTo(GameManager.gameElement);
       // 追随させる
-      return GameManager.followPickedCharacterElement();
+      GameManager.followPickedCharacterElement();
+      // キャラウインドウを超薄くする
+      return this.skeleton(true);
     }
 
     static onExit() {
@@ -83,6 +85,14 @@ CharacterPalletManager = (function() {
       }
       GameManager.flags.pickedCharacterElement = null;
       return GameManager.switchTempAll();
+    }
+
+    static skeleton(bool) {
+      if (bool) {
+        return this.divObject.addClass('skeleton');
+      } else {
+        return this.divObject.removeClass('skeleton');
+      }
     }
 
   };

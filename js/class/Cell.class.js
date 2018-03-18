@@ -348,6 +348,8 @@ Cell = (function() {
       // コスト更新
       CostManager.updateCostNow();
       CharacterPalletManager.drawOverlay();
+      // ウインドウを再出現
+      CharacterPalletManager.skeleton(false);
       GameManager.changeControllable(true);
       return true;
     }

@@ -55,11 +55,11 @@ PresentboxBase = (function() {
         case 3:
           return new PresentboxSR(params);
         case 4:
-          return new PresentboxSRp(params);
-        case 5:
           return new PresentboxSSR(params);
+        case 5:
+          return new PresentboxExp(params);
         case 6:
-          return new PresentboxSSRp(params);
+          return new PresentboxJewel(params);
       }
     }
 

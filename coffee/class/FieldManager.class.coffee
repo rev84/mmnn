@@ -57,6 +57,21 @@ class FieldManager
     for y in [0...@CELL_Y]
       @nextField[y] = null
 
+    # もし初期状態なら、プレゼントを置いておく
+    if savedata is null
+      @cells[4][1].object = new PresentboxN({level: 1})
+      @cells[4][2].object = new PresentboxR({level: 1})
+      @cells[4][3].object = new PresentboxSR({level: 1})
+      @cells[4][4].object = new PresentboxSSR({level: 1})
+      @cells[4][5].object = new PresentboxExp({level: 1})
+      @cells[4][6].object = new PresentboxJewel({level: 1})
+      @cells[4][1].draw()
+      @cells[4][2].draw()
+      @cells[4][3].draw()
+      @cells[4][4].draw()
+      @cells[4][5].draw()
+      @cells[4][6].draw()
+      
     # アニメーションスタート
     @startCellAnimation()
 
@@ -272,7 +287,7 @@ class FieldManager
     enemyAmount = Utl.gacha [
       [0, 50]
       [1, 500]
-      [2, 400]
+      [2, 100]
       [3, 30]
       [4, 10]
       [5, 10]
@@ -347,7 +362,7 @@ class FieldManager
   # 次の列を生成する
   @generateNextField:->
     GACHA_ORDER = [
-      ['ENEMY', 20]  # ランダムな敵
+      ['ENEMY', 15]  # ランダムな敵
       ['PRESENT', 5]  # プレゼント
       ['EMPTY', 60]  # 空っぽ
     ]
@@ -356,9 +371,9 @@ class FieldManager
       [PresentboxN, 100000]
       [PresentboxR, 10000]
       [PresentboxSR, 1000]
-      [PresentboxSRp, 100]
       [PresentboxSSR, 10]
-      [PresentboxSSRp, 1]
+      [PresentboxExp, 10000]
+      [PresentboxJewel, 10000]
     ]
 
     nextField = []

@@ -71,8 +71,8 @@ class PresentboxBase extends ObjectBase
       when 1 then new PresentboxN(params)
       when 2 then new PresentboxR(params)
       when 3 then new PresentboxSR(params)
-      when 4 then new PresentboxSRp(params)
-      when 5 then new PresentboxSSR(params)
-      when 6 then new PresentboxSSRp(params)
+      when 4 then new PresentboxSSR(params)
+      when 5 then new PresentboxExp(params)
+      when 6 then new PresentboxJewel(params)
 
 

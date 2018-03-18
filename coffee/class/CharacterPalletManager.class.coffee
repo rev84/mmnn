@@ -63,6 +63,8 @@ class CharacterPalletManager
       .appendTo(GameManager.gameElement)
     # 追随させる
     GameManager.followPickedCharacterElement()
+    # キャラウインドウを超薄くする
+    @skeleton true
 
   @onExit:->
     # キャラクター出撃モードから出る
@@ -72,3 +74,8 @@ class CharacterPalletManager
     GameManager.flags.pickedCharacterElement = null
     GameManager.switchTempAll()
 
+  @skeleton:(bool)->
+    if bool
+      @divObject.addClass('skeleton')
+    else
+      @divObject.removeClass('skeleton')

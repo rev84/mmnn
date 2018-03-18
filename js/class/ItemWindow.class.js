@@ -64,6 +64,24 @@ ItemWindow = (function() {
       }
     }
 
+    static async showExp(expAmount, isWaitClose = true) {
+      var results;
+      if (isWaitClose) {
+        this.CLOSED = false;
+      }
+      this.imgElement.attr('src', './img/jewel.png');
+      this.nameElement.html('経験値' + expAmount + '');
+      this.descriptionElement.html('アイドルをレッスンできます');
+      this.divObject.modal('show');
+      if (isWaitClose) {
+        results = [];
+        while (!this.CLOSED) {
+          results.push((await Utl.sleep(1000)));
+        }
+        return results;
+      }
+    }
+
     static onClose() {
       return this.CLOSED = true;
     }

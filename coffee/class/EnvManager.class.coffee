@@ -1,11 +1,17 @@
 class EnvManager
   @ID = 'env'
 
-  @exp = 0
-  @floor = 1
-  @lifeMax = 5
-  @life = 5
-  @jewel = 0
+  @DEFAULT:
+    exp: 0
+    floor: 1
+    lifeMax: 5
+    life: 5
+    jewel: 0
+
+  @exp: 0
+  @floor: 0
+  @life: 0
+  @jewel: 0
 
   @DEATH_PENALTY_CLOSED = true
 
@@ -98,7 +104,7 @@ class EnvManager
     @life
 
   @resetLife:->
-    @life = @lifeMax
+    @life = @DEFAULT.lifeMax
 
   @getLife:->
     @life

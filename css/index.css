@@ -65,6 +65,9 @@ input[type="range"]::-webkit-slider-thumb:active {
   overflow-y: scroll;
   z-index: 30;
 }
+.character_pallet_main.skeleton {
+  opacity: 0.1;
+}
 .character_pallet_back {
   width: 1176px;
   height: 580px;
@@ -240,6 +243,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   color: #333333;
 }
 .field.field_level {
+  pointer-events: none;
   font-style: oblique;
   display        : inline-block;
   color          : #ffffff;            /* 文字の色 */

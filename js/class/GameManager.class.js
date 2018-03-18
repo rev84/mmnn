@@ -46,10 +46,12 @@ GameManager = (function() {
       // 出撃選択を解除
       if (this.flags.pickedCharacterObject !== null) {
         this.flags.pickedCharacterObject = null;
+        CharacterPalletManager.skeleton(false);
       }
       if (this.flags.pickedCharacterElement !== null) {
         this.flags.pickedCharacterElement.remove();
         this.flags.pickedCharacterElement = null;
+        CharacterPalletManager.skeleton(false);
       }
       return true;
     }
@@ -231,10 +233,10 @@ GameManager = (function() {
       savedataCharacters = savedata !== null && 'characters' in savedata ? savedata.characters : null;
       savedataField = savedata !== null && 'field' in savedata ? savedata.field : null;
       savedataEnv = savedata !== null && 'env' in savedata ? savedata.env : {
-        life: (this.DEBUG_CONFIG.START_LIFE !== false ? this.DEBUG_CONFIG.START_LIFE : EnvManager.getLife()),
-        floor: (this.DEBUG_CONFIG.START_FLOOR !== false ? this.DEBUG_CONFIG.START_FLOOR : EnvManager.getFloor()),
-        exp: (this.DEBUG_CONFIG.START_EXP !== false ? this.DEBUG_CONFIG.START_EXP : EnvManager.getExp()),
-        jewel: (this.DEBUG_CONFIG.START_JEWEL !== false ? this.DEBUG_CONFIG.START_JEWEL : EnvManager.getJewel())
+        life: (this.DEBUG_CONFIG.START_LIFE !== false ? this.DEBUG_CONFIG.START_LIFE : EnvManager.DEFAULT.life),
+        floor: (this.DEBUG_CONFIG.START_FLOOR !== false ? this.DEBUG_CONFIG.START_FLOOR : EnvManager.DEFAULT.floor),
+        exp: (this.DEBUG_CONFIG.START_EXP !== false ? this.DEBUG_CONFIG.START_EXP : EnvManager.DEFAULT.exp),
+        jewel: (this.DEBUG_CONFIG.START_JEWEL !== false ? this.DEBUG_CONFIG.START_JEWEL : EnvManager.DEFAULT.jewel)
       };
       // 階を進んだか
       if (savedata !== null && 'flags' in savedata) {
@@ -930,7 +932,7 @@ GameManager = (function() {
     // 初期経験値（falseでデバッグ無効）
     START_EXP: false,
     // 初期ジュエル（falseでデバッグ無効）
-    START_JUWEL: false,
+    START_JEWEL: false,
     // 全員参加
     IS_JOIN_ALL: false,
     // アイテムが0個でも表示する
@@ -941,15 +943,15 @@ GameManager = (function() {
     // 右クリックでメニューをでなくする
     DISABLE_RIGHT_CLICK_MENU: true,
     // 初期ライフ（falseでデバッグ無効）
-    START_LIFE: 10000,
+    START_LIFE: false,
     // 初期階層（falseでデバッグ無効）
-    START_FLOOR: 10000,
+    START_FLOOR: false,
     // 初期経験値（falseでデバッグ無効）
-    START_EXP: 10000,
+    START_EXP: false,
     // 初期ジュエル（falseでデバッグ無効）
-    START_JUWEL: 10000,
+    START_JEWEL: false,
     // 全員参加
-    IS_JOIN_ALL: true,
+    IS_JOIN_ALL: false,
     // アイテムが0個でも表示する
     IS_SHOW_ALL_ITEMS: true,
     // セーブ

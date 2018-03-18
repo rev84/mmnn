@@ -309,6 +309,9 @@ class Cell
     CostManager.updateCostNow()
     CharacterPalletManager.drawOverlay()
 
+    # ウインドウを再出現
+    CharacterPalletManager.skeleton false
+
     GameManager.changeControllable true
     true
 
