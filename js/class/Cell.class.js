@@ -45,6 +45,8 @@ Cell = (function() {
 
       } else if ((await this.tryEnemyLockCancel(evt))) {
 
+      } else if ((await this.tryShowMenu(evt))) {
+
       } else {
         return GameManager.changeControllable(true);
       }
@@ -507,6 +509,9 @@ Cell = (function() {
       GameManager.flags.movePickCell = null;
       GameManager.flags.moveToCell = null;
       GameManager.flags.waitAttackCell = null;
+      GameManager.isEnable.leftPanel = true;
+      GameManager.isEnable.rightPanel = true;
+      GameManager.flags.lockedEnemyCell = null;
       // 戦闘中の特殊行動禁止解除
       GameManager.isEnable.characterPick = true;
       GameManager.isEnable.levelup = true;
@@ -535,6 +540,9 @@ Cell = (function() {
       // 移動・攻撃モードを解除
       GameManager.flags.movePickCell = null;
       GameManager.flags.waitAttackCell = null;
+      GameManager.isEnable.leftPanel = true;
+      GameManager.isEnable.rightPanel = true;
+      GameManager.flags.lockedEnemyCell = null;
       
       // 戦闘中の特殊行動禁止解除
       GameManager.isEnable.characterPick = true;
@@ -619,6 +627,38 @@ Cell = (function() {
       GameManager.isEnable.item = true;
       GameManager.isEnable.gacha = true;
       MenuManager.reflectEnable();
+      // コールバックで操作可能にする
+      return GameManager.changeControllable(true);
+    }
+
+    
+    // 右クリックメニュー
+    async tryShowMenu(evt) {
+      // 戦闘モード時のみ
+      if (!GameManager.isMode.battle) {
+        return;
+      }
+      // 移動待ちではダメ
+      if (GameManager.flags.movePickCell !== null) {
+        return;
+      }
+      // 攻撃待ちではダメ
+      if (GameManager.flags.waitAttackCell !== null) {
+        return;
+      }
+      // 敵ロックではダメ
+      if (GameManager.flags.lockedEnemyCell !== null) {
+        return;
+      }
+      // キャラじゃないとダメ
+      if (!(this.object !== null && this.object.isCharacterObject())) {
+        return;
+      }
+      if (!window.confirm(this.object.getName() + 'を休憩させますか？')) {
+        return;
+      }
+      this.object.setHp(0);
+      await FieldManager.checkDeath();
       // コールバックで操作可能にする
       return GameManager.changeControllable(true);
     }

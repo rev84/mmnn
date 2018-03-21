@@ -44,6 +44,9 @@ class Cell
     # 敵をパネルにロックしたのを解除するトライ
     else if await @tryEnemyLockCancel(evt)
       ;
+    # 右クリックメニュー
+    else if await @tryShowMenu(evt)
+      ;
     else
       GameManager.changeControllable true
 
@@ -88,11 +91,13 @@ class Cell
   onMouseMiddleDown:(evt)->
     return unless GameManager.isControllable()
     GameManager.changeControllable false
+
     GameManager.changeControllable true
 
   onMouseRightDown:(evt)->
     return unless GameManager.isControllable()
     GameManager.changeControllable false
+
     GameManager.changeControllable true
 
   onMouseMove:(evt)->
@@ -436,6 +441,9 @@ class Cell
     GameManager.flags.movePickCell = null
     GameManager.flags.moveToCell = null
     GameManager.flags.waitAttackCell = null
+    GameManager.isEnable.leftPanel = true
+    GameManager.isEnable.rightPanel = true
+    GameManager.flags.lockedEnemyCell = null
 
     # 戦闘中の特殊行動禁止解除
     GameManager.isEnable.characterPick = true
@@ -463,6 +471,9 @@ class Cell
     # 移動・攻撃モードを解除
     GameManager.flags.movePickCell = null
     GameManager.flags.waitAttackCell = null
+    GameManager.isEnable.leftPanel = true
+    GameManager.isEnable.rightPanel = true
+    GameManager.flags.lockedEnemyCell = null
     
     # 戦闘中の特殊行動禁止解除
     GameManager.isEnable.characterPick = true
@@ -544,6 +555,26 @@ class Cell
     # コールバックで操作可能にする
     GameManager.changeControllable true
     
+  # 右クリックメニュー
+  tryShowMenu:(evt)->
+    # 戦闘モード時のみ
+    return unless GameManager.isMode.battle
+    # 移動待ちではダメ
+    return if GameManager.flags.movePickCell isnt null
+    # 攻撃待ちではダメ
+    return if GameManager.flags.waitAttackCell isnt null
+    # 敵ロックではダメ
+    return if GameManager.flags.lockedEnemyCell isnt null
+    # キャラじゃないとダメ
+    return unless @object isnt null and @object.isCharacterObject()
+
+    return unless window.confirm @object.getName()+'を休憩させますか？'
+
+    @object.setHp 0
+    await FieldManager.checkDeath()
+
+    # コールバックで操作可能にする
+    GameManager.changeControllable true
 
   setWayStack:(wayStack)->
     @wayStack = wayStack

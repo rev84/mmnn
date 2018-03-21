@@ -733,7 +733,7 @@ GameManager = (function() {
       // 右に敵の情報
       RightInfoManager.setObject(rightObject);
       // ターゲットマークを点滅させる
-      times = 5;
+      times = 3;
       for (index = i = 0, ref = times; (0 <= ref ? i < ref : i > ref); index = 0 <= ref ? ++i : --i) {
         defenderCell.showAnimation('./img/target.png');
         await Utl.sleep(100);

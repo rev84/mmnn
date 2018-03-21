@@ -56,6 +56,10 @@ ObjectBase = (function() {
       }
     }
 
+    setHp(hp) {
+      return this.hp = hp;
+    }
+
     damage(amount) {
       if (amount <= 0) {
         return false;

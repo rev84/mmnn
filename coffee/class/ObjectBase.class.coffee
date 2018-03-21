@@ -53,6 +53,10 @@ class ObjectBase
       0
     else
       @hp
+
+  setHp:(hp)->
+    @hp = hp
+    
   damage:(amount)->
     return false if amount <= 0
     @hp = @getHp() - amount

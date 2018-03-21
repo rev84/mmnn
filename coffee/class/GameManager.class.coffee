@@ -758,7 +758,7 @@ class GameManager
     RightInfoManager.setObject rightObject
 
     # ターゲットマークを点滅させる
-    times = 5
+    times = 3
     for index in [0...times]
       defenderCell.showAnimation './img/target.png'
       await Utl.sleep(100)

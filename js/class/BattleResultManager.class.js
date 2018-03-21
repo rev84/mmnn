@@ -65,10 +65,10 @@ BattleResultManager = (function() {
   BattleResultManager.ID = 'battle_result';
 
   // アニメーションまで待つ時間
-  BattleResultManager.ANIMATION_WAIT_BEFORE_MSEC = 1000;
+  BattleResultManager.ANIMATION_WAIT_BEFORE_MSEC = 500;
 
   // HPが減る時間
-  BattleResultManager.ANIMATION_DECREASE_MSEC = 1000;
+  BattleResultManager.ANIMATION_DECREASE_MSEC = 500;
 
   // HPが減るFPS
   BattleResultManager.ANIMATION_DECREASE_FPS = 10;

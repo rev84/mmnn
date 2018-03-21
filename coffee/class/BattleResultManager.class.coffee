@@ -2,9 +2,9 @@ class BattleResultManager
   @ID: 'battle_result'
 
   # アニメーションまで待つ時間
-  @ANIMATION_WAIT_BEFORE_MSEC: 1000
+  @ANIMATION_WAIT_BEFORE_MSEC: 500
   # HPが減る時間
-  @ANIMATION_DECREASE_MSEC: 1000
+  @ANIMATION_DECREASE_MSEC: 500
   # HPが減るFPS
   @ANIMATION_DECREASE_FPS: 10
   # アニメーション終わってから待つ時間
