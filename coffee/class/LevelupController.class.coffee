@@ -63,6 +63,8 @@ class LevelupController
     return if EnvManager.decreaseExp(neededExp) is false
     # レベルを上げる
     @parentLevelupPanel.object.levelup levelup
+    # 音
+    SoundManager.play 'levelup'
     # 再描画
     LevelupManager.draw()
     CharacterPalletManager.draw()

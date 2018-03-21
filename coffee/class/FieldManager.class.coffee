@@ -59,18 +59,10 @@ class FieldManager
 
     # もし初期状態なら、プレゼントを置いておく
     if savedata is null
-      @cells[4][1].object = new PresentboxN({level: 1})
-      @cells[4][2].object = new PresentboxR({level: 1})
-      @cells[4][3].object = new PresentboxSR({level: 1})
-      @cells[4][4].object = new PresentboxSSR({level: 1})
-      @cells[4][5].object = new PresentboxExp({level: 1})
-      @cells[4][6].object = new PresentboxJewel({level: 1})
-      @cells[4][1].draw()
+      @cells[4][2].object = new PresentboxExp({level: 1})
+      @cells[4][5].object = new PresentboxJewel({level: 1})
       @cells[4][2].draw()
-      @cells[4][3].draw()
-      @cells[4][4].draw()
       @cells[4][5].draw()
-      @cells[4][6].draw()
 
     # アニメーションスタート
     @startCellAnimation()

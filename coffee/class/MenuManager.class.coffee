@@ -94,6 +94,8 @@ class MenuManager
     # パネル再描画
     CharacterPalletManager.draw()
 
+    SoundManager.play 'change_mode'
+
     GameManager.doCharacterPick()
 
     true
@@ -122,6 +124,8 @@ class MenuManager
     GameManager.isEnable.gacha = true
     @reflectEnable()
     GameManager.flags.isCellObjectAnimation = true
+
+    SoundManager.play 'change_mode'
 
     GameManager.doBattle()
     true
@@ -164,6 +168,8 @@ class MenuManager
     GameManager.flags.isCellObjectAnimation = false
 
     LevelupManager.draw()
+
+    SoundManager.play 'change_mode'
 
     GameManager.doLevelup()
     true
@@ -225,6 +231,8 @@ class MenuManager
     @reflectEnable()
     GameManager.flags.isCellObjectAnimation = false
 
+    SoundManager.play 'change_mode'
+
     GameManager.doItem()
     true
 
@@ -252,6 +260,8 @@ class MenuManager
     GameManager.isEnable.rightPanel = false
     @reflectEnable()
     GameManager.flags.isCellObjectAnimation = false
+
+    SoundManager.play 'change_mode'
 
     GameManager.doGacha()
     true

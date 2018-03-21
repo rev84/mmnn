@@ -67,6 +67,7 @@ MenuManager = (function() {
       CostManager.updateCostNow();
       // パネル再描画
       CharacterPalletManager.draw();
+      SoundManager.play('change_mode');
       GameManager.doCharacterPick();
       return true;
     }
@@ -97,6 +98,7 @@ MenuManager = (function() {
       GameManager.isEnable.gacha = true;
       this.reflectEnable();
       GameManager.flags.isCellObjectAnimation = true;
+      SoundManager.play('change_mode');
       GameManager.doBattle();
       return true;
     }
@@ -143,6 +145,7 @@ MenuManager = (function() {
       this.reflectEnable();
       GameManager.flags.isCellObjectAnimation = false;
       LevelupManager.draw();
+      SoundManager.play('change_mode');
       GameManager.doLevelup();
       return true;
     }
@@ -212,6 +215,7 @@ MenuManager = (function() {
       GameManager.isEnable.rightPanel = false;
       this.reflectEnable();
       GameManager.flags.isCellObjectAnimation = false;
+      SoundManager.play('change_mode');
       GameManager.doItem();
       return true;
     }
@@ -242,6 +246,7 @@ MenuManager = (function() {
       GameManager.isEnable.rightPanel = false;
       this.reflectEnable();
       GameManager.flags.isCellObjectAnimation = false;
+      SoundManager.play('change_mode');
       GameManager.doGacha();
       return true;
     }

@@ -51,12 +51,16 @@ class SaveManager
       isWalkInThisTurn: GameManager.flags.isWalkInThisTurn
     }
 
+    # サウンド
+    sound = SoundManager.serialize()
+
     json = {
       characters: characters
       items: items
       env: env
       field: field
       flags: flags
+      sound: sound
     }
 
     Utl.setLs @LOCAL_STORAGE_KEY, Utl.base64encode(JSON.stringify(json))

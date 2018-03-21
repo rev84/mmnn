@@ -12,6 +12,10 @@ InfoManager = class InfoManager {
   }
 
   static setObject(object = null) {
+    // 切り替わった時は音を出す
+    if (object !== null && (this.panel.object === null || this.panel.object.getObjectType() !== object.getObjectType() || this.panel.object.getId() !== object.getId())) {
+      SoundManager.play('cell_hover');
+    }
     this.panel.object = object;
     return this.panel.draw();
   }

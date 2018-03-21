@@ -4,7 +4,7 @@ var SaveManager;
 SaveManager = (function() {
   class SaveManager {
     static save() {
-      var c, cBody, cell, characters, env, fields, flags, i, id, item, items, j, json, len, len1, line, obj, ref, ref1, ref2, x, y;
+      var c, cBody, cell, characters, env, fields, flags, i, id, item, items, j, json, len, len1, line, obj, ref, ref1, ref2, sound, x, y;
       if (!GameManager.DEBUG_CONFIG.AUTO_SAVE) {
         return;
       }
@@ -55,12 +55,15 @@ SaveManager = (function() {
       flags = {
         isWalkInThisTurn: GameManager.flags.isWalkInThisTurn
       };
+      // サウンド
+      sound = SoundManager.serialize();
       json = {
         characters: characters,
         items: items,
         env: env,
         field: field,
-        flags: flags
+        flags: flags,
+        sound: sound
       };
       return Utl.setLs(this.LOCAL_STORAGE_KEY, Utl.base64encode(JSON.stringify(json)));
     }

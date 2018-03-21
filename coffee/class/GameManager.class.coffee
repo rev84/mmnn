@@ -56,6 +56,7 @@ class GameManager
     items:false
     gacha:false
     cost_manager:false
+    sound:false
   @isMode = 
     battle: false
     characterPick: false
@@ -163,6 +164,13 @@ class GameManager
 
   @onMouseRightUp:(evt)->
     return unless @isControllable()
+
+    # 出撃からバトルへ
+    if await MenuManager.onClickBattle()
+      ;
+
+
+
     true
 
   @onMouseLeftDown:(evt)->
@@ -377,6 +385,12 @@ class GameManager
     if savedata isnt null and 'flags' of savedata
       if 'isWalkInThisTurn' of savedata.flags
         @flags.isWalkInThisTurn = savedata.flags.isWalkInThisTurn
+    # サウンド
+    savedataSound = 
+      if savedata isnt null and 'sound' of savedata
+        savedata.sound
+      else
+        null
 
     @initItems(savedataItems)
     @initCharacters(savedataCharacters)
@@ -390,6 +404,7 @@ class GameManager
     @initBattleResult(null)
     @initGacha()
     @initCostManager()
+    @initSound(savedataSound)
 
     @gameElement.appendTo('body')
 
@@ -458,6 +473,12 @@ class GameManager
     @initialized.gacha = true
 
     GachaManager.init(@gameElement)
+
+  @initSound:(savedata)->
+    return if @initialized.sound
+    @initialized.sound = true
+
+    SoundManager.init(savedata)
 
   # キャラ初期化
   @initCharacters:(savedata)->

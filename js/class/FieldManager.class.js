@@ -51,30 +51,14 @@ FieldManager = (function() {
       }
       // もし初期状態なら、プレゼントを置いておく
       if (savedata === null) {
-        this.cells[4][1].object = new PresentboxN({
+        this.cells[4][2].object = new PresentboxExp({
           level: 1
         });
-        this.cells[4][2].object = new PresentboxR({
+        this.cells[4][5].object = new PresentboxJewel({
           level: 1
         });
-        this.cells[4][3].object = new PresentboxSR({
-          level: 1
-        });
-        this.cells[4][4].object = new PresentboxSSR({
-          level: 1
-        });
-        this.cells[4][5].object = new PresentboxExp({
-          level: 1
-        });
-        this.cells[4][6].object = new PresentboxJewel({
-          level: 1
-        });
-        this.cells[4][1].draw();
         this.cells[4][2].draw();
-        this.cells[4][3].draw();
-        this.cells[4][4].draw();
         this.cells[4][5].draw();
-        this.cells[4][6].draw();
       }
       // アニメーションスタート
       return this.startCellAnimation();

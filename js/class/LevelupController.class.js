@@ -55,6 +55,8 @@ LevelupController = (function() {
       }
       // レベルを上げる
       this.parentLevelupPanel.object.levelup(levelup);
+      // 音
+      SoundManager.play('levelup');
       // 再描画
       LevelupManager.draw();
       CharacterPalletManager.draw();

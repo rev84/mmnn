@@ -24,9 +24,13 @@ GameManager = (function() {
       return true;
     }
 
-    static onMouseRightUp(evt) {
+    static async onMouseRightUp(evt) {
       if (!this.isControllable()) {
         return;
+      }
+      // 出撃からバトルへ
+      if ((await MenuManager.onClickBattle())) {
+
       }
       return true;
     }
@@ -203,7 +207,7 @@ GameManager = (function() {
 
     // 初期化
     static init() {
-      var savedata, savedataCharacters, savedataEnv, savedataField, savedataItems;
+      var savedata, savedataCharacters, savedataEnv, savedataField, savedataItems, savedataSound;
       // 床決め
       this.CELL_CLASS = Utl.shuffle(['floor_blue', 'floor_dark', 'floor_light', 'floor_pink', 'blue0003']).pop();
       // 右クリック禁止
@@ -246,6 +250,8 @@ GameManager = (function() {
           this.flags.isWalkInThisTurn = savedata.flags.isWalkInThisTurn;
         }
       }
+      // サウンド
+      savedataSound = savedata !== null && 'sound' in savedata ? savedata.sound : null;
       this.initItems(savedataItems);
       this.initCharacters(savedataCharacters);
       this.initEnemys(null);
@@ -258,6 +264,7 @@ GameManager = (function() {
       this.initBattleResult(null);
       this.initGacha();
       this.initCostManager();
+      this.initSound(savedataSound);
       this.gameElement.appendTo('body');
       // 戦闘モードにする
       GameManager.resetFlags();
@@ -347,6 +354,14 @@ GameManager = (function() {
       }
       this.initialized.gacha = true;
       return GachaManager.init(this.gameElement);
+    }
+
+    static initSound(savedata) {
+      if (this.initialized.sound) {
+        return;
+      }
+      this.initialized.sound = true;
+      return SoundManager.init(savedata);
     }
 
     // キャラ初期化
@@ -984,7 +999,8 @@ GameManager = (function() {
     env: false,
     items: false,
     gacha: false,
-    cost_manager: false
+    cost_manager: false,
+    sound: false
   };
 
   GameManager.isMode = {
